@@ -2,7 +2,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
-    const routeToComingSoon = localStorage.getItem("isComingSoon");
+    //TODO
+    // const routeToComingSoon = localStorage.getItem("isComingSoon");
     // routeToComingSoon && return
     return (
         <main className={styles.main}>
