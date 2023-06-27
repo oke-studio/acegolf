@@ -75,7 +75,7 @@ const ComingSoonForm = () => {
                         // background: "white",
                         width: isSubmit ? "0" : "100%",
                     },
-                    pointerEvents: isSubmit && "none",
+                    pointerEvents: isSubmit ? "none" : "initial",
                 }}
                 InputProps={{
                     endAdornment: (
@@ -222,7 +222,7 @@ const LogoMap = () => {
             //     key={index}
             // />
 
-            <RelativePositionWrapper>
+            <RelativePositionWrapper key={index}>
                 <GolfLogo key={index} position="absolute" height="100%" />
             </RelativePositionWrapper>
         );
@@ -293,7 +293,7 @@ export default function Page() {
     // Array.from(Array(4).map((_, index) => {}));
 
     for (let index = 0; index < 4; index++) {
-        topLogoVertStack.push(<LogoMap />);
+        topLogoVertStack.push(<LogoMap key={index} />);
     }
 
     return (
