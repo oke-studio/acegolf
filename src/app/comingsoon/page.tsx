@@ -222,7 +222,11 @@ const LogoMap = () => {
             //     key={index}
             // />
 
+<<<<<<< HEAD
             <RelativePositionWrapper key={index}>
+=======
+            <RelativePositionWrapper>
+>>>>>>> e905efd (pushing wip changes so coming soon page routing is fixed)
                 <GolfLogo key={index} position="absolute" height="100%" />
             </RelativePositionWrapper>
         );
@@ -293,7 +297,11 @@ export default function Page() {
     // Array.from(Array(4).map((_, index) => {}));
 
     for (let index = 0; index < 4; index++) {
+<<<<<<< HEAD
         topLogoVertStack.push(<LogoMap key={index} />);
+=======
+        topLogoVertStack.push(<LogoMap />);
+>>>>>>> e905efd (pushing wip changes so coming soon page routing is fixed)
     }
 
     return (
