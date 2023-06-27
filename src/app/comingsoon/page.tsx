@@ -93,11 +93,11 @@ const ComingSoonForm = () => {
                                 whiteSpace: "nowrap",
                                 borderRadius: "12px",
                                 transition: "min-width 500ms ease-out",
-                                pointerEvents: isSubmit && "none",
+                                pointerEvents: isSubmit ? "none" : "initial",
                                 ":hover": {
                                     backgroundColor: backgroundColor,
                                 },
-                                cursor: isSubmit && "default",
+                                cursor: isSubmit ? "default" : "pointer",
                             }}
                         >
                             <span
