@@ -1,7 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import { Box, styled } from '@mui/material';
+import { Box, styled, TextField } from '@mui/material';
+
+const backgroundColor = '#529DC8';
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -100,7 +102,7 @@ const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
   // [theme.breakpoints.down(640)]: {
   //     marginLeft: "12px",
   //     marginRight: "12px",
-  // },
+  // },f,mf
   gap: '10px',
   whiteSpace: 'nowrap',
 }));
