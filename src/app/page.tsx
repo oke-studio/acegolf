@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import createTheme from "@mui/material/styles";
 
 const theme = createTheme({
     typography: {
