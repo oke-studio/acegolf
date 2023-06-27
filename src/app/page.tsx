@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const theme = createTheme({
     typography: {
