@@ -48,7 +48,9 @@ const ComingSoonFormMobile = () => {};
 const ComingSoonForm = () => {
     const [isSubmit, setIsSubmit] = React.useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (
+        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
         e.preventDefault();
         console.log("submitted");
         setIsSubmit(true);
