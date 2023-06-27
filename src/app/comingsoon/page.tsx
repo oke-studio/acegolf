@@ -49,7 +49,7 @@ const ComingSoonForm = () => {
     const [isSubmit, setIsSubmit] = React.useState(false);
 
     const handleSubmit = (
-        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
         console.log("submitted");
