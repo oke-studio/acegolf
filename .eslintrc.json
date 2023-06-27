@@ -4,8 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
-        "plugin:react/recommended"
+        "airbnb",
+        "airbnb-typescript"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
