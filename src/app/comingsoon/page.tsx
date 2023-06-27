@@ -21,6 +21,8 @@ import GolfLogoRight from "../../../public/images/ace-golf-golf-logo-right.svg";
 import GolfLogoLeft from "../../../public/images/ace-golf-golf-logo-left.svg";
 import GolfLogoCentre from "../../../public/images/ace-golf-golf-logo-centre.svg";
 
+import { ComingSoonInfoSectionMobile } from "./components/comingSoonInfoSectionMobile/comingSoonInfoSectionMobile.component";
+
 const SidebarImages = [
     "/images/ace-golf-card.svg",
     "/images/ace-golf-bar-lounge.svg",
@@ -153,53 +155,6 @@ const ComingSoonInfoSection = () => (
             <span>SUMMER 2023</span>
         </ComingSoonInfoWrapper>
     </ComingSoonInfoSectionWrapper>
-);
-
-const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
-    marginTop: "60px",
-    marginBottom: "60px",
-    display: "flex",
-    flexDirection: "column",
-    // alignItems: "center",
-    justifyContent: "center",
-
-    width: "100%",
-    fontFamily: "new-hero",
-    gap: "24px",
-    marginLeft: "12px",
-    marginRight: "12px",
-}));
-
-const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    // [theme.breakpoints.down(640)]: {
-    //     marginLeft: "12px",
-    //     marginRight: "12px",
-    // },
-    gap: "10px",
-    whiteSpace: "nowrap",
-}));
-
-const ComingSoonInfoSectionMobile = () => (
-    <ComingSoonInfoSectionMobileWrapper>
-        <ComingSoonInfoMobileWrapper order={1}>
-            <img src="/images/ace-golf-logo.svg" alt="ace golf logo" />
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "centre",
-                }}
-            >
-                <span>FIND YOUR SWING</span>
-                <span>SUMMER 2023</span>
-            </Box>
-        </ComingSoonInfoMobileWrapper>
-        <ComingSoonForm />
-    </ComingSoonInfoSectionMobileWrapper>
 );
 
 const LogoMap = () => {
