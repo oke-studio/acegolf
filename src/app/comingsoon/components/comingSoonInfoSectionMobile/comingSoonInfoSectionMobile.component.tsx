@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import { Box, styled, TextField, Button } from '@mui/material';
+import Image from 'next/image';
+import aceGolfLogo from '/ace-golf-logo.svg';
 
 const backgroundColor = '#529DC8';
 
@@ -14,7 +16,7 @@ const ComingSoonForm = () => {
     setIsSubmit(true);
   };
   return (
-    <Box component="form" order={2}>
+    <Box component="form">
       <TextField
         fullWidth
         id="email form"
@@ -25,56 +27,50 @@ const ComingSoonForm = () => {
                 YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
         sx={{
           fontFamily: 'new-hero',
-          '.MuiInputBase-root': {
-            background: 'white',
-          },
+
           '.MuiInputBase-input': {
             color: '#373737',
             // background: "white",
-            width: isSubmit ? '0' : '100%',
           },
           pointerEvents: isSubmit ? 'none' : 'initial',
         }}
-        InputProps={{
-          endAdornment: (
-            <Button
-              variant="contained"
-              type="submit"
-              onClick={(e) => handleSubmit(e)}
-              size="small"
-              sx={{
-                background: backgroundColor,
-                // ":hover": {},
-                width: isSubmit ? '100%' : 'max-content',
-                marginTop: '6px',
-                marginBottom: '6px',
-                whiteSpace: 'nowrap',
-                borderRadius: '12px',
-                transition: 'min-width 500ms ease-out',
-                pointerEvents: isSubmit ? 'none' : 'initial',
-                ':hover': {
-                  backgroundColor: backgroundColor,
-                },
-                cursor: isSubmit ? 'default' : 'pointer',
-              }}
-            >
-              <span
-                style={{
-                  paddingLeft: '24px',
-                  paddingRight: '24px',
-                  paddingTop: '14px',
-                  paddingBottom: '14px',
-                  fontFamily: 'new-hero',
-                  fontWeight: '700',
-                }}
-              >
-                {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
-              </span>
-            </Button>
-          ),
-          sx: { borderRadius: '12px' },
-        }}
+        variant="standard"
       />
+
+      <Button
+        variant="contained"
+        type="submit"
+        onClick={(e) => handleSubmit(e)}
+        size="small"
+        sx={{
+          background: backgroundColor,
+          // ":hover": {},
+          width: isSubmit ? '100%' : 'max-content',
+          marginTop: '6px',
+          marginBottom: '6px',
+          whiteSpace: 'nowrap',
+          borderRadius: '12px',
+          transition: 'min-width 500ms ease-out',
+          pointerEvents: isSubmit ? 'none' : 'initial',
+          ':hover': {
+            backgroundColor: backgroundColor,
+          },
+          cursor: isSubmit ? 'default' : 'pointer',
+        }}
+      >
+        <span
+          style={{
+            paddingLeft: '24px',
+            paddingRight: '24px',
+            paddingTop: '14px',
+            paddingBottom: '14px',
+            fontFamily: 'new-hero',
+            fontWeight: '700',
+          }}
+        >
+          {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
+        </span>
+      </Button>
     </Box>
   );
 };
@@ -110,12 +106,17 @@ const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
 export const ComingSoonInfoSectionMobile = () => (
   <ComingSoonInfoSectionMobileWrapper>
     <ComingSoonInfoMobileWrapper order={1}>
-      <img src="../../assets/ace-golf-logo.svg" alt="ace golf logo" />
+      <Image
+        src="/images/ace-golf-logo.svg"
+        alt="ace golf logo"
+        width={100}
+        height={100}
+      />
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'centre',
+          alignItems: 'center',
         }}
       >
         <span>FIND YOUR SWING</span>
