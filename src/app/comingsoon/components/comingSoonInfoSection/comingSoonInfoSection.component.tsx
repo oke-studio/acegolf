@@ -23,6 +23,7 @@ const ComingSoonForm = () => {
         type="email"
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
+        disabled={isSubmit}
         helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
         sx={{
           fontFamily: 'new-hero',
@@ -31,7 +32,7 @@ const ComingSoonForm = () => {
           },
           '.MuiInputBase-input': {
             color: '#373737',
-            // background: "white",
+
             width: isSubmit ? '0' : '100%',
             fontFamily: 'new-hero',
             fontSize: '12px',
@@ -99,7 +100,7 @@ const ComingSoonForm = () => {
                 paddingBottom="14px"
                 fontFamily="new-hero"
                 fontWeight="700"
-                whiteSpace="no-wrap"
+                whiteSpace="nowrap"
               >
                 {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
               </Typography>
