@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { styled, Box, TextField, Button } from '@mui/material';
+import { styled, Box, TextField, Button, Typography } from '@mui/material';
 
 const backgroundColor = '#529DC8';
 
@@ -32,6 +32,8 @@ const ComingSoonForm = () => {
             color: '#373737',
             // background: "white",
             width: isSubmit ? '0' : '100%',
+            fontFamily: 'new-hero',
+            fontSize: '12px',
           },
           '.MuiFormHelperText-root': {
             fontSize: '8px',
@@ -113,8 +115,12 @@ export const ComingSoonInfoSection = () => (
     </ComingSoonInfoWrapper>
     <ComingSoonForm />
     <ComingSoonInfoWrapper order={3}>
-      <span>FIND YOUR SWING</span>
-      <span>SUMMER 2023</span>
+      <Typography fontWeight="900" fontSize="18px">
+        FIND YOUR SWING
+      </Typography>
+      <Typography fontWeight="900" fontSize="11px">
+        SUMMER 2023
+      </Typography>
     </ComingSoonInfoWrapper>
   </ComingSoonInfoSectionWrapper>
 );

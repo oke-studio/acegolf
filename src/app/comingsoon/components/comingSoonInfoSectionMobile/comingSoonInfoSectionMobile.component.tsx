@@ -3,9 +3,6 @@
 import * as React from 'react';
 import { Box, styled, TextField, Button, Typography } from '@mui/material';
 import Image from 'next/image';
-import aceGolfLogo from '/ace-golf-logo.svg';
-
-const backgroundColor = '#529DC8';
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -29,6 +26,7 @@ const ComingSoonForm = () => {
         type="email"
         disabled={isSubmit}
         placeholder="yourname@email.com"
+        required
         style={{ alignItems: 'center' }}
         sx={{
           fontFamily: 'new-hero',
@@ -39,6 +37,8 @@ const ComingSoonForm = () => {
             '::placeholder': {
               color: 'black',
             },
+            fontFamily: 'new-hero',
+            fontSize: '12px',
           },
           '.MuiFormHelperText-root': {
             fontSize: '10px',
@@ -60,16 +60,10 @@ const ComingSoonForm = () => {
         sx={{
           background: 'black',
           width: '100%',
-          marginTop: '6px',
-          marginBottom: '6px',
+          marginTop: '4px',
+          marginBottom: '4px',
           whiteSpace: 'nowrap',
           borderRadius: '12px',
-          // transition: 'min-width 500ms ease-out',
-          // pointerEvents: isSubmit ? 'none' : 'initial',
-          // ':hover': {
-          //   backgroundColor: 'black',
-          // },
-          // cursor: isSubmit ? 'default' : 'pointer',
         }}
       >
         <Typography
@@ -144,8 +138,12 @@ export const ComingSoonInfoSectionMobile = () => (
           alignItems: 'center',
         }}
       >
-        <span>FIND YOUR SWING</span>
-        <span>SUMMER 2023</span>
+        <Typography fontWeight="900" fontSize="18px">
+          FIND YOUR SWING
+        </Typography>
+        <Typography fontWeight="900" fontSize="11px">
+          SUMMER 2023
+        </Typography>
       </Box>
     </ComingSoonInfoMobileWrapper>
     <ComingSoonForm />
