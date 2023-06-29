@@ -22,8 +22,7 @@ const ComingSoonForm = () => {
         type="email"
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
-        helperText="*BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF SERVICES AND TO RECEVING MARKETING EMAILS FROM ACEGOLF. 
-                  YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
+        helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
         sx={{
           fontFamily: 'new-hero',
           '.MuiInputBase-root': {
