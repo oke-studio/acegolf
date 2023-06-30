@@ -12,9 +12,22 @@ const ComingSoonForm = () => {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log('submitted');
+    // console.log('submitted');
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error));
+
     setIsSubmit(true);
   };
+
   return (
     <Box
       component="form"
@@ -28,6 +41,7 @@ const ComingSoonForm = () => {
         fullWidth
         id="email form"
         type="email"
+        name="email"
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
         disabled={isSubmit}

@@ -27,6 +27,7 @@ const ComingSoonForm = () => {
       <TextField
         fullWidth
         id="email form"
+        name="email"
         type="email"
         disabled={isSubmit}
         placeholder="yourname@email.com"
