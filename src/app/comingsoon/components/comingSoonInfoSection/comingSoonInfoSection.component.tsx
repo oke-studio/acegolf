@@ -14,7 +14,7 @@ const ComingSoonForm = () => {
     e.preventDefault();
     // console.log('submitted');
 
-    const myForm = event.target;
+    const myForm = e.target;
     const formData = new FormData(myForm);
 
     fetch('/', {
