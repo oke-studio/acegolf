@@ -8,30 +8,39 @@ import { useFormik } from 'formik';
 
 const backgroundColor = '#529DC8';
 
+interface FormValues {
+  email: string;
+}
+
+const encode = (data: FormValues) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
+
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // console.log('submitted');
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // console.log('submitted');
 
-    const myForm = e.currentTarget;
-    const formData = new FormData(myForm);
+  //   const myForm = e.currentTarget;
+  //   const formData = new FormData(myForm);
 
-    console.log(e.currentTarget.value);
+  //   console.log(e.currentTarget.value);
 
-    // const target = e.target as typeof e.target & {
-    //   email: { value: string };
-    // };
+  //   // const target = e.target as typeof e.target & {
+  //   //   email: { value: string };
+  //   // };
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => setIsSubmit(true))
-      .catch((error) => alert(error));
-  };
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //   })
+  //     .then(() => setIsSubmit(true))
+  //     .catch((error) => alert(error));
+  // };
 
   React.useEffect(() => {
     console.log(isSubmit);
@@ -46,9 +55,7 @@ const ComingSoonForm = () => {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'comingsoon-email': values.email,
-        }).toString(),
+        body: encode({ 'form-name': 'comingsoon-email', ...values }),
       })
         .then(() => setIsSubmit(true))
         .catch((error) => alert(error));
