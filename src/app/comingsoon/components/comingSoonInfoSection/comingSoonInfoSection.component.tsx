@@ -24,7 +24,7 @@ const ComingSoonForm = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
+      body: new URLSearchParams(formData as any).toString(),
     })
       .then(() => setIsSubmit(true))
       .catch((error) => alert(error));
@@ -40,7 +40,7 @@ const ComingSoonForm = () => {
       order={2}
       name="comingsoon-email"
       data-netlify="true"
-      method="POST"
+      data-netlify-honeypot="bot-field"
       onSubmit={(e) => handleSubmit(e)}
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
