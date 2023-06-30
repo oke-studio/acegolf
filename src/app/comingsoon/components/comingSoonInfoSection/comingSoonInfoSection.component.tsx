@@ -8,6 +8,18 @@ import { useFormik } from 'formik';
 
 const backgroundColor = '#529DC8';
 
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.email) {
+    errors.email = 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors;
+};
+
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
@@ -41,16 +53,24 @@ const ComingSoonForm = () => {
     initialValues: {
       email: '',
     },
+    validate,
     onSubmit: (values) => {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(values.email).toString(),
-      })
-        .then(() => setIsSubmit(true))
-        .catch((error) => alert(error));
+      console.log(values);
+      // fetch('/', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      //   body: new URLSearchParams(values.email).toString(),
+      // })
+      //   .then(() => setIsSubmit(true))
+      //   .catch((error) => alert(error));
     },
   });
+
+  const buttonClick = () => {
+    if (!formik.errors.email) {
+      setIsSubmit(true);
+    }
+  };
 
   return (
     <Box
@@ -60,6 +80,7 @@ const ComingSoonForm = () => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={formik.handleSubmit}
+      method="post"
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
@@ -93,6 +114,7 @@ const ComingSoonForm = () => {
           },
           pointerEvents: isSubmit ? 'none' : 'initial',
         }}
+        // label="comingsoon email"
         InputProps={{
           endAdornment: (
             <motion.button
@@ -108,7 +130,7 @@ const ComingSoonForm = () => {
                 marginBottom: '14px',
               }}
               type="submit"
-              onClick={() => setIsSubmit(true)}
+              onClick={() => buttonClick()}
             >
               <Typography
                 paddingLeft="24px"
