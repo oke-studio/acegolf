@@ -19,10 +19,11 @@ const ComingSoonForm = () => {
       flexDirection="column"
       alignItems="center"
       gap="12px"
-      name="email_form"
+      name="comingsoon-email"
+      method="POST"
       data-netlify="true"
     >
-      <input type="hidden" name="form-name" value="email_form" />
+      <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
         id="email form"

@@ -16,8 +16,8 @@ const ComingSoonForm = () => {
     setIsSubmit(true);
   };
   return (
-    <Box component="form" order={2} name="email_form" data-netlify="true">
-      <input type="hidden" name="form-name" value="email_form" />
+    <Box component="form" order={2} name="comingsoon-email" data-netlify="true">
+      <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
         id="email form"
@@ -25,6 +25,7 @@ const ComingSoonForm = () => {
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
         disabled={isSubmit}
+        method="POST"
         helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
         sx={{
           fontFamily: 'new-hero',
