@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { styled, Box, TextField, Button, Typography } from '@mui/material';
+import { styled, Box, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const backgroundColor = '#529DC8';
@@ -16,7 +16,8 @@ const ComingSoonForm = () => {
     setIsSubmit(true);
   };
   return (
-    <Box component="form" order={2}>
+    <Box component="form" order={2} name="email_form" data-netlify="true">
+      <input type="hidden" name="form-name" value="email_form" />
       <TextField
         fullWidth
         id="email form"
@@ -28,6 +29,7 @@ const ComingSoonForm = () => {
         sx={{
           fontFamily: 'new-hero',
           '.MuiInputBase-root': {
+            justifyContent: 'flex-end',
             background: 'white',
           },
           '.MuiInputBase-input': {
@@ -38,7 +40,9 @@ const ComingSoonForm = () => {
             fontSize: '12px',
           },
           '.MuiFormHelperText-root': {
-            fontSize: '8px',
+            fontSize: '12px',
+            color: 'black',
+            // marginTop: '8px'
           },
           pointerEvents: isSubmit ? 'none' : 'initial',
         }}
@@ -46,11 +50,11 @@ const ComingSoonForm = () => {
           endAdornment: (
             <motion.button
               animate={isSubmit && { width: '100%' }}
-              initial={{ width: 'max-content' }}
+              initial={{ width: '140px' }}
               transition={{ duration: 4, ease: 'easeInOut' }}
               onClick={(e) => handleSubmit(e)}
               style={{
-                background: backgroundColor,
+                background: 'black',
                 border: 'none',
                 borderRadius: '12px',
                 whiteSpace: 'nowrap',
@@ -66,6 +70,7 @@ const ComingSoonForm = () => {
                 fontFamily="new-hero"
                 fontWeight="700"
                 whiteSpace="nowrap"
+                overflow="hidden"
               >
                 {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
               </Typography>
@@ -86,7 +91,6 @@ const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
   //   justifyContent: 'center',
   gridTemplateColumns: '1fr 2fr 1fr',
   width: '100%',
-  height: '20%',
   fontFamily: 'new-hero',
 }));
 

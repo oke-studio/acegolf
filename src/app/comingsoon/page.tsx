@@ -48,7 +48,7 @@ export default function Page() {
 
   let topLogoVertStack = [];
 
-  for (let index = 0; index < 4; index++) {
+  for (let index = 0; index < 11; index++) {
     topLogoVertStack.push(<LogoMap key={index} />);
   }
 

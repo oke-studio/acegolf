@@ -19,7 +19,10 @@ const ComingSoonForm = () => {
       flexDirection="column"
       alignItems="center"
       gap="12px"
+      name="email_form"
+      data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="email_form" />
       <TextField
         fullWidth
         id="email form"
@@ -30,6 +33,11 @@ const ComingSoonForm = () => {
         style={{ alignItems: 'center' }}
         sx={{
           fontFamily: 'new-hero',
+          '.MuiInputBase-root': {
+            background: 'white',
+            borderRadius: '12px',
+            height: '52px',
+          },
 
           '.MuiInputBase-input': {
             color: '#373737',
@@ -48,7 +56,7 @@ const ComingSoonForm = () => {
 
           pointerEvents: isSubmit ? 'none' : 'initial',
         }}
-        variant="standard"
+        // variant="standard"
       />
 
       <Button
@@ -60,6 +68,7 @@ const ComingSoonForm = () => {
         sx={{
           background: 'black',
           width: '100%',
+          height: '52px',
           marginTop: '4px',
           marginBottom: '4px',
           whiteSpace: 'nowrap',
@@ -117,7 +126,7 @@ const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
   // [theme.breakpoints.down(640)]: {
   //     marginLeft: "12px",
   //     marginRight: "12px",
-  // },f,mf
+  // }
   gap: '10px',
   whiteSpace: 'nowrap',
 }));

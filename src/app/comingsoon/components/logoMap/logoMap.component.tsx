@@ -20,7 +20,7 @@ export const LogoMap = () => {
   //     })
   // );
 
-  for (let index = 0; index < 2; index++) {
+  for (let index = 0; index < 4; index++) {
     logoStack.push(
       // <Image
       //     src={golfLogo}
