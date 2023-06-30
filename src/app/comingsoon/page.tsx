@@ -46,12 +46,6 @@ const PageMobileLayout = styled(Box)({
 export default function Page() {
   const isMobile = useMediaQuery('(max-width:640px)');
 
-  let topLogoVertStack = [];
-
-  for (let index = 0; index < 11; index++) {
-    topLogoVertStack.push(<LogoMap key={index} />);
-  }
-
   if (isMobile) {
     return (
       <PageWrapper>
