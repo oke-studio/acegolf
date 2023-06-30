@@ -10,7 +10,7 @@ const backgroundColor = '#529DC8';
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // console.log('submitted');
 
@@ -35,6 +35,7 @@ const ComingSoonForm = () => {
       name="comingsoon-email"
       data-netlify="true"
       method="POST"
+      onSubmit={(e) => handleSubmit(e)}
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
@@ -72,7 +73,6 @@ const ComingSoonForm = () => {
               animate={isSubmit && { width: '100%' }}
               initial={{ width: '140px' }}
               transition={{ duration: 4, ease: 'easeInOut' }}
-              onClick={(e) => handleSubmit(e)}
               style={{
                 background: 'black',
                 border: 'none',
@@ -81,6 +81,7 @@ const ComingSoonForm = () => {
                 marginTop: '14px',
                 marginBottom: '14px',
               }}
+              type="submit"
             >
               <Typography
                 paddingLeft="24px"
