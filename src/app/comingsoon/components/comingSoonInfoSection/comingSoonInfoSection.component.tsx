@@ -4,6 +4,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import { styled, Box, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useFormik } from 'formik';
 
 const backgroundColor = '#529DC8';
 
@@ -16,6 +17,8 @@ const ComingSoonForm = () => {
 
     const myForm = e.currentTarget;
     const formData = new FormData(myForm);
+
+    console.log(e.currentTarget.value);
 
     // const target = e.target as typeof e.target & {
     //   email: { value: string };
@@ -34,6 +37,21 @@ const ComingSoonForm = () => {
     console.log(isSubmit);
   }, [isSubmit]);
 
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    onSubmit: (values) => {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(values.email).toString(),
+      })
+        .then(() => setIsSubmit(true))
+        .catch((error) => alert(error));
+    },
+  });
+
   return (
     <Box
       component="form"
@@ -41,7 +59,7 @@ const ComingSoonForm = () => {
       name="comingsoon-email"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={(e) => handleSubmit(e)}
+      onSubmit={formik.handleSubmit}
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
@@ -52,6 +70,8 @@ const ComingSoonForm = () => {
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
         disabled={isSubmit}
+        onChange={formik.handleChange}
+        value={formik.values.email}
         helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
         sx={{
           fontFamily: 'new-hero',
@@ -87,8 +107,8 @@ const ComingSoonForm = () => {
                 marginTop: '14px',
                 marginBottom: '14px',
               }}
-              // type="submit"
-              onClick={(e) => setIsSubmit(true)}
+              type="submit"
+              onClick={() => setIsSubmit(true)}
             >
               <Typography
                 paddingLeft="24px"
