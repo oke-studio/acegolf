@@ -43,13 +43,15 @@ const ComingSoonForm = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      // fetch('/', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      //   body: new URLSearchParams(values.email).toString(),
-      // })
-      //   .then(() => setIsSubmit(true))
-      //   .catch((error) => alert(error));
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'comingsoon-email': values.email,
+        }).toString(),
+      })
+        .then(() => setIsSubmit(true))
+        .catch((error) => alert(error));
     },
   });
 
