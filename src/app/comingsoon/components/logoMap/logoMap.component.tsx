@@ -20,29 +20,29 @@ export const LogoMap = () => {
   //     })
   // );
 
-  for (let index = 0; index < 2; index++) {
-    logoStack.push(
-      // <Image
-      //     src={golfLogo}
-      //     width={width}
-      //     height={height}
-      //     alt="temp alt"
-      //     key={index}
-      // />
+  // for (let index = 0; index < 4; index++) {
+  //   logoStack.push(
+  //     // <Image
+  //     //     src={golfLogo}
+  //     //     width={width}
+  //     //     height={height}
+  //     //     alt="temp alt"
+  //     //     key={index}
+  //     // />
 
-      <RelativePositionWrapper key={index}>
-        {/* <GolfLogo
-          key={index}
-          position="absolute"
-          height="100%"
-          fill="red"
-          //   style={{ transform: 'scale(0.2)' }}
-        /> */}
+  //     <RelativePositionWrapper key={index}>
+  //       {/* <GolfLogo
+  //         key={index}
+  //         position="absolute"
+  //         height="100%"
+  //         fill="red"
+  //         //   style={{ transform: 'scale(0.2)' }}
+  //       /> */}
 
-        <AnimatedLogo />
-      </RelativePositionWrapper>,
-    );
-  }
+  //       <AnimatedLogo />
+  //     </RelativePositionWrapper>,
+  //   );
+  // }
 
   // return (
   //     <div
@@ -91,7 +91,11 @@ export const LogoMap = () => {
         height: 'max-content',
       }}
     >
-      {logoStack}
+      {[...Array(4)].map((_, index) => (
+        <RelativePositionWrapper key={index}>
+          <AnimatedLogo />
+        </RelativePositionWrapper>
+      ))}
     </Box>
   );
 };

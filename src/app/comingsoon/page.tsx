@@ -8,13 +8,15 @@ import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionM
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
 
-const SidebarImages = [
-  '/images/ace-golf-card.svg',
-  '/images/ace-golf-bar-lounge.svg',
-  '/images/ace-golf-full.svg',
-];
-
 const backgroundColor = '#529DC8';
+
+const PageWrapper = styled(Box)({
+  backgroundColor: backgroundColor,
+  height: '100vh',
+  color: 'black',
+  width: '100vw',
+  overflow: 'hidden',
+});
 
 const ComingSoonInfoBox = styled('div')({
   display: 'flex',
@@ -26,7 +28,7 @@ const ComingSoonInfoBox = styled('div')({
   gap: '16px',
 });
 
-const PageWrapper = styled(Box)(({ theme }) => ({
+const PageLayout = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: 'repeat(3, 1fr)',
 
@@ -36,40 +38,38 @@ const PageWrapper = styled(Box)(({ theme }) => ({
   // }
 }));
 
+const PageMobileLayout = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+});
+
 export default function Page() {
   const isMobile = useMediaQuery('(max-width:640px)');
 
-  let topLogoVertStack = [];
-
-  for (let index = 0; index < 4; index++) {
-    topLogoVertStack.push(<LogoMap key={index} />);
+  if (isMobile) {
+    return (
+      <PageWrapper>
+        <PageMobileLayout>
+          <ComingSoonInfoSectionMobile />
+        </PageMobileLayout>
+      </PageWrapper>
+    );
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: backgroundColor,
-        height: '100vh',
-        color: 'black',
-        width: '100vw',
-        overflow: 'hidden',
-      }}
-    >
-      <PageWrapper>
+    <PageWrapper>
+      <PageLayout>
         <div
           style={{
             display: 'flex',
             flexDirection: 'row',
-            // flexWrap: 'nowrap',
-            // height: 'max-content',
+
             position: 'relative',
-            // height: '20%',
-            // top: '-20px',
           }}
         >
           .
         </div>
-        {isMobile ? <ComingSoonInfoSectionMobile /> : <ComingSoonInfoSection />}
+        <ComingSoonInfoSection />
 
         <div
           style={{
@@ -79,9 +79,11 @@ export default function Page() {
             position: 'relative',
           }}
         >
-          {topLogoVertStack}
+          {[...Array(11)].map((_, index) => (
+            <LogoMap key={index} />
+          ))}
         </div>
-      </PageWrapper>
-    </div>
+      </PageLayout>
+    </PageWrapper>
   );
 }

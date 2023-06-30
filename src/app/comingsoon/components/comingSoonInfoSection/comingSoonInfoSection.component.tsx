@@ -2,79 +2,145 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { styled, Box, TextField, Button } from '@mui/material';
+import { styled, Box, TextField, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useFormik } from 'formik';
 
 const backgroundColor = '#529DC8';
+
+interface FormValues {
+  email: string;
+}
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    console.log('submitted');
-    setIsSubmit(true);
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // console.log('submitted');
+
+  //   const myForm = e.currentTarget;
+  //   const formData = new FormData(myForm);
+
+  //   console.log(e.currentTarget.value);
+
+  //   // const target = e.target as typeof e.target & {
+  //   //   email: { value: string };
+  //   // };
+
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //   })
+  //     .then(() => setIsSubmit(true))
+  //     .catch((error) => alert(error));
+  // };
+
+  React.useEffect(() => {
+    console.log(isSubmit);
+  }, [isSubmit]);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'comingsoon-email', ...values }),
+      })
+        .then(() => setIsSubmit(true))
+        .catch((error) => alert(error));
+    },
+  });
+
+  const buttonClick = () => {
+    if (!formik.errors.email) {
+      setIsSubmit(true);
+    }
   };
+
   return (
-    <Box component="form" order={2}>
+    <Box
+      component="form"
+      order={2}
+      name="comingsoon-email"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={formik.handleSubmit}
+      method="post"
+    >
+      <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
         id="email form"
         type="email"
+        name="email"
         placeholder="yourname@email.com"
         style={{ alignItems: 'center' }}
-        helperText="*BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF SERVICES AND TO RECEVING MARKETING EMAILS FROM ACEGOLF. 
-                  YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
+        disabled={isSubmit}
+        onChange={formik.handleChange}
+        value={formik.values.email}
+        helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
         sx={{
           fontFamily: 'new-hero',
           '.MuiInputBase-root': {
+            justifyContent: 'flex-end',
             background: 'white',
           },
           '.MuiInputBase-input': {
             color: '#373737',
-            // background: "white",
+
             width: isSubmit ? '0' : '100%',
+            fontFamily: 'new-hero',
+            fontSize: '12px',
           },
           '.MuiFormHelperText-root': {
-            fontSize: '8px',
+            fontSize: '12px',
+            color: 'black',
+            // marginTop: '8px'
           },
           pointerEvents: isSubmit ? 'none' : 'initial',
         }}
+        // label="comingsoon email"
         InputProps={{
           endAdornment: (
-            <Button
-              variant="contained"
-              type="submit"
-              onClick={(e) => handleSubmit(e)}
-              size="small"
-              sx={{
-                background: backgroundColor,
-                // ":hover": {},
-                width: isSubmit ? '100%' : 'max-content',
+            <motion.button
+              animate={isSubmit && { width: '100%' }}
+              initial={{ width: '140px' }}
+              transition={{ duration: 4, ease: 'easeInOut' }}
+              style={{
+                background: 'black',
+                border: 'none',
+                borderRadius: '12px',
+                whiteSpace: 'nowrap',
                 marginTop: '14px',
                 marginBottom: '14px',
-                whiteSpace: 'nowrap',
-                borderRadius: '12px',
-                transition: 'min-width 500ms ease-out',
-                pointerEvents: isSubmit ? 'none' : 'initial',
-                ':hover': {
-                  backgroundColor: backgroundColor,
-                },
-                cursor: isSubmit ? 'default' : 'pointer',
               }}
+              type="submit"
+              onClick={() => buttonClick()}
             >
-              <span
-                style={{
-                  paddingLeft: '24px',
-                  paddingRight: '24px',
-                  paddingTop: '14px',
-                  paddingBottom: '14px',
-                  fontFamily: 'new-hero',
-                  fontWeight: '700',
-                }}
+              <Typography
+                paddingLeft="24px"
+                paddingRight="24px"
+                paddingTop="14px"
+                paddingBottom="14px"
+                fontFamily="new-hero"
+                fontWeight="700"
+                whiteSpace="nowrap"
+                overflow="hidden"
               >
                 {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
-              </span>
-            </Button>
+              </Typography>
+            </motion.button>
           ),
           sx: { borderRadius: '12px' },
         }}
@@ -91,7 +157,6 @@ const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
   //   justifyContent: 'center',
   gridTemplateColumns: '1fr 2fr 1fr',
   width: '100%',
-  height: '20%',
   fontFamily: 'new-hero',
 }));
 
@@ -114,8 +179,12 @@ export const ComingSoonInfoSection = () => (
     </ComingSoonInfoWrapper>
     <ComingSoonForm />
     <ComingSoonInfoWrapper order={3}>
-      <span>FIND YOUR SWING</span>
-      <span>SUMMER 2023</span>
+      <Typography fontWeight="900" fontSize="18px">
+        FIND YOUR SWING
+      </Typography>
+      <Typography fontWeight="900" fontSize="11px">
+        SUMMER 2023
+      </Typography>
     </ComingSoonInfoWrapper>
   </ComingSoonInfoSectionWrapper>
 );
