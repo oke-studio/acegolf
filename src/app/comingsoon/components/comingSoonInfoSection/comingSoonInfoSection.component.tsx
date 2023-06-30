@@ -14,19 +14,25 @@ const ComingSoonForm = () => {
     e.preventDefault();
     // console.log('submitted');
 
-    const myForm = e.target;
+    const myForm = e.currentTarget;
     const formData = new FormData(myForm);
+
+    // const target = e.target as typeof e.target & {
+    //   email: { value: string };
+    // };
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => console.log('Form successfully submitted'))
+      .then(() => setIsSubmit(true))
       .catch((error) => alert(error));
-
-    setIsSubmit(true);
   };
+
+  React.useEffect(() => {
+    console.log(isSubmit);
+  }, [isSubmit]);
 
   return (
     <Box
@@ -81,7 +87,8 @@ const ComingSoonForm = () => {
                 marginTop: '14px',
                 marginBottom: '14px',
               }}
-              type="submit"
+              // type="submit"
+              onClick={(e) => setIsSubmit(true)}
             >
               <Typography
                 paddingLeft="24px"
