@@ -85,7 +85,9 @@ export default function Page() {
             position: 'relative',
           }}
         >
-          {topLogoVertStack}
+          {[...Array(11)].map((_, index) => (
+            <LogoMap key={index} />
+          ))}
         </div>
       </PageLayout>
     </PageWrapper>
