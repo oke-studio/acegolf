@@ -71,7 +71,7 @@ const ComingSoonForm = () => {
         sx={{
           background: 'black',
           width: '100%',
-          height: '52px',
+          height: isSubmit ? 'max-content' : '52px',
           marginTop: '4px',
           marginBottom: '4px',
           whiteSpace: 'nowrap',
@@ -87,14 +87,7 @@ const ComingSoonForm = () => {
           fontWeight="700"
           whiteSpace="normal"
         >
-          {isSubmit ? (
-            <Typography>
-              WE&rsquo;LL KEEP IN TOUCH!
-              <br /> SEE YOU SOON!
-            </Typography>
-          ) : (
-            'NOTIFY ME'
-          )}
+          {isSubmit ? 'WELL KEEP IN TOUCH!\n\nSEE YOU SOON!' : 'NOTIFY ME'}
         </Typography>
       </Button>
       <Typography paragraph align="center" sx={{ fontSize: '8px' }}>
