@@ -40,7 +40,9 @@ const PageLayout = styled(Box)(({ theme }) => ({
 
 const PageMobileLayout = styled(Box)({
   display: 'flex',
-  justifyContent: 'center',
+  //   justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
 });
 
 export default function Page() {
@@ -51,6 +53,18 @@ export default function Page() {
       <PageWrapper>
         <PageMobileLayout>
           <ComingSoonInfoSectionMobile />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            {[...Array(11)].map((_, index) => (
+              <LogoMap key={index} />
+            ))}
+          </div>
         </PageMobileLayout>
       </PageWrapper>
     );
