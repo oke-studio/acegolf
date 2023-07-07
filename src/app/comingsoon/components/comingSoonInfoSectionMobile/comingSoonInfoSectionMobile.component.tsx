@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Box, styled, TextField, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import { LogoMap } from '../logoMap/logoMap.component';
+import { useFormikContext } from 'formik';
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -13,6 +14,9 @@ const ComingSoonForm = () => {
     console.log('submitted');
     setIsSubmit(true);
   };
+
+  const test = useFormikContext();
+  console.log(test);
   return (
     <Box
       component="form"

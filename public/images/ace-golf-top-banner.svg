@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1458" height="250" viewBox="0 0 1458 250" version="1.1">
+<path id="MyPath" 
+style="fill:none;stroke-width:96;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:4;"
+ d="M -203 263.24025 C 127 -52.75825 304 42.24175 203.5 152.741 C 103 263.24025 328 231.2395 561.5 152.741 C 795 74.2425 1189.320312 77.80975 972 218.74225 C 807 325.74075 1465 164.24075 1543.5 142.23875 " 
+transform="matrix(1,0,0,0.822368,0,0)"/>
+<text>
+    <textPath href="#MyPath">Toronto's first indoor golf lounge</textPath>
+  </text>
+</svg>

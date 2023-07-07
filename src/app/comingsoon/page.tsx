@@ -7,6 +7,9 @@ import { styled } from '@mui/material';
 import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionMobile/comingSoonInfoSectionMobile.component';
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
+import { TopBanner } from './components/topBanner/topBanner.component';
+
+// import TopBanner from '../../../public/images/ace-golf-top-banner.svg';
 
 const backgroundColor = '#529DC8';
 
@@ -81,7 +84,7 @@ export default function Page() {
             position: 'relative',
           }}
         >
-          .
+          <TopBanner text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE" />
         </div>
         <ComingSoonInfoSection />
 
@@ -91,6 +94,7 @@ export default function Page() {
             flexDirection: 'row',
             overflow: 'hidden',
             position: 'relative',
+            gap: '16px',
           }}
         >
           {[...Array(11)].map((_, index) => (
