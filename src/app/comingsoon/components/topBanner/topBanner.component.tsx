@@ -9,17 +9,18 @@ interface TopBannerProps {
 const animationDuration = '20s';
 const initialStartOffset = '-105%';
 
-export const TopBanner = ({ text }: TopBannerProps) => {
+const TopBannerText = ({ text }: TopBannerProps) => {
   return (
     // <svg width="1458" height="250" viewBox="0 0 1458 250">
-    <svg width="1458" height="304" viewBox="0 0 1458 304">
-      <path
-        id="MyPath"
-        d="M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241"
-        stroke="white"
-        stroke-width="96"
-        fill="none"
-      />
+    // <svg width="1458" height="304" viewBox="0 0 1458 304">
+    //   <path
+    //     id="MyPath"
+    //     d="M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241"
+    //     stroke="white"
+    //     stroke-width="96"
+    //     fill="none"
+    //   />
+    <>
       <BannerText
         animationDelay="0s"
         animationDuration="20s"
@@ -56,17 +57,7 @@ export const TopBanner = ({ text }: TopBannerProps) => {
       >
         {text}
       </BannerText>
-      {/* <BannerText
-        animationDelay="20s"
-        animationDuration="20s"
-        pathId="#MyPath"
-        // fill="black"
-        // startOffsetPosition="-100%"
-        startOffsetPosition={initialStartOffset}
-      >
-        {text}
-      </BannerText> */}
-    </svg>
+    </>
   );
   //   return (
   //     <Box
@@ -84,6 +75,38 @@ export const TopBanner = ({ text }: TopBannerProps) => {
   //       {text}
   //     </Box>
   //   );
+};
+
+interface TopBannerSVGWrapperProps {
+  width: string;
+  height: string;
+  pathProps: React.SVGProps<SVGPathElement>;
+  // children: React.ReactNode;
+  text: string;
+  strokeWidth?: string;
+  strokeColor?: string;
+}
+
+export const TopBanner = ({
+  width,
+  height,
+  pathProps,
+  strokeWidth = '96',
+  strokeColor = 'white',
+  text,
+}: TopBannerSVGWrapperProps) => {
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      <path
+        {...pathProps}
+        id="MyPath"
+        stroke-width={strokeWidth}
+        stroke={strokeColor}
+        fill="none"
+      />
+      <TopBannerText text={text} />
+    </svg>
+  );
 };
 
 // <text

@@ -55,6 +55,24 @@ export default function Page() {
     return (
       <PageWrapper>
         <PageMobileLayout>
+          {/* <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            <TopBanner
+              width="500"
+              height="200"
+              pathProps={{
+                d: 'M-226.67 189.767C10.6358 -37.7211 137.918 30.6693 65.6475 110.218C-6.62282 189.767 155.177 166.73 323.088 110.218C491 53.7061 774.56 56.2762 618.282 157.731C499.629 234.761 972.802 118.497 1029.25 102.659',
+              }}
+              strokeWidth="80.534"
+              text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
+            />
+          </div> */}
           <ComingSoonInfoSectionMobile />
           <div
             style={{
@@ -84,7 +102,14 @@ export default function Page() {
             position: 'relative',
           }}
         >
-          <TopBanner text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE" />
+          <TopBanner
+            width="1458"
+            height="304"
+            pathProps={{
+              d: 'M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241',
+            }}
+            text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
+          />
         </div>
         <ComingSoonInfoSection />
 
