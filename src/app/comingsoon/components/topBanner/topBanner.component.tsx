@@ -1,22 +1,12 @@
-import { Box } from '@mui/material';
 import * as React from 'react';
 import { keyframes, styled } from '@mui/material';
 import { BannerText } from './components/bannerText.component';
-
-const slidingAnimation = keyframes`
-    0% {transform: translateZ(0);}
-    100% {transform: translate3d(-100%, 0, 0)}
-`;
-
-const TextWrapper = styled('textPath')({
-  animation: `${slidingAnimation} 25s linear infinite;`,
-});
 
 interface TopBannerProps {
   text: string;
 }
 
-const animationDuration = '15s';
+const animationDuration = '20s';
 const initialStartOffset = '-105%';
 
 export const TopBanner = ({ text }: TopBannerProps) => {
@@ -40,7 +30,7 @@ export const TopBanner = ({ text }: TopBannerProps) => {
       </BannerText>
       <BannerText
         animationDelay="5s"
-        animationDuration="20s"
+        animationDuration={animationDuration}
         pathId="#MyPath"
         // fill="blue"
         // startOffsetPosition="-100%"
@@ -50,18 +40,15 @@ export const TopBanner = ({ text }: TopBannerProps) => {
       </BannerText>
       <BannerText
         animationDelay="10s"
-        animationDuration="20s"
+        animationDuration={animationDuration}
         pathId="#MyPath"
-        // fill="red"
         startOffsetPosition={initialStartOffset}
-
-        // startOffsetPosition="-100%"
       >
         {text}
       </BannerText>
       <BannerText
         animationDelay="15s"
-        animationDuration="20s"
+        animationDuration={animationDuration}
         pathId="#MyPath"
         // fill="red"
         // startOffsetPosition="-100%"

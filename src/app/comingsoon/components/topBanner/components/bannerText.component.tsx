@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface BannerTextProps {
-  fill: string;
+  fill?: string;
   pathId: string;
   animationDuration: string;
   animationDelay: string;
