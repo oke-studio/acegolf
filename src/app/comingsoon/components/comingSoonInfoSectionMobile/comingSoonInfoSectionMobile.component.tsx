@@ -4,7 +4,13 @@ import * as React from 'react';
 import { Box, styled, TextField, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import { LogoMap } from '../logoMap/logoMap.component';
-import { useFormikContext } from 'formik';
+import { useFormikContext, useFormik } from 'formik';
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -15,8 +21,32 @@ const ComingSoonForm = () => {
     setIsSubmit(true);
   };
 
-  const test = useFormikContext();
-  console.log(test);
+  React.useEffect(() => {
+    console.log(isSubmit);
+  }, [isSubmit]);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'comingsoon-email', ...values }),
+      })
+        .then(() => setIsSubmit(true))
+        .catch((error) => alert(error));
+    },
+  });
+
+  const buttonClick = () => {
+    if (!formik.errors.email) {
+      setIsSubmit(true);
+    }
+  };
+
   return (
     <Box
       component="form"
@@ -27,6 +57,8 @@ const ComingSoonForm = () => {
       name="comingsoon-email"
       method="POST"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={formik.handleSubmit}
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
@@ -37,6 +69,8 @@ const ComingSoonForm = () => {
         disabled={isSubmit}
         placeholder="yourname@email.com"
         required
+        onChange={formik.handleChange}
+        value={formik.values.email}
         style={{ alignItems: 'center' }}
         sx={{
           fontFamily: 'new-hero',
@@ -69,7 +103,7 @@ const ComingSoonForm = () => {
       <Button
         variant="contained"
         type="submit"
-        onClick={(e) => handleSubmit(e)}
+        onClick={() => buttonClick()}
         size="small"
         disabled={isSubmit}
         sx={{
