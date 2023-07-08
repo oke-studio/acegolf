@@ -32,12 +32,14 @@ export const BannerText = ({
         href={pathId}
         startOffset={startOffsetPosition}
         dominantBaseline="middle"
+        // textLength="100%"
+        textAnchor="end"
         // style={{ paddingLeft: '12px' }}
       >
         <animate
           attributeName="startOffset"
           from={startOffsetPosition}
-          to="100%"
+          to="calc(100% + 1200px)"
           dur={animationDuration}
           begin={animationDelay}
           repeatCount="indefinite"

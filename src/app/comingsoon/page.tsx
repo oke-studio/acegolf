@@ -98,8 +98,8 @@ export default function Page() {
           style={{
             display: 'flex',
             flexDirection: 'row',
-
             position: 'relative',
+            width: '100vw',
           }}
         >
           <TopBanner
@@ -109,6 +109,7 @@ export default function Page() {
               d: 'M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241',
             }}
             text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
+            textCount={4}
           />
         </div>
         <ComingSoonInfoSection />

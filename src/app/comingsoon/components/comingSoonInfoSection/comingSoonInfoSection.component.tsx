@@ -81,7 +81,7 @@ const ComingSoonForm = () => {
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
-        id="email form"
+        id="email-form"
         type="email"
         name="email"
         placeholder="yourname@email.com"
@@ -137,6 +137,7 @@ const ComingSoonForm = () => {
                 fontWeight="700"
                 whiteSpace="nowrap"
                 overflow="hidden"
+                color="white"
               >
                 {isSubmit ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'}
               </Typography>

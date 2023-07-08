@@ -15,12 +15,6 @@ const encode = (data) => {
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    console.log('submitted');
-    setIsSubmit(true);
-  };
-
   React.useEffect(() => {
     console.log(isSubmit);
   }, [isSubmit]);
@@ -55,15 +49,14 @@ const ComingSoonForm = () => {
       alignItems="center"
       gap="12px"
       name="comingsoon-email"
-      method="POST"
+      method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={formik.handleSubmit}
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
-        id="email form"
+        id="email-form"
         name="email"
         type="email"
         disabled={isSubmit}
@@ -103,7 +96,10 @@ const ComingSoonForm = () => {
       <Button
         variant="contained"
         type="submit"
-        onClick={() => buttonClick()}
+        onClick={() => {
+          buttonClick();
+          formik.handleSubmit();
+        }}
         size="small"
         disabled={isSubmit}
         sx={{

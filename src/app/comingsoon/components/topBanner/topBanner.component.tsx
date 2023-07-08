@@ -4,26 +4,31 @@ import { BannerText } from './components/bannerText.component';
 
 interface TopBannerProps {
   text: string;
+  textCount?: number;
 }
 
 const animationDuration = '20s';
-const initialStartOffset = '-105%';
+const initialStartOffset = '0%';
 
-const TopBannerText = ({ text }: TopBannerProps) => {
+const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
   return (
-    // <svg width="1458" height="250" viewBox="0 0 1458 250">
-    // <svg width="1458" height="304" viewBox="0 0 1458 304">
-    //   <path
-    //     id="MyPath"
-    //     d="M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241"
-    //     stroke="white"
-    //     stroke-width="96"
-    //     fill="none"
-    //   />
     <>
-      <BannerText
+      {Array(textCount)
+        .fill('')
+        .map((_, index) => (
+          <BannerText
+            key={index}
+            animationDelay={`${index * 5}s`}
+            animationDuration={animationDuration}
+            pathId="#MyPath"
+            startOffsetPosition={initialStartOffset}
+          >
+            {text}
+          </BannerText>
+        ))}
+      {/* <BannerText
         animationDelay="0s"
-        animationDuration="20s"
+        animationDuration={animationDuration}
         pathId="#MyPath"
         startOffsetPosition={initialStartOffset}
       >
@@ -56,7 +61,7 @@ const TopBannerText = ({ text }: TopBannerProps) => {
         startOffsetPosition={initialStartOffset}
       >
         {text}
-      </BannerText>
+      </BannerText> */}
     </>
   );
   //   return (
@@ -85,6 +90,7 @@ interface TopBannerSVGWrapperProps {
   text: string;
   strokeWidth?: string;
   strokeColor?: string;
+  textCount?: number;
 }
 
 export const TopBanner = ({
@@ -94,17 +100,19 @@ export const TopBanner = ({
   strokeWidth = '96',
   strokeColor = 'white',
   text,
+  textCount,
 }: TopBannerSVGWrapperProps) => {
   return (
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+    <svg width={width} height={height} viewBox={`0 0 ${1000} ${height}`}>
       <path
         {...pathProps}
         id="MyPath"
         stroke-width={strokeWidth}
         stroke={strokeColor}
         fill="none"
+        pathLength="100"
       />
-      <TopBannerText text={text} />
+      <TopBannerText text={text} textCount={textCount} />
     </svg>
   );
 };
