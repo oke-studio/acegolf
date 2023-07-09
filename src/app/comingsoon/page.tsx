@@ -102,7 +102,7 @@ export default function Page() {
             width: '100vw',
           }}
         >
-          <TopBanner
+          {/* <TopBanner
             width="1458"
             height="304"
             pathProps={{
@@ -110,7 +110,8 @@ export default function Page() {
             }}
             text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
             textCount={4}
-          />
+          /> */}
+          .
         </div>
         <ComingSoonInfoSection />
 
