@@ -4,15 +4,43 @@ import * as React from 'react';
 import { Box, styled, TextField, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import { LogoMap } from '../logoMap/logoMap.component';
+import { useFormikContext, useFormik } from 'formik';
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    console.log('submitted');
-    setIsSubmit(true);
+  React.useEffect(() => {
+    console.log(isSubmit);
+  }, [isSubmit]);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'comingsoon-email', ...values }),
+      })
+        .then(() => setIsSubmit(true))
+        .catch((error) => alert(error));
+    },
+  });
+
+  const buttonClick = () => {
+    if (!formik.errors.email) {
+      setIsSubmit(true);
+    }
   };
+
   return (
     <Box
       component="form"
@@ -21,18 +49,21 @@ const ComingSoonForm = () => {
       alignItems="center"
       gap="12px"
       name="comingsoon-email"
-      method="POST"
+      method="post"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
         fullWidth
-        id="email form"
+        id="email-form"
         name="email"
         type="email"
         disabled={isSubmit}
         placeholder="yourname@email.com"
         required
+        onChange={formik.handleChange}
+        value={formik.values.email}
         style={{ alignItems: 'center' }}
         sx={{
           fontFamily: 'new-hero',
@@ -65,7 +96,10 @@ const ComingSoonForm = () => {
       <Button
         variant="contained"
         type="submit"
-        onClick={(e) => handleSubmit(e)}
+        onClick={() => {
+          buttonClick();
+          formik.handleSubmit();
+        }}
         size="small"
         disabled={isSubmit}
         sx={{
