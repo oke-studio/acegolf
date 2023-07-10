@@ -20,27 +20,12 @@ const encode = (data) => {
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   // console.log('submitted');
-
-  //   const myForm = e.currentTarget;
-  //   const formData = new FormData(myForm);
-
-  //   console.log(e.currentTarget.value);
-
-  //   // const target = e.target as typeof e.target & {
-  //   //   email: { value: string };
-  //   // };
-
-  //   fetch('/', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //   })
-  //     .then(() => setIsSubmit(true))
-  //     .catch((error) => alert(error));
-  // };
+  const [error, setError] = React.useState<{ error: boolean; message: string }>(
+    {
+      error: false,
+      message: '',
+    },
+  );
 
   React.useEffect(() => {
     console.log(isSubmit);
@@ -58,14 +43,29 @@ const ComingSoonForm = () => {
         body: encode({ 'form-name': 'comingsoon-email', ...values }),
       })
         .then(() => setIsSubmit(true))
-        .catch((error) => alert(error));
+        .catch((e) => alert(e));
     },
   });
 
   const buttonClick = () => {
-    if (!formik.errors.email) {
-      setIsSubmit(true);
+    if (formik.values.email === '') {
+      setError({ error: true, message: 'Please provide an email' });
+      return;
     }
+
+    if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
+    ) {
+      setError({
+        error: true,
+        message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
+      });
+      return;
+    }
+
+    setError({ error: false, message: '' });
+    setIsSubmit(true);
+    formik.handleSubmit();
   };
 
   return (
@@ -75,11 +75,13 @@ const ComingSoonForm = () => {
       name="comingsoon-email"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={formik.handleSubmit}
+      // onSubmit={formik.handleSubmit}
       method="post"
+      autoComplete="off"
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
+        error={error.error}
         fullWidth
         id="email-form"
         type="email"
@@ -89,7 +91,8 @@ const ComingSoonForm = () => {
         disabled={isSubmit}
         onChange={formik.handleChange}
         value={formik.values.email}
-        helperText="BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME. "
+        helperText="BY CLICKING THE BUTTON ABOVE YOU AGREE TO RECEIVE MARKETING EMAILS FROM ACE GOLF.
+YOU CAN UNSUBSCRIBE AT ANY TIME."
         sx={{
           fontFamily: 'new-hero',
           '.MuiInputBase-root': {
@@ -166,6 +169,7 @@ const ComingSoonInfoWrapper = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  textAlign: 'center',
 }));
 
 export const ComingSoonInfoSection = () => (
