@@ -122,7 +122,7 @@ const ComingSoonForm = () => {
           buttonClick();
         }}
         size="small"
-        disabled={isSubmit}
+        disabled={isSubmit || !formik.values.email}
         sx={{
           background: 'black',
           width: '100%',

@@ -81,7 +81,7 @@ const ComingSoonForm = () => {
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
-        error={error.error}
+        // error={error.error}
         fullWidth
         id="email-form"
         type="email"
@@ -130,6 +130,7 @@ YOU CAN UNSUBSCRIBE AT ANY TIME."
               }}
               type="submit"
               onClick={() => buttonClick()}
+              disabled={!formik.values.email}
             >
               <Typography
                 paddingLeft="24px"
