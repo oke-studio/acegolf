@@ -18,10 +18,10 @@ export default function Home() {
   // const routeToComingSoon = localStorage.getItem("isComingSoon");
   // routeToComingSoon && return
   const router = useRouter();
+  router.push('/comingsoon');
+  // React.useEffect(() => {
 
-  React.useEffect(() => {
-    router.push('/comingsoon');
-  }, []);
+  // }, []);
 
   return (
     <ThemeProvider theme={theme}>
