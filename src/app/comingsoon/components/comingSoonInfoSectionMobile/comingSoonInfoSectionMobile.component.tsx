@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { Box, styled, TextField, Button, Typography } from '@mui/material';
 import Image from 'next/image';
-import { LogoMap } from '../logoMap/logoMap.component';
-import { useFormikContext, useFormik } from 'formik';
+import { useFormik } from 'formik';
 
 const encode = (data) => {
   return Object.keys(data)
@@ -14,7 +13,12 @@ const encode = (data) => {
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
-
+  const [error, setError] = React.useState<{ error: boolean; message: string }>(
+    {
+      error: false,
+      message: '',
+    },
+  );
   React.useEffect(() => {
     console.log(isSubmit);
   }, [isSubmit]);
@@ -25,20 +29,37 @@ const ComingSoonForm = () => {
     },
     onSubmit: (values) => {
       console.log(values);
+
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'comingsoon-email', ...values }),
       })
         .then(() => setIsSubmit(true))
-        .catch((error) => alert(error));
+        .catch((e) => alert(e));
     },
   });
 
   const buttonClick = () => {
-    if (!formik.errors.email) {
-      setIsSubmit(true);
+    if (formik.values.email === '') {
+      setError({ error: true, message: 'Please provide an email' });
+      return;
     }
+
+    if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
+    ) {
+      setError({
+        error: true,
+        message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
+      });
+      return;
+    }
+    console.log('here');
+
+    setError({ error: false, message: '' });
+    setIsSubmit(true);
+    formik.handleSubmit();
   };
 
   return (
@@ -52,6 +73,7 @@ const ComingSoonForm = () => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      autoComplete="off"
     >
       <input type="hidden" name="form-name" value="comingsoon-email" />
       <TextField
@@ -98,10 +120,9 @@ const ComingSoonForm = () => {
         type="submit"
         onClick={() => {
           buttonClick();
-          formik.handleSubmit();
         }}
         size="small"
-        disabled={isSubmit}
+        disabled={isSubmit || !formik.values.email}
         sx={{
           background: 'black',
           width: '100%',
@@ -110,6 +131,11 @@ const ComingSoonForm = () => {
           marginBottom: '4px',
           whiteSpace: 'nowrap',
           borderRadius: '12px',
+          'MuiButton-root': {
+            ':hover': {
+              backgroundColor: 'none',
+            },
+          },
         }}
       >
         <Typography
@@ -125,9 +151,10 @@ const ComingSoonForm = () => {
         </Typography>
       </Button>
       <Typography paragraph align="center" sx={{ fontSize: '8px' }}>
-        BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING TO RECEVING MARKETING
-        EMAILS FROM ACEGOLF. <br />
-        YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME.
+        BY CLICKING THE BUTTON ABOVE YOU AGREE TO RECEIVE MARKETING EMAILS FROM
+        ACE GOLF.
+        <br />
+        YOU CAN UNSUBSCRIBE AT ANY TIME.
       </Typography>
     </Box>
   );
