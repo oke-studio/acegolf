@@ -9,8 +9,6 @@ import { ComingSoonInfoSection } from './components/comingSoonInfoSection/coming
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { TopBanner } from './components/topBanner/topBanner.component';
 
-// import TopBanner from '../../../public/images/ace-golf-top-banner.svg';
-
 const backgroundColor = '#529DC8';
 
 const PageWrapper = styled(Box)({
@@ -21,24 +19,11 @@ const PageWrapper = styled(Box)({
   overflow: 'hidden',
 });
 
-const ComingSoonInfoBox = styled('div')({
-  display: 'flex',
-  color: 'white',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  flexDirection: 'column',
-  gap: '16px',
-});
-
 const PageLayout = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: 'repeat(3, 1fr)',
 
   height: '100%',
-  // [theme.breakpoints.up('md')]: {
-
-  // }
 }));
 
 const PageMobileLayout = styled(Box)({
@@ -48,7 +33,7 @@ const PageMobileLayout = styled(Box)({
   flexDirection: 'column',
 });
 
-export default function Page() {
+export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
 
   if (isMobile) {

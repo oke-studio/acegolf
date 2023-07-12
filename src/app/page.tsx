@@ -1,11 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import Image from 'next/image';
-import styles from './page.module.css';
-import { ThemeProvider, CircularProgress } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { useRouter } from 'next/navigation';
+import ComingSoonPage from './comingsoon/comingSoonPage.component';
 
 const theme = createTheme({
   typography: {
@@ -14,18 +12,10 @@ const theme = createTheme({
 });
 
 export default function Home() {
-  //TODO
-  // const routeToComingSoon = localStorage.getItem("isComingSoon");
-  // routeToComingSoon && return
-  const router = useRouter();
-  React.useEffect(() => {
-    router.push('/comingsoon');
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
-      <main className={styles.main}>
-        <CircularProgress />
+      <main>
+        <ComingSoonPage />
       </main>
     </ThemeProvider>
   );
