@@ -87,16 +87,15 @@ export default function ComingSoonPage() {
             width: '100vw',
           }}
         >
-          {/* <TopBanner
-            width="1458"
+          <TopBanner
+            width="1794"
             height="304"
             pathProps={{
-              d: 'M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241',
+              d: 'M34 263.241C364 -52.7594 541 42.2406 440.5 152.741C340 263.241 565 231.24 798.5 152.741C1032 74.2407 1426.32 77.8108 1209 218.741C1044 325.741 1702 164.241 1780.5 142.241',
             }}
             text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
             textCount={4}
-          /> */}
-          .
+          />
         </div>
         <ComingSoonInfoSection />
 

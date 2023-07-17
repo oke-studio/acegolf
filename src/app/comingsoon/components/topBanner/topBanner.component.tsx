@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { keyframes, styled } from '@mui/material';
 import { BannerText } from './components/bannerText.component';
+import { useTextWidth } from '@tag0/use-text-width';
 
 interface TopBannerProps {
   text: string;
@@ -8,9 +9,11 @@ interface TopBannerProps {
 }
 
 const animationDuration = '20s';
-const initialStartOffset = '0%';
+const initialStartOffset = '-50%';
 
 const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
+  const textWidth = useTextWidth({ text: text, font: '48px new-hero' });
+  console.log(textWidth);
   return (
     <>
       {Array(textCount)
@@ -22,6 +25,7 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
             animationDuration={animationDuration}
             pathId="#MyPath"
             startOffsetPosition={initialStartOffset}
+            textWidth={Math.ceil(textWidth)}
           >
             {text}
           </BannerText>
@@ -64,22 +68,6 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
       </BannerText> */}
     </>
   );
-  //   return (
-  //     <Box
-  //       sx={{
-  //         width: '100%',
-  //         height: '100px',
-  //         background: 'white',
-  //         borderRadius: '4px',
-  //         // FONT
-  //         fontFamily: 'new-hero',
-  //         fontSize: '32px',
-  //         fontWeight: '700',
-  //       }}
-  //     >
-  //       {text}
-  //     </Box>
-  //   );
 };
 
 interface TopBannerSVGWrapperProps {
@@ -103,11 +91,16 @@ export const TopBanner = ({
   textCount,
 }: TopBannerSVGWrapperProps) => {
   return (
-    <svg width={width} height={height} viewBox={`0 0 ${1000} ${height}`}>
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      // preserveAspectRatio="xMidYMid meet"
+    >
       <path
         {...pathProps}
         id="MyPath"
-        stroke-width={strokeWidth}
+        strokeWidth={strokeWidth}
         stroke={strokeColor}
         fill="none"
         pathLength="100"
