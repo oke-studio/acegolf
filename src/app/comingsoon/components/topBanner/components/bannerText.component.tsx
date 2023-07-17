@@ -7,7 +7,6 @@ interface BannerTextProps {
   animationDelay: string;
   startOffsetPosition: string;
   children: React.ReactNode;
-  textWidth: number;
 }
 
 const START_OFFSET = '-20%';
@@ -19,7 +18,6 @@ export const BannerText = ({
   animationDuration,
   animationDelay,
   startOffsetPosition = START_OFFSET,
-  textWidth,
 }: BannerTextProps) => {
   const endOffsetPosition =
     eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +

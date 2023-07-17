@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { keyframes, styled } from '@mui/material';
 import { BannerText } from './components/bannerText.component';
-import { useTextWidth } from '@tag0/use-text-width';
 
 interface TopBannerProps {
   text: string;
@@ -12,8 +11,6 @@ const animationDuration = '20s';
 const initialStartOffset = '-50%';
 
 const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
-  const textWidth = useTextWidth({ text: text, font: '48px new-hero' });
-  console.log(textWidth);
   return (
     <>
       {Array(textCount)
@@ -25,7 +22,6 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
             animationDuration={animationDuration}
             pathId="#MyPath"
             startOffsetPosition={initialStartOffset}
-            textWidth={Math.ceil(textWidth)}
           >
             {text}
           </BannerText>
