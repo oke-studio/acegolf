@@ -77,6 +77,7 @@ interface TopBannerSVGWrapperProps {
   strokeColor?: string;
   textCount?: number;
   textPath?: string;
+  viewBox: string;
 }
 
 export const TopBanner = ({
@@ -88,12 +89,14 @@ export const TopBanner = ({
   text,
   textCount,
   textPath = 'MyPath',
+  viewBox = `0 0 ${width} ${height}`,
 }: TopBannerSVGWrapperProps) => {
   return (
     <svg
       width={width}
       height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      // viewBox={`0 0 ${width} ${height}`}
+      viewBox={viewBox}
       fill="none"
       // preserveAspectRatio="xMidYMid meet"
     >
