@@ -5,12 +5,13 @@ import { BannerText } from './components/bannerText.component';
 interface TopBannerProps {
   text: string;
   textCount?: number;
+  textPath: string;
 }
 
 const animationDuration = '20s';
 const initialStartOffset = '-50%';
 
-const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
+const TopBannerText = ({ text, textCount = 1, textPath }: TopBannerProps) => {
   return (
     <>
       {Array(textCount)
@@ -20,7 +21,7 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
             key={index}
             animationDelay={`${index * 5}s`}
             animationDuration={animationDuration}
-            pathId="#MyPath"
+            pathId={`#${textPath}`}
             startOffsetPosition={initialStartOffset}
           >
             {text}
@@ -75,6 +76,7 @@ interface TopBannerSVGWrapperProps {
   strokeWidth?: string;
   strokeColor?: string;
   textCount?: number;
+  textPath?: string;
 }
 
 export const TopBanner = ({
@@ -85,23 +87,25 @@ export const TopBanner = ({
   strokeColor = 'white',
   text,
   textCount,
+  textPath = 'MyPath',
 }: TopBannerSVGWrapperProps) => {
   return (
     <svg
       width={width}
       height={height}
       viewBox={`0 0 ${width} ${height}`}
+      fill="none"
       // preserveAspectRatio="xMidYMid meet"
     >
       <path
         {...pathProps}
-        id="MyPath"
+        id={textPath}
         strokeWidth={strokeWidth}
         stroke={strokeColor}
         fill="none"
         pathLength="100"
       />
-      <TopBannerText text={text} textCount={textCount} />
+      <TopBannerText text={text} textCount={textCount} textPath={textPath} />
     </svg>
   );
 };

@@ -42,6 +42,7 @@ export const BannerText = ({
           attributeName="startOffset"
           from={startOffsetPosition}
           to={endOffsetPosition}
+          // to="150%"
           dur={animationDuration}
           begin={animationDelay}
           repeatCount="indefinite"
