@@ -71,7 +71,7 @@ export default function ComingSoonPage() {
               position: 'relative',
             }}
           >
-            {[...Array(11)].map((_, index) => (
+            {[...Array(10)].map((_, index) => (
               <LogoMap key={index} />
             ))}
           </div>
@@ -113,7 +113,7 @@ export default function ComingSoonPage() {
             gap: '16px',
           }}
         >
-          {[...Array(11)].map((_, index) => (
+          {[...Array(15)].map((_, index) => (
             <LogoMap key={index} />
           ))}
         </div>
