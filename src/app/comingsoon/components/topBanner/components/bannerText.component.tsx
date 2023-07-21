@@ -9,7 +9,7 @@ interface BannerTextProps {
   children: React.ReactNode;
 }
 
-const START_OFFSET = '20%';
+const START_OFFSET = '-20%';
 
 export const BannerText = ({
   children,
@@ -19,12 +19,17 @@ export const BannerText = ({
   animationDelay,
   startOffsetPosition = START_OFFSET,
 }: BannerTextProps) => {
+  const endOffsetPosition =
+    eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +
+    '%';
+  console.log(endOffsetPosition);
+
   return (
     <text
       style={{
         fontFamily: 'new-hero',
         fontWeight: '800',
-        fontSize: '48px',
+        fontSize: '46px',
       }}
       fill={fill}
     >
@@ -32,14 +37,12 @@ export const BannerText = ({
         href={pathId}
         startOffset={startOffsetPosition}
         dominantBaseline="middle"
-        // textLength="100%"
-        textAnchor="end"
-        // style={{ paddingLeft: '12px' }}
       >
         <animate
           attributeName="startOffset"
           from={startOffsetPosition}
-          to="calc(100% + 1200px)"
+          to={endOffsetPosition}
+          // to="150%"
           dur={animationDuration}
           begin={animationDelay}
           repeatCount="indefinite"

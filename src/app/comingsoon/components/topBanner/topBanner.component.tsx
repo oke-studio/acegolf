@@ -5,12 +5,13 @@ import { BannerText } from './components/bannerText.component';
 interface TopBannerProps {
   text: string;
   textCount?: number;
+  textPath: string;
 }
 
 const animationDuration = '20s';
-const initialStartOffset = '0%';
+const initialStartOffset = '-50%';
 
-const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
+const TopBannerText = ({ text, textCount = 1, textPath }: TopBannerProps) => {
   return (
     <>
       {Array(textCount)
@@ -20,7 +21,7 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
             key={index}
             animationDelay={`${index * 5}s`}
             animationDuration={animationDuration}
-            pathId="#MyPath"
+            pathId={`#${textPath}`}
             startOffsetPosition={initialStartOffset}
           >
             {text}
@@ -64,22 +65,6 @@ const TopBannerText = ({ text, textCount = 1 }: TopBannerProps) => {
       </BannerText> */}
     </>
   );
-  //   return (
-  //     <Box
-  //       sx={{
-  //         width: '100%',
-  //         height: '100px',
-  //         background: 'white',
-  //         borderRadius: '4px',
-  //         // FONT
-  //         fontFamily: 'new-hero',
-  //         fontSize: '32px',
-  //         fontWeight: '700',
-  //       }}
-  //     >
-  //       {text}
-  //     </Box>
-  //   );
 };
 
 interface TopBannerSVGWrapperProps {
@@ -91,6 +76,8 @@ interface TopBannerSVGWrapperProps {
   strokeWidth?: string;
   strokeColor?: string;
   textCount?: number;
+  textPath?: string;
+  viewBox: string;
 }
 
 export const TopBanner = ({
@@ -101,18 +88,27 @@ export const TopBanner = ({
   strokeColor = 'white',
   text,
   textCount,
+  textPath = 'MyPath',
+  viewBox = `0 0 ${width} ${height}`,
 }: TopBannerSVGWrapperProps) => {
   return (
-    <svg width={width} height={height} viewBox={`0 0 ${1000} ${height}`}>
+    <svg
+      width={width}
+      height={height}
+      // viewBox={`0 0 ${width} ${height}`}
+      viewBox={viewBox}
+      fill="none"
+      // preserveAspectRatio="xMidYMid meet"
+    >
       <path
         {...pathProps}
-        id="MyPath"
-        stroke-width={strokeWidth}
+        id={textPath}
+        strokeWidth={strokeWidth}
         stroke={strokeColor}
         fill="none"
         pathLength="100"
       />
-      <TopBannerText text={text} textCount={textCount} />
+      <TopBannerText text={text} textCount={textCount} textPath={textPath} />
     </svg>
   );
 };

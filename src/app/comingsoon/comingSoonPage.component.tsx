@@ -40,24 +40,28 @@ export default function ComingSoonPage() {
     return (
       <PageWrapper>
         <PageMobileLayout>
-          {/* <div
+          <div
             style={{
               display: 'flex',
               flexDirection: 'row',
               overflow: 'hidden',
               position: 'relative',
+              width: '100%',
+              top: '35px',
+              transform: 'scale(1.6)',
             }}
           >
             <TopBanner
-              width="500"
-              height="200"
+              width="100%"
+              height="100%"
+              viewBox="0 0 1973 293"
               pathProps={{
-                d: 'M-226.67 189.767C10.6358 -37.7211 137.918 30.6693 65.6475 110.218C-6.62282 189.767 155.177 166.73 323.088 110.218C491 53.7061 774.56 56.2762 618.282 157.731C499.629 234.761 972.802 118.497 1029.25 102.659',
+                d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
               }}
-              strokeWidth="80.534"
               text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
+              textCount={4}
             />
-          </div> */}
+          </div>
           <ComingSoonInfoSectionMobile />
           <div
             style={{
@@ -67,7 +71,7 @@ export default function ComingSoonPage() {
               position: 'relative',
             }}
           >
-            {[...Array(11)].map((_, index) => (
+            {[...Array(10)].map((_, index) => (
               <LogoMap key={index} />
             ))}
           </div>
@@ -87,16 +91,16 @@ export default function ComingSoonPage() {
             width: '100vw',
           }}
         >
-          {/* <TopBanner
-            width="1458"
-            height="304"
+          <TopBanner
+            width="100%"
+            height="100%"
+            viewBox="0 0 1973 293"
             pathProps={{
-              d: 'M-203 263.241C127 -52.7594 304 42.2406 203.5 152.741C103 263.241 328 231.24 561.5 152.741C795 74.2407 1189.32 77.8108 972 218.741C807 325.741 1465 164.241 1543.5 142.241',
+              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
             }}
             text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
             textCount={4}
-          /> */}
-          .
+          />
         </div>
         <ComingSoonInfoSection />
 
@@ -109,7 +113,7 @@ export default function ComingSoonPage() {
             gap: '16px',
           }}
         >
-          {[...Array(11)].map((_, index) => (
+          {[...Array(18)].map((_, index) => (
             <LogoMap key={index} />
           ))}
         </div>

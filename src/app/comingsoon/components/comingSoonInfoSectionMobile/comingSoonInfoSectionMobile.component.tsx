@@ -144,7 +144,7 @@ const ComingSoonForm = () => {
 };
 
 const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
-  marginTop: '60px',
+  marginTop: '30px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
