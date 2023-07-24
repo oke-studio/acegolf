@@ -8,7 +8,7 @@ interface TopBannerProps {
   textPath: string;
 }
 
-const animationDuration = '30s';
+const animationDuration = '27s';
 const initialStartOffset = '-50%';
 
 const TopBannerText = ({ text, textCount = 1, textPath }: TopBannerProps) => {
@@ -19,7 +19,7 @@ const TopBannerText = ({ text, textCount = 1, textPath }: TopBannerProps) => {
         .map((_, index) => (
           <BannerText
             key={index}
-            animationDelay={`${index * 10}s`}
+            animationDelay={`${index * 6.7}s`}
             animationDuration={animationDuration}
             pathId={`#${textPath}`}
             startOffsetPosition={initialStartOffset}

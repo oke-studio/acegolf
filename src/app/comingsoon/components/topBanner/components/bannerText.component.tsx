@@ -20,7 +20,8 @@ export const BannerText = ({
   startOffsetPosition = START_OFFSET,
 }: BannerTextProps) => {
   const endOffsetPosition =
-    eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${50}`) + '%';
+    eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +
+    '%';
   console.log(endOffsetPosition);
 
   return (
