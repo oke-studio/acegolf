@@ -47,7 +47,7 @@ export const BannerText = ({
           begin={animationDelay}
           repeatCount="indefinite"
         />
-        &middot;&#xa0;&#xa0;{children}
+        {children}
       </textPath>
     </text>
   );
