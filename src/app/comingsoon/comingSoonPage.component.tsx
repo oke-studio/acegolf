@@ -48,7 +48,7 @@ export default function ComingSoonPage() {
               position: 'relative',
               width: '100%',
               top: '35px',
-              transform: 'scale(1.6)',
+              transform: 'scale(2)',
             }}
           >
             <TopBanner
@@ -70,6 +70,7 @@ export default function ComingSoonPage() {
               flexDirection: 'row',
               overflow: 'hidden',
               position: 'relative',
+              top: '25px',
             }}
           >
             {[...Array(10)].map((_, index) => (
