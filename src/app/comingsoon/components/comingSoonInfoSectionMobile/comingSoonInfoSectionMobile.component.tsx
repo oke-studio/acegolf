@@ -154,6 +154,8 @@ const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
   gap: '24px',
   marginLeft: '12px',
   marginRight: '12px',
+  position: 'relative',
+  top: '25px',
 }));
 
 const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({

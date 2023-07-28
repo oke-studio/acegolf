@@ -41,13 +41,13 @@ export const BannerText = ({
         <animate
           attributeName="startOffset"
           from={startOffsetPosition}
-          to={endOffsetPosition}
-          // to="150%"
+          // to={endOffsetPosition}
+          to="110%"
           dur={animationDuration}
           begin={animationDelay}
           repeatCount="indefinite"
         />
-        {children}
+        &middot;&#xa0;&#xa0;{children}
       </textPath>
     </text>
   );

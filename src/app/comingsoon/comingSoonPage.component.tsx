@@ -9,7 +9,7 @@ import { ComingSoonInfoSection } from './components/comingSoonInfoSection/coming
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { TopBanner } from './components/topBanner/topBanner.component';
 
-const backgroundColor = '#529DC8';
+const backgroundColor = '#E6E8E9';
 
 const PageWrapper = styled(Box)({
   backgroundColor: backgroundColor,
@@ -48,7 +48,7 @@ export default function ComingSoonPage() {
               position: 'relative',
               width: '100%',
               top: '35px',
-              transform: 'scale(1.6)',
+              transform: 'scale(2)',
             }}
           >
             <TopBanner
@@ -58,8 +58,9 @@ export default function ComingSoonPage() {
               pathProps={{
                 d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
               }}
-              text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
-              textCount={4}
+              text="TORONTO'S BEST INDOOR GOLF LOUNGE"
+              textCount={3}
+              strokeColor="#EB8B32"
             />
           </div>
           <ComingSoonInfoSectionMobile />
@@ -69,6 +70,7 @@ export default function ComingSoonPage() {
               flexDirection: 'row',
               overflow: 'hidden',
               position: 'relative',
+              top: '25px',
             }}
           >
             {[...Array(10)].map((_, index) => (
@@ -98,8 +100,9 @@ export default function ComingSoonPage() {
             pathProps={{
               d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
             }}
-            text="TORONTO'S FIRST EVER INDOOR GOLF LOUNGE"
-            textCount={4}
+            text="COMING SOON TORONTO'S BEST INDOOR GOLF LOUNGE"
+            textCount={3}
+            strokeColor="#EB8B32"
           />
         </div>
         <ComingSoonInfoSection />
