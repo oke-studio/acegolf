@@ -70,48 +70,25 @@ const StyledInput = styled(Input)(
   `,
 );
 
-const FooterButton = () => {
-  const formControlContext = useFormControl();
-  const [dirty, setDirty] = React.useState(false);
+// const FooterButton = () => {
+//   const formControlContext = useFormControl();
+//   const [dirty, setDirty] = React.useState(false);
 
-  React.useEffect(() => {
-    // console.log(formControlContext);
-    if (formControlContext?.filled) {
-      setDirty(true);
-    }
-  }, [formControlContext]);
+//   React.useEffect(() => {
+//     // console.log(formControlContext);
+//     if (formControlContext?.filled) {
+//       setDirty(true);
+//     }
+//   }, [formControlContext]);
 
-  if (formControlContext === undefined) {
-    return <Box component="span">Form is unavailable check again later</Box>;
-  }
+//   if (formControlContext === undefined) {
+//     return <Box component="span">Form is unavailable check again later</Box>;
+//   }
 
-  const { error, filled, required } = formControlContext;
-  const isInvalidForm = dirty && required && !filled;
+//   return (
 
-  const handleButtonSubmit = (
-    e: React.MouseEvent<HTMLButtonElement | HTMLFormElement>,
-  ) => {
-    e.preventDefault();
-    if (isInvalidForm) {
-      return null;
-    }
-
-    console.log('heerr', e.currentTarget.value);
-  };
-
-  return (
-    <StyledButton
-      disableElevation
-      disableFocusRipple
-      disableRipple
-      disableTouchRipple
-      //   onClick={(e) => handleSubmit(e)}
-      type="submit"
-    >
-      Sign Up
-    </StyledButton>
-  );
-};
+//   );
+// };
 
 interface FormikValuesProps {
   email?: string;
@@ -161,7 +138,14 @@ export const FooterEmail = () => {
       {(props) => {
         const { handleSubmit, handleChange } = props;
         return (
-          <Box component="form" autoComplete="off" onSubmit={handleSubmit}>
+          <Box
+            component="form"
+            autoComplete="off"
+            onSubmit={handleSubmit}
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
             <Box
               component={FormControl}
               sx={{
@@ -182,7 +166,16 @@ export const FooterEmail = () => {
                 type="email"
                 name="email"
               />
-              <FooterButton />
+              <StyledButton
+                disableElevation
+                disableFocusRipple
+                disableRipple
+                disableTouchRipple
+                //   onClick={(e) => handleSubmit(e)}
+                type="submit"
+              >
+                Sign Up
+              </StyledButton>
             </Box>
           </Box>
         );
