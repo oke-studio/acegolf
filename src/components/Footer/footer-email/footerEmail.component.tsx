@@ -143,6 +143,7 @@ export const FooterEmail = () => {
             autoComplete="off"
             onSubmit={handleSubmit}
             method="post"
+            name="homepage-email"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
@@ -156,7 +157,6 @@ export const FooterEmail = () => {
               }}
             >
               <input type="hidden" name="form-name" value="homepage-email" />
-
               <StyledInput
                 placeholder="Enter Your Email Address . . ."
                 fullWidth
