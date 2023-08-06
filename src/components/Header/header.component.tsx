@@ -120,16 +120,10 @@ export const Header = () => {
   const [mobileDropDownEnabled, setMobileDropDownEnabled] =
     React.useState(false);
 
-  const [isHovered, setIsHovered] = React.useState(false);
-
   // console.log(mobileDropDownEnabled);
 
   function toggleDropDown() {
     setMobileDropDownEnabled(!mobileDropDownEnabled);
-  }
-
-  function toggleHoveredState() {
-    setIsHovered(!isHovered);
   }
 
   return (
@@ -140,6 +134,9 @@ export const Header = () => {
           width: '100%',
           fontFamily: 'new-hero',
           justifyContent: 'center',
+          position: 'sticky',
+          top: '0px',
+          zIndex: theme.zIndex.appBar,
         }}
       >
         <HeaderContainer

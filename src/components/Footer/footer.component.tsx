@@ -17,8 +17,10 @@ import {
   styled,
   Button,
   buttonClasses,
+  Link,
 } from '@mui/material';
 import { FooterEmail } from './footer-email/footerEmail.component';
+import { FooterLinks } from './footer-links/footerLinks.component';
 
 const theme = createTheme({
   typography: {
@@ -84,7 +86,7 @@ export const Footer = () => {
             </Box>
           </Box>
         </Box>
-        {/* MID info section  */}
+        {/* MID info section */}
         <Box
           sx={{
             backgroundColor: theme.palette.primary.main,
@@ -104,73 +106,86 @@ export const Footer = () => {
               alignItems: 'center',
               textAlign: 'center',
               color: 'black',
+              alignSelf: 'flex-end',
             }}
           >
             <Box
               sx={{
-                typography: theme.typography.body1,
-                fontSize: '2rem',
-                fontWeight: theme.typography.fontWeightBold,
+                margin: '0 auto 0 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                width: '50vw',
+                height: '100%',
+                alignItems: 'center',
               }}
             >
-              ACE GOLF
-            </Box>
-            <Box
-              sx={{
-                typography: theme.typography.body1,
-                fontSize: '5rem',
-                fontWeight: theme.typography.fontWeightBold,
-                marginBottom: '12px',
-              }}
-            >
-              FIND YOUR SWING
-            </Box>
-            <Box
-              sx={{
-                typography: theme.typography.body1,
-              }}
-            >
-              Hours:
-              <TableContainer>
-                <Table
-                  sx={{ minWidth: '100%' }}
-                  size="small"
-                  aria-label="hours table"
-                >
-                  <TableBody>
-                    <TableRow
-                      sx={{
-                        'td, th': {
-                          borderBottom: '0 none black',
-                          color: 'black',
-                        },
-                      }}
-                    >
-                      <TableCell component="th" scope="row" align="right">
-                        MONDAY - SATURDAY
-                      </TableCell>
-                      <TableCell align="left">10AM ~ 12AM</TableCell>
-                    </TableRow>
-                    <TableRow
-                      sx={{
-                        'td, th': {
-                          borderBottom: '0 none black',
-                          color: 'black',
-                        },
-                      }}
-                    >
-                      <TableCell component="th" scope="row" align="right">
-                        SUNDAY
-                      </TableCell>
-                      <TableCell align="left">12PM ~ 7PM</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
+              <Box
+                sx={{
+                  typography: theme.typography.body1,
+                  fontSize: '2rem',
+                  fontWeight: theme.typography.fontWeightBold,
+                }}
+              >
+                ACE GOLF
+              </Box>
+              <Box
+                sx={{
+                  typography: theme.typography.body1,
+                  fontSize: '5rem',
+                  fontWeight: theme.typography.fontWeightBold,
+                  marginBottom: '12px',
+                }}
+              >
+                FIND YOUR SWING
+              </Box>
+              <Box
+                sx={{
+                  typography: theme.typography.body1,
+                }}
+              >
+                Hours:
+                <TableContainer>
+                  <Table
+                    sx={{ minWidth: '100%' }}
+                    size="small"
+                    aria-label="hours table"
+                  >
+                    <TableBody>
+                      <TableRow
+                        sx={{
+                          'td, th': {
+                            borderBottom: '0 none black',
+                            color: 'black',
+                          },
+                        }}
+                      >
+                        <TableCell component="th" scope="row" align="right">
+                          MONDAY - SATURDAY
+                        </TableCell>
+                        <TableCell align="left">10AM ~ 12AM</TableCell>
+                      </TableRow>
+                      <TableRow
+                        sx={{
+                          'td, th': {
+                            borderBottom: '0 none black',
+                            color: 'black',
+                          },
+                        }}
+                      >
+                        <TableCell component="th" scope="row" align="right">
+                          SUNDAY
+                        </TableCell>
+                        <TableCell align="left">12PM ~ 7PM</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
             </Box>
           </Box>
         </Box>
-        <div>Bottom</div>
+        {/* BOTTOM links section */}
+        <FooterLinks />
       </Box>
     </ThemeProvider>
   );
