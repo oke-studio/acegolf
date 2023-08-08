@@ -3,25 +3,14 @@ import * as React from 'react';
 import {
   Box,
   Link,
-  createTheme,
   styled,
   linkClasses,
   typographyClasses,
   useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import Image from 'next/image';
 import { FooterGolf } from './components/footer-golf-arrangement/footerGolfArrangement.component';
-
-const theme = createTheme({
-  typography: {
-    fontFamily: 'new-hero',
-  },
-  palette: {
-    primary: {
-      main: '#EB8B32',
-    },
-  },
-});
 
 const StyledLinks = styled(Link)(({ theme: t }) => ({
   color: 'white',
@@ -79,6 +68,7 @@ const FooterSocialsImages = [
 
 export const CommonFooterLinks = () => {
   const isMobile = useMediaQuery('(max-width:640px)');
+  const { typography, palette } = useTheme();
 
   if (isMobile) {
     const MobileFooterLinksArray = [
@@ -163,7 +153,8 @@ export const CommonFooterLinks = () => {
             </StyledLinksWrapper>
             <StyledLinksWrapper
               sx={{
-                fontWeight: theme.typography.fontWeightBold,
+                typography: typography.hero_super,
+                fontSize: '14px',
                 // display: 'flex',
                 // justifyContent: 'end',
                 // alignItems: 'flex-end',
@@ -215,7 +206,7 @@ export const CommonFooterLinks = () => {
                 color="white"
                 sx={{
                   '&:hover': {
-                    color: theme.palette.primary.main,
+                    color: palette.primary.main,
                   },
                   mixBlendMode: 'difference',
                 }}
@@ -233,7 +224,7 @@ export const CommonFooterLinks = () => {
                 color="white"
                 sx={{
                   '&:hover': {
-                    color: theme.palette.primary.main,
+                    color: palette.primary.main,
                   },
                   mixBlendMode: 'difference',
                 }}
@@ -251,7 +242,7 @@ export const CommonFooterLinks = () => {
                 color="white"
                 sx={{
                   '&:hover': {
-                    color: theme.palette.primary.main,
+                    color: palette.primary.main,
                   },
                   mixBlendMode: 'difference',
                 }}
@@ -284,7 +275,7 @@ export const CommonFooterLinks = () => {
         </Box>
         <Box
           sx={{
-            fontWeight: theme.typography.fontWeightBold,
+            fontWeight: typography.fontWeightBold,
             display: 'flex',
             justifyContent: 'end',
             alignItems: 'flex-end',
@@ -301,13 +292,16 @@ export const CommonFooterLinks = () => {
 };
 
 export const FooterLinks = () => {
+  const { typography } = useTheme();
+
   return (
     <Box
       sx={{
         display: 'flex',
         minHeight: '500px',
         width: '100%',
-        typography: theme.typography,
+        typography: typography.hero_light,
+        fontSize: '14px',
         color: 'white',
         position: 'relative',
         flexDirection: 'column',

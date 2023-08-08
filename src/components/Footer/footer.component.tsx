@@ -22,30 +22,14 @@ import {
 import { FooterEmail } from './footer-email/footerEmail.component';
 import { FooterLinks } from './footer-links/footerLinks.component';
 
-const theme = createTheme({
-  typography: {
-    fontFamily: 'new-hero',
-  },
-  palette: {
-    primary: {
-      main: '#EB8B32',
-    },
-  },
-});
-
-const fontStyle = {
-  fontFamily: 'new-hero',
-  fontSize: '14px',
-};
-
 // console.log(theme.typography);
 
 export const Footer = () => {
   // console.log(inputClasses);
   return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" flexDirection="column">
-        <Box
+    <Box display="flex" flexDirection="column">
+      {/* TOP email section */}
+      {/* <Box
           sx={{
             backgroundColor: 'black',
             display: 'flex',
@@ -85,9 +69,9 @@ export const Footer = () => {
               promotions
             </Box>
           </Box>
-        </Box>
-        {/* MID info section */}
-        <Box
+        </Box> */}
+      {/* MID info section */}
+      {/* <Box
           sx={{
             backgroundColor: theme.palette.primary.main,
             display: 'flex',
@@ -183,10 +167,9 @@ export const Footer = () => {
               </Box>
             </Box>
           </Box>
-        </Box>
-        {/* BOTTOM links section */}
-        <FooterLinks />
-      </Box>
-    </ThemeProvider>
+        </Box> */}
+      {/* BOTTOM links section */}
+      <FooterLinks />
+    </Box>
   );
 };

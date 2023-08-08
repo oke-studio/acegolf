@@ -9,7 +9,6 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      <Header navOptions={['Home', 'Events', 'Pricing', 'About']} />
       {children}
       <Footer />
     </>
