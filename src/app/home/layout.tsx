@@ -9,7 +9,14 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      <Header navOptions={['Home', 'Events', 'Pricing', 'About']} />
+      <Header
+        navOptions={[
+          { label: 'Food + Drink', to: '/menu' },
+          { label: 'Events', to: '/events' },
+          { label: 'Pricing', to: '/pricing' },
+          { label: 'About', to: '/about' },
+        ]}
+      />
       {children}
       <Footer />
     </>
