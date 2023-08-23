@@ -17,7 +17,14 @@ export default function Home() {
       }}
     >
       <MenuBackground />
-      <Header navOptions={['Food + Drink', 'Events', 'Pricing', 'About']} />
+      <Header
+        navOptions={[
+          { label: 'Food + Drink', to: '/menu' },
+          { label: 'Events', to: '/events' },
+          { label: 'Pricing', to: '/pricing' },
+          { label: 'About', to: '/about' },
+        ]}
+      />
       <MenuCarousel />
     </Box>
   );

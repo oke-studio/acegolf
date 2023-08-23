@@ -16,6 +16,8 @@ import {
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
+// import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const aceOrange = '#EB8B32';
 
@@ -41,16 +43,26 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
 
 // console.log(theme.typography.body1);
 
-export const Header = ({ navOptions }: { navOptions: string[] }) => {
+interface NavOptions {
+  label: string;
+  to: string;
+}
+interface HeaderProps {
+  navOptions: NavOptions[];
+}
+
+export const Header = ({ navOptions }: HeaderProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:425px)');
   const [mobileDropDownEnabled, setMobileDropDownEnabled] =
     React.useState(false);
+  const router = useRouter();
 
   // console.log(mobileDropDownEnabled);
 
   function toggleDropDown() {
     setMobileDropDownEnabled(!mobileDropDownEnabled);
+    console.log('here');
   }
 
   return (
@@ -98,8 +110,12 @@ export const Header = ({ navOptions }: { navOptions: string[] }) => {
           >
             {navOptions.map((navLink, i) => (
               <ListItem disablePadding key={i}>
-                <StyledListItemButton>
-                  <MotionSpanAnimated label={navLink} />
+                <StyledListItemButton
+                  onClick={() => {
+                    router.push(navLink.to);
+                  }}
+                >
+                  <MotionSpanAnimated label={navLink.label} />
                 </StyledListItemButton>
               </ListItem>
             ))}

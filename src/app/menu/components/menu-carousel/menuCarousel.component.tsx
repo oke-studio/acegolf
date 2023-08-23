@@ -9,8 +9,7 @@ import {
   tabClasses,
   useTheme,
   Button,
-  buttonClasses,
-  buttonBaseClasses,
+  useMediaQuery,
 } from '@mui/material';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 import zIndex from '@mui/material/styles/zIndex';
@@ -34,7 +33,7 @@ const StyledDownloadButton = styled(Button)(
   border-radius: 33px;
   padding: 16px 48px;
   font-weight: ${theme.typography.hero_super.fontWeight};
-  font-size: 18px;
+  font-size: calc(18px + 0.390625vw);
   border: solid 2px black;
   &:hover {
     background-color: white;
@@ -84,13 +83,14 @@ const MenuSection = ({
   menuSection: string;
 }) => {
   const { typography, palette } = useTheme();
-  console.log(typography.hero_semibold);
+  const isMobile = useMediaQuery('(max-width:640px)');
+  // console.log(typography.hero_semibold);
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <Box
         sx={{
-          fontSize: '28px',
-          ...typography.hero_semibold,
+          ...typography.hero_super_italic,
+          fontSize: isMobile ? '60px' : '70px',
           fontFamily: typography.fontFamily,
         }}
         id={`${menuSection}_list`}
@@ -108,8 +108,39 @@ const MenuSection = ({
             sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
             component="li"
           >
-            <Box sx={{ ...typography.hero_medium, fontSize: '14px' }}>
-              {option.menuItem}
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Box
+                sx={{
+                  ...typography.hero_medium,
+                  fontSize: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {option.menuItem}
+              </Box>
+              <Box
+                sx={{
+                  borderWidth: 0,
+                  borderStyle: 'dashed',
+                  borderBottomWidth: '1px',
+                  transform: 'translateY(-40%)',
+                  // width: '100%',
+                  flexGrow: 2,
+                  margin: '0 8px',
+                  display: 'flex',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  ...typography.hero_regular,
+                  fontSize: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {option.price}
+              </Box>
             </Box>
             <Box sx={{ ...typography.hero_light_italic, fontSize: '10px' }}>
               {option.ingredients}
@@ -123,6 +154,7 @@ const MenuSection = ({
 
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
+  const isMobile = useMediaQuery('(max-width:640px)');
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -135,7 +167,7 @@ export const MenuCarousel = () => {
     };
   }
 
-  console.log(tabClasses);
+  // console.log(tabClasses);
   return (
     <Box
       sx={{
@@ -152,13 +184,18 @@ export const MenuCarousel = () => {
           flexDirection: 'column',
           gap: '32px',
           margin: '100px auto',
-          minWidth: '1084px',
+          maxWidth: '1084px',
+          width: '100%',
         }}
       >
         <StyledMenuCarouselWrapper>
           <Box sx={{ margin: '24px' }}>
             <Box
-              sx={{ fontWeight: '900', fontStyle: 'italic', fontSize: '100px' }}
+              sx={{
+                fontWeight: '900',
+                fontStyle: 'italic',
+                fontSize: isMobile ? '60px' : '100px',
+              }}
             >
               GOLF & <br />
               &nbsp;&nbsp;&nbsp;GORUMET
@@ -168,8 +205,15 @@ export const MenuCarousel = () => {
               <Tabs
                 value={value}
                 onChange={handleChange}
-                aria-label="basic tabs example"
-                sx={{ flexDirection: 'column' }}
+                aria-label="menu tabs"
+                sx={{
+                  flexDirection: 'column',
+                  // justifyContent: isMobile ? 'center' : 'initial',
+                  '.MuiTabs-indicator': {
+                    backgroundColor: 'transparent',
+                  },
+                }}
+                centered={isMobile}
               >
                 <StyledTab
                   label={<MotionSpanAnimated label="Big Bites" />}
@@ -190,7 +234,7 @@ export const MenuCarousel = () => {
 
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
               <MenuSection
-                menuSection="SHAREABLES"
+                menuSection="BIG BITES"
                 menuOptions={[
                   {
                     menuItem: 'Margherita Pizza',
@@ -215,32 +259,7 @@ export const MenuCarousel = () => {
                 ]}
               />
               <MenuSection
-                menuSection="MAINS"
-                menuOptions={[
-                  {
-                    menuItem: 'Margherita Pizza',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Margherita Pizza',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Margherita Pizza',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Margherita Pizza',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              />
-              <MenuSection
-                menuSection="SANDWICHES"
+                menuSection="SMALL BITES"
                 menuOptions={[
                   {
                     menuItem: 'Margherita Pizza',
@@ -268,7 +287,7 @@ export const MenuCarousel = () => {
           </Box>
         </StyledMenuCarouselWrapper>
         <StyledDownloadButton
-          sx={{ width: 'max-content', alignSelf: 'flex-end' }}
+          sx={{ alignSelf: isMobile ? 'center' : 'flex-end' }}
           disableRipple
         >
           {/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}

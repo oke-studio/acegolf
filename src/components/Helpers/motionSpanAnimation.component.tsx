@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion, Transition, Variants } from 'framer-motion';
+import { motion, Transition, useAnimation, Variants } from 'framer-motion';
 import { useTheme } from '@mui/material';
 
 function RNG(min: number, max: number) {
@@ -118,7 +118,12 @@ export const MotionSpanAnimated = ({
   variant?: 'book' | 'default';
 }) => {
   return (
-    <motion.span initial="rest" whileHover="hovered" animate="rest">
+    <motion.span
+      initial="rest"
+      whileHover="hovered"
+      animate="rest"
+      whileFocus="hovered"
+    >
       {label.split(/(?:)/).map((word, index) => {
         if (word === ' ') {
           return <motion.span key={index}>&nbsp;</motion.span>;
