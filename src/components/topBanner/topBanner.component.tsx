@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { keyframes, styled } from '@mui/material';
 import { BannerText } from './components/bannerText.component';
 
 interface TopBannerProps {

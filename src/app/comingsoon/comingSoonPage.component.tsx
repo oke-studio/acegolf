@@ -7,7 +7,7 @@ import { styled } from '@mui/material';
 import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionMobile/comingSoonInfoSectionMobile.component';
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
-import { TopBanner } from './components/topBanner/topBanner.component';
+import { TopBanner } from '../../components/topBanner/topBanner.component';
 
 const backgroundColor = '#E6E8E9';
 
