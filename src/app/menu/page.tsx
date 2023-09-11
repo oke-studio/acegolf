@@ -19,7 +19,7 @@ export default function Home() {
       <MenuBackground />
       <Header
         navOptions={[
-          { label: 'Food + Drink', to: '/menu' },
+          { label: 'Menu', to: '/menu' },
           { label: 'Events', to: '/events' },
           { label: 'Pricing', to: '/pricing' },
           { label: 'About', to: '/about' },
