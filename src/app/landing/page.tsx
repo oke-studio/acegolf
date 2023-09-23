@@ -411,8 +411,9 @@ export default function Home() {
             fontFamily: typography.fontFamily,
             justifyContent: 'space-between',
             flexDirection: isMobile ? 'column' : 'row',
-            alignItems: 'flex-start',
-            ...(isMobile && { gap: '20px' }),
+            alignItems: isMobile ? 'center' : 'flex-start',
+            gap: isMobile ? '20px' : '40px',
+            width: '100%',
           }}
         >
           <Box
