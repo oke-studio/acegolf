@@ -89,13 +89,23 @@ const LandingImageBoxOne = () => {
   return <Box sx={{ backgroundColor: 'purple' }}></Box>;
 };
 
-const MidPart = () => {
+const FindYourSwingRibbon = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
+
   return (
-    <Box sx={{ position: 'absolute', left: 0, top: '-280px' }}>
+    <Box
+      sx={{
+        width: '100%',
+        position: 'absolute',
+        left: 0,
+        // top: isMobile ? '-240px' : '-280px',
+        bottom: isMobile ? '95%' : '89%',
+      }}
+    >
       <svg
         width="100%"
-        height="410"
+        height="auto"
         viewBox="0 0 1440 410"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +117,7 @@ const MidPart = () => {
           fill="blue"
         /> */}
         <path
-          d="M -457.558 370.202 C -18.9085 -68.5298 221.826 57.7423 88.5316 210.856 C -44.7626 363.97 258.103 315.64 571.475 203.565 C 884.847 91.4909 1416.86 88.3412 1126.6 285.436 C 906.226 435.078 1790.54 200.887 1692 328"
+          d="M -457.558 370.202 C -18.9085 -68.5298 221.826 57.7423 88.5316 210.856 C -44.7626 363.97 258.103 315.64 571.475 203.565 C 884.847 91.4909 1416.86 88.3412 1126.6 285.436 C 906.226 435.078 1790.54 200.887 1685 370.202"
           strokeWidth={103}
           stroke="white"
           fill={theme.palette.primary.main}
@@ -249,18 +259,19 @@ const HeroImageOne = () => {
 
 const HowItWorksSection = () => {
   const { palette, typography } = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
 
-  const StyledButton = styled(Button)(
-    ({ theme }) => `
-        color: white;
-        gap: 12px;
-        font-size: 24px;
-        text-transform: none;
-        background-color: #529DC8;
-        width: max-content;
-        font-style: bold;
-  `,
-  );
+  // const StyledButton = styled(Button)(
+  //   ({ theme }) => `
+  //       color: white;
+  //       gap: 12px;
+  //       font-size: 24px;
+  //       text-transform: none;
+  //       background-color: #529DC8;
+  //       width: max-content;
+  //       font-style: bold;
+  // `,
+  // );
   return (
     <Box
       sx={{
@@ -271,53 +282,86 @@ const HowItWorksSection = () => {
         fontFamily: typography.fontFamily,
       }}
     >
-      <Box sx={{ margin: '28px auto', maxWidth: '1084px', width: '100%' }}>
-        <MidPart />
-        <Box sx={{ display: 'flex', margin: 'auto 24px' }}>
-          <Box>
-            <Box
-              sx={{
-                fontWeight: '900',
-                fontStyle: 'italic',
-                color: 'black',
-                fontSize: '120px',
-              }}
-            >
-              {/* <Box>DRINKS</Box>
-              <Box>FOOD</Box>
-              <Box>& GOLF</Box> */}
-              <StackedTextComponent
+      <Box
+        sx={{
+          margin: '28px auto',
+          maxWidth: '1084px',
+          width: '100%',
+          display: 'flex',
+        }}
+      >
+        <FindYourSwingRibbon />
+        <Box
+          sx={{
+            display: 'flex',
+            margin: 'auto 24px',
+            padding: '16px 0px',
+            position: 'relative',
+            width: 'auto',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100%',
+              minWidth: '200px',
+              gap: '52px',
+              ...(isMobile && { justifyContent: 'space-between' }),
+            }}
+          >
+            <Box sx={{ width: 'max-content' }}>
+              <Box
+                sx={{
+                  fontWeight: '900',
+                  fontStyle: 'italic',
+                  color: 'black',
+                  fontSize: isMobile ? '56.25px' : '120px',
+                  lineHeight: '70%',
+                }}
+              >
+                <Box>DRINKS</Box>
+                <Box sx={{ marginLeft: isMobile ? '13px' : '26px' }}>FOOD</Box>
+                <Box sx={{ marginLeft: '22px' }}>& GOLF</Box>
+                {/* <StackedTextComponent
                 wordStack={['DRINKS', 'FOOD', '& GOLF']}
                 xOffSet={20}
                 yOffSet={80}
                 fontSize={120}
-              />
+              /> */}
+              </Box>
+              <Box
+                sx={{
+                  color: 'white',
+                  ...typography.hero_medium,
+                  fontSize: isMobile ? '16px' : '24px',
+                }}
+              >
+                Something about indoor golf
+                <br /> Learn about our facilities. <br /> Find your swing
+              </Box>
             </Box>
-            <Box
-              sx={{
-                color: 'white',
-                ...typography.hero_medium,
-                fontSize: '24px',
-              }}
-            >
-              Something about indoor golf
-              <br /> Learn about our facilities. <br /> Find your swing
+            <Box sx={{ width: isMobile ? '100%' : '300px' }}>
+              <Button
+                sx={{
+                  backgroundColor: '#529DC8',
+                  textTransform: 'none',
+                  color: 'white',
+                  borderRadius: '33px',
+                  padding: '14px 14px',
+                  ...typography.hero_bold,
+                  fontSize: isMobile ? '20px' : '24px',
+                  ':hover': {
+                    backgroundColor: '#529DC8',
+                  },
+                }}
+                fullWidth
+                disableRipple
+              >
+                How it Works &rarr;
+              </Button>
             </Box>
-
-            <StyledButton
-              sx={{
-                color: 'white',
-                borderRadius: '33px',
-                padding: '14px 14px',
-                ...typography.hero_bold,
-                fontSize: '24px',
-              }}
-            >
-              How it Works
-              <East />
-            </StyledButton>
           </Box>
-
           <TigerImage />
         </Box>
         <Box></Box>
