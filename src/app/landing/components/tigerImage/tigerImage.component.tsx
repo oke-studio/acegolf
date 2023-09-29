@@ -4,7 +4,7 @@ import { Box, useMediaQuery } from '@mui/material';
 export const TigerImage = () => {
   const isMobile = useMediaQuery('(max-width:640px)');
   return (
-    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+    <Box sx={{ display: 'flex', alignItems: 'flex-end', zIndex: 6 }}>
       <Box
         sx={{
           position: 'absolute',

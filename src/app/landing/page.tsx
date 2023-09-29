@@ -2,46 +2,22 @@
 
 import * as React from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
-import { Button, styled } from '@mui/material';
+import {
+  Button,
+  styled,
+  TableBody,
+  TableCell,
+  TableRow,
+  TableContainer,
+  Table,
+} from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { TopBanner } from '@/components/topBanner/topBanner.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
-import { East } from '@mui/icons-material';
+import { FooterEmail } from '@/components/Footer/footer-email/footerEmail.component';
 
 import { TigerImage } from './components/tigerImage/tigerImage.component';
-
-const StackedTextComponent = ({
-  wordStack,
-  xOffSet,
-  yOffSet,
-  fontSize,
-}: {
-  wordStack: string[];
-  xOffSet: number;
-  yOffSet: number;
-  fontSize: number;
-}) => {
-  return (
-    <Box
-      sx={{ position: 'relative', height: `${fontSize * wordStack.length}px` }}
-    >
-      {wordStack.map((word, index) => (
-        <Box
-          sx={{
-            position: 'absolute',
-            top: yOffSet * index,
-            left: xOffSet * index,
-            width: 'max-content',
-          }}
-          key={index}
-        >
-          {word}
-        </Box>
-      ))}
-    </Box>
-  );
-};
 
 const MapSVG = () => (
   <svg
@@ -278,7 +254,7 @@ const HowItWorksSection = () => {
         display: 'flex',
         position: 'relative',
         backgroundColor: palette.primary.main,
-        height: '700px',
+        // height: '520px',
         fontFamily: typography.fontFamily,
       }}
     >
@@ -294,7 +270,7 @@ const HowItWorksSection = () => {
         <Box
           sx={{
             display: 'flex',
-            margin: 'auto 24px',
+            margin: '24px 24px',
             padding: '16px 0px',
             position: 'relative',
             width: 'auto',
@@ -308,6 +284,7 @@ const HowItWorksSection = () => {
               minWidth: '200px',
               gap: '52px',
               ...(isMobile && { justifyContent: 'space-between' }),
+              zIndex: 7,
             }}
           >
             <Box sx={{ width: 'max-content' }}>
@@ -368,6 +345,135 @@ const HowItWorksSection = () => {
       </Box>
     </Box>
   );
+};
+
+const BecomeAMemberSection = () => {
+  const isMobile = useMediaQuery('(max-width:640px)');
+  const { typography } = useTheme();
+  return (
+    <Box sx={{ backgroundColor: 'black' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          fontFamily: typography.fontFamily,
+          margin: '52px auto',
+          maxWidth: '1084px',
+          width: '100%',
+        }}
+      >
+        {/* Become a member */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: isMobile ? 'center' : 'start',
+            '& .MuiButtonBase-root': {
+              color: 'white',
+              backgroundColor: '#529DC8',
+              borderRadius: '33px',
+              justifyContent: 'center',
+              textTransform: 'none',
+              minWidth: '350px',
+            },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              ...typography.hero_super_italic,
+              fontSize: isMobile ? '48px' : '120px',
+              lineHeight: '70%',
+            }}
+          >
+            <Box>BECOME A</Box>
+            <Box sx={{ marginLeft: '24px' }}>MEMBER</Box>
+          </Box>
+          <Box
+            sx={{
+              ...typography.hero_medium,
+              fontSize: isMobile ? '16px' : '24px',
+            }}
+          >
+            Blurb about membership
+          </Box>
+          <Button
+            sx={{ ...typography.hero_bold, fontSize: '24px' }}
+            disableElevation
+            disableFocusRipple
+            disableRipple
+            disableTouchRipple
+          >
+            Learn More &rarr;
+          </Button>
+        </Box>
+        {/* Play in a tourney */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            '& .MuiButtonBase-root': {
+              color: 'black',
+              backgroundColor: 'white',
+              borderRadius: '33px',
+              justifyContent: 'center',
+              textTransform: 'none',
+              minWidth: '350px',
+            },
+            alignItems: isMobile ? 'center' : 'end',
+            gap: '52px',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              ...typography.hero_super_italic,
+              fontSize: isMobile ? '48px' : '120px',
+              lineHeight: '70%',
+            }}
+          >
+            <Box>PLAY IN A</Box>
+            <Box sx={{ marginLeft: '24px' }}>TOURNEY</Box>
+          </Box>
+          <Box
+            sx={{
+              ...typography.hero_medium,
+              fontSize: isMobile ? '16px' : '24px',
+              display: 'flex',
+              textAlign: 'end',
+              flexDirection: 'column',
+              gap: '48px',
+            }}
+          >
+            <Box>
+              Feeling competitive? <br /> Participate in our tourneys and <br />{' '}
+              see if you have what it takes to claim the top spot
+            </Box>
+            <Box>Sign up now and get ready to ACE the competetion!</Box>
+          </Box>
+
+          <Button
+            sx={{ ...typography.hero_bold, fontSize: '24px' }}
+            disableElevation
+            disableFocusRipple
+            disableRipple
+            disableTouchRipple
+          >
+            Register Now!
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const MenuSection = () => {
+  const isMobile = useMediaQuery('(max-width:640px)');
+  const { typography } = useTheme();
+
+  return <Box sx={{ backgroundColor: 'black' }}>Hi There</Box>;
 };
 
 const GolfLoungeCopyComponent = () => {
@@ -663,6 +769,103 @@ export default function Home() {
       </Box>
 
       <HowItWorksSection />
+      <MenuSection />
+      <FooterEmail />
+      <BecomeAMemberSection />
+      {/* Golf Info Component */}
+      {!isMobile && (
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            '::before': {
+              content: "''",
+              width: '100%',
+              height: '120%',
+              backgroundColor: 'black',
+            },
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: 'white',
+              display: 'flex',
+              borderRadius: '50% 50% 0 0/100% 100% 0 0',
+              color: 'black',
+              justifyContent: 'center',
+              height: '450px',
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                fontFamily: typography.fontFamily,
+                flexDirection: 'column',
+                textAlign: 'center',
+                justifyContent: 'end',
+                gap: '24px',
+              }}
+            >
+              <Box sx={{ ...typography.hero_super, fontSize: '48px' }}>
+                ACE GOLF
+              </Box>
+              <Box
+                sx={{
+                  ...typography.hero_super,
+                  fontSize: '65px',
+                }}
+              >
+                FIND YOUR SWING
+              </Box>
+              <Box
+                sx={{
+                  fontFamily: typography.fontFamily,
+                  ...typography.hero_medium,
+                  fontSize: '24px',
+                }}
+              >
+                HOURS:
+                <TableContainer>
+                  <Table
+                    sx={{ minWidth: '100%' }}
+                    size="small"
+                    aria-label="hours table"
+                  >
+                    <TableBody>
+                      <TableRow
+                        sx={{
+                          'td, th': {
+                            borderBottom: '0 none black',
+                            color: 'black',
+                          },
+                        }}
+                      >
+                        <TableCell component="th" scope="row" align="right">
+                          MONDAY - SATURDAY
+                        </TableCell>
+                        <TableCell align="left">10AM ~ 12AM</TableCell>
+                      </TableRow>
+                      <TableRow
+                        sx={{
+                          'td, th': {
+                            borderBottom: '0 none black',
+                            color: 'black',
+                          },
+                        }}
+                      >
+                        <TableCell component="th" scope="row" align="right">
+                          SUNDAY
+                        </TableCell>
+                        <TableCell align="left">12PM ~ 7PM</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 }

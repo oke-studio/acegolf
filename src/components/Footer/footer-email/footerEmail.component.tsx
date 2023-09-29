@@ -9,7 +9,8 @@ import {
   Input,
   inputClasses,
   useTheme,
-  useFormControl,
+  TextField,
+  useMediaQuery,
 } from '@mui/material';
 import { Formik } from 'formik';
 
@@ -96,6 +97,7 @@ interface FormikValuesProps {
 
 export const FooterEmail = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
 
   //   const handleSubmit = (values: FormikValuesProps) => {
   //     values.preventDefault();
@@ -154,28 +156,147 @@ export const FooterEmail = () => {
                 alignItems: 'flex-start',
                 width: '100%',
                 gap: '20px',
+                backgroundColor: '#39775E',
+                borderRadius: '26px',
+                fontFamily: theme.typography.fontFamily,
               }}
             >
-              <input type="hidden" name="form-name" value="homepage-email" />
-              <StyledInput
-                placeholder="Enter Your Email Address . . ."
-                fullWidth
-                required
-                onChange={handleChange}
-                id="email-form"
-                type="email"
-                name="email"
-              />
-              <StyledButton
-                disableElevation
-                disableFocusRipple
-                disableRipple
-                disableTouchRipple
-                //   onClick={(e) => handleSubmit(e)}
-                type="submit"
+              <Box
+                sx={{
+                  margin: '100px auto',
+                  padding: '0 28px',
+                  maxWidth: '1084px',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '24px',
+                  '& .MuiInputBase-root': {
+                    color: theme.palette.primary.main,
+                    padding: '16px 0',
+                    fontSize: isMobile ? '40px' : '64px',
+                    minHeight: '150px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    color: theme.palette.primary.main,
+                    border: 'none',
+                  },
+                  position: 'relative',
+                }}
               >
-                Sign Up
-              </StyledButton>
+                {/* Promotions Component */}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    backgroundColor: 'transparent',
+                    ...theme.typography.hero_super_italic,
+                    fontSize: isMobile ? '48px' : '120px',
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    bottom: '120%',
+                    color: 'white',
+                    flexDirection: 'column',
+                    width: '100%',
+                  }}
+                >
+                  <Box sx={{ textAlign: 'center' }}>PROMOTIONS</Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: isMobile ? 'center' : 'space-between',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: '300px',
+                        height: '300px',
+                        borderRadius: '8px',
+                        backgroundColor: 'white',
+                      }}
+                    ></Box>
+                    {!isMobile && (
+                      <>
+                        <Box
+                          sx={{
+                            width: '300px',
+                            height: '300px',
+                            borderRadius: '8px',
+                            backgroundColor: 'white',
+                          }}
+                        ></Box>
+                        <Box
+                          sx={{
+                            width: '300px',
+                            height: '300px',
+                            borderRadius: '8px',
+                            backgroundColor: 'white',
+                          }}
+                        ></Box>
+                      </>
+                    )}
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    color: 'white',
+                    ...theme.typography.hero_bold,
+                    fontSize: '24px',
+                  }}
+                >
+                  Be the first to know about the latest ACE Golf promos and
+                  events!
+                </Box>
+                <input type="hidden" name="form-name" value="homepage-email" />
+                {/* <StyledInput
+                  placeholder="Enter Your Email Address . . ."
+                  fullWidth
+                  required
+                  onChange={handleChange}
+                  id="email-form"
+                  type="email"
+                  name="email"
+                /> */}
+                <TextField
+                  sx={{}}
+                  // inputProps={{ id: 'email-form', color: 'orange' }}
+                  // InputProps={{
+                  //   startAdornment: (
+                  //     <InputAdornment position="start">kg</InputAdornment>
+                  //   ),
+                  // }}
+                  placeholder="Enter Your Email Address . . ."
+                  fullWidth
+                  multiline
+                  required
+                  onChange={handleChange}
+                  id="email-form"
+                  type="email"
+                  name="email"
+                />
+                <StyledButton
+                  sx={{ ...theme.typography.hero_bold, fontSize: '24px' }}
+                  disableElevation
+                  disableFocusRipple
+                  disableRipple
+                  disableTouchRipple
+                  //   onClick={(e) => handleSubmit(e)}
+                  type="submit"
+                >
+                  Sign Up
+                </StyledButton>
+                <Box
+                  sx={{
+                    color: 'white',
+                    ...theme.typography.hero_light,
+                    fontSize: isMobile ? '12px' : '16px',
+                    width: isMobile ? '100%' : '500px',
+                  }}
+                >
+                  By clicking “sign up” you consent to ACE Golf using you email
+                  address to receive emails about products, events and
+                  promotions, and more. You can opt out at any time.
+                </Box>
+              </Box>
             </Box>
           </Box>
         );
