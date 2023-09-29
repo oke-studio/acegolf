@@ -155,6 +155,7 @@ const MenuSection = ({
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
   const isMobile = useMediaQuery('(max-width:640px)');
+  const { typography, palette } = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -189,16 +190,17 @@ export const MenuCarousel = () => {
         }}
       >
         <StyledMenuCarouselWrapper>
-          <Box sx={{ margin: '24px' }}>
+          <Box sx={{ margin: '24px', fontFamily: typography.fontFamily }}>
             <Box
               sx={{
                 fontWeight: '900',
                 fontStyle: 'italic',
                 fontSize: isMobile ? '60px' : '100px',
+                lineHeight: '70%',
               }}
             >
-              GOLF & <br />
-              &nbsp;&nbsp;&nbsp;GORUMET
+              <Box>GOLF &</Box>
+              <Box sx={{ marginLeft: '24px' }}>GOURMET</Box>
             </Box>
             {/* Tab section */}
             <Box>
