@@ -165,16 +165,17 @@ const ComingSoonForm = () => {
                 InputProps={{
                   endAdornment: (
                     <motion.button
-                      animate={isSubmitting && { width: '100%' }}
+                      animate={isSubmitting && { width: '90%' }}
                       initial={{ width: '140px' }}
                       transition={{ duration: 4, ease: 'easeInOut' }}
                       style={{
                         background: 'black',
                         border: 'none',
                         borderRadius: '12px',
-                        whiteSpace: 'nowrap',
+                        // whiteSpace: 'nowrap',
                         marginTop: '14px',
                         marginBottom: '14px',
+                        // paddingLeft: '12px',
                       }}
                       type="submit"
                       // onClick={() => buttonClick()}
@@ -227,26 +228,23 @@ const ComingSoonInfoWrapper = styled(Box)(({ theme }) => ({
   textAlign: 'center',
 }));
 
-export const ComingSoonInfoSection = ({}: {}) => {
+export const ComingSoonInfoSection = ({
+  hours,
+  days,
+}: {
+  hours: number;
+  days: number;
+}) => {
   const isMobile = useMediaQuery('(max-width:640px)');
   const isLaptopSmall = useMediaQuery('(max-width:1024px)');
   const { typography, palette } = useTheme();
-  const openingDate = new Date('2023-11-01');
-  const currentDate = new Date();
-
-  var timeDifference =
-    Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
-
-  const dayDifference = Math.floor(timeDifference / 86400);
-  timeDifference -= dayDifference * 86400;
-
-  const hourDifference = Math.floor(timeDifference / 3600) % 24;
 
   return (
     <ComingSoonInfoSectionWrapper
       sx={{
         flexDirection: isMobile ? 'column' : 'row',
         gap: isMobile ? '12px' : isLaptopSmall ? '24px' : '92px',
+        position: 'relative',
       }}
     >
       <ComingSoonInfoWrapper>
@@ -297,12 +295,12 @@ export const ComingSoonInfoSection = ({}: {}) => {
         <Box sx={{ fontSize: '16px', fontWeight: '600' }}>
           <Box component="span" sx={{ color: palette.primary.main }}>
             {' '}
-            {dayDifference}
+            {days}
           </Box>{' '}
           DAYS
           <Box component="span" sx={{ color: palette.primary.main }}>
             {' '}
-            {hourDifference}
+            {hours}
           </Box>{' '}
           HOURS
         </Box>

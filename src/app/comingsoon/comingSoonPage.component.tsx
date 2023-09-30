@@ -8,6 +8,7 @@ import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionM
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { TopBanner } from '../../components/topBanner/topBanner.component';
+import { NOISE_URL } from './components/noise/noise';
 
 const backgroundColor = '#E6E8E9';
 
@@ -17,6 +18,7 @@ const PageWrapper = styled(Box)({
   color: 'black',
   width: '100vw',
   overflow: 'hidden',
+  position: 'relative',
 });
 
 const PageLayout = styled(Box)(({ theme }) => ({
@@ -35,13 +37,34 @@ const PageMobileLayout = styled(Box)({
 
 export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
+  const openingDate = new Date('2023-11-01');
+  const currentDate = new Date();
+
+  var timeDifference =
+    Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
+
+  const dayDifference = Math.floor(timeDifference / 86400);
+  timeDifference -= dayDifference * 86400;
+
+  const hourDifference = Math.floor(timeDifference / 3600) % 24;
 
   if (isMobile) {
     return (
       <PageWrapper>
         <PageMobileLayout>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: `calc(100vh/${dayDifference})`,
+              background: '#529DC8',
+              backgroundImage: NOISE_URL,
+            }}
+          ></Box>
           {/* <ComingSoonInfoSectionMobile /> */}
-          <ComingSoonInfoSection />
+          <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
           <div
             style={{
               display: 'flex',
@@ -63,6 +86,17 @@ export default function ComingSoonPage() {
   return (
     <PageWrapper>
       <PageLayout>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: `calc(100vw/${3})`,
+            background: '#529DC8',
+            backgroundImage: NOISE_URL,
+          }}
+        ></Box>
         <div
           style={{
             display: 'flex',
@@ -83,7 +117,7 @@ export default function ComingSoonPage() {
             strokeColor="#EB8B32"
           />
         </div>
-        <ComingSoonInfoSection />
+        <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
 
         <div
           style={{
