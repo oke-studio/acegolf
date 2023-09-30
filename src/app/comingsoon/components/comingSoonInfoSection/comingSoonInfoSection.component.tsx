@@ -286,6 +286,10 @@ export const ComingSoonInfoSection = ({
             backgroundColor: palette.primary.main,
             borderRadius: '78px',
             padding: '5px 15px',
+            ':hover': {
+              backgroundColor: '#E6E8E9',
+              color: 'black',
+            },
           },
         }}
       >
@@ -313,6 +317,7 @@ export const ComingSoonInfoSection = ({
             ...typography.hero_semibold,
             fontSize: '24px',
             marginTop: '32px',
+            textTransform: 'none',
           }}
         >
           Early Reservation &rarr;

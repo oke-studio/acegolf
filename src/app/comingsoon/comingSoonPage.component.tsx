@@ -14,6 +14,7 @@ const backgroundColor = '#E6E8E9';
 
 const PageWrapper = styled(Box)({
   backgroundColor: backgroundColor,
+  backgroundImage: NOISE_URL,
   height: '100vh',
   color: 'black',
   width: '100vw',
@@ -126,6 +127,7 @@ export default function ComingSoonPage() {
             overflow: 'hidden',
             position: 'relative',
             gap: '16px',
+            top: '70px',
           }}
         >
           {[...Array(18)].map((_, index) => (
