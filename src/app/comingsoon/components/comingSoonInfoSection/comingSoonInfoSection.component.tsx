@@ -110,9 +110,15 @@ const ComingSoonForm = () => {
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
-            sx={{ maxWidth: '400px' }}
+            sx={{ maxWidth: '400px', ...(!isMobile && { marginTop: '58px' }) }}
           >
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+              }}
+            >
               <input type="hidden" name="form-name" value="comingsoon-email" />
               <Box
                 sx={{
