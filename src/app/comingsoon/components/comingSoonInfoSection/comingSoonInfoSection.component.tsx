@@ -125,6 +125,8 @@ const ComingSoonForm = () => {
                   ...typography.hero_regular,
                   fontSize: '16px',
                   textAlign: 'center',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
                 }}
               >
                 Join the Mailing List
@@ -158,7 +160,7 @@ const ComingSoonForm = () => {
                     fontSize: '12px',
                   },
                   '.MuiFormHelperText-root': {
-                    fontSize: isMobile ? '9px' : '12px',
+                    fontSize: isMobile ? '9px' : '10px',
                     color: 'black',
                     textAlign: 'center',
                   },
@@ -193,7 +195,7 @@ const ComingSoonForm = () => {
                         paddingTop="14px"
                         paddingBottom="14px"
                         fontFamily="new-hero"
-                        fontWeight="700"
+                        fontWeight="400"
                         whiteSpace="nowrap"
                         overflow="hidden"
                         color="white"
