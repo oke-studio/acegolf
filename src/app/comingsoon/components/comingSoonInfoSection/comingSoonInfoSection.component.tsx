@@ -110,7 +110,7 @@ const ComingSoonForm = () => {
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
-            sx={{ maxWidth: '400px' }}
+            sx={{ maxWidth: '400px', marginTop: '52px' }}
           >
             <Box
               sx={{
@@ -151,10 +151,12 @@ const ComingSoonForm = () => {
                     borderStyle: 'solid',
                     borderWidth: '2px',
                     height: '58px',
+                    paddingRight: '0px',
                   },
                   '.MuiInputBase-input': {
                     color: '#373737',
-                    height: '58px',
+                    ...(isSubmitting && { paddingLeft: '0px' }),
+
                     width: isSubmitting ? '0' : '100%',
                     fontFamily: 'new-hero',
                     fontSize: '12px',
@@ -173,7 +175,7 @@ const ComingSoonForm = () => {
                 InputProps={{
                   endAdornment: (
                     <motion.button
-                      animate={isSubmitting && { width: '90%' }}
+                      animate={isSubmitting && { width: '100%' }}
                       initial={{ width: '140px' }}
                       transition={{ duration: 4, ease: 'easeInOut' }}
                       style={{
@@ -182,7 +184,8 @@ const ComingSoonForm = () => {
                         borderRadius: '12px',
 
                         // paddingLeft: '12px',
-                        height: '42px',
+
+                        margin: '4px',
                       }}
                       type="submit"
                       // onClick={() => buttonClick()}
@@ -288,12 +291,12 @@ export const ComingSoonInfoSection = ({
         position: 'relative',
       }}
     >
-      <ComingSoonInfoWrapper>
+      <ComingSoonInfoWrapper sx={{ marginTop: '32px' }}>
         <Image
           src="/images/ace-golf-logo.svg"
           alt="ace golf logo"
-          width={isMobile ? 100 : 150}
-          height={isMobile ? 100 : 150}
+          width={isMobile ? 150 : 150}
+          height={isMobile ? 150 : 150}
         />
       </ComingSoonInfoWrapper>
 
@@ -349,7 +352,7 @@ export const ComingSoonInfoSection = ({
           sx={{
             ...typography.hero_semibold,
             fontSize: '24px',
-            marginTop: '32px',
+            marginTop: '20px',
             textTransform: 'none',
           }}
         >
