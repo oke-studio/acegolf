@@ -145,6 +145,7 @@ const ComingSoonForm = () => {
                 sx={{
                   fontFamily: 'new-hero',
                   gap: '12px',
+                  padding: '0px 12px',
                   '.MuiInputBase-root': {
                     justifyContent: 'flex-end',
                     background: 'white',
