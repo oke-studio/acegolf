@@ -23,8 +23,8 @@ const PageWrapper = styled(Box)({
 });
 
 const PageLayout = styled(Box)(({ theme }) => ({
-  display: 'grid',
-  gridTemplateRows: 'repeat(3, 1fr)',
+  display: 'flex',
+  flexDirection: 'column',
 
   height: '100%',
 }));
@@ -98,7 +98,7 @@ export default function ComingSoonPage() {
             backgroundImage: NOISE_URL,
           }}
         ></Box>
-        <div
+        {/* <div
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -117,7 +117,7 @@ export default function ComingSoonPage() {
             textCount={3}
             strokeColor="#EB8B32"
           />
-        </div>
+        </div> */}
         <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
 
         <div
@@ -127,7 +127,7 @@ export default function ComingSoonPage() {
             overflow: 'hidden',
             position: 'relative',
             gap: '16px',
-            top: '70px',
+            top: '30px',
           }}
         >
           {[...Array(18)].map((_, index) => (

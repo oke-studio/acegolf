@@ -110,7 +110,7 @@ const ComingSoonForm = () => {
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
-            sx={{ maxWidth: '400px', ...(!isMobile && { marginTop: '58px' }) }}
+            sx={{ maxWidth: '400px' }}
           >
             <Box
               sx={{
@@ -125,7 +125,6 @@ const ComingSoonForm = () => {
                   ...typography.hero_regular,
                   fontSize: '16px',
                   textAlign: 'center',
-                  fontWeight: '600',
                   textTransform: 'uppercase',
                 }}
               >
@@ -151,10 +150,11 @@ const ComingSoonForm = () => {
                     background: 'white',
                     borderStyle: 'solid',
                     borderWidth: '2px',
+                    height: '58px',
                   },
                   '.MuiInputBase-input': {
                     color: '#373737',
-
+                    height: '58px',
                     width: isSubmitting ? '0' : '100%',
                     fontFamily: 'new-hero',
                     fontSize: '12px',
@@ -180,10 +180,9 @@ const ComingSoonForm = () => {
                         background: 'black',
                         border: 'none',
                         borderRadius: '12px',
-                        // whiteSpace: 'nowrap',
-                        marginTop: '14px',
-                        marginBottom: '14px',
+
                         // paddingLeft: '12px',
+                        height: '42px',
                       }}
                       type="submit"
                       // onClick={() => buttonClick()}
@@ -194,8 +193,11 @@ const ComingSoonForm = () => {
                         paddingRight="24px"
                         paddingTop="14px"
                         paddingBottom="14px"
-                        fontFamily="new-hero"
-                        fontWeight="400"
+                        // ...typography.hero_bold,
+                        sx={{
+                          ...typography.hero_bold,
+                          fontSize: '12px',
+                        }}
                         whiteSpace="nowrap"
                         overflow="hidden"
                         color="white"
@@ -225,8 +227,39 @@ const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
   // gridTemplateColumns: '1fr 2fr 1fr',
   justifyContent: 'center',
   fontFamily: 'new-hero',
-  margin: 'auto 24px',
 }));
+
+const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
+  if (isMobile) {
+    return (
+      <TopBanner
+        width="100%"
+        height="100%"
+        viewBox="0 0 1973 293"
+        pathProps={{
+          d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+        }}
+        text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
+        textCount={3}
+        strokeColor="#EB8B32"
+      />
+    );
+  }
+
+  return (
+    <TopBanner
+      width="100%"
+      height="100%"
+      viewBox="0 0 1973 293"
+      pathProps={{
+        d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+      }}
+      text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
+      textCount={3}
+      strokeColor="#EB8B32"
+    />
+  );
+};
 
 const ComingSoonInfoWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -250,8 +283,8 @@ export const ComingSoonInfoSection = ({
   return (
     <ComingSoonInfoSectionWrapper
       sx={{
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? '12px' : isLaptopSmall ? '24px' : '92px',
+        flexDirection: 'column',
+        // gap: '',
         position: 'relative',
       }}
     >
@@ -259,34 +292,24 @@ export const ComingSoonInfoSection = ({
         <Image
           src="/images/ace-golf-logo.svg"
           alt="ace golf logo"
-          width={isMobile ? 100 : 200}
-          height={isMobile ? 100 : 200}
+          width={isMobile ? 100 : 150}
+          height={isMobile ? 100 : 150}
         />
       </ComingSoonInfoWrapper>
-      {isMobile && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            overflow: 'hidden',
-            position: 'relative',
-            width: '100%',
-            transform: 'scale(2)',
-          }}
-        >
-          <TopBanner
-            width="100%"
-            height="100%"
-            viewBox="0 0 1973 293"
-            pathProps={{
-              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
-            }}
-            text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
-            textCount={3}
-            strokeColor="#EB8B32"
-          />
-        </div>
-      )}
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          overflow: 'hidden',
+          position: 'relative',
+          width: '100%',
+          ...(isMobile && { transform: 'scale(2)' }),
+        }}
+      >
+        <TopBannerChoice isMobile={isMobile} />
+      </div>
+
       <ComingSoonInfoWrapper
         sx={{
           '& .MuiButtonBase-root': {
@@ -299,6 +322,8 @@ export const ComingSoonInfoSection = ({
               color: 'black',
             },
           },
+          position: 'relative',
+          ...(!isMobile && { top: '-40px' }),
         }}
       >
         <Box sx={{ ...typography.hero_extrabold, fontSize: '24px' }}>
