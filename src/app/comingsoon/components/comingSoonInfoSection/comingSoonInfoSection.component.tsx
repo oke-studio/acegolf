@@ -25,55 +25,47 @@ const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
   const { typography } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
-  const isLaptopSmall = useMediaQuery('(max-width:1024px)');
-
-  const [error, setError] = React.useState<{ error: boolean; message: string }>(
-    {
-      error: false,
-      message: '',
-    },
-  );
 
   React.useEffect(() => {
     console.log(isSubmit);
   }, [isSubmit]);
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'comingsoon-email', ...values }),
-      })
-        .then(() => setIsSubmit(true))
-        .catch((e) => alert(e));
-    },
-  });
+  // const formik = useFormik({
+  //   initialValues: {
+  //     email: '',
+  //   },
+  //   onSubmit: (values) => {
+  //     console.log(values);
+  //     fetch('/', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //       body: encode({ 'form-name': 'comingsoon-email', ...values }),
+  //     })
+  //       .then(() => setIsSubmit(true))
+  //       .catch((e) => alert(e));
+  //   },
+  // });
 
-  const buttonClick = () => {
-    if (formik.values.email === '') {
-      setError({ error: true, message: 'Please provide an email' });
-      return;
-    }
+  // const buttonClick = () => {
+  //   if (formik.values.email === '') {
+  //     setError({ error: true, message: 'Please provide an email' });
+  //     return;
+  //   }
 
-    if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
-    ) {
-      setError({
-        error: true,
-        message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
-      });
-      return;
-    }
+  //   if (
+  //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
+  //   ) {
+  //     setError({
+  //       error: true,
+  //       message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
+  //     });
+  //     return;
+  //   }
 
-    setError({ error: false, message: '' });
-    setIsSubmit(true);
-    formik.handleSubmit();
-  };
+  //   setError({ error: false, message: '' });
+  //   setIsSubmit(true);
+  //   formik.handleSubmit();
+  // };
 
   return (
     <Formik
@@ -96,9 +88,8 @@ const ComingSoonForm = () => {
           values,
           isSubmitting,
           handleSubmit,
-          errors,
+
           handleChange,
-          touched,
         } = props;
 
         return (
@@ -223,7 +214,7 @@ const ComingSoonForm = () => {
   );
 };
 
-const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
+const ComingSoonInfoSectionWrapper = styled(Box)({
   display: 'flex',
   // flexDirection: "row",
   alignItems: 'center',
@@ -231,7 +222,7 @@ const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
   // gridTemplateColumns: '1fr 2fr 1fr',
   justifyContent: 'center',
   fontFamily: 'new-hero',
-}));
+});
 
 const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
   if (isMobile) {
@@ -265,13 +256,13 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
   );
 };
 
-const ComingSoonInfoWrapper = styled(Box)(({ theme }) => ({
+const ComingSoonInfoWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
-}));
+});
 
 export const ComingSoonInfoSection = ({
   hours,
@@ -281,7 +272,7 @@ export const ComingSoonInfoSection = ({
   days: number;
 }) => {
   const isMobile = useMediaQuery('(max-width:640px)');
-  const isLaptopSmall = useMediaQuery('(max-width:1024px)');
+
   const { typography, palette } = useTheme();
 
   return (
@@ -308,8 +299,8 @@ export const ComingSoonInfoSection = ({
           overflow: 'hidden',
           position: 'relative',
           width: '100%',
-          
-          ...(isMobile && { transform: 'scale(3)', paddingLeft: '80px', }),
+
+          ...(isMobile && { transform: 'scale(3)', paddingLeft: '80px' }),
         }}
       >
         <TopBannerChoice isMobile={isMobile} />
@@ -328,9 +319,9 @@ export const ComingSoonInfoSection = ({
             },
           },
           position: 'relative',
-          ...(isMobile && { marginTop: '60px'}),
+          ...(isMobile && { marginTop: '60px' }),
 
-          ...(!isMobile && { top: '-40px', marginTop: '30px'})
+          ...(!isMobile && { top: '-40px', marginTop: '30px' }),
         }}
       >
         <Box sx={{ ...typography.hero_extrabold, fontSize: '24px' }}>

@@ -4,11 +4,9 @@ import * as React from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material';
 
-import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionMobile/comingSoonInfoSectionMobile.component';
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
-import { TopBanner } from '../../components/topBanner/topBanner.component';
-import { NOISE_URL } from './components/noise/noise'; 
+import { NOISE_URL } from './components/noise/noise';
 
 const backgroundColor = '#E6E8E9';
 
@@ -22,12 +20,12 @@ const PageWrapper = styled(Box)({
   position: 'relative',
 });
 
-const PageLayout = styled(Box)(({ theme }) => ({
+const PageLayout = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
 
   height: '100%',
-}));
+});
 
 const PageMobileLayout = styled(Box)({
   display: 'flex',
