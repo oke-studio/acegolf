@@ -50,12 +50,12 @@ const FooterLinksArray = [
   },
 ];
 
-const StyledLinksWrapper = styled(Box)(({ theme: t }) => ({
+const StyledLinksWrapper = styled(Box)({
   display: 'flex',
   textAlign: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-}));
+});
 
 const FooterSocialsImages = [
   {
@@ -88,6 +88,7 @@ export const CommonFooterLinks = () => {
           minHeight: 'inherit',
           justifyContent: 'center',
           gap: '24px',
+          ...typography.hero_light,
         }}
       >
         <Box
@@ -111,7 +112,6 @@ export const CommonFooterLinks = () => {
                 alt="ace golf logo"
                 width={100}
                 height={100}
-                //   color="white"
               />
               Address
             </StyledLinksWrapper>
@@ -297,10 +297,11 @@ export const FooterLinks = () => {
   return (
     <Box
       sx={{
+        fontFamily: typography.fontFamily,
         display: 'flex',
         minHeight: '500px',
         width: '100%',
-        typography: typography.hero_light,
+        ...typography.hero_light,
         fontSize: '14px',
         color: 'white',
         position: 'relative',
