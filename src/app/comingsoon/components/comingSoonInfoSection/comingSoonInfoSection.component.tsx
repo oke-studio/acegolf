@@ -308,7 +308,8 @@ export const ComingSoonInfoSection = ({
           overflow: 'hidden',
           position: 'relative',
           width: '100%',
-          ...(isMobile && { transform: 'scale(2)' }),
+          paddingLeft: '80px',
+          ...(isMobile && { transform: 'scale(3)' }),
         }}
       >
         <TopBannerChoice isMobile={isMobile} />
@@ -327,6 +328,7 @@ export const ComingSoonInfoSection = ({
             },
           },
           position: 'relative',
+          marginTop: '60px',
           ...(!isMobile && { top: '-40px' }),
         }}
       >

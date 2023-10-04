@@ -8,7 +8,7 @@ import { ComingSoonInfoSectionMobile } from './components/comingSoonInfoSectionM
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { TopBanner } from '../../components/topBanner/topBanner.component';
-import { NOISE_URL } from './components/noise/noise';
+import { NOISE_URL } from './components/noise/noise'; 
 
 const backgroundColor = '#E6E8E9';
 
