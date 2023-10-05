@@ -101,7 +101,7 @@ const ComingSoonForm = () => {
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
-            sx={{ maxWidth: '400px', marginTop: '52px' }}
+            sx={{ maxWidth: '400px', marginTop: '15px', marginBottom: '20px' }}
           >
             <Box
               sx={{
@@ -321,7 +321,7 @@ export const ComingSoonInfoSection = ({
           position: 'relative',
           ...(isMobile && { marginTop: '60px' }),
 
-          ...(!isMobile && { top: '-40px', marginTop: '30px' }),
+          ...(!isMobile && { top: '-40px', marginTop: '5px' }),
         }}
       >
         <Box sx={{ ...typography.hero_extrabold, fontSize: '24px' }}>
