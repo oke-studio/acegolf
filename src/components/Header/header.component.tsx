@@ -49,6 +49,7 @@ interface NavOptions {
 }
 interface HeaderProps {
   navOptions: NavOptions[];
+  headerBackground?: string;
 }
 
 export const Header = ({ navOptions }: HeaderProps) => {

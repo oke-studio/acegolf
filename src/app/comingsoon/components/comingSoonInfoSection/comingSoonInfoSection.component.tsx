@@ -4,13 +4,9 @@ import * as React from 'react';
 import Image from 'next/image';
 import { styled, Box, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useFormik, Formik } from 'formik';
+import { Formik } from 'formik';
 
 const backgroundColor = '#529DC8';
-
-interface FormValues {
-  email: string;
-}
 
 const encode = (data) => {
   return Object.keys(data)
@@ -20,54 +16,6 @@ const encode = (data) => {
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
-  const [error, setError] = React.useState<{ error: boolean; message: string }>(
-    {
-      error: false,
-      message: '',
-    },
-  );
-
-  React.useEffect(() => {
-    console.log(isSubmit);
-  }, [isSubmit]);
-
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'comingsoon-email', ...values }),
-      })
-        .then(() => setIsSubmit(true))
-        .catch((e) => alert(e));
-    },
-  });
-
-  const buttonClick = () => {
-    if (formik.values.email === '') {
-      setError({ error: true, message: 'Please provide an email' });
-      return;
-    }
-
-    if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
-    ) {
-      setError({
-        error: true,
-        message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
-      });
-      return;
-    }
-
-    setError({ error: false, message: '' });
-    setIsSubmit(true);
-    formik.handleSubmit();
-  };
-
   return (
     <Formik
       initialValues={{ email: '' }}
@@ -81,18 +29,9 @@ const ComingSoonForm = () => {
           .then(() => setIsSubmit(true))
           .catch((e) => alert(e));
       }}
-      // validationSchema={}
-      // validate={}
     >
       {(props) => {
-        const {
-          values,
-          isSubmitting,
-          handleSubmit,
-          errors,
-          handleChange,
-          touched,
-        } = props;
+        const { values, isSubmitting, handleSubmit, handleChange } = props;
 
         return (
           <Box
