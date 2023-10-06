@@ -14,6 +14,7 @@ import {
 import { motion } from 'framer-motion';
 import { useFormik, Formik } from 'formik';
 import { encode } from '@/util/encode';
+import { useRouter } from 'next/router';
 
 const backgroundColor = '#529DC8';
 
@@ -314,8 +315,7 @@ export const ComingSoonInfoSection = ({
             borderRadius: '78px',
             padding: '5px 15px',
             ':hover': {
-              backgroundColor: '#E6E8E9',
-              color: 'black',
+              backgroundColor: '#959595',
             },
           },
           position: 'relative',
@@ -351,7 +351,13 @@ export const ComingSoonInfoSection = ({
             textTransform: 'none',
           }}
         >
-          Early Reservation &rarr;
+          <a
+            href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+            target="_blank"
+          >
+            {' '}
+            Early Reservation &rarr;
+          </a>
         </Button>
       </ComingSoonInfoWrapper>
 
