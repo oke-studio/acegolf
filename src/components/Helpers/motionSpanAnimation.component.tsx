@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { motion, Transition, useAnimation, Variants } from 'framer-motion';
 import { useTheme } from '@mui/material';
-
-function RNG(min: number, max: number) {
-  return Math.random() * (max - min) + min;
-}
-
+import { RNG } from '@/util/RNG';
 interface MotionVariantsProps<K> {
   to: K;
   from: K;
@@ -135,7 +131,7 @@ export const MotionSpanAnimated = ({
             style={{
               position: 'relative',
               display: 'inline-block',
-              fontSize: '15px',
+              fontSize: '18px',
             }}
             variants={
               index % 2 === 0

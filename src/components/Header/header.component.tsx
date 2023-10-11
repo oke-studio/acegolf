@@ -16,19 +16,17 @@ import {
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
-// import { useRouter } from 'next/router';
+import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
 
 const aceOrange = '#EB8B32';
 
 const HeaderContainer = styled(Box)({
-  backgroundColor: 'white',
   display: 'flex',
   borderRadius: '0 0 26px 26px',
   height: '50px',
   width: '100%',
   maxWidth: '1084px',
-  color: 'black',
   alignItems: 'center',
   padding: '0 24px 0 24px',
 });
@@ -49,21 +47,75 @@ interface NavOptions {
 }
 interface HeaderProps {
   navOptions: NavOptions[];
+  navBackgroundColor?: string;
+  navTextColor?: string;
 }
 
-export const Header = ({ navOptions }: HeaderProps) => {
-  const theme = useTheme();
+export const Header = ({
+  navOptions,
+  navBackgroundColor = 'black',
+  navTextColor = 'white',
+}: HeaderProps) => {
+  const { palette, typography, zIndex } = useTheme();
   const isMobile = useMediaQuery('(max-width:425px)');
   const [mobileDropDownEnabled, setMobileDropDownEnabled] =
     React.useState(false);
   const router = useRouter();
 
-  // console.log(mobileDropDownEnabled);
-
   function toggleDropDown() {
     setMobileDropDownEnabled(!mobileDropDownEnabled);
     console.log('here');
   }
+
+  const HoverAnimation = {
+    top: { to: '5px', from: '0px' },
+    color: {
+      to: palette.aceOrange,
+      from: '#ffffff',
+    },
+    rotate: { to: RNG(9, 21), from: 0 },
+    fontWeight: {
+      to: typography.hero_bold.fontWeight as string,
+      from: typography.hero_semibold.fontWeight as string,
+    },
+    transition: {
+      to: {
+        duration: 0.5,
+        type: 'tween',
+        ease: 'easeOut',
+      },
+      from: {
+        duration: 0.5,
+        type: 'tween',
+        ease: 'easeIn',
+      },
+    },
+  };
+
+  const RestAnimation = {
+    top: { to: '-5px', from: '0px' },
+    color: {
+      to: palette.aceOrange,
+      from: '#FFFFFF',
+    },
+    rotate: { to: RNG(-9, -21), from: 0 },
+    fontWeight: {
+      to: typography.hero_bold.fontWeight as string,
+      from: typography.hero_semibold.fontWeight as string,
+    },
+    transition: {
+      to: {
+        duration: 0.5,
+        type: 'tween',
+        ease: 'easeOut',
+      },
+      from: {
+        duration: 0.5,
+        type: 'tween',
+        ease: 'easeIn',
+      },
+    },
+  };
 
   return (
     <Box
@@ -74,12 +126,14 @@ export const Header = ({ navOptions }: HeaderProps) => {
         justifyContent: 'center',
         position: 'sticky',
         top: '0px',
-        zIndex: theme.zIndex.appBar,
+        zIndex: zIndex.appBar,
       }}
     >
       <HeaderContainer
         sx={{
           justifyContent: isMobile ? 'center' : 'space-between',
+          backgroundColor: navBackgroundColor,
+          color: navTextColor,
         }}
       >
         {isMobile ? (
@@ -115,12 +169,16 @@ export const Header = ({ navOptions }: HeaderProps) => {
                     router.push(navLink.to);
                   }}
                 >
-                  <MotionSpanAnimated label={navLink.label} />
+                  <MotionSpanAnimated
+                    label={navLink.label}
+                    hoverAnimation={HoverAnimation}
+                    restAnimation={RestAnimation}
+                  />
                 </StyledListItemButton>
               </ListItem>
             ))}
             <ListItem disablePadding>
-              <motion.button
+              {/* <motion.button
                 style={{
                   borderRadius: '6.36px',
                   backgroundColor: aceOrange,
@@ -135,8 +193,15 @@ export const Header = ({ navOptions }: HeaderProps) => {
                 // whileHover="hovered"
                 // animate="rest"
               >
-                <MotionSpanAnimated label="Book Now!" variant="book" />
-              </motion.button>
+                <MotionSpanAnimated label="Book Now!" />
+              </motion.button> */}
+              <Button sx={{}} variant="primary">
+                <MotionSpanAnimated
+                  label="Book Now!"
+                  hoverAnimation={HoverAnimation}
+                  restAnimation={RestAnimation}
+                />
+              </Button>
             </ListItem>
           </List>
         )}

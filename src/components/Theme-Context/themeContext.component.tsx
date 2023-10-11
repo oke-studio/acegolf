@@ -49,6 +49,16 @@ declare module '@mui/material/styles' {
     hero_super_italic?: React.CSSProperties;
     hero_hairline_italic?: React.CSSProperties;
   }
+
+  interface Palette {
+    aceOrange: string;
+    aceTeal: string;
+  }
+
+  interface PaletteOptions {
+    aceOrange?: string;
+    aceTeal?: string;
+  }
 }
 
 // Update the Typography's variant prop options
@@ -74,6 +84,12 @@ declare module '@mui/material/Typography' {
     hero_extrabold_italic: true;
     hero_super_italic: true;
     hero_hairline_italic: true;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    primary: true;
   }
 }
 
@@ -179,6 +195,27 @@ const theme = createTheme({
   },
   palette: {
     primary: { main: '#EB8B32' },
+    aceOrange: '#EB8B32',
+    aceTeal: '#36DAD5',
+  },
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: {
+            variant: 'primary',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid #EB8B32',
+            backgroundColor: 'black',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+          },
+        },
+      ],
+    },
   },
 });
 
