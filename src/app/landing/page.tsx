@@ -11,6 +11,8 @@ import { East } from '@mui/icons-material';
 
 import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
+import { Noise } from '@/util/Noise';
+import { LandingTabs } from './components/tabSection/landingTabs.component';
 
 const MapSVG = () => (
   <svg
@@ -187,7 +189,7 @@ export default function Home() {
     >
       <Header
         navOptions={[
-          { label: 'Food', to: '/menu' },
+          { label: 'Menu', to: '/menu' },
           { label: 'How it works', to: '/how-it-works' },
           { label: 'About', to: '/pricing' },
           { label: 'Parties & Events', to: '/about' },
@@ -202,7 +204,7 @@ export default function Home() {
           margin: '28px auto',
           maxWidth: '1084px',
           width: '100%',
-          height: isMobile ? '1150px' : '900px',
+
           alignItems: 'center',
           padding: '24px',
         }}
@@ -210,10 +212,24 @@ export default function Home() {
         <Box
           sx={{
             borderRadius: '25px',
-            backgroundColor: 'grey',
+            backgroundColor: 'white',
+            backgroundImage: `url(${Noise})`,
             width: '100%',
             color: 'black',
             padding: '48px 48px',
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'relative',
+            ':after': {
+              content: "''",
+              position: 'absolute',
+              top: '100%',
+              left: '0',
+              width: '100%',
+              height: '20px',
+              background: 'url(/images/landing-banner.svg) bottom center',
+              backgroundSize: '150%',
+            },
           }}
         >
           <Box
@@ -233,8 +249,8 @@ export default function Home() {
               <Box>
                 <Image
                   src="/images/ace-landing-logo.svg"
-                  width={200}
-                  height={200}
+                  width={250}
+                  height={150}
                   alt="ace logo"
                 />
               </Box>
@@ -305,6 +321,36 @@ export default function Home() {
               </Box>
             </Box>
           </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button
+              disableElevation
+              disableFocusRipple
+              disableRipple
+              disableTouchRipple
+              sx={{
+                textTransform: 'none',
+                backgroundColor: palette.aceOrange,
+                color: 'white',
+                borderRadius: '78px',
+                ...typography.hero_semibold,
+                fontSize: '53.72px',
+                padding: '12px 60px',
+              }}
+            >
+              Reserve a bay &rarr;
+            </Button>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            backgroundColor: palette.aceOrange,
+            display: 'flex',
+            width: '100vw',
+            justifyContent: 'center',
+          }}
+        >
+          <LandingTabs />
         </Box>
       </Box>
 

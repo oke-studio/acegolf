@@ -90,6 +90,7 @@ declare module '@mui/material/Typography' {
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     primary: true;
+    secondary: true;
   }
 }
 
@@ -207,11 +208,30 @@ const theme = createTheme({
           },
           style: {
             textTransform: 'none',
-            border: '3px solid #EB8B32',
-            backgroundColor: 'black',
+            border: '3px solid transparent',
+            backgroundColor: '#EB8B32',
             borderRadius: '20px',
             padding: '5px 20px',
             fontSize: '18px',
+            color: 'white',
+            width: 'max-content',
+            fontWeight: 600,
+          },
+        },
+        {
+          props: {
+            variant: 'secondary',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid black',
+            backgroundColor: 'white',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+            color: 'black',
+            width: 'max-content',
+            fontWeight: 600,
           },
         },
       ],

@@ -131,37 +131,29 @@ export const Header = ({
     >
       <HeaderContainer
         sx={{
-          justifyContent: isMobile ? 'center' : 'space-between',
+          justifyContent: 'center',
           backgroundColor: navBackgroundColor,
           color: navTextColor,
         }}
       >
-        {isMobile ? (
-          <Button onClick={() => toggleDropDown()}>
-            <Image
-              src="/images/ace-golf-logo.svg"
-              alt="ace golf logo"
-              width={50}
-              height={50}
-            />
-          </Button>
-        ) : (
-          <Image
-            src="/images/ace-golf-logo.svg"
-            alt="ace golf logo"
-            width={50}
-            height={50}
-          />
-        )}
         {!isMobile && (
           <List
             sx={{
               display: 'flex',
+              justifyContent: 'centre',
               whiteSpace: 'nowrap',
               gap: '24px',
               overflow: 'scroll',
             }}
           >
+            <ListItem disablePadding sx={{ paddingRight: '24px' }}>
+              <Image
+                src="/images/ace-header-logo.svg"
+                alt="ace golf logo"
+                width={50}
+                height={50}
+              />
+            </ListItem>
             {navOptions.map((navLink, i) => (
               <ListItem disablePadding key={i}>
                 <StyledListItemButton
