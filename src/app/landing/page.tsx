@@ -181,7 +181,7 @@ export default function Home() {
   return (
     <Box
       sx={{
-        backgroundColor: 'black',
+        backgroundColor: '#171717',
         position: 'relative',
         overflow: 'hidden',
         fontFamily: typography.fontFamily,
@@ -200,13 +200,12 @@ export default function Home() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '32px',
-          margin: '28px auto',
+          margin: '0px auto',
           maxWidth: '1084px',
           width: '100%',
 
           alignItems: 'center',
-          padding: '24px',
+          padding: '12px 24px',
         }}
       >
         <Box
@@ -219,17 +218,6 @@ export default function Home() {
             padding: '48px 48px',
             display: 'flex',
             flexDirection: 'column',
-            position: 'relative',
-            ':after': {
-              content: "''",
-              position: 'absolute',
-              top: '100%',
-              left: '0',
-              width: '100%',
-              height: '20px',
-              background: 'url(/images/landing-banner.svg) bottom center',
-              backgroundSize: '150%',
-            },
           }}
         >
           <Box
@@ -348,6 +336,20 @@ export default function Home() {
             display: 'flex',
             width: '100vw',
             justifyContent: 'center',
+            position: 'relative',
+            padding: '48px',
+            ':before': {
+              content: "''",
+              position: 'absolute',
+              top: '-150px',
+              left: '0',
+              right: '0',
+              width: '100%',
+              height: '70%',
+              background:
+                'no-repeat url(/images/landing-banner.svg) bottom center',
+              backgroundSize: '100%',
+            },
           }}
         >
           <LandingTabs />

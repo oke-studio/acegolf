@@ -18,8 +18,12 @@ export const PricesTab = () => {
           color: 'black',
         }}
       >
-        <Box>Prices & Rates</Box>
-        <Box>BAYS BY TRACKMAN</Box>
+        <Box component="h1" sx={{ ...typography.hero_super, fontSize: '48px' }}>
+          Prices & Rates
+        </Box>
+        <Box sx={{ ...typography.hero_regular, fontSize: '24px' }}>
+          BAYS BY TRACKMAN
+        </Box>
         <Box>{/* TABLE GOES HERE */}</Box>
         <Box>See all the sim rooms</Box>
         <Box>Prices & Rates</Box>

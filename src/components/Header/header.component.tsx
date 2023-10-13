@@ -53,7 +53,7 @@ interface HeaderProps {
 
 export const Header = ({
   navOptions,
-  navBackgroundColor = 'black',
+  navBackgroundColor = '#171717',
   navTextColor = 'white',
 }: HeaderProps) => {
   const { palette, typography, zIndex } = useTheme();
@@ -127,6 +127,7 @@ export const Header = ({
         position: 'sticky',
         top: '0px',
         zIndex: zIndex.appBar,
+        marginTop: '12px',
       }}
     >
       <HeaderContainer
@@ -187,7 +188,22 @@ export const Header = ({
               >
                 <MotionSpanAnimated label="Book Now!" />
               </motion.button> */}
-              <Button sx={{}} variant="primary">
+              <Button
+                sx={{
+                  backgroundColor: 'black',
+                  border: `3px solid ${palette.aceOrange}`,
+                  ':hover': {
+                    backgroundColor: '#171717',
+                    transition: 'backgroundColor 0.5s ease-in-out',
+                    transitionDelay: '0.5s',
+                  },
+                }}
+                disableElevation
+                disableFocusRipple
+                disableRipple
+                disableTouchRipple
+                variant="primary"
+              >
                 <MotionSpanAnimated
                   label="Book Now!"
                   hoverAnimation={HoverAnimation}
