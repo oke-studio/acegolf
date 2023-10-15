@@ -332,12 +332,21 @@ export default function Home() {
 
         <Box
           sx={{
-            backgroundColor: palette.aceOrange,
+            // backgroundColor: palette.aceOrange,
+            background:
+              'no-repeat url(/images/OrangeSection+Banners.svg) bottom center',
+            backgroundSize: '100%',
             display: 'flex',
             width: '100vw',
+            height: '2100px',
             justifyContent: 'center',
-            position: 'relative',
             padding: '48px',
+            position: 'relative',
+            top: '-230px',
+            right: 0,
+            left: 0,
+            alignContent: 'center',
+            flexWrap: 'wrap',
             ':before': {
               content: "''",
               position: 'absolute',
@@ -345,11 +354,24 @@ export default function Home() {
               left: '0',
               right: '0',
               width: '100%',
-              height: '70%',
+              height: '315px',
               background:
-                'no-repeat url(/images/landing-banner.svg) bottom center',
+                'no-repeat url(/images/ace-orange-image-backdrop.svg) bottom center',
               backgroundSize: '100%',
             },
+
+            // ':after': {
+            //   content: "''",
+            //   position: 'absolute',
+            //   top: '0',
+            //   left: '0',
+            //   right: '0',
+            //   width: '100%',
+            //   height: '100%',
+            //   background:
+            //     'no-repeat url(/images/ace-orange-image-backdrop.svg) bottom center',
+            //   backgroundSize: '100%',
+            // },
           }}
         >
           <LandingTabs />
