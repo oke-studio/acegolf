@@ -13,6 +13,7 @@ import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
+import { LandingHowItWorks } from './components/tabSection/components/howItWorks/howItWorks.component';
 
 const MapSVG = () => (
   <svg
@@ -174,7 +175,7 @@ const GolfLoungeCopyComponent = () => {
   );
 };
 
-export default function Home() {
+export default function Landing() {
   const { palette, typography } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
 
@@ -187,14 +188,14 @@ export default function Home() {
         fontFamily: typography.fontFamily,
       }}
     >
-      <Header
+      {/* <Header
         navOptions={[
           { label: 'Menu', to: '/menu' },
           { label: 'How it works', to: '/how-it-works' },
-          { label: 'About', to: '/pricing' },
-          { label: 'Parties & Events', to: '/about' },
+          { label: 'About', to: '/about' },
+          { label: 'Parties & Events', to: '/pricing' },
         ]}
-      />
+      /> */}
 
       <Box
         sx={{
@@ -375,6 +376,10 @@ export default function Home() {
           }}
         >
           <LandingTabs />
+        </Box>
+
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <LandingHowItWorks />
         </Box>
       </Box>
 

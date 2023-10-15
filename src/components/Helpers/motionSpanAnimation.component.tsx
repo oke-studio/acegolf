@@ -11,7 +11,6 @@ interface NavOptionsProps {
   top: MotionVariantsProps<string | number>;
   color: MotionVariantsProps<string>;
   rotate: MotionVariantsProps<number>;
-  fontWeight: MotionVariantsProps<string>;
   transition: MotionVariantsProps<Transition>;
 }
 
@@ -82,13 +81,12 @@ const navOptionHoverAnimation = ({
 }: {
   animationProfile: NavOptionsProps;
 }): Variants => {
-  const { top, color, transition, fontWeight, rotate } = animationProfile;
+  const { top, color, transition, rotate } = animationProfile;
   return {
     hovered: {
       top: top.to,
       color: color.to as string,
       transition: transition.to,
-      fontWeight: fontWeight.to,
       rotate: rotate.to,
     },
 
@@ -96,7 +94,6 @@ const navOptionHoverAnimation = ({
       top: top.from,
       color: color.from as string,
       transition: transition.from,
-      fontWeight: fontWeight.from,
       rotate: rotate.from,
     },
   };

@@ -18,17 +18,16 @@ import { motion } from 'framer-motion';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
 import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
-
-const aceOrange = '#EB8B32';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const HeaderContainer = styled(Box)({
   display: 'flex',
-  borderRadius: '0 0 26px 26px',
-  height: '50px',
+
+  height: '60px',
   width: '100%',
-  maxWidth: '1084px',
+
   alignItems: 'center',
-  padding: '0 24px 0 24px',
+  padding: '0px 24px',
 });
 
 const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
@@ -39,32 +38,43 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   //   padding: '8px 0 8px 0',
 }));
 
+const NavMap = {
+  '/menu': 'menu',
+  '/pricing': 'pricing',
+  '/events': 'events',
+};
+
 // console.log(theme.typography.body1);
 
 interface NavOptions {
   label: string;
   to: string;
 }
+
 interface HeaderProps {
-  navOptions: NavOptions[];
+  navOptions?: NavOptions[];
   navBackgroundColor?: string;
   navTextColor?: string;
 }
 
 export const Header = ({
-  navOptions,
+  navOptions = [
+    { label: 'Menu', to: '/menu' },
+    { label: 'How it Works', to: '/how-it-works' },
+    { label: 'About', to: '/about' },
+    { label: 'Parties & Events', to: '/events' },
+  ],
   navBackgroundColor = '#171717',
   navTextColor = 'white',
 }: HeaderProps) => {
   const { palette, typography, zIndex } = useTheme();
-  const isMobile = useMediaQuery('(max-width:425px)');
+  const isMobile = useMediaQuery('(max-width:640px)');
   const [mobileDropDownEnabled, setMobileDropDownEnabled] =
     React.useState(false);
   const router = useRouter();
 
   function toggleDropDown() {
     setMobileDropDownEnabled(!mobileDropDownEnabled);
-    console.log('here');
   }
 
   const HoverAnimation = {
@@ -74,10 +84,7 @@ export const Header = ({
       from: '#ffffff',
     },
     rotate: { to: RNG(9, 21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+
     transition: {
       to: {
         duration: 0.5,
@@ -99,10 +106,7 @@ export const Header = ({
       from: '#FFFFFF',
     },
     rotate: { to: RNG(-9, -21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+
     transition: {
       to: {
         duration: 0.5,
@@ -127,16 +131,36 @@ export const Header = ({
         position: 'sticky',
         top: '0px',
         zIndex: zIndex.appBar,
-        marginTop: '12px',
+        backgroundColor: 'transparent',
+        mixBlendMode: 'difference',
       }}
     >
       <HeaderContainer
         sx={{
-          justifyContent: 'center',
-          backgroundColor: navBackgroundColor,
+          justifyContent: isMobile ? 'space-between' : 'center',
+          // backgroundColor: navBackgroundColor,
           color: navTextColor,
         }}
       >
+        {isMobile && (
+          <>
+            <Button
+              onClick={() => toggleDropDown()}
+              disableElevation
+              disableFocusRipple
+              disableRipple
+              disableTouchRipple
+            >
+              <Image
+                src="/images/ace-header-logo.svg"
+                alt="ace golf logo"
+                width={50}
+                height={50}
+              />
+            </Button>
+            <MenuIcon />
+          </>
+        )}
         {!isMobile && (
           <List
             sx={{
@@ -148,12 +172,22 @@ export const Header = ({
             }}
           >
             <ListItem disablePadding sx={{ paddingRight: '24px' }}>
-              <Image
-                src="/images/ace-header-logo.svg"
-                alt="ace golf logo"
-                width={50}
-                height={50}
-              />
+              <Button
+                disableElevation
+                disableFocusRipple
+                disableRipple
+                disableTouchRipple
+                onClick={() => {
+                  router.push('/');
+                }}
+              >
+                <Image
+                  src="/images/ace-header-logo.svg"
+                  alt="ace golf logo"
+                  width={50}
+                  height={50}
+                />
+              </Button>
             </ListItem>
             {navOptions.map((navLink, i) => (
               <ListItem disablePadding key={i}>
@@ -189,26 +223,31 @@ export const Header = ({
                 <MotionSpanAnimated label="Book Now!" />
               </motion.button> */}
               <Button
-                sx={{
-                  backgroundColor: 'black',
-                  border: `3px solid ${palette.aceOrange}`,
-                  ':hover': {
-                    backgroundColor: '#171717',
-                    transition: 'backgroundColor 0.5s ease-in-out',
-                    transitionDelay: '0.5s',
-                  },
-                }}
+                // sx={{
+                //   backgroundColor: 'black',
+
+                //   border: `3px solid ${palette.aceOrange}`,
+                //   ':hover': {
+                //     backgroundColor: '#171717',
+                //     transition: 'backgroundColor 0.5s ease-in-out',
+                //     transitionDelay: '0.5s',
+                //   },
+                // }}
                 disableElevation
                 disableFocusRipple
                 disableRipple
                 disableTouchRipple
-                variant="primary"
+                variant="navButton"
+                onClick={() => {
+                  router.push('/pricing');
+                }}
               >
-                <MotionSpanAnimated
+                {/* <MotionSpanAnimated
                   label="Book Now!"
                   hoverAnimation={HoverAnimation}
                   restAnimation={RestAnimation}
-                />
+                /> */}
+                Book Now!
               </Button>
             </ListItem>
           </List>

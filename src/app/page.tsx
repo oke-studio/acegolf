@@ -1,10 +1,10 @@
 import * as React from 'react';
-import ComingSoonPage from './comingsoon/comingSoonPage.component';
+import Landing from './landing/landing.component';
 
 export default function Home() {
   return (
     <main>
-      <ComingSoonPage />
+      <Landing />
     </main>
   );
 }

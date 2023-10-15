@@ -91,6 +91,7 @@ declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     primary: true;
     secondary: true;
+    navButton: true;
   }
 }
 
@@ -215,7 +216,7 @@ const theme = createTheme({
             fontSize: '18px',
             color: 'white',
             width: 'max-content',
-            fontWeight: 600,
+            fontWeight: 400,
           },
         },
         {
@@ -231,7 +232,23 @@ const theme = createTheme({
             fontSize: '18px',
             color: 'black',
             width: 'max-content',
-            fontWeight: 600,
+            fontWeight: 400,
+          },
+        },
+        {
+          props: {
+            variant: 'navButton',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid #EB8B32',
+            backgroundColor: 'transparent',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+            color: 'white',
+            width: 'max-content',
+            fontWeight: 400,
           },
         },
       ],
