@@ -12,12 +12,7 @@ import {
   useFormControl,
 } from '@mui/material';
 import { Formik } from 'formik';
-
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
+import { encode } from '@/util/encode';
 
 const StyledButton = styled(Button)(
   ({ theme: t }) => `

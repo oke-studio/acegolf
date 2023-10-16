@@ -4,8 +4,8 @@ import { useTheme, Box, styled, Typography } from '@mui/material';
 
 const StyledPromotionCards = styled(Box)({
   borderRadius: '16px',
-  height: '200px',
-  width: '200px',
+  height: '360px',
+  width: '360px',
   display: 'flex',
   flexDirection: 'column',
   padding: '2px',
@@ -33,6 +33,8 @@ const PromotionCards = ({
       <Typography
         fontStyle={({ typography }) => typography.hero_super_italic.fontStyle}
         fontSize="24px"
+        padding={1}
+        sx={{ textWrap: 'nowrap' }}
       >
         {label}
       </Typography>
@@ -50,6 +52,7 @@ export const Promotions = () => {
         flexDirection: 'column',
         color: 'white',
         alignItems: 'center',
+        gap: '32px',
       }}
     >
       <Box component="h1" sx={{ ...typography.hero_super }}>

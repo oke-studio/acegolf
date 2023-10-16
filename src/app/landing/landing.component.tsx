@@ -15,6 +15,7 @@ import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
+import { MailingList } from './components/mailingList/mailingList.component';
 
 const MapSVG = () => (
   <svg
@@ -474,6 +475,8 @@ export default function Landing() {
       <Box sx={{ display: 'flex', flexDirection: 'column', padding: '24px' }}>
         <LandingHowItWorks />
         <Promotions />
+        {/* mailing list comp */}
+        <MailingList />
       </Box>
 
       {/* <HowItWorksSection /> */}
