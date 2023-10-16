@@ -4,25 +4,6 @@ import { Box, Button, useTheme } from '@mui/material';
 import * as React from 'react';
 import { TabCard } from '../components/tabCard/tabCard.component';
 
-interface PriceTableValueProps {
-  week: string;
-  abrv: string;
-  prices: number[];
-}
-
-const PricesTableValues: PriceTableValueProps[] = [
-  {
-    week: 'WEEKDAY',
-    abrv: 'MON - THUR',
-    prices: [40, 75, 110, 135],
-  },
-  {
-    week: 'WEEKEND',
-    abrv: 'FRI - SUN',
-    prices: [40, 75, 110, 135],
-  },
-];
-
 export const PricesTab = () => {
   const { typography, palette } = useTheme();
 
@@ -41,51 +22,58 @@ export const PricesTab = () => {
           Prices & Rates
         </Box>
 
-        <Box sx={{ display: 'flex', gap: '48px' }}>
-          {/* TABLE GOES HERE */}
-          {PricesTableValues.map((items, index) => {
-            const { week, abrv, prices } = items;
-
-            return (
-              <Box
-                sx={{ display: 'flex', flexDirection: 'column' }}
-                key={index}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    ...typography.hero_regular,
-                    fontSize: '24px',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Box component="span">{week} RATES</Box>
-                  <Box component="span">{abrv}</Box>
-                </Box>
-                <Box></Box>
-              </Box>
-            );
-          })}
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                ...typography.hero_regular,
-                fontSize: '24px',
-                alignItems: 'center',
-              }}
-            >
-              <Box component="span">WEEKEND RATES</Box>
-              <Box component="span">(FRI - SUN)</Box>
-            </Box>
-            <Box></Box>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '24px',
+            flexDirection: 'row',
+            textWrap: 'nowrap',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              ...typography.hero_semibold,
+              fontSize: '24px',
+            }}
+          >
+            <Box>MONDAY &rarr; FRIDAY</Box>
+            <Box>MONDAY &rarr; FRIDAY</Box>
+            <Box>FRIDAY &rarr; SUNDAY</Box>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              ...typography.hero_regular,
+              fontSize: '24px',
+            }}
+          >
+            <Box>9am - Noon</Box>
+            <Box>Noon - 12am</Box>
+            <Box>5pm - 12am</Box>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: palette.aceGreen,
+              ...typography.hero_semibold,
+              fontSize: '24px',
+            }}
+          >
+            <Box>$20/hr/person</Box>
+            <Box>$20/hr/person</Box>
+            <Box>$40/hr/person</Box>
           </Box>
         </Box>
-        <Box>See all the sim rooms</Box>
-        <Box>Prices & Rates</Box>
-        <Box>Prices & Rates</Box>
+
+        <Box>
+          <Button variant="secondary">How it works &rarr;</Button>
+        </Box>
+        <Box>All bays use TRACKMAN performance simulators</Box>
+        <Box sx={{ display: 'flex' }}></Box>
         <Box>
           <Button
             variant="primary"

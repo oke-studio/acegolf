@@ -16,7 +16,7 @@ import zIndex from '@mui/material/styles/zIndex';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
   borderRadius: '18px',
-  border: 'solid black 2px',
+  border: 'solid black 8px',
   backgroundColor: 'white',
   color: 'black',
 }));
@@ -92,6 +92,7 @@ const MenuSection = ({
           ...typography.hero_super_italic,
           fontSize: isMobile ? '60px' : '70px',
           fontFamily: typography.fontFamily,
+          lineHeight: '70%',
         }}
         id={`${menuSection}_list`}
       >
@@ -155,6 +156,7 @@ const MenuSection = ({
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
   const isMobile = useMediaQuery('(max-width:640px)');
+  const { typography, palette } = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -176,6 +178,7 @@ export const MenuCarousel = () => {
         justifyContent: 'center',
         position: 'relative',
         zIndex: 20,
+        fontFamily: typography.fontFamily,
       }}
     >
       <Box
@@ -183,22 +186,29 @@ export const MenuCarousel = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: '32px',
-          margin: '100px auto',
-          maxWidth: '1084px',
+          margin: '0px auto',
+          padding: '24px',
           width: '100%',
         }}
       >
         <StyledMenuCarouselWrapper>
-          <Box sx={{ margin: '24px' }}>
+          <Box
+            sx={{
+              margin: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '32px',
+            }}
+          >
             <Box
               sx={{
-                fontWeight: '900',
-                fontStyle: 'italic',
+                ...typography.hero_super_italic,
                 fontSize: isMobile ? '60px' : '100px',
+                lineHeight: '70%',
               }}
             >
               GOLF & <br />
-              &nbsp;&nbsp;&nbsp;GORUMET
+              GOURMET
             </Box>
             {/* Tab section */}
             <Box>
@@ -286,13 +296,17 @@ export const MenuCarousel = () => {
             </Box>
           </Box>
         </StyledMenuCarouselWrapper>
-        <StyledDownloadButton
+        <Button
           sx={{ alignSelf: isMobile ? 'center' : 'flex-end' }}
           disableRipple
+          disableElevation
+          disableFocusRipple
+          disableTouchRipple
+          variant="secondary"
         >
           {/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
-          Download Full Menu PDF
-        </StyledDownloadButton>
+          Download Full Menu PDF &rarr;
+        </Button>
       </Box>
     </Box>
   );

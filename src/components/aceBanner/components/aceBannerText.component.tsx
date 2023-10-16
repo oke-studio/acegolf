@@ -22,7 +22,6 @@ export const BannerText = ({
   const endOffsetPosition =
     eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +
     '%';
-  console.log(endOffsetPosition);
 
   return (
     <text

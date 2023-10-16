@@ -213,6 +213,7 @@ export const Header = ({
             >
               <StyledListItemButton
                 onClick={() => {
+                  toggleDropDown();
                   router.push(navLink.to);
                 }}
                 sx={{}}

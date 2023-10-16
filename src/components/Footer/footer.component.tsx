@@ -1,33 +1,26 @@
 'use client';
 
 import * as React from 'react';
-import {
-  Box,
-  createTheme,
-  ThemeProvider,
-  Typography,
-  Table,
-  TableBody,
-  TableContainer,
-  TableCell,
-  TableRow,
-  FormControl,
-  Input,
-  inputClasses,
-  styled,
-  Button,
-  buttonClasses,
-  Link,
-} from '@mui/material';
-import { FooterEmail } from './footer-email/footerEmail.component';
+import { Box, useTheme } from '@mui/material';
+
 import { FooterLinks } from './footer-links/footerLinks.component';
 
 // console.log(theme.typography);
 
 export const Footer = () => {
+  const { typography } = useTheme();
   // console.log(inputClasses);
   return (
-    <Box display="flex" flexDirection="column">
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'black',
+        fontFamily: typography.fontFamily,
+        zIndex: 5,
+        position: 'relative',
+      }}
+    >
       {/* TOP email section */}
       {/* <Box
           sx={{

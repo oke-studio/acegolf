@@ -8,12 +8,6 @@ export const DynamicPageBackground = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { backgroundColor } = useGetCurrentPathName();
-  return (
-    <Box
-      sx={{ backgroundColor: backgroundColor, position: 'relative' }}
-    >
-      {children}
-    </Box>
-  );
+  const style = useGetCurrentPathName();
+  return <Box sx={{ position: 'relative', ...style }}>{children}</Box>;
 };

@@ -12,7 +12,7 @@ import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
-import { LandingHowItWorks } from './components/tabSection/components/howItWorks/howItWorks.component';
+import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 
 const MapSVG = () => (
@@ -225,6 +225,7 @@ export default function Landing() {
               display: 'flex',
               margin: '32px 32px',
               justifyContent: 'space-between',
+              ...(isMobile && { flexDirection: 'column' }),
             }}
           >
             {/* Hero Logo Cluster*/}
@@ -276,13 +277,13 @@ export default function Landing() {
               >
                 INDOOR GOLF
                 <br />
-                LOUNGE
+                LOUNGE!
               </Box>
               <Box
                 sx={{
                   display: 'flex',
                   ...typography.hero_regular,
-                  fontSize: isMobile ? '18px' : '24px',
+                  fontSize: isMobile ? '16px' : '18px',
                   flexDirection: 'column',
                   gap: '8px',
                   position: 'relative',
@@ -314,9 +315,53 @@ export default function Landing() {
           </Box>
 
           {/* Hero Bottom Content*/}
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             {/* Hero Photo Splash*/}
-            <Box></Box>
+            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+              <Box
+                sx={{
+                  width: '200px',
+                  height: '200px',
+                  // flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  rotate: '9deg',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  width: '200px',
+                  height: '200px',
+                  // flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  rotate: '-10deg',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  width: '200px',
+                  height: '200px',
+                  // flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  rotate: '9deg',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  width: '200px',
+                  height: '200px',
+                  // flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  rotate: '-10deg',
+                }}
+              ></Box>
+            </Box>
 
             {/* Hero Button*/}
             <Button
@@ -324,70 +369,75 @@ export default function Landing() {
               disableFocusRipple
               disableRipple
               disableTouchRipple
-              sx={{
-                textTransform: 'none',
-                backgroundColor: palette.aceOrange,
-                color: 'white',
-                borderRadius: '78px',
-                ...typography.hero_semibold,
-                fontSize: '48px',
-                padding: '12px 60px',
-              }}
+              variant="primary"
+              // sx={{
+              //   textTransform: 'none',
+              //   backgroundColor: palette.aceOrange,
+              //   color: 'white',
+              //   borderRadius: '78px',
+              //   ...typography.hero_semibold,
+              //   fontSize: '48px',
+              //   // padding: '12px 60px',
+              //   // position: 'relative',
+              //   // top: '-60px',
+              //   // :HOVER:
+              //   // backgroundColor: rgb(156 152 148)
+              // }}
             >
               Reserve a bay &rarr;
             </Button>
           </Box>
         </Box>
-        {/* Banner Iterlude */}
+      </Box>
+      {/* Banner Iterlude */}
+      <Box
+        sx={{
+          position: 'relative',
+          top: '-160px',
+          zIndex: '1',
+        }}
+      >
         <Box
           sx={{
-            position: 'relative',
-            top: '-150px',
+            height: '500px',
+            width: '100vw',
           }}
         >
-          <Box
-            sx={{
-              height: '400px',
-              width: '100vw',
+          <AceBanner
+            width="100%"
+            height="100%"
+            viewBox="0 0 1440 400"
+            pathProps={{
+              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
+              fill: '#EB8B32',
             }}
-          >
-            <AceBanner
-              width="100%"
-              height="100%"
-              viewBox="0 0 1440 400"
-              pathProps={{
-                d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
-                fill: '#EB8B32',
-              }}
-              text=" "
-              textCount={1}
-              strokeColor="#36DAD5"
-            />
-          </Box>
+            text=" "
+            textCount={1}
+            strokeColor="#36DAD5"
+          />
+        </Box>
 
-          <Box
-            sx={{
-              height: '400px',
-              width: '100vw',
-              position: 'relative',
-              top: '-430px',
+        <Box
+          sx={{
+            height: '500px',
+            width: '100vw',
+            position: 'relative',
+            top: '-530px',
+          }}
+        >
+          <AceBanner
+            width="100%"
+            height="100%"
+            viewBox="0 0 1440 400"
+            pathProps={{
+              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
             }}
-          >
-            <AceBanner
-              width="100%"
-              height="100%"
-              viewBox="0 0 1440 400"
-              pathProps={{
-                d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
-              }}
-              text=" FOOD  DRINKS FUN "
-              textCount={5}
-              strokeColor="#171717"
-            />
-          </Box>
+            text=" FOOD  DRINKS FUN "
+            textCount={5}
+            strokeColor="#171717"
+          />
         </Box>
       </Box>
-
       {/* Orange Section */}
       <Box
         sx={{
@@ -395,10 +445,11 @@ export default function Landing() {
           backgroundSize: '100%',
           display: 'flex',
           width: '100vw',
+          height: '2000px',
           justifyContent: 'center',
           padding: '48px',
           position: 'relative',
-          top: '0',
+          top: '-940px',
           right: 0,
           left: 0,
           alignContent: 'center',
@@ -408,7 +459,8 @@ export default function Landing() {
         <LandingTabs />
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      {/* How it works, promotions, etc... */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', padding: '24px' }}>
         <LandingHowItWorks />
       </Box>
 

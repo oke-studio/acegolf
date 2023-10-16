@@ -53,11 +53,13 @@ declare module '@mui/material/styles' {
   interface Palette {
     aceOrange: string;
     aceTeal: string;
+    aceGreen: string;
   }
 
   interface PaletteOptions {
     aceOrange?: string;
     aceTeal?: string;
+    aceGreen?: string;
   }
 }
 
@@ -199,6 +201,7 @@ const theme = createTheme({
     primary: { main: '#EB8B32' },
     aceOrange: '#EB8B32',
     aceTeal: '#36DAD5',
+    aceGreen: '#39775E',
   },
   components: {
     MuiButton: {
@@ -217,6 +220,9 @@ const theme = createTheme({
             color: 'white',
             width: 'max-content',
             fontWeight: 400,
+            ':hover': {
+              color: 'black',
+            },
           },
         },
         {

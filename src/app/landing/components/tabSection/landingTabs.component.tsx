@@ -3,6 +3,8 @@
 import { Box, useTheme, Tab, Tabs, Typography } from '@mui/material';
 import * as React from 'react';
 import { PricesTab } from './components/tabs/pricesTab/pricesTab.component';
+import { ParkingTab } from './components/tabs/parkingTab/parkingTab.component';
+import { CoachingTab } from './components/tabs/coachingTab/coachingTab.component';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -81,19 +83,16 @@ export const LandingTabs = () => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Box sx={{ display: 'flex', gap: '24px' }}>
-          <PricesTab />
-          <PricesTab />
-        </Box>
+        <PricesTab />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <PricesTab />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <ParkingTab />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        Item Three
+        <CoachingTab />
       </CustomTabPanel>
     </Box>
   );

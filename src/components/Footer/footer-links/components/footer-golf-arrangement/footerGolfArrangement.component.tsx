@@ -84,7 +84,6 @@ export const FooterGolf = () => {
         alignItems: 'end',
         width: '100%',
         bottom: 0,
-        zIndex: -1,
       }}
     >
       {/* <svg
