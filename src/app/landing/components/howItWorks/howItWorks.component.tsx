@@ -13,6 +13,8 @@ export const LandingHowItWorks = () => {
         flexDirection: 'column',
         color: 'white',
         gap: '52px',
+        width: '50%',
+        ...(isMobile && { width: '100%' }),
       }}
     >
       {/* How it works heading */}
@@ -20,7 +22,7 @@ export const LandingHowItWorks = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          width: '50%',
+
           gap: '32px',
         }}
       >
@@ -56,7 +58,7 @@ export const LandingHowItWorks = () => {
       </Box>
 
       {/* #1 */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
             component="span"
@@ -93,7 +95,7 @@ export const LandingHowItWorks = () => {
       </Box>
 
       {/* #2 */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
             component="span"
@@ -130,7 +132,7 @@ export const LandingHowItWorks = () => {
       </Box>
 
       {/* #3 */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
             component="span"
@@ -172,11 +174,14 @@ export const LandingHowItWorks = () => {
           display: 'flex',
           ...(isMobile && { flexDirection: 'column' }),
           gap: '24px',
-          width: '50%',
         }}
       >
-        <Button variant="secondary">Learn More &rarr;</Button>
-        <Button variant="primary">Reserve a Bay &rarr;</Button>
+        <Button variant="secondary" fullWidth={isMobile}>
+          Learn More &rarr;
+        </Button>
+        <Button variant="primary" fullWidth={isMobile}>
+          Reserve a Bay &rarr;
+        </Button>
       </Box>
     </Box>
   );

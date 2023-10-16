@@ -14,6 +14,7 @@ import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
+import { Promotions } from './components/promotions/promotions.component';
 
 const MapSVG = () => (
   <svg
@@ -462,6 +463,7 @@ export default function Landing() {
       {/* How it works, promotions, etc... */}
       <Box sx={{ display: 'flex', flexDirection: 'column', padding: '24px' }}>
         <LandingHowItWorks />
+        <Promotions />
       </Box>
 
       {/* <HowItWorksSection /> */}
