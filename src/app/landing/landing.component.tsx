@@ -179,6 +179,7 @@ const GolfLoungeCopyComponent = () => {
 export default function Landing() {
   const { palette, typography } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
   return (
     <Box
@@ -204,7 +205,7 @@ export default function Landing() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          margin: '15px 5% 5px',
+          margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
           borderRadius: '25px',
           backgroundColor: 'white',
           paddingBottom: '20px',
@@ -225,7 +226,7 @@ export default function Landing() {
             sx={{
               display: 'flex',
               margin: '32px 32px',
-              justifyContent: 'space-between',
+              justifyContent: 'space-around',
               ...(isMobile && { flexDirection: 'column' }),
             }}
           >
@@ -235,13 +236,19 @@ export default function Landing() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                justifyContent: 'center',
+                width: '400px',
               }}
             >
-              <Box>
+              <Box sx={{
+                width: '100%',
+                marginBottom: '10%',
+              }}>
                 <Image
                   src="/images/ace-landing-logo.svg"
-                  width={250}
+                  width={400}
                   height={150}
+                  //style={{height: '100%' , width: '100%'}}
                   alt="ace logo"
                 />
               </Box>
@@ -254,6 +261,8 @@ export default function Landing() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                justifyContent: 'center',
+                width: '400px',
               }}
             >
               <Box
@@ -274,6 +283,7 @@ export default function Landing() {
                   textAlign: 'center',
                   ...typography.hero_super,
                   fontSize: '48px',
+                  lineHeight: '110%',
                 }}
               >
                 INDOOR GOLF
