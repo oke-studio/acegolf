@@ -6,10 +6,6 @@ import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
-// import { HeroImage1} from '../../../public/images/Spin-photo1.png';
-// import { HeroImage2} from '../../../public/images/Spin-photo2.png';
-// import { HeroImage3} from '../../../public/images/Spin-photo3.png';
-// import { HeroImage4} from '../../../public/images/Spin-photo4.png';
 import { East } from '@mui/icons-material';
 
 import { TigerImage } from './components/tigerImage/tigerImage.component';
@@ -418,8 +414,11 @@ export default function Landing() {
                 padding: '12px 60px',
                 position: 'relative',
                 top: '-60px',
-                // :HOVER:
-                // backgroundColor: rgb(156 152 148)
+                ':hover:': {
+                  backgroundColor: '#eb8b32c9',
+                  color: 'white',
+                }
+                // 
               }}
             >
               Reserve a bay &rarr;
@@ -496,6 +495,58 @@ export default function Landing() {
           flexWrap: 'wrap',
         }}
       >
+        <Box  sx={{
+                  position: 'absolute',
+                  zIndex: 1,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: '100vw',
+                  height: '2500px',
+                }}
+            >
+          <Box
+                sx={{
+                  width: '100%',
+                  // width: isSmallDesktop ? '150px' :'200px',
+                  // height:  isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  background: 'url(/images/collageexport/Tiger-woods.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'fit',
+                  // rotate:  isMobile ? '-5deg' :'-10deg',
+                }}
+              ></Box>
+
+            <Box
+                sx={{
+                  width: '100%',
+                  // width: isSmallDesktop ? '150px' :'200px',
+                  // height:  isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  background: 'url(/images/collageexport/space.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'fit',
+                  // rotate:  isMobile ? '-5deg' :'-10deg',
+                }}
+              ></Box>
+
+            <Box
+                sx={{
+                  width: '100%',
+                  // width: isSmallDesktop ? '150px' :'200px',
+                  // height:  isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
+                  backgroundColor: 'aqua',
+                  background: 'url(/images/collageexport/Drink.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'fit',
+                  // rotate:  isMobile ? '-5deg' :'-10deg',
+                }}
+              ></Box>
+        </Box>
         <LandingTabs />
       </Box>
 

@@ -53,7 +53,7 @@ export const Header = ({
     { label: 'Menu', to: '/menu' },
     { label: 'How it Works', to: '/how-it-works' },
     { label: 'About', to: '/about' },
-    { label: 'Parties & Events', to: '/events' },
+    { label: 'Events', to: '/events' },
   ],
 }: HeaderProps) => {
   const { palette, typography, zIndex } = useTheme();
