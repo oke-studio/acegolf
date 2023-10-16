@@ -28,7 +28,7 @@ export const BannerText = ({
       style={{
         fontFamily: 'new-hero',
         fontWeight: '800',
-        fontSize: '88px',
+        fontSize: '53px',
       }}
       fill={fill}
     >

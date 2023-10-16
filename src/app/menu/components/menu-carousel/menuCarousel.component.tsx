@@ -15,8 +15,8 @@ import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.com
 import zIndex from '@mui/material/styles/zIndex';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
-  borderRadius: '18px',
-  border: 'solid black 8px',
+  borderRadius: '25px',
+  border: 'solid black 6px',
   backgroundColor: 'white',
   color: 'black',
 }));
@@ -84,6 +84,7 @@ const MenuSection = ({
 }) => {
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   // console.log(typography.hero_semibold);
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -156,6 +157,7 @@ const MenuSection = ({
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   const { typography, palette } = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -179,6 +181,7 @@ export const MenuCarousel = () => {
         position: 'relative',
         zIndex: 20,
         fontFamily: typography.fontFamily,
+        margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
       }}
     >
       <Box
@@ -187,7 +190,6 @@ export const MenuCarousel = () => {
           flexDirection: 'column',
           gap: '32px',
           margin: '0px auto',
-          padding: '24px',
           width: '100%',
         }}
       >

@@ -6,6 +6,10 @@ import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
+// import { HeroImage1} from '../../../public/images/Spin-photo1.png';
+// import { HeroImage2} from '../../../public/images/Spin-photo2.png';
+// import { HeroImage3} from '../../../public/images/Spin-photo3.png';
+// import { HeroImage4} from '../../../public/images/Spin-photo4.png';
 import { East } from '@mui/icons-material';
 
 import { TigerImage } from './components/tigerImage/tigerImage.component';
@@ -180,6 +184,7 @@ const GolfLoungeCopyComponent = () => {
 export default function Landing() {
   const { palette, typography } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
   return (
@@ -220,13 +225,15 @@ export default function Landing() {
             padding: '5% 5%',
             display: 'flex',
             flexDirection: 'column',
+            border: 'solid white 6px',
+            borderRadius: '25px',
           }}
         >
           {/* Hero Top Content*/}
           <Box
             sx={{
               display: 'flex',
-              margin: '32px 32px',
+              margin: isMobile ? '0px' :'32px 32px',
               justifyContent: 'space-around',
               ...(isMobile && { flexDirection: 'column' }),
             }}
@@ -238,7 +245,7 @@ export default function Landing() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '400px',
+                width: isMobile ? '100%' :'400px',
               }}
             >
               <Box sx={{
@@ -256,6 +263,7 @@ export default function Landing() {
               <Box component="span">BAYS BY TRACKMAN</Box>
             </Box>
 
+
             {/* Hero Info Cluster*/}
             <Box
               sx={{
@@ -263,7 +271,7 @@ export default function Landing() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '400px',
+                width: isMobile ? '100%' :'400px',
               }}
             >
               <Box
@@ -273,7 +281,7 @@ export default function Landing() {
                   borderRadius: '6.82px',
                   padding: '4px 10px',
                   ...typography.hero_super,
-                  fontSize: '32px',
+                  fontSize: isMobile ? '24px' : '32px',
                   width: 'max-content',
                 }}
               >
@@ -282,8 +290,10 @@ export default function Landing() {
               <Box
                 sx={{
                   textAlign: 'center',
-                  ...typography.hero_super,
-                  fontSize: '48px',
+                  //not big bold enough
+                  // ...typography.hero_super,
+                  ...typography.hero_semibold,
+                  fontSize: isMobile ? '32px' : '48px',
                   lineHeight: '110%',
                 }}
               >
@@ -336,41 +346,49 @@ export default function Landing() {
             }}
           >
             {/* Hero Photo Splash*/}
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: 'row',
+            ...(isMobile && { flexWrap: 'wrap' }), 
+            }}>
               <Box
                 sx={{
-                  width: '200px',
-                  height: '200px',
-                  // flex: '1 1 auto',
+                  width: isSmallDesktop ? '150px' :'200px',
+                  height:  isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
                   backgroundColor: 'aqua',
-                  rotate: '9deg',
+                  //backgroundImage: {HeroImage1},
+                  rotate: isMobile ? '-5deg' :'10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: '200px',
-                  height: '200px',
-                  // flex: '1 1 auto',
+                  width: isSmallDesktop ? '150px' :'200px',
+                  height: isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
                   backgroundColor: 'aqua',
-                  rotate: '-10deg',
+                 // backgroundImage: {HeroImage2},
+                  rotate:  isMobile ? '5deg' :'-10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: '200px',
-                  height: '200px',
-                  // flex: '1 1 auto',
+                  width: isSmallDesktop ? '150px' :'200px',
+                  height: isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
                   backgroundColor: 'aqua',
-                  rotate: '9deg',
+                  //backgroundImage: {HeroImage3},
+                  rotate:  isMobile ? '5deg' :'10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: '200px',
-                  height: '200px',
-                  // flex: '1 1 auto',
+                  width: isSmallDesktop ? '150px' :'200px',
+                  height:  isSmallDesktop ? '150px' :'200px',
+                  //flex: '1 1 auto',
                   backgroundColor: 'aqua',
-                  rotate: '-10deg',
+                  //backgroundImage: {HeroImage4},
+                  rotate:  isMobile ? '-5deg' :'-10deg',
                 }}
               ></Box>
             </Box>
@@ -382,19 +400,19 @@ export default function Landing() {
               disableRipple
               disableTouchRipple
               variant="primary"
-              // sx={{
-              //   textTransform: 'none',
-              //   backgroundColor: palette.aceOrange,
-              //   color: 'white',
-              //   borderRadius: '78px',
-              //   ...typography.hero_semibold,
-              //   fontSize: '48px',
-              //   // padding: '12px 60px',
-              //   // position: 'relative',
-              //   // top: '-60px',
-              //   // :HOVER:
-              //   // backgroundColor: rgb(156 152 148)
-              // }}
+              sx={{
+                textTransform: 'none',
+                backgroundColor: palette.aceOrange,
+                color: 'white',
+                borderRadius: '78px',
+                ...typography.hero_semibold,
+                fontSize: '32px',
+                padding: '12px 60px',
+                position: 'relative',
+                top: '-60px',
+                // :HOVER:
+                // backgroundColor: rgb(156 152 148)
+              }}
             >
               Reserve a bay &rarr;
             </Button>
@@ -405,7 +423,7 @@ export default function Landing() {
       <Box
         sx={{
           position: 'relative',
-          top: '-160px',
+          top: isMobile ? '-200px' :'-160px',
           zIndex: '1',
         }}
       >
@@ -413,6 +431,7 @@ export default function Landing() {
           sx={{
             height: '500px',
             width: '100vw',
+            ...(isMobile && { scale: '2' }),
           }}
         >
           <AceBanner
@@ -434,7 +453,8 @@ export default function Landing() {
             height: '500px',
             width: '100vw',
             position: 'relative',
-            top: '-530px',
+            top:  isMobile ? '-515px' :'-530px',
+            ...(isMobile && { scale: '2' }),
           }}
         >
           <AceBanner
@@ -444,7 +464,7 @@ export default function Landing() {
             pathProps={{
               d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
             }}
-            text=" FOOD  DRINKS FUN "
+            text="FOOD  DRINKS FUN "
             textCount={5}
             strokeColor="#171717"
           />

@@ -21,7 +21,7 @@ const AceBannerText = ({ text, textCount = 1, textPath }: AceBannerProps) => {
             animationDelay={`${index * 10}s`}
             animationDuration={animationDuration}
             pathId={`#${textPath}`}
-            fill={index % 2 === 0 ? 'white' : 'black'}
+            fill={index % 2 === 0 ? 'white' : 'white'}
             startOffsetPosition={initialStartOffset}
           >
             {text}
