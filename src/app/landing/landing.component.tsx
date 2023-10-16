@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
-import { TopBanner } from '@/components/topBanner/topBanner.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
 import { East } from '@mui/icons-material';
@@ -14,6 +13,7 @@ import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingHowItWorks } from './components/tabSection/components/howItWorks/howItWorks.component';
+import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 
 const MapSVG = () => (
   <svg
@@ -182,7 +182,7 @@ export default function Landing() {
   return (
     <Box
       sx={{
-        backgroundColor: '#171717',
+        //backgroundColor: '#171717',
         position: 'relative',
         overflow: 'hidden',
         fontFamily: typography.fontFamily,
@@ -197,30 +197,29 @@ export default function Landing() {
         ]}
       /> */}
 
+      {/* Hero Section*/}
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          margin: '0px auto',
-          maxWidth: '1084px',
-          width: '100%',
-
           alignItems: 'center',
-          padding: '12px 24px',
+          margin: '15px 5% 5px',
+          borderRadius: '25px',
+          backgroundColor: 'white',
+          paddingBottom: '20px',
         }}
       >
+        {/* Hero Inner Section*/}
         <Box
           sx={{
-            borderRadius: '25px',
-            backgroundColor: 'white',
-            backgroundImage: `url(${Noise})`,
             width: '100%',
             color: 'black',
-            padding: '48px 48px',
+            padding: '5% 5%',
             display: 'flex',
             flexDirection: 'column',
           }}
         >
+          {/* Hero Top Content*/}
           <Box
             sx={{
               display: 'flex',
@@ -228,6 +227,7 @@ export default function Landing() {
               justifyContent: 'space-between',
             }}
           >
+            {/* Hero Logo Cluster*/}
             <Box
               sx={{
                 display: 'flex',
@@ -245,6 +245,8 @@ export default function Landing() {
               </Box>
               <Box component="span">BAYS BY TRACKMAN</Box>
             </Box>
+
+            {/* Hero Info Cluster*/}
             <Box
               sx={{
                 display: 'flex',
@@ -310,7 +312,13 @@ export default function Landing() {
               </Box>
             </Box>
           </Box>
+
+          {/* Hero Bottom Content*/}
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            {/* Hero Photo Splash*/}
+            <Box></Box>
+
+            {/* Hero Button*/}
             <Button
               disableElevation
               disableFocusRipple
@@ -322,7 +330,7 @@ export default function Landing() {
                 color: 'white',
                 borderRadius: '78px',
                 ...typography.hero_semibold,
-                fontSize: '53.72px',
+                fontSize: '48px',
                 padding: '12px 60px',
               }}
             >
@@ -330,57 +338,78 @@ export default function Landing() {
             </Button>
           </Box>
         </Box>
-
+        {/* Banner Iterlude */}
         <Box
           sx={{
-            // backgroundColor: palette.aceOrange,
-            background:
-              'no-repeat url(/images/OrangeSection+Banners.svg) bottom center',
-            backgroundSize: '100%',
-            display: 'flex',
-            width: '100vw',
-            height: '2100px',
-            justifyContent: 'center',
-            padding: '48px',
             position: 'relative',
-            top: '-230px',
-            right: 0,
-            left: 0,
-            alignContent: 'center',
-            flexWrap: 'wrap',
-            ':before': {
-              content: "''",
-              position: 'absolute',
-              top: '-150px',
-              left: '0',
-              right: '0',
-              width: '100%',
-              height: '315px',
-              background:
-                'no-repeat url(/images/ace-orange-image-backdrop.svg) bottom center',
-              backgroundSize: '100%',
-            },
-
-            // ':after': {
-            //   content: "''",
-            //   position: 'absolute',
-            //   top: '0',
-            //   left: '0',
-            //   right: '0',
-            //   width: '100%',
-            //   height: '100%',
-            //   background:
-            //     'no-repeat url(/images/ace-orange-image-backdrop.svg) bottom center',
-            //   backgroundSize: '100%',
-            // },
+            top: '-150px',
           }}
         >
-          <LandingTabs />
-        </Box>
+          <Box
+            sx={{
+              height: '400px',
+              width: '100vw',
+            }}
+          >
+            <AceBanner
+              width="100%"
+              height="100%"
+              viewBox="0 0 1440 400"
+              pathProps={{
+                d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+                fill: '#EB8B32',
+              }}
+              text=" "
+              textCount={1}
+              strokeColor="#36DAD5"
+            />
+          </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <LandingHowItWorks />
+          <Box
+            sx={{
+              height: '400px',
+              width: '100vw',
+              position: 'relative',
+              top: '-430px',
+            }}
+          >
+            <AceBanner
+              width="100%"
+              height="100%"
+              viewBox="0 0 1440 400"
+              pathProps={{
+                d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+              }}
+              text=" FOOD  DRINKS FUN "
+              textCount={5}
+              strokeColor="#171717"
+            />
+          </Box>
         </Box>
+      </Box>
+
+      {/* Orange Section */}
+      <Box
+        sx={{
+          backgroundColor: '#EB8B32',
+          backgroundSize: '100%',
+          display: 'flex',
+          width: '100vw',
+          justifyContent: 'center',
+          padding: '48px',
+          position: 'relative',
+          top: '0',
+          right: 0,
+          left: 0,
+          alignContent: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <LandingTabs />
+      </Box>
+
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <LandingHowItWorks />
       </Box>
 
       {/* <HowItWorksSection /> */}
