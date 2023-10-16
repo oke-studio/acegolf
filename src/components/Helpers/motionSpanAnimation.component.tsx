@@ -26,10 +26,10 @@ const DEFAULT_HOVER_ANIMATION_PROFILE = (
       from: '#000000',
     },
     rotate: { to: RNG(9, 21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+    // fontWeight: {
+    //   to: typography.hero_bold.fontWeight as string,
+    //   from: typography.hero_semibold.fontWeight as string,
+    // },
     transition: {
       to: {
         duration: 0.5,
@@ -57,10 +57,10 @@ const DEFAULT_REST_ANIMATION_PROFILE = (
       from: '#000000',
     },
     rotate: { to: RNG(-9, -21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+    // fontWeight: {
+    //   to: typography.hero_bold.fontWeight as string,
+    //   from: typography.hero_semibold.fontWeight as string,
+    // },
     transition: {
       to: {
         duration: 0.5,
