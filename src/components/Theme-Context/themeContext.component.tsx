@@ -54,12 +54,14 @@ declare module '@mui/material/styles' {
     aceOrange: string;
     aceTeal: string;
     aceGreen: string;
+    aceGrey: string;
   }
 
   interface PaletteOptions {
     aceOrange?: string;
     aceTeal?: string;
     aceGreen?: string;
+    aceGrey?: string;
   }
 }
 
@@ -202,6 +204,7 @@ const theme = createTheme({
     aceOrange: '#EB8B32',
     aceTeal: '#36DAD5',
     aceGreen: '#39775E',
+    aceGrey: '#AFAFAF',
   },
   components: {
     MuiButton: {

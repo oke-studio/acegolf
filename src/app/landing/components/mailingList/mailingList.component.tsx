@@ -20,43 +20,6 @@ const MailingListForm = () => {
     console.log(isSubmit);
   }, [isSubmit]);
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'comingsoon-email', ...values }),
-      })
-        .then(() => setIsSubmit(true))
-        .catch((e) => alert(e));
-    },
-  });
-
-  const buttonClick = () => {
-    if (formik.values.email === '') {
-      setError({ error: true, message: 'Please provide an email' });
-      return;
-    }
-
-    if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
-    ) {
-      setError({
-        error: true,
-        message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
-      });
-      return;
-    }
-
-    setError({ error: false, message: '' });
-    setIsSubmit(true);
-    formik.handleSubmit();
-  };
-
   return (
     <Formik
       initialValues={{ email: '' }}
@@ -65,7 +28,7 @@ const MailingListForm = () => {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'comingsoon-email', ...values }),
+          body: encode({ 'form-name': 'landing-mailing-list', ...values }),
         })
           .then(() => setIsSubmit(true))
           .catch((e) => alert(e));
@@ -87,14 +50,19 @@ const MailingListForm = () => {
           <Box
             component="form"
             order={2}
-            name="comingsoon-email"
+            name="landing-mailing-list"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
+            sx={{ width: '40%' }}
           >
-            <input type="hidden" name="form-name" value="comingsoon-email" />
+            <input
+              type="hidden"
+              name="form-name"
+              value="landing-mailing-list"
+            />
             <TextField
               // error={errors.email && touched.email}
               fullWidth
@@ -116,17 +84,16 @@ const MailingListForm = () => {
                 },
                 '.MuiInputBase-input': {
                   color: '#373737',
-
+                  ...(isSubmitting && { paddingLeft: '2px' }),
                   width: isSubmitting ? '0' : '100%',
                   fontFamily: 'new-hero',
                   fontSize: '12px',
                 },
                 '.MuiFormHelperText-root': {
                   fontSize: '10px',
-                  color: 'white',
-
+                  color: (t) => t.palette.aceGrey,
                   marginTop: '8px',
-                  width: '45%',
+                  width: '75%',
                   textAlign: 'center',
                 },
                 pointerEvents: isSubmitting ? 'none' : 'initial',
@@ -175,6 +142,7 @@ const MailingListForm = () => {
     </Formik>
   );
 };
+
 export const MailingList = () => {
   const { typography, palette } = useTheme();
 
@@ -185,13 +153,14 @@ export const MailingList = () => {
         flexDirection: 'column',
         color: 'white',
         alignItems: 'center',
-        gap: '32px',
+        gap: '24px',
+        margin: '32px 0',
       }}
     >
-      <Box component="h1" sx={{ ...typography.hero_super }}>
+      <Box component="h1" sx={{ ...typography.hero_super, fontSize: '48px' }}>
         JOIN THE MAILING LIST
       </Box>
-      <Box>
+      <Box sx={{ ...typography.hero_medium, fontSize: '24px' }}>
         Be the first to know about the latest ACE Golf promos and events
       </Box>
       <MailingListForm />

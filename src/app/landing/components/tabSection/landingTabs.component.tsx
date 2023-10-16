@@ -5,6 +5,7 @@ import * as React from 'react';
 import { PricesTab } from './components/tabs/pricesTab/pricesTab.component';
 import { ParkingTab } from './components/tabs/parkingTab/parkingTab.component';
 import { CoachingTab } from './components/tabs/coachingTab/coachingTab.component';
+import SwipeableViews from 'react-swipeable-views';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -39,9 +40,18 @@ export const LandingTabs = () => {
   const { typography, palette } = useTheme();
   const [value, setValue] = React.useState(0);
 
+  React.useEffect(() => {
+    console.log(value);
+  }, [value]);
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
   return (
     <Box
       sx={{
@@ -82,18 +92,26 @@ export const LandingTabs = () => {
           <Tab label="Coaching" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        <PricesTab />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <PricesTab />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        <ParkingTab />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
-        <CoachingTab />
-      </CustomTabPanel>
+      <SwipeableViews
+        index={value}
+        onChangeIndex={handleChangeIndex}
+        enableMouseEvents
+        slideStyle={{}}
+        style={{ padding: '0 48px' }}
+      >
+        <CustomTabPanel value={value} index={0}>
+          <PricesTab />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <PricesTab />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          <ParkingTab />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          <CoachingTab />
+        </CustomTabPanel>
+      </SwipeableViews>
     </Box>
   );
 };
