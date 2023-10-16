@@ -249,22 +249,47 @@ export const MenuCarousel = () => {
                 menuSection="BIG BITES"
                 menuOptions={[
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Rice Paper Slaw with sakura shrimp',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Build your own taco board',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: '5 spice duck breast',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Curry and salted egg fish taco',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Bun bo hue Taco',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
