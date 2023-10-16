@@ -1,11 +1,43 @@
 'use client';
 import * as React from 'react';
-import { useTheme, Box, styled } from '@mui/material';
+import { useTheme, Box, styled, Typography } from '@mui/material';
 
-const StyledPromotionCards = styled(Box)({});
+const StyledPromotionCards = styled(Box)({
+  borderRadius: '16px',
+  height: '200px',
+  width: '200px',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '2px',
+  backgroundColor: 'white',
+  color: 'black',
+});
 
-const PromotionCards = () => {
-  return <StyledPromotionCards></StyledPromotionCards>;
+const PromotionCards = ({
+  label,
+  background,
+}: {
+  label: string;
+  background: string;
+}) => {
+  return (
+    <StyledPromotionCards>
+      <Box
+        sx={{
+          width: '100%',
+          background: background,
+          height: '80%',
+          borderRadius: 'inherit',
+        }}
+      ></Box>
+      <Typography
+        fontStyle={({ typography }) => typography.hero_super_italic.fontStyle}
+        fontSize="24px"
+      >
+        {label}
+      </Typography>
+    </StyledPromotionCards>
+  );
 };
 
 export const Promotions = () => {
@@ -26,7 +58,11 @@ export const Promotions = () => {
       <Box>
         Be the first to know about the latest ACE Golf promos and events
       </Box>
-      <Box></Box>
+      <Box sx={{ display: 'flex', gap: '24px' }}>
+        <PromotionCards label="34574 COUPON" background="red" />
+        <PromotionCards label="EVENT 1" background="blue" />
+        <PromotionCards label="EVENT 2" background="grey" />
+      </Box>
     </Box>
   );
 };
