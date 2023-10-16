@@ -499,15 +499,20 @@ export default function Landing() {
                   position: 'absolute',
                   zIndex: 1,
                   display: 'flex',
-                  justifyContent: 'center',
-                  alignContent: 'center',
+                  justifyContent: 'space-around',
+                  alignContent: 'space-around',
                   width: '100vw',
                   height: '2500px',
+                  flexWrap: 'wrap',
                 }}
             >
           <Box
                 sx={{
-                  width: '100%',
+                  position: 'relative',
+                  top: '-178px',
+                  left: '-245px',
+                  width: '437px',
+                  height: '807px',
                   // width: isSmallDesktop ? '150px' :'200px',
                   // height:  isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
@@ -521,7 +526,8 @@ export default function Landing() {
 
             <Box
                 sx={{
-                  width: '100%',
+                  width: '825px',
+                  height: '825px',
                   // width: isSmallDesktop ? '150px' :'200px',
                   // height:  isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
@@ -535,7 +541,8 @@ export default function Landing() {
 
             <Box
                 sx={{
-                  width: '100%',
+                  width: '433px',
+                  height: '322px',
                   // width: isSmallDesktop ? '150px' :'200px',
                   // height:  isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
@@ -547,7 +554,13 @@ export default function Landing() {
                 }}
               ></Box>
         </Box>
+
+        <Box  sx={{
+                  zIndex: 2,
+        }}
+        >
         <LandingTabs />
+        </Box>
       </Box>
 
       {/* How it works, promotions, etc... */}
