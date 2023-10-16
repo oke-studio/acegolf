@@ -229,7 +229,7 @@ export default function Landing() {
           <Box
             sx={{
               display: 'flex',
-              margin: isMobile ? '0px' :'32px 32px',
+              margin: isMobile ? '0px' : '32px 32px',
               justifyContent: 'space-around',
               ...(isMobile && { flexDirection: 'column' }),
             }}
@@ -241,13 +241,15 @@ export default function Landing() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: isMobile ? '100%' :'400px',
+                width: isMobile ? '100%' : '400px',
               }}
             >
-              <Box sx={{
-                width: '100%',
-                marginBottom: '10%',
-              }}>
+              <Box
+                sx={{
+                  width: '100%',
+                  marginBottom: '10%',
+                }}
+              >
                 <Image
                   src="/images/ace-landing-logo.svg"
                   width={400}
@@ -259,7 +261,6 @@ export default function Landing() {
               <Box component="span">BAYS BY TRACKMAN</Box>
             </Box>
 
-
             {/* Hero Info Cluster*/}
             <Box
               sx={{
@@ -267,7 +268,7 @@ export default function Landing() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: isMobile ? '100%' :'400px',
+                width: isMobile ? '100%' : '400px',
               }}
             >
               <Box
@@ -342,57 +343,59 @@ export default function Landing() {
             }}
           >
             {/* Hero Photo Splash*/}
-            <Box sx={{ 
-              display: 'flex', 
-              flexDirection: 'row',
-            ...(isMobile && { flexWrap: 'wrap' }), 
-            }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                ...(isMobile && { flexWrap: 'wrap' }),
+              }}
+            >
               <Box
                 sx={{
-                  width: isSmallDesktop ? '150px' :'200px',
-                  height:  isSmallDesktop ? '150px' :'200px',
+                  width: isSmallDesktop ? '150px' : '200px',
+                  height: isSmallDesktop ? '150px' : '200px',
                   //flex: '1 1 auto',
                   // backgroundColor: 'aqua',
                   background: 'url(/images/Spin-photo4.png)',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  rotate: isMobile ? '-5deg' :'10deg',
+                  rotate: isMobile ? '-5deg' : '10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: isSmallDesktop ? '150px' :'200px',
-                  height: isSmallDesktop ? '150px' :'200px',
+                  width: isSmallDesktop ? '150px' : '200px',
+                  height: isSmallDesktop ? '150px' : '200px',
                   //flex: '1 1 auto',
                   //backgroundColor: 'aqua',
                   background: 'url(/images/Spin-photo3.png)',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  rotate:  isMobile ? '5deg' :'-10deg',
+                  rotate: isMobile ? '5deg' : '-10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: isSmallDesktop ? '150px' :'200px',
-                  height: isSmallDesktop ? '150px' :'200px',
+                  width: isSmallDesktop ? '150px' : '200px',
+                  height: isSmallDesktop ? '150px' : '200px',
                   //flex: '1 1 auto',
                   //backgroundColor: 'aqua',
                   background: 'url(/images/Spin-photo2.png)',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  rotate:  isMobile ? '5deg' :'10deg',
+                  rotate: isMobile ? '5deg' : '10deg',
                 }}
               ></Box>
               <Box
                 sx={{
-                  width: isSmallDesktop ? '150px' :'200px',
-                  height:  isSmallDesktop ? '150px' :'200px',
+                  width: isSmallDesktop ? '150px' : '200px',
+                  height: isSmallDesktop ? '150px' : '200px',
                   //flex: '1 1 auto',
                   //backgroundColor: 'aqua',
                   background: 'url(/images/Spin-photo1.png)',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  rotate:  isMobile ? '-5deg' :'-10deg',
+                  rotate: isMobile ? '-5deg' : '-10deg',
                 }}
               ></Box>
             </Box>
@@ -417,8 +420,8 @@ export default function Landing() {
                 ':hover:': {
                   backgroundColor: '#eb8b32c9',
                   color: 'white',
-                }
-                // 
+                },
+                //
               }}
             >
               Reserve a bay &rarr;
@@ -430,7 +433,7 @@ export default function Landing() {
       <Box
         sx={{
           position: 'relative',
-          top: isMobile ? '-200px' :'-160px',
+          top: isMobile ? '-200px' : '-160px',
           zIndex: '1',
         }}
       >
@@ -460,7 +463,7 @@ export default function Landing() {
             height: '500px',
             width: '100vw',
             position: 'relative',
-            top: isMobile ? '-515px' :'-530px',
+            top: isMobile ? '-515px' : '-530px',
             ...(isMobile && { scale: '2' }),
           }}
         >
@@ -495,20 +498,23 @@ export default function Landing() {
           flexWrap: 'wrap',
         }}
       >
-        <Box  sx={{
-                  position: 'relative',
-                  zIndex: 1,
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  alignContent: 'space-around',
-                  width: '100vw',
-                  height: '1500px',
-                  flexWrap: 'wrap',
-                  background: isSmallDesktop ? 'url(/images/background-collage_928.svg)': 'url(/images/background-collage_1226.svg)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                }}
-            >
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignContent: 'space-around',
+            width: '100vw',
+            height: '1500px',
+            flexWrap: 'wrap',
+            background: isSmallDesktop
+              ? 'url(/images/background-collage_928.svg)'
+              : 'url(/images/background-collage_1226.svg)',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'fit',
+          }}
+        >
           {/* <Box
                 sx={{
                   position: 'relative',
@@ -557,14 +563,13 @@ export default function Landing() {
                 }}
               ></Box> */}
         </Box>
-
-        
       </Box>
 
-      <Box  sx={{
-                  zIndex: 2,
+      <Box
+        sx={{
+          zIndex: 2,
         }}
-        >
+      >
         <LandingTabs />
       </Box>
 
