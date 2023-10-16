@@ -356,8 +356,10 @@ export default function Landing() {
                   width: isSmallDesktop ? '150px' :'200px',
                   height:  isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  //backgroundImage: {HeroImage1},
+                  // backgroundColor: 'aqua',
+                  background: 'url(/images/Spin-photo4.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                   rotate: isMobile ? '-5deg' :'10deg',
                 }}
               ></Box>
@@ -366,8 +368,10 @@ export default function Landing() {
                   width: isSmallDesktop ? '150px' :'200px',
                   height: isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                 // backgroundImage: {HeroImage2},
+                  //backgroundColor: 'aqua',
+                  background: 'url(/images/Spin-photo3.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                   rotate:  isMobile ? '5deg' :'-10deg',
                 }}
               ></Box>
@@ -376,8 +380,10 @@ export default function Landing() {
                   width: isSmallDesktop ? '150px' :'200px',
                   height: isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  //backgroundImage: {HeroImage3},
+                  //backgroundColor: 'aqua',
+                  background: 'url(/images/Spin-photo2.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                   rotate:  isMobile ? '5deg' :'10deg',
                 }}
               ></Box>
@@ -386,8 +392,10 @@ export default function Landing() {
                   width: isSmallDesktop ? '150px' :'200px',
                   height:  isSmallDesktop ? '150px' :'200px',
                   //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  //backgroundImage: {HeroImage4},
+                  //backgroundColor: 'aqua',
+                  background: 'url(/images/Spin-photo1.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                   rotate:  isMobile ? '-5deg' :'-10deg',
                 }}
               ></Box>
@@ -453,7 +461,7 @@ export default function Landing() {
             height: '500px',
             width: '100vw',
             position: 'relative',
-            top:  isMobile ? '-515px' :'-530px',
+            top: isMobile ? '-515px' :'-530px',
             ...(isMobile && { scale: '2' }),
           }}
         >
