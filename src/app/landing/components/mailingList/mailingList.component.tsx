@@ -1,19 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import Image from 'next/image';
-import { styled, Box, TextField, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useFormik, Formik } from 'formik';
+import { Box, useTheme, TextField, Typography } from '@mui/material';
+import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
+import { motion } from 'framer-motion';
 
-const backgroundColor = '#529DC8';
-
-interface FormValues {
-  email: string;
-}
-
-const ComingSoonForm = () => {
+const MailingListForm = () => {
+  const { typography, palette } = useTheme();
   const [isSubmit, setIsSubmit] = React.useState(false);
   const [error, setError] = React.useState<{ error: boolean; message: string }>(
     {
@@ -112,13 +106,13 @@ const ComingSoonForm = () => {
               disabled={isSubmit}
               onChange={handleChange}
               value={values.email}
-              helperText="BY CLICKING THE BUTTON ABOVE YOU AGREE TO RECEIVE MARKETING EMAILS FROM ACE GOLF.
-YOU CAN UNSUBSCRIBE AT ANY TIME."
+              helperText="*BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF SERVICES AND TO RECEIVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
               sx={{
                 fontFamily: 'new-hero',
                 '.MuiInputBase-root': {
                   justifyContent: 'flex-end',
                   background: 'white',
+                  paddingRight: '2px',
                 },
                 '.MuiInputBase-input': {
                   color: '#373737',
@@ -128,9 +122,12 @@ YOU CAN UNSUBSCRIBE AT ANY TIME."
                   fontSize: '12px',
                 },
                 '.MuiFormHelperText-root': {
-                  fontSize: '12px',
-                  color: 'black',
-                  // marginTop: '8px'
+                  fontSize: '10px',
+                  color: 'white',
+
+                  marginTop: '8px',
+                  width: '45%',
+                  textAlign: 'center',
                 },
                 pointerEvents: isSubmitting ? 'none' : 'initial',
               }}
@@ -146,8 +143,6 @@ YOU CAN UNSUBSCRIBE AT ANY TIME."
                       border: 'none',
                       borderRadius: '12px',
                       whiteSpace: 'nowrap',
-                      marginTop: '14px',
-                      marginBottom: '14px',
                     }}
                     type="submit"
                     // onClick={() => buttonClick()}
@@ -163,10 +158,11 @@ YOU CAN UNSUBSCRIBE AT ANY TIME."
                       whiteSpace="nowrap"
                       overflow="hidden"
                       color="white"
+                      fontSize="12px"
                     >
                       {isSubmitting
                         ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
-                        : 'NOTIFY ME'}
+                        : 'SUBSCRIBE'}
                     </Typography>
                   </motion.button>
                 ),
@@ -179,44 +175,26 @@ YOU CAN UNSUBSCRIBE AT ANY TIME."
     </Formik>
   );
 };
+export const MailingList = () => {
+  const { typography, palette } = useTheme();
 
-const ComingSoonInfoSectionWrapper = styled(Box)(({ theme }) => ({
-  display: 'grid',
-  // flexDirection: "row",
-  alignItems: 'center',
-  alignSelf: 'center',
-  //   justifyContent: 'center',
-  gridTemplateColumns: '1fr 2fr 1fr',
-  width: '100%',
-  fontFamily: 'new-hero',
-}));
-
-const ComingSoonInfoWrapper = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  textAlign: 'center',
-}));
-
-export const ComingSoonInfoSection = () => (
-  <ComingSoonInfoSectionWrapper>
-    <ComingSoonInfoWrapper order={1}>
-      <Image
-        src="/images/ace-golf-logo.svg"
-        alt="ace golf logo"
-        width={100}
-        height={100}
-      />
-    </ComingSoonInfoWrapper>
-    <ComingSoonForm />
-    <ComingSoonInfoWrapper order={3}>
-      <Typography fontWeight="900" fontSize="18px">
-        FIND YOUR SWING
-      </Typography>
-      <Typography fontWeight="900" fontSize="11px">
-        NOVEMBER 2023
-      </Typography>
-    </ComingSoonInfoWrapper>
-  </ComingSoonInfoSectionWrapper>
-);
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        color: 'white',
+        alignItems: 'center',
+        gap: '32px',
+      }}
+    >
+      <Box component="h1" sx={{ ...typography.hero_super }}>
+        JOIN THE MAILING LIST
+      </Box>
+      <Box>
+        Be the first to know about the latest ACE Golf promos and events
+      </Box>
+      <MailingListForm />
+    </Box>
+  );
+};
