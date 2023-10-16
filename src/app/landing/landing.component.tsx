@@ -486,7 +486,7 @@ export default function Landing() {
           width: '100vw',
           height: '2000px',
           justifyContent: 'center',
-          padding: '48px',
+          padding: '0px 48px',
           position: 'relative',
           top: '-940px',
           right: 0,
@@ -496,17 +496,20 @@ export default function Landing() {
         }}
       >
         <Box  sx={{
-                  position: 'absolute',
+                  position: 'relative',
                   zIndex: 1,
                   display: 'flex',
                   justifyContent: 'space-around',
                   alignContent: 'space-around',
                   width: '100vw',
-                  height: '2500px',
+                  height: '1500px',
                   flexWrap: 'wrap',
+                  background: isSmallDesktop ? 'url(/images/background-collage_928.svg)': 'url(/images/background-collage_1226.svg)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'fit',
                 }}
             >
-          <Box
+          {/* <Box
                 sx={{
                   position: 'relative',
                   top: '-178px',
@@ -552,15 +555,17 @@ export default function Landing() {
                   backgroundSize: 'fit',
                   // rotate:  isMobile ? '-5deg' :'-10deg',
                 }}
-              ></Box>
+              ></Box> */}
         </Box>
 
-        <Box  sx={{
+        
+      </Box>
+
+      <Box  sx={{
                   zIndex: 2,
         }}
         >
         <LandingTabs />
-        </Box>
       </Box>
 
       {/* How it works, promotions, etc... */}
