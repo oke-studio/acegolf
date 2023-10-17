@@ -6,17 +6,23 @@ import { useTheme, Box, useMediaQuery, Button } from '@mui/material';
 export const LandingHowItWorks = () => {
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isSmallDesktop = useMediaQuery('(max-width:950px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   return (
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         color: 'white',
         gap: '52px',
-        width: '50%',
+        width: '100%',
+       
+
         ...(isMobile && { width: '100%' }),
       }}
     >
+    <Box>
       {/* How it works heading */}
       <Box
         sx={{
@@ -193,6 +199,42 @@ export const LandingHowItWorks = () => {
           </a>
         </Button>
       </Box>
+    </Box>
+
+{/* Images */}
+    <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+      
+        width: '100%',
+
+      }}>
+    <Box 
+    sx={{
+                  // width: isSmallDesktop ? '150px' : '200px',
+                  // height: isSmallDesktop ? '150px' : '200px',
+                  width: '100%' ,
+                  height: '450px',
+                  background: 'url(/images/photo-gallery-item.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  rotate: '5deg',
+                }}>
+    </Box>
+    <Box 
+    sx={{
+                  // width: isSmallDesktop ? '150px' : '200px',
+                  // height: isSmallDesktop ? '150px' : '200px',
+                  width: '100%' ,
+                  height: '450px',
+                  background: 'url(/images/photo-gallery-item.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  rotate: '-5deg',
+                }}>
+    </Box>
+    </Box>
     </Box>
   );
 };
