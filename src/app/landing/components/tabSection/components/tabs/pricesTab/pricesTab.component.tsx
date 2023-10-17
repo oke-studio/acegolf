@@ -82,7 +82,13 @@ export const PricesTab = () => {
             disableRipple
             disableTouchRipple
           >
-            Reserve a bay &rarr;
+            <a
+              href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+              target="_blank"
+            >
+              {' '}
+              Reserve a bay &rarr;
+            </a>
           </Button>
         </Box>
       </Box>

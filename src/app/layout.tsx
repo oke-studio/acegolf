@@ -1,4 +1,5 @@
 import './globals.css';
+import '/Users/onanefeosah/Desktop/acegolf/public/fonts/style.css';
 import { Inter } from 'next/font/google';
 import { ThemeContextProvider } from '@/components/Theme-Context/themeContext.component';
 import { Header } from '@/components/Header/header.component';

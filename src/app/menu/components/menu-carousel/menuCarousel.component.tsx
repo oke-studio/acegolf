@@ -212,44 +212,14 @@ export const MenuCarousel = () => {
               GOLF & <br />
               GOURMET
             </Box>
-            {/* Tab section */}
-            <Box>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="menu tabs"
-                sx={{
-                  flexDirection: 'column',
-                  // justifyContent: isMobile ? 'center' : 'initial',
-                  '.MuiTabs-indicator': {
-                    backgroundColor: 'transparent',
-                  },
-                }}
-                centered={isMobile}
-              >
-                <StyledTab
-                  label={<MotionSpanAnimated label="Big Bites" />}
-                  {...a11yProps(0)}
-                />
-                <StyledTab
-                  label={<MotionSpanAnimated label="Small Bites" />}
-                  {...a11yProps(1)}
-                />
-              </Tabs>
-            </Box>
-            <CustomTabPanel value={value} index={0}>
-              Item One
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-              Item Two
-            </CustomTabPanel>
 
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
               <MenuSection
                 menuSection="BIG BITES"
                 menuOptions={[
                   {
-                    menuItem: 'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
+                    menuItem:
+                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
@@ -269,7 +239,8 @@ export const MenuCarousel = () => {
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+                    menuItem:
+                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
@@ -299,22 +270,98 @@ export const MenuCarousel = () => {
                 menuSection="SMALL BITES"
                 menuOptions={[
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Bread and butter board ',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Brown butter honey truffle butter',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Cowboy butter',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Miso chili butter',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Enoki Trees with Super garlic aioli',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Braised charsiu Slider',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Hot Honey Karaage Slider x3',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Bulgolgi Slider',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Ike Karaage w/yuzu kosho aioli ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Frybasket ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Truffle salted yolk fry',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Kimchi ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                ]}
+              />
+
+              <MenuSection
+                menuSection="DESERT"
+                menuOptions={[
+                  {
+                    menuItem: 'Panna cotta with black sesame truffle cream ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Beignets',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Ube',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Matcha',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Miso Caramel',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Mango prosecco sorbet',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },

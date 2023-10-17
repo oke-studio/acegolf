@@ -225,6 +225,7 @@ const theme = createTheme({
             fontWeight: 400,
             ':hover': {
               color: 'black',
+              backgroundColor: 'rgba(235, 139, 50, 0.49)',
             },
           },
         },
