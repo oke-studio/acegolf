@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
+import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
@@ -587,7 +588,10 @@ export default function Landing() {
       </Box>
 
       {/* How it works, promotions, etc... */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', padding: '24px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', padding: '24px', position: 'relative', top: '-790px',
+    margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
+     }}>
+        <LandingVideo/>
         <LandingHowItWorks />
         <Promotions />
         {/* mailing list comp */}
