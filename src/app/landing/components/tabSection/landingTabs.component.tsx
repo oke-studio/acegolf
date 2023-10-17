@@ -39,6 +39,7 @@ function a11yProps(index: number) {
 export const LandingTabs = () => {
   const { typography, palette } = useTheme();
   const [value, setValue] = React.useState(0);
+  //const isMobile = useMediaQuery('(max-width:640px)');
 
   React.useEffect(() => {
     console.log(value);

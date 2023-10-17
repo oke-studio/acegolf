@@ -1,13 +1,20 @@
 'use client';
 
 import * as React from 'react';
-import { Box, useTheme, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  useTheme,
+  TextField,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
 
 const MailingListForm = () => {
   const { typography, palette } = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
   const [isSubmit, setIsSubmit] = React.useState(false);
   const [error, setError] = React.useState<{ error: boolean; message: string }>(
     {
@@ -56,7 +63,7 @@ const MailingListForm = () => {
             onSubmit={handleSubmit}
             method="post"
             autoComplete="off"
-            sx={{ width: '40%' }}
+            sx={{ width: '40%', ...(isMobile && { width: '100%' }) }}
           >
             <input
               type="hidden"
@@ -145,6 +152,7 @@ const MailingListForm = () => {
 
 export const MailingList = () => {
   const { typography, palette } = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
 
   return (
     <Box
@@ -157,7 +165,14 @@ export const MailingList = () => {
         margin: '32px 0',
       }}
     >
-      <Box component="h1" sx={{ ...typography.hero_super, fontSize: '48px' }}>
+      <Box
+        component="h1"
+        sx={{
+          ...typography.hero_super,
+          fontSize: '48px',
+          ...(isMobile && { textAlign: 'center' }),
+        }}
+      >
         JOIN THE MAILING LIST
       </Box>
       <Box sx={{ ...typography.hero_medium, fontSize: '24px' }}>

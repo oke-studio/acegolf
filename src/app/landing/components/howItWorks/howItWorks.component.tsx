@@ -28,7 +28,11 @@ export const LandingHowItWorks = () => {
       >
         <Box
           component="h1"
-          sx={{ ...typography.hero_super_italic, fontSize: '48px' }}
+          sx={{
+            ...typography.hero_super_italic,
+            fontSize: '48px',
+            ...(isMobile && { textAlign: 'center', lineHeight: '65%' }),
+          }}
         >
           HOW IT WORKS
         </Box>
@@ -176,11 +180,17 @@ export const LandingHowItWorks = () => {
           gap: '24px',
         }}
       >
-        <Button variant="secondary" fullWidth={isMobile}>
+        <Button variant="secondary" sx={{ ...(isMobile && { width: '100%' }) }}>
           Learn More &rarr;
         </Button>
-        <Button variant="primary" fullWidth={isMobile}>
-          Reserve a Bay &rarr;
+        <Button variant="primary" sx={{ ...(isMobile && { width: '100%' }) }}>
+          <a
+            href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+            target="_blank"
+          >
+            {' '}
+            Reserve a bay &rarr;
+          </a>
         </Button>
       </Box>
     </Box>

@@ -1,6 +1,12 @@
 'use client';
 import * as React from 'react';
-import { useTheme, Box, styled, Typography } from '@mui/material';
+import {
+  useTheme,
+  Box,
+  styled,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 
 const StyledPromotionCards = styled(Box)({
   borderRadius: '16px',
@@ -45,7 +51,7 @@ const PromotionCards = ({
 
 export const Promotions = () => {
   const { typography, palette } = useTheme();
-
+  const isMobile = useMediaQuery('(max-width:640px)');
   return (
     <Box
       sx={{
@@ -57,13 +63,22 @@ export const Promotions = () => {
         margin: '32px 0',
       }}
     >
-      <Box component="h1" sx={{ ...typography.hero_super }}>
+      <Box
+        component="h1"
+        sx={{ ...typography.hero_super, textAlign: 'center' }}
+      >
         PROMOTIONS & EVENTS
       </Box>
       <Box>
         Be the first to know about the latest ACE Golf promos and events
       </Box>
-      <Box sx={{ display: 'flex', gap: '24px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '24px',
+          ...(isMobile && { flexDirection: 'column' }),
+        }}
+      >
         <PromotionCards label="34574 COUPON" background="red" />
         <PromotionCards label="EVENT 1" background="blue" />
         <PromotionCards label="EVENT 2" background="grey" />

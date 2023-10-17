@@ -251,6 +251,7 @@ export default function Landing() {
                 }}
               >
                 <Image
+                  //expose svg to have the logo scale accordingly
                   src="/images/ace-landing-logo.svg"
                   width={400}
                   height={150}
@@ -340,6 +341,7 @@ export default function Landing() {
               justifyContent: 'center',
               flexDirection: 'column',
               alignItems: 'center',
+              ...(isMobile && { marginTop: '44px' }),
             }}
           >
             {/* Hero Photo Splash*/}
@@ -417,6 +419,7 @@ export default function Landing() {
                 padding: '12px 60px',
                 position: 'relative',
                 top: '-60px',
+                zIndex: 5,
                 ':hover:': {
                   backgroundColor: '#eb8b32c9',
                   color: 'white',
@@ -424,7 +427,13 @@ export default function Landing() {
                 //
               }}
             >
-              Reserve a bay &rarr;
+              <a
+                href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+                target="_blank"
+              >
+                {' '}
+                Reserve a bay &rarr;
+              </a>
             </Button>
           </Box>
         </Box>
@@ -498,9 +507,10 @@ export default function Landing() {
           flexWrap: 'wrap',
         }}
       >
+        {/* This is where the collages are */}
         <Box
           sx={{
-            position: 'relative',
+            position: 'absolute',
             zIndex: 1,
             display: 'flex',
             justifyContent: 'space-around',
@@ -563,14 +573,17 @@ export default function Landing() {
                 }}
               ></Box> */}
         </Box>
-      </Box>
-
-      <Box
-        sx={{
-          zIndex: 2,
-        }}
-      >
-        <LandingTabs />
+        <Box
+          sx={{
+            zIndex: 2,
+            position: 'relative',
+            top: '-600px',
+            width: '100vw',
+            padding: '10px',
+          }}
+        >
+          <LandingTabs />
+        </Box>
       </Box>
 
       {/* How it works, promotions, etc... */}
