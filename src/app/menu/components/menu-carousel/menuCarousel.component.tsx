@@ -196,7 +196,8 @@ export const MenuCarousel = () => {
         <StyledMenuCarouselWrapper>
           <Box
             sx={{
-              margin: '24px',
+              //margin: '24px',
+              padding: '5%',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',
@@ -207,11 +208,57 @@ export const MenuCarousel = () => {
                 ...typography.hero_super_italic,
                 fontSize: isMobile ? '60px' : '100px',
                 lineHeight: '70%',
+                marginBottom: '30px',
               }}
             >
               GOLF & <br />
               GOURMET
             </Box>
+
+             {/* Tab section */}
+             <Box>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="menu tabs"
+                sx={{
+                  flexDirection: 'column',
+                  // justifyContent: isMobile ? 'center' : 'initial',
+                  '.MuiTabs-indicator': {
+                    backgroundColor: 'transparent',
+                  },
+                }}
+                centered={isMobile}
+              >
+                <StyledTab
+                  label={<MotionSpanAnimated label="Featured Item 1" />}
+                  {...a11yProps(0)}
+                />
+                <StyledTab
+                  label={<MotionSpanAnimated label="Featured Item 2" />}
+                  {...a11yProps(1)}
+                />
+              </Tabs>
+            </Box>
+            <CustomTabPanel value={value} index={0}>
+            {/* <Box
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  // width: isSmallDesktop ? '150px' : '200px',
+                  // height: isSmallDesktop ? '150px' : '200px',
+                  //flex: '1 1 auto',
+                  //backgroundColor: 'aqua',
+                  background: 'url(/images/ceviche.jpg)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                 
+                }}
+              ></Box> */}
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={1}>
+              Item Two
+            </CustomTabPanel>
 
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
               <MenuSection
