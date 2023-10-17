@@ -419,6 +419,7 @@ export default function Landing() {
                 padding: '12px 60px',
                 position: 'relative',
                 top: '-60px',
+                zIndex: 5,
                 ':hover:': {
                   backgroundColor: '#eb8b32c9',
                   color: 'white',
