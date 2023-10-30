@@ -49,6 +49,20 @@ declare module '@mui/material/styles' {
     hero_super_italic?: React.CSSProperties;
     hero_hairline_italic?: React.CSSProperties;
   }
+
+  interface Palette {
+    aceOrange: string;
+    aceTeal: string;
+    aceGreen: string;
+    aceGrey: string;
+  }
+
+  interface PaletteOptions {
+    aceOrange?: string;
+    aceTeal?: string;
+    aceGreen?: string;
+    aceGrey?: string;
+  }
 }
 
 // Update the Typography's variant prop options
@@ -74,6 +88,14 @@ declare module '@mui/material/Typography' {
     hero_extrabold_italic: true;
     hero_super_italic: true;
     hero_hairline_italic: true;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    primary: true;
+    secondary: true;
+    navButton: true;
   }
 }
 
@@ -179,6 +201,68 @@ const theme = createTheme({
   },
   palette: {
     primary: { main: '#EB8B32' },
+    aceOrange: '#EB8B32',
+    aceTeal: '#36DAD5',
+    aceGreen: '#39775E',
+    aceGrey: '#AFAFAF',
+  },
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: {
+            variant: 'primary',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid transparent',
+            backgroundColor: '#EB8B32',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+            color: 'white',
+            width: 'max-content',
+            fontWeight: 400,
+            ':hover': {
+              color: 'black',
+              backgroundColor: 'rgba(235, 139, 50, 0.49)',
+            },
+          },
+        },
+        {
+          props: {
+            variant: 'secondary',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid black',
+            backgroundColor: 'white',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+            color: 'black',
+            width: 'max-content',
+            fontWeight: 400,
+          },
+        },
+        {
+          props: {
+            variant: 'navButton',
+          },
+          style: {
+            textTransform: 'none',
+            border: '3px solid #EB8B32',
+            backgroundColor: 'transparent',
+            borderRadius: '20px',
+            padding: '5px 20px',
+            fontSize: '18px',
+            color: 'white',
+            width: 'max-content',
+            fontWeight: 400,
+          },
+        },
+      ],
+    },
   },
 });
 

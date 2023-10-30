@@ -15,8 +15,8 @@ import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.com
 import zIndex from '@mui/material/styles/zIndex';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
-  borderRadius: '18px',
-  border: 'solid black 2px',
+  borderRadius: '25px',
+  border: 'solid black 6px',
   backgroundColor: 'white',
   color: 'black',
 }));
@@ -84,6 +84,7 @@ const MenuSection = ({
 }) => {
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   // console.log(typography.hero_semibold);
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -92,6 +93,7 @@ const MenuSection = ({
           ...typography.hero_super_italic,
           fontSize: isMobile ? '60px' : '70px',
           fontFamily: typography.fontFamily,
+          lineHeight: '70%',
         }}
         id={`${menuSection}_list`}
       >
@@ -155,6 +157,8 @@ const MenuSection = ({
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
   const isMobile = useMediaQuery('(max-width:640px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+  const { typography, palette } = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -176,6 +180,8 @@ export const MenuCarousel = () => {
         justifyContent: 'center',
         position: 'relative',
         zIndex: 20,
+        fontFamily: typography.fontFamily,
+        margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
       }}
     >
       <Box
@@ -183,25 +189,34 @@ export const MenuCarousel = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: '32px',
-          margin: '100px auto',
-          maxWidth: '1084px',
+          margin: '0px auto',
           width: '100%',
         }}
       >
         <StyledMenuCarouselWrapper>
-          <Box sx={{ margin: '24px' }}>
+          <Box
+            sx={{
+              //margin: '24px',
+              padding: '5%',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '32px',
+            }}
+          >
             <Box
               sx={{
-                fontWeight: '900',
-                fontStyle: 'italic',
+                ...typography.hero_super_italic,
                 fontSize: isMobile ? '60px' : '100px',
+                lineHeight: '70%',
+                marginBottom: '30px',
               }}
             >
               GOLF & <br />
-              &nbsp;&nbsp;&nbsp;GORUMET
+              GOURMET
             </Box>
-            {/* Tab section */}
-            <Box>
+
+             {/* Tab section */}
+             <Box>
               <Tabs
                 value={value}
                 onChange={handleChange}
@@ -216,17 +231,30 @@ export const MenuCarousel = () => {
                 centered={isMobile}
               >
                 <StyledTab
-                  label={<MotionSpanAnimated label="Big Bites" />}
+                  label={<MotionSpanAnimated label="Featured Item 1" />}
                   {...a11yProps(0)}
                 />
                 <StyledTab
-                  label={<MotionSpanAnimated label="Small Bites" />}
+                  label={<MotionSpanAnimated label="Featured Item 2" />}
                   {...a11yProps(1)}
                 />
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-              Item One
+            {/* <Box
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  // width: isSmallDesktop ? '150px' : '200px',
+                  // height: isSmallDesktop ? '150px' : '200px',
+                  //flex: '1 1 auto',
+                  //backgroundColor: 'aqua',
+                  background: 'url(/images/ceviche.jpg)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                 
+                }}
+              ></Box> */}
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
               Item Two
@@ -237,22 +265,49 @@ export const MenuCarousel = () => {
                 menuSection="BIG BITES"
                 menuOptions={[
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem:
+                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Rice Paper Slaw with sakura shrimp',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem:
+                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Build your own taco board',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: '5 spice duck breast',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Curry and salted egg fish taco',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Bun bo hue Taco',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
@@ -262,22 +317,98 @@ export const MenuCarousel = () => {
                 menuSection="SMALL BITES"
                 menuOptions={[
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Bread and butter board ',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Brown butter honey truffle butter',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Cowboy butter',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
                   {
-                    menuItem: 'Margherita Pizza',
+                    menuItem: 'Miso chili butter',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Enoki Trees with Super garlic aioli',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Braised charsiu Slider',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Hot Honey Karaage Slider x3',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Bulgolgi Slider',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Ike Karaage w/yuzu kosho aioli ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Frybasket ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Truffle salted yolk fry',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Kimchi ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                ]}
+              />
+
+              <MenuSection
+                menuSection="DESERT"
+                menuOptions={[
+                  {
+                    menuItem: 'Panna cotta with black sesame truffle cream ',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Beignets',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Ube',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Matcha',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Miso Caramel',
+                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
+                    price: '$50.00',
+                  },
+                  {
+                    menuItem: 'Mango prosecco sorbet',
                     ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
                     price: '$50.00',
                   },
@@ -286,13 +417,17 @@ export const MenuCarousel = () => {
             </Box>
           </Box>
         </StyledMenuCarouselWrapper>
-        <StyledDownloadButton
+        <Button
           sx={{ alignSelf: isMobile ? 'center' : 'flex-end' }}
           disableRipple
+          disableElevation
+          disableFocusRipple
+          disableTouchRipple
+          variant="secondary"
         >
           {/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
-          Download Full Menu PDF
-        </StyledDownloadButton>
+          Download Full Menu PDF &rarr;
+        </Button>
       </Box>
     </Box>
   );

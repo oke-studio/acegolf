@@ -5,18 +5,13 @@ import Image from 'next/image';
 import { styled, Box, TextField, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useFormik, Formik } from 'formik';
+import { encode } from '@/util/encode';
 
 const backgroundColor = '#529DC8';
 
 interface FormValues {
   email: string;
 }
-
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);

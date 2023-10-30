@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { motion, Transition, useAnimation, Variants } from 'framer-motion';
 import { useTheme } from '@mui/material';
-
-function RNG(min: number, max: number) {
-  return Math.random() * (max - min) + min;
-}
-
+import { RNG } from '@/util/RNG';
 interface MotionVariantsProps<K> {
   to: K;
   from: K;
@@ -15,7 +11,6 @@ interface NavOptionsProps {
   top: MotionVariantsProps<string | number>;
   color: MotionVariantsProps<string>;
   rotate: MotionVariantsProps<number>;
-  fontWeight: MotionVariantsProps<string>;
   transition: MotionVariantsProps<Transition>;
 }
 
@@ -31,10 +26,10 @@ const DEFAULT_HOVER_ANIMATION_PROFILE = (
       from: '#000000',
     },
     rotate: { to: RNG(9, 21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+    // fontWeight: {
+    //   to: typography.hero_bold.fontWeight as string,
+    //   from: typography.hero_semibold.fontWeight as string,
+    // },
     transition: {
       to: {
         duration: 0.5,
@@ -62,10 +57,10 @@ const DEFAULT_REST_ANIMATION_PROFILE = (
       from: '#000000',
     },
     rotate: { to: RNG(-9, -21), from: 0 },
-    fontWeight: {
-      to: typography.hero_bold.fontWeight as string,
-      from: typography.hero_semibold.fontWeight as string,
-    },
+    // fontWeight: {
+    //   to: typography.hero_bold.fontWeight as string,
+    //   from: typography.hero_semibold.fontWeight as string,
+    // },
     transition: {
       to: {
         duration: 0.5,
@@ -86,13 +81,12 @@ const navOptionHoverAnimation = ({
 }: {
   animationProfile: NavOptionsProps;
 }): Variants => {
-  const { top, color, transition, fontWeight, rotate } = animationProfile;
+  const { top, color, transition, rotate } = animationProfile;
   return {
     hovered: {
       top: top.to,
       color: color.to as string,
       transition: transition.to,
-      fontWeight: fontWeight.to,
       rotate: rotate.to,
     },
 
@@ -100,7 +94,6 @@ const navOptionHoverAnimation = ({
       top: top.from,
       color: color.from as string,
       transition: transition.from,
-      fontWeight: fontWeight.from,
       rotate: rotate.from,
     },
   };
@@ -135,7 +128,7 @@ export const MotionSpanAnimated = ({
             style={{
               position: 'relative',
               display: 'inline-block',
-              fontSize: '15px',
+              fontSize: '18px',
             }}
             variants={
               index % 2 === 0
