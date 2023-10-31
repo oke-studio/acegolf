@@ -22,11 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <ThemeContextProvider>
         <body className={inter.className}>
-          <DynamicPageBackground>
-            <Header />
-            {children}
-            <Footer />
-          </DynamicPageBackground>
+          {/* <DynamicPageBackground> */}
+          {/* <Header /> */}
+          {children}
+          {/* <Footer /> */}
+          {/* </DynamicPageBackground> */}
         </body>
       </ThemeContextProvider>
     </html>

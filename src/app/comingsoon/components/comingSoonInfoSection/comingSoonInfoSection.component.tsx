@@ -12,9 +12,10 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useFormik, Formik } from 'formik';
+import { Formik } from 'formik';
 import { encode } from '@/util/encode';
 import { useRouter } from 'next/router';
+import { TopBanner } from '@/components/topBanner/topBanner.component';
 
 const backgroundColor = '#529DC8';
 
