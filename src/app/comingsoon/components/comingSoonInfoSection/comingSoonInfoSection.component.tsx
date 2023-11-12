@@ -13,9 +13,8 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Formik } from 'formik';
-import { encode } from '@/util/encode';
 import { useRouter } from 'next/router';
-import { TopBanner } from '@/components/topBanner/topBanner.component';
+import { TopBanner } from '../topBanner/topBanner.component';
 
 const backgroundColor = '#529DC8';
 
