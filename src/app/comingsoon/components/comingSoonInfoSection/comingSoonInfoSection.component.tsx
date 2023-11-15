@@ -326,7 +326,7 @@ export const ComingSoonInfoSection = ({
         }}
       >
         <Box sx={{ ...typography.hero_extrabold, fontSize: '24px' }}>
-          OPENING NOV 2023
+          OPENING DEC 2023
         </Box>
         <Box sx={{ fontSize: '16px', fontWeight: '600' }}>
           <Box component="span" sx={{ color: palette.primary.main }}>
