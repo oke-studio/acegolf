@@ -36,7 +36,7 @@ const PageMobileLayout = styled(Box)({
 
 export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
-  const openingDate = new Date('2023-12-1');
+  const openingDate = new Date('2023-12-15');
   const currentDate = new Date();
 
   var timeDifference =
