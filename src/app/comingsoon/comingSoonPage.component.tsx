@@ -71,7 +71,7 @@ export default function ComingSoonPage() {
               left: 0,
               right: 0,
               height: `${currentToOpenDateProgress}%`,
-              background: '#529DC8',
+              background: '#171717',
               backgroundImage: NOISE_URL,
 
               
@@ -107,7 +107,7 @@ export default function ComingSoonPage() {
             left: 0,
             bottom: 0,
             width: `${currentToOpenDateProgress}%`,
-            background: '#529DC8',
+            background: '#171717',
             backgroundImage: NOISE_URL,
 
           }}
