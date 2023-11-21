@@ -1,13 +1,21 @@
 'use client';
 
-import { Box, useTheme } from '@mui/material';
+import { Box, Typography, useTheme, ButtonProps, Button } from '@mui/material';
 import * as React from 'react';
 
 interface TabCardProps {
+  title: string;
+  buttonOne: ButtonProps & { buttonLabel: string };
+  buttonTwo?: ButtonProps & { buttonLabel: string };
   children: React.ReactNode;
 }
 
-export const TabCard = ({ children }: TabCardProps) => {
+export const TabCard = ({
+  children,
+  title,
+  buttonOne,
+  buttonTwo,
+}: TabCardProps) => {
   const { typography, palette } = useTheme();
 
   return (
@@ -19,10 +27,30 @@ export const TabCard = ({ children }: TabCardProps) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '24px',
+        padding: '42px',
+        flexDirection: 'column',
+        gap: '24px',
+        maxWidth: '660px',
+        width: '100%',
+        minHeight: '550px',
       }}
     >
-      {children}
+      <Typography
+        component="h1"
+        fontStyle={typography.hero_super.fontStyle}
+        fontWeight={typography.hero_super.fontWeight}
+        fontSize="48px"
+        color="black"
+      >
+        {title}
+      </Typography>
+      <Box sx={{ display: 'flex', flexGrow: 2 }}>{children}</Box>
+      <Box sx={{ display: 'flex', gap: '24px' }}>
+        <Button {...buttonOne}>{buttonOne.buttonLabel} &rarr;</Button>
+        {buttonTwo && (
+          <Button {...buttonTwo}>{buttonTwo.buttonLabel} &rarr;</Button>
+        )}
+      </Box>
     </Box>
   );
 };

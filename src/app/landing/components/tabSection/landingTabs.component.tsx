@@ -5,7 +5,7 @@ import * as React from 'react';
 import { PricesTab } from './components/tabs/pricesTab/pricesTab.component';
 import { ParkingTab } from './components/tabs/parkingTab/parkingTab.component';
 import { CoachingTab } from './components/tabs/coachingTab/coachingTab.component';
-import SwipeableViews from 'react-swipeable-views';
+import { TabCard } from './components/tabs/components/tabCard/tabCard.component';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -24,7 +24,11 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ p: 3, display: 'flex', justifyContent: 'center' }}>
+          {children}
+        </Box>
+      )}
     </div>
   );
 }
@@ -93,26 +97,53 @@ export const LandingTabs = () => {
           <Tab label="Coaching" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <SwipeableViews
-        index={value}
-        onChangeIndex={handleChangeIndex}
-        enableMouseEvents
-        slideStyle={{}}
-        style={{ padding: '0 48px' }}
-      >
-        <CustomTabPanel value={value} index={0}>
-          <PricesTab />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          <PricesTab />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          <ParkingTab />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={3}>
-          <CoachingTab />
-        </CustomTabPanel>
-      </SwipeableViews>
+
+      <CustomTabPanel value={value} index={0}>
+        {/* <PricesTab /> */}
+        <TabCard
+          title="Tapas Style Menu"
+          buttonOne={{
+            variant: 'secondary',
+            buttonLabel: 'See Full Menu',
+          }}
+        >
+          something here
+        </TabCard>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <TabCard
+          title="Prices & Rates"
+          buttonOne={{
+            variant: 'secondary',
+            buttonLabel: 'How it works',
+          }}
+          buttonTwo={{ variant: 'primary', buttonLabel: 'Find A Bay' }}
+        >
+          something here
+        </TabCard>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        <TabCard
+          title="Parking"
+          buttonOne={{
+            variant: 'primary',
+            buttonLabel: 'Show on Maps',
+          }}
+        >
+          something here
+        </TabCard>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <TabCard
+          title="Coaching"
+          buttonOne={{
+            variant: 'primary',
+            buttonLabel: 'Learn More',
+          }}
+        >
+          something here
+        </TabCard>
+      </CustomTabPanel>
     </Box>
   );
 };
