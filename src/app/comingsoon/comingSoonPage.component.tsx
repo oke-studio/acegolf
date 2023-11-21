@@ -38,16 +38,44 @@ export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
   const openingDate = new Date('2023-12-15');
   const currentDate = new Date();
+  const begingDate = new Date('2023-09-01');
 
+  //Gets difference in time from beging date of coundown until open date
+  var countdownRangeDifference =  Math.abs(openingDate.getTime() - begingDate.getTime()) / 1000;
+ //Gets the total days in the countdownrange
+  const countdownRangeDayTotal = Math.floor(countdownRangeDifference / 86400);
+  countdownRangeDifference -= countdownRangeDayTotal * 86400;
+
+  console.log ("this is the total days in countdown");
+  console.log (countdownRangeDayTotal);
+
+   //Gets difference in time from today's date  until open date
+   var openingDayDifference =  Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
+   //Gets the total days from today to open date 
+  const countdownDayDifference = Math.floor(openingDayDifference / 86400);
+  openingDayDifference -= countdownDayDifference * 86400;
+
+  console.log ("this is the amount of days from opening ");
+  console.log (countdownDayDifference);
+
+  //how many days left calc
+  const howManyDaysPercentage  = ((countdownRangeDayTotal - countdownDayDifference)/countdownRangeDayTotal)
+
+  
+
+
+
+  //Time calc for dynamic countdown
   var timeDifference =
     Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
 
   const dayDifference = Math.floor(timeDifference / 86400);
   timeDifference -= dayDifference * 86400;
 
+  
+
   const hourDifference = Math.floor(timeDifference / 3600) % 24;
-  console.log ("this is the day difference");
-  console.log (dayDifference);
+  
 
  
   if (isMobile) {
@@ -60,7 +88,7 @@ export default function ComingSoonPage() {
               top: 0,
               left: 0,
               right: 0,
-              height: `calc(100vh/${dayDifference})`,
+              height: `calc(100vh * ${howManyDaysPercentage})`,
               background: '#171717',
               backgroundImage: NOISE_URL,
 
@@ -96,7 +124,7 @@ export default function ComingSoonPage() {
             top: 0,
             left: 0,
             bottom: 0,
-            width: `calc(100vw/${3})`,
+            width: `calc(100vw * ${howManyDaysPercentage})`,
             background: '#171717',
             backgroundImage: NOISE_URL,
 
@@ -132,6 +160,8 @@ export default function ComingSoonPage() {
             position: 'relative',
             gap: '16px',
             top: '30px',
+            fill: 'white',
+            mixBlendMode: 'difference',
           }}
         >
           {[...Array(18)].map((_, index) => (

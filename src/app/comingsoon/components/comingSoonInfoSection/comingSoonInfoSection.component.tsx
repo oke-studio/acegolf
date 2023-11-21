@@ -288,9 +288,9 @@ export const ComingSoonInfoSection = ({
         position: 'relative',
       }}
     >
-      <ComingSoonInfoWrapper sx={{ marginTop: '32px' }}>
+      <ComingSoonInfoWrapper sx={{ marginTop: '32px', mixBlendMode: 'difference',}}>
         <Image
-          src="/images/ace-golf-logo.svg"
+          src="/images/ace-golf-logo-white.svg"
           alt="ace golf logo"
           width={isMobile ? 150 : 150}
           height={isMobile ? 150 : 150}
@@ -304,6 +304,7 @@ export const ComingSoonInfoSection = ({
           overflow: 'hidden',
           position: 'relative',
           width: '100%',
+          
 
           ...(isMobile && { transform: 'scale(3)', paddingLeft: '80px' }),
         }}
