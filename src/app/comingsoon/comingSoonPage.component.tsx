@@ -46,7 +46,10 @@ export default function ComingSoonPage() {
   timeDifference -= dayDifference * 86400;
 
   const hourDifference = Math.floor(timeDifference / 3600) % 24;
+  console.log ("this is the day difference");
+  console.log (dayDifference);
 
+ 
   if (isMobile) {
     return (
       <PageWrapper>
@@ -58,8 +61,10 @@ export default function ComingSoonPage() {
               left: 0,
               right: 0,
               height: `calc(100vh/${dayDifference})`,
-              background: '#529DC8',
+              background: '#171717',
               backgroundImage: NOISE_URL,
+
+              
             }}
           ></Box>
           {/* <ComingSoonInfoSectionMobile /> */}
@@ -81,7 +86,7 @@ export default function ComingSoonPage() {
       </PageWrapper>
     );
   }
-
+  
   return (
     <PageWrapper>
       <PageLayout>
@@ -92,8 +97,9 @@ export default function ComingSoonPage() {
             left: 0,
             bottom: 0,
             width: `calc(100vw/${3})`,
-            background: '#529DC8',
+            background: '#171717',
             backgroundImage: NOISE_URL,
+
           }}
         ></Box>
         {/* <div
