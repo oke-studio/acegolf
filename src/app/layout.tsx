@@ -23,9 +23,9 @@ export default function RootLayout({
       <ThemeContextProvider>
         <body className={inter.className}>
           {/* <DynamicPageBackground> */}
-          {/* <Header /> */}
+          <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
           {/* </DynamicPageBackground> */}
         </body>
       </ThemeContextProvider>

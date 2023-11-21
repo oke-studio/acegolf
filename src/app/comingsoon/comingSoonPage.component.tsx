@@ -37,37 +37,19 @@ const PageMobileLayout = styled(Box)({
 export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
   const openingDate = new Date('2023-12-15');
+  const devDate = new Date('2023-11-01');
   const currentDate = new Date();
-  const begingDate = new Date('2023-09-01');
 
-  //Gets difference in time from beging date of coundown until open date
-  var countdownRangeDifference =  Math.abs(openingDate.getTime() - begingDate.getTime()) / 1000;
- //Gets the total days in the countdownrange
-  const countdownRangeDayTotal = Math.floor(countdownRangeDifference / 86400);
-  countdownRangeDifference -= countdownRangeDayTotal * 86400;
+  const devToOpenDate = openingDate.getTime() - devDate.getTime();
+  const currentToOpenDate = openingDate.getTime() - currentDate.getTime();
 
-  console.log ("this is the total days in countdown");
-  console.log (countdownRangeDayTotal);
+  var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440);
+  const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440);
 
-   //Gets difference in time from today's date  until open date
-   var openingDayDifference =  Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
-   //Gets the total days from today to open date 
-  const countdownDayDifference = Math.floor(openingDayDifference / 86400);
-  openingDayDifference -= countdownDayDifference * 86400;
-
-  console.log ("this is the amount of days from opening ");
-  console.log (countdownDayDifference);
-
-  //how many days left calc
-  const howManyDaysPercentage  = ((countdownRangeDayTotal - countdownDayDifference)/countdownRangeDayTotal)
-
-  
-
-
-
-  //Time calc for dynamic countdown
-  var timeDifference =
-    Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
+  const currentToOpenDateProgress = Math.floor(
+    ((daysTotal - daysLeft) / daysTotal) * 100,
+  );
+  var timeDifference = Math.abs(currentToOpenDate) / 1000;
 
   const dayDifference = Math.floor(timeDifference / 86400);
   timeDifference -= dayDifference * 86400;
@@ -88,8 +70,8 @@ export default function ComingSoonPage() {
               top: 0,
               left: 0,
               right: 0,
-              height: `calc(100vh * ${howManyDaysPercentage})`,
-              background: '#171717',
+              height: `${currentToOpenDateProgress}%`,
+              background: '#529DC8',
               backgroundImage: NOISE_URL,
 
               
@@ -124,8 +106,8 @@ export default function ComingSoonPage() {
             top: 0,
             left: 0,
             bottom: 0,
-            width: `calc(100vw * ${howManyDaysPercentage})`,
-            background: '#171717',
+            width: `${currentToOpenDateProgress}%`,
+            background: '#529DC8',
             backgroundImage: NOISE_URL,
 
           }}
