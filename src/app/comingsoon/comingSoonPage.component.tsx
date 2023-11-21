@@ -49,7 +49,6 @@ export default function ComingSoonPage() {
   const currentToOpenDateProgress = Math.floor(
     ((daysTotal - daysLeft) / daysTotal) * 100,
   );
-  console.log(currentToOpenDateProgress);
   var timeDifference = Math.abs(currentToOpenDate) / 1000;
 
   const dayDifference = Math.floor(timeDifference / 86400);
