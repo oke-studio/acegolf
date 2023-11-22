@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 
 export const CoachingTab = () => {
   return (
-    <TabCard>
+    <TabCard buttonOne={{ buttonLabel: 'Coaching' }} title="Coaching">
       <Box>Hi</Box>
     </TabCard>
   );
