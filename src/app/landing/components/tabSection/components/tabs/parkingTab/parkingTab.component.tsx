@@ -6,8 +6,8 @@ import { Box } from '@mui/material';
 
 export const ParkingTab = () => {
   return (
-    <TabCard>
-      <Box>Hi</Box>
+    <TabCard buttonOne={{ buttonLabel: 'Parking' }} title="Parking">
+      <Box sx={{ display: 'flex' }}></Box>
     </TabCard>
   );
 };
