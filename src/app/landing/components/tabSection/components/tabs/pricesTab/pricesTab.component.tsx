@@ -8,7 +8,7 @@ export const PricesTab = () => {
   const { typography, palette } = useTheme();
 
   return (
-    <TabCard>
+    <TabCard buttonOne={{ buttonLabel: 'Prices' }} title="Prices">
       <Box
         sx={{
           display: 'flex',

@@ -36,17 +36,30 @@ const PageMobileLayout = styled(Box)({
 
 export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
-  const openingDate = new Date('2023-11-15');
+  const openingDate = new Date('2023-12-15');
+  const devDate = new Date('2023-11-01');
   const currentDate = new Date();
 
-  var timeDifference =
-    Math.abs(openingDate.getTime() - currentDate.getTime()) / 1000;
+  const devToOpenDate = openingDate.getTime() - devDate.getTime();
+  const currentToOpenDate = openingDate.getTime() - currentDate.getTime();
+
+  var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440);
+  const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440);
+
+  const currentToOpenDateProgress = Math.floor(
+    ((daysTotal - daysLeft) / daysTotal) * 100,
+  );
+  var timeDifference = Math.abs(currentToOpenDate) / 1000;
 
   const dayDifference = Math.floor(timeDifference / 86400);
   timeDifference -= dayDifference * 86400;
 
-  const hourDifference = Math.floor(timeDifference / 3600) % 24;
+  
 
+  const hourDifference = Math.floor(timeDifference / 3600) % 24;
+  
+
+ 
   if (isMobile) {
     return (
       <PageWrapper>
@@ -57,9 +70,11 @@ export default function ComingSoonPage() {
               top: 0,
               left: 0,
               right: 0,
-              height: `calc(100vh/${dayDifference})`,
-              background: '#529DC8',
+              height: `${currentToOpenDateProgress}%`,
+              background: '#171717',
               backgroundImage: NOISE_URL,
+
+              
             }}
           ></Box>
           {/* <ComingSoonInfoSectionMobile /> */}
@@ -81,7 +96,7 @@ export default function ComingSoonPage() {
       </PageWrapper>
     );
   }
-
+  
   return (
     <PageWrapper>
       <PageLayout>
@@ -91,9 +106,10 @@ export default function ComingSoonPage() {
             top: 0,
             left: 0,
             bottom: 0,
-            width: `calc(100vw/${3})`,
-            background: '#529DC8',
+            width: `${currentToOpenDateProgress}%`,
+            background: '#171717',
             backgroundImage: NOISE_URL,
+
           }}
         ></Box>
         {/* <div
@@ -126,6 +142,8 @@ export default function ComingSoonPage() {
             position: 'relative',
             gap: '16px',
             top: '30px',
+            fill: 'white',
+            mixBlendMode: 'difference',
           }}
         >
           {[...Array(18)].map((_, index) => (

@@ -182,7 +182,7 @@ export const ComingSoonInfoSectionMobile = () => (
           FIND YOUR SWING
         </Typography>
         <Typography fontWeight="900" fontSize="11px">
-          NOVEMBER 2023
+          DECEMBER 2023
         </Typography>
       </Box>
     </ComingSoonInfoMobileWrapper>

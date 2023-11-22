@@ -119,6 +119,8 @@ const ComingSoonForm = () => {
                   fontSize: '16px',
                   textAlign: 'center',
                   textTransform: 'uppercase',
+                  color: 'white',
+                  mixBlendMode: 'difference',
                 }}
               >
                 Join the Mailing List
@@ -157,8 +159,10 @@ const ComingSoonForm = () => {
                   },
                   '.MuiFormHelperText-root': {
                     fontSize: isMobile ? '9px' : '10px',
-                    color: 'black',
+                    // color: 'black',
                     textAlign: 'center',
+                    color: 'white',
+                    mixBlendMode: 'difference',
                   },
                   '.MuiOutlinedInput-notchedOutline': {
                     border: 'none',
@@ -285,9 +289,11 @@ export const ComingSoonInfoSection = ({
         position: 'relative',
       }}
     >
-      <ComingSoonInfoWrapper sx={{ marginTop: '32px' }}>
+      <ComingSoonInfoWrapper
+        sx={{ marginTop: '32px', mixBlendMode: 'difference' }}
+      >
         <Image
-          src="/images/ace-golf-logo.svg"
+          src="/images/ace-golf-logo-white.svg"
           alt="ace golf logo"
           width={isMobile ? 150 : 150}
           height={isMobile ? 150 : 150}
@@ -325,10 +331,24 @@ export const ComingSoonInfoSection = ({
           ...(!isMobile && { top: '-40px', marginTop: '5px' }),
         }}
       >
-        <Box sx={{ ...typography.hero_extrabold, fontSize: '24px' }}>
-          OPENING NOV 2023
+        <Box
+          sx={{
+            ...typography.hero_extrabold,
+            fontSize: '24px',
+            color: 'white',
+            mixBlendMode: 'difference',
+          }}
+        >
+          OPENING DEC 2023
         </Box>
-        <Box sx={{ fontSize: '16px', fontWeight: '600' }}>
+        <Box
+          sx={{
+            fontSize: '16px',
+            fontWeight: '600',
+            color: 'white',
+            mixBlendMode: 'difference',
+          }}
+        >
           <Box component="span" sx={{ color: palette.primary.main }}>
             {' '}
             {days}
@@ -340,6 +360,8 @@ export const ComingSoonInfoSection = ({
           </Box>{' '}
           HOURS
         </Box>
+        {/* hidden until open for early reservation */}
+        {/* 
         <Button
           disableElevation
           disableFocusRipple
@@ -358,8 +380,9 @@ export const ComingSoonInfoSection = ({
           >
             {' '}
             Early Reservation &rarr;
-          </a>
+          </a> 
         </Button>
+        */}
       </ComingSoonInfoWrapper>
 
       <ComingSoonForm />
