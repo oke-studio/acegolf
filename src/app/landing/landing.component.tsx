@@ -12,6 +12,7 @@ import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
+import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
 import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
@@ -443,7 +444,8 @@ export default function Landing() {
             padding: '10px',
           }}
         >
-          <LandingTabs />
+          {/* <LandingTabs /> */}
+          <LandingCards />
         </Box>
       </Box>
 
