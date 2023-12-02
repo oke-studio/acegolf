@@ -5,8 +5,8 @@ import ComingSoonPage from './comingsoon/comingSoonPage.component';
 export default function Home() {
   return (
     <main>
-      {/* <Landing /> */}
-      <ComingSoonPage />
+      <Landing />
+      {/* <ComingSoonPage /> */}
     </main>
   );
 }
