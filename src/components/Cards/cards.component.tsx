@@ -10,6 +10,7 @@ import {
   Theme,
   useTheme,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 
 type CardColorTypes = 'light' | 'dark';
@@ -59,7 +60,10 @@ export const Card = ({
   sx,
   children,
 }: CardProps) => {
-  const { typography, palette } = useTheme();
+  const { typography, palette, breakpoints } = useTheme();
+
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
+
   const COLOR_VARIANT = CardColorVariants[ColorVariant];
 
   return (
@@ -100,12 +104,17 @@ export const Card = ({
           display: 'flex',
           flexDirection: 'row',
           gap: '10px',
+          justifyContent: 'center',
           flexWrap: 'wrap',
         }}
       >
-        <Button {...buttonOne}>{buttonOne.children} &rarr;</Button>
+        <Button {...buttonOne} fullWidth>
+          {buttonOne.children} &rarr;
+        </Button>
         {buttonTwo && (
-          <Button {...buttonTwo}>{buttonTwo.children} &rarr;</Button>
+          <Button {...buttonTwo} fullWidth>
+            {buttonTwo.children} &rarr;
+          </Button>
         )}
       </Box>
     </CardContainer>

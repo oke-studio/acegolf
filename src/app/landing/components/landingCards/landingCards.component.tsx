@@ -8,7 +8,7 @@ const LandingCardsContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
+  gap: '24px',
 }));
 
 export const LandingCards = () => {
@@ -31,13 +31,18 @@ export const LandingCards = () => {
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
           width: '100%',
-          gap: '32px',
+          gap: '24px',
         }}
       >
         <Card
-          buttonOne={{ children: 'See Full Menu', variant: 'secondary' }}
+          buttonOne={{
+            children: 'See Full Menu',
+            variant: 'secondary',
+            fullWidth: true,
+          }}
           CardTitle="Tapas Style Menu"
           ColorVariant="dark"
+          sx={{ flexBasis: '110%' }}
         />
         <Card
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
@@ -50,7 +55,7 @@ export const LandingCards = () => {
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
           width: '100%',
-          gap: '32px',
+          gap: '24px',
         }}
       >
         <Box
@@ -59,6 +64,7 @@ export const LandingCards = () => {
             flexDirection: 'column',
             width: '100%',
             gap: '24px',
+            flexBasis: '60%',
           }}
         >
           <Card
@@ -78,7 +84,6 @@ export const LandingCards = () => {
           CardDescription="Parking available at Heward Ave & Eastern Ave"
         />
       </Box>
-
       <Box>
         <Card
           buttonOne={{ children: 'Learn More', variant: 'primary' }}
