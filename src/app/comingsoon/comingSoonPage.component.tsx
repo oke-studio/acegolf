@@ -36,7 +36,7 @@ const PageMobileLayout = styled(Box)({
 
 export default function ComingSoonPage() {
   const isMobile = useMediaQuery('(max-width:640px)');
-  const openingDate = new Date('2023-12-15');
+  const openingDate = new Date('2023-12-19');
   const devDate = new Date('2023-11-01');
   const currentDate = new Date();
 
@@ -54,12 +54,8 @@ export default function ComingSoonPage() {
   const dayDifference = Math.floor(timeDifference / 86400);
   timeDifference -= dayDifference * 86400;
 
-  
-
   const hourDifference = Math.floor(timeDifference / 3600) % 24;
-  
 
- 
   if (isMobile) {
     return (
       <PageWrapper>
@@ -73,8 +69,6 @@ export default function ComingSoonPage() {
               height: `${currentToOpenDateProgress}%`,
               background: '#171717',
               backgroundImage: NOISE_URL,
-
-              
             }}
           ></Box>
           {/* <ComingSoonInfoSectionMobile /> */}
@@ -96,7 +90,7 @@ export default function ComingSoonPage() {
       </PageWrapper>
     );
   }
-  
+
   return (
     <PageWrapper>
       <PageLayout>
@@ -109,7 +103,6 @@ export default function ComingSoonPage() {
             width: `${currentToOpenDateProgress}%`,
             background: '#171717',
             backgroundImage: NOISE_URL,
-
           }}
         ></Box>
         {/* <div
