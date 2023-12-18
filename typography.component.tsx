@@ -6,7 +6,23 @@ import {
 } from '@mui/material';
 import { fontUses, fontWeight } from '@/components/Theme-Context/fontValues';
 
-interface TypographyProps extends TypograhpyOriginalProps {
+const SemanticComponentMapping: {
+  [key in keyof typeof fontUses]: React.ElementType<any>;
+} = {
+  headingOne: 'h1',
+  headingTwo: 'h2',
+  headingThree: 'h3',
+  headingFour: 'h4',
+  base: 'span',
+  miniscule: 'span',
+  extralarge: 'span',
+  large: 'span',
+  largeH1: 'h1',
+  poster: 'span',
+  small: 'span',
+};
+
+interface TypographyProps extends Omit<TypograhpyOriginalProps, 'variant'> {
   weight?: keyof typeof fontWeight;
   fontStyle?: 'normal' | 'italic';
   variant: keyof typeof fontUses;
@@ -20,11 +36,13 @@ export const Typography = ({
   children,
   ...props
 }: TypographyProps) => {
+  const semanticMapping = SemanticComponentMapping[variant];
   return (
     <T
+      {...props}
+      component={semanticMapping}
       variant={variant}
       sx={{ fontWeight: weight, fontStyle: fontStyle, ...sx }}
-      {...props}
     >
       {children}
     </T>

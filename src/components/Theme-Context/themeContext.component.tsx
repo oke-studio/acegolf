@@ -32,6 +32,11 @@ declare module '@mui/material/styles' {
     large: React.CSSProperties;
     extralarge: React.CSSProperties;
     largeH1: React.CSSProperties;
+
+    headingOne: React.CSSProperties;
+    headingTwo: React.CSSProperties;
+    headingThree: React.CSSProperties;
+    headingFour: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -64,6 +69,11 @@ declare module '@mui/material/styles' {
     large?: React.CSSProperties;
     extralarge?: React.CSSProperties;
     largeH1?: React.CSSProperties;
+
+    headingOne?: React.CSSProperties;
+    headingTwo?: React.CSSProperties;
+    headingThree?: React.CSSProperties;
+    headingFour?: React.CSSProperties;
   }
 
   interface Palette {
@@ -112,6 +122,11 @@ declare module '@mui/material/Typography' {
     large: true;
     extralarge: true;
     largeH1: true;
+
+    headingOne: true;
+    headingTwo: true;
+    headingThree: true;
+    headingFour: true;
   }
 }
 

@@ -1,55 +1,55 @@
 const typeScale: { fontSize: string; lineHeight: string }[] = [
   {
-    // #1
+    // #0 <-miniscule->
     fontSize: '12px',
     lineHeight: '17px',
   },
-  // #2
+  // #1 <-small->
   {
     fontSize: '14px',
     lineHeight: '20px',
   },
-  // #3
+  // #2 <-base->
   {
     fontSize: '16px',
     lineHeight: '22px',
   },
-  // #4
+  // #3 <-large->
   {
     fontSize: '18px',
     lineHeight: '24px',
   },
-  // #5
+  // #4 <-extralarge->
   {
     fontSize: '20px',
     lineHeight: '28px',
   },
-  // #6
+  // #5 <-headingFour->
   {
     fontSize: '24px',
     lineHeight: '32px',
   },
-  // #7
+  // #6 <-headingThree->
   {
     fontSize: '30px',
     lineHeight: '36px',
   },
-  // #8
+  // #7 <-headingTwo->
   {
     fontSize: '36px',
     lineHeight: '42px',
   },
-  // #9
+  // #8 <-headingOne->
   {
     fontSize: '56px',
     lineHeight: '60px',
   },
-  // #10
+  // #9 <-largeH1->
   {
     fontSize: '72px',
     lineHeight: '72px',
   },
-  // #11
+  // #10 <-poster->
   { fontSize: '96px', lineHeight: '96px' },
 ];
 
@@ -57,56 +57,78 @@ export const fontUses = {
   miniscule: {
     fontSize: typeScale[0].fontSize,
     lineHeight: typeScale[0].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   small: {
     fontSize: typeScale[1].fontSize,
     lineHeight: typeScale[1].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   base: {
     fontSize: typeScale[2].fontSize,
     lineHeight: typeScale[2].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   large: {
     fontSize: typeScale[3].fontSize,
     lineHeight: typeScale[3].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   extralarge: {
     fontSize: typeScale[4].fontSize,
     lineHeight: typeScale[4].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
-  h4: {
+  headingFour: {
     fontSize: typeScale[5].fontSize,
     lineHeight: typeScale[5].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
-  h3: {
+  headingThree: {
     fontSize: typeScale[6].fontSize,
     lineHeight: typeScale[6].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
-  h2: {
+  headingTwo: {
     fontSize: typeScale[7].fontSize,
     lineHeight: typeScale[7].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
-  h1: {
+  headingOne: {
     fontSize: typeScale[8].fontSize,
     lineHeight: typeScale[8].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   largeH1: {
     fontSize: typeScale[9].fontSize,
     lineHeight: typeScale[9].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 
   poster: {
     fontSize: typeScale[10].fontSize,
     lineHeight: typeScale[10].lineHeight,
+    fontFamily: 'new-hero',
+
   },
 };
 
