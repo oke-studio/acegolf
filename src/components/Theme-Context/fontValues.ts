@@ -55,58 +55,58 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 
 export const fontUses = {
   miniscule: {
+    fontSize: typeScale[0].fontSize,
+    lineHeight: typeScale[0].lineHeight,
+  },
+
+  small: {
     fontSize: typeScale[1].fontSize,
     lineHeight: typeScale[1].lineHeight,
   },
 
-  small: {
+  base: {
     fontSize: typeScale[2].fontSize,
     lineHeight: typeScale[2].lineHeight,
   },
 
-  base: {
+  large: {
     fontSize: typeScale[3].fontSize,
     lineHeight: typeScale[3].lineHeight,
   },
 
-  large: {
+  extralarge: {
     fontSize: typeScale[4].fontSize,
     lineHeight: typeScale[4].lineHeight,
   },
 
-  extralarge: {
+  h4: {
     fontSize: typeScale[5].fontSize,
     lineHeight: typeScale[5].lineHeight,
   },
 
-  h4: {
+  h3: {
     fontSize: typeScale[6].fontSize,
     lineHeight: typeScale[6].lineHeight,
   },
 
-  h3: {
+  h2: {
     fontSize: typeScale[7].fontSize,
     lineHeight: typeScale[7].lineHeight,
   },
 
-  h2: {
+  h1: {
     fontSize: typeScale[8].fontSize,
     lineHeight: typeScale[8].lineHeight,
   },
 
-  h1: {
+  largeH1: {
     fontSize: typeScale[9].fontSize,
     lineHeight: typeScale[9].lineHeight,
   },
 
-  largeH1: {
+  poster: {
     fontSize: typeScale[10].fontSize,
     lineHeight: typeScale[10].lineHeight,
-  },
-
-  poster: {
-    fontSize: typeScale[11].fontSize,
-    lineHeight: typeScale[11].lineHeight,
   },
 };
 
