@@ -341,6 +341,9 @@ export const ComingSoonInfoSection = ({
         >
           OPENING DEC 2023
         </Box>
+
+        {/* hidden because client wants to remove the coutdown because its at the end  */}
+        {/*  
         <Box
           sx={{
             fontSize: '16px',
@@ -360,6 +363,8 @@ export const ComingSoonInfoSection = ({
           </Box>{' '}
           HOURS
         </Box>
+        */}
+
         {/* hidden until open for early reservation */}
         {/* 
         <Button
