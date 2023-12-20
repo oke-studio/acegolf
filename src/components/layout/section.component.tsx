@@ -77,6 +77,9 @@ export const Section = ({
             backgroundColor: `${SectionColor}`,
             padding: "5% 5%",
             minHeight: `${SectionHeight}`,
+
+            //work on container query after
+            //containerType: "inline-size",
             
             
         }}
@@ -87,3 +90,12 @@ export const Section = ({
       </Box>
     );
   };
+
+
+
+//   @container (min-width:900){
+
+//     .section{
+
+//     }
+//   }
