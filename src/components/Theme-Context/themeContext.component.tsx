@@ -116,17 +116,16 @@ declare module '@mui/material/Typography' {
     hero_hairline_italic: true;
 
     miniscule: true;
-    base: true;
     small: true;
-    poster: true;
+    base: true;
     large: true;
     extralarge: true;
-    largeH1: true;
-
-    headingOne: true;
-    headingTwo: true;
-    headingThree: true;
     headingFour: true;
+    headingThree: true;
+    headingTwo: true;
+    headingOne: true;
+    largeH1: true;
+    poster: true;
   }
 }
 
