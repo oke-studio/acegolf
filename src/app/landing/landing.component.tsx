@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
+import { LandingHero } from './components/landingHero/landingHero.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
 import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
@@ -46,7 +47,7 @@ export default function Landing() {
   return (
     <Box
       sx={{
-        //backgroundColor: '#171717',
+        backgroundColor: '#171717',
         position: 'relative',
         overflow: 'hidden',
         fontFamily: typography.fontFamily,
@@ -60,14 +61,14 @@ export default function Landing() {
           { label: 'Parties & Events', to: '/pricing' },
         ]}
       /> */}
-
+    <LandingHero/>
       {/* Hero Section*/}
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
+          margin: isLargeDesktop ? '8px 3% 8px' : '15px 3% 8px',
           borderRadius: '25px',
           backgroundColor: 'white',
           paddingBottom: '20px',
@@ -304,8 +305,8 @@ export default function Landing() {
       <Box
         sx={{
           position: 'relative',
-          top: isMobile ? '-200px' : '-160px',
-          zIndex: '1',
+          //top: isMobile ? '-200px' : '-160px',
+          //zIndex: '1',
         }}
       >
         <Box
@@ -448,7 +449,7 @@ export default function Landing() {
           <LandingCards />
         </Box>
       </Box>
-
+    
       {/* How it works, promotions, etc... */}
       <Box
         sx={{
@@ -462,13 +463,11 @@ export default function Landing() {
       >
         <LandingVideo />
         <LandingHowItWorks />
-        <Box
-          sx={{ display: 'flex', backgroundColor: '#39775E', height: '100%' }}
-        >
-          <Promotions />
-          {/* mailing list comp */}
-          <MailingList />
-        </Box>
+        
+        <Promotions />
+        {/* mailing list comp */}
+        <MailingList />
+        
       </Box>
 
       {/* <HowItWorksSection /> */}
