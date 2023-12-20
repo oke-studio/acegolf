@@ -29,6 +29,7 @@ export default function RootLayout({
           {/* </DynamicPageBackground> */}
         </body>
       </ThemeContextProvider>
+      <div className={ "subtleNoise" } ></div>
     </html>
   );
 }
