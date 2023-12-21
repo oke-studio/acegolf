@@ -14,8 +14,9 @@ import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHero } from './components/landingHero/landingHero.component';
+import { VideoLandingHero } from './components/video/videoLandingHero.component';
 import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
-import { LandingVideo } from './components/video/video.component';
+
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
@@ -62,6 +63,7 @@ export default function Landing() {
         ]}
       /> */}
     <LandingHero/>
+    <VideoLandingHero/>
       {/* Banner Iterlude */}
       <Box
         sx={{
@@ -222,7 +224,6 @@ export default function Landing() {
           margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
         }}
       >
-        <LandingVideo />
         <LandingHowItWorks />
         
         <Promotions />
