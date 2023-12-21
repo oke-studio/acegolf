@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
-
+import { fontUses } from './fontValues';
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     hero_thin: React.CSSProperties;
@@ -24,6 +24,19 @@ declare module '@mui/material/styles' {
     hero_extrabold_italic: React.CSSProperties;
     hero_super_italic: React.CSSProperties;
     hero_hairline_italic: React.CSSProperties;
+
+    miniscule: React.CSSProperties;
+    base: React.CSSProperties;
+    small: React.CSSProperties;
+    poster: React.CSSProperties;
+    large: React.CSSProperties;
+    extralarge: React.CSSProperties;
+    largeH1: React.CSSProperties;
+
+    headingOne: React.CSSProperties;
+    headingTwo: React.CSSProperties;
+    headingThree: React.CSSProperties;
+    headingFour: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -48,6 +61,19 @@ declare module '@mui/material/styles' {
     hero_extrabold_italic?: React.CSSProperties;
     hero_super_italic?: React.CSSProperties;
     hero_hairline_italic?: React.CSSProperties;
+
+    miniscule?: React.CSSProperties;
+    base?: React.CSSProperties;
+    small?: React.CSSProperties;
+    poster?: React.CSSProperties;
+    large?: React.CSSProperties;
+    extralarge?: React.CSSProperties;
+    largeH1?: React.CSSProperties;
+
+    headingOne?: React.CSSProperties;
+    headingTwo?: React.CSSProperties;
+    headingThree?: React.CSSProperties;
+    headingFour?: React.CSSProperties;
   }
 
   interface Palette {
@@ -88,6 +114,18 @@ declare module '@mui/material/Typography' {
     hero_extrabold_italic: true;
     hero_super_italic: true;
     hero_hairline_italic: true;
+
+    miniscule: true;
+    small: true;
+    base: true;
+    large: true;
+    extralarge: true;
+    headingFour: true;
+    headingThree: true;
+    headingTwo: true;
+    headingOne: true;
+    largeH1: true;
+    poster: true;
   }
 }
 
@@ -198,6 +236,7 @@ const theme = createTheme({
       fontWeight: '100',
       fontSize: '36px',
     },
+    ...fontUses,
   },
   palette: {
     primary: { main: '#EB8B32' },
@@ -263,6 +302,7 @@ const theme = createTheme({
         },
       ],
     },
+    MuiTypography: {},
   },
 });
 
