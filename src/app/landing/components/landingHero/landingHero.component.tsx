@@ -38,53 +38,61 @@ export const LandingHero = () => {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'flex-start',
+                    paddingRight: '15%'
     
                 }}
             >
                 {/* Trackman Logo */}
-            <Box
-                sx={{
-                    display: 'flex',
-                }}
-            >
-             <Image
-                  //expose svg to have the logo scale accordingly
-                  src="/images/powered-by-Trackman-black-web.png"
-                  width={219}
-                  height={73}
-                  alt="Powered by Trackman Logo"
-                />
+                <Box
+                    sx={{
+                        display: 'flex',
+                    }}
+                >
+                <Image
+                    //expose svg to have the logo scale accordingly
+                    src="/images/powered-by-Trackman-black-web.png"
+                    width={219}
+                    height={73}
+                    alt="Powered by Trackman Logo"
+                    />
 
-            </Box>
+                </Box>
 
-            {/* Hero Text */}
-                <p
+               {/* Hero Text */}
+                <Box
                 style={{
                     color: 'black',
                     fontSize: '96px',
                     fontWeight: '900',
                     display: 'flex',
-                    flexWrap:'wrap',
-                    lineHeight: "0px",
-                    // letterSpacing: "-2.112px",
-                    
-                    
+                    flexDirection: "column",
+                    //lineHeight: "0px",
+                    // letterSpacing: "-2.112px", 
+                }}>
 
-                }}>
-                TORONTO’S <span  style={{
-                    background: "var(--sharp-teal, #36DAD5)",
-                    display: 'flex',
-                    flexBasis: 'fit-content',
-                    transform: 'rotate(3deg)',
-                    padding: '0px 20.334px 0px 5.913px',
-                    alignItems: 'center',
-                    flexShrink: '0',
-                    color: "#FFF"
-                    
-                }}>
+                    <p>TORONTO’S</p> 
                 
-                COOLEST</span> INDOOR GOLF LOUNGE!
-                </p>
+                    <p
+                     style={{
+                        display: "flex"
+                     }}>  
+                        <span
+                        style={{
+                            background: "var(--sharp-teal, #36DAD5)",
+                            display: 'flex',
+                            flexBasis: 'fit-content',
+                            transform: 'rotate(3deg)',
+                            padding: '0px 20.334px 0px 5.913px',
+                            alignItems: 'center',
+                            flexShrink: '0',
+                            color: "#FFF"
+                        }}>COOLEST</span>
+                        INDOOR
+                    </p>
+                
+                    <p>GOLF LOUNGE!</p>
+                    
+                </Box>
 
             </Box>
 
