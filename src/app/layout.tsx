@@ -5,7 +5,7 @@ import { ThemeContextProvider } from '@/components/Theme-Context/themeContext.co
 import { Header } from '@/components/Header/header.component';
 import { Footer } from '@/components/Footer/footer.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
-
+import { FooterV2 } from '@/components/Footer/footerV2.component';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
           {/* <DynamicPageBackground> */}
           <Header />
           {children}
-          <Footer />
+          <FooterV2 />
           {/* </DynamicPageBackground> */}
         </body>
       </ThemeContextProvider>

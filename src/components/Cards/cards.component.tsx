@@ -10,6 +10,7 @@ import {
   Theme,
   useTheme,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 
 type CardColorTypes = 'light' | 'dark';
@@ -53,13 +54,16 @@ export const Card = ({
   buttonTwo,
   ImageSrc,
   CardDescription,
-  BackgroundColor = 'white',
+  BackgroundColor,
   ColorVariant = 'light',
   fullWidth = false,
   sx,
   children,
 }: CardProps) => {
-  const { typography, palette } = useTheme();
+  const { typography, palette, breakpoints } = useTheme();
+
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
+
   const COLOR_VARIANT = CardColorVariants[ColorVariant];
 
   return (
@@ -76,6 +80,7 @@ export const Card = ({
           color: 'white',
           minHeight: '350px',
         }),
+        ...(BackgroundColor && { backgroundColor: BackgroundColor }),
       }}
     >
       {/* Title Box --> Make this text Box */}
@@ -100,12 +105,17 @@ export const Card = ({
           display: 'flex',
           flexDirection: 'row',
           gap: '10px',
+          justifyContent: 'center',
           flexWrap: 'wrap',
         }}
       >
-        <Button {...buttonOne}>{buttonOne.children} &rarr;</Button>
+        <Button {...buttonOne} fullWidth>
+          {buttonOne.children} &rarr;
+        </Button>
         {buttonTwo && (
-          <Button {...buttonTwo}>{buttonTwo.children} &rarr;</Button>
+          <Button {...buttonTwo} fullWidth>
+            {buttonTwo.children} &rarr;
+          </Button>
         )}
       </Box>
     </CardContainer>

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Box, useTheme, useMediaQuery } from '@mui/material';
+import { Box, useTheme, useMediaQuery, Typography } from '@mui/material';
 import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
@@ -18,6 +18,7 @@ import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
+import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
 
 const MapSVG = () => (
   <svg
@@ -37,9 +38,9 @@ const MapSVG = () => (
   </svg>
 );
 
-export default function Landing() {
-  const { palette, typography } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+export default function LandingV2() {
+  const { palette, typography, breakpoints } = useTheme();
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
@@ -301,7 +302,7 @@ export default function Landing() {
         </Box>
       </Box>
       {/* Banner Iterlude */}
-      <Box
+      {/* <Box
         sx={{
           position: 'relative',
           top: isMobile ? '-200px' : '-160px',
@@ -350,7 +351,7 @@ export default function Landing() {
             strokeColor="#171717"
           />
         </Box>
-      </Box>
+      </Box> */}
       {/* Orange Section */}
       <Box
         sx={{
@@ -358,19 +359,22 @@ export default function Landing() {
           backgroundSize: '100%',
           display: 'flex',
           width: '100vw',
-          height: '2000px',
+          //   height: '2000px',
           justifyContent: 'center',
-          padding: '0px 48px',
-          position: 'relative',
-          top: '-940px',
+          padding: '48px 48px',
+
+          //   position: 'relative',
+          //   top: '-940px',
           right: 0,
           left: 0,
           alignContent: 'center',
           flexWrap: 'wrap',
+          borderRadius: '25px',
+          ...(isMobile && { padding: '12px 12px' }),
         }}
       >
         {/* This is where the collages are */}
-        <Box
+        {/* <Box
           sx={{
             position: 'absolute',
             zIndex: 1,
@@ -387,59 +391,17 @@ export default function Landing() {
             backgroundSize: 'fit',
           }}
         >
-          {/* <Box
-                sx={{
-                  position: 'relative',
-                  top: '-178px',
-                  left: '-245px',
-                  width: '437px',
-                  height: '807px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Tiger-woods.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
+         
 
-            <Box
-                sx={{
-                  width: '825px',
-                  height: '825px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/space.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
+           
 
-            <Box
-                sx={{
-                  width: '433px',
-                  height: '322px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Drink.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box> */}
-        </Box>
+            
+        </Box> */}
         <Box
           sx={{
             zIndex: 2,
-            position: 'relative',
-            top: '-600px',
+            // position: 'relative',
+            // top: '-600px',
             width: '100vw',
             padding: '10px',
           }}
@@ -455,19 +417,121 @@ export default function Landing() {
           display: 'flex',
           flexDirection: 'column',
           padding: '24px',
-          position: 'relative',
-          top: '-790px',
+          //   position: 'relative',
+          //   top: '-790px',
           margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
         }}
       >
         <LandingVideo />
         <LandingHowItWorks />
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: '#39775E',
+          height: '100%',
+          borderRadius: '25px',
+        }}
+      >
+        <Promotions />
+        {/* mailing list comp */}
+        <MailingList />
+      </Box>
+
+      <Box>
+        <WhatsTheVibe />
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          height: '400px',
+          color: 'black',
+        }}
+      >
         <Box
-          sx={{ display: 'flex', backgroundColor: '#39775E', height: '100%' }}
+          sx={{
+            backgroundColor: '#529DC8',
+            width: '100%',
+            borderRadius: '25px 0px 0px 0px',
+            padding: '48px',
+          }}
         >
-          <Promotions />
-          {/* mailing list comp */}
-          <MailingList />
+          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                // width: '50%',
+                height: '100%',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Typography
+                sx={{ ...typography.hero_semibold, fontSize: '32px' }}
+              >
+                Join our Rewards program
+              </Typography>
+              <Typography sx={{ ...typography.hero_medium, fontSize: '18px' }}>
+                Earn $6 on every booking
+              </Typography>
+              <Button variant="secondary">Learn More&rarr;</Button>
+            </Box>
+            <Box
+              sx={{
+                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '8px',
+                width: '300px',
+                height: '100%',
+              }}
+            />
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: '#EB8B32',
+            width: '100%',
+            borderRadius: '0px 25px 0px 0px',
+            padding: '48px',
+          }}
+        >
+          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                // width: '50%',
+                justifyContent: 'space-between',
+                height: '100%',
+              }}
+            >
+              <Typography
+                sx={{ ...typography.hero_semibold, fontSize: '32px' }}
+              >
+                Talk to us about your party or event
+              </Typography>
+              <Typography sx={{ ...typography.hero_medium, fontSize: '18px' }}>
+                We welcome group bookings and events
+              </Typography>
+              <Button variant="secondary">Inquire Now&rarr;</Button>
+            </Box>
+            <Box
+              sx={{
+                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '8px',
+                width: '300px',
+                height: '100%',
+              }}
+            />
+          </Box>
         </Box>
       </Box>
 
