@@ -447,7 +447,7 @@ export default function LandingV2() {
       <Box
         sx={{
           display: 'flex',
-          height: '300px',
+          height: '400px',
           color: 'black',
         }}
       >
@@ -456,7 +456,7 @@ export default function LandingV2() {
             backgroundColor: '#529DC8',
             width: '100%',
             borderRadius: '25px 0px 0px 0px',
-            padding: '24px',
+            padding: '48px',
           }}
         >
           <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
@@ -464,8 +464,9 @@ export default function LandingV2() {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                width: '50%',
+                // width: '50%',
                 height: '100%',
+                justifyContent: 'space-between',
               }}
             >
               <Typography
@@ -485,7 +486,7 @@ export default function LandingV2() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '8px',
-                width: '100%',
+                width: '300px',
                 height: '100%',
               }}
             />
@@ -496,7 +497,7 @@ export default function LandingV2() {
             backgroundColor: '#EB8B32',
             width: '100%',
             borderRadius: '0px 25px 0px 0px',
-            padding: '24px',
+            padding: '48px',
           }}
         >
           <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
@@ -504,7 +505,8 @@ export default function LandingV2() {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                width: '50%',
+                // width: '50%',
+                justifyContent: 'space-between',
                 height: '100%',
               }}
             >
@@ -525,7 +527,7 @@ export default function LandingV2() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '8px',
-                width: '100%',
+                width: '300px',
                 height: '100%',
               }}
             />

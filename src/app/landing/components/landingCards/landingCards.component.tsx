@@ -42,8 +42,15 @@ export const LandingCards = () => {
           }}
           CardTitle="Tapas Style Menu"
           ColorVariant="dark"
-          sx={{ flexBasis: '110%' }}
-        />
+          sx={{
+            flexBasis: '110%',
+            borderColor: '#36DAD5',
+            borderWidth: '6px',
+            borderStyle: 'solid',
+          }}
+        >
+          <Box></Box>
+        </Card>
         <Card
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
           buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}

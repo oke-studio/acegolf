@@ -54,7 +54,7 @@ export const Card = ({
   buttonTwo,
   ImageSrc,
   CardDescription,
-  BackgroundColor = 'white',
+  BackgroundColor,
   ColorVariant = 'light',
   fullWidth = false,
   sx,
@@ -80,6 +80,7 @@ export const Card = ({
           color: 'white',
           minHeight: '350px',
         }),
+        ...(BackgroundColor && { backgroundColor: BackgroundColor }),
       }}
     >
       {/* Title Box --> Make this text Box */}
