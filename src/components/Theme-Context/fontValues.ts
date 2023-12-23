@@ -50,7 +50,7 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
     lineHeight: '72px',
   },
   // #10 <-poster->
-  { fontSize: '96px', lineHeight: '96px' },
+  { fontSize: '96px', lineHeight: '68px' },
 ];
 
 export const fontUses = {

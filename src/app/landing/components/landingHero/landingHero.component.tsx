@@ -3,6 +3,7 @@ import { Button, Box, styled, Grid, useMediaQuery, useTheme } from '@mui/materia
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
+import { Typography } from '../../../../../typography.component';
 
 
 
@@ -69,28 +70,38 @@ export const LandingHero = () => {
                     //lineHeight: "0px",
                     // letterSpacing: "-2.112px", 
                 }}>
-
-                    <p>TORONTO’S</p> 
+                    
+                    <Typography
+                    variant='poster'
+                    weight = '900'
+                    >TORONTO’S</Typography>
                 
-                    <p
+                    <span
                      style={{
                         display: "flex"
                      }}>  
-                        <span
-                        style={{
-                            background: "var(--sharp-teal, #36DAD5)",
-                            display: 'flex',
-                            flexBasis: 'fit-content',
-                            transform: 'rotate(3deg)',
-                            padding: '0px 20.334px 0px 5.913px',
-                            alignItems: 'center',
-                            flexShrink: '0',
-                            color: "#FFF"
-                        }}>COOLEST</span>
-                        INDOOR
-                    </p>
+                        
+                        <Typography
+                            variant='poster'
+                            weight = '900'
+                            sx={{
+                                background: "var(--sharp-teal, #36DAD5)",
+                                display: 'flex',
+                                flexBasis: 'fit-content',
+                                transform: 'rotate(3deg)',
+                                padding: '0px 20px',
+                                alignItems: 'center',
+                                flexShrink: '0',
+                                color: "#FFF"
+                            }}
+                        >COOLEST</Typography>INDOOR
+                    </span>
                 
-                    <p>GOLF LOUNGE!</p>
+                    <Typography
+                            variant='poster'
+                            weight = '900'
+                            >GOLF LOUNGE! 
+                    </Typography>
                     
                 </Box>
 
