@@ -49,7 +49,7 @@ interface SectionProps {
 export const Section = ({
   SectionName,
   SectionWidth,
-  SectionHeight,
+  SectionHeight = 'max-content',
   SectionColor,
   CornerRadius,
   sx,
@@ -66,7 +66,8 @@ export const Section = ({
         ...CORNER,
         backgroundColor: `${SectionColor}`,
         padding: '5% 5%',
-        minHeight: `${SectionHeight}`,
+        height: `${SectionHeight}`,
+
 
         //work on container query after
         //containerType: "inline-size",

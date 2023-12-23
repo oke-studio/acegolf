@@ -14,16 +14,16 @@ export const LandingVideo = () => {
       sx={{
         width: '100%',
         height: 'max-content',
-        borderRadius: '25px',
-        // backgroundColor: 'grey',
-        marginBottom: '80px',
+        //borderRadius: '25px',
+        //backgroundColor: 'grey',
+        //marginBottom: '80px',
       }}
     >
       <ReactPlayer
         url="images/SPIN-Sizzle-Reel.mp4"
         width="100%"
         height="100%"
-        style={{ borderRadius: 'inherit' }}
+        style={{ borderRadius: '25px', overflow: 'hidden' }}
         muted
         playing
         loop
