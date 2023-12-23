@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeContextProvider>
         <body className={inter.className}>
+          <div className={"subtleNoise"} ></div>
           {/* <DynamicPageBackground> */}
           <Header />
           {children}
@@ -29,7 +30,7 @@ export default function RootLayout({
           {/* </DynamicPageBackground> */}
         </body>
       </ThemeContextProvider>
-      <div className={ "subtleNoise" } ></div>
+
     </html>
   );
 }
