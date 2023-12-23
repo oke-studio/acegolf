@@ -8,7 +8,7 @@ import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
 import { East } from '@mui/icons-material';
 
-import { TigerImage } from './components/tigerImage/tigerImage.component';
+// import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
