@@ -20,6 +20,7 @@
     "@types/react-dom": "18.2.4",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.17",
+    "lint": "^0.8.19",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
