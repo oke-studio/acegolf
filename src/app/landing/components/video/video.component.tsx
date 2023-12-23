@@ -27,7 +27,7 @@ export const LandingVideo = () => {
         muted
         playing
         loop
-        controls
+        controls ={false}
       />
     </Box>
   );

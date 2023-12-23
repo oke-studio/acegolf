@@ -20,6 +20,22 @@ export const VideoLandingHero = () => {
       CornerRadius="on"
       sx={{}}
     >
+        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 627">
+  
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect 
+        style={{
+        
+            fill: "none",
+            stroke:" #171717",
+            strokeMiterlimit: "10"
+          
+        }}
+        x=".5" y=".5" width="1151" height="626" rx="35.79" ry="35.79"/>
+  </g>
+</svg>
+
+
       <LandingVideo></LandingVideo>
     </Section>
   );
