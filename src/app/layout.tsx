@@ -31,7 +31,7 @@ export default function RootLayout({
 
           <div className={'subtleNoise'} style={{
             // zIndex: 100, 
-            pointerEvents: 'none'}}></div>
+            pointerEvents: 'none' }}></div>
         </body>
       </ThemeContextProvider>
 
