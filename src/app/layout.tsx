@@ -23,12 +23,15 @@ export default function RootLayout({
     <html lang="en">
       <ThemeContextProvider>
         <body className={inter.className} >
-          <div className={'subtleNoise'} style={{zIndex: 100}}></div>
           {/* <DynamicPageBackground> */}
           <Header />
           {children}
           <FooterV2 />
           {/* </DynamicPageBackground> */}
+
+          <div className={'subtleNoise'} style={{
+            // zIndex: 100, 
+            pointerEvents: 'none'}}></div>
         </body>
       </ThemeContextProvider>
 
