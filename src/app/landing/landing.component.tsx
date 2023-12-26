@@ -111,7 +111,7 @@ export default function Landing() {
             }}
             text="FOOD  DRINKS FUN "
             textCount={5}
-            strokeColor="#171717"
+            strokeColor="#EB8B32"
           />
         </Box>
       </Box>
