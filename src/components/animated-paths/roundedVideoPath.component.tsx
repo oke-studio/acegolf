@@ -78,7 +78,6 @@ interface VideoSVGWrapperProps {
   textCount?: number;
   textPath?: string;
   viewBox: string;
-
 }
 
 export const RoundedVideoPath = ({
@@ -91,7 +90,6 @@ export const RoundedVideoPath = ({
   textCount,
   textPath = 'MyPath',
   viewBox = `0 0 ${width} ${height}`,
- 
 }: VideoSVGWrapperProps) => {
   return (
     <svg

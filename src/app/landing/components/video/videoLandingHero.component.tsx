@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { LandingVideo } from '../../components/video/video.component';
 import { RoundedVideoPath } from '@/components/animated-paths/roundedVideoPath.component';
+import { RoundedVideoPath } from '@/components/animated-paths/roundedVideoPath.component';
 
 export const VideoLandingHero = () => {
   return (
