@@ -82,8 +82,8 @@ const ComingSoonForm = () => {
           .then(() => setIsSubmit(true))
           .catch((e) => alert(e));
       }}
-      // validationSchema={}
-      // validate={}
+    // validationSchema={}
+    // validate={}
     >
       {(props) => {
         const {
@@ -391,6 +391,7 @@ export const ComingSoonInfoSection = ({
       </ComingSoonInfoWrapper>
 
       <ComingSoonForm />
+      
     </ComingSoonInfoSectionWrapper>
   );
 };
