@@ -15,7 +15,7 @@ import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHero } from './components/landingHero/landingHero.component';
 import { VideoLandingHero } from './components/video/videoLandingHero.component';
-import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
+import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
@@ -64,6 +64,7 @@ export default function Landing() {
       /> */}
       <LandingHero />
       <VideoLandingHero />
+      <LandingHowItWorks />
       {/* Banner Iterlude */}
       <Box
         sx={{
@@ -199,6 +200,7 @@ export default function Landing() {
                 }}
               ></Box> */}
         </Box>
+        
         <Box
           sx={{
             zIndex: 2,
@@ -224,7 +226,7 @@ export default function Landing() {
           margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
         }}
       >
-        <LandingHowItWorks />
+        
 
         <Promotions />
         {/* mailing list comp */}

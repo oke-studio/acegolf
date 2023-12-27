@@ -13,7 +13,7 @@ import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
-import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
+import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';

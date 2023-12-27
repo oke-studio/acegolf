@@ -17,6 +17,9 @@ import {
 } from '@mui/material';
 import { LandingCards } from '../landingCards/landingCards.component';
 import { Card } from '@/components/Cards/cards.component';
+import { Section } from '@/components/layout/section.component';
+import { orange } from '@mui/material/colors';
+import { Typography } from '../../../../../typography.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // 'label + &': {
@@ -66,64 +69,37 @@ export const LandingHowItWorks = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        color: 'white',
-        gap: '52px',
-        width: '100%',
 
-        ...(isMobile && { width: '100%' }),
+    <Section
+      SectionName="How it works Homepage"
+      SectionWidth="normal"
+      SectionColor=""
+      CornerRadius="on"
+      SectionHeight="fit-content"
+      sx={{
+
       }}
     >
       <Box
-        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center',
+          gap: '52px',
+          color: '#FFF'
+         }}
       >
         {/* How it works heading */}
-        <Box
+        <Typography
+          variant="largeH1"
+          weight="900"
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
+          color: '#FFF',
 
-            gap: '32px',
           }}
-        >
-          <Box
-            component="h1"
-            sx={{
-              ...typography.hero_super_italic,
-              fontSize: '48px',
-              ...(isMobile && { textAlign: 'center', lineHeight: '65%' }),
-            }}
-          >
-            HOW IT WORKS
-          </Box>
-          {/* <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              ...typography.hero_medium,
-              fontSize: '18px',
-              gap: '24px',
-            }}
-          >
-            <Box component="span">
-              We&apos;ve revolutionized the game by bringing the excitement of
-              indoor golf to the heart of the city.
-            </Box>
-            <Box component="span">
-              Rain or shine, day or night, our state-of-the-art simulators
-              transport you to world-class courses, allowing you to swing your
-              clubs without any weather limitations.
-            </Box>
-            <Box component="span">
-              Say goodbye to soggy fairways and hello to an immersive golfing
-              experience that will keep you entertained for hours.
-            </Box>
-          </Box> */}
-        </Box>
+          >HOW IT WORKS
+        </Typography>
+        
 
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           {/* #1 */}
@@ -261,7 +237,7 @@ export const LandingHowItWorks = () => {
                 label="Guests"
                 id="reserve-a-bay-guest"
                 labelId="reserve-a-bay-guest-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'guests')}
+                onChange={e => handleReserveFormOnChange(e, 'guests')}
                 input={<BootstrapInput />}
               >
                 {[...Array(6)].map((_, index) => (
@@ -280,7 +256,7 @@ export const LandingHowItWorks = () => {
                 label="Hours"
                 id="reserve-a-bay-time"
                 labelId="reserve-a-bay-time-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'time')}
+                onChange={e => handleReserveFormOnChange(e, 'time')}
                 input={<BootstrapInput />}
               >
                 {[...Array(5)].map((_, index) =>
@@ -297,6 +273,7 @@ export const LandingHowItWorks = () => {
           </Box>
         </Card>
       </Box>
-    </Box>
+    
+    </Section>
   );
 };
