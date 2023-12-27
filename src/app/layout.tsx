@@ -6,6 +6,7 @@ import { Header } from '@/components/Header/header.component';
 import { Footer } from '@/components/Footer/footer.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
 import { FooterV2 } from '@/components/Footer/footerV2.component';
+import zIndex from '@mui/material/styles/zIndex';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -21,14 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeContextProvider>
-        <body className={inter.className}>
+        <body className={inter.className} >
           {/* <DynamicPageBackground> */}
           <Header />
           {children}
           <FooterV2 />
           {/* </DynamicPageBackground> */}
+
+          <div className={'subtleNoise'} style={{
+            // zIndex: 100, 
+            pointerEvents: 'none' }}></div>
         </body>
       </ThemeContextProvider>
+
     </html>
   );
 }
