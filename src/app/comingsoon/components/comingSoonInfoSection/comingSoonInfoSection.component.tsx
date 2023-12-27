@@ -22,6 +22,9 @@ const backgroundColor = '#529DC8';
 interface FormValues {
   email: string;
 }
+const handleSubscribeButton = (email) => {
+  return `https://www.sevenrooms.com/explore/acegolf/subscription?email=${email}`;
+};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -189,6 +192,8 @@ const ComingSoonForm = () => {
                       // onClick={() => buttonClick()}
                       disabled={isSubmitting}
                     >
+
+                      
                       <Typography
                         paddingLeft="24px"
                         paddingRight="24px"
@@ -202,15 +207,15 @@ const ComingSoonForm = () => {
                         whiteSpace="nowrap"
                         overflow="hidden"
                         color="white"
-                      >
-                        {isSubmitting
-                          ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
-                          : 'NOTIFY ME'}
+                        >
+                        <a href={handleSubscribeButton(values.email)} target='_self'> 
+                        {isSubmitting ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'} </a>
                       </Typography>
                     </motion.button>
                   ),
                   sx: { borderRadius: '12px' },
                 }}
+
               />
             </Box>
           </Box>
@@ -219,6 +224,8 @@ const ComingSoonForm = () => {
     </Formik>
   );
 };
+
+
 
 const ComingSoonInfoSectionWrapper = styled(Box)({
   display: 'flex',
