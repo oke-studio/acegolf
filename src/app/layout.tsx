@@ -27,6 +27,9 @@ export default function RootLayout({
           {children}
           {/* <Footer /> */}
           {/* </DynamicPageBackground> */}
+          <div className={'subtleNoise'} style={{
+            // zIndex: 100, 
+            pointerEvents: 'none' }}></div>
         </body>
       </ThemeContextProvider>
     </html>
