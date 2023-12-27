@@ -5,12 +5,14 @@ import {
   Box,
   useTheme,
   TextField,
-  Typography,
   useMediaQuery,
+  // Typography,
 } from '@mui/material';
 import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
+
+import { Typography } from '../../../../../typography.component';
 
 const MailingListForm = () => {
   const { typography, palette } = useTheme();
@@ -125,14 +127,15 @@ const MailingListForm = () => {
                     <Typography
                       paddingLeft="24px"
                       paddingRight="24px"
-                      paddingTop="14px"
-                      paddingBottom="14px"
+                      paddingTop="10px"
+                      paddingBottom="10px"
                       fontFamily="new-hero"
                       fontWeight="700"
                       whiteSpace="nowrap"
                       overflow="hidden"
                       color="white"
-                      fontSize="12px"
+                      variant="small"
+                      as="p"
                     >
                       {isSubmitting
                         ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
@@ -165,8 +168,8 @@ export const MailingList = () => {
         margin: '32px 0',
       }}
     >
-      <Box
-        component="h1"
+      <Typography
+        variant="headingOne"
         sx={{
           ...typography.hero_super,
           fontSize: '48px',
@@ -174,10 +177,13 @@ export const MailingList = () => {
         }}
       >
         JOIN THE MAILING LIST
-      </Box>
-      <Box sx={{ ...typography.hero_medium, fontSize: '24px' }}>
+      </Typography>
+      <Typography
+        sx={{ ...typography.hero_medium, fontSize: '24px' }}
+        variant="base"
+      >
         Be the first to know about the latest ACE Golf promos and events
-      </Box>
+      </Typography>
       <MailingListForm />
     </Box>
   );

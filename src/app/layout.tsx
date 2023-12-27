@@ -1,11 +1,12 @@
 import './globals.css';
 // import '/Users/onanefeosah/Desktop/acegolf/public/fonts/style.css';
 import { Inter } from 'next/font/google';
-import { ThemeContextProvider } from '@/components/Theme-Context/themeContext.component';
+import { Providers } from './Providers';
 import { Header } from '@/components/Header/header.component';
 import { Footer } from '@/components/Footer/footer.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
 import { FooterV2 } from '@/components/Footer/footerV2.component';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeContextProvider>
+      <Providers>
         <body className={inter.className}>
           {/* <DynamicPageBackground> */}
           <Header />
@@ -28,7 +29,7 @@ export default function RootLayout({
           <FooterV2 />
           {/* </DynamicPageBackground> */}
         </body>
-      </ThemeContextProvider>
+      </Providers>
     </html>
   );
 }

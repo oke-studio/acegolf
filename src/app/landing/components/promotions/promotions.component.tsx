@@ -1,12 +1,6 @@
 'use client';
 import * as React from 'react';
-import {
-  useTheme,
-  Box,
-  styled,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
 
 import {
   useMotionValue,
@@ -15,6 +9,8 @@ import {
   useTransform,
   useTime,
 } from 'framer-motion';
+
+import { Typography } from '../../../../../typography.component';
 
 const StyledPromotionCards = styled(Box)({});
 
@@ -137,10 +133,12 @@ const PromotionCards = ({
         style={{ top: topTransformer }}
       >
         <Typography
-          fontStyle={({ typography }) => typography.hero_super_italic.fontStyle}
-          fontSize="24px"
-          padding={1}
+          // fontStyle={({ typography }) => typography.hero_super_italic.fontStyle}
+          // fontSize="24px"
+          // padding={1}
           sx={{ textWrap: 'nowrap' }}
+          variant="base"
+          padding={1}
         >
           {label}
         </Typography>
@@ -163,15 +161,10 @@ export const Promotions = () => {
         margin: '32px 0',
       }}
     >
-      <Box
-        component="h1"
-        sx={{ ...typography.hero_super, textAlign: 'center' }}
-      >
-        PROMOTIONS & EVENTS
-      </Box>
-      <Box>
+      <Typography variant="headingOne">PROMOTIONS & EVENTS</Typography>
+      <Typography variant="base">
         Be the first to know about the latest ACE Golf promos and events
-      </Box>
+      </Typography>
       <Box
         sx={{
           display: 'flex',
