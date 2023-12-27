@@ -86,7 +86,7 @@ export const LandingHowItWorks = () => {
           flexDirection: 'column', 
           alignItems: 'center',
           gap: '52px',
-          color: '#FFF'
+          color: '#FFF',
          }}
       >
         {/* How it works heading */}
