@@ -189,6 +189,8 @@ const ComingSoonForm = () => {
                       // onClick={() => buttonClick()}
                       disabled={isSubmitting}
                     >
+
+                      
                       <Typography
                         paddingLeft="24px"
                         paddingRight="24px"
@@ -202,15 +204,15 @@ const ComingSoonForm = () => {
                         whiteSpace="nowrap"
                         overflow="hidden"
                         color="white"
-                      >
-                        {isSubmitting
-                          ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
-                          : 'NOTIFY ME'}
+                        >
+                        <a href={handleSubscribeButton(values.email)} target='_self'> 
+                        {isSubmitting? "WE'LL KEEP IN TOUCH! SEE YOU SOON!": 'NOTIFY ME'} </a>
                       </Typography>
                     </motion.button>
                   ),
                   sx: { borderRadius: '12px' },
                 }}
+
               />
             </Box>
           </Box>
@@ -218,6 +220,10 @@ const ComingSoonForm = () => {
       }}
     </Formik>
   );
+};
+
+const handleSubscribeButton = (email) => {
+  return `https://www.sevenrooms.com/explore/acegolf/subscription?email=${email}`;
 };
 
 const ComingSoonInfoSectionWrapper = styled(Box)({
