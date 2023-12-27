@@ -12,7 +12,7 @@ const backgroundColor = '#E6E8E9';
 
 const PageWrapper = styled(Box)({
   backgroundColor: backgroundColor,
-  backgroundImage: NOISE_URL,
+  //backgroundImage: NOISE_URL,
   height: '100vh',
   color: 'black',
   width: '100vw',
@@ -102,7 +102,7 @@ export default function ComingSoonPage() {
             bottom: 0,
             width: `${currentToOpenDateProgress}%`,
             background: '#171717',
-            backgroundImage: NOISE_URL,
+            //backgroundImage: NOISE_URL,
           }}
         ></Box>
         {/* <div
