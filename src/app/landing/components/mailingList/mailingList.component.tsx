@@ -5,7 +5,8 @@ import { Box, useTheme, TextField, useMediaQuery } from '@mui/material';
 import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
-import { Typography } from '../../../../components/Typography/typography.component';
+
+import { Typography } from '@/components/Typography/typography.component';
 
 const MailingListForm = () => {
   const { typography, palette } = useTheme();
@@ -25,7 +26,7 @@ const MailingListForm = () => {
   return (
     <Formik
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
         fetch('/', {
           method: 'POST',
@@ -33,12 +34,12 @@ const MailingListForm = () => {
           body: encode({ 'form-name': 'landing-mailing-list', ...values }),
         })
           .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
       // validationSchema={}
       // validate={}
     >
-      {(props) => {
+      {props => {
         const {
           values,
           isSubmitting,
@@ -93,7 +94,7 @@ const MailingListForm = () => {
                 },
                 '.MuiFormHelperText-root': {
                   fontSize: '10px',
-                  color: (t) => t.palette.aceGrey,
+                  color: t => t.palette.aceGrey,
                   marginTop: '8px',
                   width: '75%',
                   textAlign: 'center',

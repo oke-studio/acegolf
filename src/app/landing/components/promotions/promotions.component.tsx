@@ -1,11 +1,6 @@
 'use client';
 import * as React from 'react';
-import {
-  useTheme,
-  Box,
-  styled,
-  useMediaQuery,
-} from '@mui/material';
+import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
 
 import {
   useMotionValue,
@@ -138,8 +133,9 @@ const PromotionCards = ({
       >
         <Typography
           variant="largeH1"
-          fontStyle = "italic"
+          fontStyle="italic"
           sx={{ textWrap: 'nowrap' }}
+          padding={1}
         >
           {label}
         </Typography>
@@ -162,14 +158,10 @@ export const Promotions = () => {
         margin: '32px 0',
       }}
     >
-      <Typography
-        variant="largeH1"
-      >
-        PROMOTIONS & EVENTS
-      </Typography>
-      <Box>
+      <Typography variant="headingOne">PROMOTIONS & EVENTS</Typography>
+      <Typography variant="base">
         Be the first to know about the latest ACE Golf promos and events
-      </Box>
+      </Typography>
       <Box
         sx={{
           display: 'flex',

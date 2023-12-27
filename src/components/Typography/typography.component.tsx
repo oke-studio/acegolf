@@ -26,6 +26,7 @@ interface TypographyProps extends Omit<TypograhpyOriginalProps, 'variant'> {
   weight?: keyof typeof fontWeight;
   fontStyle?: 'normal' | 'italic';
   variant: keyof typeof fontUses;
+  as?: React.ElementType<any>;
 }
 
 export const Typography = ({
@@ -34,13 +35,14 @@ export const Typography = ({
   fontStyle = 'normal',
   sx,
   children,
+  as,
   ...props
 }: TypographyProps) => {
   const semanticMapping = SemanticComponentMapping[variant];
   return (
     <T
       {...props}
-      component={semanticMapping}
+      component={as ? as : semanticMapping}
       variant={variant}
       sx={{ fontWeight: weight, fontStyle: fontStyle, ...sx }}
     >

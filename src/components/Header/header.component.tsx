@@ -396,7 +396,7 @@ export const Header = ({
                 disableTouchRipple
                 variant="navButton"
                 onClick={() => {
-                  router.push('/pricing');
+                  router.push('/book-now');
                 }}
               >
                 {/* <MotionSpanAnimated
