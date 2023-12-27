@@ -365,8 +365,7 @@ export const ComingSoonInfoSection = ({
         </Box>
         */}
 
-        {/* hidden until open for early reservation */}
-        {/* 
+        
         <Button
           disableElevation
           disableFocusRipple
@@ -387,7 +386,7 @@ export const ComingSoonInfoSection = ({
             Early Reservation &rarr;
           </a> 
         </Button>
-        */}
+        
       </ComingSoonInfoWrapper>
 
       <ComingSoonForm />
