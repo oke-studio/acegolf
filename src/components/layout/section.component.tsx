@@ -49,7 +49,7 @@ interface SectionProps {
 export const Section = ({
   SectionName,
   SectionWidth,
-  SectionHeight = 'max-content',
+  SectionHeight = 'fit-content',
   SectionColor,
   CornerRadius,
   sx,
