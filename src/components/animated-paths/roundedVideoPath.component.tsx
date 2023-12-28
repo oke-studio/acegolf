@@ -101,7 +101,7 @@ export const RoundedVideoPath = ({
       viewBox={viewBox}
       fill="none"
       // preserveAspectRatio="xMidYMid meet"
-      style={{ overflow: 'visible'}}
+      style={{ overflow: 'visible' }}
     >
       <path
         id={textPath}
