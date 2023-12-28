@@ -20,6 +20,8 @@ import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.com
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
+import { LandingPromotionMailingSection } from './components/promotionMailing/landingPromotionMailingSection.component';
+import { LandingInfoSection } from './components/landingInfo/landingInfoSection.component';
 
 const MapSVG = () => (
   <svg
@@ -118,125 +120,14 @@ export default function Landing() {
       </Box>
 
       <LandingHowItWorks />
-
-      {/* Orange Section */}
-      <Box
-        sx={{
-          backgroundColor: '#EB8B32',
-          backgroundSize: '100%',
-          display: 'flex',
-          width: '100vw',
-          height: '2000px',
-          justifyContent: 'center',
-          padding: '0px 48px',
-          position: 'relative',
-          //top: '-940px',
-          right: 0,
-          left: 0,
-          alignContent: 'center',
-          flexWrap: 'wrap',
-        }}
-      >
-        {/* This is where the collages are */}
-        <Box
-          sx={{
-            position: 'absolute',
-            zIndex: 1,
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignContent: 'space-around',
-            width: '100vw',
-            height: '1500px',
-            flexWrap: 'wrap',
-            background: isSmallDesktop
-              ? 'url(/images/background-collage_928.svg)'
-              : 'url(/images/background-collage_1226.svg)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'fit',
-          }}
-        >
-          {/* <Box
-                sx={{
-                  position: 'relative',
-                  top: '-178px',
-                  left: '-245px',
-                  width: '437px',
-                  height: '807px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Tiger-woods.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
-
-            <Box
-                sx={{
-                  width: '825px',
-                  height: '825px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/space.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
-
-            <Box
-                sx={{
-                  width: '433px',
-                  height: '322px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Drink.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box> */}
-        </Box>
         
-        <Box
-          sx={{
-            zIndex: 2,
-            position: 'relative',
-            top: '-600px',
-            width: '100vw',
-            padding: '10px',
-          }}
-        >
-          {/* <LandingTabs /> */}
-          <LandingCards />
-        </Box>
-      </Box>
-
-      {/* How it works, promotions, etc... */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '24px',
-          position: 'relative',
-          top: '-790px',
-          margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
-        }}
-      >
         
+      
+      <LandingInfoSection/>
+      <LandingPromotionMailingSection/>
 
-        <Promotions />
-        {/* mailing list comp */}
-        <MailingList />
-      </Box>
+      
 
-      {/* <HowItWorksSection /> */}
     </Box>
   );
 }
