@@ -111,6 +111,8 @@ interface PriceContainer {
   timeFrom: string;
   timeTo: string;
   backgroundColor?: string;
+  bar?: boolean;
+  kitchen?: boolean;
 }
 
 interface PricesTabsContentSkeletonProps {
@@ -120,7 +122,7 @@ interface PricesTabsContentSkeletonProps {
   priceContainerTwo: PriceContainer;
   privatePriceContainer: Omit<
     PriceContainer,
-    'timeFrom' | 'timeTo' | 'backgroundColor'
+    'timeFrom' | 'timeTo' | 'backgroundColor' | 'bar' | 'kitchen'
   >;
 }
 
@@ -138,12 +140,14 @@ const PricesTabsContentSkeleton = ({
     timeTo,
     backgroundColor,
     color = 'black',
+    bar = false,
+    kitchen = false,
   }: PriceContainer) => {
     return (
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
           gap: '24px',
           color: color,
         }}
@@ -166,6 +170,20 @@ const PricesTabsContentSkeleton = ({
           </Typography>
           <Typography variant="base">per bay, per person</Typography>
         </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography variant="base" color="black">
+            *Bar {bar ? 'Open' : 'Closed'}
+          </Typography>
+          <Typography variant="base" color="black">
+            *Kitchen {kitchen ? 'Open' : 'Closed'}
+          </Typography>
+        </Box>
       </Box>
     );
   };
@@ -173,7 +191,7 @@ const PricesTabsContentSkeleton = ({
     <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
       <Typography variant="headingOne">{title}</Typography>
       <Typography variant="base">{description}</Typography>
-      <Box sx={{ display: 'flex', gap: '24px' }}>
+      <Box sx={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
         <PriceInfoBox {...priceContainerOne} />
         <PriceInfoBox {...priceContainerTwo} />
       </Box>
@@ -601,6 +619,7 @@ export default function BookNow() {
         <MailingList />
       </Box>
 
+      {/* TODO */}
       <Box
         sx={{
           display: 'flex',
