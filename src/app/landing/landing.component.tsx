@@ -15,11 +15,13 @@ import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHero } from './components/landingHero/landingHero.component';
 import { VideoLandingHero } from './components/video/videoLandingHero.component';
-import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
+import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
+import { LandingPromotionMailingSection } from './components/promotionMailing/landingPromotionMailingSection.component';
+import { LandingInfoSection } from './components/landingInfo/landingInfoSection.component';
 
 const MapSVG = () => (
   <svg
@@ -64,6 +66,7 @@ export default function Landing() {
       /> */}
       <LandingHero />
       <VideoLandingHero />
+
       {/* Banner Iterlude */}
       <Box
         sx={{
@@ -85,7 +88,7 @@ export default function Landing() {
             viewBox="0 0 1440 400"
             pathProps={{
               d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
-              fill: '#EB8B32',
+              //fill: '#EB8B32',
             }}
             text=" "
             textCount={1}
@@ -98,7 +101,7 @@ export default function Landing() {
             height: '500px',
             width: '100vw',
             position: 'relative',
-            top: isMobile ? '-515px' : '-530px',
+           // top: isMobile ? '-515px' : '-530px',
             ...(isMobile && { scale: '2' }),
           }}
         >
@@ -111,127 +114,20 @@ export default function Landing() {
             }}
             text="FOOD  DRINKS FUN "
             textCount={5}
-            strokeColor="#EB8B32"
+            strokeColor="#529DC8"
           />
         </Box>
       </Box>
-      {/* Orange Section */}
-      <Box
-        sx={{
-          backgroundColor: '#EB8B32',
-          backgroundSize: '100%',
-          display: 'flex',
-          width: '100vw',
-          height: '2000px',
-          justifyContent: 'center',
-          padding: '0px 48px',
-          position: 'relative',
-          top: '-940px',
-          right: 0,
-          left: 0,
-          alignContent: 'center',
-          flexWrap: 'wrap',
-        }}
-      >
-        {/* This is where the collages are */}
-        <Box
-          sx={{
-            position: 'absolute',
-            zIndex: 1,
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignContent: 'space-around',
-            width: '100vw',
-            height: '1500px',
-            flexWrap: 'wrap',
-            background: isSmallDesktop
-              ? 'url(/images/background-collage_928.svg)'
-              : 'url(/images/background-collage_1226.svg)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'fit',
-          }}
-        >
-          {/* <Box
-                sx={{
-                  position: 'relative',
-                  top: '-178px',
-                  left: '-245px',
-                  width: '437px',
-                  height: '807px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Tiger-woods.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
 
-            <Box
-                sx={{
-                  width: '825px',
-                  height: '825px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/space.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box>
+      <LandingHowItWorks />
+        
+        
+      
+      <LandingInfoSection/>
+      <LandingPromotionMailingSection/>
 
-            <Box
-                sx={{
-                  width: '433px',
-                  height: '322px',
-                  // width: isSmallDesktop ? '150px' :'200px',
-                  // height:  isSmallDesktop ? '150px' :'200px',
-                  //flex: '1 1 auto',
-                  backgroundColor: 'aqua',
-                  background: 'url(/images/collageexport/Drink.png)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'fit',
-                  // rotate:  isMobile ? '-5deg' :'-10deg',
-                }}
-              ></Box> */}
-        </Box>
-        <Box
-          sx={{
-            zIndex: 2,
-            position: 'relative',
-            top: '-600px',
-            width: '100vw',
-            padding: '10px',
-          }}
-        >
-          {/* <LandingTabs /> */}
-          <LandingCards />
-        </Box>
-      </Box>
+      
 
-      {/* How it works, promotions, etc... */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '24px',
-          position: 'relative',
-          top: '-790px',
-          margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
-        }}
-      >
-        <LandingHowItWorks />
-
-        <Promotions />
-        {/* mailing list comp */}
-        <MailingList />
-      </Box>
-
-      {/* <HowItWorksSection /> */}
     </Box>
   );
 }
