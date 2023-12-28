@@ -14,6 +14,7 @@ import {
   SelectChangeEvent,
   InputLabel,
   InputBase,
+  SvgIcon,
 } from '@mui/material';
 import { DatePicker, TimePicker } from '@mui/x-date-pickers';
 
@@ -287,7 +288,7 @@ export default function BookNow() {
           flexDirection: isMobile ? 'column' : 'row',
           width: '100%',
           gap: '24px',
-          margin: '0px 64px',
+          padding: '24px',
         }}
       >
         <Card
@@ -325,21 +326,28 @@ export default function BookNow() {
                 labelId="reserve-a-bay-guest-label"
                 onChange={(e) => handleReserveFormOnChange(e, 'guests')}
                 input={<CustomInput />}
-                // endAdornment={
-                //   <svg
-                //     width="19"
-                //     height="12"
-                //     viewBox="0 0 19 12"
-                //     fill="none"
-                //     xmlns="http://www.w3.org/2000/svg"
-                //   >
-                //     <path
-                //       d="M2 1.75L9.5 9.25L17 1.75"
-                //       stroke="black"
-                //       stroke-width="3"
-                //     />
-                //   </svg>
-                // }
+                IconComponent={() => (
+                  <SvgIcon
+                    width="19"
+                    height="12"
+                    viewBox="0 0 19 12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    focusable
+                    sx={{
+                      right: '10px',
+                      position: 'absolute',
+                      top: 'calc(50% - 0.5em)',
+                      fill: 'none',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    <path
+                      d="M2 1.75L9.5 9.25L17 1.75"
+                      stroke="black"
+                      stroke-width="3"
+                    />
+                  </SvgIcon>
+                )}
               >
                 {[...Array(6)].map((_, index) => (
                   <option value={index} key={`option_${index}`}>
@@ -364,21 +372,28 @@ export default function BookNow() {
                 labelId="reserve-a-bay-duration-label"
                 onChange={(e) => handleReserveFormOnChange(e, 'duration')}
                 input={<CustomInput />}
-                // IconComponent={() => (
-                //   <svg
-                //     width="19"
-                //     height="12"
-                //     viewBox="0 0 19 12"
-                //     fill="none"
-                //     xmlns="http://www.w3.org/2000/svg"
-                //   >
-                //     <path
-                //       d="M2 1.75L9.5 9.25L17 1.75"
-                //       stroke="black"
-                //       stroke-width="3"
-                //     />
-                //   </svg>
-                // )}
+                IconComponent={() => (
+                  <SvgIcon
+                    width="19"
+                    height="12"
+                    viewBox="0 0 19 12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    focusable
+                    sx={{
+                      right: '10px',
+                      position: 'absolute',
+                      top: 'calc(50% - 0.5em)',
+                      fill: 'none',
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    <path
+                      d="M2 1.75L9.5 9.25L17 1.75"
+                      stroke="black"
+                      stroke-width="3"
+                    />
+                  </SvgIcon>
+                )}
               >
                 {[...Array(5)].map((_, index) =>
                   index === 0 ? (
@@ -523,7 +538,7 @@ export default function BookNow() {
           sx={{ minHeight: '600px' }}
           BackgroundColor="#F6F6F6"
         >
-          <Box>
+          <Box sx={{ width: '100%' }}>
             <StyledTabs
               value={value}
               onChange={handleChange}
@@ -532,6 +547,7 @@ export default function BookNow() {
               aria-label="secondary tabs example"
               variant="scrollable"
               scrollButtons="auto"
+              sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
             >
               <StyledTab value={1} label="Mon" />
               <StyledTab value={2} label="Tue" />
