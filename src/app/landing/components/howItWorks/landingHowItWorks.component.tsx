@@ -69,37 +69,26 @@ export const LandingHowItWorks = () => {
   };
 
   return (
-
     <Section
       SectionName="How it works Homepage"
       SectionWidth="normal"
       SectionColor=""
       CornerRadius="on"
       SectionHeight="fit-content"
-      sx={{
-
-      }}
     >
       <Box
-        sx={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           gap: '52px',
           color: '#FFF',
-         }}
+        }}
       >
         {/* How it works heading */}
-        <Typography
-          variant="largeH1"
-          weight="900"
-          sx={{
-          color: '#FFF',
-
-          }}
-          >HOW IT WORKS
+        <Typography variant="largeH1" weight="900" fontStyle="italic">
+          HOW IT WORKS
         </Typography>
-        
 
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           {/* #1 */}
@@ -273,7 +262,6 @@ export const LandingHowItWorks = () => {
           </Box>
         </Card>
       </Box>
-    
     </Section>
   );
 };

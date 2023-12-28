@@ -139,7 +139,7 @@ declare module '@mui/material/Button' {
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'new-hero',
+    fontFamily: ['new-hero', 'sans-serif'].join(','),
     hero_thin: {
       fontStyle: 'normal',
       fontWeight: '100',
