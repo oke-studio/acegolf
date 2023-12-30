@@ -10,9 +10,10 @@ import {
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
-import { Typography } from '../../../../../typography.component';
+import { Typography } from '../../../../components/Typography/typography.component';
 
 export const LandingHero = () => {
+  const { typography } = useTheme();
   return (
     <Section
       SectionName="Landing Hero"
@@ -147,13 +148,15 @@ export const LandingHero = () => {
               //
             }}
           >
-            <a
-              href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
-              target="_blank"
-            >
-              {' '}
-              Reserve a bay &rarr;
-            </a>
+            <Typography variant="headingThree">
+              <a
+                href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+                target="_blank"
+              >
+                {' '}
+                Reserve a bay &rarr;
+              </a>
+            </Typography>
           </Button>
         </Box>
       </Box>

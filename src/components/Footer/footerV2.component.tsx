@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Box, useTheme, Button } from '@mui/material';
 
-import { Typography } from '../../../typography.component';
+import { Typography } from '../Typography/typography.component';
 
 import { FooterLinks } from './footer-links/footerLinks.component';
 

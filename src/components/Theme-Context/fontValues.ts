@@ -57,78 +57,56 @@ export const fontUses = {
   miniscule: {
     fontSize: typeScale[0].fontSize,
     lineHeight: typeScale[0].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   small: {
     fontSize: typeScale[1].fontSize,
     lineHeight: typeScale[1].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   base: {
     fontSize: typeScale[2].fontSize,
     lineHeight: typeScale[2].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   large: {
     fontSize: typeScale[3].fontSize,
     lineHeight: typeScale[3].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   extralarge: {
     fontSize: typeScale[4].fontSize,
     lineHeight: typeScale[4].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   headingFour: {
     fontSize: typeScale[5].fontSize,
     lineHeight: typeScale[5].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   headingThree: {
     fontSize: typeScale[6].fontSize,
     lineHeight: typeScale[6].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   headingTwo: {
     fontSize: typeScale[7].fontSize,
     lineHeight: typeScale[7].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   headingOne: {
     fontSize: typeScale[8].fontSize,
     lineHeight: typeScale[8].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   largeH1: {
     fontSize: typeScale[9].fontSize,
     lineHeight: typeScale[9].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 
   poster: {
     fontSize: typeScale[10].fontSize,
     lineHeight: typeScale[10].lineHeight,
-    fontFamily: 'new-hero',
-
   },
 };
 
