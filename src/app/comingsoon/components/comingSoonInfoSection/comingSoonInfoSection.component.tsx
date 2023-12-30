@@ -6,7 +6,6 @@ import {
   styled,
   Box,
   TextField,
-  Typography,
   useTheme,
   Button,
   useMediaQuery,
@@ -16,6 +15,7 @@ import { Formik } from 'formik';
 import { encode } from '@/util/encode';
 import { useRouter } from 'next/router';
 import { TopBanner } from '@/components/topBanner/topBanner.component';
+import { Typography } from '../../../../components/Typography/typography.component';
 
 const backgroundColor = '#529DC8';
 
@@ -113,10 +113,10 @@ const ComingSoonForm = () => {
               }}
             >
               <input type="hidden" name="form-name" value="comingsoon-email" />
-              <Box
+              <Typography
+                variant="base"
+                weight="400"
                 sx={{
-                  ...typography.hero_regular,
-                  fontSize: '16px',
                   textAlign: 'center',
                   textTransform: 'uppercase',
                   color: 'white',
@@ -124,7 +124,7 @@ const ComingSoonForm = () => {
                 }}
               >
                 Join the Mailing List
-              </Box>
+              </Typography>
               <TextField
                 // error={errors.email && touched.email}
                 fullWidth
@@ -190,14 +190,14 @@ const ComingSoonForm = () => {
                       disabled={isSubmitting}
                     >
                       <Typography
-                        paddingLeft="24px"
-                        paddingRight="24px"
-                        paddingTop="14px"
-                        paddingBottom="14px"
-                        // ...typography.hero_bold,
+                        variant="base"
+                        weight="700"
                         sx={{
-                          ...typography.hero_bold,
                           fontSize: '12px',
+                          paddingLeft: '24px',
+                          paddingRight: '24px',
+                          paddingTop: '14px',
+                          paddingBottom: '14px',
                         }}
                         whiteSpace="nowrap"
                         overflow="hidden"
@@ -331,16 +331,16 @@ export const ComingSoonInfoSection = ({
           ...(!isMobile && { top: '-40px', marginTop: '5px' }),
         }}
       >
-        <Box
+        <Typography
+          variant="headingFour"
+          weight="800"
           sx={{
-            ...typography.hero_extrabold,
-            fontSize: '24px',
             color: 'white',
             mixBlendMode: 'difference',
           }}
         >
           OPENING DEC 2023
-        </Box>
+        </Typography>
         <Box
           sx={{
             fontSize: '16px',
