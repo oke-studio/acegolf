@@ -94,30 +94,28 @@ export const LandingHowItWorks = () => {
           {/* #1 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box
-                component="span"
-                sx={{ ...typography.hero_super_italic, fontSize: '96px' }}
-              >
+              <Typography variant="poster" weight="900" fontStyle="italic">
                 1.
-              </Box>
-              <Box
-                component="h1"
+              </Typography>
+              <Typography
+                variant="headingOne"
+                weight="900"
+                fontStyle="italic"
                 sx={{
-                  ...typography.hero_super_italic,
-                  fontSize: '48px',
                   lineHeight: '65%',
                 }}
               >
                 Reserve A <br />
                 Bay
-              </Box>
+              </Typography>
             </Box>
-            <Box
+            <Typography
+              variant="large"
+              weight="400"
+              fontStyle="normal"
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                ...typography.hero_medium,
-                fontSize: '18px',
               }}
             >
               <Box component="span" sx={{ padding: '0px 32px' }}>
@@ -126,36 +124,34 @@ export const LandingHowItWorks = () => {
                 simple online booking tool or just walk in and set up your tee
                 time.
               </Box>
-            </Box>
+            </Typography>
           </Box>
 
           {/* #2 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box
-                component="span"
-                sx={{ ...typography.hero_super_italic, fontSize: '96px' }}
-              >
+              <Typography variant="poster" weight="900" fontStyle="italic">
                 2.
-              </Box>
-              <Box
-                component="h1"
+              </Typography>
+              <Typography
+                variant="headingOne"
+                weight="900"
+                fontStyle="italic"
                 sx={{
-                  ...typography.hero_super_italic,
-                  fontSize: '48px',
                   lineHeight: '65%',
                 }}
               >
                 Set Up And
                 <br /> Tee Up
-              </Box>
+              </Typography>
             </Box>
-            <Box
+            <Typography
+              variant="large"
+              weight="400"
+              fontStyle="normal"
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                ...typography.hero_medium,
-                fontSize: '18px',
               }}
             >
               <Box component="span" sx={{ padding: '0px 32px' }}>
@@ -164,36 +160,34 @@ export const LandingHowItWorks = () => {
                 simple online booking tool or just walk in and set up your tee
                 time.
               </Box>
-            </Box>
+            </Typography>
           </Box>
 
           {/* #3 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box
-                component="span"
-                sx={{ ...typography.hero_super_italic, fontSize: '96px' }}
-              >
+              <Typography variant="poster" weight="900" fontStyle="italic">
                 3.
-              </Box>
-              <Box
-                component="h1"
+              </Typography>
+              <Typography
+                variant="headingOne"
+                weight="900"
+                fontStyle="italic"
                 sx={{
-                  ...typography.hero_super_italic,
-                  fontSize: '48px',
                   lineHeight: '65%',
                 }}
               >
                 Start <br />
                 Swingin&apos;
-              </Box>
+              </Typography>
             </Box>
-            <Box
+            <Typography
+              variant="large"
+              weight="400"
+              fontStyle="normal"
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                ...typography.hero_medium,
-                fontSize: '18px',
               }}
             >
               <Box component="span">
@@ -202,7 +196,7 @@ export const LandingHowItWorks = () => {
                 simple online booking tool or just walk in and set up your tee
                 time.
               </Box>
-            </Box>
+            </Typography>
           </Box>
         </Box>
         <Card
@@ -226,7 +220,7 @@ export const LandingHowItWorks = () => {
                 label="Guests"
                 id="reserve-a-bay-guest"
                 labelId="reserve-a-bay-guest-label"
-                onChange={e => handleReserveFormOnChange(e, 'guests')}
+                onChange={(e) => handleReserveFormOnChange(e, 'guests')}
                 input={<BootstrapInput />}
               >
                 {[...Array(6)].map((_, index) => (
@@ -245,7 +239,7 @@ export const LandingHowItWorks = () => {
                 label="Hours"
                 id="reserve-a-bay-time"
                 labelId="reserve-a-bay-time-label"
-                onChange={e => handleReserveFormOnChange(e, 'time')}
+                onChange={(e) => handleReserveFormOnChange(e, 'time')}
                 input={<BootstrapInput />}
               >
                 {[...Array(5)].map((_, index) =>
