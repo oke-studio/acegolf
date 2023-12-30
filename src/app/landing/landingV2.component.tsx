@@ -12,7 +12,6 @@ import { Typography } from '@/components/Typography/typography.component';
 // import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
-import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 import { LandingVideo } from './components/video/video.component';
