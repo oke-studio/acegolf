@@ -644,18 +644,8 @@ export default function BookNow() {
                 justifyContent: 'space-between',
               }}
             >
-              <Typography
-                variant="base"
-                // sx={{ ...typography.hero_semibold, fontSize: '32px' }}
-              >
-                Join our Rewards program
-              </Typography>
-              <Typography
-                variant="base"
-                // sx={{ ...typography.hero_medium, fontSize: '18px' }}
-              >
-                Earn $6 on every booking
-              </Typography>
+              <Typography variant="base">Join our Rewards program</Typography>
+              <Typography variant="base">Earn $6 on every booking</Typography>
               <Button variant="secondary">Learn More&rarr;</Button>
             </Box>
             <Box
@@ -684,21 +674,14 @@ export default function BookNow() {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                // width: '50%',
                 justifyContent: 'space-between',
                 height: '100%',
               }}
             >
-              <Typography
-                variant="base"
-                // sx={{ ...typography.hero_semibold, fontSize: '32px' }}
-              >
+              <Typography variant="base">
                 Talk to us about your party or event
               </Typography>
-              <Typography
-                variant="base"
-                // sx={{ ...typography.hero_medium, fontSize: '18px' }}
-              >
+              <Typography variant="base">
                 We welcome group bookings and events
               </Typography>
               <Button variant="secondary">Inquire Now&rarr;</Button>

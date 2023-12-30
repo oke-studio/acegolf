@@ -68,6 +68,8 @@ export const LandingHowItWorks = () => {
     });
   };
 
+  const HowItWorksCopy = [{ label: '', description: '' }];
+
   return (
     <Section
       SectionName="How it works Homepage"
@@ -109,22 +111,23 @@ export const LandingHowItWorks = () => {
                 Bay
               </Typography>
             </Box>
-            <Typography
-              variant="large"
-              weight="400"
-              fontStyle="normal"
+            <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
               }}
             >
-              <Box component="span" sx={{ padding: '0px 32px' }}>
+              <Typography
+                variant="large"
+                weight="400"
+                sx={{ padding: '0px 32px' }}
+              >
                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
                 options for you. Make a reservation in advance with our super
                 simple online booking tool or just walk in and set up your tee
                 time.
-              </Box>
-            </Typography>
+              </Typography>
+            </Box>
           </Box>
 
           {/* #2 */}
@@ -145,22 +148,23 @@ export const LandingHowItWorks = () => {
                 <br /> Tee Up
               </Typography>
             </Box>
-            <Typography
-              variant="large"
-              weight="400"
-              fontStyle="normal"
+            <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
               }}
             >
-              <Box component="span" sx={{ padding: '0px 32px' }}>
+              <Typography
+                variant="large"
+                weight="400"
+                sx={{ padding: '0px 32px' }}
+              >
                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
                 options for you. Make a reservation in advance with our super
                 simple online booking tool or just walk in and set up your tee
                 time.
-              </Box>
-            </Typography>
+              </Typography>
+            </Box>
           </Box>
 
           {/* #3 */}
@@ -190,12 +194,12 @@ export const LandingHowItWorks = () => {
                 flexDirection: 'column',
               }}
             >
-              <Box component="span">
+              <Typography variant="base">
                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
                 options for you. Make a reservation in advance with our super
                 simple online booking tool or just walk in and set up your tee
                 time.
-              </Box>
+              </Typography>
             </Typography>
           </Box>
         </Box>
@@ -220,7 +224,7 @@ export const LandingHowItWorks = () => {
                 label="Guests"
                 id="reserve-a-bay-guest"
                 labelId="reserve-a-bay-guest-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'guests')}
+                onChange={e => handleReserveFormOnChange(e, 'guests')}
                 input={<BootstrapInput />}
               >
                 {[...Array(6)].map((_, index) => (
@@ -239,7 +243,7 @@ export const LandingHowItWorks = () => {
                 label="Hours"
                 id="reserve-a-bay-time"
                 labelId="reserve-a-bay-time-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'time')}
+                onChange={e => handleReserveFormOnChange(e, 'time')}
                 input={<BootstrapInput />}
               >
                 {[...Array(5)].map((_, index) =>

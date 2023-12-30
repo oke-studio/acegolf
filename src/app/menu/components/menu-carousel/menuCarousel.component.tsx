@@ -5,13 +5,13 @@ import {
   styled,
   Tab,
   Tabs,
-  Typography,
   tabClasses,
   useTheme,
   Button,
   useMediaQuery,
 } from '@mui/material';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
+import { Typography } from '@/components/Typography/typography.component';
 import zIndex from '@mui/material/styles/zIndex';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
@@ -32,7 +32,6 @@ const StyledDownloadButton = styled(Button)(
   background-color: white;
   border-radius: 33px;
   padding: 16px 48px;
-  font-weight: ${theme.typography.hero_super.fontWeight};
   font-size: calc(18px + 0.390625vw);
   border: solid 2px black;
   &:hover {
@@ -59,11 +58,7 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -85,20 +80,17 @@ const MenuSection = ({
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
-  // console.log(typography.hero_semibold);
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Box
+      <Typography
+        variant="base"
         sx={{
-          ...typography.hero_super_italic,
-          fontSize: isMobile ? '60px' : '70px',
-          fontFamily: typography.fontFamily,
           lineHeight: '70%',
         }}
         id={`${menuSection}_list`}
       >
         {menuSection}
-      </Box>
+      </Typography>
       <Box
         component="ul"
         sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
@@ -111,16 +103,15 @@ const MenuSection = ({
             component="li"
           >
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Box
+              <Typography
+                variant="base"
                 sx={{
-                  ...typography.hero_medium,
-                  fontSize: '14px',
                   display: 'flex',
                   alignItems: 'center',
                 }}
               >
                 {option.menuItem}
-              </Box>
+              </Typography>
               <Box
                 sx={{
                   borderWidth: 0,
@@ -133,20 +124,17 @@ const MenuSection = ({
                   display: 'flex',
                 }}
               ></Box>
-              <Box
+              <Typography
+                variant="base"
                 sx={{
-                  ...typography.hero_regular,
-                  fontSize: '12px',
                   display: 'flex',
                   alignItems: 'center',
                 }}
               >
                 {option.price}
-              </Box>
+              </Typography>
             </Box>
-            <Box sx={{ ...typography.hero_light_italic, fontSize: '10px' }}>
-              {option.ingredients}
-            </Box>
+            <Typography variant="base">{option.ingredients}</Typography>
           </Box>
         ))}
       </Box>
@@ -205,8 +193,6 @@ export const MenuCarousel = () => {
           >
             <Box
               sx={{
-                ...typography.hero_super_italic,
-                fontSize: isMobile ? '60px' : '100px',
                 lineHeight: '70%',
                 marginBottom: '30px',
               }}
@@ -215,8 +201,8 @@ export const MenuCarousel = () => {
               GOURMET
             </Box>
 
-             {/* Tab section */}
-             <Box>
+            {/* Tab section */}
+            <Box>
               <Tabs
                 value={value}
                 onChange={handleChange}
@@ -241,7 +227,7 @@ export const MenuCarousel = () => {
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-            {/* <Box
+              {/* <Box
                 sx={{
                   width: '100%',
                   height: '100%',
