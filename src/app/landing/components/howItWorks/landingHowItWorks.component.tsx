@@ -16,10 +16,10 @@ import {
   MenuItem,
 } from '@mui/material';
 import { LandingCards } from '../landingCards/landingCards.component';
+import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
-import { Typography } from '../../../../components/Typography/typography.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // 'label + &': {

@@ -17,8 +17,7 @@ import {
   SvgIcon,
 } from '@mui/material';
 import { DatePicker, TimePicker } from '@mui/x-date-pickers';
-
-import { Typography } from '../../../typography.component';
+import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Promotions } from '../landing/components/promotions/promotions.component';
 import { MailingList } from '../landing/components/mailingList/mailingList.component';
@@ -342,7 +341,7 @@ export default function BookNow() {
                 label="Guests"
                 id="reserve-a-bay-guest"
                 labelId="reserve-a-bay-guest-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'guests')}
+                onChange={e => handleReserveFormOnChange(e, 'guests')}
                 input={<CustomInput />}
                 IconComponent={() => (
                   <SvgIcon
@@ -388,7 +387,7 @@ export default function BookNow() {
                 label="Hours"
                 id="reserve-a-bay-duration"
                 labelId="reserve-a-bay-duration-label"
-                onChange={(e) => handleReserveFormOnChange(e, 'duration')}
+                onChange={e => handleReserveFormOnChange(e, 'duration')}
                 input={<CustomInput />}
                 IconComponent={() => (
                   <SvgIcon
@@ -479,7 +478,7 @@ export default function BookNow() {
                 },
               }}
               value={dayjs(reserveABayObject.date)}
-              onChange={(newValue) => {
+              onChange={newValue => {
                 console.log(newValue);
                 handleDateTimePickerChange(newValue?.toString()!, 'date');
 
@@ -541,7 +540,7 @@ export default function BookNow() {
                 },
               }}
               value={dayjs(reserveABayObject.time)}
-              onChange={(newValue) => {
+              onChange={newValue => {
                 console.log('this shit', newValue);
                 handleDateTimePickerChange(newValue?.toString()!, 'date');
 

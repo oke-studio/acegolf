@@ -1,19 +1,10 @@
 import * as React from 'react';
-import {
-  Button,
-  Box,
-  styled,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Button, Box } from '@mui/material';
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
-import { orange } from '@mui/material/colors';
-import { Typography } from '../../../../components/Typography/typography.component';
+import { Typography } from '@/components/Typography/typography.component';
 
 export const LandingHero = () => {
-  const { typography } = useTheme();
   return (
     <Section
       SectionName="Landing Hero"

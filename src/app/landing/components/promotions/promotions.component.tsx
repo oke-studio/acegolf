@@ -9,8 +9,7 @@ import {
   useTransform,
   useTime,
 } from 'framer-motion';
-import { Typography } from '../../../../components/Typography/typography.component';
-
+import { Typography } from '@/components/Typography/typography.component';
 const StyledPromotionCards = styled(Box)({});
 
 const PromotionCards = ({
