@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
-import { Typography } from '../../../../../typography.component';
+import { Typography } from '../../../../components/Typography/typography.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { MailingList } from '../../components/mailingList/mailingList.component';
 

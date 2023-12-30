@@ -4,7 +4,6 @@ import {
   useTheme,
   Box,
   styled,
-  Typography,
   useMediaQuery,
 } from '@mui/material';
 
@@ -15,6 +14,7 @@ import {
   useTransform,
   useTime,
 } from 'framer-motion';
+import { Typography } from '../../../../components/Typography/typography.component';
 
 const StyledPromotionCards = styled(Box)({});
 
@@ -137,9 +137,8 @@ const PromotionCards = ({
         style={{ top: topTransformer }}
       >
         <Typography
-          fontStyle={({ typography }) => typography.hero_super_italic.fontStyle}
-          fontSize="24px"
-          padding={1}
+          variant="largeH1"
+          fontStyle = "italic"
           sx={{ textWrap: 'nowrap' }}
         >
           {label}
@@ -163,12 +162,11 @@ export const Promotions = () => {
         margin: '32px 0',
       }}
     >
-      <Box
-        component="h1"
-        sx={{ ...typography.hero_super, textAlign: 'center' }}
+      <Typography
+        variant="largeH1"
       >
         PROMOTIONS & EVENTS
-      </Box>
+      </Typography>
       <Box>
         Be the first to know about the latest ACE Golf promos and events
       </Box>
