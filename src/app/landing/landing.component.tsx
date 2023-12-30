@@ -11,7 +11,6 @@ import { East } from '@mui/icons-material';
 // import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
-import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHero } from './components/landingHero/landingHero.component';
 import { VideoLandingHero } from './components/video/videoLandingHero.component';
@@ -87,7 +86,8 @@ export default function Landing() {
             height="100%"
             viewBox="0 0 1440 400"
             pathProps={{
-              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
+              d:
+                'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
               //fill: '#EB8B32',
             }}
             text=" "
@@ -101,7 +101,7 @@ export default function Landing() {
             height: '500px',
             width: '100vw',
             position: 'relative',
-           // top: isMobile ? '-515px' : '-530px',
+            // top: isMobile ? '-515px' : '-530px',
             ...(isMobile && { scale: '2' }),
           }}
         >
@@ -110,7 +110,8 @@ export default function Landing() {
             height="100%"
             viewBox="0 0 1440 400"
             pathProps={{
-              d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
+              d:
+                'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1924 222',
             }}
             text="FOOD  DRINKS FUN "
             textCount={5}
@@ -120,14 +121,9 @@ export default function Landing() {
       </Box>
 
       <LandingHowItWorks />
-        
-        
-      
-      <LandingInfoSection/>
-      <LandingPromotionMailingSection/>
 
-      
-
+      <LandingInfoSection />
+      <LandingPromotionMailingSection />
     </Box>
   );
 }
