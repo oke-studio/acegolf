@@ -1,16 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import {
-  Box,
-  useTheme,
-  TextField,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, useTheme, TextField, useMediaQuery } from '@mui/material';
 import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
+import { Typography } from '../../../../components/Typography/typography.component';
 
 const MailingListForm = () => {
   const { typography, palette } = useTheme();
@@ -123,16 +118,17 @@ const MailingListForm = () => {
                     disabled={isSubmitting}
                   >
                     <Typography
-                      paddingLeft="24px"
-                      paddingRight="24px"
-                      paddingTop="14px"
-                      paddingBottom="14px"
-                      fontFamily="new-hero"
-                      fontWeight="700"
-                      whiteSpace="nowrap"
-                      overflow="hidden"
-                      color="white"
-                      fontSize="12px"
+                      variant="small"
+                      weight="700"
+                      sx={{
+                        paddingLeft: '24px',
+                        paddingRight: '24px',
+                        paddingTop: '14px',
+                        paddingBottom: '14px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        color: 'white',
+                      }}
                     >
                       {isSubmitting
                         ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
@@ -165,19 +161,18 @@ export const MailingList = () => {
         margin: '32px 0',
       }}
     >
-      <Box
-        component="h1"
+      <Typography
+        variant="headingOne"
+        weight="900"
         sx={{
-          ...typography.hero_super,
-          fontSize: '48px',
           ...(isMobile && { textAlign: 'center' }),
         }}
       >
         JOIN THE MAILING LIST
-      </Box>
-      <Box sx={{ ...typography.hero_medium, fontSize: '24px' }}>
+      </Typography>
+      <Typography variant="headingFour" weight="500">
         Be the first to know about the latest ACE Golf promos and events
-      </Box>
+      </Typography>
       <MailingListForm />
     </Box>
   );
