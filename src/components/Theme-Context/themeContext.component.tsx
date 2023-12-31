@@ -4,7 +4,6 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import { fontUses } from './fontValues';
 declare module '@mui/material/styles' {
   interface TypographyVariants {
-
     miniscule: React.CSSProperties;
     base: React.CSSProperties;
     small: React.CSSProperties;
@@ -21,7 +20,6 @@ declare module '@mui/material/styles' {
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
-
     miniscule?: React.CSSProperties;
     base?: React.CSSProperties;
     small?: React.CSSProperties;
@@ -54,7 +52,6 @@ declare module '@mui/material/styles' {
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-
     miniscule: true;
     small: true;
     base: true;
@@ -80,7 +77,7 @@ declare module '@mui/material/Button' {
 const theme = createTheme({
   typography: {
     fontFamily: ['new-hero', 'sans-serif'].join(','),
-  
+
     ...fontUses,
   },
   palette: {
@@ -147,7 +144,19 @@ const theme = createTheme({
         },
       ],
     },
-    MuiTypography: {},
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+        disableTouchRipple: true,
+      },
+    },
+    MuiButtonGroup: {
+      defaultProps: {
+        disableElevation: true,
+        disableFocusRipple: true,
+        disableRipple: true,
+      },
+    },
   },
 });
 

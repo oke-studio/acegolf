@@ -1,9 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import { Box, useTheme } from '@mui/material';
-
+import { Box, useTheme, useMediaQuery, Button } from '@mui/material';
+import Image from 'next/image';
 import { Typography } from '../Typography/typography.component';
+import { motion } from 'framer-motion';
 
 const FooterLinksArray = [
   {
@@ -12,44 +13,48 @@ const FooterLinksArray = [
   },
   {
     name: 'Careers',
-    to: '/about',
+    to: '/careers',
   },
   {
     name: 'Event & Parties',
-    to: '/about',
+    to: '/events',
   },
   {
     name: 'Privacy Policy',
-    to: '/about',
+    to: '/privacy',
   },
   {
     name: 'Terms & Conditions',
-    to: '/about',
+    to: '/terms',
   },
   {
     name: 'Pricing',
-    to: '/about',
+    to: '/pricing',
   },
   {
     name: 'Menu',
-    to: '/about',
+    to: '/menu',
   },
   {
     name: 'How it Works',
-    to: '/about',
+    to: '/how-it-works',
   },
   {
     name: 'Membership',
-    to: '/about',
+    to: '/membership',
   },
   {
     name: 'Coaching',
-    to: '/about',
+    to: '/coaching',
   },
 ];
 
 export const FooterV2 = () => {
   const { typography } = useTheme();
+  const isMobile = useMediaQuery('(max-width:640px)');
+
+  const HEADING_FOUR_LINE_HEIGHT = typography.headingFour.lineHeight;
+
   // console.log(inputClasses);
   return (
     <Box
@@ -60,24 +65,82 @@ export const FooterV2 = () => {
         fontFamily: typography.fontFamily,
         zIndex: 5,
         position: 'relative',
-        padding: '64px 0px',
+        // padding: '64px 0px',
         alignItems: 'end',
+        backgroundImage: 'url(/images/ace-footer-v2.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+        backgroundPositionX: '-5rem',
+        backgroundPositionY: '5rem',
+        ...(isMobile && {
+          backgroundPositionX: 'center',
+          backgroundPositionY: 'bottom',
+        }),
+        backgroundOrigin: 'border-box',
       }}
     >
       {/* <Box sx={{}} /> */}
-      <Box sx={{ display: 'flex', gap: '24px', flexDirection: 'column' }}>
+
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '24px',
+          flexDirection: 'column',
+          // marginRight: '48px',
+          padding: '64px',
+        }}
+      >
         {/* Links */}
         <Box sx={{ display: 'flex', gap: '24px' }}>
           <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
             {FooterLinksArray.slice(0, 5).map((link, index) => (
-              <Typography variant="base" key={`link_${index}`}>
-                {link.name}
-              </Typography>
+              // <Typography
+              //   variant="headingFour"
+              //   weight="400"
+              //   key={`link_${index}`}
+              // >
+              //   {link.name}
+              // </Typography>
+
+              <Button
+                sx={{
+                  color: 'white',
+                  textTransform: 'none',
+                  padding: 0,
+                  paddingTop: '0.75rem',
+                  paddingBottom: '0.75rem',
+                  paddingLeft: '1.5rem',
+                  paddingRight: '1.5rem',
+                  borderRadius: '1rem',
+                  borderWidth: '2px',
+                  borderColor: '#000000',
+                  borderStyle: 'dashed',
+                  // fontWeight: 600,
+                  // color: '#000000',
+                  // textTransform: 'uppercase',
+                  backgroundColor: '#ffffff',
+                  transitionProperty: 'all',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: ['300ms', '300ms'],
+                  ':hover': { borderRadius: '0.375rem' },
+                }}
+                key={index}
+              >
+                <a href={`${link.to}`} target="__blank">
+                  <Typography variant="headingFour" weight="400">
+                    {link.name}
+                  </Typography>
+                </a>
+              </Button>
             ))}
           </Box>
           <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
             {FooterLinksArray.slice(5).map((link, index) => (
-              <Typography variant="base" key={`link_${index}`}>
+              <Typography
+                variant="headingFour"
+                weight="400"
+                key={`link_${index}`}
+              >
                 {link.name}
               </Typography>
             ))}
@@ -85,21 +148,94 @@ export const FooterV2 = () => {
         </Box>
         {/* Logo and Socials */}
         <Box sx={{ display: 'flex', gap: '12px' }}>
-          <Box>Logo</Box>
+          <Box
+            sx={{
+              width: '100px',
+              height: 'auto',
+              backgroundImage: 'url(/images/ace-footer-v2-mini.svg)',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+            }}
+          />
+
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="miniscule">2023 Ace Golf Bar</Typography>
-            <Typography variant="miniscule">
+            <Typography variant="small" weight="500">
+              2023 Ace Golf Bar
+            </Typography>
+            <Typography variant="miniscule" weight="300">
               588 Eastern Ave, Toronto
             </Typography>
           </Box>
         </Box>
 
-        <Box sx={{ display: 'flex', gap: '24px' }}>
-          <Typography variant="base">Instagram</Typography>
-          <Typography variant="base">Tiktok</Typography>
+        <Box sx={{ display: 'flex', gap: '24px', overflow: 'hidden' }}>
+          <Button sx={{ color: 'white', padding: 0 }}>
+            <a href="https://www.instagram.com/acegolfbar/" target="__blank">
+              <Box
+                component={motion.div}
+                whileHover={{ y: `-${HEADING_FOUR_LINE_HEIGHT}` }}
+                transition={{ ease: 'backInOut', duration: 0.5 }}
+                className="h-[20px]"
+                sx={{ height: HEADING_FOUR_LINE_HEIGHT }}
+              >
+                <Typography variant="headingFour" weight="400">
+                  Instagram
+                </Typography>
+                <Typography
+                  variant="headingFour"
+                  weight="400"
+                  sx={{
+                    color: theme => theme.palette.aceOrange,
+                    textAlign: 'start',
+                  }}
+                >
+                  Instagram{' '}
+                  <Image
+                    src="/images/ace-footer-v2-mini.svg"
+                    height={20}
+                    width={20}
+                    alt="somthing"
+                  />
+                </Typography>
+              </Box>
+            </a>
+          </Button>
+
+          <Button sx={{ color: 'white' }}>
+            <a href="https://www.instagram.com/acegolfbar/" target="__blank">
+              <Box
+                component={motion.div}
+                whileHover={{ y: `-${HEADING_FOUR_LINE_HEIGHT}` }}
+                transition={{ ease: 'backInOut', duration: 0.5 }}
+                className="h-[20px]"
+                sx={{ height: HEADING_FOUR_LINE_HEIGHT }}
+              >
+                <Typography variant="headingFour" weight="400">
+                  Tiktok
+                </Typography>
+                <Typography
+                  variant="headingFour"
+                  weight="400"
+                  sx={{
+                    color: theme => theme.palette.aceOrange,
+                    textAlign: 'start',
+                  }}
+                >
+                  Tiktok{' '}
+                  <Image
+                    src="/images/ace-footer-v2-mini.svg"
+                    height={20}
+                    width={20}
+                    alt="somthing"
+                  />
+                </Typography>
+              </Box>
+            </a>
+          </Button>
         </Box>
 
-        <Typography variant="miniscule">
+        <Typography variant="base" weight="300">
           Designed & Developed by @oke.studio
         </Typography>
       </Box>
