@@ -4,13 +4,13 @@ import * as React from 'react';
 import { useTheme, Box, useMediaQuery, Button, SxProps } from '@mui/material';
 import ReactPlayer from 'react-player';
 
-interface landingVideoProps {
+interface LandingVideoProps {
   width: string;
   height: string;
   sx?: SxProps;
 }
 
-export const LandingVideo = ({ width, height, sx }) => {
+export const LandingVideo = ({ width, height, sx }: LandingVideoProps) => {
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:600px)');
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
