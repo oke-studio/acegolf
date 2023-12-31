@@ -255,6 +255,11 @@ export default function Landing() {
 
       <LandingInfoSection />
       <LandingPromotionMailingSection />
+
+      <LandingHowItWorks />
+
+      <LandingInfoSection />
+      <LandingPromotionMailingSection />
     </Box>
   );
 }
