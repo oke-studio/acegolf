@@ -12,7 +12,7 @@ interface landingVideoProps {
 
 export const LandingVideo = ({ width, height, sx }) => {
   const { typography, palette } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const isMobile = useMediaQuery('(max-width:600px)');
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   return (
@@ -27,7 +27,11 @@ export const LandingVideo = ({ width, height, sx }) => {
       }}
     >
       <ReactPlayer
-        url="images/SPIN-Sizzle-Reel.mp4"
+        url={
+          isMobile
+            ? 'images/mobile-SPIN-Sizzle-Reel_1.mp4'
+            : 'images/SPIN-Sizzle-Reel.mp4'
+        }
         width="100%"
         height="100%"
         style={{ borderRadius: '25px', overflow: 'hidden' }}
