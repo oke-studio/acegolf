@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       {/* <LandingV2 /> */}
-      <Landing/>
+      <Landing />
       {/* <ComingSoonPage /> */}
     </main>
   );

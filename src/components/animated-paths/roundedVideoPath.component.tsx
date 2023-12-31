@@ -1,5 +1,15 @@
 import * as React from 'react';
 import { RoundedVideoText } from './components/roundedVideoText.component';
+import {
+  Box,
+  styled,
+  Button,
+  ButtonProps,
+  SxProps,
+  Theme,
+  useTheme,
+  Typography,
+} from '@mui/material';
 
 interface VideoProps {
   text: string;
@@ -78,7 +88,7 @@ interface VideoSVGWrapperProps {
   textCount?: number;
   textPath?: string;
   viewBox: string;
-
+  sx?: SxProps;
 }
 
 export const RoundedVideoPath = ({
@@ -91,28 +101,38 @@ export const RoundedVideoPath = ({
   textCount,
   textPath = 'MyPath',
   viewBox = `0 0 ${width} ${height}`,
- 
+  sx,
 }: VideoSVGWrapperProps) => {
   return (
-    <svg
-      width={width}
-      height={height}
-      // viewBox={`0 0 ${width} ${height}`}
-      viewBox={viewBox}
-      fill="none"
-      // preserveAspectRatio="xMidYMid meet"
-      style={{ overflow: 'visible' }}
+    <Box
+      sx={{
+        width: '100%',
+        // height: '100%',
+        ...sx,
+      }}
     >
-      <path
-        id={textPath}
-        strokeWidth={strokeWidth}
-        stroke={strokeColor}
+      <svg
+        width={width}
+        height={height}
+        // viewBox={`0 0 ${width} ${height}`}
+        viewBox={viewBox}
         fill="none"
-        pathLength="100"
-        {...pathProps}
-      />
-      <VideoPathText text={text} textCount={textCount} textPath={textPath} />
-    </svg>
+        // preserveAspectRatio="xMidYMid meet"
+        style={{
+          overflow: 'visible',
+        }}
+      >
+        <path
+          id={textPath}
+          strokeWidth={strokeWidth}
+          stroke={strokeColor}
+          fill="none"
+          pathLength="100"
+          {...pathProps}
+        />
+        <VideoPathText text={text} textCount={textCount} textPath={textPath} />
+      </svg>
+    </Box>
   );
 };
 
