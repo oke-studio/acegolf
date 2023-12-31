@@ -38,6 +38,7 @@ export const VideoLandingHero = () => {
       <RoundedVideoPath
         sx={{
           gridArea: 'videoWithPathArea',
+          zIndex: '3',
         }}
         width="100%"
         height="100%"
