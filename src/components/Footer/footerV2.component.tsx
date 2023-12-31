@@ -106,23 +106,31 @@ export const FooterV2 = () => {
                 sx={{
                   color: 'white',
                   textTransform: 'none',
-                  padding: 0,
-                  paddingTop: '0.75rem',
-                  paddingBottom: '0.75rem',
-                  paddingLeft: '1.5rem',
-                  paddingRight: '1.5rem',
-                  borderRadius: '1rem',
-                  borderWidth: '2px',
-                  borderColor: '#000000',
-                  borderStyle: 'dashed',
+                  padding: '8px',
+                  justifyContent: 'flex-start',
+
+                  // borderRadius: '1rem',
+                  borderWidth: '0px',
+                  borderRightWidth: '0px',
+                  borderRightStyle: 'solid',
+                  borderRightColor: 'black',
+
                   // fontWeight: 600,
                   // color: '#000000',
                   // textTransform: 'uppercase',
-                  backgroundColor: '#ffffff',
+                  // backgroundColor: '#ffffff',
                   transitionProperty: 'all',
                   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
                   transitionDuration: ['300ms', '300ms'],
-                  ':hover': { borderRadius: '0.375rem' },
+                  ':hover': {
+                    // borderRadius: '0.375rem',
+                    boxShadow: theme => `-4px 4px 0px ${theme.palette.aceTeal}`,
+                    transform: 'translateY(0.375rem) translateX(0.375rem)',
+                    backgroundColor: 'transparent',
+                    // borderRightWidth: '1px',
+                    // borderRightStyle: 'solid',
+                    // borderRightColor: theme => theme.palette.aceTeal,
+                  },
                 }}
                 key={index}
               >
@@ -136,13 +144,44 @@ export const FooterV2 = () => {
           </Box>
           <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
             {FooterLinksArray.slice(5).map((link, index) => (
-              <Typography
-                variant="headingFour"
-                weight="400"
-                key={`link_${index}`}
+              <Button
+                sx={{
+                  color: 'white',
+                  textTransform: 'none',
+                  padding: '8px',
+                  justifyContent: 'flex-start',
+
+                  // borderRadius: '1rem',
+                  borderWidth: '0px',
+                  borderRightWidth: '0px',
+                  borderRightStyle: 'solid',
+                  borderRightColor: 'black',
+
+                  // fontWeight: 600,
+                  // color: '#000000',
+                  // textTransform: 'uppercase',
+                  // backgroundColor: '#ffffff',
+                  transitionProperty: 'all',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: ['300ms', '300ms'],
+                  ':hover': {
+                    // borderRadius: '0.375rem',
+                    boxShadow: theme => `-4px 4px 0px ${theme.palette.aceTeal}`,
+                    transform: 'translateY(0.375rem) translateX(0.375rem)',
+                    backgroundColor: 'transparent',
+                    borderRightWidth: '1px',
+                    borderRightStyle: 'solid',
+                    borderTopColor: theme => theme.palette.aceTeal,
+                  },
+                }}
+                key={index}
               >
-                {link.name}
-              </Typography>
+                <a href={`${link.to}`} target="__blank">
+                  <Typography variant="headingFour" weight="400">
+                    {link.name}
+                  </Typography>
+                </a>
+              </Button>
             ))}
           </Box>
         </Box>
