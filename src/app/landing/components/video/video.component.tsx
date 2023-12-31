@@ -39,6 +39,7 @@ export const LandingVideo = ({ width, height, sx }: LandingVideoProps) => {
         playing
         loop
         controls={false}
+        playsinline={true}
       />
     </Box>
   );
