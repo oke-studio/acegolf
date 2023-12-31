@@ -1,10 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import { useTheme, Box, useMediaQuery, Button } from '@mui/material';
+import { useTheme, Box, useMediaQuery, Button, SxProps } from '@mui/material';
 import ReactPlayer from 'react-player';
 
-export const LandingVideo = () => {
+interface landingVideoProps {
+  width: string;
+  height: string;
+  sx?: SxProps;
+}
+
+export const LandingVideo = ({ width, height, sx }) => {
   const { typography, palette } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
@@ -17,6 +23,7 @@ export const LandingVideo = () => {
         //borderRadius: '25px',
         //backgroundColor: 'grey',
         //marginBottom: '80px',
+        ...sx,
       }}
     >
       <ReactPlayer
@@ -27,7 +34,7 @@ export const LandingVideo = () => {
         muted
         playing
         loop
-        controls ={false}
+        controls={false}
       />
     </Box>
   );
