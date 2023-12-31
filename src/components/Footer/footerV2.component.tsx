@@ -88,6 +88,11 @@ export const FooterV2 = () => {
           flexDirection: 'column',
           // marginRight: '48px',
           padding: '64px',
+          ...(isMobile && {
+            width: '100%',
+            padding: '24px',
+            alignItems: 'center',
+          }),
         }}
       >
         {/* Links */}
@@ -135,7 +140,11 @@ export const FooterV2 = () => {
                 key={index}
               >
                 <a href={`${link.to}`} target="__blank">
-                  <Typography variant="headingFour" weight="400">
+                  <Typography
+                    variant="headingFour"
+                    weight="400"
+                    sx={{ textWrap: 'nowrap' }}
+                  >
                     {link.name}
                   </Typography>
                 </a>
@@ -168,16 +177,17 @@ export const FooterV2 = () => {
                     // borderRadius: '0.375rem',
                     boxShadow: theme => `-4px 4px 0px ${theme.palette.aceTeal}`,
                     transform: 'translateY(0.375rem) translateX(0.375rem)',
-                    backgroundColor: 'transparent',
-                    borderRightWidth: '1px',
-                    borderRightStyle: 'solid',
-                    borderTopColor: theme => theme.palette.aceTeal,
+                    // backgroundColor: theme => `${theme.palette.aceOrange}`,
                   },
                 }}
                 key={index}
               >
                 <a href={`${link.to}`} target="__blank">
-                  <Typography variant="headingFour" weight="400">
+                  <Typography
+                    variant="headingFour"
+                    weight="400"
+                    sx={{ textWrap: 'nowrap' }}
+                  >
                     {link.name}
                   </Typography>
                 </a>

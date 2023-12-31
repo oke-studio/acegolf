@@ -1,56 +1,56 @@
 const typeScale: { fontSize: string; lineHeight: string }[] = [
   {
     // #0 <-miniscule->
-    fontSize: '12px',
+    fontSize: '0.75rem',
     lineHeight: '17px',
   },
   // #1 <-small->
   {
-    fontSize: '14px',
+    fontSize: '0.875rem',
     lineHeight: '20px',
   },
   // #2 <-base->
   {
-    fontSize: '16px',
+    fontSize: '1rem',
     lineHeight: '22px',
   },
   // #3 <-large->
   {
-    fontSize: '18px',
+    fontSize: '1.125rem',
     lineHeight: '24px',
   },
   // #4 <-extralarge->
   {
-    fontSize: '20px',
+    fontSize: '1.25rem',
     lineHeight: '28px',
   },
   // #5 <-headingFour->
   {
-    fontSize: '24px',
+    fontSize: '1.5rem',
     lineHeight: '32px',
   },
   // #6 <-headingThree->
   {
-    fontSize: '30px',
+    fontSize: '1.875rem',
     lineHeight: '36px',
   },
   // #7 <-headingTwo->
   {
-    fontSize: '36px',
+    fontSize: '2.25rem',
     lineHeight: '42px',
   },
   // #8 <-headingOne->
   {
-    fontSize: '56px',
+    fontSize: '3.5rem',
     lineHeight: '60px',
   },
   // #9 <-largeH1->
   {
-    fontSize: '72px',
+    fontSize: '4.5rem',
     lineHeight: '72px',
   },
   // #10 <-poster->
-  { fontSize: '96px', lineHeight: '68px' },
+  { fontSize: '6rem', lineHeight: '68px' },
 ];
 
 export const fontUses = {
