@@ -61,7 +61,7 @@ export const FooterV2 = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'black',
+        backgroundColor: '#171717',
         fontFamily: typography.fontFamily,
         zIndex: 5,
         position: 'relative',
