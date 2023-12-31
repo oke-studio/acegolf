@@ -417,7 +417,6 @@ export default function LandingV2() {
           margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
         }}
       >
-        <LandingVideo />
         <LandingHowItWorks />
       </Box>
 
