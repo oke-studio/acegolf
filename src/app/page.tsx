@@ -6,8 +6,8 @@ import Landing from './landing/landing.component';
 export default function Home() {
   return (
     <main>
-      {/* <LandingV2 /> */}
-      <Landing/>
+      <LandingV2 />
+      {/* <Landing/> */}
       {/* <ComingSoonPage /> */}
     </main>
   );

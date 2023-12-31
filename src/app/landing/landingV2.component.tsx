@@ -19,6 +19,7 @@ import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
 import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
 const MapSVG = () => (
   <svg
@@ -439,88 +440,7 @@ export default function LandingV2() {
         <WhatsTheVibe />
       </Box>
 
-      <Box
-        sx={{
-          display: 'flex',
-          height: '400px',
-          color: 'black',
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: '#529DC8',
-            width: '100%',
-            borderRadius: '25px 0px 0px 0px',
-            padding: '48px',
-          }}
-        >
-          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                // width: '50%',
-                height: '100%',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Typography variant="base">Join our Rewards program</Typography>
-              <Typography variant="base">Earn $6 on every booking</Typography>
-              <Button variant="secondary">Learn More&rarr;</Button>
-            </Box>
-            <Box
-              sx={{
-                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '8px',
-                width: '300px',
-                height: '100%',
-              }}
-            />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            backgroundColor: '#EB8B32',
-            width: '100%',
-            borderRadius: '0px 25px 0px 0px',
-            padding: '48px',
-          }}
-        >
-          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                // width: '50%',
-                justifyContent: 'space-between',
-                height: '100%',
-              }}
-            >
-              <Typography variant="base">
-                Talk to us about your party or event
-              </Typography>
-              <Typography variant="base">
-                We welcome group bookings and events
-              </Typography>
-              <Button variant="secondary">Inquire Now&rarr;</Button>
-            </Box>
-            <Box
-              sx={{
-                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '8px',
-                width: '300px',
-                height: '100%',
-              }}
-            />
-          </Box>
-        </Box>
-      </Box>
+      <NintendoSwitch />
 
       {/* <HowItWorksSection /> */}
     </Box>
