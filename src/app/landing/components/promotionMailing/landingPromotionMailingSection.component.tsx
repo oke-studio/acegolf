@@ -18,8 +18,8 @@ export const LandingPromotionMailingSection = () => {
   return (
     <Section
       SectionName="Landing Promotion & Mailing Section"
-      SectionWidth="normal"
-      SectionColor=""
+      SectionWidth="fullViewport"
+      SectionColor="#39775E"
       CornerRadius="on"
       sx={{
         display: 'flex',
