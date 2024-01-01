@@ -79,7 +79,6 @@ const MailingListForm = () => {
               value={values.email}
               helperText="*BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF SERVICES AND TO RECEIVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
               sx={{
-                fontFamily: 'new-hero',
                 '.MuiInputBase-root': {
                   justifyContent: 'flex-end',
                   background: 'white',
@@ -89,7 +88,7 @@ const MailingListForm = () => {
                   color: '#373737',
                   ...(isSubmitting && { paddingLeft: '2px' }),
                   width: isSubmitting ? '0' : '100%',
-                  fontFamily: 'new-hero',
+
                   fontSize: '12px',
                 },
                 '.MuiFormHelperText-root': {

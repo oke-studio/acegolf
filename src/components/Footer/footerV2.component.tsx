@@ -62,7 +62,7 @@ export const FooterV2 = () => {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#171717',
-        fontFamily: typography.fontFamily,
+
         zIndex: 5,
         position: 'relative',
         // padding: '64px 0px',

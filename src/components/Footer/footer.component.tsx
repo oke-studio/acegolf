@@ -16,7 +16,7 @@ export const Footer = () => {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: 'black',
-        fontFamily: typography.fontFamily,
+
         zIndex: 5,
         position: 'relative',
       }}

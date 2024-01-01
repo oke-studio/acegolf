@@ -12,7 +12,7 @@ const ComingSoonForm = () => {
   return (
     <Formik
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
 
         fetch('/', {
@@ -21,10 +21,10 @@ const ComingSoonForm = () => {
           body: encode({ 'form-name': 'comingsoon-email', ...values }),
         })
           .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
     >
-      {(props) => {
+      {props => {
         const {
           isSubmitting,
           errors,
@@ -61,7 +61,6 @@ const ComingSoonForm = () => {
               value={values.email}
               style={{ alignItems: 'center' }}
               sx={{
-                fontFamily: 'new-hero',
                 '.MuiInputBase-root': {
                   background: 'white',
                   borderRadius: '12px',
@@ -74,7 +73,6 @@ const ComingSoonForm = () => {
                   '::placeholder': {
                     color: 'black',
                   },
-                  fontFamily: 'new-hero',
                   fontSize: '12px',
                 },
                 '.MuiFormHelperText-root': {
@@ -116,7 +114,6 @@ const ComingSoonForm = () => {
                 paddingRight="24px"
                 paddingTop="14px"
                 paddingBottom="14px"
-                fontFamily="new-hero"
                 fontWeight="700"
                 whiteSpace="normal"
               >
@@ -145,7 +142,6 @@ const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
 
   maxWidth: '250px',
-  fontFamily: 'new-hero',
   gap: '24px',
   marginLeft: '12px',
   marginRight: '12px',

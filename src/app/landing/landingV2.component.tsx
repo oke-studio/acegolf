@@ -51,7 +51,6 @@ export default function LandingV2() {
         //backgroundColor: '#171717',
         position: 'relative',
         overflow: 'hidden',
-        fontFamily: typography.fontFamily,
       }}
     >
       {/* <Header

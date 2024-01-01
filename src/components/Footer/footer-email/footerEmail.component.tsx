@@ -43,7 +43,6 @@ const StyledInput = styled(Input)(
       background: transparent;
       font-size: 2rem;
       font-weight: 700;
-      font-family: new-hero;
       color: ${t.palette.primary.main};
   
       &::placeholder {
@@ -104,7 +103,7 @@ export const FooterEmail = () => {
   return (
     <Formik
       initialValues={initialFormikValues}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
         // alert(JSON.stringify(values));
         // actions.setSubmitting(false);
@@ -116,9 +115,9 @@ export const FooterEmail = () => {
           body: encode({ 'form-name': 'homepage-email', ...values }),
         })
           // .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
-      validate={(values) => {
+      validate={values => {
         const errors: FormikValuesProps = {};
         if (!values.email) {
           errors.email = 'Required';
@@ -130,7 +129,7 @@ export const FooterEmail = () => {
         return errors;
       }}
     >
-      {(props) => {
+      {props => {
         const { handleSubmit, handleChange } = props;
         return (
           <Box
