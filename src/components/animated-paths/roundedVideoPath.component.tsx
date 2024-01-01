@@ -18,7 +18,7 @@ interface VideoProps {
 }
 
 const animationDuration = '30s';
-const initialStartOffset = '0%';
+const initialStartOffset = '-100%';
 
 const VideoPathText = ({ text, textCount = 1, textPath }: VideoProps) => {
   return (
