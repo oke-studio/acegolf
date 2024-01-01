@@ -12,7 +12,7 @@ import { Formik, useFormik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
 
-import { Typography } from '../../../../../typography.component';
+import { Typography } from '../../../../components/Typography/typography.component';
 
 const MailingListForm = () => {
   const { typography, palette } = useTheme();
@@ -177,12 +177,12 @@ export const MailingList = () => {
         JOIN THE MAILING LIST
       </Typography>
       <Typography
-        sx={{ ...typography.hero_medium, fontSize: '24px' }}
+        //sx={{ ...typography.hero_medium, fontSize: '24px' }}
         variant="base"
       >
         Be the first to know about the latest ACE Golf promos and events
       </Typography>
-      </Typography>
+      
       <MailingListForm />
     </Box>
   );
