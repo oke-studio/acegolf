@@ -21,6 +21,7 @@ import { Promotions } from './components/promotions/promotions.component';
 import { MailingList } from './components/mailingList/mailingList.component';
 import { LandingPromotionMailingSection } from './components/promotionMailing/landingPromotionMailingSection.component';
 import { LandingInfoSection } from './components/landingInfo/landingInfoSection.component';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
 const MapSVG = () => (
   <svg
@@ -69,6 +70,7 @@ export default function Landing() {
 
       <LandingInfoSection />
       <LandingPromotionMailingSection />
+      <NintendoSwitch/>
     </Box>
   );
 }
