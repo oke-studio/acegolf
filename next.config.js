@@ -31,12 +31,9 @@ const nextConfig = {
       },
 
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 1032000,
-          mimetype: 'application/font-woff',
-        },
+        test: /\.(png|woff|woff2|eot|ttf)$/,
+        loaders: ['file-loader'],
+        include: path.resolve(__dirname, '../'),
       },
     );
 
