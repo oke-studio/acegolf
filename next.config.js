@@ -33,7 +33,7 @@ const nextConfig = {
 
       {
         test: /\.(png|woff|woff2|eot|ttf)$/,
-        loaders: ['file-loader'],
+        loader: 'file-loader',
         include: path.resolve(__dirname, '../'),
       },
     );
