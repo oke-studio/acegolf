@@ -1,16 +1,9 @@
 'use client';
 import * as React from 'react';
-import {
-  Box,
-  Link,
-  styled,
-  linkClasses,
-  typographyClasses,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Box, Link, styled, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import { FooterGolf } from './components/footer-golf-arrangement/footerGolfArrangement.component';
+import { Typography } from '@/components/Typography/typography.component';
 
 const StyledLinks = styled(Link)(({ theme: t }) => ({
   color: 'white',
@@ -151,18 +144,11 @@ export const CommonFooterLinks = () => {
                 ))}
               </Box>
             </StyledLinksWrapper>
-            <StyledLinksWrapper
-              sx={{
-                typography: typography.hero_super,
-                fontSize: '14px',
-                // display: 'flex',
-                // justifyContent: 'end',
-                // alignItems: 'flex-end',
-                // flexDirection: 'column',
-              }}
-            >
-              <Box>&copy;ACE Golf 2023</Box>
-              <Box>Made by the bestest team ever</Box>
+            <StyledLinksWrapper>
+              <Typography variant="base">&copy;ACE Golf 2023</Typography>
+              <Typography variant="base">
+                Made by the bestest team ever
+              </Typography>
             </StyledLinksWrapper>
           </Box>
         </Box>
@@ -292,16 +278,12 @@ export const CommonFooterLinks = () => {
 };
 
 export const FooterLinks = () => {
-  const { typography } = useTheme();
-
   return (
     <Box
       sx={{
         display: 'flex',
         minHeight: '500px',
         width: '100%',
-        typography: typography.hero_light,
-        fontSize: '14px',
         color: 'white',
         position: 'relative',
         flexDirection: 'column',

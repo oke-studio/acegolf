@@ -58,8 +58,9 @@ export const Header = ({
 }: HeaderProps) => {
   const { palette, typography, zIndex } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
-  const [mobileDropDownEnabled, setMobileDropDownEnabled] =
-    React.useState(false);
+  const [mobileDropDownEnabled, setMobileDropDownEnabled] = React.useState(
+    false,
+  );
   const router = useRouter();
 
   function toggleDropDown() {
@@ -197,8 +198,6 @@ export const Header = ({
             justifyContent: 'center',
             gap: '24px',
             width: '100%',
-            ...typography.hero_semibold,
-            fontSize: '24px',
           }}
         >
           {navOptions.map((navLink, i) => (

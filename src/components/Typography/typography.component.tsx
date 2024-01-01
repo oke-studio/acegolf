@@ -13,13 +13,13 @@ const SemanticComponentMapping: {
   headingTwo: 'h2',
   headingThree: 'h3',
   headingFour: 'h4',
-  base: 'span',
-  miniscule: 'span',
-  extralarge: 'span',
-  large: 'span',
+  base: 'p',
+  miniscule: 'p',
+  extralarge: 'h4',
+  large: 'h5',
   largeH1: 'h1',
-  poster: 'span',
-  small: 'span',
+  poster: 'h1',
+  small: 'p',
 };
 
 interface TypographyProps extends Omit<TypograhpyOriginalProps, 'variant'> {

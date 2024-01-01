@@ -1,12 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import { MusicPlayer } from './components/musicPlayer/musicPlayer.component';
-import Image from 'next/image';
+import { Typography } from '@/components/Typography/typography.component';
 
 export const WhatsTheVibe = () => {
-  const { typography } = useTheme();
   return (
     <Box
       sx={{
@@ -19,10 +18,9 @@ export const WhatsTheVibe = () => {
       }}
     >
       <Typography
+        variant="largeH1"
         sx={{
           textTransform: 'uppercase',
-          ...typography.hero_super_italic,
-          fontSize: '64px',
         }}
       >
         What&apos;s the Vibe?
@@ -94,10 +92,9 @@ export const WhatsTheVibe = () => {
       </Box>
 
       <Typography
+        variant="largeH1"
         sx={{
           textTransform: 'uppercase',
-          ...typography.hero_super_italic,
-          fontSize: '64px',
         }}
       >
         What they&apos;re saying?

@@ -1,19 +1,19 @@
 'use client';
 
 import * as React from 'react';
-import { Box, useTheme, useMediaQuery, Typography } from '@mui/material';
+import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
 import { East } from '@mui/icons-material';
+import { Typography } from '@/components/Typography/typography.component';
 
-import { TigerImage } from './components/tigerImage/tigerImage.component';
+// import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
-import { LandingTabs } from './components/tabSection/landingTabs.component';
 import { LandingCards } from './components/landingCards/landingCards.component';
-import { LandingHowItWorks } from './components/howItWorks/howItWorks.component';
+import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
@@ -135,25 +135,22 @@ export default function LandingV2() {
                 width: isMobile ? '100%' : '400px',
               }}
             >
-              <Box
+              <Typography
+                variant="base"
                 sx={{
                   backgroundColor: palette.aceTeal,
                   color: 'white',
                   borderRadius: '6.82px',
                   padding: '4px 10px',
-                  ...typography.hero_super,
-                  fontSize: isMobile ? '24px' : '32px',
                   width: 'max-content',
                 }}
               >
                 TORONTO&apos;S BEST
-              </Box>
-              <Box
+              </Typography>
+              <Typography
+                variant="base"
                 sx={{
                   textAlign: 'center',
-                  //not big bold enough
-                  // ...typography.hero_super,
-                  ...typography.hero_semibold,
                   fontSize: isMobile ? '32px' : '48px',
                   lineHeight: '110%',
                 }}
@@ -161,12 +158,10 @@ export default function LandingV2() {
                 INDOOR GOLF
                 <br />
                 LOUNGE!
-              </Box>
+              </Typography>
               <Box
                 sx={{
                   display: 'flex',
-                  ...typography.hero_regular,
-                  fontSize: isMobile ? '16px' : '18px',
                   flexDirection: 'column',
                   gap: '8px',
                   position: 'relative',
@@ -277,8 +272,6 @@ export default function LandingV2() {
                 backgroundColor: palette.aceOrange,
                 color: 'white',
                 borderRadius: '78px',
-                ...typography.hero_semibold,
-                fontSize: '32px',
                 padding: '12px 60px',
                 position: 'relative',
                 top: '-60px',
@@ -290,13 +283,15 @@ export default function LandingV2() {
                 //
               }}
             >
-              <a
-                href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
-                target="_blank"
-              >
-                {' '}
-                Reserve a bay &rarr;
-              </a>
+              <Typography variant="base">
+                <a
+                  href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+                  target="_blank"
+                >
+                  {' '}
+                  Reserve a bay &rarr;
+                </a>
+              </Typography>
             </Button>
           </Box>
         </Box>
@@ -469,14 +464,8 @@ export default function LandingV2() {
                 justifyContent: 'space-between',
               }}
             >
-              <Typography
-                sx={{ ...typography.hero_semibold, fontSize: '32px' }}
-              >
-                Join our Rewards program
-              </Typography>
-              <Typography sx={{ ...typography.hero_medium, fontSize: '18px' }}>
-                Earn $6 on every booking
-              </Typography>
+              <Typography variant="base">Join our Rewards program</Typography>
+              <Typography variant="base">Earn $6 on every booking</Typography>
               <Button variant="secondary">Learn More&rarr;</Button>
             </Box>
             <Box
@@ -510,12 +499,10 @@ export default function LandingV2() {
                 height: '100%',
               }}
             >
-              <Typography
-                sx={{ ...typography.hero_semibold, fontSize: '32px' }}
-              >
+              <Typography variant="base">
                 Talk to us about your party or event
               </Typography>
-              <Typography sx={{ ...typography.hero_medium, fontSize: '18px' }}>
+              <Typography variant="base">
                 We welcome group bookings and events
               </Typography>
               <Button variant="secondary">Inquire Now&rarr;</Button>

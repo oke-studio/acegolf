@@ -32,7 +32,7 @@ const MailingListForm = () => {
   return (
     <Formik
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
         fetch('/', {
           method: 'POST',
@@ -40,12 +40,12 @@ const MailingListForm = () => {
           body: encode({ 'form-name': 'landing-mailing-list', ...values }),
         })
           .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
       // validationSchema={}
       // validate={}
     >
-      {(props) => {
+      {props => {
         const {
           values,
           isSubmitting,
@@ -100,7 +100,7 @@ const MailingListForm = () => {
                 },
                 '.MuiFormHelperText-root': {
                   fontSize: '10px',
-                  color: (t) => t.palette.aceGrey,
+                  color: t => t.palette.aceGrey,
                   marginTop: '8px',
                   width: '75%',
                   textAlign: 'center',
@@ -171,8 +171,6 @@ export const MailingList = () => {
       <Typography
         variant="headingOne"
         sx={{
-          ...typography.hero_super,
-          fontSize: '48px',
           ...(isMobile && { textAlign: 'center' }),
         }}
       >
@@ -183,6 +181,7 @@ export const MailingList = () => {
         variant="base"
       >
         Be the first to know about the latest ACE Golf promos and events
+      </Typography>
       </Typography>
       <MailingListForm />
     </Box>

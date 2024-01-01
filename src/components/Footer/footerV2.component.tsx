@@ -1,11 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import { Box, useTheme, Button } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
-import { Typography } from '../../../typography.component';
-
-import { FooterLinks } from './footer-links/footerLinks.component';
+import { Typography } from '../Typography/typography.component';
 
 const FooterLinksArray = [
   {

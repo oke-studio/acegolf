@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
 import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
+import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
 
 import {
   useMotionValue,
@@ -163,7 +164,10 @@ export const Promotions = () => {
     >
       <Typography variant="headingOne">PROMOTIONS & EVENTS</Typography>
       <Typography variant="base">
+      <Typography variant="headingOne">PROMOTIONS & EVENTS</Typography>
+      <Typography variant="base">
         Be the first to know about the latest ACE Golf promos and events
+      </Typography>
       </Typography>
       <Box
         sx={{

@@ -2,22 +2,12 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import {
-  styled,
-  Box,
-  TextField,
-  Typography,
-  useTheme,
-  Button,
-  useMediaQuery,
-} from '@mui/material';
+import { styled, Box, TextField, useTheme, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Formik } from 'formik';
 import { encode } from '@/util/encode';
-import { useRouter } from 'next/router';
 import { TopBanner } from '@/components/topBanner/topBanner.component';
-
-const backgroundColor = '#529DC8';
+import { Typography } from '@/components/Typography/typography.component';
 
 interface FormValues {
   email: string;
@@ -25,7 +15,6 @@ interface FormValues {
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
-  const { typography } = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
 
   React.useEffect(() => {
@@ -72,7 +61,7 @@ const ComingSoonForm = () => {
   return (
     <Formik
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
         fetch('/', {
           method: 'POST',
@@ -80,12 +69,12 @@ const ComingSoonForm = () => {
           body: encode({ 'form-name': 'comingsoon-email', ...values }),
         })
           .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
       // validationSchema={}
       // validate={}
     >
-      {(props) => {
+      {props => {
         const {
           values,
           isSubmitting,
@@ -113,10 +102,10 @@ const ComingSoonForm = () => {
               }}
             >
               <input type="hidden" name="form-name" value="comingsoon-email" />
-              <Box
+              <Typography
+                variant="base"
+                weight="400"
                 sx={{
-                  ...typography.hero_regular,
-                  fontSize: '16px',
                   textAlign: 'center',
                   textTransform: 'uppercase',
                   color: 'white',
@@ -124,7 +113,7 @@ const ComingSoonForm = () => {
                 }}
               >
                 Join the Mailing List
-              </Box>
+              </Typography>
               <TextField
                 // error={errors.email && touched.email}
                 fullWidth
@@ -190,14 +179,14 @@ const ComingSoonForm = () => {
                       disabled={isSubmitting}
                     >
                       <Typography
-                        paddingLeft="24px"
-                        paddingRight="24px"
-                        paddingTop="14px"
-                        paddingBottom="14px"
-                        // ...typography.hero_bold,
+                        variant="base"
+                        weight="700"
                         sx={{
-                          ...typography.hero_bold,
                           fontSize: '12px',
+                          paddingLeft: '24px',
+                          paddingRight: '24px',
+                          paddingTop: '14px',
+                          paddingBottom: '14px',
                         }}
                         whiteSpace="nowrap"
                         overflow="hidden"
@@ -238,7 +227,8 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
         height="100%"
         viewBox="0 0 1973 293"
         pathProps={{
-          d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+          d:
+            'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
         }}
         text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
         textCount={3}
@@ -253,7 +243,8 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
       height="100%"
       viewBox="0 0 1973 293"
       pathProps={{
-        d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+        d:
+          'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
       }}
       text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
       textCount={3}
@@ -331,16 +322,16 @@ export const ComingSoonInfoSection = ({
           ...(!isMobile && { top: '-40px', marginTop: '5px' }),
         }}
       >
-        <Box
+        <Typography
+          variant="headingFour"
+          weight="800"
           sx={{
-            ...typography.hero_extrabold,
-            fontSize: '24px',
             color: 'white',
             mixBlendMode: 'difference',
           }}
         >
           OPENING DEC 2023
-        </Box>
+        </Typography>
         <Box
           sx={{
             fontSize: '16px',
@@ -368,7 +359,6 @@ export const ComingSoonInfoSection = ({
           disableRipple
           disableTouchRipple
           sx={{
-            ...typography.hero_semibold,
             fontSize: '24px',
             marginTop: '20px',
             textTransform: 'none',
