@@ -9,9 +9,10 @@ import {
   SxProps,
   Theme,
   useTheme,
-  Typography,
   useMediaQuery,
 } from '@mui/material';
+
+import { Typography } from '../Typography/typography.component';
 
 type CardColorTypes = 'light' | 'dark';
 
@@ -21,10 +22,9 @@ const CardColorVariants = {
 };
 
 const CardContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'variant',
+  shouldForwardProp: prop => prop !== 'variant',
   name: 'Card',
 })({
-  borderRadius: '50px',
   padding: '24px',
   display: 'flex',
   flexDirection: 'column',
@@ -79,6 +79,7 @@ export const Card = ({
           backgroundPosition: 'center',
           color: 'white',
           minHeight: '350px',
+          borderRadius: isMobile ? '30px' : '15px',
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
       }}
@@ -92,8 +93,12 @@ export const Card = ({
           textAlign: 'center',
         }}
       >
-        <Typography>{CardTitle}</Typography>
-        <Typography>{CardDescription}</Typography>
+        <Typography variant="headingTwo" weight="600">
+          {CardTitle}
+        </Typography>
+        <Typography variant="large" weight="400">
+          {CardDescription}
+        </Typography>
       </Box>
 
       {/* Content Box */}

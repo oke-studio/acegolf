@@ -131,8 +131,9 @@ const PromotionCards = ({
         style={{ top: topTransformer }}
       >
         <Typography
-          variant="largeH1"
-          fontStyle="italic"
+          variant="large"
+          fontStyle="normal"
+          weight="600"
           sx={{ textWrap: 'nowrap' }}
           padding={1}
         >
