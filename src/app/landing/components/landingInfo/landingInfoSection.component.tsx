@@ -14,6 +14,7 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { MailingList } from '../../components/mailingList/mailingList.component';
 import { LandingCards } from '../landingCards/landingCards.component';
+import { LandingCardsGrid } from '../landingCards/landingCardsGrid.component';
 
 export const LandingInfoSection = () => {
   return (
@@ -27,6 +28,7 @@ export const LandingInfoSection = () => {
         flexDirection: 'column',
       }}
     >
+      <LandingCardsGrid />
       <LandingCards />
     </Section>
   );
