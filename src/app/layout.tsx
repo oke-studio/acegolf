@@ -10,11 +10,11 @@ import { FooterV2 } from '@/components/Footer/footerV2.component';
 const aceFont = localfont({
   src: [
     {
-      path: '../../public/fonts/Hero New HairLine.woff',
+      path: '../../public/fonts/Hero New Hairline.woff',
       weight: '100',
     },
     {
-      path: '../../public/fonts/Hero New HairLine Italic.woff',
+      path: '../../public/fonts/Hero New Hairline Italic.woff',
       weight: '100',
       style: 'italic',
     },
