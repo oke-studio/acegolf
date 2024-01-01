@@ -27,7 +27,6 @@ export const BannerText = ({
   return (
     <text
       style={{
-        fontFamily: 'new-hero',
         fontWeight: '800',
         fontSize: '46px',
       }}

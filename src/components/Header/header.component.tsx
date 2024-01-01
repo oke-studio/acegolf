@@ -236,7 +236,7 @@ export const Header = ({
       sx={{
         display: 'flex',
         width: '100%',
-        fontFamily: 'new-hero',
+
         justifyContent: 'center',
         position: 'relative',
         zIndex: zIndex.appBar,

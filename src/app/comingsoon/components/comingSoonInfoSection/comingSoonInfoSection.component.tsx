@@ -127,7 +127,6 @@ const ComingSoonForm = () => {
                 value={values.email}
                 helperText="*BY CLICKING THE BUTTON ABOVE YOU ARE AGREEING ACEGOLF’S TERMS OF SERVICES AND TO RECEIVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO UNSUBSCRIBE AT ANY TIME BY CLICKING UNSUBSCRBE FROM ANY FUTURE MARKETING EMAILS. "
                 sx={{
-                  fontFamily: 'new-hero',
                   gap: '12px',
                   padding: '0px 12px',
                   '.MuiInputBase-root': {
@@ -143,7 +142,6 @@ const ComingSoonForm = () => {
                     ...(isSubmitting && { paddingLeft: '0px' }),
 
                     width: isSubmitting ? '0' : '100%',
-                    fontFamily: 'new-hero',
                     fontSize: '12px',
                   },
                   '.MuiFormHelperText-root': {
@@ -216,7 +214,6 @@ const ComingSoonInfoSectionWrapper = styled(Box)({
   // alignSelf: 'center',
   // gridTemplateColumns: '1fr 2fr 1fr',
   justifyContent: 'center',
-  fontFamily: 'new-hero',
 });
 
 const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {

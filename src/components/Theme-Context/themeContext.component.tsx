@@ -76,8 +76,6 @@ declare module '@mui/material/Button' {
 
 const theme = createTheme({
   typography: {
-    fontFamily: ['new-hero', 'sans-serif'].join(','),
-
     ...fontUses,
   },
   palette: {

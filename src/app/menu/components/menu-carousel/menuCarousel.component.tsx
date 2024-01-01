@@ -168,7 +168,7 @@ export const MenuCarousel = () => {
         justifyContent: 'center',
         position: 'relative',
         zIndex: 20,
-        fontFamily: typography.fontFamily,
+
         margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
       }}
     >

@@ -26,7 +26,6 @@ export const RoundedVideoText = ({
   return (
     <text
       style={{
-        fontFamily: 'new-hero',
         fontWeight: '600',
         fontStyle: 'italic',
         fontSize: '20px',

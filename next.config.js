@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 const nextConfig = {
   redirects: async () => {
     return [
@@ -11,7 +12,7 @@ const nextConfig = {
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
+    const fileLoaderRule = config.module.rules.find(rule =>
       rule.test?.test?.('.svg'),
     );
 
@@ -28,6 +29,12 @@ const nextConfig = {
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: /url/ }, // exclude if *.svg?url
         use: ['@svgr/webpack'],
+      },
+
+      {
+        test: /\.(png|woff|woff2|eot|ttf)$/,
+        loader: 'file-loader',
+        include: path.resolve(__dirname, '../'),
       },
     );
 
