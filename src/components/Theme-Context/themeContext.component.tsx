@@ -124,6 +124,9 @@ const theme = createTheme({
             color: 'black',
             width: 'max-content',
             fontWeight: 400,
+            ':hover': {
+              backgroundColor: 'rgba(235, 139, 50, 0.49)',
+            },
           },
         },
         {

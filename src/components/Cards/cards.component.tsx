@@ -37,7 +37,7 @@ const CardContainer = styled(Box, {
 });
 
 interface CardProps {
-  buttonOne: ButtonProps;
+  buttonOne?: ButtonProps;
   buttonTwo?: ButtonProps;
   CardTitle: string;
   CardDescription?: string;
@@ -80,9 +80,9 @@ export const Card = ({
           backgroundPosition: 'center',
           color: 'white',
           minHeight: '350px',
-          // borderRadius: isMobile ? '30px' : '15px, when can we add this?
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
+        borderRadius: isMobile ? '15px' : '30px',
       }}
     >
       {/* Title Box --> Make this text Box */}
@@ -116,9 +116,11 @@ export const Card = ({
           flexWrap: 'wrap',
         }}
       >
-        <Button {...buttonOne} fullWidth>
-          {buttonOne.children}
-        </Button>
+        {buttonOne && (
+          <Button {...buttonOne} fullWidth>
+            {buttonOne.children}
+          </Button>
+        )}
         {buttonTwo && (
           <Button {...buttonTwo} fullWidth>
             {buttonTwo.children}

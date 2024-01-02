@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
+import { useRouter } from 'next/navigation';
 
 import { Card } from '@/components/Cards/cards.component';
 import PriceTabCard from '../../../book-now/priceTabCard.component';
@@ -22,7 +23,7 @@ export const LandingCardsGrid = () => {
   //       />
   //     </LandingCardsContainer>
   //   );
-
+  const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const handleButtonLink = () => {
@@ -44,6 +45,7 @@ export const LandingCardsGrid = () => {
             children: 'See Full Menu',
             variant: 'secondary',
             fullWidth: true,
+            onClick: () => router.push('/menu'),
           }}
           CardTitle="Tapas Style Menu"
           CardDescription="Crazy Good menu goes here with multiple descriptions"
@@ -118,9 +120,6 @@ export const LandingCardsGrid = () => {
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
           buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}
           CardTitle="Prices & Rates"
-          sx={{
-            width: '40%',
-          }}
         >
           <PriceTabCard />
         </Card>
@@ -136,7 +135,7 @@ export const LandingCardsGrid = () => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: isMobile ? 'row' : 'column',
             width: '100%',
             gap: '24px',
             flexBasis: '60%',
