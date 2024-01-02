@@ -129,7 +129,7 @@ const PricesTabsContentSkeleton = ({
       >
         <Box
           sx={{
-            backgroundColor: backgroundColor ?? '#36DAD5',
+            backgroundColor: backgroundColor ?? theme.palette.green,
             display: 'flex',
             flexDirection: 'column',
             width: 'max-content',
@@ -140,9 +140,12 @@ const PricesTabsContentSkeleton = ({
           }}
         >
           <Typography
-            variant="base"
-            weight="500"
-            sx={{ color: 'black', textTransform: 'uppercase' }}
+            variant="miniscule"
+            weight="600"
+            sx={{
+              // color: 'black',
+              textTransform: 'uppercase',
+            }}
           >{`${timeFrom} - ${timeTo}`}</Typography>
           <Typography variant="headingFour" weight="800">
             ${price}{' '}
@@ -151,7 +154,16 @@ const PricesTabsContentSkeleton = ({
             </Typography>
           </Typography>
 
-          <Typography variant="base">per bay</Typography>
+          <Typography
+            variant="miniscule"
+            weight="600"
+            sx={{
+              // color: 'black',
+              textTransform: 'uppercase',
+            }}
+          >
+            per bay
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -201,9 +213,21 @@ const PricesTabsContentSkeleton = ({
           borderColor: theme.palette.green,
         }}
       >
-        <Typography variant="base">Private Bay</Typography>
-        <Typography variant="base">
-          <b>${privatePriceContainer.price}</b>/hr
+        <Typography
+          variant="miniscule"
+          weight="600"
+          sx={{
+            // color: 'black',
+            textTransform: 'uppercase',
+          }}
+        >
+          Private Bay
+        </Typography>
+        <Typography variant="headingFour" weight="800">
+          ${privatePriceContainer.price}
+          <Typography variant="small" weight="400" sx={{ display: 'inline' }}>
+            /hr
+          </Typography>
         </Typography>
       </Box>
     </Box>
@@ -271,14 +295,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -308,14 +329,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -328,14 +346,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -348,14 +363,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -368,14 +380,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
