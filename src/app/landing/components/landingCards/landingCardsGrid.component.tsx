@@ -49,7 +49,7 @@ export const LandingCardsGrid = () => {
           CardDescription="Crazy Good menu goes here with multiple descriptions"
           ColorVariant="dark"
           sx={{
-            flexBasis: '110%',
+            width: '60%',
             borderColor: '#36DAD5',
             borderWidth: '6px',
             borderStyle: 'solid',
@@ -125,6 +125,9 @@ export const LandingCardsGrid = () => {
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
           buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}
           CardTitle="Prices & Rates"
+          sx={{
+            width: '40%',
+          }}
         >
           <PriceTabCard/>
           

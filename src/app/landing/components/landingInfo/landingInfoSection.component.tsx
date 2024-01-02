@@ -29,7 +29,7 @@ export const LandingInfoSection = () => {
       }}
     >
       <LandingCardsGrid />
-      <LandingCards />
+      {/* <LandingCards /> */}
     </Section>
   );
 };

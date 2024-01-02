@@ -22,6 +22,7 @@ import { Card } from '@/components/Cards/cards.component';
 import { Promotions } from '../landing/components/promotions/promotions.component';
 import { MailingList } from '../landing/components/mailingList/mailingList.component';
 import dayjs from 'dayjs';
+import PriceTabCard from './priceTabCard.component';
 
 interface TabPanelProps {
   children?: React.ReactNode;

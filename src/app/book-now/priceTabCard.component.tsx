@@ -123,25 +123,25 @@ function TabPanel(props: TabPanelProps) {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'row',
-            gap: '24px',
+            flexDirection: 'column',
+            gap: '8px',
             color: color,
           }}
         >
           <Box
             sx={{
-              backgroundColor: backgroundColor ?? theme.palette.aceOrange,
+              backgroundColor: backgroundColor ?? '#36DAD5',
               display: 'flex',
               flexDirection: 'column',
               width: 'max-content',
               minWidth: '150px',
               borderRadius: '8px',
               padding: '24px',
-              gap: '8px',
+              //gap: '8px',
             }}
           >
             <Typography variant="base">{`${timeFrom} - ${timeTo}`}</Typography>
-            <Typography variant="base">
+            <Typography variant="extralarge" >
               <b>${price}</b>/hr
             </Typography>
             <Typography variant="base">per bay, per person</Typography>
@@ -165,7 +165,7 @@ function TabPanel(props: TabPanelProps) {
     };
     return (
         <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
-          <Typography variant="headingOne">{title}</Typography>
+          <Typography variant="large" weight='600'>{title}</Typography>
           <Typography variant="base">{description}</Typography>
           <Box sx={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
             <PriceInfoBox {...priceContainerOne} />
@@ -231,7 +231,7 @@ export default function PriceTabCard(){
             <TabPanel value={value} index={0} dir={theme.direction}>
               <PricesTabsContentSkeleton
                 title="Sunday"
-                description="Some stuff that goes on on sunday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
                 priceContainerOne={{
                   price: 50,
                   timeFrom: '5pm',
@@ -249,10 +249,124 @@ export default function PriceTabCard(){
               />
             </TabPanel>
             <TabPanel value={value} index={1} dir={theme.direction}>
-              Item Two
+            <PricesTabsContentSkeleton
+                title="Monday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
             </TabPanel>
             <TabPanel value={value} index={2} dir={theme.direction}>
-              Item Three
+            <PricesTabsContentSkeleton
+                title="Tuesday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={3} dir={theme.direction}>
+            <PricesTabsContentSkeleton
+                title="Wednesday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={4} dir={theme.direction}>
+            <PricesTabsContentSkeleton
+                title="Thursday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={5} dir={theme.direction}>
+            <PricesTabsContentSkeleton
+                title="Friday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={6} dir={theme.direction}>
+            <PricesTabsContentSkeleton
+                title="Saturday"
+                description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+                priceContainerOne={{
+                  price: 50,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'white',
+                }}
+                priceContainerTwo={{
+                  price: 50.99,
+                  timeFrom: '5pm',
+                  timeTo: '9pm',
+                  color: 'black',
+                  backgroundColor: theme.palette.aceGreen,
+                }}
+                privatePriceContainer={{ price: 59.99 }}
+              />
             </TabPanel>
           </Box>
 
