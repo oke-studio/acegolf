@@ -3,6 +3,7 @@ import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 
 import { Card } from '@/components/Cards/cards.component';
+import PriceTabCard  from '../../../book-now/priceTabCard.component'
 
 const LandingCardsContainer = styled(Box)(({ theme }) => ({
   backgroundColor: 'transparent',
@@ -45,6 +46,7 @@ export const LandingCardsGrid = () => {
             fullWidth: true,
           }}
           CardTitle="Tapas Style Menu"
+          CardDescription="Crazy Good menu goes here with multiple descriptions"
           ColorVariant="dark"
           sx={{
             flexBasis: '110%',
@@ -54,16 +56,81 @@ export const LandingCardsGrid = () => {
           }}
         >
           <Box
-            sx={{
-              height: '400px',
+          sx={{
+            display: 'flex',
+            flexDirection: "row",
+            justifyContent: "center",
+            width: '100%',
+            gap: "50px",
+            padding: "0% 4%"
             }}
-          ></Box>
+            >
+            <Box
+            sx={{
+              width: '100%',
+              minHeight: "fit-content"
+
+            }}
+            >
+              <Box
+              
+              sx={{
+                backgroundImage: `url(images/placeholder1.png)`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                borderRadius: '9px',
+                minHeight: "350px",
+                marginBottom: "16px"
+              }}
+                ></Box>
+
+              <Typography
+              variant='base'
+              weight='200'
+              > Serious Mango shot $20</Typography>
+
+            </Box>
+            <Box
+            sx={{
+              width: '100%',
+              minHeight: "fit-content"
+
+            }}
+            
+            >
+              <Box
+              sx={{
+                backgroundImage: `url(images/placeholder2.png)`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                borderRadius: '9px',
+                minHeight: "350px",
+                marginBottom: "16px"
+              }}
+              ></Box>
+              <Typography
+              variant='base'
+              weight='200'
+              > Taco board Suprise $50</Typography>
+            
+
+            </Box>
+          </Box>
         </Card>
         <Card
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
           buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}
           CardTitle="Prices & Rates"
-        />
+        >
+          <PriceTabCard/>
+          
+
+
+        </Card>
       </Box>
       <Box
         sx={{

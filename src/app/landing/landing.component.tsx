@@ -71,11 +71,10 @@ export default function Landing() {
       <LandingHowItWorks />
 
       <LandingInfoSection />
+      <WhatsTheVibe />
 
       <LandingPromotionMailingSection />
-      <Box>
-        <WhatsTheVibe />
-      </Box>
+      
       <NintendoSwitch />
     </Box>
   );
