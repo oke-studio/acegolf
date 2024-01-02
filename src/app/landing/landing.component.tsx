@@ -23,6 +23,7 @@ import { LandingPromotionMailingSection } from './components/promotionMailing/la
 import { LandingInfoSection } from './components/landingInfo/landingInfoSection.component';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 import { LandingCardsGrid } from './components/landingCards/landingCardsGrid.component';
+import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
 
 const MapSVG = () => (
   <svg
@@ -72,6 +73,9 @@ export default function Landing() {
       <LandingInfoSection />
 
       <LandingPromotionMailingSection />
+      <Box>
+        <WhatsTheVibe />
+      </Box>
       <NintendoSwitch />
     </Box>
   );

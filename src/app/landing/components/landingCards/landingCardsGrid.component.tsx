@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
 
 import { Card } from '@/components/Cards/cards.component';
 
@@ -23,6 +24,9 @@ export const LandingCardsGrid = () => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const handleButtonLink = () => {
+    return `https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu`;
+  };
 
   return (
     <LandingCardsContainer>
@@ -90,9 +94,19 @@ export const LandingCardsGrid = () => {
           />
         </Box>
         <Card
-          buttonOne={{ children: 'Show on Maps', variant: 'primary' }}
+          buttonOne={{
+            children: (
+              <Typography variant="large">
+                <a href={handleButtonLink()} target="_blank">
+                  Show on Map↗
+                </a>
+              </Typography>
+            ),
+            variant: 'primary',
+          }}
           CardTitle="Parking"
           CardDescription="Parking available at Heward Ave & Eastern Ave"
+          ImageSrc="/images/Maps-ace-expanded.png"
         />
       </Box>
       <Box>
