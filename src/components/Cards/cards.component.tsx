@@ -80,7 +80,7 @@ export const Card = ({
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',
-          minHeight: '400px',
+          minHeight: '500px',
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
         ...(isMobile && {
