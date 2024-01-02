@@ -299,7 +299,7 @@ export default function BookNow() {
     }&default_time=${getTimeQueryString()}&default_date=${getDateQueryString()}`;
   };
   return (
-    <Box sx={{ margin: 'auto' }}>
+    <Box sx={{ margin: 'auto', overflow: 'hidden' }}>
       <Box
         sx={{
           display: 'flex',

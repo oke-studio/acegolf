@@ -135,15 +135,20 @@ const PricesTabsContentSkeleton = ({
             width: 'max-content',
             minWidth: '150px',
             borderRadius: '8px',
-            padding: '24px',
+            padding: '16px',
             //gap: '8px',
           }}
         >
-          <Typography variant="base">{`${timeFrom} - ${timeTo}`}</Typography>
-          <Typography variant="extralarge">
-            <b>${price}</b>/hr
+          <Typography
+            variant="base"
+            weight="500"
+            sx={{ color: 'black', textTransform: 'uppercase' }}
+          >{`${timeFrom} - ${timeTo}`}</Typography>
+          <Typography variant="headingFour" weight="800">
+            ${price} <span>/hr</span>
           </Typography>
-          <Typography variant="base">per bay, per person</Typography>
+
+          <Typography variant="base">per bay</Typography>
         </Box>
         <Box
           sx={{
@@ -152,10 +157,10 @@ const PricesTabsContentSkeleton = ({
             justifyContent: 'center',
           }}
         >
-          <Typography variant="base" color="black">
+          <Typography variant="miniscule" color="black">
             *Bar {bar ? 'Open' : 'Closed'}
           </Typography>
-          <Typography variant="base" color="black">
+          <Typography variant="miniscule" color="black">
             *Kitchen {kitchen ? 'Open' : 'Closed'}
           </Typography>
         </Box>
@@ -168,14 +173,14 @@ const PricesTabsContentSkeleton = ({
         {title}
       </Typography>
       <Typography variant="base">{description}</Typography>
-      <Box sx={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+      <Box sx={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
         <PriceInfoBox {...priceContainerOne} />
         <PriceInfoBox {...priceContainerTwo} />
       </Box>
       <Box
         sx={{
           display: 'flex',
-          padding: '24px',
+          padding: '16px',
           flexDirection: 'column',
           backgroundColor: 'white',
           borderRadius: '8px',

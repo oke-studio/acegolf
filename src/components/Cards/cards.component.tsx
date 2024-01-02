@@ -79,10 +79,13 @@ export const Card = ({
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',
-          minHeight: '350px',
+          minHeight: '400px',
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
-        borderRadius: isMobile ? '15px' : '30px',
+        ...(isMobile && {
+          borderRadius: '16px',
+          padding: '16px',
+        }),
       }}
     >
       {/* Title Box --> Make this text Box */}

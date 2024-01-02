@@ -168,15 +168,15 @@ export const LandingCardsGrid = () => {
           ImageSrc="/images/Maps-ace-expanded.png"
         />
       </Box>
-      <Box>
-        <Card
+      {/* <Box> */}
+      {/* <Card
           buttonOne={{ children: 'Learn More', variant: 'primary' }}
           CardTitle="Full Width Card"
           CardDescription="Content on card"
           fullWidth
           ImageSrc="/images/ace-landing-image-1.jpeg"
-        />
-      </Box>
+        /> */}
+      {/* </Box> */}
     </LandingCardsContainer>
   );
 };
