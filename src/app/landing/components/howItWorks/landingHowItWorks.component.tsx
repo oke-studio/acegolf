@@ -96,11 +96,11 @@ export const LandingHowItWorks = () => {
           {/* #1 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant="poster" weight="900" fontStyle="italic">
+              <Typography variant="headingOne" weight="900" fontStyle="italic">
                 1.
               </Typography>
               <Typography
-                variant="headingOne"
+                variant="headingTwo"
                 weight="900"
                 fontStyle="italic"
                 sx={{
@@ -133,11 +133,11 @@ export const LandingHowItWorks = () => {
           {/* #2 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant="poster" weight="900" fontStyle="italic">
+              <Typography variant="headingOne" weight="900" fontStyle="italic">
                 2.
               </Typography>
               <Typography
-                variant="headingOne"
+                variant="headingTwo"
                 weight="900"
                 fontStyle="italic"
                 sx={{
@@ -170,11 +170,11 @@ export const LandingHowItWorks = () => {
           {/* #3 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant="poster" weight="900" fontStyle="italic">
+              <Typography variant="headingOne" weight="900" fontStyle="italic">
                 3.
               </Typography>
               <Typography
-                variant="headingOne"
+                variant="headingTwo"
                 weight="900"
                 fontStyle="italic"
                 sx={{
