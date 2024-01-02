@@ -92,7 +92,7 @@ export const Card = ({
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          gap:'16px'
+          gap: '16px',
         }}
       >
         <Typography variant="headingThree" weight="600">
