@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Typography } from '@/components/Typography/typography.component';
 
 interface RoundedVideoTextProps {
   fill?: string;
@@ -28,7 +29,7 @@ export const RoundedVideoText = ({
       style={{
         fontWeight: '600',
         fontStyle: 'italic',
-        fontSize: '20px',
+        fontSize: '1.5rem',
       }}
       fill={fill}
     >

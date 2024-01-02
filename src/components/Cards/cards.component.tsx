@@ -9,9 +9,10 @@ import {
   SxProps,
   Theme,
   useTheme,
-  Typography,
   useMediaQuery,
 } from '@mui/material';
+
+import { Typography } from '../Typography/typography.component';
 
 type CardColorTypes = 'light' | 'dark';
 
@@ -21,10 +22,9 @@ const CardColorVariants = {
 };
 
 const CardContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'variant',
+  shouldForwardProp: prop => prop !== 'variant',
   name: 'Card',
 })({
-  borderRadius: '50px',
   padding: '24px',
   display: 'flex',
   flexDirection: 'column',
@@ -33,6 +33,7 @@ const CardContainer = styled(Box, {
   width: '100%',
   //   height: '100%',
   alignItems: 'center',
+  borderRadius: '30px',
 });
 
 interface CardProps {
@@ -79,6 +80,7 @@ export const Card = ({
           backgroundPosition: 'center',
           color: 'white',
           minHeight: '350px',
+          // borderRadius: isMobile ? '30px' : '15px, when can we add this?
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
       }}
@@ -90,10 +92,15 @@ export const Card = ({
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
+          gap: '16px',
         }}
       >
-        <Typography>{CardTitle}</Typography>
-        <Typography>{CardDescription}</Typography>
+        <Typography variant="headingThree" weight="600">
+          {CardTitle}
+        </Typography>
+        <Typography variant="base" weight="400">
+          {CardDescription}
+        </Typography>
       </Box>
 
       {/* Content Box */}
@@ -110,11 +117,11 @@ export const Card = ({
         }}
       >
         <Button {...buttonOne} fullWidth>
-          {buttonOne.children} &rarr;
+          {buttonOne.children}
         </Button>
         {buttonTwo && (
           <Button {...buttonTwo} fullWidth>
-            {buttonTwo.children} &rarr;
+            {buttonTwo.children}
           </Button>
         )}
       </Box>

@@ -3,8 +3,10 @@ import { Button, Box } from '@mui/material';
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { Typography } from '@/components/Typography/typography.component';
+import { useRouter } from 'next/navigation';
 
 export const LandingHero = () => {
+  const router = useRouter();
   return (
     <Section
       SectionName="Landing Hero"
@@ -77,10 +79,11 @@ export const LandingHero = () => {
                   display: 'flex',
                   flexBasis: 'fit-content',
                   transform: 'rotate(3deg)',
-                  padding: '0px 20px',
+                  padding: '0px 4px',
                   alignItems: 'center',
                   flexShrink: '0',
                   color: '#FFF',
+                  borderRadius: '4px',
                 }}
               >
                 COOLEST
@@ -138,15 +141,18 @@ export const LandingHero = () => {
               },
               //
             }}
+            onClick={() => {
+              router.push('/book-now');
+            }}
           >
-            <Typography variant="headingThree">
-              <a
+            <Typography variant="headingThree" weight="500">
+              {/* <a
                 href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
                 target="_blank"
               >
-                {' '}
-                Reserve a bay &rarr;
-              </a>
+                {' '} */}
+              Reserve a bay &rarr;
+              {/* </a> */}
             </Typography>
           </Button>
         </Box>

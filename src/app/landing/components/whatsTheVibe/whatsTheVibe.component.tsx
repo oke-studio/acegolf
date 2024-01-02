@@ -4,9 +4,20 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import { MusicPlayer } from './components/musicPlayer/musicPlayer.component';
 import { Typography } from '@/components/Typography/typography.component';
+import { Section } from '@/components/layout/section.component';
 
 export const WhatsTheVibe = () => {
   return (
+    <Section
+      SectionName="Whats the Vibe"
+      SectionWidth="fullViewport"
+      SectionColor=""
+      CornerRadius="off"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
     <Box
       sx={{
         display: 'flex',
@@ -100,5 +111,6 @@ export const WhatsTheVibe = () => {
         What they&apos;re saying?
       </Typography>
     </Box>
+    </Section>
   );
 };

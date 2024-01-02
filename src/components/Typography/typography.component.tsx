@@ -31,7 +31,7 @@ interface TypographyProps extends Omit<TypograhpyOriginalProps, 'variant'> {
 
 export const Typography = ({
   variant,
-  weight = '300',
+  weight = '400',
   fontStyle = 'normal',
   sx,
   children,
