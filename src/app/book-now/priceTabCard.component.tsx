@@ -145,7 +145,10 @@ const PricesTabsContentSkeleton = ({
             sx={{ color: 'black', textTransform: 'uppercase' }}
           >{`${timeFrom} - ${timeTo}`}</Typography>
           <Typography variant="headingFour" weight="800">
-            ${price} <span>/hr</span>
+            ${price}{' '}
+            <Typography variant="small" weight="400" sx={{ display: 'inline' }}>
+              /hr
+            </Typography>
           </Typography>
 
           <Typography variant="base">per bay</Typography>
