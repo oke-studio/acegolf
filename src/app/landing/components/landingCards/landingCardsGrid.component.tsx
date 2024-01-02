@@ -3,7 +3,7 @@ import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 
 import { Card } from '@/components/Cards/cards.component';
-import PriceTabCard  from '../../../book-now/priceTabCard.component'
+import PriceTabCard from '../../../book-now/priceTabCard.component';
 
 const LandingCardsContainer = styled(Box)(({ theme }) => ({
   backgroundColor: 'transparent',
@@ -26,7 +26,7 @@ export const LandingCardsGrid = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const handleButtonLink = () => {
-    return `https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu`;
+    return 'https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu';
   };
 
   return (
@@ -56,68 +56,61 @@ export const LandingCardsGrid = () => {
           }}
         >
           <Box
-          sx={{
-            display: 'flex',
-            flexDirection: "row",
-            justifyContent: "center",
-            width: '100%',
-            gap: "50px",
-            padding: "0% 4%"
-            }}
-            >
-            <Box
             sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
               width: '100%',
-              minHeight: "fit-content"
-
+              gap: '50px',
+              padding: '0% 4%',
             }}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                minHeight: 'fit-content',
+              }}
             >
               <Box
-              
-              sx={{
-                backgroundImage: `url(images/placeholder1.png)`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                width: '100%',
-                borderRadius: '9px',
-                minHeight: "350px",
-                marginBottom: "16px"
-              }}
-                ></Box>
+                sx={{
+                  backgroundImage: 'url(images/placeholder1.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '100%',
+                  borderRadius: '9px',
+                  minHeight: '350px',
+                  marginBottom: '16px',
+                }}
+              ></Box>
 
-              <Typography
-              variant='base'
-              weight='200'
-              > Serious Mango shot $20</Typography>
-
+              <Typography variant="base" weight="200">
+                {' '}
+                Serious Mango shot $20
+              </Typography>
             </Box>
             <Box
-            sx={{
-              width: '100%',
-              minHeight: "fit-content"
-
-            }}
-            
+              sx={{
+                width: '100%',
+                minHeight: 'fit-content',
+              }}
             >
               <Box
-              sx={{
-                backgroundImage: `url(images/placeholder2.png)`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                width: '100%',
-                borderRadius: '9px',
-                minHeight: "350px",
-                marginBottom: "16px"
-              }}
+                sx={{
+                  backgroundImage: 'url(images/placeholder2.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '100%',
+                  borderRadius: '9px',
+                  minHeight: '350px',
+                  marginBottom: '16px',
+                }}
               ></Box>
-              <Typography
-              variant='base'
-              weight='200'
-              > Taco board Suprise $50</Typography>
-            
-
+              <Typography variant="base" weight="200">
+                {' '}
+                Taco board Suprise $50
+              </Typography>
             </Box>
           </Box>
         </Card>
@@ -129,10 +122,7 @@ export const LandingCardsGrid = () => {
             width: '40%',
           }}
         >
-          <PriceTabCard/>
-          
-
-
+          <PriceTabCard />
         </Card>
       </Box>
       <Box
