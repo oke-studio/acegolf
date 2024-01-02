@@ -87,6 +87,7 @@ export const Card = ({
           borderRadius: '16px',
           padding: '16px',
         }),
+        minWidth: 0,
       }}
     >
       {/* Title Box --> Make this text Box */}
