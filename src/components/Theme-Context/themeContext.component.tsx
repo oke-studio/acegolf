@@ -1,7 +1,8 @@
 'use client';
 import * as React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
-import { fontUses } from './fontValues';
+import { fontUses, aceFont } from './fontValues';
+
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     miniscule: React.CSSProperties;
@@ -76,6 +77,7 @@ declare module '@mui/material/Button' {
 
 const theme = createTheme({
   typography: {
+    fontFamily: aceFont.style.fontFamily,
     ...fontUses,
   },
   palette: {
