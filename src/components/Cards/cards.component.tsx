@@ -33,6 +33,7 @@ const CardContainer = styled(Box, {
   width: '100%',
   //   height: '100%',
   alignItems: 'center',
+  borderRadius: '30px',
 });
 
 interface CardProps {
@@ -79,7 +80,7 @@ export const Card = ({
           backgroundPosition: 'center',
           color: 'white',
           minHeight: '350px',
-          borderRadius: isMobile ? '30px' : '15px',
+          // borderRadius: isMobile ? '30px' : '15px, when can we add this?
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
       }}
@@ -93,10 +94,10 @@ export const Card = ({
           textAlign: 'center',
         }}
       >
-        <Typography variant="headingTwo" weight="600">
+        <Typography variant="headingThree" weight="600">
           {CardTitle}
         </Typography>
-        <Typography variant="large" weight="400">
+        <Typography variant="base" weight="400">
           {CardDescription}
         </Typography>
       </Box>
@@ -115,11 +116,11 @@ export const Card = ({
         }}
       >
         <Button {...buttonOne} fullWidth>
-          {buttonOne.children} &rarr;
+          {buttonOne.children}
         </Button>
         {buttonTwo && (
           <Button {...buttonTwo} fullWidth>
-            {buttonTwo.children} &rarr;
+            {buttonTwo.children}
           </Button>
         )}
       </Box>
