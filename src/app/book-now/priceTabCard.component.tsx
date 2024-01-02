@@ -211,6 +211,8 @@ const PricesTabsContentSkeleton = ({
           borderWidth: '3px',
           borderStyle: 'solid',
           borderColor: theme.palette.green,
+          width: 'max-content',
+          minWidth: '300px',
         }}
       >
         <Typography
@@ -275,14 +277,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            //backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
