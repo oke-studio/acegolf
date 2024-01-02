@@ -74,7 +74,8 @@ export const Card = ({
         ...(fullWidth && { alignItems: 'start' }),
         ...sx,
         ...(ImageSrc && {
-          backgroundImage: `url(${ImageSrc})`,
+          //backgroundImage: `url(${ImageSrc})`,
+          background: `linear-gradient(180deg, rgba(35, 35, 35) 0%, rgba(0, 0, 0, 0.44) 14.58%, rgba(0, 0, 0, 0.00) 81.25%, rgba(0, 0, 0, 0.05) 99.53%), url(${ImageSrc})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
