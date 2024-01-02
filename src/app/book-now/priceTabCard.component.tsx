@@ -46,13 +46,13 @@ function TabPanel(props: TabPanelProps) {
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   borderRadius: '12px',
   borderStyle: 'solid',
-  borderColor: theme.palette.aceGreen,
+  borderColor: theme.palette.sharpTeal,
   borderWidth: '3px',
   '& .MuiTabs-indicator': {
     backgroundColor: 'transparent',
   },
   'button:not(:last-child)': {
-    borderColor: theme.palette.aceGreen,
+    borderColor: theme.palette.sharpTeal,
     borderStyle: 'solid',
     borderRightWidth: '3px',
   },
@@ -72,7 +72,7 @@ const StyledTab = styled((props: StyledTabProps) => (
   // marginRight: theme.spacing(1),
   // color: 'rgba(255, 255, 255, 0.7)',
   '&.Mui-selected': {
-    backgroundColor: 'rgba(57, 119, 94, 0.5)',
+    backgroundColor: theme.palette.sharpTeal,
     color: 'black',
   },
   '&.Mui-focusVisible': {
@@ -114,7 +114,7 @@ const PricesTabsContentSkeleton = ({
     timeFrom,
     timeTo,
     backgroundColor,
-    color = 'black',
+    color = 'white',
     bar = false,
     kitchen = false,
   }: PriceContainer) => {
@@ -171,11 +171,20 @@ const PricesTabsContentSkeleton = ({
     );
   };
   return (
-    <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
-      <Typography variant="large" weight="600">
-        {title}
-      </Typography>
-      <Typography variant="base">{description}</Typography>
+    <Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '4px',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Typography variant="large" weight="600">
+          {title}
+        </Typography>
+        <Typography variant="base">{description}</Typography>
+      </Box>
       <Box sx={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
         <PriceInfoBox {...priceContainerOne} />
         <PriceInfoBox {...priceContainerTwo} />
@@ -189,7 +198,7 @@ const PricesTabsContentSkeleton = ({
           borderRadius: '8px',
           borderWidth: '3px',
           borderStyle: 'solid',
-          borderColor: theme.palette.aceTeal,
+          borderColor: theme.palette.green,
         }}
       >
         <Typography variant="base">Private Bay</Typography>
@@ -249,7 +258,7 @@ export default function PriceTabCard() {
             timeFrom: '5pm',
             timeTo: '9pm',
             color: 'black',
-            backgroundColor: theme.palette.aceGreen,
+            //backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -282,14 +291,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
