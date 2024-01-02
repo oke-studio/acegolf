@@ -11,7 +11,7 @@ import { aceFont } from '@/components/Theme-Context/fontValues';
 
 export const metadata = {
   title: 'Ace Golf Bar',
-  description: "Ace golf bar - Toronto's first ever indoor golf lounge",
+  description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
 };
 
 export default function RootLayout({
