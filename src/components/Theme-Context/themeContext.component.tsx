@@ -40,6 +40,17 @@ declare module '@mui/material/styles' {
     aceTeal: string;
     aceGreen: string;
     aceGrey: string;
+
+    coolBlue: string;
+    darkBlack: string;
+    lightBlack: string;
+    white: string;
+    yellow: string;
+    orange: string;
+    green: string;
+    sharpTeal: string;
+    red: string;
+    lightRed: string;
   }
 
   interface PaletteOptions {
@@ -47,6 +58,17 @@ declare module '@mui/material/styles' {
     aceTeal?: string;
     aceGreen?: string;
     aceGrey?: string;
+
+    coolBlue?: string;
+    darkBlack?: string;
+    lightBlack?: string;
+    white?: string;
+    yellow?: string;
+    orange?: string;
+    green?: string;
+    sharpTeal?: string;
+    red?: string;
+    lightRed?: string;
   }
 }
 
@@ -86,6 +108,17 @@ const theme = createTheme({
     aceTeal: '#36DAD5',
     aceGreen: '#39775E',
     aceGrey: '#AFAFAF',
+
+    coolBlue: '#529DC8',
+    darkBlack: '#000',
+    lightBlack: '#171717',
+    white: '#FFF',
+    yellow: '#F0E68C',
+    orange: '#EB8B32',
+    green: '#39775E',
+    sharpTeal: '#36DAD5',
+    red: '#B52519',
+    lightRed: '#FB8080',
   },
   components: {
     MuiButton: {
