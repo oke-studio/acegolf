@@ -79,10 +79,11 @@ export const LandingHero = () => {
                   display: 'flex',
                   flexBasis: 'fit-content',
                   transform: 'rotate(3deg)',
-                  padding: '0px 20px',
+                  padding: '0px 4px',
                   alignItems: 'center',
                   flexShrink: '0',
                   color: '#FFF',
+                  borderRadius: '4px',
                 }}
               >
                 COOLEST
