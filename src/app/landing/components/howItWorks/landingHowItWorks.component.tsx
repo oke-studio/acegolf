@@ -196,6 +196,7 @@ export const LandingHowItWorks = () => {
 
         <Card
           CardTitle="Book a bay with friends"
+          CardDescription="Plan your visit today!"
           ColorVariant="dark"
           buttonOne={{
             children: (
