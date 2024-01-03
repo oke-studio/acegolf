@@ -266,7 +266,7 @@ export default function PriceTabCard() {
         textColor="secondary"
         indicatorColor="secondary"
         aria-label="secondary tabs example"
-        variant="fullWidth"
+        variant="scrollable"
         scrollButtons="auto"
         sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
       >

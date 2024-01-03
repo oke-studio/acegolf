@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { useRouter } from 'next/navigation';
 
@@ -15,14 +15,6 @@ const LandingCardsContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const LandingCardsGrid = () => {
-  //   return (
-  //     <LandingCardsContainer>
-  //       <Card
-  //         buttonOne={{ children: 'Testing card', variant: 'primary' }}
-  //         CardTitle="Card Test"
-  //       />
-  //     </LandingCardsContainer>
-  //   );
   const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));

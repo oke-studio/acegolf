@@ -1,25 +1,14 @@
 'use client';
 
 import * as React from 'react';
-import {
-  useTheme,
-  Box,
-  useMediaQuery,
-  Button,
-  FormControl,
-  Select,
-  InputLabel,
-  SelectChangeEvent,
-  InputBase,
-  styled,
-  Hidden,
-  MenuItem,
-} from '@mui/material';
+import { useTheme, Box, useMediaQuery, InputBase, styled } from '@mui/material';
 import { LandingCards } from '../landingCards/landingCards.component';
 import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
-import { orange } from '@mui/material/colors';
+import dayjs from 'dayjs';
+import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
+import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // 'label + &': {
@@ -49,25 +38,19 @@ export const LandingHowItWorks = () => {
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
-  const [reserveABayObject, setReserveABayObject] = React.useState<{
-    guests: string;
-    time: string;
-  }>({ guests: '1', time: '1' });
+  const {
+    handleBookNowButtonLink,
+    handleDateTimePickerChange,
+    handleReserveFormOnChange,
+    reserveABayObject,
+  } = useBookNowForm({
+    guests: '1',
+    duration: '1',
+    date: dayjs(new Date()).format(),
+    time: dayjs(new Date()).format(),
+  });
 
   console.log(reserveABayObject);
-
-  const handleReserveFormOnChange = (
-    event: SelectChangeEvent,
-    option: keyof typeof reserveABayObject,
-  ) => {
-    console.log(event.target.value);
-
-    reserveABayObject[option] = event.target.value;
-
-    setReserveABayObject({
-      ...reserveABayObject,
-    });
-  };
 
   const HowItWorksCopy = [{ label: '', description: '' }];
 
@@ -211,62 +194,32 @@ export const LandingHowItWorks = () => {
           </Box>
         </Box>
 
-        {/* <Card
+        <Card
           CardTitle="Book a bay with friends"
           ColorVariant="dark"
-          buttonOne={{ children: 'Reserve a bay', variant: 'primary' }}
+          buttonOne={{
+            children: (
+              <Typography variant="base">
+                <a href={handleBookNowButtonLink()} target="_blank">
+                  Find a Bay&nbsp;
+                </a>
+              </Typography>
+            ),
+            variant: 'primary',
+          }}
           BackgroundColor="transparent"
-          // fullWidth
           sx={{
             borderColor: '#36DAD5',
             borderWidth: '6px',
             borderStyle: 'solid',
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '24px' }}>
-            <FormControl fullWidth>
-              <InputLabel id="reserve-a-bay-guest-label">Guests</InputLabel>
-              <Select
-                value={reserveABayObject.guests}
-                native
-                label="Guests"
-                id="reserve-a-bay-guest"
-                labelId="reserve-a-bay-guest-label"
-                onChange={e => handleReserveFormOnChange(e, 'guests')}
-                input={<BootstrapInput />}
-              >
-                {[...Array(6)].map((_, index) => (
-                  <option value={index} key={`option_${index}`}>
-                    {[index, index !== 1 ? 'Guests' : 'Guest'].join(' ')}
-                  </option>
-                ))}
-              </Select>
-            </FormControl>
-
-            <FormControl fullWidth>
-              <InputLabel id="reserve-a-bay-time-label">Guests</InputLabel>
-              <Select
-                value={reserveABayObject.time}
-                native
-                label="Hours"
-                id="reserve-a-bay-time"
-                labelId="reserve-a-bay-time-label"
-                onChange={e => handleReserveFormOnChange(e, 'time')}
-                input={<BootstrapInput />}
-              >
-                {[...Array(5)].map((_, index) =>
-                  index === 0 ? (
-                    <></>
-                  ) : (
-                    <option value={index} key={`option_${index}`}>
-                      {[index, index !== 1 ? 'Hours' : 'Hour'].join(' ')}
-                    </option>
-                  ),
-                )}
-              </Select>
-            </FormControl>
-          </Box>
-        </Card> */}
+          <BookNowForm
+            handleDateTimePickerChange={handleDateTimePickerChange}
+            handleReserveFormOnChange={handleReserveFormOnChange}
+            reserveABayObject={reserveABayObject}
+          />
+        </Card>
       </Box>
     </Section>
   );
