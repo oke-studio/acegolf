@@ -20,6 +20,7 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
+import BookNow from '@/app/book-now/bookNowCard.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // 'label + &': {
@@ -44,6 +45,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export const LandingHowItWorks = () => {
   const { typography, palette } = useTheme();
+  const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
@@ -209,7 +211,9 @@ export const LandingHowItWorks = () => {
             </Typography>
           </Box>
         </Box>
-        <Card
+        <BookNow />
+
+        {/* <Card
           CardTitle="Book a bay with friends"
           ColorVariant="dark"
           buttonOne={{ children: 'Reserve a bay', variant: 'primary' }}
@@ -264,7 +268,7 @@ export const LandingHowItWorks = () => {
               </Select>
             </FormControl>
           </Box>
-        </Card>
+        </Card> */}
       </Box>
     </Section>
   );
