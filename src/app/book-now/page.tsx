@@ -209,6 +209,13 @@ export default function BookNow() {
     date: dayjs(new Date()).format(),
     time: dayjs(new Date()).format(),
   });
+  const currentDate = new Date();
+
+  const [value, setValue] = React.useState(currentDate.getDay());
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
     <Box sx={{ margin: 'auto', overflow: 'hidden' }}>

@@ -4,10 +4,6 @@ import { ReserveABayObject } from '../bookNowForm.component';
 import dayjs from 'dayjs';
 
 export const useBookNowForm = (reserveObject: ReserveABayObject) => {
-  const currentDate = new Date();
-
-  const [value, setValue] = React.useState(currentDate.getDay());
-
   const [reserveABayObject, setReserveABayObject] = React.useState<{
     guests: string;
     duration: string;
@@ -62,10 +58,6 @@ export const useBookNowForm = (reserveObject: ReserveABayObject) => {
     reserveABayObject[option] = newValue;
 
     setReserveABayObject({ ...reserveABayObject });
-  };
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
   };
 
   const handleBookNowButtonLink = () => {

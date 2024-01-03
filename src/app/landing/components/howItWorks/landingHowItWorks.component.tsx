@@ -201,7 +201,7 @@ export const LandingHowItWorks = () => {
             children: (
               <Typography variant="base">
                 <a href={handleBookNowButtonLink()} target="_blank">
-                  Find a Bay&nbsp;
+                  Reserve A Bay&nbsp;&rarr;
                 </a>
               </Typography>
             ),
