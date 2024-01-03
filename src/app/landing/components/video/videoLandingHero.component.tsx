@@ -52,7 +52,7 @@ export const VideoLandingHero = () => {
               }
             : {
                 d:
-                  'M1242.7,718.8H30c-16.6,0-30-13.4-30-30V30C0,13.4,13.4,0,30,0h1212.7c16.6,0,30,13.4,30,30v658.8 C1272.7,705.4,1259.3,718.8,1242.7,718.8z',
+                  'M1219.1,718.8H53.6C24,718.8,0,694.8,0,665.2V53.6C0,24,24,0,53.6,0h1165.6c29.6,0,53.6,24,53.6,53.6v611.7 C1272.7,694.8,1248.7,718.8,1219.1,718.8z',
               }
         }
         text="WE BRING YOU GOLF, ALL-YEAR ROUND WITH STATE OF THE ART GOLF BAYS, THE BEST DRINKS IN THE CITY AND A CURATED SELECTION OF BITES TO FUEL YOUR SWING."
