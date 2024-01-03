@@ -92,7 +92,13 @@ export const LandingHowItWorks = () => {
           HOW IT WORKS
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            gap: isMobile ? '16px' : '4px',
+          }}
+        >
           {/* #1 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
