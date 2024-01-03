@@ -46,13 +46,13 @@ function TabPanel(props: TabPanelProps) {
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   borderRadius: '12px',
   borderStyle: 'solid',
-  borderColor: theme.palette.aceGreen,
+  borderColor: theme.palette.sharpTeal,
   borderWidth: '3px',
   '& .MuiTabs-indicator': {
     backgroundColor: 'transparent',
   },
   'button:not(:last-child)': {
-    borderColor: theme.palette.aceGreen,
+    borderColor: theme.palette.sharpTeal,
     borderStyle: 'solid',
     borderRightWidth: '3px',
   },
@@ -72,7 +72,7 @@ const StyledTab = styled((props: StyledTabProps) => (
   // marginRight: theme.spacing(1),
   // color: 'rgba(255, 255, 255, 0.7)',
   '&.Mui-selected': {
-    backgroundColor: 'rgba(57, 119, 94, 0.5)',
+    backgroundColor: theme.palette.sharpTeal,
     color: 'black',
   },
   '&.Mui-focusVisible': {
@@ -88,6 +88,7 @@ interface PriceContainer {
   backgroundColor?: string;
   bar?: boolean;
   kitchen?: boolean;
+  cafe?: boolean;
 }
 
 interface PricesTabsContentSkeletonProps {
@@ -97,7 +98,7 @@ interface PricesTabsContentSkeletonProps {
   priceContainerTwo: PriceContainer;
   privatePriceContainer: Omit<
     PriceContainer,
-    'timeFrom' | 'timeTo' | 'backgroundColor' | 'bar' | 'kitchen'
+    'timeFrom' | 'timeTo' | 'backgroundColor' | 'bar' | 'kitchen' | 'bar'
   >;
 }
 
@@ -114,9 +115,10 @@ const PricesTabsContentSkeleton = ({
     timeFrom,
     timeTo,
     backgroundColor,
-    color = 'black',
+    color = 'white',
     bar = false,
     kitchen = false,
+    cafe = true,
   }: PriceContainer) => {
     return (
       <Box
@@ -125,68 +127,119 @@ const PricesTabsContentSkeleton = ({
           flexDirection: 'column',
           gap: '8px',
           color: color,
+          width: '100%',
         }}
       >
         <Box
           sx={{
-            backgroundColor: backgroundColor ?? '#36DAD5',
+            backgroundColor: backgroundColor ?? theme.palette.green,
             display: 'flex',
             flexDirection: 'column',
-            width: 'max-content',
-            minWidth: '150px',
+            width: '100%',
+            minWidth: 'max-content',
             borderRadius: '8px',
-            padding: '24px',
+            padding: '16px',
             //gap: '8px',
           }}
         >
-          <Typography variant="base">{`${timeFrom} - ${timeTo}`}</Typography>
-          <Typography variant="extralarge">
-            <b>${price}</b>/hr
+          <Typography
+            variant="miniscule"
+            weight="600"
+            sx={{
+              // color: 'black',
+              textTransform: 'uppercase',
+            }}
+          >{`${timeFrom} - ${timeTo}`}</Typography>
+          <Typography variant="headingFour" weight="800">
+            ${price}{' '}
+            <Typography variant="small" weight="400" sx={{ display: 'inline' }}>
+              /hr
+            </Typography>
           </Typography>
-          <Typography variant="base">per bay, per person</Typography>
+
+          <Typography
+            variant="miniscule"
+            weight="600"
+            sx={{
+              // color: 'black',
+              textTransform: 'uppercase',
+            }}
+          >
+            Standard Bay
+          </Typography>
         </Box>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            // justifyContent: 'center',
           }}
         >
-          <Typography variant="base" color="black">
-            *Bar {bar ? 'Open' : 'Closed'}
-          </Typography>
-          <Typography variant="base" color="black">
-            *Kitchen {kitchen ? 'Open' : 'Closed'}
+          <Typography variant="miniscule" color="black">
+            *Bar {bar ? 'Open' : 'Closed'}, Cafe {cafe ? 'Open' : 'Closed'},
+            Kitchen {kitchen ? 'Open' : 'Closed'}
           </Typography>
         </Box>
       </Box>
     );
   };
   return (
-    <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
-      <Typography variant="large" weight="600">
-        {title}
-      </Typography>
-      <Typography variant="base">{description}</Typography>
-      <Box sx={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+    <Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '4px',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Typography variant="extralarge" weight="600">
+          {title} Pricing
+        </Typography>
+        <Typography variant="base">{description}</Typography>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '16px',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+        }}
+      >
         <PriceInfoBox {...priceContainerOne} />
         <PriceInfoBox {...priceContainerTwo} />
       </Box>
       <Box
         sx={{
           display: 'flex',
-          padding: '24px',
+          padding: '16px',
           flexDirection: 'column',
           backgroundColor: 'white',
           borderRadius: '8px',
           borderWidth: '3px',
           borderStyle: 'solid',
-          borderColor: theme.palette.aceTeal,
+          borderColor: theme.palette.green,
+          width: '100%',
+          minHeight: 'max-content',
+          height: 'max-content',
+          marginBottom: '10px',
         }}
       >
-        <Typography variant="base">Private Bay</Typography>
-        <Typography variant="base">
-          <b>${privatePriceContainer.price}</b>/hr
+        <Typography variant="headingFour" weight="800">
+          ${privatePriceContainer.price}
+          <Typography variant="small" weight="400" sx={{ display: 'inline' }}>
+            /hr
+          </Typography>
+        </Typography>
+        <Typography
+          variant="miniscule"
+          weight="600"
+          sx={{
+            // color: 'black',
+            textTransform: 'uppercase',
+          }}
+        >
+          Private Bay
         </Typography>
       </Box>
     </Box>
@@ -231,17 +284,14 @@ export default function PriceTabCard() {
           title="Sunday"
           description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
           priceContainerOne={{
-            price: 50,
-            timeFrom: '5pm',
-            timeTo: '9pm',
-            color: 'white',
+            price: 39.99,
+            timeFrom: '8am',
+            timeTo: '5pm',
           }}
           priceContainerTwo={{
-            price: 50.99,
+            price: 40.99,
             timeFrom: '5pm',
-            timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
+            timeTo: '12am',
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -251,17 +301,16 @@ export default function PriceTabCard() {
           title="Monday"
           description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
           priceContainerOne={{
-            price: 50,
-            timeFrom: '5pm',
-            timeTo: '9pm',
-            color: 'white',
+            price: 39.99,
+            timeFrom: '8am',
+            timeTo: '5pm',
+            bar: false,
+            cafe: true,
           }}
           priceContainerTwo={{
-            price: 50.99,
+            price: 40.99,
             timeFrom: '5pm',
-            timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
+            timeTo: '12am',
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -274,14 +323,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -294,14 +340,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -314,14 +357,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -334,14 +374,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />
@@ -354,14 +391,11 @@ export default function PriceTabCard() {
             price: 50,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'white',
           }}
           priceContainerTwo={{
             price: 50.99,
             timeFrom: '5pm',
             timeTo: '9pm',
-            color: 'black',
-            backgroundColor: theme.palette.aceGreen,
           }}
           privatePriceContainer={{ price: 59.99 }}
         />

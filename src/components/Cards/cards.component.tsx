@@ -37,7 +37,7 @@ const CardContainer = styled(Box, {
 });
 
 interface CardProps {
-  buttonOne: ButtonProps;
+  buttonOne?: ButtonProps;
   buttonTwo?: ButtonProps;
   CardTitle: string;
   CardDescription?: string;
@@ -74,15 +74,20 @@ export const Card = ({
         ...(fullWidth && { alignItems: 'start' }),
         ...sx,
         ...(ImageSrc && {
-          backgroundImage: `url(${ImageSrc})`,
+          //backgroundImage: `url(${ImageSrc})`,
+          background: `linear-gradient(180deg, rgba(35, 35, 35) 0%, rgba(0, 0, 0, 0.44) 14.58%, rgba(0, 0, 0, 0.00) 81.25%, rgba(0, 0, 0, 0.05) 99.53%), url(${ImageSrc})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',
-          minHeight: '350px',
-          // borderRadius: isMobile ? '30px' : '15px, when can we add this?
+          minHeight: '500px',
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
+        ...(isMobile && {
+          borderRadius: '16px',
+          padding: '16px',
+        }),
+        minWidth: 0,
       }}
     >
       {/* Title Box --> Make this text Box */}
@@ -116,9 +121,11 @@ export const Card = ({
           flexWrap: 'wrap',
         }}
       >
-        <Button {...buttonOne} fullWidth>
-          {buttonOne.children}
-        </Button>
+        {buttonOne && (
+          <Button {...buttonOne} fullWidth>
+            {buttonOne.children}
+          </Button>
+        )}
         {buttonTwo && (
           <Button {...buttonTwo} fullWidth>
             {buttonTwo.children}

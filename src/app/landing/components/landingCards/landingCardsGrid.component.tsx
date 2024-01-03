@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
+import { useRouter } from 'next/navigation';
 
 import { Card } from '@/components/Cards/cards.component';
 import PriceTabCard from '../../../book-now/priceTabCard.component';
@@ -14,15 +15,7 @@ const LandingCardsContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const LandingCardsGrid = () => {
-  //   return (
-  //     <LandingCardsContainer>
-  //       <Card
-  //         buttonOne={{ children: 'Testing card', variant: 'primary' }}
-  //         CardTitle="Card Test"
-  //       />
-  //     </LandingCardsContainer>
-  //   );
-
+  const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const handleButtonLink = () => {
@@ -33,8 +26,12 @@ export const LandingCardsGrid = () => {
     <LandingCardsContainer>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
+          display: 'grid',
+          ...(isMobile
+            ? {
+                gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
+              }
+            : { gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 2fr)' }),
           width: '100%',
           gap: '24px',
         }}
@@ -44,12 +41,12 @@ export const LandingCardsGrid = () => {
             children: 'See Full Menu',
             variant: 'secondary',
             fullWidth: true,
+            onClick: () => router.push('/menu'),
           }}
           CardTitle="Tapas Style Menu"
           CardDescription="Crazy Good menu goes here with multiple descriptions"
           ColorVariant="dark"
           sx={{
-            width: '60%',
             borderColor: '#36DAD5',
             borderWidth: '6px',
             borderStyle: 'solid',
@@ -118,17 +115,18 @@ export const LandingCardsGrid = () => {
           buttonOne={{ children: 'How it works', variant: 'secondary' }}
           buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}
           CardTitle="Prices & Rates"
-          sx={{
-            width: '40%',
-          }}
         >
           <PriceTabCard />
         </Card>
       </Box>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
+          display: 'grid',
+          ...(isMobile
+            ? {
+                gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
+              }
+            : { gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)' }),
           width: '100%',
           gap: '24px',
         }}
@@ -136,7 +134,7 @@ export const LandingCardsGrid = () => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: isMobile ? 'row' : 'column',
             width: '100%',
             gap: '24px',
             flexBasis: '60%',
@@ -169,15 +167,15 @@ export const LandingCardsGrid = () => {
           ImageSrc="/images/Maps-ace-expanded.png"
         />
       </Box>
-      <Box>
-        <Card
+      {/* <Box> */}
+      {/* <Card
           buttonOne={{ children: 'Learn More', variant: 'primary' }}
           CardTitle="Full Width Card"
           CardDescription="Content on card"
           fullWidth
           ImageSrc="/images/ace-landing-image-1.jpeg"
-        />
-      </Box>
+        /> */}
+      {/* </Box> */}
     </LandingCardsContainer>
   );
 };

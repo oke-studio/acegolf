@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Box } from '@mui/material';
+import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { Typography } from '@/components/Typography/typography.component';
@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 
 export const LandingHero = () => {
   const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Section
       SectionName="Landing Hero"
@@ -58,8 +60,6 @@ export const LandingHero = () => {
               fontWeight: '900',
               display: 'flex',
               flexDirection: 'column',
-              //lineHeight: "0px",
-              // letterSpacing: "-2.112px",
             }}
           >
             <Typography variant="poster" weight="900">

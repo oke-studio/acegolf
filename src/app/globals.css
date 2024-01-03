@@ -82,7 +82,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-size: 16px;
 }
 
@@ -107,7 +107,7 @@ a {
   }
 }
 @media all and (max-device-width: 640px){
-  html {
+  html, body {
       font-size: 12px;
   }
 }
