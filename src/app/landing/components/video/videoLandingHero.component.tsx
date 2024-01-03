@@ -14,6 +14,7 @@ import { RoundedVideoPath } from '@/components/animated-paths/roundedVideoPath.c
 
 export const VideoLandingHero = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
+
   return (
     <Section
       SectionName="Landing Hero"
@@ -25,6 +26,8 @@ export const VideoLandingHero = () => {
         display: 'grid',
         placeItems: 'center',
         gridTemplateAreas: 'videoWithPathArea',
+        position: 'relative',
+        top: '-150px',
       }}
     >
       <LandingVideo
