@@ -20,7 +20,6 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
 import { orange } from '@mui/material/colors';
-import BookNow from '@/app/book-now/bookNowCard.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // 'label + &': {
@@ -211,7 +210,6 @@ export const LandingHowItWorks = () => {
             </Typography>
           </Box>
         </Box>
-        <BookNow />
 
         {/* <Card
           CardTitle="Book a bay with friends"
