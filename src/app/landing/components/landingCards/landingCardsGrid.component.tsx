@@ -34,13 +34,8 @@ export const LandingCardsGrid = () => {
     <LandingCardsContainer>
       <Box
         sx={{
-          display: 'grid',
-          // flexDirection: isMobile ? 'column' : 'row',
-          ...(isMobile
-            ? {
-                gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
-              }
-            : { gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 2fr)' }),
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           width: '100%',
           gap: '24px',
         }}
@@ -56,6 +51,7 @@ export const LandingCardsGrid = () => {
           CardDescription="Crazy Good menu goes here with multiple descriptions"
           ColorVariant="dark"
           sx={{
+            width: '60%',
             borderColor: '#36DAD5',
             borderWidth: '6px',
             borderStyle: 'solid',
@@ -130,12 +126,8 @@ export const LandingCardsGrid = () => {
       </Box>
       <Box
         sx={{
-          display: 'grid',
-          ...(isMobile
-            ? {
-                gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
-              }
-            : { gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)' }),
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           width: '100%',
           gap: '24px',
         }}
