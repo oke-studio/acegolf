@@ -44,6 +44,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export const LandingHowItWorks = () => {
   const { typography, palette } = useTheme();
+  const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:640px)');
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
@@ -92,7 +93,13 @@ export const LandingHowItWorks = () => {
           HOW IT WORKS
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            gap: isMobile ? '16px' : '4px',
+          }}
+        >
           {/* #1 */}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -203,7 +210,8 @@ export const LandingHowItWorks = () => {
             </Typography>
           </Box>
         </Box>
-        <Card
+
+        {/* <Card
           CardTitle="Book a bay with friends"
           ColorVariant="dark"
           buttonOne={{ children: 'Reserve a bay', variant: 'primary' }}
@@ -258,7 +266,7 @@ export const LandingHowItWorks = () => {
               </Select>
             </FormControl>
           </Box>
-        </Card>
+        </Card> */}
       </Box>
     </Section>
   );
