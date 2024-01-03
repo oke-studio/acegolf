@@ -52,9 +52,10 @@ export default function Landing() {
   return (
     <Box
       sx={{
+        // backgroundColor: '#000',
         backgroundColor: '#171717',
         position: 'relative',
-        overflow: 'hidden',
+        //overflow: 'hidden',
       }}
     >
       {/* <Header
@@ -65,16 +66,31 @@ export default function Landing() {
           { label: 'Parties & Events', to: '/pricing' },
         ]}
       /> */}
-      <LandingHero />
-      <VideoLandingHero />
+      <Box
+        sx={{
+          position: 'sticky',
+          top: '60px',
+          overflowX: 'hidden',
+        }}
+      >
+        <LandingHero />
+      </Box>
+      <Box
+        sx={{
+          position: 'sticky',
+          top: '210px',
+        }}
+      >
+        <VideoLandingHero />
+      </Box>
 
       <LandingHowItWorks />
 
       <LandingInfoSection />
-      <WhatsTheVibe />
+      {/* <WhatsTheVibe /> */}
 
       <LandingPromotionMailingSection />
-      
+
       <NintendoSwitch />
     </Box>
   );
