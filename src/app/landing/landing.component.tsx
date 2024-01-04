@@ -64,6 +64,7 @@ export default function Landing() {
   }, []);
 
   //animation functions
+  ////Hero Landing tracking////
   //get and track scroll progress with offset amount
   const videoSectionAsReference = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -102,7 +103,6 @@ export default function Landing() {
           sx={{
             position: 'sticky',
             top: '60px',
-            overflowX: 'hidden',
           }}
           style={{ opacity: heroOpacity }}
         >
@@ -123,6 +123,7 @@ export default function Landing() {
       <LandingHowItWorks />
 
       <LandingInfoSection />
+
       {/* <WhatsTheVibe /> */}
 
       <LandingPromotionMailingSection />

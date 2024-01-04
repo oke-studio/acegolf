@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import {
   Box,
   styled,
@@ -11,6 +12,10 @@ import {
   useTheme,
   Typography,
 } from '@mui/material';
+
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 
 type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
 const SectionWidthOptions = {
@@ -30,18 +35,13 @@ const SectionWidthOptions = {
   },
 };
 
-type CornerRadiusOptionsTypes = 'on' | 'off';
-const CornerRadiusOptions = {
-  on: { borderRadius: '25px' },
-  off: { borderRadius: '0px' },
-};
-
 interface SectionProps {
   SectionName: string;
   SectionWidth: SectionWidthOptionsTypes;
   SectionHeight?: string;
   SectionColor: string;
-  CornerRadius: CornerRadiusOptionsTypes;
+  CornerRadius: boolean;
+  ScrollAnimations: boolean;
   children?: React.ReactNode;
   sx?: SxProps;
 }
@@ -51,28 +51,56 @@ export const Section = ({
   SectionWidth,
   SectionHeight = 'fit-content',
   SectionColor,
-  CornerRadius,
+  CornerRadius = true,
+  ScrollAnimations = true,
   sx,
   children,
 }: SectionProps) => {
   const SECTION = SectionWidthOptions[SectionWidth];
-  const CORNER = CornerRadiusOptions[CornerRadius];
+  //const CORNER = CornerRadiusOptions[CornerRadius];
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
+  const SectionAsReference = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: SectionAsReference,
+    offset: ['start end', 'start start'],
+  });
+  const sectionScale = useTransform(scrollYProgress, [0, 0.8], [0.94, 1]);
+  const sectionBorderRadius = useTransform(
+    scrollYProgress,
+    [0, 0.75],
+    [80, 25],
+  );
 
   return (
     <Box
       sx={{
         ...sx,
         ...SECTION,
-        ...CORNER,
+
         backgroundColor: `${SectionColor}`,
         padding: '5% 5%',
         height: `${SectionHeight}`,
 
-
         //work on container query after
         //containerType: "inline-size",
       }}
-      component="section"
+      // component="section"
+      component={motion.div}
+      ref={SectionAsReference}
+      style={{
+        // ...CORNER,
+        ...(CornerRadius && { borderRadius: sectionBorderRadius }),
+        ...(ScrollAnimations && { scale: sectionScale }),
+      }}
     >
       {children}
     </Box>
