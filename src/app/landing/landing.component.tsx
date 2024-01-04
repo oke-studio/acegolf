@@ -68,20 +68,26 @@ export default function Landing() {
       /> */}
       <Box
         sx={{
-          position: 'sticky',
-          top: '60px',
-          overflowX: 'hidden',
+          maxHeight: 'fit-content',
         }}
       >
-        <LandingHero />
-      </Box>
-      <Box
-        sx={{
-          position: 'sticky',
-          top: '210px',
-        }}
-      >
-        <VideoLandingHero />
+        <Box
+          sx={{
+            position: 'sticky',
+            top: '60px',
+            overflowX: 'hidden',
+          }}
+        >
+          <LandingHero />
+        </Box>
+        <Box
+          sx={{
+            position: 'sticky',
+            top: '210px',
+          }}
+        >
+          <VideoLandingHero />
+        </Box>
       </Box>
 
       <LandingHowItWorks />
