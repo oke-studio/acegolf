@@ -58,6 +58,7 @@ export const Section = ({
 }: SectionProps) => {
   const SECTION = SectionWidthOptions[SectionWidth];
   //const CORNER = CornerRadiusOptions[CornerRadius];
+  const staticRadius = '25px';
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -73,8 +74,8 @@ export const Section = ({
     target: SectionAsReference,
     offset: ['start end', 'start start'],
   });
-  const sectionScale = useTransform(scrollYProgress, [0, 0.8], [0.94, 1]);
-  const sectionBorderRadius = useTransform(
+  const sectionScale = useTransform(scrollYProgress, [0, 0.75], [0.94, 1]);
+  const animatedBorderRadius = useTransform(
     scrollYProgress,
     [0, 0.75],
     [80, 25],
@@ -98,7 +99,9 @@ export const Section = ({
       ref={SectionAsReference}
       style={{
         // ...CORNER,
-        ...(CornerRadius && { borderRadius: sectionBorderRadius }),
+        ...(CornerRadius
+          ? { borderRadius: animatedBorderRadius }
+          : { borderRadius: staticRadius }),
         ...(ScrollAnimations && { scale: sectionScale }),
       }}
     >
