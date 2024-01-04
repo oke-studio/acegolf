@@ -29,7 +29,7 @@ export const LandingInfoSection = (styleProp, other) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        ...styleProp['styleProp'],
+        // ...styleProp['styleProp'],
       }}
     >
       <LandingCardsGrid />
