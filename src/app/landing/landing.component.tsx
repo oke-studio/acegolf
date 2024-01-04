@@ -1,12 +1,17 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
 import { East } from '@mui/icons-material';
+
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 
 // import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
@@ -49,6 +54,27 @@ export default function Landing() {
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
+  //animation functions
+  //get and track scroll progress with offset amount
+  const videoSectionAsReference = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: videoSectionAsReference,
+    offset: ['start end', 'start start'],
+  });
+
+  //mapping scroll progress to actual
+  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
+  //const scale = useTransform(progress, range, [1, targetScale]);
+
   return (
     <Box
       sx={{
@@ -72,19 +98,23 @@ export default function Landing() {
         }}
       >
         <Box
+          component={motion.div}
           sx={{
             position: 'sticky',
             top: '60px',
             overflowX: 'hidden',
           }}
+          style={{ opacity: heroOpacity }}
         >
           <LandingHero />
         </Box>
         <Box
           sx={{
             position: 'sticky',
-            top: '210px',
+            top: '0px',
           }}
+          component={motion.div}
+          ref={videoSectionAsReference}
         >
           <VideoLandingHero />
         </Box>
