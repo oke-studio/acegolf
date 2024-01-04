@@ -30,7 +30,7 @@ export const VideoLandingHero = () => {
           placeItems: 'center',
           gridTemplateAreas: 'videoWithPathArea',
           position: 'relative',
-          top: '-150px',
+          top: '-100px',
           transform: 'scale(1.1)',
         }}
       >
