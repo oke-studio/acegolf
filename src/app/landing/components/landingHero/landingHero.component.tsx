@@ -14,7 +14,7 @@ export const LandingHero = () => {
       SectionName="Landing Hero"
       SectionWidth="normal"
       SectionColor="white"
-      CornerRadius={true}
+      CornerRadius={false}
       ScrollAnimations={false}
       sx={{
         overflowX: 'hidden',
