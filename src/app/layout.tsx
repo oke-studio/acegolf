@@ -8,6 +8,7 @@ import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackgroun
 import { FooterV2 } from '@/components/Footer/footerV2.component';
 
 import { aceFont } from '@/components/Theme-Context/fontValues';
+import { HeaderBanner } from '@/components/Header/headerBanner.component';
 
 export const metadata = {
   title: 'Ace Golf Bar',
@@ -27,6 +28,7 @@ export default function RootLayout({
           style={{ backgroundColor: '#171717' }}
         >
           {/* <DynamicPageBackground> */}
+          <HeaderBanner />
           <Header />
           {children}
           <FooterV2 />
