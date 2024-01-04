@@ -76,8 +76,9 @@ export const LandingHowItWorks = () => {
       SectionName="How it works Homepage"
       SectionWidth="normal"
       SectionColor=""
-      CornerRadius="on"
+      CornerRadius={true}
       SectionHeight="fit-content"
+      ScrollAnimations={false}
     >
       <Box
         sx={{

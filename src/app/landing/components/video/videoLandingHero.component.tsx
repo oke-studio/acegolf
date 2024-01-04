@@ -36,8 +36,9 @@ export const VideoLandingHero = () => {
     <Section
       SectionName="Landing Hero"
       SectionWidth="normal"
-      SectionColor="0"
-      CornerRadius="on"
+      SectionColor=""
+      CornerRadius={false}
+      ScrollAnimations={false}
       // sx={{ opacity: '0.5' }}
     >
       <Box
