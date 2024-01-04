@@ -1,4 +1,6 @@
+'use client';
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import {
   Button,
   Box,
@@ -12,8 +14,23 @@ import { Section } from '@/components/layout/section.component';
 import { LandingVideo } from '../../components/video/video.component';
 import { RoundedVideoPath } from '@/components/animated-paths/roundedVideoPath.component';
 
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 export const VideoLandingHero = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
+
+  //animation functions
+  //get and track scroll progress with offset amount
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'start start'],
+  });
+
+  //mapping scroll progress to actual
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.175]);
+  //const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
     <Section
@@ -21,9 +38,11 @@ export const VideoLandingHero = () => {
       SectionWidth="normal"
       SectionColor="0"
       CornerRadius="on"
-      sx={{}}
+      // sx={{ opacity: '0.5' }}
     >
       <Box
+        component={motion.div}
+        ref={container}
         sx={{
           /* centering video and path together  */
           display: 'grid',
@@ -31,8 +50,9 @@ export const VideoLandingHero = () => {
           gridTemplateAreas: 'videoWithPathArea',
           position: 'relative',
           top: '-100px',
-          transform: 'scale(1.1)',
+          //scale: videoScale,
         }}
+        style={{ scale: videoScale }}
       >
         <LandingVideo
           width={'100%'}
