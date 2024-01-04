@@ -20,7 +20,8 @@ export const LandingPromotionMailingSection = () => {
       SectionName="Landing Promotion & Mailing Section"
       SectionWidth="fullViewport"
       SectionColor="#39775E"
-      CornerRadius="on"
+      CornerRadius={true}
+      ScrollAnimations={true}
       sx={{
         display: 'flex',
         flexDirection: 'column',

@@ -1,12 +1,17 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Button, styled } from '@mui/material';
 import { Header } from '@/components/Header/header.component';
 import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
 import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
 import { East } from '@mui/icons-material';
+
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 
 // import { TigerImage } from './components/tigerImage/tigerImage.component';
 import Image from 'next/image';
@@ -49,12 +54,35 @@ export default function Landing() {
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
+  //animation functions
+  ////Hero Landing tracking////
+  //get and track scroll progress with offset amount
+  const videoSectionAsReference = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: videoSectionAsReference,
+    offset: ['start end', 'start start'],
+  });
+
+  //mapping scroll progress to actual
+  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
+  //const scale = useTransform(progress, range, [1, targetScale]);
+
   return (
     <Box
       sx={{
+        // backgroundColor: '#000',
         backgroundColor: '#171717',
         position: 'relative',
-        overflow: 'hidden',
+        //overflow: 'hidden',
       }}
     >
       {/* <Header
@@ -65,16 +93,41 @@ export default function Landing() {
           { label: 'Parties & Events', to: '/pricing' },
         ]}
       /> */}
-      <LandingHero />
-      <VideoLandingHero />
+      <Box
+        sx={{
+          maxHeight: 'fit-content',
+        }}
+      >
+        <Box
+          component={motion.div}
+          sx={{
+            position: 'sticky',
+            top: '60px',
+          }}
+          style={{ opacity: heroOpacity }}
+        >
+          <LandingHero />
+        </Box>
+        <Box
+          sx={{
+            position: 'sticky',
+            top: '0px',
+          }}
+          component={motion.div}
+          ref={videoSectionAsReference}
+        >
+          <VideoLandingHero />
+        </Box>
+      </Box>
 
       <LandingHowItWorks />
 
       <LandingInfoSection />
-      <WhatsTheVibe />
+
+      {/* <WhatsTheVibe /> */}
 
       <LandingPromotionMailingSection />
-      
+
       <NintendoSwitch />
     </Box>
   );

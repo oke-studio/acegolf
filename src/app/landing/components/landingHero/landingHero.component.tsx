@@ -14,8 +14,11 @@ export const LandingHero = () => {
       SectionName="Landing Hero"
       SectionWidth="normal"
       SectionColor="white"
-      CornerRadius="on"
-      sx={{}}
+      CornerRadius={false}
+      ScrollAnimations={false}
+      sx={{
+        overflowX: 'hidden',
+      }}
     >
       {/* Hero Container*/}
       <Box
