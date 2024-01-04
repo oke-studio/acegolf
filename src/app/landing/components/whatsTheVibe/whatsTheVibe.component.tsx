@@ -12,7 +12,8 @@ export const WhatsTheVibe = () => {
       SectionName="Whats the Vibe"
       SectionWidth="fullViewport"
       SectionColor=""
-      CornerRadius="off"
+      CornerRadius={false}
+      ScrollAnimations={false}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -30,8 +31,6 @@ export const WhatsTheVibe = () => {
       >
         <Typography
           variant="largeH1"
-          fontStyle="italic"
-          weight="900"
           sx={{
             textTransform: 'uppercase',
           }}
