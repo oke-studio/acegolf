@@ -20,18 +20,21 @@ export const HeaderBanner = () => {
     <Box
       sx={{
         width: '100%',
-        height: '40px',
+        height: 'fit-content',
         backgroundColor: 'green',
         position: 'sticky',
         top: '0px',
+        zIndex: '10',
         color: 'white',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent: 'center',
+        padding: ' 8px 0px',
+        mixBlendMode: 'normal',
       }}
     >
-      <Typography variant="base" sx={{ width: '100%' }}>
-        Announcments go here
+      <Typography variant="base" sx={{}}>
+        Announcments go here about ace so that customers know
       </Typography>
     </Box>
   );

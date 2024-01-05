@@ -102,7 +102,7 @@ export default function Landing() {
           component={motion.div}
           sx={{
             position: 'sticky',
-            top: '60px',
+            top: '100px',
           }}
           style={{ opacity: heroOpacity }}
         >
