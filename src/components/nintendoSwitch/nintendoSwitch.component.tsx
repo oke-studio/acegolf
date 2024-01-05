@@ -2,6 +2,7 @@
 
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '../Typography/typography.component';
+import Image from 'next/image';
 
 export const NintendoSwitch = () => {
   const theme = useTheme();
@@ -49,7 +50,7 @@ export const NintendoSwitch = () => {
               Learn More &rarr;
             </Button>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
               backgroundRepeat: 'no-repeat',
@@ -59,6 +60,17 @@ export const NintendoSwitch = () => {
               maxWidth: '250px',
               width: '100%',
               height: 'auto',
+            }}
+          /> */}
+          <Image
+            src="/images/ace-banner-chromatic-white.jpg"
+            height={350}
+            width={250}
+            alt="img"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+              borderRadius: '8px',
             }}
           />
         </Box>
@@ -93,7 +105,7 @@ export const NintendoSwitch = () => {
               Inquire Now &rarr;
             </Button>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
               backgroundRepeat: 'no-repeat',
@@ -103,6 +115,17 @@ export const NintendoSwitch = () => {
               maxWidth: '250px',
               width: '100%',
               height: 'auto',
+            }}
+          /> */}
+          <Image
+            src="/images/ace-banner-chromatic-white.jpg"
+            height={350}
+            width={250}
+            alt="img"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+              borderRadius: '8px',
             }}
           />
         </Box>

@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
-
+import Image from 'next/image';
 import {
   useMotionValue,
   motion,
@@ -98,10 +98,10 @@ const PromotionCards = ({
           borderRadius: 'inherit',
           // borderBottomLeftRadius: '0px',
           // borderBottomRightRadius: '0px',
-          backgroundImage: `url(${imgSrc})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          // backgroundImage: `url(${imgSrc})`,
+          // backgroundRepeat: 'no-repeat',
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center',
 
           transformStyle: 'preserve-3d',
           transform: 'translateZ(75px)',
@@ -113,7 +113,18 @@ const PromotionCards = ({
           left: 0,
           zIndex: 2,
         }}
-      />
+      >
+        {imgSrc && (
+          <Image
+            src={imgSrc}
+            alt="img"
+            width={250}
+            height={400}
+            sizes="250px"
+            style={{ borderRadius: 'inherit' }}
+          />
+        )}
+      </Box>
       <Box
         sx={{
           position: 'absolute',
@@ -158,15 +169,19 @@ export const Promotions = () => {
         margin: '32px 0',
       }}
     >
-      <Typography variant="headingOne">PROMOTIONS & EVENTS</Typography>
+      <Typography variant="largeH1" weight="900" sx={{ textAlign: 'center' }}>
+        PROMOTIONS & EVENTS
+      </Typography>
       <Typography variant="base">
         Be the first to know about the latest ACE Golf promos and events
       </Typography>
       <Box
         sx={{
           display: 'flex',
-          gap: '24px',
+          gap: '52px',
           ...(isMobile && { flexDirection: 'column' }),
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
         <PromotionCards

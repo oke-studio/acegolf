@@ -68,13 +68,13 @@ const ImageSrc = [
 
 const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
   const widthHeightRatio = img.height / img.width;
-  const galleryHeight = Math.ceil(150 * widthHeightRatio);
+  const galleryHeight = Math.ceil(250 * widthHeightRatio);
   const photoSpans = Math.ceil(galleryHeight / 10) + 1;
 
   return (
     <Box
       sx={{
-        width: '150px',
+        width: '250px',
         justifySelf: 'center',
 
         gridRow: `span ${photoSpans}`,
@@ -84,9 +84,9 @@ const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
         <Image
           src={img.src}
           alt="image"
-          width={150}
+          width={250}
           height={galleryHeight}
-          sizes="150px"
+          sizes="250px"
         />
       </Box>
     </Box>
@@ -94,6 +94,14 @@ const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
 };
 
 export const WhatsTheVibe = () => {
+  const gridLayoutGap = '10px';
+  const gridColumnCount = 4;
+  const gridItemMinWidth = '250px';
+
+  const gapCount = `calc(${gridColumnCount} - 1)`;
+  const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`;
+  const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`;
+
   return (
     <Section
       SectionName="Whats the Vibe"
@@ -121,6 +129,8 @@ export const WhatsTheVibe = () => {
           weight="900"
           sx={{
             textTransform: 'uppercase',
+            textWrap: 'wrap',
+            textAlign: 'center',
           }}
         >
           What&apos;s the Vibe?
@@ -134,7 +144,7 @@ export const WhatsTheVibe = () => {
             padding: '0 0.5rem',
             margin: '0.75rem 0',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gridTemplateColumns: `repeat(auto-fit, minmax(max(${gridItemMinWidth}, ${gridItemMaxWidth}), 1fr))`,
             gridAutoRows: '10px',
             width: '80%',
           }}
@@ -143,15 +153,6 @@ export const WhatsTheVibe = () => {
             <ImageContainer img={img} key={`img_${index}`} />
           ))}
         </Box>
-
-        <Typography
-          variant="largeH1"
-          sx={{
-            textTransform: 'uppercase',
-          }}
-        >
-          What they&apos;re saying?
-        </Typography>
       </Box>
     </Section>
   );
