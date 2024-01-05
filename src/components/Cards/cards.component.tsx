@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 
 import { Typography } from '../Typography/typography.component';
+import Image from 'next/image';
 
 type CardColorTypes = 'light' | 'dark';
 
@@ -75,12 +76,13 @@ export const Card = ({
         ...sx,
         ...(ImageSrc && {
           //backgroundImage: `url(${ImageSrc})`,
-          background: `linear-gradient(180deg, rgba(35, 35, 35) 0%, rgba(0, 0, 0, 0.44) 14.58%, rgba(0, 0, 0, 0.00) 81.25%, rgba(0, 0, 0, 0.05) 99.53%), url(${ImageSrc})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          // background: `linear-gradient(180deg, rgba(35, 35, 35) 0%, rgba(0, 0, 0, 0.44) 14.58%, rgba(0, 0, 0, 0.00) 81.25%, rgba(0, 0, 0, 0.05) 99.53%), url(${ImageSrc})`,
+          // backgroundRepeat: 'no-repeat',
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center',
           color: 'white',
           minHeight: '500px',
+          position: 'relative',
         }),
         ...(BackgroundColor && { backgroundColor: BackgroundColor }),
         ...(isMobile && {
@@ -90,6 +92,20 @@ export const Card = ({
         minWidth: 0,
       }}
     >
+      {ImageSrc && (
+        <Image
+          src={ImageSrc}
+          fill
+          alt="img"
+          style={{
+            zIndex: 0,
+            position: 'absolute',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            borderRadius: 'inherit',
+          }}
+        />
+      )}
       {/* Title Box --> Make this text Box */}
       <Box
         sx={{
@@ -98,6 +114,7 @@ export const Card = ({
           alignItems: 'center',
           textAlign: 'center',
           gap: '16px',
+          position: 'relative',
         }}
       >
         <Typography variant="headingThree" weight="600">
