@@ -59,18 +59,17 @@ export const LandingHero = () => {
           <Box
             style={{
               color: 'black',
-              fontSize: '96px',
-              fontWeight: '900',
               display: 'flex',
               flexDirection: 'column',
+              gap: '8px',
             }}
           >
             <Typography variant="poster" weight="900">
               TORONTO’S
             </Typography>
 
-            <span
-              style={{
+            <Box
+              sx={{
                 display: 'flex',
               }}
             >
@@ -78,7 +77,7 @@ export const LandingHero = () => {
                 variant="poster"
                 weight="900"
                 sx={{
-                  background: 'var(--sharp-teal, #36DAD5)',
+                  background: theme.palette.sharpTeal,
                   display: 'flex',
                   flexBasis: 'fit-content',
                   transform: 'rotate(3deg)',
@@ -91,8 +90,10 @@ export const LandingHero = () => {
               >
                 COOLEST
               </Typography>
-              INDOOR
-            </span>
+              <Typography variant="poster" weight="900">
+                INDOOR
+              </Typography>
+            </Box>
 
             <Typography variant="poster" weight="900">
               GOLF LOUNGE!
@@ -110,16 +111,14 @@ export const LandingHero = () => {
             gap: '24px',
           }}
         >
-          <p
-            style={{
-              color: 'var(--orange, #EB8B32)',
-              fontSize: '36px',
-              fontWeight: '500',
-            }}
+          <Typography
+            variant="headingTwo"
+            weight="500"
+            sx={{ color: t => t.palette.orange }}
           >
             {' '}
             588 Eastern Ave, Toronto
-          </p>
+          </Typography>
           {/* Hero Button*/}
           <Button
             disableElevation
@@ -127,23 +126,25 @@ export const LandingHero = () => {
             disableRipple
             disableTouchRipple
             variant="primary"
-            sx={{
-              textTransform: 'none',
-              backgroundColor: '#EB8B32',
-              color: 'white',
-              borderRadius: '78px',
-              fontWeight: '500',
-              fontSize: '32px',
-              padding: '12px 60px',
-              // position: 'relative',
-              // top: '-60px',
-              // zIndex: 0,
-              ':hover:': {
-                backgroundColor: '#eb8b32c9',
-                color: 'white',
-              },
-              //
-            }}
+            sx={
+              {
+                // textTransform: 'none',
+                // backgroundColor: '#EB8B32',
+                // color: 'white',
+                // borderRadius: '78px',
+                // fontWeight: '500',
+                // fontSize: '32px',
+                // padding: '12px 60px',
+                // position: 'relative',
+                // top: '-60px',
+                // zIndex: 0,
+                // ':hover:': {
+                //   backgroundColor: '#eb8b32c9',
+                //   color: 'white',
+                // },
+                //
+              }
+            }
             onClick={() => {
               router.push('/book-now');
             }}

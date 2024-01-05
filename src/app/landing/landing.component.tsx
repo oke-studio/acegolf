@@ -124,7 +124,7 @@ export default function Landing() {
 
       <LandingInfoSection />
 
-      {/* <WhatsTheVibe /> */}
+      <WhatsTheVibe />
 
       <LandingPromotionMailingSection />
 
