@@ -71,7 +71,6 @@ export default function ComingSoonPage() {
               backgroundImage: NOISE_URL,
             }}
           ></Box>
-          {/* <ComingSoonInfoSectionMobile /> */}
           <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
           <div
             style={{

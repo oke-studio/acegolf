@@ -22,9 +22,6 @@ const backgroundColor = '#529DC8';
 interface FormValues {
   email: string;
 }
-const handleSubscribeButton = (email) => {
-  return `https://www.sevenrooms.com/explore/acegolf/subscription?email=${email}`;
-};
 
 const ComingSoonForm = () => {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -35,72 +32,30 @@ const ComingSoonForm = () => {
     console.log(isSubmit);
   }, [isSubmit]);
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     email: '',
-  //   },
-  //   onSubmit: (values) => {
-  //     console.log(values);
-  //     fetch('/', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //       body: encode({ 'form-name': 'comingsoon-email', ...values }),
-  //     })
-  //       .then(() => setIsSubmit(true))
-  //       .catch((e) => alert(e));
-  //   },
-  // });
-
-  // const buttonClick = () => {
-  //   if (formik.values.email === '') {
-  //     setError({ error: true, message: 'Please provide an email' });
-  //     return;
-  //   }
-
-  //   if (
-  //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
-  //   ) {
-  //     setError({
-  //       error: true,
-  //       message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
-  //     });
-  //     return;
-  //   }
-
-  //   setError({ error: false, message: '' });
-  //   setIsSubmit(true);
-  //   formik.handleSubmit();
-  // };
+  const handleSubscribeButton = (email: string) => {
+    return `https://www.sevenrooms.com/explore/acegolf/subscription?email=${email}`;
+  };
 
   return (
     <Formik
       initialValues={{ email: '' }}
       onSubmit={(values) => {
-        console.log(values);
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'comingsoon-email', ...values }),
+          body: encode({ 'form-name': 'comingsoon-email_v2', ...values }),
         })
           .then(() => setIsSubmit(true))
           .catch((e) => alert(e));
       }}
-    // validationSchema={}
-    // validate={}
     >
       {(props) => {
-        const {
-          values,
-          isSubmitting,
-          handleSubmit,
-
-          handleChange,
-        } = props;
+        const { values, isSubmitting, handleSubmit, handleChange } = props;
 
         return (
           <Box
             component="form"
-            name="comingsoon-email"
+            name="comingsoon-email_v2"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
@@ -115,7 +70,11 @@ const ComingSoonForm = () => {
                 gap: '12px',
               }}
             >
-              <input type="hidden" name="form-name" value="comingsoon-email" />
+              <input
+                type="hidden"
+                name="form-name"
+                value="comingsoon-email_v2"
+              />
               <Box
                 sx={{
                   ...typography.hero_regular,
@@ -183,17 +142,12 @@ const ComingSoonForm = () => {
                         background: 'black',
                         border: 'none',
                         borderRadius: '12px',
-
-                        // paddingLeft: '12px',
-
                         margin: '4px',
                       }}
                       type="submit"
                       // onClick={() => buttonClick()}
                       disabled={isSubmitting}
                     >
-
-                      
                       <Typography
                         paddingLeft="24px"
                         paddingRight="24px"
@@ -207,15 +161,20 @@ const ComingSoonForm = () => {
                         whiteSpace="nowrap"
                         overflow="hidden"
                         color="white"
+                      >
+                        <a
+                          href={handleSubscribeButton(values.email)}
+                          target="_self"
                         >
-                        <a href={handleSubscribeButton(values.email)} target='_self'> 
-                        {isSubmitting ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!" : 'NOTIFY ME'} </a>
+                          {isSubmitting
+                            ? "WE'LL KEEP IN TOUCH! SEE YOU SOON!"
+                            : 'NOTIFY ME'}{' '}
+                        </a>
                       </Typography>
                     </motion.button>
                   ),
                   sx: { borderRadius: '12px' },
                 }}
-
               />
             </Box>
           </Box>
@@ -225,14 +184,10 @@ const ComingSoonForm = () => {
   );
 };
 
-
-
 const ComingSoonInfoSectionWrapper = styled(Box)({
   display: 'flex',
   // flexDirection: "row",
   alignItems: 'center',
-  // alignSelf: 'center',
-  // gridTemplateColumns: '1fr 2fr 1fr',
   justifyContent: 'center',
   fontFamily: 'new-hero',
 });
@@ -349,30 +304,6 @@ export const ComingSoonInfoSection = ({
           OPENING DEC 2023
         </Box>
 
-        {/* hidden because client wants to remove the coutdown because its at the end  */}
-        {/*  
-        <Box
-          sx={{
-            fontSize: '16px',
-            fontWeight: '600',
-            color: 'white',
-            mixBlendMode: 'difference',
-          }}
-        >
-          <Box component="span" sx={{ color: palette.primary.main }}>
-            {' '}
-            {days}
-          </Box>{' '}
-          DAYS
-          <Box component="span" sx={{ color: palette.primary.main }}>
-            {' '}
-            {hours}
-          </Box>{' '}
-          HOURS
-        </Box>
-        */}
-
-        
         <Button
           disableElevation
           disableFocusRipple
@@ -391,13 +322,11 @@ export const ComingSoonInfoSection = ({
           >
             {' '}
             Early Reservation &rarr;
-          </a> 
+          </a>
         </Button>
-        
       </ComingSoonInfoWrapper>
 
       <ComingSoonForm />
-      
     </ComingSoonInfoSectionWrapper>
   );
 };
