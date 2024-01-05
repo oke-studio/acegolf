@@ -1,5 +1,5 @@
 import './globals.css';
-// import '/Users/onanefeosah/Desktop/acegolf/public/fonts/style.css';
+import { Metadata } from 'next';
 import localfont from 'next/font/local';
 import { Providers } from './Providers';
 import { Header } from '@/components/Header/header.component';
@@ -8,11 +8,18 @@ import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackgroun
 import { FooterV2 } from '@/components/Footer/footerV2.component';
 
 import { aceFont } from '@/components/Theme-Context/fontValues';
+import { HeaderBanner } from '@/components/Header/headerBanner.component';
 
 export const metadata = {
   title: 'Ace Golf Bar',
   description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
 };
+// export const safariBrowserTheme: Metadata ={
+
+//   name: 'theme-color',
+//   content: '#ecd96f',
+
+// }
 
 export default function RootLayout({
   children,
@@ -22,11 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
+        <meta name="theme-color" content="#39775E"></meta>
         <body
           className={aceFont.className}
           style={{ backgroundColor: '#171717' }}
         >
           {/* <DynamicPageBackground> */}
+          <HeaderBanner />
           <Header />
           {children}
           <FooterV2 />
