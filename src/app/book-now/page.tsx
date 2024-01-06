@@ -20,10 +20,10 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Promotions } from '../landing/components/promotions/promotions.component';
 import { MailingList } from '../landing/components/mailingList/mailingList.component';
-import PriceTabCard from './priceTabCard.component';
 import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 import dayjs from 'dayjs';
 import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
+import PriceTabCard from './priceTabCard.component';
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -251,6 +251,7 @@ export default function BookNow() {
             reserveABayObject={reserveABayObject}
             handleDateTimePickerChange={handleDateTimePickerChange}
             handleReserveFormOnChange={handleReserveFormOnChange}
+            isWide={false}
           />
         </Card>
         <Card
@@ -259,53 +260,7 @@ export default function BookNow() {
           sx={{ minHeight: '600px' }}
           BackgroundColor="#F6F6F6"
         >
-          <Box sx={{ width: '100%' }}>
-            <StyledTabs
-              value={value}
-              onChange={handleChange}
-              textColor="secondary"
-              indicatorColor="secondary"
-              aria-label="secondary tabs example"
-              variant="scrollable"
-              scrollButtons="auto"
-              sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
-            >
-              <StyledTab value={1} label="Mon" />
-              <StyledTab value={2} label="Tue" />
-              <StyledTab value={3} label="Wed" />
-              <StyledTab value={4} label="Thu" />
-              <StyledTab value={5} label="Fri" />
-              <StyledTab value={6} label="Sat" />
-              <StyledTab value={0} label="Sun" />
-            </StyledTabs>
-
-            <TabPanel value={value} index={0} dir={theme.direction}>
-              <PricesTabsContentSkeleton
-                title="Sunday"
-                description="Some stuff that goes on on sunday"
-                priceContainerOne={{
-                  price: 50,
-                  timeFrom: '5pm',
-                  timeTo: '9pm',
-                  color: 'white',
-                }}
-                priceContainerTwo={{
-                  price: 50.99,
-                  timeFrom: '5pm',
-                  timeTo: '9pm',
-                  color: 'black',
-                  backgroundColor: theme.palette.aceGreen,
-                }}
-                privatePriceContainer={{ price: 59.99 }}
-              />
-            </TabPanel>
-            <TabPanel value={value} index={1} dir={theme.direction}>
-              Item Two
-            </TabPanel>
-            <TabPanel value={value} index={2} dir={theme.direction}>
-              Item Three
-            </TabPanel>
-          </Box>
+          <PriceTabCard />
         </Card>
       </Box>
       <Box

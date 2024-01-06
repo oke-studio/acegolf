@@ -53,7 +53,7 @@ export const Header = ({
   navOptions = [
     { label: 'Menu', to: '/menu' },
     { label: 'How it Works', to: '/how-it-works' },
-    { label: 'About', to: '/about' },
+    // { label: 'About', to: '/about' },
     { label: 'Events', to: '/events' },
   ],
 }: HeaderProps) => {

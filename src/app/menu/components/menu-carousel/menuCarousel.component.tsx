@@ -386,6 +386,8 @@ export const MenuCarousel = () => {
             flexWrap: 'wrap',
             justifyContent: isMobile ? 'center' : 'space-between',
             gap: '12px',
+            // position: 'sticky',
+            // top: '100px',
           }}
         >
           {/* <Typography variant="base" lineHeight="70%" marginBottom="30px">
