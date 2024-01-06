@@ -11,6 +11,7 @@ import {
   Theme,
   useTheme,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 
 // Animation dependencies
@@ -81,6 +82,12 @@ export const Section = ({
     [80, 25],
   );
 
+  const isMobile = useMediaQuery('(max-width:640px)');
+  const isSmallDesktop = useMediaQuery('(max-width:950px)');
+  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+  const isExtraWideDesktop = useMediaQuery('(min-width:1750px)');
+  const isUltraWideDesktop = useMediaQuery('(min-width:2000px)');
+
   return (
     <Box
       sx={{
@@ -90,6 +97,10 @@ export const Section = ({
         backgroundColor: `${SectionColor}`,
         padding: '5% 5%',
         height: `${SectionHeight}`,
+
+        ...(isLargeDesktop && { margin: '8px 5% 8px' }),
+        ...(isExtraWideDesktop && { margin: '8px 10% 8px' }),
+        ...(isUltraWideDesktop && { margin: '8px 20% 8px' }),
 
         //work on container query after
         //containerType: "inline-size",

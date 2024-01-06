@@ -46,6 +46,7 @@ const ImageSrc = [
 
   {
     src: '/images/whatsTheVibeAssets/wtv-04.jpg',
+
     title: 'img_01',
     height: 350,
     width: 250,
@@ -59,13 +60,7 @@ const ImageSrc = [
   },
 
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
-    title: 'img_01',
-    height: 450,
-    width: 250,
-  },
 
-  {
     src: '/images/ace-banner-chromatic-white.jpg',
     title: 'img_01',
     height: 450,

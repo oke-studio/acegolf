@@ -17,7 +17,8 @@ export const NintendoSwitch = () => {
         width: '100%',
         color: 'black',
         ...(isMobile && { flexDirection: 'column' }),
-        // backgroundColor: isMobile ? '#529DC8' : 'black',
+        backgroundColor: isMobile ? '#529DC8' : 'black',
+        borderRadius: isMobile ? '25px 25px 25px 25px' : '0px 0px 0px 0px',
       }}
     >
       <Box
@@ -79,7 +80,7 @@ export const NintendoSwitch = () => {
         sx={{
           backgroundColor: '#EB8B32',
           width: '100%',
-          borderRadius: isMobile ? '25px 25px 0px 0px' : '0px 25px 0px 0px',
+          borderRadius: isMobile ? '25px 25px 25px 25px' : '0px 25px 0px 0px',
           padding: '24px',
         }}
       >

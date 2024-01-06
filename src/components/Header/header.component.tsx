@@ -18,6 +18,7 @@ import { motion } from 'framer-motion';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
 import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
+import { HeaderBanner } from '@/components/Header/headerBanner.component';
 
 const HeaderContainer = styled(Box)({
   display: 'flex',
@@ -238,11 +239,12 @@ export const Header = ({
         width: '100%',
 
         justifyContent: 'center',
+        flexDirection: 'column',
         position: 'relative',
         zIndex: zIndex.appBar,
         ...(!mobileDropDownEnabled && {
           position: 'sticky',
-          top: '0px',
+          top: '38px',
 
           backgroundColor: 'transparent',
           mixBlendMode: 'difference',

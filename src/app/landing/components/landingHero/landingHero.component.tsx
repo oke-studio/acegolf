@@ -86,6 +86,8 @@ export const LandingHero = () => {
                   flexShrink: '0',
                   color: '#FFF',
                   borderRadius: '4px',
+                  marginTop: '15px',
+                  marginBottom: '15px',
                 }}
               >
                 COOLEST
