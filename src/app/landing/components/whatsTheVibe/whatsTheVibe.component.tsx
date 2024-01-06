@@ -140,6 +140,7 @@ export const WhatsTheVibe = () => {
             textTransform: 'uppercase',
             textWrap: 'wrap',
             textAlign: 'center',
+            color: 'white',
           }}
         >
           What&apos;s the Vibe?

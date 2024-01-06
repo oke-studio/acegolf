@@ -220,6 +220,7 @@ export const LandingHowItWorks = () => {
             handleDateTimePickerChange={handleDateTimePickerChange}
             handleReserveFormOnChange={handleReserveFormOnChange}
             reserveABayObject={reserveABayObject}
+            isWide={true}
           />
         </Card>
       </Box>
