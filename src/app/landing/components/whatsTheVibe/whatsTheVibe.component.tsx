@@ -60,7 +60,6 @@ const ImageSrc = [
   },
 
   {
-
     src: '/images/ace-banner-chromatic-white.jpg',
     title: 'img_01',
     height: 450,
@@ -133,6 +132,7 @@ export const WhatsTheVibe = () => {
             textTransform: 'uppercase',
             textWrap: 'wrap',
             textAlign: 'center',
+            color: 'white',
           }}
         >
           What&apos;s the Vibe?
