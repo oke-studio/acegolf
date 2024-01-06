@@ -93,7 +93,7 @@ export const BookNowForm = ({
               <path
                 d="M2 1.75L9.5 9.25L17 1.75"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
             </SvgIcon>
           )}
@@ -172,7 +172,7 @@ export const BookNowForm = ({
               <path
                 d="M2 1.75L9.5 9.25L17 1.75"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
             </svg>
           ),
@@ -231,7 +231,7 @@ export const BookNowForm = ({
               <path
                 d="M2 1.75L9.5 9.25L17 1.75"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
             </svg>
           ),

@@ -57,8 +57,8 @@ export const Header = ({
     { label: 'Events', to: '/events' },
   ],
 }: HeaderProps) => {
-  const { palette, typography, zIndex } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const { palette, typography, zIndex, breakpoints } = useTheme();
+  const isMobile = useMediaQuery(breakpoints.down('md'));
   const [mobileDropDownEnabled, setMobileDropDownEnabled] = React.useState(
     false,
   );
@@ -181,6 +181,7 @@ export const Header = ({
           top: 0,
           left: 0,
           right: 0,
+          bottom: 0,
           justifyContent: 'center',
           padding: '24px',
           paddingTop: '60px',
