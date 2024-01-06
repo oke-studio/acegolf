@@ -10,7 +10,7 @@ import Image from 'next/image';
 const ImageSrc = [
   // #1
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/ezgif-2-0095f2ad03.gif',
     title: 'img_01',
     height: 450,
     width: 250,
@@ -48,6 +48,13 @@ const ImageSrc = [
     src: '/images/ace-banner-chromatic-white.jpg',
     title: 'img_01',
     height: 350,
+    width: 250,
+  },
+
+  {
+    src: '/images/ace-banner-chromatic-white.jpg',
+    title: 'img_01',
+    height: 450,
     width: 250,
   },
 
