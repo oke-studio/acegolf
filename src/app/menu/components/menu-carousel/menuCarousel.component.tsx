@@ -5,7 +5,6 @@ import {
   styled,
   Tab,
   Tabs,
-  tabClasses,
   useTheme,
   Button,
   useMediaQuery,
@@ -13,7 +12,10 @@ import {
 import { motion } from 'framer-motion';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 import { Typography } from '@/components/Typography/typography.component';
-import zIndex from '@mui/material/styles/zIndex';
+
+import Image from 'next/image';
+import { MenuOptions, MenuItem } from './menuItems';
+import { useRouter, usePathname } from 'next/navigation';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
   borderRadius: '25px',
@@ -49,39 +51,35 @@ interface TabPanelProps {
 }
 
 function CustomTabPanel(props: TabPanelProps) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { children, value, index, ...other } = props;
+
+  // const isMobileView = value !== index
 
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      hidden={!isMobile && value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {true && <Box sx={{ p: isMobile ? 0 : 3 }}>{children}</Box>}
     </div>
   );
 }
 
-const BigBitesCarousel = [
-  {
-    imageSrc: '',
-    dishName: '',
-  },
-];
-
 const MenuSection = ({
-  menuOptions,
+  menuItems,
   menuSection,
 }: {
-  menuOptions: { menuItem: string; ingredients: string; price: string }[];
+  menuItems: MenuItem[];
   menuSection: string;
 }) => {
-  const { typography, palette } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
-  const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <Typography
@@ -97,23 +95,30 @@ const MenuSection = ({
         sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
         aria-labelledby={`${menuSection}_list`}
       >
-        {menuOptions.map((option, index) => (
+        {menuItems.map((option, index) => (
           <Box
             key={index}
             sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
             component="li"
           >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                gap: '8px',
+              }}
+            >
               <Typography
-                variant="base"
+                variant="small"
+                weight="500"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                 }}
               >
-                {option.menuItem}
+                {option.name}
               </Typography>
-              <Box
+              {/* <Box
                 sx={{
                   borderWidth: 0,
                   borderStyle: 'dashed',
@@ -124,11 +129,20 @@ const MenuSection = ({
                   margin: '0 8px',
                   display: 'flex',
                 }}
-              ></Box>
-              <Typography variant="base">{option.price}</Typography>
+              ></Box> */}
+              <Typography
+                variant="base"
+                sx={{ color: theme.palette.aceOrange }}
+              >
+                {option.price}
+              </Typography>
             </Box>
-            <Typography variant="base">{option.ingredients}</Typography>
-            <Typography variant="base">{option.ingredients}</Typography>
+            <Typography variant="miniscule" fontStyle="italic">
+              {option.ingredients.join(',')}
+            </Typography>
+            {/* <Typography variant="miniscule" fontStyle="italic">
+              {option.ingredients}
+            </Typography> */}
           </Box>
         ))}
       </Box>
@@ -151,9 +165,9 @@ const SpinningMenuHeading = () => {
     return (
       <Box
         component={motion.span}
-        className="relative h-20 w-72 font-black uppercase"
         sx={{
-          width: '24rem',
+          position: 'relative',
+          width: '30rem',
           height: '6rem',
           fontWeight: 900,
           textTransform: 'uppercase',
@@ -185,16 +199,23 @@ const SpinningMenuHeading = () => {
         {/* FRONT */}
         <Typography
           variant="largeH1"
+          as="span"
+          fontStyle="italic"
           sx={{
             position: 'absolute',
             display: 'flex',
             height: '100%',
             width: '100%',
             justifyContent: 'center',
+            alignItems: 'center',
+            borderStyle: 'solid',
             borderWidth: '2px',
             borderColor: '#818CF8',
             color: '#ffffff',
-            backgroundColor: '#4F46E5',
+            // borderRadius: '12px',
+            backgroundColor: theme => {
+              return theme.palette.aceTeal;
+            },
           }}
           weight="900"
         >
@@ -204,17 +225,21 @@ const SpinningMenuHeading = () => {
         {/* BOTTOM */}
         <Typography
           variant="largeH1"
+          as="span"
+          fontStyle="italic"
           style={{ transform: 'translateY(5rem) rotateX(-90deg)' }}
           sx={{
             position: 'absolute',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            borderStyle: 'solid',
             borderWidth: '2px',
             borderColor: '#818CF8',
             width: '100%',
             height: '100%',
             color: '#ffffff',
+            // borderRadius: '12px',
             backgroundColor: '#4F46E5',
             transformOrigin: 'top',
           }}
@@ -226,17 +251,21 @@ const SpinningMenuHeading = () => {
         {/* TOP */}
         <Typography
           variant="largeH1"
+          as="span"
+          fontStyle="italic"
           style={{ transform: 'translateY(-5rem) rotateX(90deg)' }}
           sx={{
             position: 'absolute',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            borderStyle: 'solid',
             borderWidth: '2px',
             borderColor: '#818CF8',
             width: '100%',
             height: '100%',
             color: '#ffffff',
+            // borderRadius: '12px',
             backgroundColor: '#4F46E5',
             transformOrigin: 'bottom',
           }}
@@ -248,6 +277,8 @@ const SpinningMenuHeading = () => {
         {/* BACK */}
         <Typography
           variant="largeH1"
+          as="span"
+          fontStyle="italic"
           style={{
             transform: 'translateZ(-5rem) rotateZ(-180deg) rotateY(180deg)',
           }}
@@ -256,11 +287,13 @@ const SpinningMenuHeading = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            borderStyle: 'solid',
             borderWidth: '2px',
             borderColor: '#818CF8',
             width: '100%',
             height: '100%',
             color: '#ffffff',
+            // borderRadius: '12px',
             backgroundColor: '#4F46E5',
             transformOrigin: 'center',
           }}
@@ -278,8 +311,13 @@ const SpinningMenuHeading = () => {
       weight="900"
       fontStyle="italic"
       // lineHeight="70%"
-      display="flex"
-      flexDirection="column"
+      sx={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1rem',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
     >
       GOLF &{' '}
       <SpinningBox
@@ -294,9 +332,14 @@ const SpinningMenuHeading = () => {
 
 export const MenuCarousel = () => {
   const [value, setValue] = React.useState(0);
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
-  const { typography, palette } = useTheme();
+  const router = useRouter();
+  const pathname = usePathname();
+  // const { typography, palette } = useTheme();
+
+  console.log(pathname);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -339,7 +382,8 @@ export const MenuCarousel = () => {
             // marginBottom: '30px',
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
+            justifyContent: isMobile ? 'center' : 'space-between',
+            gap: '12px',
           }}
         >
           {/* <Typography variant="base" lineHeight="70%" marginBottom="30px">
@@ -355,358 +399,193 @@ export const MenuCarousel = () => {
           <Box
             sx={{
               //margin: '24px',
-              padding: '5%',
+              // padding: '5%',
+              padding: '24px',
               display: 'flex',
               flexDirection: 'column',
               gap: '32px',
             }}
           >
-            {/* Tab section */}
-            <Box>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="menu tabs"
+            <Box sx={{ display: 'flex', gap: '24px' }}>
+              <Box
                 sx={{
+                  height: '100%',
+                  flex: 1,
+                  display: 'flex',
                   flexDirection: 'column',
-                  // justifyContent: isMobile ? 'center' : 'initial',
-                  '.MuiTabs-indicator': {
-                    backgroundColor: 'transparent',
-                  },
+                  gap: '24px',
                 }}
-                centered={isMobile}
               >
-                <StyledTab
-                  label={<MotionSpanAnimated label="Big Bites" />}
-                  {...a11yProps(0)}
-                />
-                <StyledTab
-                  label={<MotionSpanAnimated label="Small Bites" />}
-                  {...a11yProps(1)}
-                />
-                <StyledTab
-                  label={<MotionSpanAnimated label="Desert" />}
-                  {...a11yProps(1)}
-                />
-              </Tabs>
-            </Box>
-            <CustomTabPanel value={value} index={0}>
-              <MenuSection
-                menuSection="BIG BITES"
-                menuOptions={[
-                  {
-                    menuItem:
-                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Rice Paper Slaw with sakura shrimp',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem:
-                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Build your own taco board',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: '5 spice duck breast',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Curry and salted egg fish taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Bun bo hue Taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              />
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-              <MenuSection
-                menuSection="SMALL BITES"
-                menuOptions={[
-                  {
-                    menuItem:
-                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Rice Paper Slaw with sakura shrimp',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem:
-                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Build your own taco board',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: '5 spice duck breast',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Curry and salted egg fish taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Bun bo hue Taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              />
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={2}>
-              <MenuSection
-                menuSection="BIG BITES"
-                menuOptions={[
-                  {
-                    menuItem:
-                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Rice Paper Slaw with sakura shrimp',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem:
-                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Build your own taco board',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: '5 spice duck breast',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Curry and salted egg fish taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Bun bo hue Taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              />
-            </CustomTabPanel>
+                {MenuOptions.map((option, index) => (
+                  <CustomTabPanel
+                    index={index}
+                    value={value}
+                    key={`menu_option_${index}`}
+                  >
+                    <MenuSection
+                      menuSection={option.option.toLocaleUpperCase()}
+                      menuItems={option.items}
+                    />
+                  </CustomTabPanel>
+                ))}
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
-              {/* <MenuSection
-                menuSection="BIG BITES"
-                menuOptions={[
-                  {
-                    menuItem:
-                      'Nori dusted Kettle Chips w/ Yuzu Kosho and Chive Sour Cream',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Rice Paper Slaw with sakura shrimp',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Tamarind Leche de Tigre with prawn chips',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Black Garlic Bruschetta w/ homemade riccota',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem:
-                      'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Build your own taco board',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: '5 spice duck breast',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Curry and salted egg fish taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Bun bo hue Taco',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              /> */}
-              {/* <MenuSection
-                menuSection="SMALL BITES"
-                menuOptions={[
-                  {
-                    menuItem: 'Bread and butter board ',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Brown butter honey truffle butter',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Cowboy butter',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Miso chili butter',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Enoki Trees with Super garlic aioli',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Braised charsiu Slider',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Hot Honey Karaage Slider x3',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Bulgolgi Slider',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Ike Karaage w/yuzu kosho aioli ',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Frybasket ',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Truffle salted yolk fry',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Kimchi ',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              />
-
-              <MenuSection
-                menuSection="DESERT"
-                menuOptions={[
-                  {
-                    menuItem: 'Panna cotta with black sesame truffle cream ',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Beignets',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Ube',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Matcha',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Miso Caramel',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                  {
-                    menuItem: 'Mango prosecco sorbet',
-                    ingredients: 'TOMATO SAUCE, BASIL, MOZZARELLA, PARMESAN',
-                    price: '$50.00',
-                  },
-                ]}
-              /> */}
+                <CustomTabPanel
+                  index={MenuOptions.length}
+                  value={value}
+                  key={`menu_option_${MenuOptions.length}`}
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: isMobile ? 'column' : 'row',
+                      gap: '24px',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: '12px',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <Typography
+                        variant="largeH1"
+                        weight="900"
+                        fontStyle="italic"
+                      >
+                        The Kitchen
+                      </Typography>
+                      <Typography variant="base">
+                        This is a piece of text about the kitchen, it will tell
+                        the people how the kitchen. Introduce the chefs and
+                        their approach. It will aso tell information on when the
+                        kitchen is open for everyday for golfers and for just
+                        dinners. it will also show that the kitchen is on uber
+                        eats{' '}
+                      </Typography>
+                    </Box>
+                    {/* <Box
+                      sx={{
+                        borderRadius: '8px',
+                        backgroundColor: 'grey',
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                    ></Box> */}
+                  </Box>
+                </CustomTabPanel>
+                <CustomTabPanel
+                  index={MenuOptions.length + 1}
+                  value={value}
+                  key={`menu_option_${MenuOptions.length + 1}`}
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: isMobile ? 'column' : 'row-reverse',
+                      gap: '24px',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: '12px',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <Typography
+                        variant="largeH1"
+                        weight="900"
+                        fontStyle="italic"
+                      >
+                        The Bar
+                      </Typography>
+                      <Typography variant="base">
+                        This is a piece of text about the kitchen, it will tell
+                        the people how the kitchen. Introduce the chefs and
+                        their approach. It will aso tell information on when the
+                        kitchen is open for everyday for golfers and for just
+                        dinners. it will also show that the kitchen is on uber
+                        eats{' '}
+                      </Typography>
+                    </Box>
+                    {/* <Box
+                      sx={{
+                        borderRadius: '8px',
+                        backgroundColor: 'grey',
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                    ></Box> */}
+                  </Box>
+                </CustomTabPanel>
+              </Box>
+              {!isMobile && (
+                <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <Box>
+                    <Tabs
+                      value={value}
+                      onChange={handleChange}
+                      aria-label="menu tabs"
+                      sx={{
+                        flexDirection: 'column',
+                        // justifyContent: isMobile ? 'center' : 'initial',
+                        '.MuiTabs-indicator': {
+                          backgroundColor: 'transparent',
+                        },
+                        '.MuiTabs-flexContainer': {
+                          flexWrap: 'wrap',
+                          justifyContent: 'center',
+                        },
+                      }}
+                      centered={isMobile}
+                    >
+                      <StyledTab
+                        label={<MotionSpanAnimated label="Big Bites" />}
+                        {...a11yProps(0)}
+                      />
+                      <StyledTab
+                        label={<MotionSpanAnimated label="Small Bites" />}
+                        {...a11yProps(1)}
+                      />
+                      <StyledTab
+                        label={<MotionSpanAnimated label="Desert" />}
+                        {...a11yProps(1)}
+                      />
+                      <StyledTab
+                        label={<MotionSpanAnimated label="The Kitchen" />}
+                        {...a11yProps(1)}
+                      />
+                      <StyledTab
+                        label={<MotionSpanAnimated label="The Bar" />}
+                        {...a11yProps(1)}
+                      />
+                    </Tabs>
+                  </Box>
+                  <Box
+                    sx={{
+                      height: '100%',
+                      position: 'relative',
+                      width: '100%',
+                      borderWidth: '2px',
+                      borderStyle: 'solid',
+                      borderColor: theme.palette.aceTeal,
+                      borderRadius: '8px',
+                    }}
+                  >
+                    <Image
+                      src="/images/placeholder1.png"
+                      alt="img"
+                      fill
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        borderRadius: 'inherit',
+                      }}
+                    />
+                  </Box>
+                </Box>
+              )}
             </Box>
           </Box>
         </StyledMenuCarouselWrapper>
@@ -717,62 +596,11 @@ export const MenuCarousel = () => {
           disableFocusRipple
           disableTouchRipple
           variant="secondary"
+          // onClick={() => router.push('/book-now')}
         >
           {/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
           Reserve a bay &rarr;
         </Button>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            gap: '24px',
-          }}
-        >
-          <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
-            <Typography variant="base">About the kitchen</Typography>
-            <Typography variant="base">
-              This is a piece of text about the kitchen, it will tell the people
-              how the kitchen. Introduce the chefs and their approach. It will
-              aso tell information on when the kitchen is open for everyday for
-              golfers and for just dinners. it will also show that the kitchen
-              is on uber eats{' '}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              borderRadius: '8px',
-              backgroundColor: 'grey',
-              width: '100%',
-              height: 'auto',
-            }}
-          ></Box>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row-reverse',
-            gap: '24px',
-          }}
-        >
-          <Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
-            <Typography variant="base">About the bar</Typography>
-            <Typography variant="base">
-              This is a piece of text about the kitchen, it will tell the people
-              how the kitchen. Introduce the chefs and their approach. It will
-              aso tell information on when the kitchen is open for everyday for
-              golfers and for just dinners. it will also show that the kitchen
-              is on uber eats{' '}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              borderRadius: '8px',
-              backgroundColor: 'grey',
-              width: '100%',
-              height: 'auto',
-            }}
-          ></Box>
-        </Box>
       </Box>
     </Box>
   );

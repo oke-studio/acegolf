@@ -34,12 +34,12 @@ export default function RootLayout({
           className={aceFont.className}
           style={{ backgroundColor: '#171717' }}
         >
-          {/* <DynamicPageBackground> */}
-          <HeaderBanner />
-          <Header />
-          {children}
-          <FooterV2 />
-          {/* </DynamicPageBackground> */}
+          <DynamicPageBackground>
+            <HeaderBanner />
+            <Header />
+            {children}
+            <FooterV2 />
+          </DynamicPageBackground>
 
           <div
             className={'subtleNoise'}
