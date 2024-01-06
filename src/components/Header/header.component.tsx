@@ -4,21 +4,20 @@ import {
   Box,
   styled,
   List,
-  Link,
   ListItem,
   ListItemButton,
-  ListItemText,
-  createTheme,
   useMediaQuery,
   useTheme,
   Button,
 } from '@mui/material';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import GolfCourseIcon from '@mui/icons-material/GolfCourse';
+import SportsGolfIcon from '@mui/icons-material/SportsGolf';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
 import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
-import { HeaderBanner } from '@/components/Header/headerBanner.component';
+import { Typography } from '../Typography/typography.component';
 
 const HeaderContainer = styled(Box)({
   display: 'flex',
@@ -112,125 +111,39 @@ export const Header = ({
     },
   };
 
-  const StyledHamburgerMenu = () => {
-    const StyledMenu = styled(Button)({
-      // position: 'absolute',
-      // top: '5%',
-      // left: '2rem',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      width: '2rem',
-      height: '2rem',
-      background: 'transparent',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 0,
-      zIndex: 10,
-      '& :focus': {
-        outline: 'none',
-      },
-      div: {
-        width: '2rem',
-        height: '0.25rem',
-        background: mobileDropDownEnabled ? '#0D0C1D' : '#EFFFFA',
-        borderRadius: '10px',
-        transition: 'all 0.3s linear',
-        position: 'relative',
-        transformOrigin: '1px',
-
-        ':first-child': {
-          transform: mobileDropDownEnabled ? 'rotate(45deg)' : 'rotate(0)',
-        },
-        ':nth-child(2)': {
-          opacity: mobileDropDownEnabled ? '0' : '1',
-          transform: mobileDropDownEnabled
-            ? 'translateX(20px)'
-            : 'translateX(0)',
-        },
-
-        ':nth-child(3)': {
-          transform: mobileDropDownEnabled ? 'rotate(-45deg)' : 'rotate(0)',
-        },
-      },
-    });
-
-    return (
-      <StyledMenu
-        onClick={() => toggleDropDown()}
-        disableElevation
-        disableFocusRipple
-        disableRipple
-        disableTouchRipple
-      >
-        <Box />
-        <Box />
-        <Box />
-      </StyledMenu>
-    );
+  const handleNavOnClick = (to: string) => {
+    if (mobileDropDownEnabled) {
+      setMobileDropDownEnabled(false);
+    }
+    return router.push(to);
   };
 
-  const MobileNav = () => {
-    return (
-      <Box
-        sx={{
-          backgroundColor: 'white',
-          color: 'black',
-          height: '100vh',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          justifyContent: 'center',
-          padding: '24px',
-          paddingTop: '60px',
-          alignContent: 'center',
+  const menuVariants = {
+    open: {
+      scaleY: '1',
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.2,
+      },
+    },
+    closed: {
+      scaleY: '0',
+      transition: {
+        when: 'afterChildren',
+        staggerChildren: 0.3,
+      },
+    },
+  };
 
-          transform: mobileDropDownEnabled
-            ? 'translateY(0)'
-            : 'translateY(-100%)',
-          transition: 'transform 0.3s ease-in-out',
-        }}
-      >
-        <List
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            gap: '24px',
-            width: '100%',
-          }}
-        >
-          {navOptions.map((navLink, i) => (
-            <ListItem
-              disablePadding
-              key={i}
-              sx={{
-                '& .MuiButtonBase-root': {
-                  justifyContent: 'center',
-                },
-              }}
-            >
-              <StyledListItemButton
-                onClick={() => {
-                  toggleDropDown();
-                  router.push(navLink.to);
-                }}
-                sx={{}}
-              >
-                {/* <MotionSpanAnimated
-                  label={navLink.label}
-                  hoverAnimation={HoverAnimation}
-                  restAnimation={RestAnimation}
-                /> */}
-                {navLink.label}
-              </StyledListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    );
+  const menuListVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+    },
+    closed: {
+      y: -10,
+      opacity: 0,
+    },
   };
 
   return (
@@ -241,43 +154,93 @@ export const Header = ({
 
         justifyContent: 'center',
         flexDirection: 'column',
-        position: 'relative',
-        zIndex: zIndex.appBar,
-        ...(!mobileDropDownEnabled && {
-          position: 'sticky',
-          top: '38px',
+        position: 'sticky',
+        top: '38px',
 
-          backgroundColor: 'transparent',
-          mixBlendMode: 'difference',
-        }),
+        zIndex: zIndex.appBar,
+        // mixBlendMode: 'difference',
+
+        ...(!mobileDropDownEnabled &&
+          {
+            // position: 'sticky',
+            // backgroundColor: 'transparent',
+          }),
       }}
     >
+      <Box
+        component={motion.ul}
+        variants={menuVariants}
+        initial="closed"
+        animate={mobileDropDownEnabled ? 'open' : 'closed'}
+        sx={{
+          // display: 'flex',
+          // flexDirection: 'column',
+          justifyContent: 'center',
+          // gap: '24px',
+          // width: '100%',
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          position: 'absolute',
+          right: '0',
+          left: '0',
+          top: '0',
+          bottom: 0,
+          overflow: 'hidden',
+          pointerEvents: 'auto',
+          flexDirection: 'column',
+          gap: '1rem',
+          backgroundColor: '#ffffff',
+          transformOrigin: 'top',
+          color: 'black',
+          zIndex: 5,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        }}
+        // component={motion.div}
+        // variants={menuVariants}
+        // initial="closed"
+        // animate={mobileDropDownEnabled ? 'open' : 'closed'}
+      >
+        {navOptions.map((navLink, i) => (
+          <Box
+            component={motion.li}
+            variants={menuListVariants}
+            onClick={() => handleNavOnClick(navLink.to)}
+            key={i}
+            sx={{
+              '& .MuiButtonBase-root': {
+                justifyContent: 'center',
+              },
+              justifyContent: 'center',
+            }}
+          >
+            <Button variant="text" sx={{ color: 'black' }}>
+              <Typography variant="small" weight="400">
+                {navLink.label}
+              </Typography>
+            </Button>
+          </Box>
+        ))}
+      </Box>
       <HeaderContainer
         sx={{
           justifyContent: isMobile ? 'space-between' : 'center',
           // backgroundColor: navBackgroundColor,
           // color: navTextColor,
-          position: 'relative',
+          backgroundColor: mobileDropDownEnabled ? 'white' : 'black',
         }}
       >
         {isMobile && (
           <>
             <Button
-              onClick={() => router.push('/')}
+              onClick={() => handleNavOnClick('/')}
               disableElevation
               disableFocusRipple
               disableRipple
               disableTouchRipple
               sx={{ ...(mobileDropDownEnabled && { zIndex: 10 }) }}
             >
-              {/* <Image
-                src="/images/ace-header-logo.svg"
-                alt="ace golf logo"
-                width={50}
-                height={50}
-                
-              /> */}
-
               <svg
                 width="50"
                 height="50"
@@ -315,8 +278,23 @@ export const Header = ({
                 />
               </svg>
             </Button>
-            <StyledHamburgerMenu />
-            <MobileNav />
+
+            <Box
+              component={motion.button}
+              whileHover={{ scale: 1.15, color: palette.aceOrange }}
+              whileTap={{ scale: 0.95 }}
+              initial={{
+                color: mobileDropDownEnabled ? '#000000' : '#FFFFFF',
+              }}
+              sx={{
+                border: 'none',
+                backgroundColor: 'transparent',
+                ...(mobileDropDownEnabled && { zIndex: 10 }),
+              }}
+              onClick={() => setMobileDropDownEnabled(open => !open)}
+            >
+              <GolfCourseIcon fontSize="large" />
+            </Box>
           </>
         )}
 
@@ -382,30 +360,11 @@ export const Header = ({
                 <MotionSpanAnimated label="Book Now!" />
               </motion.button> */}
               <Button
-                // sx={{
-                //   backgroundColor: 'black',
-
-                //   border: `3px solid ${palette.aceOrange}`,
-                //   ':hover': {
-                //     backgroundColor: '#171717',
-                //     transition: 'backgroundColor 0.5s ease-in-out',
-                //     transitionDelay: '0.5s',
-                //   },
-                // }}
-                disableElevation
-                disableFocusRipple
-                disableRipple
-                disableTouchRipple
                 variant="navButton"
                 onClick={() => {
                   router.push('/book-now');
                 }}
               >
-                {/* <MotionSpanAnimated
-                  label="Book Now!"
-                  hoverAnimation={HoverAnimation}
-                  restAnimation={RestAnimation}
-                /> */}
                 Book Now!
               </Button>
             </ListItem>

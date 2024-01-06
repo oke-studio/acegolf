@@ -124,7 +124,7 @@ export const LandingCardsGrid = () => {
           display: 'grid',
           ...(isMobile
             ? {
-                gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
+                gridTemplateRows: 'repeat(2, minmax(0, auto))',
               }
             : { gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)' }),
           width: '100%',
@@ -137,7 +137,7 @@ export const LandingCardsGrid = () => {
             flexDirection: isMobile ? 'row' : 'column',
             width: '100%',
             gap: '24px',
-            flexBasis: '60%',
+            minWidth: 0,
           }}
         >
           <Card
@@ -167,15 +167,6 @@ export const LandingCardsGrid = () => {
           ImageSrc="/images/Maps-ace-expanded.png"
         />
       </Box>
-      {/* <Box> */}
-      {/* <Card
-          buttonOne={{ children: 'Learn More', variant: 'primary' }}
-          CardTitle="Full Width Card"
-          CardDescription="Content on card"
-          fullWidth
-          ImageSrc="/images/ace-landing-image-1.jpeg"
-        /> */}
-      {/* </Box> */}
     </LandingCardsContainer>
   );
 };
