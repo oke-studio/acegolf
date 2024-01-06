@@ -10,55 +10,57 @@ import Image from 'next/image';
 const ImageSrc = [
   // #1
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/ezgif-2-0095f2ad03.gif',
     title: 'img_01',
     height: 450,
     width: 250,
   },
   // #2
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/ace-pink.png',
     title: 'img_01',
     height: 250,
     width: 250,
   },
   // #3
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/wtv-02.jpg',
     title: 'img_01',
     height: 400,
     width: 250,
   },
   // #4
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/wtv-03.jpg',
     title: 'img_01',
     height: 450,
     width: 250,
   },
 
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/ezgifvideo-to-gif-converter.gif',
     title: 'img_01',
     height: 450,
     width: 250,
   },
 
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/wtv-04.jpg',
+
     title: 'img_01',
     height: 350,
     width: 250,
   },
 
   {
-    src: '/images/ace-banner-chromatic-white.jpg',
+    src: '/images/whatsTheVibeAssets/wtv-01.jpg',
     title: 'img_01',
-    height: 450,
+    height: 400,
     width: 250,
   },
 
   {
+
     src: '/images/ace-banner-chromatic-white.jpg',
     title: 'img_01',
     height: 450,
