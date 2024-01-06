@@ -17,6 +17,7 @@ import SportsGolfIcon from '@mui/icons-material/SportsGolf';
 import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
 import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
+import { Typography } from '../Typography/typography.component';
 
 const HeaderContainer = styled(Box)({
   display: 'flex',
@@ -120,20 +121,28 @@ export const Header = ({
   const menuVariants = {
     open: {
       scaleY: '1',
-      // y: '100%',
-      // duration: 3,
       transition: {
         when: 'beforeChildren',
-        staggerChildren: 0.5,
+        staggerChildren: 0.2,
       },
     },
     closed: {
       scaleY: '0',
-
       transition: {
         when: 'afterChildren',
-        staggerChildren: 1,
+        staggerChildren: 0.3,
       },
+    },
+  };
+
+  const menuListVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+    },
+    closed: {
+      y: -10,
+      opacity: 0,
     },
   };
 
@@ -149,16 +158,26 @@ export const Header = ({
         top: '38px',
 
         zIndex: zIndex.appBar,
-        ...(!mobileDropDownEnabled && {
-          position: 'sticky',
-          backgroundColor: 'transparent',
-          mixBlendMode: 'difference',
-        }),
+        // mixBlendMode: 'difference',
+
+        ...(!mobileDropDownEnabled &&
+          {
+            // position: 'sticky',
+            // backgroundColor: 'transparent',
+          }),
       }}
     >
       <Box
-        component={motion.div}
+        component={motion.ul}
+        variants={menuVariants}
+        initial="closed"
+        animate={mobileDropDownEnabled ? 'open' : 'closed'}
         sx={{
+          // display: 'flex',
+          // flexDirection: 'column',
+          justifyContent: 'center',
+          // gap: '24px',
+          // width: '100%',
           height: '100vh',
           width: '100%',
           display: 'flex',
@@ -178,42 +197,31 @@ export const Header = ({
           boxShadow:
             '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
         }}
-        variants={menuVariants}
-        initial="closed"
-        animate={mobileDropDownEnabled ? 'open' : 'closed'}
+        // component={motion.div}
+        // variants={menuVariants}
+        // initial="closed"
+        // animate={mobileDropDownEnabled ? 'open' : 'closed'}
       >
-        <List
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            gap: '24px',
-            width: '100%',
-          }}
-        >
-          {navOptions.map((navLink, i) => (
-            <ListItem
-              disablePadding
-              key={i}
-              sx={{
-                '& .MuiButtonBase-root': {
-                  justifyContent: 'center',
-                },
-              }}
-            >
-              <StyledListItemButton
-                onClick={() => {
-                  // toggleDropDown();
-                  // router.push(navLink.to);
-                  handleNavOnClick(navLink.to);
-                }}
-                sx={{}}
-              >
+        {navOptions.map((navLink, i) => (
+          <Box
+            component={motion.li}
+            variants={menuListVariants}
+            onClick={() => handleNavOnClick(navLink.to)}
+            key={i}
+            sx={{
+              '& .MuiButtonBase-root': {
+                justifyContent: 'center',
+              },
+              justifyContent: 'center',
+            }}
+          >
+            <Button variant="text" sx={{ color: 'black' }}>
+              <Typography variant="small" weight="400">
                 {navLink.label}
-              </StyledListItemButton>
-            </ListItem>
-          ))}
-        </List>
+              </Typography>
+            </Button>
+          </Box>
+        ))}
       </Box>
       <HeaderContainer
         sx={{
