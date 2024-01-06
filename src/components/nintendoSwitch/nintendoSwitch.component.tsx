@@ -27,6 +27,7 @@ export const NintendoSwitch = () => {
           width: '100%',
           borderRadius: isMobile ? '25px 25px 0px 0px' : '25px 0px 0px 0px',
           padding: '24px',
+          flex: 1,
         }}
       >
         <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
@@ -34,7 +35,7 @@ export const NintendoSwitch = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              // width: '50%',
+              flex: 1,
               height: '100%',
               justifyContent: 'space-between',
             }}
@@ -51,29 +52,19 @@ export const NintendoSwitch = () => {
               Learn More &rarr;
             </Button>
           </Box>
-          {/* <Box
-            sx={{
-              backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '8px',
-              maxWidth: '250px',
-              width: '100%',
-              height: 'auto',
-            }}
-          /> */}
-          <Image
-            src="/images/ace-banner-chromatic-white.jpg"
-            height={350}
-            width={250}
-            alt="img"
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-              borderRadius: '8px',
-            }}
-          />
+
+          <Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
+            <Image
+              src="/images/ace-banner-chromatic-white.jpg"
+              fill
+              alt="img"
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+                borderRadius: '8px',
+              }}
+            />
+          </Box>
         </Box>
       </Box>
       <Box
@@ -82,6 +73,7 @@ export const NintendoSwitch = () => {
           width: '100%',
           borderRadius: isMobile ? '25px 25px 25px 25px' : '0px 25px 0px 0px',
           padding: '24px',
+          flex: 1,
         }}
       >
         <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
@@ -89,7 +81,7 @@ export const NintendoSwitch = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              // width: '50%',
+              flex: 1,
               justifyContent: 'space-between',
               height: '100%',
             }}
@@ -106,29 +98,19 @@ export const NintendoSwitch = () => {
               Inquire Now &rarr;
             </Button>
           </Box>
-          {/* <Box
-            sx={{
-              backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '8px',
-              maxWidth: '250px',
-              width: '100%',
-              height: 'auto',
-            }}
-          /> */}
-          <Image
-            src="/images/ace-banner-chromatic-white.jpg"
-            height={350}
-            width={250}
-            alt="img"
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-              borderRadius: '8px',
-            }}
-          />
+
+          <Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
+            <Image
+              src="/images/ace-banner-chromatic-white.jpg"
+              fill
+              alt="img"
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+                borderRadius: '8px',
+              }}
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
