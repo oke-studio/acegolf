@@ -171,6 +171,8 @@ const SpinningMenuHeading = () => {
           height: '6rem',
           fontWeight: 900,
           textTransform: 'uppercase',
+          top: '-20px',
+          zIndex: '-1',
         }}
         style={{
           transformStyle: 'preserve-3d',
@@ -210,11 +212,11 @@ const SpinningMenuHeading = () => {
             alignItems: 'center',
             borderStyle: 'solid',
             borderWidth: '2px',
-            borderColor: '#818CF8',
+            borderColor: '#EB8B32',
             color: '#ffffff',
             // borderRadius: '12px',
             backgroundColor: theme => {
-              return theme.palette.aceTeal;
+              return theme.palette.orange;
             },
           }}
           weight="900"
@@ -235,12 +237,12 @@ const SpinningMenuHeading = () => {
             alignItems: 'center',
             borderStyle: 'solid',
             borderWidth: '2px',
-            borderColor: '#818CF8',
+            borderColor: '#EB8B32',
             width: '100%',
             height: '100%',
             color: '#ffffff',
             // borderRadius: '12px',
-            backgroundColor: '#4F46E5',
+            backgroundColor: '#EB8B32',
             transformOrigin: 'top',
           }}
           weight="900"
@@ -261,12 +263,12 @@ const SpinningMenuHeading = () => {
             alignItems: 'center',
             borderStyle: 'solid',
             borderWidth: '2px',
-            borderColor: '#818CF8',
+            borderColor: '#EB8B32',
             width: '100%',
             height: '100%',
             color: '#ffffff',
             // borderRadius: '12px',
-            backgroundColor: '#4F46E5',
+            backgroundColor: '#EB8B32',
             transformOrigin: 'bottom',
           }}
           weight="900"
@@ -289,12 +291,12 @@ const SpinningMenuHeading = () => {
             alignItems: 'center',
             borderStyle: 'solid',
             borderWidth: '2px',
-            borderColor: '#818CF8',
+            borderColor: '#EB8B32',
             width: '100%',
             height: '100%',
             color: '#ffffff',
             // borderRadius: '12px',
-            backgroundColor: '#4F46E5',
+            backgroundColor: '#EB8B32',
             transformOrigin: 'center',
           }}
           weight="900"
@@ -314,7 +316,7 @@ const SpinningMenuHeading = () => {
       sx={{
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '1rem',
+        gap: '0rem',
         display: 'flex',
         flexDirection: 'column',
       }}
