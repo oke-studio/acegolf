@@ -64,9 +64,9 @@ export const BookNowForm = ({
     <Box
       sx={{
         display: 'flex',
-        flexDirection: isWide ? 'row' : 'column',
+        flexDirection: 'column',
         gap: '24px',
-        justifyContent: isWide && 'space-around',
+        justifyContent: 'space-around',
       }}
     >
       <FormControl fullWidth>
