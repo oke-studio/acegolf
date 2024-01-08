@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import { MenuCarousel } from './components/menu-carousel/menuCarousel.component';
 
-export default function Home() {
+export default function Menu() {
   return (
     <Box
       sx={{
