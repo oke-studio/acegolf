@@ -39,17 +39,17 @@ const ComingSoonForm = () => {
   return (
     <Formik
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encode({ 'form-name': 'comingsoon-email_v2', ...values }),
         })
           .then(() => setIsSubmit(true))
-          .catch((e) => alert(e));
+          .catch(e => alert(e));
       }}
     >
-      {(props) => {
+      {props => {
         const { values, isSubmitting, handleSubmit, handleChange } = props;
 
         return (
@@ -200,7 +200,8 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
         height="100%"
         viewBox="0 0 1973 293"
         pathProps={{
-          d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+          d:
+            'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
         }}
         text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
         textCount={3}
@@ -215,7 +216,8 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
       height="100%"
       viewBox="0 0 1973 293"
       pathProps={{
-        d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
+        d:
+          'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
       }}
       text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
       textCount={3}
@@ -301,7 +303,7 @@ export const ComingSoonInfoSection = ({
             mixBlendMode: 'difference',
           }}
         >
-          OPENING DEC 2023
+          ALL BAYS NOW OPEN
         </Box>
 
         <Button
@@ -324,6 +326,17 @@ export const ComingSoonInfoSection = ({
             Early Reservation &rarr;
           </a>
         </Button>
+        <Box
+          sx={{
+            marginTop: '20px',
+            ...typography.hero_medium,
+            fontSize: '16px',
+            color: 'white',
+            // mixBlendMode: 'difference',
+          }}
+        >
+          Cafe is pen! Kitchen and Bar temporarily closed.
+        </Box>
       </ComingSoonInfoWrapper>
 
       <ComingSoonForm />
