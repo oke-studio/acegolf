@@ -335,7 +335,7 @@ export const ComingSoonInfoSection = ({
             // mixBlendMode: 'difference',
           }}
         >
-          Cafe is pen! Kitchen and Bar temporarily closed.
+          Cafe is open! Kitchen and Bar temporarily closed.
         </Box>
       </ComingSoonInfoWrapper>
 
