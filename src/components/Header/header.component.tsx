@@ -120,14 +120,14 @@ export const Header = ({
 
   const menuVariants = {
     open: {
-      scaleY: '1',
+      scaleY: 1,
       transition: {
         when: 'beforeChildren',
         staggerChildren: 0.2,
       },
     },
     closed: {
-      scaleY: '0',
+      scaleY: 0,
       transition: {
         when: 'afterChildren',
         staggerChildren: 0.3,
@@ -177,7 +177,7 @@ export const Header = ({
           // flexDirection: 'column',
           justifyContent: 'center',
           // gap: '24px',
-          // width: '100%',
+          alignItems: 'center',
           height: '100vh',
           width: '100%',
           display: 'flex',
@@ -208,6 +208,8 @@ export const Header = ({
             variants={menuListVariants}
             onClick={() => handleNavOnClick(navLink.to)}
             key={i}
+            // onHover={}
+            whileHover={{ color: palette.aceOrange }}
             sx={{
               '& .MuiButtonBase-root': {
                 justifyContent: 'center',
@@ -215,8 +217,8 @@ export const Header = ({
               justifyContent: 'center',
             }}
           >
-            <Button variant="text" sx={{ color: 'black' }}>
-              <Typography variant="small" weight="400">
+            <Button variant="text" sx={{ color: '#000000' }}>
+              <Typography variant="small" weight="400" as={motion.div}>
                 {navLink.label}
               </Typography>
             </Button>
@@ -283,17 +285,20 @@ export const Header = ({
               component={motion.button}
               whileHover={{ scale: 1.15, color: palette.aceOrange }}
               whileTap={{ scale: 0.95 }}
-              initial={{
-                color: mobileDropDownEnabled ? '#000000' : '#FFFFFF',
-              }}
+              initial={{ color: mobileDropDownEnabled ? '#000000' : '#FFFFFF' }}
               sx={{
                 border: 'none',
                 backgroundColor: 'transparent',
-                ...(mobileDropDownEnabled && { zIndex: 10 }),
+                ...(mobileDropDownEnabled && { zIndex: 10, color: '#000000' }),
+                color: '#FFFFFF',
               }}
               onClick={() => setMobileDropDownEnabled(open => !open)}
             >
-              <GolfCourseIcon fontSize="large" />
+              {mobileDropDownEnabled ? (
+                <SportsGolfIcon fontSize="large" />
+              ) : (
+                <GolfCourseIcon fontSize="large" />
+              )}
             </Box>
           </>
         )}

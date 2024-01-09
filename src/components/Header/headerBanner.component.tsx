@@ -24,7 +24,7 @@ export const HeaderBanner = () => {
         backgroundColor: 'green',
         position: 'sticky',
         top: '0px',
-        zIndex: '10',
+        zIndex: theme => theme.zIndex.appBar,
         color: 'white',
         display: 'flex',
         flexDirection: 'row',
@@ -33,7 +33,7 @@ export const HeaderBanner = () => {
         mixBlendMode: 'normal',
       }}
     >
-      <Typography variant="base" sx={{}}>
+      <Typography variant="base" sx={{ textAlign: 'center' }}>
         Announcments go here about ace so that customers know
       </Typography>
     </Box>

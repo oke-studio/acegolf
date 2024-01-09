@@ -1,46 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import {
-  useTheme,
-  Box,
-  useMediaQuery,
-  Button,
-  FormControl,
-  Select,
-  InputLabel,
-  SelectChangeEvent,
-  InputBase,
-  styled,
-  Hidden,
-  MenuItem,
-} from '@mui/material';
-import { LandingCards } from '../../app/landing/components/landingCards/landingCards.component';
+import { useTheme, Box, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
-import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
-import { orange } from '@mui/material/colors';
-
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  // 'label + &': {
-  //   marginTop: theme.spacing(3),
-  // },
-  '& .MuiInputBase-input': {
-    borderRadius: '12px',
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: `4px solid ${theme.palette.aceOrange}`,
-    // fontSize: 16,
-    padding: '12px 24px 12px 24px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-
-    '&:focus': {
-      borderRadius: 4,
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-}));
 
 const HowItWorksInfoBox = ({
   number,
@@ -96,7 +59,7 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
       SectionName="How it works Homepage"
       SectionWidth="normal"
       SectionColor=""
-      CornerRadius="on"
+      CornerRadius
       SectionHeight="fit-content"
     >
       <Box

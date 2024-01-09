@@ -96,10 +96,7 @@ interface PricesTabsContentSkeletonProps {
   description: string;
   priceContainerOne: PriceContainer;
   priceContainerTwo: PriceContainer;
-  privatePriceContainer: Omit<
-    PriceContainer,
-    'timeFrom' | 'timeTo' | 'backgroundColor' | 'bar' | 'kitchen' | 'bar'
-  >;
+  privatePriceContainer: Pick<PriceContainer, 'price'>;
 }
 
 const PricesTabsContentSkeleton = ({

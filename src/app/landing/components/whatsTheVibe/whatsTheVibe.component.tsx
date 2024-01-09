@@ -12,6 +12,7 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/ezgif-2-0095f2ad03.gif',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 450,
     width: 250,
   },
@@ -19,6 +20,7 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/ace-pink.png',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 250,
     width: 250,
   },
@@ -26,6 +28,7 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/wtv-02.jpg',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 400,
     width: 250,
   },
@@ -33,6 +36,7 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/wtv-03.jpg',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 450,
     width: 250,
   },
@@ -40,6 +44,7 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/ezgifvideo-to-gif-converter.gif',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 450,
     width: 250,
   },
@@ -48,6 +53,7 @@ const ImageSrc = [
     src: '/images/whatsTheVibeAssets/wtv-04.jpg',
 
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 350,
     width: 250,
   },
@@ -55,14 +61,15 @@ const ImageSrc = [
   {
     src: '/images/whatsTheVibeAssets/wtv-01.jpg',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 400,
     width: 250,
   },
 
   {
-
     src: '/images/ace-banner-chromatic-white.jpg',
     title: 'img_01',
+    alt: 'whats_the_vibe_image',
     height: 450,
     width: 250,
   },
@@ -85,7 +92,7 @@ const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
       <Box sx={{ borderRadius: '0.75rem', overflow: 'hidden' }}>
         <Image
           src={img.src}
-          alt="image"
+          alt={img.alt}
           width={250}
           height={galleryHeight}
           sizes="250px"
