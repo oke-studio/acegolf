@@ -337,7 +337,7 @@ export const ComingSoonInfoSection = ({
         >
           General Bays: $45/hr <br/>
           Private Bays: $55/hr <br/>
-          Cafe is pen! Kitchen and Bar temporarily closed.
+          Cafe is Open! Kitchen and Bar temporarily closed.
         </Box>
       </ComingSoonInfoWrapper>
 
