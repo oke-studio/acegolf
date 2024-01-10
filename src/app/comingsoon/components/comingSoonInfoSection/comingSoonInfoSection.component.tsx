@@ -335,7 +335,9 @@ export const ComingSoonInfoSection = ({
             // mixBlendMode: 'difference',
           }}
         >
-          Cafe is open! Kitchen and Bar temporarily closed.
+          General Bays: $45/hr <br/>
+          Private Bays: $55/hr <br/>
+          Cafe is pen! Kitchen and Bar temporarily closed.
         </Box>
       </ComingSoonInfoWrapper>
 
