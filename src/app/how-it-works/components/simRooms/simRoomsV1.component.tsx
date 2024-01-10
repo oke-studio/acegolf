@@ -163,37 +163,37 @@ const SimRoomCardsInfo: Omit<
   {
     imgSrc: '/images/Spin-photo2.png',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '1',
   },
   {
     imgSrc: '/images/Spin-photo3.png',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '2',
   },
   {
     imgSrc: '/images/Spin-photo4.png',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '3',
   },
   {
     imgSrc: '/images/placeholder1.png',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '4',
   },
   {
     imgSrc: '/images/placeholder2.png',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '5',
   },
   {
     imgSrc: '/images/ace-banner-chromatic-black.jpg',
     imgAlt: 'img',
-    cardWidth: '250px',
+    // cardWidth: '250px',
     title: '6',
   },
 ];
