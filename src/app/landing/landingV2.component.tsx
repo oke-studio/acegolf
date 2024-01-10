@@ -13,7 +13,7 @@ import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
 import { Noise } from '@/util/Noise';
 import { LandingCards } from './components/landingCards/landingCards.component';
-import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
+import { HowItWorks } from '../../components/howItWorks/howItWorks.component';
 import { LandingVideo } from './components/video/video.component';
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
@@ -417,7 +417,7 @@ export default function LandingV2() {
           margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
         }}
       >
-        <LandingHowItWorks />
+        <HowItWorks isLanding />
       </Box>
 
       <Box

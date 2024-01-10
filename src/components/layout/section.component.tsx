@@ -42,7 +42,7 @@ interface SectionProps {
   SectionHeight?: string;
   SectionColor: string;
   CornerRadius: boolean;
-  ScrollAnimations: boolean;
+  ScrollAnimations?: boolean;
   children?: React.ReactNode;
   sx?: SxProps;
 }

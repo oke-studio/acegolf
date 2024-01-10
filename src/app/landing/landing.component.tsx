@@ -19,7 +19,7 @@ import { Noise } from '@/util/Noise';
 import { LandingCards } from './components/landingCards/landingCards.component';
 import { LandingHero } from './components/landingHero/landingHero.component';
 import { VideoLandingHero } from './components/video/videoLandingHero.component';
-import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
+import { HowItWorks } from '../../components/howItWorks/howItWorks.component';
 
 import { AceBanner } from '../../components/aceBanner/aceBanner.component';
 import { Promotions } from './components/promotions/promotions.component';
@@ -29,6 +29,7 @@ import { LandingInfoSection } from './components/landingInfo/landingInfoSection.
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 import { LandingCardsGrid } from './components/landingCards/landingCardsGrid.component';
 import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
+import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 
 const MapSVG = () => (
   <svg

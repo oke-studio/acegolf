@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ overflowX: 'hidden' }}>
       <Providers>
         <meta name="theme-color" content="#39775E"></meta>
         <body

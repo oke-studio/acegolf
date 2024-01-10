@@ -429,7 +429,7 @@ export const MenuCarousel = () => {
                   </CustomTabPanel>
                 ))}
 
-                <CustomTabPanel
+                {/* <CustomTabPanel
                   index={MenuOptions.length}
                   value={value}
                   key={`menu_option_${MenuOptions.length}`}
@@ -464,17 +464,10 @@ export const MenuCarousel = () => {
                         eats{' '}
                       </Typography>
                     </Box>
-                    {/* <Box
-                      sx={{
-                        borderRadius: '8px',
-                        backgroundColor: 'grey',
-                        width: '100%',
-                        height: 'auto',
-                      }}
-                    ></Box> */}
+                    
                   </Box>
-                </CustomTabPanel>
-                <CustomTabPanel
+                </CustomTabPanel> */}
+                {/* <CustomTabPanel
                   index={MenuOptions.length + 1}
                   value={value}
                   key={`menu_option_${MenuOptions.length + 1}`}
@@ -509,16 +502,9 @@ export const MenuCarousel = () => {
                         eats{' '}
                       </Typography>
                     </Box>
-                    {/* <Box
-                      sx={{
-                        borderRadius: '8px',
-                        backgroundColor: 'grey',
-                        width: '100%',
-                        height: 'auto',
-                      }}
-                    ></Box> */}
+                    
                   </Box>
-                </CustomTabPanel>
+                </CustomTabPanel> */}
               </Box>
               {!isMobile && (
                 <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -552,14 +538,14 @@ export const MenuCarousel = () => {
                         label={<MotionSpanAnimated label="Desert" />}
                         {...a11yProps(1)}
                       />
-                      <StyledTab
+                      {/* <StyledTab
                         label={<MotionSpanAnimated label="The Kitchen" />}
                         {...a11yProps(1)}
                       />
                       <StyledTab
                         label={<MotionSpanAnimated label="The Bar" />}
                         {...a11yProps(1)}
-                      />
+                      /> */}
                     </Tabs>
                   </Box>
                   <Box

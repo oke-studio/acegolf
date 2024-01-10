@@ -24,6 +24,8 @@ import PriceTabCard from './priceTabCard.component';
 import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 import dayjs from 'dayjs';
 import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
+
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -323,87 +325,7 @@ export default function BookNow() {
       </Box>
 
       {/* TODO */}
-      <Box
-        sx={{
-          display: 'flex',
-          height: '400px',
-          color: 'black',
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: '#529DC8',
-            width: '100%',
-            borderRadius: '25px 0px 0px 0px',
-            padding: '48px',
-          }}
-        >
-          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                // width: '50%',
-                height: '100%',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Typography variant="base">Join our Rewards program</Typography>
-              <Typography variant="base">Earn $6 on every booking</Typography>
-              <Button variant="secondary">Learn More&rarr;</Button>
-            </Box>
-            <Box
-              sx={{
-                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '8px',
-                width: '300px',
-                height: '100%',
-              }}
-            />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            backgroundColor: '#EB8B32',
-            width: '100%',
-            borderRadius: '0px 25px 0px 0px',
-            padding: '48px',
-          }}
-        >
-          <Box sx={{ display: 'flex', height: '100%', gap: '24px' }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%',
-              }}
-            >
-              <Typography variant="base">
-                Talk to us about your party or event
-              </Typography>
-              <Typography variant="base">
-                We welcome group bookings and events
-              </Typography>
-              <Button variant="secondary">Inquire Now&rarr;</Button>
-            </Box>
-            <Box
-              sx={{
-                backgroundImage: 'url(/images/ace-banner-chromatic-white.jpg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '8px',
-                width: '300px',
-                height: '100%',
-              }}
-            />
-          </Box>
-        </Box>
-      </Box>
+      <NintendoSwitch />
     </Box>
   );
 }
