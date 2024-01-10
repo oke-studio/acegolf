@@ -9,11 +9,45 @@ const HowItWorksInfoBox = ({
   number,
   label,
   description,
+  isLanding = false,
+  miniInfoBoxOne,
+  miniInfoBoxTwo,
 }: {
   number: string;
   label: React.ReactNode;
   description: React.ReactNode;
+  isLanding?: boolean;
+  miniInfoBoxOne: { question: string; answer: string };
+  miniInfoBoxTwo: { question: string; answer: string };
 }) => {
+  const MiniInfoBox = ({
+    question,
+    answer,
+  }: {
+    question: string;
+    answer: string;
+  }) => {
+    return (
+      <Box
+        sx={{
+          height: '250px',
+          width: '250px',
+          backgroundColor: theme => theme.palette.aceTeal,
+          borderRadius: '20px',
+          color: 'black',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          padding: '1rem',
+        }}
+      >
+        <Typography variant="base" weight="600">
+          {question}
+        </Typography>
+        <Typography variant="base">{answer}</Typography>
+      </Box>
+    );
+  };
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row' }}>
       <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
@@ -45,6 +79,26 @@ const HowItWorksInfoBox = ({
         >
           {description}
         </Typography>
+        {!isLanding && (
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-start',
+              flexWrap: 'wrap',
+              gap: '12px',
+            }}
+          >
+            <MiniInfoBox
+              question={miniInfoBoxOne.question}
+              answer={miniInfoBoxOne.answer}
+            />
+            <MiniInfoBox
+              question={miniInfoBoxTwo.question}
+              answer={miniInfoBoxTwo.answer}
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   );
@@ -82,7 +136,7 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
           sx={{
             display: 'flex',
             flexDirection: isLanding ? 'row' : 'column',
-            gap: '12px',
+            gap: '2rem',
           }}
         >
           {/* #1 */}
@@ -102,6 +156,18 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
                 time.
               </>
             }
+            miniInfoBoxOne={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
+            miniInfoBoxTwo={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
           />
 
           {/* #2 */}
@@ -121,6 +187,18 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
                 time.
               </>
             }
+            miniInfoBoxOne={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
+            miniInfoBoxTwo={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
           />
 
           {/* #3 */}
@@ -140,6 +218,18 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
                 time.
               </>
             }
+            miniInfoBoxOne={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
+            miniInfoBoxTwo={{
+              question:
+                'This will be a quick FAQ here. See pricing and Schedume',
+              answer:
+                'This will be a quick FAQ here. See pricing  and Schedume',
+            }}
           />
         </Box>
       </Box>

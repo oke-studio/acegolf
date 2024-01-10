@@ -7,13 +7,16 @@ import { Typography } from '@/components/Typography/typography.component';
 import { HowItWorks } from '@/components/howItWorks/howItWorks.component';
 import { SimRoomsComponent } from './components/simRooms/simRooms.component';
 import { GolfGamesComponent } from './components/golfGames/golfGames.component';
+import { GolfGamesComponentV1 } from './components/golfGames/golfGamesV1.component';
+import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component';
 import Image from 'next/image';
+import { FAQ } from './components/faq/faq.component';
 
 export default function Home() {
   const theme = useTheme();
   const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <Box
         sx={{
           display: 'flex',
@@ -69,15 +72,21 @@ export default function Home() {
           backgroundColor: theme.palette.aceGreen,
           flexDirection: 'column',
           gap: '32px',
-          padding: '24px',
+          padding: '1.5rem',
           justifyContent: 'center',
         }}
       >
-        <SimRoomsComponent />
-        <GolfGamesComponent />
+        {/* <SimRoomsComponent />
+        <GolfGamesComponent /> */}
+        <SimRoomsComponentV1 />
+        <GolfGamesComponentV1 />
       </Box>
 
       {/* FAQ */}
+      <Box sx={{ display: 'flex' }}>
+        <FAQ />
+      </Box>
+
       <Box sx={{ display: 'flex' }}></Box>
 
       <NintendoSwitch />

@@ -5,7 +5,7 @@ export interface MenuItem {
 }
 
 interface Menu {
-  option: 'Big Bites' | 'Small Bites' | 'Desert' | 'About the Kitchen';
+  option: 'Big Bites' | 'Small Bites' | 'Desert';
   items: MenuItem[];
 }
 
