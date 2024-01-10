@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, useTheme, styled, Tab, Tabs } from '@mui/material';
+import { Box, useTheme, styled, Tab, Tabs, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import GolfCourseIcon from '@mui/icons-material/GolfCourse';
 import Image from 'next/image';
@@ -200,6 +200,7 @@ const SimRoomCardsInfo: Omit<
 
 export const SimRoomsComponentV1 = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -260,12 +261,15 @@ export const SimRoomsComponentV1 = () => {
           //   scrollButtons="auto"
           //   sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
         >
-          <StyledTab value={0} label="SIM ROOM #1" />
-          <StyledTab value={1} label="SIM ROOM #2" />
-          <StyledTab value={2} label="SIM ROOM #3" />
-          <StyledTab value={3} label="SIM ROOM #4" />
-          <StyledTab value={4} label="SIM ROOM #5" />
-          <StyledTab value={5} label="PRIVATE SIM ROOMS #6" />
+          <StyledTab value={0} label={isMobile ? '#1' : 'SIM ROOM #1'} />
+          <StyledTab value={1} label={isMobile ? '#2' : 'SIM ROOM #2'} />
+          <StyledTab value={2} label={isMobile ? '#3' : 'SIM ROOM #3'} />
+          <StyledTab value={3} label={isMobile ? '#4' : 'SIM ROOM #4'} />
+          <StyledTab value={4} label={isMobile ? '#5' : 'SIM ROOM #5'} />
+          <StyledTab
+            value={5}
+            label={isMobile ? '#6' : 'PRIVATE SIM ROOM #6'}
+          />
         </StyledTabs>
 
         {/* <TabPanel value={value} index={0} dir={theme.direction}>
