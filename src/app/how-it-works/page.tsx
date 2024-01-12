@@ -1,6 +1,4 @@
 'use client';
-'use client';
-'use client';
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { Box, useTheme, Button, useMediaQuery } from '@mui/material';
