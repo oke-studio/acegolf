@@ -1,8 +1,15 @@
 'use client';
+'use client';
 import * as React from 'react';
+import { useEffect, useRef } from 'react';
+import { Box, useTheme, Button, useMediaQuery } from '@mui/material';
 
-import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
+import FullHowItWorks from './components/fullHowItWorks.component';
+
 import { Typography } from '@/components/Typography/typography.component';
 import { HowItWorks } from '@/components/howItWorks/howItWorks.component';
 import { SimRoomsComponent } from './components/simRooms/simRooms.component';
