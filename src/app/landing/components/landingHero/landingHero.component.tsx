@@ -71,23 +71,27 @@ export const LandingHero = () => {
             <Box
               sx={{
                 display: 'flex',
+                marginBottom: '-13px',
               }}
             >
               <Typography
-                variant="poster"
+                variant="largeH1"
                 weight="900"
                 sx={{
+                  position: 'relative',
+                  top: '-10px',
                   background: theme.palette.sharpTeal,
                   display: 'flex',
                   flexBasis: 'fit-content',
                   transform: 'rotate(3deg)',
-                  padding: '0px 4px',
+                  padding: '4px 4px',
                   alignItems: 'center',
                   flexShrink: '0',
                   color: '#FFF',
                   borderRadius: '4px',
-                  marginTop: '15px',
-                  marginBottom: '15px',
+                  marginTop: '5px',
+                  marginBottom: '5px',
+                  fontSize: '5rem',
                 }}
               >
                 COOLEST

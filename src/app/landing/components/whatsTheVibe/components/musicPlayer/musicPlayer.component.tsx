@@ -8,8 +8,12 @@ export const MusicPlayer = () => {
   return (
     <Box
       sx={{
-        width: '80%',
+        //backgroundColor: '#342972',
+        width: '400px',
+        height: '200px',
         display: 'flex',
+        borderRadius: '8px',
+        marginTop: '20px',
       }}
     >
       <Iframe

@@ -47,6 +47,7 @@ export const BookNowForm = ({
   handleReserveFormOnChange,
   handleDateTimePickerChange,
   reserveABayObject,
+  isWide,
 }: {
   handleDateTimePickerChange: (
     value: string,
@@ -57,9 +58,17 @@ export const BookNowForm = ({
     option: keyof typeof reserveABayObject,
   ) => void;
   reserveABayObject: ReserveABayObject;
+  isWide: boolean;
 }) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '24px',
+        justifyContent: 'space-around',
+      }}
+    >
       <FormControl fullWidth>
         <InputLabel
           id="reserve-a-bay-guest-label"
