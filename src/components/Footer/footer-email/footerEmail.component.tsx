@@ -1,21 +1,21 @@
-'use client';
-import * as React from 'react';
+'use client'
+import * as React from 'react'
 import {
-  Box,
-  FormControl,
-  Button,
-  styled,
-  buttonClasses,
-  Input,
-  inputClasses,
-  useTheme,
-  useFormControl,
-} from '@mui/material';
-import { Formik } from 'formik';
-import { encode } from '@/util/encode';
+	Box,
+	FormControl,
+	Button,
+	styled,
+	buttonClasses,
+	Input,
+	inputClasses,
+	useTheme,
+	useFormControl,
+} from '@mui/material'
+import { Formik } from 'formik'
+import { encode } from '@/util/encode'
 
 const StyledButton = styled(Button)(
-  ({ theme: t }) => `
+	({ theme: t }) => `
     &.${buttonClasses.root}{
       background-color: ${t.palette.primary.main};
       color: white;
@@ -34,10 +34,10 @@ const StyledButton = styled(Button)(
       // font-family: new-hero
     }
   `,
-);
+)
 
 const StyledInput = styled(Input)(
-  ({ theme: t }) => `
+	({ theme: t }) => `
     .${inputClasses.input}{
       width: 100%;
       background: transparent;
@@ -62,7 +62,7 @@ const StyledInput = styled(Input)(
       }
     }
   `,
-);
+)
 
 // const FooterButton = () => {
 //   const formControlContext = useFormControl();
@@ -85,95 +85,95 @@ const StyledInput = styled(Input)(
 // };
 
 interface FormikValuesProps {
-  email?: string;
+	email?: string
 }
 
 export const FooterEmail = () => {
-  const theme = useTheme();
+	const theme = useTheme()
 
-  //   const handleSubmit = (values: FormikValuesProps) => {
-  //     values.preventDefault();
-  //     console.log(values);
-  //   };
+	//   const handleSubmit = (values: FormikValuesProps) => {
+	//     values.preventDefault();
+	//     console.log(values);
+	//   };
 
-  const initialFormikValues: FormikValuesProps = {
-    email: '',
-  };
+	const initialFormikValues: FormikValuesProps = {
+		email: '',
+	}
 
-  return (
-    <Formik
-      initialValues={initialFormikValues}
-      onSubmit={values => {
-        console.log(values);
-        // alert(JSON.stringify(values));
-        // actions.setSubmitting(false);
-        // actions.submitForm();
+	return (
+		<Formik
+			initialValues={initialFormikValues}
+			onSubmit={values => {
+				console.log(values)
+				// alert(JSON.stringify(values));
+				// actions.setSubmitting(false);
+				// actions.submitForm();
 
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'homepage-email', ...values }),
-        })
-          // .then(() => setIsSubmit(true))
-          .catch(e => alert(e));
-      }}
-      validate={values => {
-        const errors: FormikValuesProps = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
-    >
-      {props => {
-        const { handleSubmit, handleChange } = props;
-        return (
-          <Box
-            component="form"
-            autoComplete="off"
-            onSubmit={handleSubmit}
-            method="post"
-            name="homepage-email"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <Box
-              component={FormControl}
-              sx={{
-                color: theme.palette.primary.main,
-                alignItems: 'flex-start',
-                width: '100%',
-                gap: '20px',
-              }}
-            >
-              <input type="hidden" name="form-name" value="homepage-email" />
-              <StyledInput
-                placeholder="Enter Your Email Address . . ."
-                fullWidth
-                required
-                onChange={handleChange}
-                id="email-form"
-                type="email"
-                name="email"
-              />
-              <StyledButton
-                disableElevation
-                disableFocusRipple
-                disableRipple
-                disableTouchRipple
-                //   onClick={(e) => handleSubmit(e)}
-                type="submit"
-              >
-                Sign Up
-              </StyledButton>
-            </Box>
-          </Box>
-        );
-      }}
-    </Formik>
-  );
-};
+				fetch('/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: encode({ 'form-name': 'homepage-email', ...values }),
+				})
+					// .then(() => setIsSubmit(true))
+					.catch(e => alert(e))
+			}}
+			validate={values => {
+				const errors: FormikValuesProps = {}
+				if (!values.email) {
+					errors.email = 'Required'
+				} else if (
+					!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+				) {
+					errors.email = 'Invalid email address'
+				}
+				return errors
+			}}
+		>
+			{props => {
+				const { handleSubmit, handleChange } = props
+				return (
+					<Box
+						component="form"
+						autoComplete="off"
+						onSubmit={handleSubmit}
+						method="post"
+						name="homepage-email"
+						data-netlify="true"
+						data-netlify-honeypot="bot-field"
+					>
+						<Box
+							component={FormControl}
+							sx={{
+								color: theme.palette.primary.main,
+								alignItems: 'flex-start',
+								width: '100%',
+								gap: '20px',
+							}}
+						>
+							<input type="hidden" name="form-name" value="homepage-email" />
+							<StyledInput
+								placeholder="Enter Your Email Address . . ."
+								fullWidth
+								required
+								onChange={handleChange}
+								id="email-form"
+								type="email"
+								name="email"
+							/>
+							<StyledButton
+								disableElevation
+								disableFocusRipple
+								disableRipple
+								disableTouchRipple
+								//   onClick={(e) => handleSubmit(e)}
+								type="submit"
+							>
+								Sign Up
+							</StyledButton>
+						</Box>
+					</Box>
+				)
+			}}
+		</Formik>
+	)
+}

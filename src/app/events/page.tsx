@@ -1,5 +1,5 @@
-import * as React from 'react';
+import * as React from 'react'
 
 export default function Events() {
-  return <div>Events page</div>;
+	return <div>Events page</div>
 }

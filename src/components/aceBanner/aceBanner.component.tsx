@@ -1,33 +1,33 @@
-import * as React from 'react';
-import { BannerText } from './components/aceBannerText.component';
+import * as React from 'react'
+import { BannerText } from './components/aceBannerText.component'
 
 interface AceBannerProps {
-  text: string;
-  textCount?: number;
-  textPath: string;
+	text: string
+	textCount?: number
+	textPath: string
 }
 
-const animationDuration = '30s';
-const initialStartOffset = '-60%';
+const animationDuration = '30s'
+const initialStartOffset = '-60%'
 
 const AceBannerText = ({ text, textCount = 1, textPath }: AceBannerProps) => {
-  return (
-    <>
-      {Array(textCount)
-        .fill('')
-        .map((_, index) => (
-          <BannerText
-            key={index}
-            animationDelay={`${index * 10}s`}
-            animationDuration={animationDuration}
-            pathId={`#${textPath}`}
-            fill={index % 2 === 0 ? 'white' : 'white'}
-            startOffsetPosition={initialStartOffset}
-          >
-            {text}
-          </BannerText>
-        ))}
-      {/* <BannerText
+	return (
+		<>
+			{Array(textCount)
+				.fill('')
+				.map((_, index) => (
+					<BannerText
+						key={index}
+						animationDelay={`${index * 10}s`}
+						animationDuration={animationDuration}
+						pathId={`#${textPath}`}
+						fill={index % 2 === 0 ? 'white' : 'white'}
+						startOffsetPosition={initialStartOffset}
+					>
+						{text}
+					</BannerText>
+				))}
+			{/* <BannerText
         animationDelay="0s"
         animationDuration={animationDuration}
         pathId="#MyPath"
@@ -63,55 +63,55 @@ const AceBannerText = ({ text, textCount = 1, textPath }: AceBannerProps) => {
       >
         {text}
       </BannerText> */}
-    </>
-  );
-};
+		</>
+	)
+}
 
 interface AceBannerSVGWrapperProps {
-  width: string;
-  height: string;
-  pathProps: React.SVGProps<SVGPathElement>;
-  // children: React.ReactNode;
-  text: string;
-  strokeWidth?: string;
-  strokeColor?: string;
-  textCount?: number;
-  textPath?: string;
-  viewBox: string;
+	width: string
+	height: string
+	pathProps: React.SVGProps<SVGPathElement>
+	// children: React.ReactNode;
+	text: string
+	strokeWidth?: string
+	strokeColor?: string
+	textCount?: number
+	textPath?: string
+	viewBox: string
 }
 
 export const AceBanner = ({
-  width,
-  height,
-  pathProps,
-  strokeWidth = '116',
-  strokeColor = '#171717',
-  text,
-  textCount,
-  textPath = 'MyPath',
-  viewBox = `0 0 ${width} ${height}`,
+	width,
+	height,
+	pathProps,
+	strokeWidth = '116',
+	strokeColor = '#171717',
+	text,
+	textCount,
+	textPath = 'MyPath',
+	viewBox = `0 0 ${width} ${height}`,
 }: AceBannerSVGWrapperProps) => {
-  return (
-    <svg
-      width={width}
-      height={height}
-      // viewBox={`0 0 ${width} ${height}`}
-      viewBox={viewBox}
-      fill="none"
-      // preserveAspectRatio="xMidYMid meet"
-    >
-      <path
-        id={textPath}
-        strokeWidth={strokeWidth}
-        stroke={strokeColor}
-        fill="none"
-        pathLength="100"
-        {...pathProps}
-      />
-      <AceBannerText text={text} textCount={textCount} textPath={textPath} />
-    </svg>
-  );
-};
+	return (
+		<svg
+			width={width}
+			height={height}
+			// viewBox={`0 0 ${width} ${height}`}
+			viewBox={viewBox}
+			fill="none"
+			// preserveAspectRatio="xMidYMid meet"
+		>
+			<path
+				id={textPath}
+				strokeWidth={strokeWidth}
+				stroke={strokeColor}
+				fill="none"
+				pathLength="100"
+				{...pathProps}
+			/>
+			<AceBannerText text={text} textCount={textCount} textPath={textPath} />
+		</svg>
+	)
+}
 
 // <text
 //         style={{
