@@ -1,20 +1,20 @@
-import * as React from 'react'
-import { Box, useTheme } from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import GolfCourseIcon from '@mui/icons-material/GolfCourse'
-import Image from 'next/image'
-import { motion, useTime, useTransform } from 'framer-motion'
+import * as React from 'react';
+import { Box, useTheme } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import GolfCourseIcon from '@mui/icons-material/GolfCourse';
+import Image from 'next/image';
+import { motion, useTime, useTransform } from 'framer-motion';
 
 interface SimRoomCardProps {
-	imgSrc: string
-	imgAlt: string
-	cardWidth: string
-	title: string
-	description?: string
-	isCurrent: boolean
-	index: number
-	setActiveCard: (index: number) => void
-	activeWidth?: number
+	imgSrc: string;
+	imgAlt: string;
+	cardWidth: string;
+	title: string;
+	description?: string;
+	isCurrent: boolean;
+	index: number;
+	setActiveCard: (index: number) => void;
+	activeWidth?: number;
 }
 
 const SimRoomCard = ({
@@ -28,9 +28,9 @@ const SimRoomCard = ({
 	setActiveCard,
 	activeWidth = 50,
 }: SimRoomCardProps) => {
-	const { palette } = useTheme()
-	const passiveWidth = (100 - activeWidth) / 6
-	const passiveHoverWidth = passiveWidth + 2.5
+	const { palette } = useTheme();
+	const passiveWidth = (100 - activeWidth) / 6;
+	const passiveHoverWidth = passiveWidth + 2.5;
 	return (
 		<Box
 			component={motion.div}
@@ -129,8 +129,8 @@ const SimRoomCard = ({
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 const SimRoomCardsInfo: Omit<
 	SimRoomCardProps,
@@ -178,18 +178,18 @@ const SimRoomCardsInfo: Omit<
 		cardWidth: '250px',
 		title: '6',
 	},
-]
+];
 
 export const SimRoomsComponent = () => {
-	const gridLayoutGap = '10px'
-	const gridColumnCount = 3
-	const gridItemMinWidth = '250px'
+	const gridLayoutGap = '10px';
+	const gridColumnCount = 3;
+	const gridItemMinWidth = '250px';
 
-	const gapCount = `calc(${gridColumnCount} - 1)`
-	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`
-	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`
+	const gapCount = `calc(${gridColumnCount} - 1)`;
+	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`;
+	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`;
 
-	const [activeCard, setActiveCard] = React.useState(5)
+	const [activeCard, setActiveCard] = React.useState(5);
 
 	return (
 		<Box
@@ -248,5 +248,5 @@ export const SimRoomsComponent = () => {
 				))}
 			</Box>
 		</Box>
-	)
-}
+	);
+};

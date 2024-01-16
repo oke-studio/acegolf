@@ -1,16 +1,16 @@
-import * as React from 'react'
-import { Typography } from '@/components/Typography/typography.component'
+import * as React from 'react';
+import { Typography } from '@/components/Typography/typography.component';
 
 interface RoundedVideoTextProps {
-	fill?: string
-	pathId: string
-	animationDuration: string
-	animationDelay: string
-	startOffsetPosition: string
-	children: React.ReactNode
+	fill?: string;
+	pathId: string;
+	animationDuration: string;
+	animationDelay: string;
+	startOffsetPosition: string;
+	children: React.ReactNode;
 }
 
-const START_OFFSET = '-20%'
+const START_OFFSET = '-20%';
 
 export const RoundedVideoText = ({
 	children,
@@ -21,7 +21,8 @@ export const RoundedVideoText = ({
 	startOffsetPosition = START_OFFSET,
 }: RoundedVideoTextProps) => {
 	const endOffsetPosition =
-		eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) + '%'
+		eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +
+		'%';
 
 	return (
 		<text
@@ -49,5 +50,5 @@ export const RoundedVideoText = ({
 				{children}
 			</textPath>
 		</text>
-	)
-}
+	);
+};

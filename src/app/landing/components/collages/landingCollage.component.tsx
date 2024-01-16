@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
 	Button,
 	Box,
@@ -6,9 +6,9 @@ import {
 	Grid,
 	useMediaQuery,
 	useTheme,
-} from '@mui/material'
-import Image from 'next/image'
-import { Section } from '@/components/layout/section.component'
+} from '@mui/material';
+import Image from 'next/image';
+import { Section } from '@/components/layout/section.component';
 
 export const LandingCollage = () => {
 	return (
@@ -44,5 +44,5 @@ export const LandingCollage = () => {
 				}}
 			></Box>
 		</Section>
-	)
-}
+	);
+};

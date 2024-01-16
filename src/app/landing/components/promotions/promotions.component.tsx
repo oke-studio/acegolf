@@ -1,73 +1,73 @@
-'use client'
-import * as React from 'react'
-import { useTheme, Box, styled, useMediaQuery } from '@mui/material'
-import Image from 'next/image'
+'use client';
+import * as React from 'react';
+import { useTheme, Box, styled, useMediaQuery } from '@mui/material';
+import Image from 'next/image';
 import {
 	useMotionValue,
 	motion,
 	useSpring,
 	useTransform,
 	useTime,
-} from 'framer-motion'
-import { Typography } from '@/components/Typography/typography.component'
-const StyledPromotionCards = styled(Box)({})
+} from 'framer-motion';
+import { Typography } from '@/components/Typography/typography.component';
+const StyledPromotionCards = styled(Box)({});
 
 const PromotionCards = ({
 	label,
 	background,
 	imgSrc,
 }: {
-	label: string
-	background: string
-	imgSrc?: string
+	label: string;
+	background: string;
+	imgSrc?: string;
 }) => {
-	const x = useMotionValue(0)
-	const y = useMotionValue(0)
-	const top = useMotionValue(0)
-	const time = useTime()
+	const x = useMotionValue(0);
+	const y = useMotionValue(0);
+	const top = useMotionValue(0);
+	const time = useTime();
 
-	const mouseXSpring = useSpring(x)
-	const mouseYSpring = useSpring(y)
-	const topSpring = useSpring(top, { bounce: 0 })
+	const mouseXSpring = useSpring(x);
+	const mouseYSpring = useSpring(y);
+	const topSpring = useSpring(top, { bounce: 0 });
 
 	const rotateX = useTransform(
 		mouseYSpring,
 		[-0.5, 0.5],
 		['-17.5deg', '17.5deg'],
-	)
+	);
 
 	const rotateY = useTransform(
 		mouseXSpring,
 		[-0.5, 0.5],
 		['17.5deg', '-17.5deg'],
-	)
+	);
 
-	const topTransformer = useTransform(topSpring, [0, 1], ['0px', '50px'])
+	const topTransformer = useTransform(topSpring, [0, 1], ['0px', '50px']);
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		const rect = e.currentTarget.getBoundingClientRect()
+		const rect = e.currentTarget.getBoundingClientRect();
 
-		const width = rect.width
-		const height = rect.height
+		const width = rect.width;
+		const height = rect.height;
 
-		const mouseX = e.clientX - rect.left
-		const mouseY = e.clientY - rect.top
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
 
-		const xPct = mouseX / width - 0.5
-		const yPct = mouseY / height - 0.5
+		const xPct = mouseX / width - 0.5;
+		const yPct = mouseY / height - 0.5;
 
-		x.set(xPct)
-		y.set(yPct)
-		top.set(1)
+		x.set(xPct);
+		y.set(yPct);
+		top.set(1);
 
-		console.log({ xPct, width, mouseX })
-	}
+		console.log({ xPct, width, mouseX });
+	};
 
 	const handleMouseLeave = () => {
-		x.set(0)
-		y.set(0)
-		top.set(0)
-	}
+		x.set(0);
+		y.set(0);
+		top.set(0);
+	};
 	return (
 		<Box
 			sx={{
@@ -152,12 +152,12 @@ const PromotionCards = ({
 				</Typography>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export const Promotions = () => {
-	const { typography, palette } = useTheme()
-	const isMobile = useMediaQuery('(max-width:640px)')
+	const { typography, palette } = useTheme();
+	const isMobile = useMediaQuery('(max-width:640px)');
 	return (
 		<Box
 			sx={{
@@ -201,5 +201,5 @@ export const Promotions = () => {
 				/>
 			</Box>
 		</Box>
-	)
-}
+	);
+};

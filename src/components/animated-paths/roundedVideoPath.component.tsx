@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { RoundedVideoText } from './components/roundedVideoText.component'
+import * as React from 'react';
+import { RoundedVideoText } from './components/roundedVideoText.component';
 import {
 	Box,
 	styled,
@@ -9,16 +9,16 @@ import {
 	Theme,
 	useTheme,
 	Typography,
-} from '@mui/material'
+} from '@mui/material';
 
 interface VideoProps {
-	text: string
-	textCount?: number
-	textPath: string
+	text: string;
+	textCount?: number;
+	textPath: string;
 }
 
-const animationDuration = '30s'
-const initialStartOffset = '0%'
+const animationDuration = '30s';
+const initialStartOffset = '0%';
 
 const VideoPathText = ({ text, textCount = 1, textPath }: VideoProps) => {
 	return (
@@ -74,21 +74,21 @@ const VideoPathText = ({ text, textCount = 1, textPath }: VideoProps) => {
         {text}
       </BannerText> */}
 		</>
-	)
-}
+	);
+};
 
 interface VideoSVGWrapperProps {
-	width: string
-	height: string
-	pathProps: React.SVGProps<SVGPathElement>
+	width: string;
+	height: string;
+	pathProps: React.SVGProps<SVGPathElement>;
 	// children: React.ReactNode;
-	text: string
-	strokeWidth?: string
-	strokeColor?: string
-	textCount?: number
-	textPath?: string
-	viewBox: string
-	sx?: SxProps
+	text: string;
+	strokeWidth?: string;
+	strokeColor?: string;
+	textCount?: number;
+	textPath?: string;
+	viewBox: string;
+	sx?: SxProps;
 }
 
 export const RoundedVideoPath = ({
@@ -133,8 +133,8 @@ export const RoundedVideoPath = ({
 				<VideoPathText text={text} textCount={textCount} textPath={textPath} />
 			</svg>
 		</Box>
-	)
-}
+	);
+};
 
 // <text
 //         style={{

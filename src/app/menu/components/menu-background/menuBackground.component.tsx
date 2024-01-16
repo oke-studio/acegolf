@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useMediaQuery } from '@mui/material'
+import * as React from 'react';
+import { Box, useMediaQuery } from '@mui/material';
 
 export const MenuBackground = () => {
-	const isMobile = useMediaQuery('(max-width:640px)')
+	const isMobile = useMediaQuery('(max-width:640px)');
 
 	//   if (isMobile) {
 	//     return (
@@ -170,5 +170,5 @@ export const MenuBackground = () => {
 				/>
 			</svg>
 		</Box>
-	)
-}
+	);
+};

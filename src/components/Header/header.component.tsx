@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 import {
 	Box,
 	styled,
@@ -9,15 +9,15 @@ import {
 	useMediaQuery,
 	useTheme,
 	Button,
-} from '@mui/material'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import GolfCourseIcon from '@mui/icons-material/GolfCourse'
-import SportsGolfIcon from '@mui/icons-material/SportsGolf'
-import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component'
-import { RNG } from '@/util/RNG'
-import { useRouter } from 'next/navigation'
-import { Typography } from '../Typography/typography.component'
+} from '@mui/material';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import GolfCourseIcon from '@mui/icons-material/GolfCourse';
+import SportsGolfIcon from '@mui/icons-material/SportsGolf';
+import { MotionSpanAnimated } from '../Helpers/motionSpanAnimation.component';
+import { RNG } from '@/util/RNG';
+import { useRouter } from 'next/navigation';
+import { Typography } from '../Typography/typography.component';
 
 const HeaderContainer = styled(Box)({
 	display: 'flex',
@@ -27,7 +27,7 @@ const HeaderContainer = styled(Box)({
 
 	alignItems: 'center',
 	padding: '0px 24px',
-})
+});
 
 const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
 	'&.MuiListItemButton-root:hover': {
@@ -35,17 +35,17 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	},
 	//   padding: '8px 0 8px 0',
-}))
+}));
 
 interface NavOptions {
-	label: string
-	to: string
+	label: string;
+	to: string;
 }
 
 interface HeaderProps {
-	navOptions?: NavOptions[]
-	navBackgroundColor?: string
-	navTextColor?: string
+	navOptions?: NavOptions[];
+	navBackgroundColor?: string;
+	navTextColor?: string;
 }
 
 export const Header = ({
@@ -56,14 +56,15 @@ export const Header = ({
 		{ label: 'Events', to: '/events' },
 	],
 }: HeaderProps) => {
-	const { palette, typography, zIndex, breakpoints } = useTheme()
-	const isMobile = useMediaQuery(breakpoints.down('md'))
-	const [mobileDropDownEnabled, setMobileDropDownEnabled] =
-		React.useState(false)
-	const router = useRouter()
+	const { palette, typography, zIndex, breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('md'));
+	const [mobileDropDownEnabled, setMobileDropDownEnabled] = React.useState(
+		false,
+	);
+	const router = useRouter();
 
 	function toggleDropDown() {
-		setMobileDropDownEnabled(!mobileDropDownEnabled)
+		setMobileDropDownEnabled(!mobileDropDownEnabled);
 	}
 
 	const HoverAnimation = {
@@ -86,7 +87,7 @@ export const Header = ({
 				ease: 'easeIn',
 			},
 		},
-	}
+	};
 
 	const RestAnimation = {
 		top: { to: '-5px', from: '0px' },
@@ -108,14 +109,14 @@ export const Header = ({
 				ease: 'easeIn',
 			},
 		},
-	}
+	};
 
 	const handleNavOnClick = (to: string) => {
 		if (mobileDropDownEnabled) {
-			setMobileDropDownEnabled(false)
+			setMobileDropDownEnabled(false);
 		}
-		return router.push(to)
-	}
+		return router.push(to);
+	};
 
 	const menuVariants = {
 		open: {
@@ -132,7 +133,7 @@ export const Header = ({
 				staggerChildren: 0.3,
 			},
 		},
-	}
+	};
 
 	const menuListVariants = {
 		open: {
@@ -143,7 +144,7 @@ export const Header = ({
 			y: -10,
 			opacity: 0,
 		},
-	}
+	};
 
 	return (
 		<Box
@@ -319,7 +320,7 @@ export const Header = ({
 								disableRipple
 								disableTouchRipple
 								onClick={() => {
-									router.push('/')
+									router.push('/');
 								}}
 							>
 								<Image
@@ -334,7 +335,7 @@ export const Header = ({
 							<ListItem disablePadding key={i}>
 								<StyledListItemButton
 									onClick={() => {
-										router.push(navLink.to)
+										router.push(navLink.to);
 									}}
 								>
 									<MotionSpanAnimated
@@ -366,7 +367,7 @@ export const Header = ({
 							<Button
 								variant="navButton"
 								onClick={() => {
-									router.push('/book-now')
+									router.push('/book-now');
 								}}
 							>
 								Book Now!
@@ -376,5 +377,5 @@ export const Header = ({
 				)}
 			</HeaderContainer>
 		</Box>
-	)
-}
+	);
+};

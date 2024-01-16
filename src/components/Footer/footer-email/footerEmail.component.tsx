@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 import {
 	Box,
 	FormControl,
@@ -10,9 +10,9 @@ import {
 	inputClasses,
 	useTheme,
 	useFormControl,
-} from '@mui/material'
-import { Formik } from 'formik'
-import { encode } from '@/util/encode'
+} from '@mui/material';
+import { Formik } from 'formik';
+import { encode } from '@/util/encode';
 
 const StyledButton = styled(Button)(
 	({ theme: t }) => `
@@ -34,7 +34,7 @@ const StyledButton = styled(Button)(
       // font-family: new-hero
     }
   `,
-)
+);
 
 const StyledInput = styled(Input)(
 	({ theme: t }) => `
@@ -62,7 +62,7 @@ const StyledInput = styled(Input)(
       }
     }
   `,
-)
+);
 
 // const FooterButton = () => {
 //   const formControlContext = useFormControl();
@@ -85,11 +85,11 @@ const StyledInput = styled(Input)(
 // };
 
 interface FormikValuesProps {
-	email?: string
+	email?: string;
 }
 
 export const FooterEmail = () => {
-	const theme = useTheme()
+	const theme = useTheme();
 
 	//   const handleSubmit = (values: FormikValuesProps) => {
 	//     values.preventDefault();
@@ -98,13 +98,13 @@ export const FooterEmail = () => {
 
 	const initialFormikValues: FormikValuesProps = {
 		email: '',
-	}
+	};
 
 	return (
 		<Formik
 			initialValues={initialFormikValues}
 			onSubmit={values => {
-				console.log(values)
+				console.log(values);
 				// alert(JSON.stringify(values));
 				// actions.setSubmitting(false);
 				// actions.submitForm();
@@ -115,22 +115,22 @@ export const FooterEmail = () => {
 					body: encode({ 'form-name': 'homepage-email', ...values }),
 				})
 					// .then(() => setIsSubmit(true))
-					.catch(e => alert(e))
+					.catch(e => alert(e));
 			}}
 			validate={values => {
-				const errors: FormikValuesProps = {}
+				const errors: FormikValuesProps = {};
 				if (!values.email) {
-					errors.email = 'Required'
+					errors.email = 'Required';
 				} else if (
 					!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
 				) {
-					errors.email = 'Invalid email address'
+					errors.email = 'Invalid email address';
 				}
-				return errors
+				return errors;
 			}}
 		>
 			{props => {
-				const { handleSubmit, handleChange } = props
+				const { handleSubmit, handleChange } = props;
 				return (
 					<Box
 						component="form"
@@ -172,8 +172,8 @@ export const FooterEmail = () => {
 							</StyledButton>
 						</Box>
 					</Box>
-				)
+				);
 			}}
 		</Formik>
-	)
-}
+	);
+};

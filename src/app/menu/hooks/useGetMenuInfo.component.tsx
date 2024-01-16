@@ -1,11 +1,11 @@
-import { google } from 'googleapis'
-import { NextApiHandler, NextApiResponse } from 'next'
+import { google } from 'googleapis';
+import { NextApiHandler, NextApiResponse } from 'next';
 
 export default async function useGetMenuInfo(
 	req: NextApiHandler,
 	res: NextApiResponse,
 ) {
-	console.log('here')
+	console.log('here');
 	try {
 		const auth = new google.auth.GoogleAuth({
 			// credentials: {
@@ -14,22 +14,22 @@ export default async function useGetMenuInfo(
 			// },
 			keyFile: '../../../secrets.json',
 			scopes: ['https://www.googleapis.com/spreadsheets'],
-		})
+		});
 
 		const sheets = google.sheets({
 			auth,
 			version: 'v4',
-		})
+		});
 
 		const response = await sheets.spreadsheets.values.get({
 			spreadsheetId: process.env.GOOGLE_SHEET_ID,
-		})
+		});
 
-		return res.status(200).json({ data: response.data })
+		return res.status(200).json({ data: response.data });
 
-		console.log(response.data)
+		console.log(response.data);
 
-		console.log(auth)
+		console.log(auth);
 
 		// console.log(
 		//   await sheets.spreadsheets.values.get({
@@ -38,6 +38,6 @@ export default async function useGetMenuInfo(
 		// );
 		// console.log('here>>');
 	} catch (e) {
-		return res.status(500).send({ message: 'Something went wrong' })
+		return res.status(500).send({ message: 'Something went wrong' });
 	}
 }

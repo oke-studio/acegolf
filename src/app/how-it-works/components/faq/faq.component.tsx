@@ -1,18 +1,18 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
 	Box,
 	Accordion,
 	AccordionDetails,
 	AccordionSummary,
 	styled,
-} from '@mui/material'
-import { ExpandMoreRounded } from '@mui/icons-material'
-import { Typography } from '@/components/Typography/typography.component'
+} from '@mui/material';
+import { ExpandMoreRounded } from '@mui/icons-material';
+import { Typography } from '@/components/Typography/typography.component';
 
 interface StyledAccordionProps {}
 
 interface StyledAccordionSummaryProps {
-	children: React.ReactNode
+	children: React.ReactNode;
 }
 
 const StyledAccordion = styled(Accordion)(({ theme }) => ({
@@ -22,7 +22,7 @@ const StyledAccordion = styled(Accordion)(({ theme }) => ({
 	'& .Mui-expanded': {
 		color: theme.palette.aceOrange,
 	},
-}))
+}));
 
 const StyledAccordionSummary = styled((props: StyledAccordionSummaryProps) => (
 	<AccordionSummary
@@ -40,14 +40,14 @@ const StyledAccordionSummary = styled((props: StyledAccordionSummaryProps) => (
 	'.MuiAccordionSummary-expandIconWrapper': {
 		color: 'inherit',
 	},
-}))
+}));
 
 const AccordionComponent = ({
 	summary,
 	details,
 }: {
-	summary: string
-	details: string
+	summary: string;
+	details: string;
 }) => {
 	return (
 		<StyledAccordion>
@@ -66,8 +66,8 @@ const AccordionComponent = ({
 				</Typography>
 			</AccordionDetails>
 		</StyledAccordion>
-	)
-}
+	);
+};
 
 const AccordionOne: { summary: string; details: string }[] = [
 	{
@@ -75,7 +75,7 @@ const AccordionOne: { summary: string; details: string }[] = [
 		details:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
 	},
-]
+];
 
 const AccordionTwo: { summary: string; details: string }[] = [
 	{
@@ -83,7 +83,7 @@ const AccordionTwo: { summary: string; details: string }[] = [
 		details:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
 	},
-]
+];
 
 export const FAQ = () => {
 	return (
@@ -137,5 +137,5 @@ export const FAQ = () => {
 				))}
 			</Box>
 		</Box>
-	)
-}
+	);
+};

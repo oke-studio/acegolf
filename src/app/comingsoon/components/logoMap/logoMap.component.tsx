@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { styled, Box } from '@mui/material'
-import GolfLogo from '../../../../../public/images/ace-golf-golf-logo2.svg'
+import * as React from 'react';
+import { styled, Box } from '@mui/material';
+import GolfLogo from '../../../../../public/images/ace-golf-golf-logo2.svg';
 
-import { AnimatedLogo } from './components/bottomLogo/bottomLogo.component'
+import { AnimatedLogo } from './components/bottomLogo/bottomLogo.component';
 
 const RelativePositionWrapper = styled(Box)({
 	position: 'relative',
-})
+});
 
 export const LogoMap = () => {
-	let logoStack = []
+	let logoStack = [];
 
 	// Array.from(
 	//     Array(4).map((_, index) => {
@@ -97,5 +97,5 @@ export const LogoMap = () => {
 				</RelativePositionWrapper>
 			))}
 		</Box>
-	)
-}
+	);
+};

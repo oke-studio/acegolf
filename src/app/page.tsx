@@ -1,7 +1,7 @@
-import * as React from 'react'
-import LandingV2 from './landing/landingV2.component'
-import ComingSoonPage from './comingsoon/comingSoonPage.component'
-import Landing from './landing/landing.component'
+import * as React from 'react';
+import LandingV2 from './landing/landingV2.component';
+import ComingSoonPage from './comingsoon/comingSoonPage.component';
+import Landing from './landing/landing.component';
 
 export default function Home() {
 	return (
@@ -10,5 +10,5 @@ export default function Home() {
 			<Landing />
 			{/* <ComingSoonPage /> */}
 		</main>
-	)
+	);
 }

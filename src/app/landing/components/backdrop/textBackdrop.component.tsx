@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { SxProps, Box, Theme, CSSObject } from '@mui/material'
+import * as React from 'react';
+import { SxProps, Box, Theme, CSSObject } from '@mui/material';
 
 export const TextWithBackdrop = ({
 	backdropColor,
@@ -13,16 +13,16 @@ export const TextWithBackdrop = ({
 	css,
 	afterProps,
 }: {
-	text: string
-	backdropColor: string
-	contentColor: string
-	height: string | number
-	width: string | number
-	xOffset: number
-	yOffset: number
-	children?: React.ReactNode
-	css?: SxProps
-	afterProps?: CSSObject
+	text: string;
+	backdropColor: string;
+	contentColor: string;
+	height: string | number;
+	width: string | number;
+	xOffset: number;
+	yOffset: number;
+	children?: React.ReactNode;
+	css?: SxProps;
+	afterProps?: CSSObject;
 }) => {
 	return (
 		<Box
@@ -60,5 +60,5 @@ export const TextWithBackdrop = ({
 			{children}
 			{/* </Box> */}
 		</Box>
-	)
-}
+	);
+};

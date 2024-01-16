@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, styled, TextField, Button, Typography } from '@mui/material'
-import Image from 'next/image'
-import { useFormik, Formik } from 'formik'
-import { encode } from '@/util/encode'
+import * as React from 'react';
+import { Box, styled, TextField, Button, Typography } from '@mui/material';
+import Image from 'next/image';
+import { useFormik, Formik } from 'formik';
+import { encode } from '@/util/encode';
 
 const ComingSoonForm = () => {
-	const [isSubmit, setIsSubmit] = React.useState(false)
+	const [isSubmit, setIsSubmit] = React.useState(false);
 
 	return (
 		<Formik
 			initialValues={{ email: '' }}
 			onSubmit={values => {
-				console.log(values)
+				console.log(values);
 
 				fetch('/', {
 					method: 'POST',
@@ -21,7 +21,7 @@ const ComingSoonForm = () => {
 					body: encode({ 'form-name': 'comingsoon-email', ...values }),
 				})
 					.then(() => setIsSubmit(true))
-					.catch(e => alert(e))
+					.catch(e => alert(e));
 			}}
 		>
 			{props => {
@@ -32,7 +32,7 @@ const ComingSoonForm = () => {
 					handleChange,
 					handleSubmit,
 					values,
-				} = props
+				} = props;
 
 				return (
 					<Box
@@ -129,11 +129,11 @@ const ComingSoonForm = () => {
 							YOU CAN UNSUBSCRIBE AT ANY TIME.
 						</Typography>
 					</Box>
-				)
+				);
 			}}
 		</Formik>
-	)
-}
+	);
+};
 
 const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
 	marginTop: '30px',
@@ -147,7 +147,7 @@ const ComingSoonInfoSectionMobileWrapper = styled(Box)(({ theme }) => ({
 	marginRight: '12px',
 	position: 'relative',
 	top: '25px',
-}))
+}));
 
 const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
 	display: 'flex',
@@ -156,7 +156,7 @@ const ComingSoonInfoMobileWrapper = styled(Box)(({ theme }) => ({
 	alignItems: 'center',
 	gap: '10px',
 	whiteSpace: 'nowrap',
-}))
+}));
 
 export const ComingSoonInfoSectionMobile = () => (
 	<ComingSoonInfoSectionMobileWrapper>
@@ -184,4 +184,4 @@ export const ComingSoonInfoSectionMobile = () => (
 		</ComingSoonInfoMobileWrapper>
 		<ComingSoonForm />
 	</ComingSoonInfoSectionMobileWrapper>
-)
+);

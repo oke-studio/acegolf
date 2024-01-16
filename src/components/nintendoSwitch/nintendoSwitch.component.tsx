@@ -1,12 +1,12 @@
-'use cleint'
+'use cleint';
 
-import { Box, Button, useMediaQuery, useTheme } from '@mui/material'
-import { Typography } from '../Typography/typography.component'
-import Image from 'next/image'
+import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
+import { Typography } from '../Typography/typography.component';
+import Image from 'next/image';
 
 export const NintendoSwitch = () => {
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return (
 		<Box
@@ -114,5 +114,5 @@ export const NintendoSwitch = () => {
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};

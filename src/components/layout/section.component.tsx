@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { useEffect, useRef } from 'react'
+import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import {
 	Box,
 	styled,
@@ -12,13 +12,13 @@ import {
 	useTheme,
 	Typography,
 	useMediaQuery,
-} from '@mui/material'
+} from '@mui/material';
 
 // Animation dependencies
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 
-type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small'
+type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
 const SectionWidthOptions = {
 	fullViewport: {
 		//width: '100%',
@@ -34,17 +34,17 @@ const SectionWidthOptions = {
 		//margin: isLargeDesktop ? '8px 3% 8px' : '15px 3% 8px',
 		margin: '8px 30% 8px',
 	},
-}
+};
 
 interface SectionProps {
-	SectionName: string
-	SectionWidth: SectionWidthOptionsTypes
-	SectionHeight?: string
-	SectionColor: string
-	CornerRadius: boolean
-	ScrollAnimations?: boolean
-	children?: React.ReactNode
-	sx?: SxProps
+	SectionName: string;
+	SectionWidth: SectionWidthOptionsTypes;
+	SectionHeight?: string;
+	SectionColor: string;
+	CornerRadius: boolean;
+	ScrollAnimations?: boolean;
+	children?: React.ReactNode;
+	sx?: SxProps;
 }
 
 export const Section = ({
@@ -57,36 +57,36 @@ export const Section = ({
 	sx,
 	children,
 }: SectionProps) => {
-	const SECTION = SectionWidthOptions[SectionWidth]
+	const SECTION = SectionWidthOptions[SectionWidth];
 	//const CORNER = CornerRadiusOptions[CornerRadius];
-	const staticRadius = '25px'
+	const staticRadius = '25px';
 
 	useEffect(() => {
-		const lenis = new Lenis()
+		const lenis = new Lenis();
 		function raf(time) {
-			lenis.raf(time)
-			requestAnimationFrame(raf)
+			lenis.raf(time);
+			requestAnimationFrame(raf);
 		}
-		requestAnimationFrame(raf)
-	}, [])
+		requestAnimationFrame(raf);
+	}, []);
 
-	const SectionAsReference = useRef(null)
+	const SectionAsReference = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: SectionAsReference,
 		offset: ['start end', 'start start'],
-	})
-	const sectionScale = useTransform(scrollYProgress, [0, 0.75], [0.94, 1])
+	});
+	const sectionScale = useTransform(scrollYProgress, [0, 0.75], [0.94, 1]);
 	const animatedBorderRadius = useTransform(
 		scrollYProgress,
 		[0, 0.75],
 		[80, 25],
-	)
+	);
 
-	const isMobile = useMediaQuery('(max-width:640px)')
-	const isSmallDesktop = useMediaQuery('(max-width:950px)')
-	const isLargeDesktop = useMediaQuery('(min-width:1440px)')
-	const isExtraWideDesktop = useMediaQuery('(min-width:1750px)')
-	const isUltraWideDesktop = useMediaQuery('(min-width:2000px)')
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const isSmallDesktop = useMediaQuery('(max-width:950px)');
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+	const isExtraWideDesktop = useMediaQuery('(min-width:1750px)');
+	const isUltraWideDesktop = useMediaQuery('(min-width:2000px)');
 
 	return (
 		<Box
@@ -118,8 +118,8 @@ export const Section = ({
 		>
 			{children}
 		</Box>
-	)
-}
+	);
+};
 
 //   @container (min-width:900){
 

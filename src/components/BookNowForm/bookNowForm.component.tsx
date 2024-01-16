@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 import {
 	Box,
 	FormControl,
@@ -10,16 +10,16 @@ import {
 	InputBase,
 	SelectChangeEvent,
 	SvgIcon,
-} from '@mui/material'
-import { Typography } from '../Typography/typography.component'
-import { DatePicker, TimePicker } from '@mui/x-date-pickers'
-import dayjs from 'dayjs'
+} from '@mui/material';
+import { Typography } from '../Typography/typography.component';
+import { DatePicker, TimePicker } from '@mui/x-date-pickers';
+import dayjs from 'dayjs';
 
 export interface ReserveABayObject {
-	guests: string
-	duration: string
-	date: string
-	time: string
+	guests: string;
+	duration: string;
+	date: string;
+	time: string;
 }
 
 const CustomInput = styled(InputBase)(({ theme }) => ({
@@ -41,7 +41,7 @@ const CustomInput = styled(InputBase)(({ theme }) => ({
 			boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
 		},
 	},
-}))
+}));
 
 export const BookNowForm = ({
 	handleReserveFormOnChange,
@@ -52,13 +52,13 @@ export const BookNowForm = ({
 	handleDateTimePickerChange: (
 		value: string,
 		option: keyof typeof reserveABayObject,
-	) => void
+	) => void;
 	handleReserveFormOnChange: (
 		value: SelectChangeEvent,
 		option: keyof typeof reserveABayObject,
-	) => void
-	reserveABayObject: ReserveABayObject
-	isWide: boolean
+	) => void;
+	reserveABayObject: ReserveABayObject;
+	isWide: boolean;
 }) => {
 	return (
 		<Box
@@ -220,7 +220,7 @@ export const BookNowForm = ({
 				}}
 				value={dayjs(reserveABayObject.date)}
 				onChange={newValue => {
-					handleDateTimePickerChange(newValue?.toString()!, 'date')
+					handleDateTimePickerChange(newValue?.toString()!, 'date');
 				}}
 			/>
 
@@ -279,9 +279,9 @@ export const BookNowForm = ({
 				}}
 				value={dayjs(reserveABayObject.time)}
 				onChange={newValue => {
-					handleDateTimePickerChange(newValue?.toString()!, 'date')
+					handleDateTimePickerChange(newValue?.toString()!, 'date');
 				}}
 			/>
 		</Box>
-	)
-}
+	);
+};

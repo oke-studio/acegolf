@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useTheme, useMediaQuery, Button } from '@mui/material'
-import Image from 'next/image'
-import { Typography } from '../Typography/typography.component'
-import { motion } from 'framer-motion'
+import * as React from 'react';
+import { Box, useTheme, useMediaQuery, Button } from '@mui/material';
+import Image from 'next/image';
+import { Typography } from '../Typography/typography.component';
+import { motion } from 'framer-motion';
 
 const FooterLinksArray = [
 	{
@@ -47,13 +47,13 @@ const FooterLinksArray = [
 		name: 'Coaching',
 		to: '/coaching',
 	},
-]
+];
 
 export const FooterV2 = () => {
-	const { typography } = useTheme()
-	const isMobile = useMediaQuery('(max-width:640px)')
+	const { typography } = useTheme();
+	const isMobile = useMediaQuery('(max-width:640px)');
 
-	const HEADING_FOUR_LINE_HEIGHT = typography.headingFour.lineHeight
+	const HEADING_FOUR_LINE_HEIGHT = typography.headingFour.lineHeight;
 
 	// console.log(inputClasses);
 	return (
@@ -289,5 +289,5 @@ export const FooterV2 = () => {
 				</Typography>
 			</Box>
 		</Box>
-	)
-}
+	);
+};

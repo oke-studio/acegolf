@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { Box } from '@mui/material'
+import * as React from 'react';
+import { Box } from '@mui/material';
 
 export const TigerImage = () => {
 	return (
@@ -51,5 +51,5 @@ export const TigerImage = () => {
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};

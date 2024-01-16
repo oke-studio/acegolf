@@ -1,40 +1,40 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useTheme, TextField, useMediaQuery } from '@mui/material'
-import { Formik, useFormik } from 'formik'
-import { encode } from '@/util/encode'
-import { motion } from 'framer-motion'
+import * as React from 'react';
+import { Box, useTheme, TextField, useMediaQuery } from '@mui/material';
+import { Formik, useFormik } from 'formik';
+import { encode } from '@/util/encode';
+import { motion } from 'framer-motion';
 
-import { Typography } from '@/components/Typography/typography.component'
+import { Typography } from '@/components/Typography/typography.component';
 
 const MailingListForm = () => {
-	const { typography, palette } = useTheme()
-	const isMobile = useMediaQuery('(max-width:640px)')
-	const [isSubmit, setIsSubmit] = React.useState(false)
+	const { typography, palette } = useTheme();
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const [isSubmit, setIsSubmit] = React.useState(false);
 	const [error, setError] = React.useState<{ error: boolean; message: string }>(
 		{
 			error: false,
 			message: '',
 		},
-	)
+	);
 
 	React.useEffect(() => {
-		console.log(isSubmit)
-	}, [isSubmit])
+		console.log(isSubmit);
+	}, [isSubmit]);
 
 	return (
 		<Formik
 			initialValues={{ email: '' }}
 			onSubmit={values => {
-				console.log(values)
+				console.log(values);
 				fetch('/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 					body: encode({ 'form-name': 'landing-mailing-list', ...values }),
 				})
 					.then(() => setIsSubmit(true))
-					.catch(e => alert(e))
+					.catch(e => alert(e));
 			}}
 			// validationSchema={}
 			// validate={}
@@ -47,7 +47,7 @@ const MailingListForm = () => {
 					errors,
 					handleChange,
 					touched,
-				} = props
+				} = props;
 
 				return (
 					<Box
@@ -140,15 +140,15 @@ const MailingListForm = () => {
 							}}
 						/>
 					</Box>
-				)
+				);
 			}}
 		</Formik>
-	)
-}
+	);
+};
 
 export const MailingList = () => {
-	const { typography, palette } = useTheme()
-	const isMobile = useMediaQuery('(max-width:640px)')
+	const { typography, palette } = useTheme();
+	const isMobile = useMediaQuery('(max-width:640px)');
 
 	return (
 		<Box
@@ -175,5 +175,5 @@ export const MailingList = () => {
 			</Typography>
 			<MailingListForm />
 		</Box>
-	)
-}
+	);
+};

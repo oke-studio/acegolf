@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { Box, styled, useMediaQuery, useTheme } from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import { useRouter } from 'next/navigation'
+import * as React from 'react';
+import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import { useRouter } from 'next/navigation';
 
-import { Card } from '@/components/Cards/cards.component'
-import PriceTabCard from '../../../book-now/priceTabCard.component'
+import { Card } from '@/components/Cards/cards.component';
+import PriceTabCard from '../../../book-now/priceTabCard.component';
 
 const LandingCardsContainer = styled(Box)(({ theme }) => ({
 	backgroundColor: 'transparent',
@@ -12,15 +12,15 @@ const LandingCardsContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '24px',
-}))
+}));
 
 export const LandingCardsGrid = () => {
-	const router = useRouter()
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const router = useRouter();
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const handleButtonLink = () => {
-		return 'https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu'
-	}
+		return 'https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu';
+	};
 
 	return (
 		<LandingCardsContainer>
@@ -30,7 +30,7 @@ export const LandingCardsGrid = () => {
 					...(isMobile
 						? {
 								gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
-							}
+						  }
 						: { gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 2fr)' }),
 					width: '100%',
 					gap: '24px',
@@ -125,7 +125,7 @@ export const LandingCardsGrid = () => {
 					...(isMobile
 						? {
 								gridTemplateRows: 'repeat(2, minmax(0, auto))',
-							}
+						  }
 						: { gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)' }),
 					width: '100%',
 					gap: '24px',
@@ -168,5 +168,5 @@ export const LandingCardsGrid = () => {
 				/>
 			</Box>
 		</LandingCardsContainer>
-	)
-}
+	);
+};

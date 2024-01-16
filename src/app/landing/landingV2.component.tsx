@@ -1,25 +1,25 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useTheme, useMediaQuery } from '@mui/material'
-import { Button, styled } from '@mui/material'
-import { Header } from '@/components/Header/header.component'
-import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component'
-import { TextWithBackdrop } from './components/backdrop/textBackdrop.component'
-import { East } from '@mui/icons-material'
-import { Typography } from '@/components/Typography/typography.component'
+import * as React from 'react';
+import { Box, useTheme, useMediaQuery } from '@mui/material';
+import { Button, styled } from '@mui/material';
+import { Header } from '@/components/Header/header.component';
+import { ImageWithBackdrop } from './components/backdrop/imageBackdrop.component';
+import { TextWithBackdrop } from './components/backdrop/textBackdrop.component';
+import { East } from '@mui/icons-material';
+import { Typography } from '@/components/Typography/typography.component';
 
 // import { TigerImage } from './components/tigerImage/tigerImage.component';
-import Image from 'next/image'
-import { Noise } from '@/util/Noise'
-import { LandingCards } from './components/landingCards/landingCards.component'
-import { HowItWorks } from '../../components/howItWorks/howItWorks.component'
-import { LandingVideo } from './components/video/video.component'
-import { AceBanner } from '../../components/aceBanner/aceBanner.component'
-import { Promotions } from './components/promotions/promotions.component'
-import { MailingList } from './components/mailingList/mailingList.component'
-import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component'
-import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component'
+import Image from 'next/image';
+import { Noise } from '@/util/Noise';
+import { LandingCards } from './components/landingCards/landingCards.component';
+import { HowItWorks } from '../../components/howItWorks/howItWorks.component';
+import { LandingVideo } from './components/video/video.component';
+import { AceBanner } from '../../components/aceBanner/aceBanner.component';
+import { Promotions } from './components/promotions/promotions.component';
+import { MailingList } from './components/mailingList/mailingList.component';
+import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
 const MapSVG = () => (
 	<svg
@@ -37,13 +37,13 @@ const MapSVG = () => (
 			strokeLinejoin="round"
 		/>
 	</svg>
-)
+);
 
 export default function LandingV2() {
-	const { palette, typography, breakpoints } = useTheme()
-	const isMobile = useMediaQuery(breakpoints.down('sm'))
-	const isSmallDesktop = useMediaQuery('(max-width:950px)')
-	const isLargeDesktop = useMediaQuery('(min-width:1440px)')
+	const { palette, typography, breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
+	const isSmallDesktop = useMediaQuery('(max-width:950px)');
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
 	return (
 		<Box
@@ -442,5 +442,5 @@ export default function LandingV2() {
 
 			{/* <HowItWorksSection /> */}
 		</Box>
-	)
+	);
 }

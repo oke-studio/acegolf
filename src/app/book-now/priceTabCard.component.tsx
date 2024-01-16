@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 
 import {
 	Box,
@@ -15,20 +15,20 @@ import {
 	InputLabel,
 	InputBase,
 	SvgIcon,
-} from '@mui/material'
+} from '@mui/material';
 
-import { Typography } from '@/components/Typography/typography.component'
-import dayjs from 'dayjs'
+import { Typography } from '@/components/Typography/typography.component';
+import dayjs from 'dayjs';
 
 interface TabPanelProps {
-	children?: React.ReactNode
-	dir?: string
-	index: number
-	value: number
+	children?: React.ReactNode;
+	dir?: string;
+	index: number;
+	value: number;
 }
 
 function TabPanel(props: TabPanelProps) {
-	const { children, value, index, ...other } = props
+	const { children, value, index, ...other } = props;
 
 	return (
 		<div
@@ -40,7 +40,7 @@ function TabPanel(props: TabPanelProps) {
 		>
 			{value === index && <Box sx={{ pt: 3 }}>{children}</Box>}
 		</div>
-	)
+	);
 }
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
@@ -56,11 +56,11 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
 		borderStyle: 'solid',
 		borderRightWidth: '3px',
 	},
-}))
+}));
 
 interface StyledTabProps {
-	label: string
-	value: number
+	label: string;
+	value: number;
 }
 
 const StyledTab = styled((props: StyledTabProps) => (
@@ -78,25 +78,25 @@ const StyledTab = styled((props: StyledTabProps) => (
 	'&.Mui-focusVisible': {
 		// backgroundColor: 'rgba(100, 95, 228, 0.32)',
 	},
-}))
+}));
 
 interface PriceContainer {
-	price: number
-	color?: 'black' | 'white'
-	timeFrom: string
-	timeTo: string
-	backgroundColor?: string
-	bar?: boolean
-	kitchen?: boolean
-	cafe?: boolean
+	price: number;
+	color?: 'black' | 'white';
+	timeFrom: string;
+	timeTo: string;
+	backgroundColor?: string;
+	bar?: boolean;
+	kitchen?: boolean;
+	cafe?: boolean;
 }
 
 interface PricesTabsContentSkeletonProps {
-	title: string
-	description: string
-	priceContainerOne: PriceContainer
-	priceContainerTwo: PriceContainer
-	privatePriceContainer: Pick<PriceContainer, 'price'>
+	title: string;
+	description: string;
+	priceContainerOne: PriceContainer;
+	priceContainerTwo: PriceContainer;
+	privatePriceContainer: Pick<PriceContainer, 'price'>;
 }
 
 const PricesTabsContentSkeleton = ({
@@ -106,7 +106,7 @@ const PricesTabsContentSkeleton = ({
 	priceContainerTwo,
 	privatePriceContainer,
 }: PricesTabsContentSkeletonProps) => {
-	const theme = useTheme()
+	const theme = useTheme();
 	const PriceInfoBox = ({
 		price,
 		timeFrom,
@@ -178,8 +178,8 @@ const PricesTabsContentSkeleton = ({
 					</Typography>
 				</Box>
 			</Box>
-		)
-	}
+		);
+	};
 	return (
 		<Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
 			<Box
@@ -240,20 +240,20 @@ const PricesTabsContentSkeleton = ({
 				</Typography>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export default function PriceTabCard() {
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-	const currentDate = new Date()
+	const currentDate = new Date();
 
-	const [value, setValue] = React.useState(currentDate.getDay())
+	const [value, setValue] = React.useState(currentDate.getDay());
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue)
-	}
+		setValue(newValue);
+	};
 
 	return (
 		<Box sx={{ width: '100%' }}>
@@ -398,5 +398,5 @@ export default function PriceTabCard() {
 				/>
 			</TabPanel>
 		</Box>
-	)
+	);
 }

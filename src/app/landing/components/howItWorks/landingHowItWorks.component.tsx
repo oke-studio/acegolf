@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { useTheme, Box, useMediaQuery, InputBase, styled } from '@mui/material'
-import { LandingCards } from '../landingCards/landingCards.component'
-import { Typography } from '@/components/Typography/typography.component'
-import { Card } from '@/components/Cards/cards.component'
-import { Section } from '@/components/layout/section.component'
-import dayjs from 'dayjs'
-import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook'
-import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component'
+import * as React from 'react';
+import { useTheme, Box, useMediaQuery, InputBase, styled } from '@mui/material';
+import { LandingCards } from '../landingCards/landingCards.component';
+import { Typography } from '@/components/Typography/typography.component';
+import { Card } from '@/components/Cards/cards.component';
+import { Section } from '@/components/layout/section.component';
+import dayjs from 'dayjs';
+import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
+import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
 	// 'label + &': {
@@ -29,14 +29,14 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 			boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
 		},
 	},
-}))
+}));
 
 export const LandingHowItWorks = () => {
-	const { typography, palette } = useTheme()
-	const theme = useTheme()
-	const isMobile = useMediaQuery('(max-width:640px)')
-	const isSmallDesktop = useMediaQuery('(max-width:950px)')
-	const isLargeDesktop = useMediaQuery('(min-width:1440px)')
+	const { typography, palette } = useTheme();
+	const theme = useTheme();
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const isSmallDesktop = useMediaQuery('(max-width:950px)');
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
 	const {
 		handleBookNowButtonLink,
@@ -48,11 +48,11 @@ export const LandingHowItWorks = () => {
 		duration: '1',
 		date: dayjs(new Date()).format(),
 		time: dayjs(new Date()).format(),
-	})
+	});
 
-	console.log(reserveABayObject)
+	console.log(reserveABayObject);
 
-	const HowItWorksCopy = [{ label: '', description: '' }]
+	const HowItWorksCopy = [{ label: '', description: '' }];
 
 	return (
 		<Section
@@ -225,5 +225,5 @@ export const LandingHowItWorks = () => {
 				</Card>
 			</Box>
 		</Section>
-	)
-}
+	);
+};

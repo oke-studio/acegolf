@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { Box } from '@mui/material'
-import * as React from 'react'
-import Iframe from 'react-iframe'
+import { Box } from '@mui/material';
+import * as React from 'react';
+import Iframe from 'react-iframe';
 
 export const MusicPlayer = () => {
 	return (
@@ -29,5 +29,5 @@ export const MusicPlayer = () => {
 				id="spotifyIframe"
 			/>
 		</Box>
-	)
-}
+	);
+};

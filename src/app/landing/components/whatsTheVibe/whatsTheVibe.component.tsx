@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, ImageList, ImageListItem } from '@mui/material'
-import { MusicPlayer } from './components/musicPlayer/musicPlayer.component'
-import { Typography } from '@/components/Typography/typography.component'
-import { Section } from '@/components/layout/section.component'
-import Image from 'next/image'
+import * as React from 'react';
+import { Box, ImageList, ImageListItem } from '@mui/material';
+import { MusicPlayer } from './components/musicPlayer/musicPlayer.component';
+import { Typography } from '@/components/Typography/typography.component';
+import { Section } from '@/components/layout/section.component';
+import Image from 'next/image';
 
 const ImageSrc = [
 	// #1
@@ -73,12 +73,12 @@ const ImageSrc = [
 		height: 450,
 		width: 250,
 	},
-]
+];
 
-const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
-	const widthHeightRatio = img.height / img.width
-	const galleryHeight = Math.ceil(250 * widthHeightRatio)
-	const photoSpans = Math.ceil(galleryHeight / 10) + 1
+const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
+	const widthHeightRatio = img.height / img.width;
+	const galleryHeight = Math.ceil(250 * widthHeightRatio);
+	const photoSpans = Math.ceil(galleryHeight / 10) + 1;
 
 	return (
 		<Box
@@ -99,17 +99,17 @@ const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 				/>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export const WhatsTheVibe = () => {
-	const gridLayoutGap = '10px'
-	const gridColumnCount = 4
-	const gridItemMinWidth = '250px'
+	const gridLayoutGap = '10px';
+	const gridColumnCount = 4;
+	const gridItemMinWidth = '250px';
 
-	const gapCount = `calc(${gridColumnCount} - 1)`
-	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`
-	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`
+	const gapCount = `calc(${gridColumnCount} - 1)`;
+	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`;
+	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`;
 
 	return (
 		<Section
@@ -165,5 +165,5 @@ export const WhatsTheVibe = () => {
 				</Box>
 			</Box>
 		</Section>
-	)
-}
+	);
+};

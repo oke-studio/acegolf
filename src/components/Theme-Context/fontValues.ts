@@ -1,4 +1,4 @@
-import localfont from 'next/font/local'
+import localfont from 'next/font/local';
 
 export const aceFont = localfont({
 	src: [
@@ -93,7 +93,7 @@ export const aceFont = localfont({
 			style: 'italic',
 		},
 	],
-})
+});
 
 const typeScale: { fontSize: string; lineHeight: string }[] = [
 	{
@@ -148,7 +148,7 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 	},
 	// #10 <-poster->
 	{ fontSize: '6rem', lineHeight: '68px' },
-]
+];
 
 export const fontUses = {
 	miniscule: {
@@ -205,7 +205,7 @@ export const fontUses = {
 		fontSize: typeScale[10].fontSize,
 		lineHeight: typeScale[10].lineHeight,
 	},
-}
+};
 
 export const fontWeight = {
 	'200': 200,
@@ -216,4 +216,4 @@ export const fontWeight = {
 	'700': 700,
 	'800': 800,
 	'900': 900,
-}
+};

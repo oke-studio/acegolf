@@ -1,7 +1,7 @@
-'use client'
-import * as React from 'react'
-import { usePathname } from 'next/navigation'
-import { ThemeOptions, SxProps } from '@mui/material'
+'use client';
+import * as React from 'react';
+import { usePathname } from 'next/navigation';
+import { ThemeOptions, SxProps } from '@mui/material';
 
 // interface
 
@@ -16,14 +16,14 @@ const PathToCSS: { [key: string]: SxProps } = {
 			background: 'no-repeat url(/images/Vector.svg) center',
 		},
 	},
-}
+};
 
 // backgroundColor: 'transparent',
 //               background: 'no-repeat url(/images/tab-line.svg) center 50%',
 //               backgroudSize: '65%',
 
 export const useGetCurrentPathName = () => {
-	const pathname = usePathname()
+	const pathname = usePathname();
 
-	return PathToCSS[pathname]
-}
+	return PathToCSS[pathname];
+};

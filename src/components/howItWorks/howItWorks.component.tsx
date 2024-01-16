@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { useTheme, Box, useMediaQuery } from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import { Section } from '@/components/layout/section.component'
+import * as React from 'react';
+import { useTheme, Box, useMediaQuery } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import { Section } from '@/components/layout/section.component';
 
 const HowItWorksInfoBox = ({
 	number,
@@ -13,19 +13,19 @@ const HowItWorksInfoBox = ({
 	miniInfoBoxOne,
 	miniInfoBoxTwo,
 }: {
-	number: string
-	label: React.ReactNode
-	description: React.ReactNode
-	isLanding?: boolean
-	miniInfoBoxOne: { question: string; answer: string }
-	miniInfoBoxTwo: { question: string; answer: string }
+	number: string;
+	label: React.ReactNode;
+	description: React.ReactNode;
+	isLanding?: boolean;
+	miniInfoBoxOne: { question: string; answer: string };
+	miniInfoBoxTwo: { question: string; answer: string };
 }) => {
 	const MiniInfoBox = ({
 		question,
 		answer,
 	}: {
-		question: string
-		answer: string
+		question: string;
+		answer: string;
 	}) => {
 		return (
 			<Box
@@ -46,8 +46,8 @@ const HowItWorksInfoBox = ({
 				</Typography>
 				<Typography variant="base">{answer}</Typography>
 			</Box>
-		)
-	}
+		);
+	};
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'row' }}>
 			<Box sx={{ display: 'flex', alignItems: 'baseline' }}>
@@ -101,12 +101,12 @@ const HowItWorksInfoBox = ({
 				)}
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
-	const { typography, palette, breakpoints } = useTheme()
-	const isMobile = useMediaQuery(breakpoints.up('sm'))
+	const { typography, palette, breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.up('sm'));
 
 	return (
 		<Section
@@ -234,5 +234,5 @@ export const HowItWorks = ({ isLanding = false }: { isLanding?: boolean }) => {
 				</Box>
 			</Box>
 		</Section>
-	)
-}
+	);
+};

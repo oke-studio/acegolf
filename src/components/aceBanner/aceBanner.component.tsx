@@ -1,14 +1,14 @@
-import * as React from 'react'
-import { BannerText } from './components/aceBannerText.component'
+import * as React from 'react';
+import { BannerText } from './components/aceBannerText.component';
 
 interface AceBannerProps {
-	text: string
-	textCount?: number
-	textPath: string
+	text: string;
+	textCount?: number;
+	textPath: string;
 }
 
-const animationDuration = '30s'
-const initialStartOffset = '-60%'
+const animationDuration = '30s';
+const initialStartOffset = '-60%';
 
 const AceBannerText = ({ text, textCount = 1, textPath }: AceBannerProps) => {
 	return (
@@ -64,20 +64,20 @@ const AceBannerText = ({ text, textCount = 1, textPath }: AceBannerProps) => {
         {text}
       </BannerText> */}
 		</>
-	)
-}
+	);
+};
 
 interface AceBannerSVGWrapperProps {
-	width: string
-	height: string
-	pathProps: React.SVGProps<SVGPathElement>
+	width: string;
+	height: string;
+	pathProps: React.SVGProps<SVGPathElement>;
 	// children: React.ReactNode;
-	text: string
-	strokeWidth?: string
-	strokeColor?: string
-	textCount?: number
-	textPath?: string
-	viewBox: string
+	text: string;
+	strokeWidth?: string;
+	strokeColor?: string;
+	textCount?: number;
+	textPath?: string;
+	viewBox: string;
 }
 
 export const AceBanner = ({
@@ -110,8 +110,8 @@ export const AceBanner = ({
 			/>
 			<AceBannerText text={text} textCount={textCount} textPath={textPath} />
 		</svg>
-	)
-}
+	);
+};
 
 // <text
 //         style={{

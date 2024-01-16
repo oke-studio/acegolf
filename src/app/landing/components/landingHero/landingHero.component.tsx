@@ -1,14 +1,14 @@
-import * as React from 'react'
-import { Button, Box, useMediaQuery, useTheme } from '@mui/material'
-import Image from 'next/image'
-import { Section } from '@/components/layout/section.component'
-import { Typography } from '@/components/Typography/typography.component'
-import { useRouter } from 'next/navigation'
+import * as React from 'react';
+import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
+import Image from 'next/image';
+import { Section } from '@/components/layout/section.component';
+import { Typography } from '@/components/Typography/typography.component';
+import { useRouter } from 'next/navigation';
 
 export const LandingHero = () => {
-	const router = useRouter()
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const router = useRouter();
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	return (
 		<Section
 			SectionName="Landing Hero"
@@ -152,7 +152,7 @@ export const LandingHero = () => {
 							}
 						}
 						onClick={() => {
-							router.push('/book-now')
+							router.push('/book-now');
 						}}
 					>
 						<Typography variant="headingThree" weight="500">
@@ -168,5 +168,5 @@ export const LandingHero = () => {
 				</Box>
 			</Box>
 		</Section>
-	)
-}
+	);
+};

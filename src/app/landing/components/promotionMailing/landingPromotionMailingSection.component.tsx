@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
 	Button,
 	Box,
@@ -6,13 +6,13 @@ import {
 	Grid,
 	useMediaQuery,
 	useTheme,
-} from '@mui/material'
-import Image from 'next/image'
-import { Section } from '@/components/layout/section.component'
-import { orange } from '@mui/material/colors'
-import { Typography } from '@/components/Typography/typography.component'
-import { Promotions } from '../../components/promotions/promotions.component'
-import { MailingList } from '../../components/mailingList/mailingList.component'
+} from '@mui/material';
+import Image from 'next/image';
+import { Section } from '@/components/layout/section.component';
+import { orange } from '@mui/material/colors';
+import { Typography } from '@/components/Typography/typography.component';
+import { Promotions } from '../../components/promotions/promotions.component';
+import { MailingList } from '../../components/mailingList/mailingList.component';
 
 export const LandingPromotionMailingSection = () => {
 	return (
@@ -31,5 +31,5 @@ export const LandingPromotionMailingSection = () => {
 
 			<MailingList />
 		</Section>
-	)
-}
+	);
+};

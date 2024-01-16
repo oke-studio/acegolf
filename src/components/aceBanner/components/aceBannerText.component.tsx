@@ -1,15 +1,15 @@
-import * as React from 'react'
+import * as React from 'react';
 
 interface BannerTextProps {
-	fill?: string
-	pathId: string
-	animationDuration: string
-	animationDelay: string
-	startOffsetPosition: string
-	children: React.ReactNode
+	fill?: string;
+	pathId: string;
+	animationDuration: string;
+	animationDelay: string;
+	startOffsetPosition: string;
+	children: React.ReactNode;
 }
 
-const START_OFFSET = '-20%'
+const START_OFFSET = '-20%';
 
 export const BannerText = ({
 	children,
@@ -20,7 +20,8 @@ export const BannerText = ({
 	startOffsetPosition = START_OFFSET,
 }: BannerTextProps) => {
 	const endOffsetPosition =
-		eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) + '%'
+		eval(`${Number(startOffsetPosition.replace(/[^0-9]/g, ''))} + ${100}`) +
+		'%';
 
 	return (
 		<text
@@ -47,5 +48,5 @@ export const BannerText = ({
 				{children}
 			</textPath>
 		</text>
-	)
-}
+	);
+};

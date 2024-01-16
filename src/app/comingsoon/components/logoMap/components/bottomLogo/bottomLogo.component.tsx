@@ -1,19 +1,19 @@
-import * as React from 'react'
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
+import * as React from 'react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 export const AnimatedLogo = () => {
-	const [pathIndex, setPathIndex] = React.useState(0)
-	const x = useMotionValue(pathIndex)
+	const [pathIndex, setPathIndex] = React.useState(0);
+	const x = useMotionValue(pathIndex);
 	const fillAnimtaion = useTransform(
 		x,
 		[0, 1, 2, 3],
 		['#ffffff', '#529DC8', '#EB8B32', '#ffffff'],
-	)
+	);
 	const strokeAnimation = useTransform(
 		x,
 		[0, 1, 2, 3],
 		['#ffffff', '#EB8B32', '#EB8B32', '#ffffff'],
-	)
+	);
 
 	React.useEffect(() => {
 		const animation = animate(x, pathIndex, {
@@ -21,16 +21,16 @@ export const AnimatedLogo = () => {
 			ease: 'easeInOut',
 			onComplete: () => {
 				if (pathIndex === 3) {
-					x.set(0)
-					setPathIndex(1)
+					x.set(0);
+					setPathIndex(1);
 				} else {
-					setPathIndex(pathIndex + 1)
+					setPathIndex(pathIndex + 1);
 				}
 			},
-		})
+		});
 
-		return () => animation.stop()
-	}, [pathIndex, x])
+		return () => animation.stop();
+	}, [pathIndex, x]);
 
 	return (
 		<motion.svg
@@ -82,5 +82,5 @@ export const AnimatedLogo = () => {
 			<motion.path d="M 82.488281 2.347656 L 93.234375 0.363281 L 98.253906 27.425781 L 112.703125 24.757812 L 114.5 34.453125 L 89.300781 39.105469 Z M 82.488281 2.347656 " />
 			<motion.path d="M 125.003906 10.46875 L 149.730469 13.132812 L 148.671875 22.933594 L 134.808594 21.441406 L 134.101562 27.957031 L 146.914062 29.335938 L 145.925781 38.492188 L 133.113281 37.113281 L 131.847656 48.804688 L 120.980469 47.636719 L 125 10.46875 Z M 125.003906 10.46875 " />
 		</motion.svg>
-	)
-}
+	);
+};

@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useMediaQuery } from '@mui/material'
-import { styled } from '@mui/material'
+import * as React from 'react';
+import { Box, useMediaQuery } from '@mui/material';
+import { styled } from '@mui/material';
 
-import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component'
-import { LogoMap } from './components/logoMap/logoMap.component'
-import { NOISE_URL } from './components/noise/noise'
+import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
+import { LogoMap } from './components/logoMap/logoMap.component';
+import { NOISE_URL } from './components/noise/noise';
 
-const backgroundColor = '#E6E8E9'
+const backgroundColor = '#E6E8E9';
 
 const PageWrapper = styled(Box)({
 	backgroundColor: backgroundColor,
@@ -18,43 +18,43 @@ const PageWrapper = styled(Box)({
 	width: '100vw',
 	overflow: 'hidden',
 	position: 'relative',
-})
+});
 
 const PageLayout = styled(Box)({
 	display: 'flex',
 	flexDirection: 'column',
 
 	height: '100%',
-})
+});
 
 const PageMobileLayout = styled(Box)({
 	display: 'flex',
 	//   justifyContent: 'center',
 	alignItems: 'center',
 	flexDirection: 'column',
-})
+});
 
 export default function ComingSoonPage() {
-	const isMobile = useMediaQuery('(max-width:640px)')
-	const openingDate = new Date('2023-12-15')
-	const devDate = new Date('2023-11-01')
-	const currentDate = new Date()
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const openingDate = new Date('2023-12-15');
+	const devDate = new Date('2023-11-01');
+	const currentDate = new Date();
 
-	const devToOpenDate = openingDate.getTime() - devDate.getTime()
-	const currentToOpenDate = openingDate.getTime() - currentDate.getTime()
+	const devToOpenDate = openingDate.getTime() - devDate.getTime();
+	const currentToOpenDate = openingDate.getTime() - currentDate.getTime();
 
-	var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440)
-	const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440)
+	var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440);
+	const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440);
 
 	const currentToOpenDateProgress = Math.floor(
 		((daysTotal - daysLeft) / daysTotal) * 100,
-	)
-	var timeDifference = Math.abs(currentToOpenDate) / 1000
+	);
+	var timeDifference = Math.abs(currentToOpenDate) / 1000;
 
-	const dayDifference = Math.floor(timeDifference / 86400)
-	timeDifference -= dayDifference * 86400
+	const dayDifference = Math.floor(timeDifference / 86400);
+	timeDifference -= dayDifference * 86400;
 
-	const hourDifference = Math.floor(timeDifference / 3600) % 24
+	const hourDifference = Math.floor(timeDifference / 3600) % 24;
 
 	if (isMobile) {
 		return (
@@ -88,7 +88,7 @@ export default function ComingSoonPage() {
 					</div>
 				</PageMobileLayout>
 			</PageWrapper>
-		)
+		);
 	}
 
 	return (
@@ -145,5 +145,5 @@ export default function ComingSoonPage() {
 				</div>
 			</PageLayout>
 		</PageWrapper>
-	)
+	);
 }

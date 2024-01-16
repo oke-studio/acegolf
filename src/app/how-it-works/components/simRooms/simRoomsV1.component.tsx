@@ -1,19 +1,19 @@
-import * as React from 'react'
-import { Box, useTheme, styled, Tab, Tabs } from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import GolfCourseIcon from '@mui/icons-material/GolfCourse'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import * as React from 'react';
+import { Box, useTheme, styled, Tab, Tabs } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import GolfCourseIcon from '@mui/icons-material/GolfCourse';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface TabPanelProps {
-	children?: React.ReactNode
-	dir?: string
-	index: number
-	value: number
+	children?: React.ReactNode;
+	dir?: string;
+	index: number;
+	value: number;
 }
 
 function TabPanel(props: TabPanelProps) {
-	const { children, value, index, ...other } = props
+	const { children, value, index, ...other } = props;
 
 	return (
 		<div
@@ -26,7 +26,7 @@ function TabPanel(props: TabPanelProps) {
 		>
 			{value === index && children}
 		</div>
-	)
+	);
 }
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
@@ -42,11 +42,11 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
 	'& .MuiTabs-flexContainer': {
 		flexDirection: 'column',
 	},
-}))
+}));
 
 interface StyledTabProps {
-	label: string
-	value: number
+	label: string;
+	value: number;
 }
 
 const StyledTab = styled((props: StyledTabProps) => (
@@ -64,16 +64,16 @@ const StyledTab = styled((props: StyledTabProps) => (
 	'&.Mui-focusVisible': {
 		// backgroundColor: 'rgba(100, 95, 228, 0.32)',
 	},
-}))
+}));
 
 interface SimRoomCardProps {
-	imgSrc: string
-	imgAlt: string
+	imgSrc: string;
+	imgAlt: string;
 
-	title: string
-	description?: string
+	title: string;
+	description?: string;
 
-	index: number
+	index: number;
 }
 
 const SimRoomCard = ({
@@ -85,7 +85,7 @@ const SimRoomCard = ({
 
 	index,
 }: SimRoomCardProps) => {
-	const { palette } = useTheme()
+	const { palette } = useTheme();
 
 	return (
 		<Box
@@ -147,8 +147,8 @@ const SimRoomCard = ({
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 const SimRoomCardsInfo: Omit<
 	SimRoomCardProps,
@@ -196,14 +196,14 @@ const SimRoomCardsInfo: Omit<
 		// cardWidth: '250px',
 		title: '6',
 	},
-]
+];
 
 export const SimRoomsComponentV1 = () => {
-	const theme = useTheme()
-	const [value, setValue] = React.useState(0)
+	const theme = useTheme();
+	const [value, setValue] = React.useState(0);
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue)
-	}
+		setValue(newValue);
+	};
 
 	return (
 		<Box
@@ -283,5 +283,5 @@ export const SimRoomsComponentV1 = () => {
 				))}
 			</Box>
 		</Box>
-	)
-}
+	);
+};

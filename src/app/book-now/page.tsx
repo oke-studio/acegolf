@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 
 import {
 	Box,
@@ -15,26 +15,26 @@ import {
 	InputLabel,
 	InputBase,
 	SvgIcon,
-} from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import { Card } from '@/components/Cards/cards.component'
-import { Promotions } from '../landing/components/promotions/promotions.component'
-import { MailingList } from '../landing/components/mailingList/mailingList.component'
-import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component'
-import dayjs from 'dayjs'
-import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook'
-import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component'
+} from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import { Card } from '@/components/Cards/cards.component';
+import { Promotions } from '../landing/components/promotions/promotions.component';
+import { MailingList } from '../landing/components/mailingList/mailingList.component';
+import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
+import dayjs from 'dayjs';
+import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
-import PriceTabCard from './priceTabCard.component'
+import PriceTabCard from './priceTabCard.component';
 interface TabPanelProps {
-	children?: React.ReactNode
-	dir?: string
-	index: number
-	value: number
+	children?: React.ReactNode;
+	dir?: string;
+	index: number;
+	value: number;
 }
 
 function TabPanel(props: TabPanelProps) {
-	const { children, value, index, ...other } = props
+	const { children, value, index, ...other } = props;
 
 	return (
 		<div
@@ -46,7 +46,7 @@ function TabPanel(props: TabPanelProps) {
 		>
 			{value === index && <Box sx={{ pt: 3 }}>{children}</Box>}
 		</div>
-	)
+	);
 }
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
@@ -62,11 +62,11 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
 		borderStyle: 'solid',
 		borderRightWidth: '3px',
 	},
-}))
+}));
 
 interface StyledTabProps {
-	label: string
-	value: number
+	label: string;
+	value: number;
 }
 
 const StyledTab = styled((props: StyledTabProps) => (
@@ -84,27 +84,27 @@ const StyledTab = styled((props: StyledTabProps) => (
 	'&.Mui-focusVisible': {
 		// backgroundColor: 'rgba(100, 95, 228, 0.32)',
 	},
-}))
+}));
 
 interface PriceContainer {
-	price: number
-	color?: 'black' | 'white'
-	timeFrom: string
-	timeTo: string
-	backgroundColor?: string
-	bar?: boolean
-	kitchen?: boolean
+	price: number;
+	color?: 'black' | 'white';
+	timeFrom: string;
+	timeTo: string;
+	backgroundColor?: string;
+	bar?: boolean;
+	kitchen?: boolean;
 }
 
 interface PricesTabsContentSkeletonProps {
-	title: string
-	description: string
-	priceContainerOne: PriceContainer
-	priceContainerTwo: PriceContainer
+	title: string;
+	description: string;
+	priceContainerOne: PriceContainer;
+	priceContainerTwo: PriceContainer;
 	privatePriceContainer: Omit<
 		PriceContainer,
 		'timeFrom' | 'timeTo' | 'backgroundColor' | 'bar' | 'kitchen'
-	>
+	>;
 }
 
 const PricesTabsContentSkeleton = ({
@@ -114,7 +114,7 @@ const PricesTabsContentSkeleton = ({
 	priceContainerTwo,
 	privatePriceContainer,
 }: PricesTabsContentSkeletonProps) => {
-	const theme = useTheme()
+	const theme = useTheme();
 	const PriceInfoBox = ({
 		price,
 		timeFrom,
@@ -166,8 +166,8 @@ const PricesTabsContentSkeleton = ({
 					</Typography>
 				</Box>
 			</Box>
-		)
-	}
+		);
+	};
 	return (
 		<Box sx={{ display: 'flex', gap: '12px', flexDirection: 'column' }}>
 			<Typography variant="headingOne">{title}</Typography>
@@ -194,12 +194,12 @@ const PricesTabsContentSkeleton = ({
 				</Typography>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export default function BookNow() {
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const {
 		handleBookNowButtonLink,
 		handleDateTimePickerChange,
@@ -210,14 +210,14 @@ export default function BookNow() {
 		duration: '1',
 		date: dayjs(new Date()).format(),
 		time: dayjs(new Date()).format(),
-	})
-	const currentDate = new Date()
+	});
+	const currentDate = new Date();
 
-	const [value, setValue] = React.useState(currentDate.getDay())
+	const [value, setValue] = React.useState(currentDate.getDay());
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue)
-	}
+		setValue(newValue);
+	};
 
 	return (
 		<Box sx={{ margin: 'auto', overflow: 'hidden' }}>
@@ -282,5 +282,5 @@ export default function BookNow() {
 			{/* TODO */}
 			<NintendoSwitch />
 		</Box>
-	)
+	);
 }

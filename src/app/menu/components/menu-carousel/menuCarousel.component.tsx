@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 import {
 	Box,
 	styled,
@@ -8,26 +8,26 @@ import {
 	useTheme,
 	Button,
 	useMediaQuery,
-} from '@mui/material'
-import { motion } from 'framer-motion'
-import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component'
-import { Typography } from '@/components/Typography/typography.component'
-import { google } from 'googleapis'
+} from '@mui/material';
+import { motion } from 'framer-motion';
+import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
+import { Typography } from '@/components/Typography/typography.component';
+import { google } from 'googleapis';
 
-import Image from 'next/image'
-import { MenuOptions, MenuItem } from './menuItems'
-import { useRouter, usePathname } from 'next/navigation'
+import Image from 'next/image';
+import { MenuOptions, MenuItem } from './menuItems';
+import { useRouter, usePathname } from 'next/navigation';
 
 const StyledMenuCarouselWrapper = styled(Box)(({ theme: t }) => ({
 	borderRadius: '25px',
 	border: 'solid black 6px',
 	backgroundColor: 'white',
 	color: 'black',
-}))
+}));
 
 const StyledTab = styled(Tab)({
 	opacity: 1,
-})
+});
 
 const StyledDownloadButton = styled(Button)(
 	({ theme }) => `
@@ -43,18 +43,18 @@ const StyledDownloadButton = styled(Button)(
     color: ${theme.palette.primary.main}
   }
 `,
-)
+);
 
 interface TabPanelProps {
-	children?: React.ReactNode
-	index: number
-	value: number
+	children?: React.ReactNode;
+	index: number;
+	value: number;
 }
 
 function CustomTabPanel(props: TabPanelProps) {
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-	const { children, value, index, ...other } = props
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const { children, value, index, ...other } = props;
 
 	// const isMobileView = value !== index
 
@@ -68,18 +68,18 @@ function CustomTabPanel(props: TabPanelProps) {
 		>
 			{true && <Box sx={{ p: isMobile ? 0 : 3 }}>{children}</Box>}
 		</div>
-	)
+	);
 }
 
 const MenuSection = ({
 	menuItems,
 	menuSection,
 }: {
-	menuItems: MenuItem[]
-	menuSection: string
+	menuItems: MenuItem[];
+	menuSection: string;
 }) => {
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -148,8 +148,8 @@ const MenuSection = ({
 				))}
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 const SpinningMenuHeading = () => {
 	const SpinningBox = ({
@@ -158,10 +158,10 @@ const SpinningMenuHeading = () => {
 		back,
 		top,
 	}: {
-		front: string
-		bottom: string
-		back: string
-		top: string
+		front: string;
+		bottom: string;
+		back: string;
+		top: string;
 	}) => {
 		return (
 			<Box
@@ -217,7 +217,7 @@ const SpinningMenuHeading = () => {
 						color: '#ffffff',
 						// borderRadius: '12px',
 						backgroundColor: theme => {
-							return theme.palette.orange
+							return theme.palette.orange;
 						},
 					}}
 					weight="900"
@@ -305,8 +305,8 @@ const SpinningMenuHeading = () => {
 					{back}
 				</Typography>
 			</Box>
-		)
-	}
+		);
+	};
 
 	return (
 		<Typography
@@ -330,29 +330,29 @@ const SpinningMenuHeading = () => {
 				top="Gourmet"
 			/>
 		</Typography>
-	)
-}
+	);
+};
 
 export const MenuCarousel = () => {
-	const [value, setValue] = React.useState(0)
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-	const isLargeDesktop = useMediaQuery('(min-width:1440px)')
-	const router = useRouter()
-	const pathname = usePathname()
+	const [value, setValue] = React.useState(0);
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+	const router = useRouter();
+	const pathname = usePathname();
 	// const { typography, palette } = useTheme();
 
-	console.log(pathname)
+	console.log(pathname);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue)
-	}
+		setValue(newValue);
+	};
 
 	function a11yProps(index: number) {
 		return {
 			id: `simple-tab-${index}`,
 			'aria-controls': `simple-tabpanel-${index}`,
-		}
+		};
 	}
 
 	// console.log(tabClasses);
@@ -630,5 +630,5 @@ export const MenuCarousel = () => {
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};

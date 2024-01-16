@@ -1,99 +1,99 @@
-'use client'
-import * as React from 'react'
-import { ThemeProvider, createTheme } from '@mui/material'
-import { fontUses, aceFont } from './fontValues'
+'use client';
+import * as React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { fontUses, aceFont } from './fontValues';
 
 declare module '@mui/material/styles' {
 	interface TypographyVariants {
-		miniscule: React.CSSProperties
-		base: React.CSSProperties
-		small: React.CSSProperties
-		poster: React.CSSProperties
-		large: React.CSSProperties
-		extralarge: React.CSSProperties
-		largeH1: React.CSSProperties
+		miniscule: React.CSSProperties;
+		base: React.CSSProperties;
+		small: React.CSSProperties;
+		poster: React.CSSProperties;
+		large: React.CSSProperties;
+		extralarge: React.CSSProperties;
+		largeH1: React.CSSProperties;
 
-		headingOne: React.CSSProperties
-		headingTwo: React.CSSProperties
-		headingThree: React.CSSProperties
-		headingFour: React.CSSProperties
+		headingOne: React.CSSProperties;
+		headingTwo: React.CSSProperties;
+		headingThree: React.CSSProperties;
+		headingFour: React.CSSProperties;
 	}
 
 	// allow configuration using `createTheme`
 	interface TypographyVariantsOptions {
-		miniscule?: React.CSSProperties
-		base?: React.CSSProperties
-		small?: React.CSSProperties
-		poster?: React.CSSProperties
-		large?: React.CSSProperties
-		extralarge?: React.CSSProperties
-		largeH1?: React.CSSProperties
+		miniscule?: React.CSSProperties;
+		base?: React.CSSProperties;
+		small?: React.CSSProperties;
+		poster?: React.CSSProperties;
+		large?: React.CSSProperties;
+		extralarge?: React.CSSProperties;
+		largeH1?: React.CSSProperties;
 
-		headingOne?: React.CSSProperties
-		headingTwo?: React.CSSProperties
-		headingThree?: React.CSSProperties
-		headingFour?: React.CSSProperties
+		headingOne?: React.CSSProperties;
+		headingTwo?: React.CSSProperties;
+		headingThree?: React.CSSProperties;
+		headingFour?: React.CSSProperties;
 	}
 
 	interface Palette {
-		aceOrange: string
-		aceTeal: string
-		aceGreen: string
-		aceGrey: string
+		aceOrange: string;
+		aceTeal: string;
+		aceGreen: string;
+		aceGrey: string;
 
-		coolBlue: string
-		darkBlack: string
-		lightBlack: string
-		white: string
-		yellow: string
-		orange: string
-		green: string
-		sharpTeal: string
-		red: string
-		lightRed: string
+		coolBlue: string;
+		darkBlack: string;
+		lightBlack: string;
+		white: string;
+		yellow: string;
+		orange: string;
+		green: string;
+		sharpTeal: string;
+		red: string;
+		lightRed: string;
 	}
 
 	interface PaletteOptions {
-		aceOrange?: string
-		aceTeal?: string
-		aceGreen?: string
-		aceGrey?: string
+		aceOrange?: string;
+		aceTeal?: string;
+		aceGreen?: string;
+		aceGrey?: string;
 
-		coolBlue?: string
-		darkBlack?: string
-		lightBlack?: string
-		white?: string
-		yellow?: string
-		orange?: string
-		green?: string
-		sharpTeal?: string
-		red?: string
-		lightRed?: string
+		coolBlue?: string;
+		darkBlack?: string;
+		lightBlack?: string;
+		white?: string;
+		yellow?: string;
+		orange?: string;
+		green?: string;
+		sharpTeal?: string;
+		red?: string;
+		lightRed?: string;
 	}
 }
 
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
 	interface TypographyPropsVariantOverrides {
-		miniscule: true
-		small: true
-		base: true
-		large: true
-		extralarge: true
-		headingFour: true
-		headingThree: true
-		headingTwo: true
-		headingOne: true
-		largeH1: true
-		poster: true
+		miniscule: true;
+		small: true;
+		base: true;
+		large: true;
+		extralarge: true;
+		headingFour: true;
+		headingThree: true;
+		headingTwo: true;
+		headingOne: true;
+		largeH1: true;
+		poster: true;
 	}
 }
 
 declare module '@mui/material/Button' {
 	interface ButtonPropsVariantOverrides {
-		primary: true
-		secondary: true
-		navButton: true
+		primary: true;
+		secondary: true;
+		navButton: true;
 	}
 }
 
@@ -195,12 +195,12 @@ const theme = createTheme({
 			},
 		},
 	},
-})
+});
 
 export const ThemeContextProvider = ({
 	children,
 }: {
-	children: React.ReactNode
+	children: React.ReactNode;
 }) => {
-	return <ThemeProvider theme={theme}>{children}</ThemeProvider>
-}
+	return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};

@@ -1,26 +1,26 @@
-'use client'
-import * as React from 'react'
-import { useEffect, useRef } from 'react'
-import { Box, useTheme, Button, useMediaQuery } from '@mui/material'
+'use client';
+import * as React from 'react';
+import { useEffect, useRef } from 'react';
+import { Box, useTheme, Button, useMediaQuery } from '@mui/material';
 
 // Animation dependencies
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
-import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component'
-import FullHowItWorks from './components/fullHowItWorks.component'
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
+import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
+import FullHowItWorks from './components/fullHowItWorks.component';
 
-import { Typography } from '@/components/Typography/typography.component'
-import { HowItWorks } from '@/components/howItWorks/howItWorks.component'
-import { SimRoomsComponent } from './components/simRooms/simRooms.component'
-import { GolfGamesComponent } from './components/golfGames/golfGames.component'
-import { GolfGamesComponentV1 } from './components/golfGames/golfGamesV1.component'
-import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component'
-import Image from 'next/image'
-import { FAQ } from './components/faq/faq.component'
+import { Typography } from '@/components/Typography/typography.component';
+import { HowItWorks } from '@/components/howItWorks/howItWorks.component';
+import { SimRoomsComponent } from './components/simRooms/simRooms.component';
+import { GolfGamesComponent } from './components/golfGames/golfGames.component';
+import { GolfGamesComponentV1 } from './components/golfGames/golfGamesV1.component';
+import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component';
+import Image from 'next/image';
+import { FAQ } from './components/faq/faq.component';
 
 export default function Home() {
-	const theme = useTheme()
-	const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'))
+	const theme = useTheme();
+	const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 			<Box
@@ -97,5 +97,5 @@ export default function Home() {
 
 			<NintendoSwitch />
 		</Box>
-	)
+	);
 }

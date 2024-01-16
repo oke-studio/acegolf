@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { SxProps, Box } from '@mui/material'
+import * as React from 'react';
+import { SxProps, Box } from '@mui/material';
 
 export const ImageWithBackdrop = ({
 	img,
@@ -12,14 +12,14 @@ export const ImageWithBackdrop = ({
 	children,
 	css,
 }: {
-	img?: string
-	color: string
-	height: string | number
-	width: string | number
-	xOffset: number
-	yOffset: number
-	children?: React.ReactNode
-	css?: SxProps
+	img?: string;
+	color: string;
+	height: string | number;
+	width: string | number;
+	xOffset: number;
+	yOffset: number;
+	children?: React.ReactNode;
+	css?: SxProps;
 }) => {
 	return (
 		<Box
@@ -55,5 +55,5 @@ export const ImageWithBackdrop = ({
 			{children}
 			{/* </Box> */}
 		</Box>
-	)
-}
+	);
+};

@@ -1,5 +1,5 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 import {
 	Box,
 	styled,
@@ -12,8 +12,8 @@ import {
 	useMediaQuery,
 	useTheme,
 	Button,
-} from '@mui/material'
-import { Typography } from '../Typography/typography.component'
+} from '@mui/material';
+import { Typography } from '../Typography/typography.component';
 
 export const HeaderBanner = () => {
 	return (
@@ -37,5 +37,5 @@ export const HeaderBanner = () => {
 				Announcments go here about ace so that customers know
 			</Typography>
 		</Box>
-	)
-}
+	);
+};

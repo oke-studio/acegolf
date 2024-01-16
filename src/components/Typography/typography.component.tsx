@@ -1,13 +1,13 @@
-'use client'
-import * as React from 'react'
+'use client';
+import * as React from 'react';
 import {
 	Typography as T,
 	TypographyProps as TypograhpyOriginalProps,
-} from '@mui/material'
-import { fontUses, fontWeight } from '@/components/Theme-Context/fontValues'
+} from '@mui/material';
+import { fontUses, fontWeight } from '@/components/Theme-Context/fontValues';
 
 const SemanticComponentMapping: {
-	[key in keyof typeof fontUses]: React.ElementType<any>
+	[key in keyof typeof fontUses]: React.ElementType<any>;
 } = {
 	headingOne: 'h1',
 	headingTwo: 'h2',
@@ -20,13 +20,13 @@ const SemanticComponentMapping: {
 	largeH1: 'h1',
 	poster: 'h1',
 	small: 'p',
-}
+};
 
 interface TypographyProps extends Omit<TypograhpyOriginalProps, 'variant'> {
-	weight?: keyof typeof fontWeight
-	fontStyle?: 'normal' | 'italic'
-	variant: keyof typeof fontUses
-	as?: React.ElementType<any>
+	weight?: keyof typeof fontWeight;
+	fontStyle?: 'normal' | 'italic';
+	variant: keyof typeof fontUses;
+	as?: React.ElementType<any>;
 }
 
 export const Typography = ({
@@ -38,7 +38,7 @@ export const Typography = ({
 	as,
 	...props
 }: TypographyProps) => {
-	const semanticMapping = SemanticComponentMapping[variant]
+	const semanticMapping = SemanticComponentMapping[variant];
 	return (
 		<T
 			{...props}
@@ -48,5 +48,5 @@ export const Typography = ({
 		>
 			{children}
 		</T>
-	)
-}
+	);
+};

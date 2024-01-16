@@ -1,18 +1,18 @@
-import * as React from 'react'
-import { Box, useTheme } from '@mui/material'
-import { Typography } from '@/components/Typography/typography.component'
-import Image from 'next/image'
-import { motion, useTime, useTransform } from 'framer-motion'
+import * as React from 'react';
+import { Box, useTheme } from '@mui/material';
+import { Typography } from '@/components/Typography/typography.component';
+import Image from 'next/image';
+import { motion, useTime, useTransform } from 'framer-motion';
 
 interface GameCardProps {
-	imgSrc: string
-	imgAlt: string
-	cardWidth: string
-	title: string
-	description?: string
-	isCurrent: boolean
-	index: number
-	setActiveCard: (index: number) => void
+	imgSrc: string;
+	imgAlt: string;
+	cardWidth: string;
+	title: string;
+	description?: string;
+	isCurrent: boolean;
+	index: number;
+	setActiveCard: (index: number) => void;
 }
 
 const GameCard = ({
@@ -25,7 +25,7 @@ const GameCard = ({
 	index,
 	setActiveCard,
 }: GameCardProps) => {
-	const { palette } = useTheme()
+	const { palette } = useTheme();
 	return (
 		<Box
 			sx={{
@@ -70,8 +70,8 @@ const GameCard = ({
 				</Typography>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 const GameCardsInfo: Omit<
 	GameCardProps,
@@ -113,18 +113,18 @@ const GameCardsInfo: Omit<
 		cardWidth: '250px',
 		title: 'COUPON',
 	},
-]
+];
 
 export const GolfGamesComponentV1 = () => {
-	const gridLayoutGap = '5px'
-	const gridColumnCount = 3
-	const gridItemMinWidth = '250px'
+	const gridLayoutGap = '5px';
+	const gridColumnCount = 3;
+	const gridItemMinWidth = '250px';
 
-	const gapCount = `calc(${gridColumnCount} - 1)`
-	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`
-	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`
+	const gapCount = `calc(${gridColumnCount} - 1)`;
+	const totalGapWidth = `calc(${gapCount} * ${gridLayoutGap})`;
+	const gridItemMaxWidth = `calc((100% - ${totalGapWidth})/${gridColumnCount})`;
 
-	const [activeCard, setActiveCard] = React.useState(2)
+	const [activeCard, setActiveCard] = React.useState(2);
 
 	return (
 		<Box
@@ -169,5 +169,5 @@ export const GolfGamesComponentV1 = () => {
 				))}
 			</Box>
 		</Box>
-	)
-}
+	);
+};

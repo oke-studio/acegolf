@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 import {
 	Box,
 	styled,
@@ -10,17 +10,17 @@ import {
 	Theme,
 	useTheme,
 	useMediaQuery,
-} from '@mui/material'
+} from '@mui/material';
 
-import { Typography } from '../Typography/typography.component'
-import Image from 'next/image'
+import { Typography } from '../Typography/typography.component';
+import Image from 'next/image';
 
-type CardColorTypes = 'light' | 'dark'
+type CardColorTypes = 'light' | 'dark';
 
 const CardColorVariants = {
 	light: { color: 'black', backgroundColor: 'white' },
 	dark: { color: 'white', backgroundColor: 'black' },
-}
+};
 
 const CardContainer = styled(Box, {
 	shouldForwardProp: prop => prop !== 'variant',
@@ -35,19 +35,19 @@ const CardContainer = styled(Box, {
 	//   height: '100%',
 	alignItems: 'center',
 	borderRadius: '30px',
-})
+});
 
 interface CardProps {
-	buttonOne?: ButtonProps
-	buttonTwo?: ButtonProps
-	CardTitle: string
-	CardDescription?: string
-	ImageSrc?: string
-	BackgroundColor?: string
-	children?: React.ReactNode
-	fullWidth?: boolean
-	ColorVariant?: CardColorTypes
-	sx?: SxProps
+	buttonOne?: ButtonProps;
+	buttonTwo?: ButtonProps;
+	CardTitle: string;
+	CardDescription?: string;
+	ImageSrc?: string;
+	BackgroundColor?: string;
+	children?: React.ReactNode;
+	fullWidth?: boolean;
+	ColorVariant?: CardColorTypes;
+	sx?: SxProps;
 }
 
 export const Card = ({
@@ -62,11 +62,11 @@ export const Card = ({
 	sx,
 	children,
 }: CardProps) => {
-	const { typography, palette, breakpoints } = useTheme()
+	const { typography, palette, breakpoints } = useTheme();
 
-	const isMobile = useMediaQuery(breakpoints.down('sm'))
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
-	const COLOR_VARIANT = CardColorVariants[ColorVariant]
+	const COLOR_VARIANT = CardColorVariants[ColorVariant];
 
 	return (
 		<CardContainer
@@ -150,5 +150,5 @@ export const Card = ({
 				)}
 			</Box>
 		</CardContainer>
-	)
-}
+	);
+};

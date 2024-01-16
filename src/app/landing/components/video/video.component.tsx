@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { useTheme, Box, useMediaQuery, Button, SxProps } from '@mui/material'
-import ReactPlayer from 'react-player'
+import * as React from 'react';
+import { useTheme, Box, useMediaQuery, Button, SxProps } from '@mui/material';
+import ReactPlayer from 'react-player';
 
 interface LandingVideoProps {
-	width: string
-	height: string
-	sx?: SxProps
+	width: string;
+	height: string;
+	sx?: SxProps;
 }
 
 export const LandingVideo = ({ width, height, sx }: LandingVideoProps) => {
-	const { typography, palette } = useTheme()
-	const isMobile = useMediaQuery('(max-width:600px)')
-	const isSmallDesktop = useMediaQuery('(max-width:950px)')
-	const isLargeDesktop = useMediaQuery('(min-width:1440px)')
+	const { typography, palette } = useTheme();
+	const isMobile = useMediaQuery('(max-width:600px)');
+	const isSmallDesktop = useMediaQuery('(max-width:950px)');
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 	return (
 		<Box
 			sx={{
@@ -42,5 +42,5 @@ export const LandingVideo = ({ width, height, sx }: LandingVideoProps) => {
 				playsinline={true}
 			/>
 		</Box>
-	)
-}
+	);
+};

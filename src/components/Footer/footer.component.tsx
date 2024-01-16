@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Box, useTheme } from '@mui/material'
+import * as React from 'react';
+import { Box, useTheme } from '@mui/material';
 
-import { FooterLinks } from './footer-links/footerLinks.component'
+import { FooterLinks } from './footer-links/footerLinks.component';
 
 // console.log(theme.typography);
 
 export const Footer = () => {
-	const { typography } = useTheme()
+	const { typography } = useTheme();
 	// console.log(inputClasses);
 	return (
 		<Box
@@ -164,5 +164,5 @@ export const Footer = () => {
 			{/* BOTTOM links section */}
 			<FooterLinks />
 		</Box>
-	)
-}
+	);
+};

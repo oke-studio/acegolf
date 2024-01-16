@@ -1,23 +1,23 @@
-import * as React from 'react'
-import { motion, Transition, useAnimation, Variants } from 'framer-motion'
-import { useTheme } from '@mui/material'
-import { RNG } from '@/util/RNG'
+import * as React from 'react';
+import { motion, Transition, useAnimation, Variants } from 'framer-motion';
+import { useTheme } from '@mui/material';
+import { RNG } from '@/util/RNG';
 interface MotionVariantsProps<K> {
-	to: K
-	from: K
+	to: K;
+	from: K;
 }
 
 interface NavOptionsProps {
-	top: MotionVariantsProps<string | number>
-	color: MotionVariantsProps<string>
-	rotate: MotionVariantsProps<number>
-	transition: MotionVariantsProps<Transition>
+	top: MotionVariantsProps<string | number>;
+	color: MotionVariantsProps<string>;
+	rotate: MotionVariantsProps<number>;
+	transition: MotionVariantsProps<Transition>;
 }
 
 const DEFAULT_HOVER_ANIMATION_PROFILE = (
 	variant: 'book' | 'default',
 ): NavOptionsProps => {
-	const { typography, palette } = useTheme()
+	const { typography, palette } = useTheme();
 
 	return {
 		top: { to: '5px', from: '0px' },
@@ -42,13 +42,13 @@ const DEFAULT_HOVER_ANIMATION_PROFILE = (
 				ease: 'easeIn',
 			},
 		},
-	}
-}
+	};
+};
 
 const DEFAULT_REST_ANIMATION_PROFILE = (
 	variant: 'book' | 'default',
 ): NavOptionsProps => {
-	const { typography, palette } = useTheme()
+	const { typography, palette } = useTheme();
 
 	return {
 		top: { to: '-5px', from: '0px' },
@@ -73,15 +73,15 @@ const DEFAULT_REST_ANIMATION_PROFILE = (
 				ease: 'easeIn',
 			},
 		},
-	}
-}
+	};
+};
 
 const navOptionHoverAnimation = ({
 	animationProfile,
 }: {
-	animationProfile: NavOptionsProps
+	animationProfile: NavOptionsProps;
 }): Variants => {
-	const { top, color, transition, rotate } = animationProfile
+	const { top, color, transition, rotate } = animationProfile;
 	return {
 		hovered: {
 			top: top.to,
@@ -96,8 +96,8 @@ const navOptionHoverAnimation = ({
 			transition: transition.from,
 			rotate: rotate.from,
 		},
-	}
-}
+	};
+};
 
 export const MotionSpanAnimated = ({
 	label,
@@ -105,10 +105,10 @@ export const MotionSpanAnimated = ({
 	restAnimation = DEFAULT_REST_ANIMATION_PROFILE(variant),
 	hoverAnimation = DEFAULT_HOVER_ANIMATION_PROFILE(variant),
 }: {
-	label: string
-	restAnimation?: NavOptionsProps
-	hoverAnimation?: NavOptionsProps
-	variant?: 'book' | 'default'
+	label: string;
+	restAnimation?: NavOptionsProps;
+	hoverAnimation?: NavOptionsProps;
+	variant?: 'book' | 'default';
 }) => {
 	return (
 		<motion.span
@@ -119,7 +119,7 @@ export const MotionSpanAnimated = ({
 		>
 			{label.split(/(?:)/).map((word, index) => {
 				if (word === ' ') {
-					return <motion.span key={index}>&nbsp;</motion.span>
+					return <motion.span key={index}>&nbsp;</motion.span>;
 				}
 
 				return (
@@ -134,16 +134,16 @@ export const MotionSpanAnimated = ({
 							index % 2 === 0
 								? navOptionHoverAnimation({
 										animationProfile: hoverAnimation,
-									})
+								  })
 								: navOptionHoverAnimation({
 										animationProfile: restAnimation,
-									})
+								  })
 						}
 					>
 						{word}
 					</motion.span>
-				)
+				);
 			})}
 		</motion.span>
-	)
-}
+	);
+};

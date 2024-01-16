@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material'
+import * as React from 'react';
+import { Box, styled, Grid, useMediaQuery, useTheme } from '@mui/material';
 
-import { Card } from '@/components/Cards/cards.component'
+import { Card } from '@/components/Cards/cards.component';
 
 const LandingCardsContainer = styled(Box)(({ theme }) => ({
 	backgroundColor: 'transparent',
@@ -9,7 +9,7 @@ const LandingCardsContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '24px',
-}))
+}));
 
 export const LandingCards = () => {
 	//   return (
@@ -21,8 +21,8 @@ export const LandingCards = () => {
 	//     </LandingCardsContainer>
 	//   );
 
-	const theme = useTheme()
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return (
 		<LandingCardsContainer>
@@ -101,5 +101,5 @@ export const LandingCards = () => {
 				/>
 			</Box>
 		</LandingCardsContainer>
-	)
-}
+	);
+};

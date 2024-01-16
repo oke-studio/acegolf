@@ -1,16 +1,16 @@
-'use client'
-import * as React from 'react'
-import { Box, Link, styled, useMediaQuery, useTheme } from '@mui/material'
-import Image from 'next/image'
-import { FooterGolf } from './components/footer-golf-arrangement/footerGolfArrangement.component'
-import { Typography } from '@/components/Typography/typography.component'
+'use client';
+import * as React from 'react';
+import { Box, Link, styled, useMediaQuery, useTheme } from '@mui/material';
+import Image from 'next/image';
+import { FooterGolf } from './components/footer-golf-arrangement/footerGolfArrangement.component';
+import { Typography } from '@/components/Typography/typography.component';
 
 const StyledLinks = styled(Link)(({ theme: t }) => ({
 	color: 'white',
 	':hover': {
 		color: t.palette.primary.main,
 	},
-})) as typeof Link
+})) as typeof Link;
 
 const FooterLinksArray = [
 	{
@@ -41,14 +41,14 @@ const FooterLinksArray = [
 		name: 'Terms & Conditions',
 		to: '/about',
 	},
-]
+];
 
 const StyledLinksWrapper = styled(Box)(({ theme: t }) => ({
 	display: 'flex',
 	textAlign: 'center',
 	justifyContent: 'center',
 	flexDirection: 'column',
-}))
+}));
 
 const FooterSocialsImages = [
 	{
@@ -57,11 +57,11 @@ const FooterSocialsImages = [
 	},
 	{ src: '/images/linkedin-logo.svg', to: '/about' },
 	{ src: '/images/instagram-logo.svg', to: '/about' },
-]
+];
 
 export const CommonFooterLinks = () => {
-	const isMobile = useMediaQuery('(max-width:640px)')
-	const { typography, palette } = useTheme()
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const { typography, palette } = useTheme();
 
 	if (isMobile) {
 		const MobileFooterLinksArray = [
@@ -70,7 +70,7 @@ export const CommonFooterLinks = () => {
 			{ name: 'Locations', to: '/about' },
 			{ name: 'Privacy Policy', to: '/about' },
 			{ name: 'Terms and Conditions', to: '/about' },
-		]
+		];
 		return (
 			<Box
 				sx={{
@@ -153,7 +153,7 @@ export const CommonFooterLinks = () => {
 					</Box>
 				</Box>
 			</Box>
-		)
+		);
 	}
 
 	return (
@@ -274,8 +274,8 @@ export const CommonFooterLinks = () => {
 				</Box>
 			</Box>
 		</Box>
-	)
-}
+	);
+};
 
 export const FooterLinks = () => {
 	return (
@@ -292,5 +292,5 @@ export const FooterLinks = () => {
 			<CommonFooterLinks />
 			<FooterGolf />
 		</Box>
-	)
-}
+	);
+};
