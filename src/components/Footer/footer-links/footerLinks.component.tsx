@@ -43,7 +43,7 @@ const FooterLinksArray = [
 	},
 ];
 
-const StyledLinksWrapper = styled(Box)(({ theme: t }) => ({
+const StyledLinksWrapper = styled(Box)(() => ({
 	display: 'flex',
 	textAlign: 'center',
 	justifyContent: 'center',

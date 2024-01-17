@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { useTheme, Box, useMediaQuery, InputBase, styled } from '@mui/material';
-import { LandingCards } from '../landingCards/landingCards.component';
+import { useTheme, Box, useMediaQuery } from '@mui/material';
+
 import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
@@ -10,31 +10,10 @@ import dayjs from 'dayjs';
 import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
 import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  // 'label + &': {
-  //   marginTop: theme.spacing(3),
-  // },
-  '& .MuiInputBase-input': {
-    borderRadius: '12px',
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: `4px solid ${theme.palette.aceOrange}`,
-    // fontSize: 16,
-    padding: '12px 24px 12px 24px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-
-    '&:focus': {
-      borderRadius: 4,
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-}));
-
 export const LandingHowItWorks = () => {
-  const { typography, palette } = useTheme();
-  const theme = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const { breakpoints } = useTheme();
+
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
   const isSmallDesktop = useMediaQuery('(max-width:950px)');
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
@@ -50,7 +29,7 @@ export const LandingHowItWorks = () => {
     time: dayjs(new Date()).format(),
   });
 
-  const HowItWorksCopy = [{ label: '', description: '' }];
+  // const HowItWorksCopy = [{ label: '', description: '' }];
 
   return (
     <Section
