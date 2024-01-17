@@ -7,5 +7,5 @@ import { Card } from '@/components/Cards/cards.component';
 import { Section } from '@/components/layout/section.component';
 
 export default function FullHowItWorks() {
-  return <Box></Box>;
+	return <Box></Box>;
 }

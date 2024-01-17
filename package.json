@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier src//**/*.{ts,tsx} --write",
+    "prettier:check": "prettier --check src//**/*.{ts,tsx}"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -21,8 +23,12 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "dayjs": "^1.11.10",
+    "encoding": "^0.1.13",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.17",
+    "google-auth-library": "^9.4.2",
+    "google-spreadsheet": "^4.1.1",
+    "googleapis": "^130.0.0",
     "lint": "^0.8.19",
     "next": "13.4.2",
     "react": "18.2.0",

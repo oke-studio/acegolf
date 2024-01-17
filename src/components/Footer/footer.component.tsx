@@ -8,21 +8,21 @@ import { FooterLinks } from './footer-links/footerLinks.component';
 // console.log(theme.typography);
 
 export const Footer = () => {
-  const { typography } = useTheme();
-  // console.log(inputClasses);
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: 'black',
+	const { typography } = useTheme();
+	// console.log(inputClasses);
+	return (
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				backgroundColor: 'black',
 
-        zIndex: 5,
-        position: 'relative',
-      }}
-    >
-      {/* TOP email section */}
-      {/* <Box
+				zIndex: 5,
+				position: 'relative',
+			}}
+		>
+			{/* TOP email section */}
+			{/* <Box
           sx={{
             backgroundColor: 'black',
             display: 'flex',
@@ -63,8 +63,8 @@ export const Footer = () => {
             </Box>
           </Box>
         </Box> */}
-      {/* MID info section */}
-      {/* <Box
+			{/* MID info section */}
+			{/* <Box
           sx={{
             backgroundColor: theme.palette.primary.main,
             display: 'flex',
@@ -161,8 +161,8 @@ export const Footer = () => {
             </Box>
           </Box>
         </Box> */}
-      {/* BOTTOM links section */}
-      <FooterLinks />
-    </Box>
-  );
+			{/* BOTTOM links section */}
+			<FooterLinks />
+		</Box>
+	);
 };
