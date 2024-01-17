@@ -12,6 +12,8 @@
     "dev:bundle": "next dev && bundlesize"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.19.0",
+    "@contentful/rich-text-types": "^16.3.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.7",
@@ -24,13 +26,11 @@
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "contentful": "^10.6.16",
     "dayjs": "^1.11.10",
     "encoding": "^0.1.13",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.17",
-    "google-auth-library": "^9.4.2",
-    "google-spreadsheet": "^4.1.1",
-    "googleapis": "^130.0.0",
     "lint": "^0.8.19",
     "next": "13.4.2",
     "react": "18.2.0",
