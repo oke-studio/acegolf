@@ -1,23 +1,23 @@
 'use client';
 
-import * as React from 'react';
+import React from 'react';
 import { Box, useTheme, TextField, useMediaQuery } from '@mui/material';
-import { Formik, useFormik } from 'formik';
+import { Formik } from 'formik';
 import { encode } from '@/util/encode';
 import { motion } from 'framer-motion';
 
 import { Typography } from '@/components/Typography/typography.component';
 
 const MailingListForm = () => {
-  const { typography, palette } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const { breakpoints } = useTheme();
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
   const [isSubmit, setIsSubmit] = React.useState(false);
-  const [error, setError] = React.useState<{ error: boolean; message: string }>(
-    {
-      error: false,
-      message: '',
-    },
-  );
+  // const [error, setError] = React.useState<{ error: boolean; message: string }>(
+  //   {
+  //     error: false,
+  //     message: '',
+  //   },
+  // );
 
   return (
     <Formik
@@ -142,8 +142,8 @@ const MailingListForm = () => {
 };
 
 export const MailingList = () => {
-  const { typography, palette } = useTheme();
-  const isMobile = useMediaQuery('(max-width:640px)');
+  const { breakpoints } = useTheme();
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
 
   return (
     <Box

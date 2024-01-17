@@ -9,9 +9,6 @@ import { encode } from '@/util/encode';
 import { TopBanner } from '@/components/topBanner/topBanner.component';
 import { Typography } from '@/components/Typography/typography.component';
 
-interface FormValues {
-	email: string;
-}
 
 const ComingSoonForm = () => {
 	const [isSubmit, setIsSubmit] = React.useState(false);
@@ -21,42 +18,7 @@ const ComingSoonForm = () => {
 		console.log(isSubmit);
 	}, [isSubmit]);
 
-	// const formik = useFormik({
-	//   initialValues: {
-	//     email: '',
-	//   },
-	//   onSubmit: (values) => {
-	//     console.log(values);
-	//     fetch('/', {
-	//       method: 'POST',
-	//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-	//       body: encode({ 'form-name': 'comingsoon-email', ...values }),
-	//     })
-	//       .then(() => setIsSubmit(true))
-	//       .catch((e) => alert(e));
-	//   },
-	// });
-
-	// const buttonClick = () => {
-	//   if (formik.values.email === '') {
-	//     setError({ error: true, message: 'Please provide an email' });
-	//     return;
-	//   }
-
-	//   if (
-	//     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formik.values.email)
-	//   ) {
-	//     setError({
-	//       error: true,
-	//       message: `Please provide a valid email, ${formik.values.email} is not a valid email`,
-	//     });
-	//     return;
-	//   }
-
-	//   setError({ error: false, message: '' });
-	//   setIsSubmit(true);
-	//   formik.handleSubmit();
-	// };
+	
 
 	return (
 		<Formik
@@ -265,9 +227,9 @@ export const ComingSoonInfoSection = ({
 	hours: number;
 	days: number;
 }) => {
-	const isMobile = useMediaQuery('(max-width:640px)');
+	const { palette, breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
-	const { typography, palette } = useTheme();
 
 	return (
 		<ComingSoonInfoSectionWrapper
