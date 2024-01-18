@@ -130,6 +130,45 @@ export default function Landing() {
 			<LandingPromotionMailingSection />
 
 			<NintendoSwitch />
+
+			{/* Full Page Photos */}
+			<Box
+				sx={{
+					width: '100%',
+					height: '100%',
+					// background: 'green',
+					position: 'absolute',
+					top: '0px',
+					left: '0px',
+					display: 'grid',
+					gridTemplateColumns: '1fr 1fr 1fr 1fr',
+					opacity: '.5',
+				}}
+			>
+				<Box
+					sx={{
+						background: 'green',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'orange',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'blue',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'cyan',
+					}}
+				></Box>
+			</Box>
 		</Box>
 	);
 }
