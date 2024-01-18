@@ -24,9 +24,9 @@ const HeaderContainer = styled(Box)({
 
 	height: '60px',
 	width: '100%',
-
 	alignItems: 'center',
 	padding: '0px 24px',
+	backgroundColor: 'transparent',
 });
 
 const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
@@ -230,7 +230,7 @@ export const Header = ({
 					justifyContent: isMobile ? 'space-between' : 'center',
 					// backgroundColor: navBackgroundColor,
 					// color: navTextColor,
-					backgroundColor: mobileDropDownEnabled ? 'white' : 'black',
+					backgroundColor: mobileDropDownEnabled ? 'white' : 'transparent',
 				}}
 			>
 				{isMobile && (
