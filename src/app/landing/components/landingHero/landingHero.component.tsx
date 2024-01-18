@@ -23,6 +23,7 @@ export const LandingHero = () => {
 			ScrollAnimations={false}
 			sx={{
 				overflowX: 'hidden',
+				position: 'relative',
 			}}
 		>
 			{/* Hero Container*/}
@@ -171,6 +172,45 @@ export const LandingHero = () => {
 						</Typography>
 					</Button>
 				</Box>
+			</Box>
+
+			{/* Sectional Photos */}
+			<Box
+				sx={{
+					width: '100%',
+					height: '100%',
+					background: 'green',
+					position: 'absolute',
+					top: '0px',
+					left: '0px',
+					display: 'grid',
+					gridTemplateColumns: '1fr 1fr 1fr 1fr',
+					opacity: '.5',
+				}}
+			>
+				<Box
+					sx={{
+						background: 'blue',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'cyan',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'red',
+					}}
+				></Box>
+
+				<Box
+					sx={{
+						background: 'orange',
+					}}
+				></Box>
 			</Box>
 		</Section>
 	);
