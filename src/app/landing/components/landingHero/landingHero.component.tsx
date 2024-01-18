@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { Typography } from '@/components/Typography/typography.component';
 import { useRouter } from 'next/navigation';
+import Picture1 from '../../../../../public/images/Spin-photo1.png';
+import Picture2 from '../../../../../public/images/Spin-photo2.png';
+import Picture3 from '../../../../../public/images/Spin-photo3.png';
+import Picture4 from '../../../../../public/images/Spin-photo4.png';
 
 export const LandingHero = () => {
 	const router = useRouter();
@@ -173,27 +177,83 @@ export const LandingHero = () => {
 			<Box
 				sx={{
 					width: '100%',
+					maxWidth: '100%',
 					height: '100%',
-					background: 'green',
+					// background: 'green',
 					position: 'absolute',
 					top: '0px',
 					left: '0px',
 					display: 'grid',
-					gridTemplateColumns: '1fr 1fr 1fr 1fr',
-					opacity: '.5',
+					gridTemplateColumns: 'repeat(8, 1fr)',
+					gridTemplateRows: '1fr 1fr',
+					//opacity: '.5',
 				}}
 			>
 				<Box
 					sx={{
-						background: 'blue',
+						gridColumn: '2 / span 1',
+						gridRow: '1 / span 1',
+						display: 'grid',
+						zIndex: '0',
+						placeItems: 'center',
+						gridTemplateAreas: 'videoWithPathArea',
 					}}
-				></Box>
+				>
+					<img
+						style={{
+							display: 'block',
+							width: '100%',
+							gridArea: 'videoWithPathArea',
+							zIndex: '1',
+							aspectRatio: '1.137', //Use image properties to define this
+						}}
+						src="/images/Spin-photo4.png"
+					/>
+
+					<Box
+						sx={{
+							width: '100%',
+							scale: '1.03', // change to random in range of 1 - 1.006
+							transform: 'rotate(1deg)', // change to random number later so background looks good
+							backgroundColor: theme.palette.sharpTeal, //extract as property
+							aspectRatio: '1.137', //Use image properties to define this
+							gridArea: 'videoWithPathArea',
+						}}
+					></Box>
+				</Box>
 
 				<Box
 					sx={{
-						background: 'cyan',
+						gridColumn: '1 / span 1', // grid position can be a factor as well
+						gridRow: '1 / span 1',
+						display: 'grid',
+						zIndex: '0',
+						placeItems: 'center',
+						gridTemplateAreas: 'videoWithPathArea',
 					}}
-				></Box>
+				>
+					<img
+						style={{
+							display: 'block',
+							width: '100%',
+							gridArea: 'videoWithPathArea',
+							zIndex: '1',
+							aspectRatio: '0.710', //Use image properties to define this
+						}}
+						src="/images/Spin-photo2.png"
+					/>
+
+					<Box
+						sx={{
+							width: '100%',
+							scale: '1.03', // change to random in range of 1 - 1.006
+							transform: 'rotate(1deg)', // change to random number later so background looks good
+							backgroundColor: theme.palette.sharpTeal, //extract as property
+							aspectRatio: '0.710', //Use image properties to define this
+							gridArea: 'videoWithPathArea',
+						}}
+					></Box>
+				</Box>
 
 				<Box
 					sx={{
