@@ -112,7 +112,7 @@ export default function Landing() {
 			<NintendoSwitch />
 
 			{/* Full Page Photos */}
-			<Box
+			{/* <Box
 				sx={{
 					width: '100%',
 					height: '100%',
@@ -148,7 +148,7 @@ export default function Landing() {
 						background: 'cyan',
 					}}
 				></Box>
-			</Box>
+			</Box> */}
 		</Box>
 	);
 }
