@@ -195,7 +195,7 @@ export const LandingHero = () => {
 					//opacity: '.5',
 				}}
 			>
-				<Box
+				{/* <Box
 					sx={{
 						gridColumn: '2 / span 1',
 						gridRow: '1 / span 1',
@@ -226,7 +226,18 @@ export const LandingHero = () => {
 							gridArea: 'videoWithPathArea',
 						}}
 					></Box>
-				</Box>
+				</Box> */}
+				<AceImage
+					AceImageSrc="/images/Spin-photo4.png"
+					AceImageAspectRatio="1.137"
+					AceImageWidth="100%"
+					BackCutout={true}
+					BackCutoutColor={theme.palette.sharpTeal}
+					sx={{
+						gridColumn: '2 / span 1',
+						gridRow: '1 / span 1',
+					}}
+				></AceImage>
 
 				<AceImage
 					AceImageSrc="/images/Spin-photo2.png"
@@ -240,50 +251,29 @@ export const LandingHero = () => {
 					}}
 				></AceImage>
 
-				{/* <Box
+				<AceImage
+					AceImageSrc="/images/Spin-photo3.png"
+					AceImageAspectRatio="0.710"
+					AceImageWidth="100%"
+					BackCutout={true}
+					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
-						gridColumn: '1 / span 1', // grid position can be a factor as well
+						gridColumn: '3 / span 1',
 						gridRow: '1 / span 1',
-						display: 'grid',
-						zIndex: '0',
-						placeItems: 'center',
-						gridTemplateAreas: 'videoWithPathArea',
 					}}
-				>
-					<img
-						style={{
-							display: 'block',
-							width: '100%',
-							gridArea: 'videoWithPathArea',
-							zIndex: '1',
-							aspectRatio: '0.710', //Use image properties to define this
-						}}
-						src="/images/Spin-photo2.png"
-					/>
+				></AceImage>
 
-					<Box
-						sx={{
-							width: '100%',
-							scale: '1.03', // change to random in range of 1 - 1.006
-							transform: 'rotate(1deg)', // change to random number later so background looks good
-							backgroundColor: theme.palette.sharpTeal, //extract as property
-							aspectRatio: '0.710', //Use image properties to define this
-							gridArea: 'videoWithPathArea',
-						}}
-					></Box>
-				</Box> */}
-
-				<Box
+				<AceImage
+					AceImageSrc="/images/Spin-photo1.png"
+					AceImageAspectRatio="0.710"
+					AceImageWidth="100%"
+					BackCutout={true}
+					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
-						background: 'red',
+						gridColumn: '4 / span 1',
+						gridRow: '1 / span 1',
 					}}
-				></Box>
-
-				<Box
-					sx={{
-						background: 'orange',
-					}}
-				></Box>
+				></AceImage>
 			</Box>
 		</Section>
 	);
