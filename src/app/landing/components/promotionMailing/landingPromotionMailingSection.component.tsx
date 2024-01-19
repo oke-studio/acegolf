@@ -5,7 +5,7 @@ import { Section } from '@/components/layout/section.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { MailingList } from '../../components/mailingList/mailingList.component';
 
-export const LandingPromotionMailingSection = () => {
+export default function LandingPromotionMailingSection() {
   return (
     <Section
       SectionName="Landing Promotion & Mailing Section"
@@ -23,4 +23,4 @@ export const LandingPromotionMailingSection = () => {
       <MailingList />
     </Section>
   );
-};
+}
