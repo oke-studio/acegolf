@@ -14,6 +14,7 @@ export const LandingHero = () => {
 	const router = useRouter();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const side = false;
 	return (
 		<Section
 			SectionName="Landing Hero"
@@ -177,51 +178,17 @@ export const LandingHero = () => {
 			{/* Sectional Photos */}
 			<Box
 				sx={{
-					width: '100%',
+					width: '50%',
 					maxWidth: '100%',
 					height: '100%',
-					// background: 'green',
 					position: 'absolute',
 					top: '0px',
-					left: '0px',
 					display: 'grid',
-					gridTemplateColumns: 'repeat(8, 1fr)',
+					gridTemplateColumns: 'repeat(4, 1fr)',
 					gridTemplateRows: '1fr 1fr',
-					//opacity: '.5',
+					...(side ? { left: '0px' } : { right: '0px' }),
 				}}
 			>
-				{/* <Box
-					sx={{
-						gridColumn: '2 / span 1',
-						gridRow: '1 / span 1',
-						display: 'grid',
-						zIndex: '0',
-						placeItems: 'center',
-						gridTemplateAreas: 'videoWithPathArea',
-					}}
-				>
-					<img
-						style={{
-							display: 'block',
-							width: '100%',
-							gridArea: 'videoWithPathArea',
-							zIndex: '1',
-							aspectRatio: '1.137', //Use image properties to define this
-						}}
-						src="/images/Spin-photo4.png"
-					/>
-
-					<Box
-						sx={{
-							width: '100%',
-							scale: '1.03', // change to random in range of 1 - 1.006
-							transform: 'rotate(1deg)', // change to random number later so background looks good
-							backgroundColor: theme.palette.sharpTeal, //extract as property
-							aspectRatio: '1.137', //Use image properties to define this
-							gridArea: 'videoWithPathArea',
-						}}
-					></Box>
-				</Box> */}
 				<AceImage
 					AceImageSrc="/images/Spin-photo4.png"
 					AceImageAspectRatio="1.137"
@@ -230,7 +197,7 @@ export const LandingHero = () => {
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
 						gridColumn: '2 / span 1',
-						gridRow: '1 / span 1',
+						gridRow: '2 / span 1',
 					}}
 				></AceImage>
 
@@ -241,26 +208,26 @@ export const LandingHero = () => {
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
-						gridColumn: '1 / span 1',
-						gridRow: '1 / span 1',
+						gridColumn: '3 / span 1',
+						gridRow: '2 / span 1',
 					}}
 				></AceImage>
 
 				<AceImage
 					AceImageSrc="/images/Spin-photo3.png"
-					AceImageAspectRatio="0.710"
+					AceImageAspectRatio="1/1"
 					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
-						gridColumn: '3 / span 1',
-						gridRow: '1 / span 1',
+						gridColumn: '4 / span 1',
+						gridRow: '2 / span 1',
 					}}
 				></AceImage>
 
 				<AceImage
 					AceImageSrc="/images/Spin-photo1.png"
-					AceImageAspectRatio="0.710"
+					AceImageAspectRatio="0.637"
 					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
