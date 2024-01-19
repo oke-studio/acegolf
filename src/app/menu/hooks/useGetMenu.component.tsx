@@ -1,3 +1,4 @@
+import { TypeMenuFields } from '@/contentful/types';
 import { useQuery } from '@tanstack/react-query';
 
 export function useGetMenu() {
@@ -15,10 +16,10 @@ export function useGetMenu() {
     queryFn: () => getMenu(),
   });
 
-  const menuData = data;
+  const menuData = data as { fields: TypeMenuFields };
 
   return {
-    menuData,
+    menuData: menuData.fields.fields,
     isLoading,
     isError,
   };

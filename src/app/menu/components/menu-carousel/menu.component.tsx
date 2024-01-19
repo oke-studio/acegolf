@@ -16,7 +16,6 @@ import Image from 'next/image';
 import { MenuOptions } from './menuItems';
 import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
-import { useQuery } from '@tanstack/react-query';
 import { useGetMenu } from '../../hooks/useGetMenu.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({

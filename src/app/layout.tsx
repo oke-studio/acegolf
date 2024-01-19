@@ -1,9 +1,9 @@
 import './globals.css';
-import { Metadata } from 'next';
-import localfont from 'next/font/local';
+// import { Metadata } from 'next';
+// import localfont from 'next/font/local';
 import { Providers } from './Providers';
 import { Header } from '@/components/Header/header.component';
-import { Footer } from '@/components/Footer/footer.component';
+// import { Footer } from '@/components/Footer/footer.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
 import { FooterV2 } from '@/components/Footer/footerV2.component';
 
