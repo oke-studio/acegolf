@@ -48,10 +48,7 @@ export const AceImage = ({
 
 	const randomizer = (min, max) => {
 		return Math.random() * (max - min) + min;
-	}; // need @Efe to make this random work for every instance and not just once for all images
-
-	const randomRotate = randomizer(-3, 3);
-	const randomScale = randomizer(1.03, 1.9);
+	};
 
 	return (
 		<Box
@@ -78,8 +75,8 @@ export const AceImage = ({
 				<Box
 					sx={{
 						width: `${AceImageWidth}`,
-						scale: randomScale,
-						transform: `rotate(${randomRotate}deg)`,
+						scale: `${randomizer(1.02, 1.08)}`,
+						transform: `rotate(${randomizer(-3, 3)}deg)`,
 						backgroundColor: `${BackCutoutColor}`,
 						aspectRatio: `${AceImageAspectRatio}`,
 						gridArea: 'videoWithPathArea',
