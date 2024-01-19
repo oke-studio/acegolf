@@ -11,12 +11,33 @@ import Lenis from '@studio-freight/lenis';
 import { LandingHero } from './components/landingHero/landingHero.component';
 import { VideoLandingHero } from './components/video/videoLandingHero.component';
 
-import { LandingPromotionMailingSection } from './components/promotionMailing/landingPromotionMailingSection.component';
+// import { LandingPromotionMailingSection } from './components/promotionMailing/landingPromotionMailingSection.component';
 import { LandingInfoSection } from './components/landingInfo/landingInfoSection.component';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
-import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
+// import { WhatsTheVibe } from './components/whatsTheVibe/whatsTheVibe.component';
 import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
+
+import dynamic from 'next/dynamic';
+
+const DynamicWhatsTheVibe = dynamic(
+  () => import('./components/whatsTheVibe/whatsTheVibe.component'),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  },
+);
+
+const DynamicLandingPromotions = dynamic(
+  () =>
+    import(
+      './components/promotionMailing/landingPromotionMailingSection.component'
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  },
+);
 
 export default function Landing() {
   useEffect(() => {
@@ -79,9 +100,11 @@ export default function Landing() {
 
       <LandingInfoSection />
 
-      <WhatsTheVibe />
+      {/* <WhatsTheVibe /> */}
+      <DynamicWhatsTheVibe />
 
-      <LandingPromotionMailingSection />
+      {/* <LandingPromotionMailingSection /> */}
+      <DynamicLandingPromotions />
 
       <NintendoSwitch />
     </Box>
