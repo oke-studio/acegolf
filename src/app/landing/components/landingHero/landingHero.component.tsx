@@ -13,6 +13,7 @@ import Picture1 from '../../../../../public/images/Spin-photo1.png';
 import Picture2 from '../../../../../public/images/Spin-photo2.png';
 import Picture3 from '../../../../../public/images/Spin-photo3.png';
 import Picture4 from '../../../../../public/images/Spin-photo4.png';
+import { AceImage } from '@/components/aceImage/aceImagecomponent';
 
 export const LandingHero = () => {
 	const router = useRouter();
@@ -26,7 +27,7 @@ export const LandingHero = () => {
 			CornerRadius={false}
 			ScrollAnimations={false}
 			sx={{
-				overflowX: 'hidden',
+				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
 			}}
 		>
@@ -227,7 +228,19 @@ export const LandingHero = () => {
 					></Box>
 				</Box>
 
-				<Box
+				<AceImage
+					AceImageSrc="/images/Spin-photo2.png"
+					AceImageAspectRatio="0.710"
+					AceImageWidth="100%"
+					BackCutout={true}
+					BackCutoutColor={theme.palette.sharpTeal}
+					sx={{
+						gridColumn: '1 / span 1',
+						gridRow: '1 / span 1',
+					}}
+				></AceImage>
+
+				{/* <Box
 					sx={{
 						gridColumn: '1 / span 1', // grid position can be a factor as well
 						gridRow: '1 / span 1',
@@ -258,7 +271,7 @@ export const LandingHero = () => {
 							gridArea: 'videoWithPathArea',
 						}}
 					></Box>
-				</Box>
+				</Box> */}
 
 				<Box
 					sx={{
