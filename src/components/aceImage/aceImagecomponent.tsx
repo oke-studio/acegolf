@@ -48,10 +48,10 @@ export const AceImage = ({
 
 	const randomizer = (min, max) => {
 		return Math.random() * (max - min) + min;
-	};
+	}; // need @Efe to make this random work for every instance and not just once for all images
 
-	const randomRotate = randomizer(-2, 2);
-	const randomScale = randomizer(1, 1.09);
+	const randomRotate = randomizer(-3, 3);
+	const randomScale = randomizer(1.03, 1.9);
 
 	return (
 		<Box
