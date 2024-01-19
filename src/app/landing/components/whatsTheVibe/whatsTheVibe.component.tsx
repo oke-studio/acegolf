@@ -102,7 +102,7 @@ const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
   );
 };
 
-export default function WhatsTheVibe() {
+export const WhatsTheVibe = () => {
   const gridLayoutGap = '10px';
   const gridColumnCount = 4;
   const gridItemMinWidth = '250px';
@@ -166,4 +166,4 @@ export default function WhatsTheVibe() {
       </Box>
     </Section>
   );
-}
+};

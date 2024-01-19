@@ -14,81 +14,81 @@ import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.compo
 import PriceTabCard from './priceTabCard.component';
 
 export default function BookNow() {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	const {
-		handleBookNowButtonLink,
-		handleDateTimePickerChange,
-		handleReserveFormOnChange,
-		reserveABayObject,
-	} = useBookNowForm({
-		guests: '1',
-		duration: '1',
-		date: dayjs(new Date()).format(),
-		time: dayjs(new Date()).format(),
-	});
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const {
+    handleBookNowButtonLink,
+    handleDateTimePickerChange,
+    handleReserveFormOnChange,
+    reserveABayObject,
+  } = useBookNowForm({
+    guests: '1',
+    duration: '1',
+    date: dayjs(new Date()).format(),
+    time: dayjs(new Date()).format(),
+  });
 
-	return (
-		<Box sx={{ margin: 'auto', overflow: 'hidden' }}>
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: isMobile ? 'column' : 'row',
-					width: '100%',
-					gap: '24px',
-					padding: '24px',
-				}}
-			>
-				<Card
-					buttonOne={{
-						children: (
-							<Typography variant="base">
-								<a href={handleBookNowButtonLink()} target="_blank">
-									Find a Bay&nbsp;
-								</a>
-							</Typography>
-						),
-						variant: 'secondary',
-						fullWidth: true,
-					}}
-					CardTitle="Book a bay now"
-					ColorVariant="dark"
-					BackgroundColor={theme.palette.aceOrange}
-					sx={{
-						flexBasis: '110%',
-					}}
-				>
-					<BookNowForm
-						reserveABayObject={reserveABayObject}
-						handleDateTimePickerChange={handleDateTimePickerChange}
-						handleReserveFormOnChange={handleReserveFormOnChange}
-						isWide={false}
-					/>
-				</Card>
-				<Card
-					buttonOne={{ children: 'How it works', variant: 'secondary' }}
-					CardTitle="Prices & Rates"
-					sx={{ minHeight: '600px' }}
-					BackgroundColor="#F6F6F6"
-				>
-					<PriceTabCard />
-				</Card>
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
+  return (
+    <Box sx={{ margin: 'auto', overflow: 'hidden' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          width: '100%',
+          gap: '24px',
+          padding: '24px',
+        }}
+      >
+        <Card
+          buttonOne={{
+            children: (
+              <Typography variant="base">
+                <a href={handleBookNowButtonLink()} target="_blank">
+                  Find a Bay&nbsp;
+                </a>
+              </Typography>
+            ),
+            variant: 'secondary',
+            fullWidth: true,
+          }}
+          CardTitle="Book a bay now"
+          ColorVariant="dark"
+          BackgroundColor={theme.palette.aceOrange}
+          sx={{
+            flexBasis: '110%',
+          }}
+        >
+          <BookNowForm
+            reserveABayObject={reserveABayObject}
+            handleDateTimePickerChange={handleDateTimePickerChange}
+            handleReserveFormOnChange={handleReserveFormOnChange}
+            isWide={false}
+          />
+        </Card>
+        <Card
+          buttonOne={{ children: 'How it works', variant: 'secondary' }}
+          CardTitle="Prices & Rates"
+          sx={{ minHeight: '600px' }}
+          BackgroundColor="#F6F6F6"
+        >
+          <PriceTabCard />
+        </Card>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
 
-					height: '100%',
-					borderRadius: '25px',
-				}}
-			>
-				<Promotions />
+          height: '100%',
+          borderRadius: '25px',
+        }}
+      >
+        <Promotions />
 
-				<MailingList />
-			</Box>
+        <MailingList />
+      </Box>
 
-			<NintendoSwitch />
-		</Box>
-	);
+      <NintendoSwitch />
+    </Box>
+  );
 }

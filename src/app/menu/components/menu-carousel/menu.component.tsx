@@ -14,10 +14,8 @@ import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.com
 import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
 import { MenuOptions } from './menuItems';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
-import { useQuery } from '@tanstack/react-query';
-import { useGetMenu } from '../../hooks/useGetMenu.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
   borderRadius: '25px',
@@ -62,13 +60,6 @@ export const Menu = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   const router = useRouter();
-
-  const { menuData, isLoading } = useGetMenu();
-
-  //   if (isLoading) {
-  //     return <></>;
-  //   }
-  console.log(menuData);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

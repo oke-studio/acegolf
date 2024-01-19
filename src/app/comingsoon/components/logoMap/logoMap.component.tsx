@@ -7,25 +7,25 @@ import GolfLogo from '../../../../../public/images/ace-golf-golf-logo2.svg';
 import { AnimatedLogo } from './components/bottomLogo/bottomLogo.component';
 
 const RelativePositionWrapper = styled(Box)({
-	position: 'relative',
+  position: 'relative',
 });
 
 export const LogoMap = () => {
-	let logoStack = [];
+  let logoStack = [];
 
-	return (
-		<Box
-			sx={{
-				display: 'grid',
-				gridTemplateRows: 'repeat(2, 1fr)',
-				height: 'max-content',
-			}}
-		>
-			{[...Array(10)].map((_, index) => (
-				<RelativePositionWrapper key={index}>
-					<AnimatedLogo />
-				</RelativePositionWrapper>
-			))}
-		</Box>
-	);
+  return (
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateRows: 'repeat(2, 1fr)',
+        height: 'max-content',
+      }}
+    >
+      {[...Array(10)].map((_, index) => (
+        <RelativePositionWrapper key={index}>
+          <AnimatedLogo />
+        </RelativePositionWrapper>
+      ))}
+    </Box>
+  );
 };
