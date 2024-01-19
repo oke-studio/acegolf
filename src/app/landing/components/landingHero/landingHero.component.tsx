@@ -13,7 +13,7 @@ import Picture1 from '../../../../../public/images/Spin-photo1.png';
 import Picture2 from '../../../../../public/images/Spin-photo2.png';
 import Picture3 from '../../../../../public/images/Spin-photo3.png';
 import Picture4 from '../../../../../public/images/Spin-photo4.png';
-import { AceImage } from '@/components/aceImage/aceImagecomponent';
+import { AceImage } from '@/components/aceImage/aceImage.component';
 
 export const LandingHero = () => {
 	const router = useRouter();
