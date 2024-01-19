@@ -19,7 +19,7 @@ export function useGetMenu() {
   const menuData = data as { fields: TypeMenuFields };
 
   return {
-    menuData: menuData.fields.fields,
+    menuData: menuData?.fields ? menuData.fields.fields : {},
     isLoading,
     isError,
   };
