@@ -16,7 +16,6 @@ import Image from 'next/image';
 import { MenuOptions } from './menuItems';
 import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
-import { useQuery } from '@tanstack/react-query';
 import { useGetMenu } from '../../hooks/useGetMenu.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
@@ -63,12 +62,12 @@ export const Menu = () => {
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   const router = useRouter();
 
-  const { menuData, isLoading } = useGetMenu();
+  //   const { menuData, isLoading } = useGetMenu();
 
-  //   if (isLoading) {
-  //     return <></>;
-  //   }
-  console.log(menuData);
+  //   //   if (isLoading) {
+  //   //     return <></>;
+  //   //   }
+  //   console.log(menuData);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

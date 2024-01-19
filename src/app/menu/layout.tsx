@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Header } from '@/components/Header/header.component';
-import { Footer } from '@/components/Footer/footer.component';
+// import { Header } from '@/components/Header/header.component';
+// import { Footer } from '@/components/Footer/footer.component';
 
 export default function HomeLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return <>{children}</>;
+  return <>{children}</>;
 }
