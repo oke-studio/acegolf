@@ -76,6 +76,8 @@ export const LandingCardsGrid = () => {
                   minHeight: '350px',
                   marginBottom: '16px',
                   position: 'relative',
+                  backgroundColor: 'pink',
+                  transform: 'rotate(70deg)',
                 }}
               >
                 <Image
@@ -87,6 +89,7 @@ export const LandingCardsGrid = () => {
                     objectFit: 'cover',
                     objectPosition: 'center',
                     borderRadius: 'inherit',
+                    transform: 'rotate(50deg)',
                   }}
                 />
               </Box>

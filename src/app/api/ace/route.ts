@@ -20,6 +20,7 @@ export async function GET(request: Request) {
   });
 
   return NextResponse.json({
-    data: entries.items[0].fields.bigBites[0],
+    data: entries.items[0],
   });
+  /api/;
 }

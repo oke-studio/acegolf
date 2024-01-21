@@ -62,12 +62,13 @@ export const Menu = () => {
   const isLargeDesktop = useMediaQuery('(min-width:1440px)');
   const router = useRouter();
 
-  //   const { menuData, isLoading } = useGetMenu();
+  const { menuData, isLoading } = useGetMenu();
 
-  //   //   if (isLoading) {
-  //   //     return <></>;
-  //   //   }
-  //   console.log(menuData);
+  if (isLoading) {
+    console.log('loading');
+    return <></>;
+  }
+  console.log(menuData);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
