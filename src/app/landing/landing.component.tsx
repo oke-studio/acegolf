@@ -21,92 +21,92 @@ import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.com
 import dynamic from 'next/dynamic';
 
 const DynamicWhatsTheVibe = dynamic(
-  () => import('./components/whatsTheVibe/whatsTheVibe.component'),
-  {
-    loading: () => <p>Loading...</p>,
-    ssr: false,
-  },
+	() => import('./components/whatsTheVibe/whatsTheVibe.component'),
+	{
+		loading: () => <p>Loading...</p>,
+		ssr: false,
+	},
 );
 
 const DynamicLandingPromotions = dynamic(
-  () =>
-    import(
-      './components/promotionMailing/landingPromotionMailingSection.component'
-    ),
-  {
-    loading: () => <p>Loading...</p>,
-    ssr: false,
-  },
+	() =>
+		import(
+			'./components/promotionMailing/landingPromotionMailingSection.component'
+		),
+	{
+		loading: () => <p>Loading...</p>,
+		ssr: false,
+	},
 );
 
 export default function Landing() {
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
+	useEffect(() => {
+		const lenis = new Lenis();
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+	}, []);
 
-  //animation functions
-  ////Hero Landing tracking////
-  //get and track scroll progress with offset amount
-  const videoSectionAsReference = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: videoSectionAsReference,
-    offset: ['start end', 'start start'],
-  });
+	//animation functions
+	////Hero Landing tracking////
+	//get and track scroll progress with offset amount
+	const videoSectionAsReference = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: videoSectionAsReference,
+		offset: ['start end', 'start start'],
+	});
 
-  //mapping scroll progress to actual
-  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
-  //const scale = useTransform(progress, range, [1, targetScale]);
+	//mapping scroll progress to actual
+	const heroOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
+	//const scale = useTransform(progress, range, [1, targetScale]);
 
-  return (
-    <Box
-      sx={{
-        backgroundColor: '#171717',
-        position: 'relative',
-      }}
-    >
-      <Box
-        sx={{
-          maxHeight: 'fit-content',
-        }}
-      >
-        <Box
-          component={motion.div}
-          sx={{
-            position: 'sticky',
-            top: '100px',
-          }}
-          style={{ opacity: heroOpacity }}
-        >
-          <LandingHero />
-        </Box>
-        <Box
-          sx={{
-            position: 'sticky',
-            top: '0px',
-          }}
-          component={motion.div}
-          ref={videoSectionAsReference}
-        >
-          <VideoLandingHero />
-        </Box>
-      </Box>
+	return (
+		<Box
+			sx={{
+				backgroundColor: '#171717',
+				position: 'relative',
+			}}
+		>
+			<Box
+				sx={{
+					maxHeight: 'fit-content',
+				}}
+			>
+				<Box
+					component={motion.div}
+					sx={{
+						position: 'sticky',
+						top: '100px',
+					}}
+					style={{ opacity: heroOpacity }}
+				>
+					<LandingHero />
+				</Box>
+				<Box
+					sx={{
+						position: 'sticky',
+						top: '0px',
+					}}
+					component={motion.div}
+					ref={videoSectionAsReference}
+				>
+					<VideoLandingHero />
+				</Box>
+			</Box>
 
-      <LandingHowItWorks />
+			<LandingHowItWorks />
 
-      <LandingInfoSection />
+			<LandingInfoSection />
 
-      {/* <WhatsTheVibe /> */}
-      <DynamicWhatsTheVibe />
+			{/* <WhatsTheVibe /> */}
+			<DynamicWhatsTheVibe />
 
-      {/* <LandingPromotionMailingSection /> */}
-      <DynamicLandingPromotions />
+			{/* <LandingPromotionMailingSection /> */}
+			<DynamicLandingPromotions />
 
-      <NintendoSwitch />
-    </Box>
-  );
+			<NintendoSwitch />
+		</Box>
+	);
 }

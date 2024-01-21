@@ -1,6 +1,6 @@
-import type { Entry, EntryFields } from 'contentful';
-import type { TypeDrinkItemFields } from './TypeDrinkItem';
-import type { TypeMenuItemFields } from './TypeMenuItem';
+import { Entry, EntryFields } from 'contentful';
+import { TypeDrinkItemFields } from './TypeDrinkItem';
+import { TypeMenuItemFields } from './TypeMenuItem';
 
 export interface TypeMenuFields {
 	contentTypeId: 'menu';

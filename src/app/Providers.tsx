@@ -9,17 +9,17 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const client = new QueryClient();
 
 export const Providers = ({ children }) => {
-  return (
-    <QueryClientProvider client={client}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <ThemeContextProvider>{children}</ThemeContextProvider>
-      </LocalizationProvider>
-      {/* <ReactQueryDevtools
+	return (
+		<QueryClientProvider client={client}>
+			<LocalizationProvider dateAdapter={AdapterDayjs}>
+				<ThemeContextProvider>{children}</ThemeContextProvider>
+			</LocalizationProvider>
+			{/* <ReactQueryDevtools
         initialIsOpen={false}
         buttonPosition="bottom-left"
         position="bottom"
         styleNonce=""
       /> */}
-    </QueryClientProvider>
-  );
+		</QueryClientProvider>
+	);
 };
