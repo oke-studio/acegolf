@@ -34,7 +34,8 @@ export const MenuOptions: Menu[] = [
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},
 			{
-				name: 'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+				name:
+					'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
 				price: '$50.00',
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},
@@ -84,7 +85,8 @@ export const MenuOptions: Menu[] = [
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},
 			{
-				name: 'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+				name:
+					'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
 				price: '$50.00',
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},
@@ -134,7 +136,8 @@ export const MenuOptions: Menu[] = [
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},
 			{
-				name: 'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
+				name:
+					'Burrata w/ House chili crisp and Cucumber salad with black vinegar and Scallion pancake',
 				price: '$50.00',
 				ingredients: ['TOMATO SAUCE', ' BASIL', 'MOZZARELLA', 'PARMESAN'],
 			},

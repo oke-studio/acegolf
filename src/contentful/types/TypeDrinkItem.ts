@@ -1,7 +1,7 @@
-import type { Asset, Entry, EntryFields } from 'contentful';
+import { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypeDrinkItemFields {
-	contentTypeId: '';
+	contentTypeId: 'drinkItem';
 	fields: {
 		name: EntryFields.Symbol;
 		drinkType: 'Classics' | 'Cocktails';

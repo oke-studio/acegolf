@@ -1,7 +1,7 @@
-import type { Entry, EntryFields } from 'contentful';
+import { Entry, EntryFields } from 'contentful';
 
 export interface TypeServiceTimeFields {
-	contentTypeId: '';
+	contentTypeId: 'serviceTime';
 	fields: {
 		nameOfServiceTime:
 			| 'Full Service - Late'

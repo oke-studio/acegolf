@@ -1,9 +1,9 @@
-import type { Entry, EntryFields } from 'contentful';
-import type { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice';
-import type { TypePrivateBayPriceFields } from './TypePrivateBayPrice';
+import { Entry, EntryFields } from 'contentful';
+import { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice';
+import { TypePrivateBayPriceFields } from './TypePrivateBayPrice';
 
 export interface TypeBayPricingAvailabilityFields {
-	contentTypeId: '';
+	contentTypeId: 'bayPricingAvailability';
 	fields: {
 		bayPricingScheduleName: EntryFields.Symbol;
 		effectiveDateRangeStart: EntryFields.Date;
@@ -14,5 +14,6 @@ export interface TypeBayPricingAvailabilityFields {
 	};
 }
 
-export type TypeBayPricingAvailability =
-	Entry<TypeBayPricingAvailabilityFields>;
+export type TypeBayPricingAvailability = Entry<
+	TypeBayPricingAvailabilityFields
+>;

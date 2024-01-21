@@ -7,5 +7,5 @@
 // import { Section } from '@/components/layout/section.component';
 
 export default function FullHowItWorks() {
-  return <></>;
+	return <></>;
 }

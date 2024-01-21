@@ -1,8 +1,8 @@
-import type { Entry, EntryFields } from 'contentful';
-import type { TypeServiceTimeFields } from './TypeServiceTime';
+import { Entry, EntryFields } from 'contentful';
+import { TypeServiceTimeFields } from './TypeServiceTime';
 
 export interface TypePrivateBayPriceFields {
-	contentTypeId: '';
+	contentTypeId: 'privateBayPrice';
 	fields: {
 		dayOfWeek:
 			| 'Friday'

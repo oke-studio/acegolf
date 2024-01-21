@@ -1,7 +1,7 @@
-import type { Asset, Entry, EntryFields } from 'contentful';
+import { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypeMenuItemFields {
-	contentTypeId: '';
+	contentTypeId: 'menuItem';
 	fields: {
 		name: EntryFields.Symbol;
 		typeOfMeal: 'Desert' | 'Mains' | 'Starters';

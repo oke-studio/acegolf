@@ -4,10 +4,10 @@ import { Box } from '@mui/material';
 import { useGetCurrentPathName } from '@/util/getCurrentPath.hook';
 
 export const DynamicPageBackground = ({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) => {
-  const style = useGetCurrentPathName();
-  return <Box sx={{ position: 'relative', ...style }}>{children}</Box>;
+	const style = useGetCurrentPathName();
+	return <Box sx={{ position: 'relative', ...style }}>{children}</Box>;
 };

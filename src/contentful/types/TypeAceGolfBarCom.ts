@@ -1,11 +1,11 @@
-import type { Entry } from 'contentful';
-import type { TypeBayPricingAvailabilityFields } from './TypeBayPricingAvailability';
-import type { TypeEventFields } from './TypeEvent';
-import type { TypeMenuFields } from './TypeMenu';
-import type { TypePromotionFields } from './TypePromotion';
+import { Entry } from 'contentful';
+import { TypeBayPricingAvailabilityFields } from './TypeBayPricingAvailability';
+import { TypeEventFields } from './TypeEvent';
+import { TypeMenuFields } from './TypeMenu';
+import { TypePromotionFields } from './TypePromotion';
 
 export interface TypeAceGolfBarComFields {
-	contentTypeId: '';
+	contentTypeId: 'aceGolfBarCom';
 	fields: {
 		activeMenu: Entry<TypeMenuFields>;
 		activePriceGrid: Entry<TypeBayPricingAvailabilityFields>;

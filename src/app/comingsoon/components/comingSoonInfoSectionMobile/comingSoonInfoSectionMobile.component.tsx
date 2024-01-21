@@ -7,181 +7,181 @@ import { Formik } from 'formik';
 import { encode } from '@/util/encode';
 
 const ComingSoonForm = () => {
-  const [isSubmit, setIsSubmit] = React.useState(false);
+	const [isSubmit, setIsSubmit] = React.useState(false);
 
-  return (
-    <Formik
-      initialValues={{ email: '' }}
-      onSubmit={values => {
-        console.log(values);
+	return (
+		<Formik
+			initialValues={{ email: '' }}
+			onSubmit={values => {
+				console.log(values);
 
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'comingsoon-email', ...values }),
-        })
-          .then(() => setIsSubmit(true))
-          .catch(e => alert(e));
-      }}
-    >
-      {props => {
-        const {
-          isSubmitting,
-          //   errors,
-          //   touched,
-          handleChange,
-          handleSubmit,
-          values,
-        } = props;
+				fetch('/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: encode({ 'form-name': 'comingsoon-email', ...values }),
+				})
+					.then(() => setIsSubmit(true))
+					.catch(e => alert(e));
+			}}
+		>
+			{props => {
+				const {
+					isSubmitting,
+					//   errors,
+					//   touched,
+					handleChange,
+					handleSubmit,
+					values,
+				} = props;
 
-        return (
-          <Box
-            component="form"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            gap="12px"
-            name="comingsoon-email"
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            autoComplete="off"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="comingsoon-email" />
-            <TextField
-              fullWidth
-              id="email-form"
-              name="email"
-              type="email"
-              disabled={isSubmitting}
-              placeholder="yourname@email.com"
-              required
-              onChange={handleChange}
-              value={values.email}
-              style={{ alignItems: 'center' }}
-              sx={{
-                '.MuiInputBase-root': {
-                  background: 'white',
-                  borderRadius: '12px',
-                  height: '52px',
-                },
+				return (
+					<Box
+						component="form"
+						display="flex"
+						flexDirection="column"
+						alignItems="center"
+						gap="12px"
+						name="comingsoon-email"
+						method="post"
+						data-netlify="true"
+						data-netlify-honeypot="bot-field"
+						autoComplete="off"
+						onSubmit={handleSubmit}
+					>
+						<input type="hidden" name="form-name" value="comingsoon-email" />
+						<TextField
+							fullWidth
+							id="email-form"
+							name="email"
+							type="email"
+							disabled={isSubmitting}
+							placeholder="yourname@email.com"
+							required
+							onChange={handleChange}
+							value={values.email}
+							style={{ alignItems: 'center' }}
+							sx={{
+								'.MuiInputBase-root': {
+									background: 'white',
+									borderRadius: '12px',
+									height: '52px',
+								},
 
-                '.MuiInputBase-input': {
-                  color: '#373737',
-                  textAlign: 'center',
-                  '::placeholder': {
-                    color: 'black',
-                  },
-                  fontSize: '12px',
-                },
-                '.MuiFormHelperText-root': {
-                  fontSize: '10px',
-                },
+								'.MuiInputBase-input': {
+									color: '#373737',
+									textAlign: 'center',
+									'::placeholder': {
+										color: 'black',
+									},
+									fontSize: '12px',
+								},
+								'.MuiFormHelperText-root': {
+									fontSize: '10px',
+								},
 
-                borderBottomWidth: '10px',
+								borderBottomWidth: '10px',
 
-                pointerEvents: isSubmit ? 'none' : 'initial',
-              }}
-              // variant="standard"
-            />
+								pointerEvents: isSubmit ? 'none' : 'initial',
+							}}
+							// variant="standard"
+						/>
 
-            <Button
-              variant="contained"
-              type="submit"
-              // onClick={() => {
-              //   buttonClick();
-              // }}
-              size="small"
-              disabled={isSubmitting || !values.email}
-              sx={{
-                background: 'black',
-                width: '100%',
-                height: isSubmitting ? 'max-content' : '52px',
-                marginTop: '4px',
-                marginBottom: '4px',
-                whiteSpace: 'nowrap',
-                borderRadius: '12px',
-                'MuiButton-root': {
-                  ':hover': {
-                    backgroundColor: 'none',
-                  },
-                },
-              }}
-            >
-              <Typography
-                paddingLeft="24px"
-                paddingRight="24px"
-                paddingTop="14px"
-                paddingBottom="14px"
-                fontWeight="700"
-                whiteSpace="normal"
-              >
-                {isSubmitting
-                  ? 'WELL KEEP IN TOUCH!\n\nSEE YOU SOON!'
-                  : 'NOTIFY ME'}
-              </Typography>
-            </Button>
-            <Typography paragraph align="center" sx={{ fontSize: '8px' }}>
-              BY CLICKING THE BUTTON ABOVE YOU AGREE TO RECEIVE MARKETING EMAILS
-              FROM ACE GOLF.
-              <br />
-              YOU CAN UNSUBSCRIBE AT ANY TIME.
-            </Typography>
-          </Box>
-        );
-      }}
-    </Formik>
-  );
+						<Button
+							variant="contained"
+							type="submit"
+							// onClick={() => {
+							//   buttonClick();
+							// }}
+							size="small"
+							disabled={isSubmitting || !values.email}
+							sx={{
+								background: 'black',
+								width: '100%',
+								height: isSubmitting ? 'max-content' : '52px',
+								marginTop: '4px',
+								marginBottom: '4px',
+								whiteSpace: 'nowrap',
+								borderRadius: '12px',
+								'MuiButton-root': {
+									':hover': {
+										backgroundColor: 'none',
+									},
+								},
+							}}
+						>
+							<Typography
+								paddingLeft="24px"
+								paddingRight="24px"
+								paddingTop="14px"
+								paddingBottom="14px"
+								fontWeight="700"
+								whiteSpace="normal"
+							>
+								{isSubmitting
+									? 'WELL KEEP IN TOUCH!\n\nSEE YOU SOON!'
+									: 'NOTIFY ME'}
+							</Typography>
+						</Button>
+						<Typography paragraph align="center" sx={{ fontSize: '8px' }}>
+							BY CLICKING THE BUTTON ABOVE YOU AGREE TO RECEIVE MARKETING EMAILS
+							FROM ACE GOLF.
+							<br />
+							YOU CAN UNSUBSCRIBE AT ANY TIME.
+						</Typography>
+					</Box>
+				);
+			}}
+		</Formik>
+	);
 };
 
 const ComingSoonInfoSectionMobileWrapper = styled(Box)(() => ({
-  marginTop: '30px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
+	marginTop: '30px',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
 
-  maxWidth: '250px',
-  gap: '24px',
-  marginLeft: '12px',
-  marginRight: '12px',
-  position: 'relative',
-  top: '25px',
+	maxWidth: '250px',
+	gap: '24px',
+	marginLeft: '12px',
+	marginRight: '12px',
+	position: 'relative',
+	top: '25px',
 }));
 
 const ComingSoonInfoMobileWrapper = styled(Box)(() => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '10px',
-  whiteSpace: 'nowrap',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	gap: '10px',
+	whiteSpace: 'nowrap',
 }));
 
 export const ComingSoonInfoSectionMobile = () => (
-  <ComingSoonInfoSectionMobileWrapper>
-    <ComingSoonInfoMobileWrapper>
-      <Image
-        src="/images/ace-golf-logo.svg"
-        alt="ace golf logo"
-        width={100}
-        height={100}
-      />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography fontWeight="900" fontSize="18px">
-          FIND YOUR SWING
-        </Typography>
-        <Typography fontWeight="900" fontSize="11px">
-          DECEMBER 2023
-        </Typography>
-      </Box>
-    </ComingSoonInfoMobileWrapper>
-    <ComingSoonForm />
-  </ComingSoonInfoSectionMobileWrapper>
+	<ComingSoonInfoSectionMobileWrapper>
+		<ComingSoonInfoMobileWrapper>
+			<Image
+				src="/images/ace-golf-logo.svg"
+				alt="ace golf logo"
+				width={100}
+				height={100}
+			/>
+			<Box
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+				<Typography fontWeight="900" fontSize="18px">
+					FIND YOUR SWING
+				</Typography>
+				<Typography fontWeight="900" fontSize="11px">
+					DECEMBER 2023
+				</Typography>
+			</Box>
+		</ComingSoonInfoMobileWrapper>
+		<ComingSoonForm />
+	</ComingSoonInfoSectionMobileWrapper>
 );

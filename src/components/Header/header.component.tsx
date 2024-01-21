@@ -59,8 +59,9 @@ export const Header = ({
 }: HeaderProps) => {
 	const { palette, zIndex, breakpoints } = useTheme();
 	const isMobile = useMediaQuery(breakpoints.down('md'));
-	const [mobileDropDownEnabled, setMobileDropDownEnabled] =
-		React.useState(false);
+	const [mobileDropDownEnabled, setMobileDropDownEnabled] = React.useState(
+		false,
+	);
 	const router = useRouter();
 
 	//   function toggleDropDown() {

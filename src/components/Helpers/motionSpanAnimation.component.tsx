@@ -131,10 +131,10 @@ export const MotionSpanAnimated = ({
 							index % 2 === 0
 								? navOptionHoverAnimation({
 										animationProfile: hoverAnimation,
-									})
+								  })
 								: navOptionHoverAnimation({
 										animationProfile: restAnimation,
-									})
+								  })
 						}
 					>
 						{word}

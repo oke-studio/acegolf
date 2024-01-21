@@ -6,21 +6,21 @@ import { Promotions } from '../../components/promotions/promotions.component';
 import { MailingList } from '../../components/mailingList/mailingList.component';
 
 export default function LandingPromotionMailingSection() {
-  return (
-    <Section
-      SectionName="Landing Promotion & Mailing Section"
-      SectionWidth="fullViewport"
-      SectionColor="#39775E"
-      CornerRadius={true}
-      ScrollAnimations={true}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <Promotions />
+	return (
+		<Section
+			SectionName="Landing Promotion & Mailing Section"
+			SectionWidth="fullViewport"
+			SectionColor="#39775E"
+			CornerRadius={true}
+			ScrollAnimations={true}
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+			}}
+		>
+			<Promotions />
 
-      <MailingList />
-    </Section>
-  );
+			<MailingList />
+		</Section>
+	);
 }
