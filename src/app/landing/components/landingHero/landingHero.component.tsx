@@ -182,67 +182,6 @@ export const LandingHero = () => {
 			</Box>
 
 			{/* Sectional Photos */}
-			{/* <Box
-				sx={{
-					width: '50%',
-					maxWidth: '100%',
-					height: '100%',
-					position: 'absolute',
-					top: '0px',
-					display: 'grid',
-					gridTemplateColumns: 'repeat(4, 1fr)',
-					gridTemplateRows: '1fr 1fr',
-					...(side ? { left: '0px' } : { right: '0px' }),
-				}}
-			>
-				<AceImage
-					AceImageName="ace locaiton photos"
-					AceImageSrc="/images/Spin-photo4.png"
-					AceImageAspectRatio="1.137"
-					BackCutout={true}
-					BackCutoutColor={theme.palette.sharpTeal}
-					sx={{
-						gridColumn: '2 / span 1',
-						gridRow: '2 / span 1',
-					}}
-				></AceImage>
-
-				<AceImage
-					AceImageName="ace locaiton photos"
-					AceImageSrc="/images/Spin-photo2.png"
-					AceImageAspectRatio="0.710"
-					BackCutout={true}
-					BackCutoutColor={theme.palette.sharpTeal}
-					sx={{
-						gridColumn: '3 / span 1',
-						gridRow: '2 / span 1',
-					}}
-				></AceImage>
-
-				<AceImage
-					AceImageName="ace locaiton photos"
-					AceImageSrc="/images/Spin-photo3.png"
-					AceImageAspectRatio="1/1"
-					BackCutout={true}
-					BackCutoutColor={theme.palette.sharpTeal}
-					sx={{
-						gridColumn: '4 / span 1',
-						gridRow: '2 / span 1',
-					}}
-				></AceImage>
-
-				<AceImage
-					AceImageName="ace locaiton photos"
-					AceImageSrc="/images/Spin-photo1.png"
-					AceImageAspectRatio="0.637"
-					BackCutout={true}
-					BackCutoutColor={theme.palette.sharpTeal}
-					sx={{
-						gridColumn: '4 / span 1',
-						gridRow: '1 / span 1',
-					}}
-				></AceImage>
-			</Box> */}
 			<SectionImageGrid SectionImageGridWidth="rightHalf"></SectionImageGrid>
 		</Section>
 	);
