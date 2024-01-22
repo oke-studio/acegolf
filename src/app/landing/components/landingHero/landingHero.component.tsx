@@ -14,6 +14,7 @@ import Picture2 from '../../../../../public/images/Spin-photo2.png';
 import Picture3 from '../../../../../public/images/Spin-photo3.png';
 import Picture4 from '../../../../../public/images/Spin-photo4.png';
 import { AceImage } from '@/components/aceImage/aceImage.component';
+import { SectionImageGrid } from '@/components/ImageLayoutGrids/sectionImageGrid.component';
 
 export const LandingHero = () => {
 	const router = useRouter();
@@ -181,7 +182,7 @@ export const LandingHero = () => {
 			</Box>
 
 			{/* Sectional Photos */}
-			<Box
+			{/* <Box
 				sx={{
 					width: '50%',
 					maxWidth: '100%',
@@ -241,7 +242,8 @@ export const LandingHero = () => {
 						gridRow: '1 / span 1',
 					}}
 				></AceImage>
-			</Box>
+			</Box> */}
+			<SectionImageGrid SectionImageGridWidth="rightHalf"></SectionImageGrid>
 		</Section>
 	);
 };
