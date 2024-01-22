@@ -41,6 +41,8 @@ export const LandingHero = () => {
 					justifyContent: 'center',
 					alignItems: 'flex-start',
 					gap: '36px',
+					position: 'relative', //here to make sure zIndex works
+					zIndex: '2', // 1 prepresents that parent section surface
 				}}
 			>
 				{/* Hero Title Container */}
