@@ -48,6 +48,55 @@ interface SectionImageGridProps {
 	sx?: SxProps;
 }
 
+const images = [
+	{
+		src: '/images/Spin-photo4.png',
+		aspectRatio: '1.136',
+		backCutOut: true,
+		backCutOutColor: 'orange',
+		imageNameAltText: 'the vibes at ace picture',
+		opacity: 1, // default 1 for visible
+		scale: 1.3, // scale transform for aceImage
+		rotation: -10, // rotation
+		zIndex: 3, // zindex for image container
+		gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		relPosX: '-66px', //relative position to grid position
+		relPosY: '38px',
+
+		mobile: {
+			opacity: 0,
+			scale: 1.2,
+			rotation: -10,
+			zIndex: 3,
+			posXGridColumn: '2',
+			posyGridRow: '2',
+		},
+	},
+	{
+		src: '/images/Spin-photo2.png',
+		aspectRatio: '0.710',
+		backCutOut: true,
+		backCutOutColor: 'sharpTeal',
+		imageNameAltText: 'the vibes at the bar',
+		opacity: 1,
+		scale: 1, // scale transform for aceImage
+		rotation: 1, // rotation
+		zIndex: 1, // zindex for image container
+		posXGridColumn: '3', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		posyGridRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+
+		mobile: {
+			opacity: 0,
+			scale: 1.2,
+			rotation: -10,
+			zIndex: 2,
+			posXGridColumn: '2',
+			posyGridRow: '2',
+		},
+	},
+];
+
 export const SectionImageGrid = ({
 	SectionImageGridWidth,
 	SectionImageGridHeight = '100%',
@@ -100,15 +149,36 @@ export const SectionImageGrid = ({
 				...sx,
 			}}
 		>
+			{/* {
+				images.map( (imageURL, i) => {
+					return <div key={`i_${i}`} className={styles.imageContainer}>
+						<AceImage  
+						key={`i_${i}`}
+						className= {imageStyles}
+						AceImageName="ace locaiton photos"
+						AceImageSrc= {imageURL}
+						AceImageAspectRatio="1.137"
+						BackCutout={true}
+						BackCutoutColor={theme.palette.sharpTeal}
+						sx={{
+							gridColumn: {posGridColumn},
+							gridRow: {posGridRow},
+						}}
+						/>
+			} */}
 			<AceImage
-				AceImageName="ace locaiton photos"
-				AceImageSrc="/images/Spin-photo4.png"
-				AceImageAspectRatio="1.137"
-				BackCutout={true}
+				AceImageName={images[0].imageNameAltText}
+				AceImageSrc={images[0].src}
+				AceImageAspectRatio={images[0].aspectRatio}
+				BackCutout={images[0].backCutOut}
 				BackCutoutColor={theme.palette.sharpTeal}
 				sx={{
-					gridColumn: '2 / span 1',
-					gridRow: '2 / span 1',
+					gridColumn: `${images[0].gridPosXColumn} / span 1`,
+					gridRow: `${images[0].gridPosYRow}  / span 1`,
+					opacity: `${images[0].opacity} `,
+					scale: `${images[0].scale} `,
+					transform: `rotate(${images[0].rotation}deg) translate(${images[0].relPosX}, ${images[0].relPosY})`,
+					zIndex: `${images[0].zIndex} `,
 				}}
 			></AceImage>
 
