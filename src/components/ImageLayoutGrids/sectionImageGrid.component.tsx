@@ -58,7 +58,7 @@ const images = [
 		opacity: 1, // default 1 for visible
 		scale: 1.3, // scale transform for aceImage
 		rotation: -10, // rotation
-		zIndex: 3, // zindex for image container
+		zIndex: 1, // zindex for image container. 1= below section content
 		gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
 		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
 		relPosX: '-66px', //relative position to grid position
@@ -108,21 +108,20 @@ export const SectionImageGrid = ({
 
 	//Animation
 
-	// useEffect(() => {
-	// 	const lenis = new Lenis();
-	// 	function raf(time) {
-	// 		lenis.raf(time);
-	// 		requestAnimationFrame(raf);
-	// 	}
-	// 	requestAnimationFrame(raf);
-	// }, []);
+	useEffect(() => {
+		const lenis = new Lenis();
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+	}, []);
 
 	// const SectionAsReference = useRef(null);
-	// const { scrollYProgress } = useScroll({
-	// 	target: SectionAsReference,
-	// 	offset: ['start end', 'start start'],
-	// });
-	// const sectionScale = useTransform(scrollYProgress, [0, 0.75], [0.94, 1]);
+	const { scrollYProgress } = useScroll();
+	const rotateVal = useTransform(scrollYProgress, [0, 0.1], [1, 10]); //mapping screen scroll of 10% to 1-2 factor to use in values
+	const scaleVal = useTransform(scrollYProgress, [0, 0.1], [1, 1.1]);
+	const yVal = useTransform(scrollYProgress, [0, 0.1], [1, 60]);
 	// const animatedBorderRadius = useTransform(
 	// 	scrollYProgress,
 	// 	[0, 0.75],
@@ -166,21 +165,30 @@ export const SectionImageGrid = ({
 						}}
 						/>
 			} */}
-			<AceImage
-				AceImageName={images[0].imageNameAltText}
-				AceImageSrc={images[0].src}
-				AceImageAspectRatio={images[0].aspectRatio}
-				BackCutout={images[0].backCutOut}
-				BackCutoutColor={theme.palette.sharpTeal}
-				sx={{
-					gridColumn: `${images[0].gridPosXColumn} / span 1`,
-					gridRow: `${images[0].gridPosYRow}  / span 1`,
-					opacity: `${images[0].opacity} `,
-					scale: `${images[0].scale} `,
-					transform: `rotate(${images[0].rotation}deg) translate(${images[0].relPosX}, ${images[0].relPosY})`,
-					zIndex: `${images[0].zIndex} `,
+			<Box
+				component={motion.div}
+				style={{
+					//scale: scaleVal,
+					rotate: rotateVal,
+					y: yVal,
 				}}
-			></AceImage>
+			>
+				<AceImage
+					AceImageName={images[0].imageNameAltText}
+					AceImageSrc={images[0].src}
+					AceImageAspectRatio={images[0].aspectRatio}
+					BackCutout={images[0].backCutOut}
+					BackCutoutColor={theme.palette.sharpTeal}
+					sx={{
+						gridColumn: `${images[0].gridPosXColumn} / span 1`,
+						gridRow: `${images[0].gridPosYRow}  / span 1`,
+						opacity: `${images[0].opacity} `,
+						scale: `${images[0].scale} `,
+						transform: `rotate(${images[0].rotation}deg) translate(${images[0].relPosX}, ${images[0].relPosY})`,
+						zIndex: `${images[0].zIndex} `,
+					}}
+				></AceImage>
+			</Box>
 
 			<AceImage
 				AceImageName="ace locaiton photos"
