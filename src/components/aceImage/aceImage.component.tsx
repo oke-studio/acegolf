@@ -15,12 +15,12 @@ import {
 } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
+import Image from 'next/image';
 
 interface AceImageProps {
-	AceImageName?: string;
+	AceImageName: string;
 	AceImageSrc: string;
 	AceImageAspectRatio: string;
-	AceImageWidth: string;
 	BackCutout: boolean;
 	BackCutoutColor: string;
 	// children?: React.ReactNode;
@@ -31,7 +31,6 @@ export const AceImage = ({
 	AceImageName,
 	AceImageSrc,
 	AceImageAspectRatio = '1/1',
-	AceImageWidth = '100%',
 	BackCutout = true,
 	BackCutoutColor = 'sharpTeal',
 	sx,
@@ -58,21 +57,33 @@ export const AceImage = ({
 				zIndex: '0',
 				placeItems: 'center',
 				gridTemplateAreas: 'videoWithPathArea',
+
+				...(BackCutout && {
+					backgroundColor: `${BackCutoutColor}`,
+					transform: `rotate(${randomizer(-3, 3)}deg)`,
+					aspectRatio: `${AceImageAspectRatio}`,
+				}),
 			}}
 		>
-			<img
+			<Image
+				src={AceImageSrc}
+				alt={AceImageName}
+				width={300}
+				height={0}
 				style={{
+					objectFit: 'cover',
 					display: 'block',
-					width: `${AceImageWidth}`,
+					width: '100%',
+					height: 'auto',
 					gridArea: 'videoWithPathArea',
 					zIndex: '1',
 					aspectRatio: `${AceImageAspectRatio}`,
+					scale: `${randomizer(0.96, 0.98)}`,
+					transform: `rotate(${randomizer(3, -3)}deg)`,
 				}}
-				src={AceImageSrc}
 			/>
 
-			{BackCutout && (
-				<Box
+			{/* <Box
 					sx={{
 						width: `${AceImageWidth}`,
 						scale: `${randomizer(1.02, 1.08)}`,
@@ -81,8 +92,7 @@ export const AceImage = ({
 						aspectRatio: `${AceImageAspectRatio}`,
 						gridArea: 'videoWithPathArea',
 					}}
-				></Box>
-			)}
+				></Box> */}
 		</Box>
 	);
 };
