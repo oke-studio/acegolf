@@ -190,9 +190,9 @@ export const LandingHero = () => {
 				}}
 			>
 				<AceImage
+					AceImageName="ace locaiton photos"
 					AceImageSrc="/images/Spin-photo4.png"
 					AceImageAspectRatio="1.137"
-					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
@@ -202,9 +202,9 @@ export const LandingHero = () => {
 				></AceImage>
 
 				<AceImage
+					AceImageName="ace locaiton photos"
 					AceImageSrc="/images/Spin-photo2.png"
 					AceImageAspectRatio="0.710"
-					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
@@ -214,9 +214,9 @@ export const LandingHero = () => {
 				></AceImage>
 
 				<AceImage
+					AceImageName="ace locaiton photos"
 					AceImageSrc="/images/Spin-photo3.png"
 					AceImageAspectRatio="1/1"
-					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
@@ -226,9 +226,9 @@ export const LandingHero = () => {
 				></AceImage>
 
 				<AceImage
+					AceImageName="ace locaiton photos"
 					AceImageSrc="/images/Spin-photo1.png"
 					AceImageAspectRatio="0.637"
-					AceImageWidth="100%"
 					BackCutout={true}
 					BackCutoutColor={theme.palette.sharpTeal}
 					sx={{
