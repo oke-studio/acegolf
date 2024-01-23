@@ -24,18 +24,33 @@ const LayoutWidthOptions = {
 	full: {
 		width: '100%',
 		left: '0px',
-		gridTemplateColumns: 'repeat(8, 1fr)', // if mobile repeat only 4
+		gridTemplateColumns: 'repeat(8, 1fr)',
+		mobile: {
+			gridTemplateColumns: 'repeat(4, 1fr)',
+		},
 	},
 	leftHalf: {
 		width: '50%',
 		left: '0px',
 		gridTemplateColumns: 'repeat(4, 1fr)',
+
+		mobile: {
+			gridTemplateColumns: 'repeat(4, 1fr)',
+			gridTemplateRows: ' 1fr 1fr 1fr',
+			width: '100%',
+		},
 	},
 	rightHalf: {
 		width: '50%',
 		right: '0px',
 		gridTemplateColumns: 'repeat(4, 1fr)',
 		//margin: isLargeDesktop ? '8px 3% 8px' : '15px 3% 8px',
+
+		mobile: {
+			gridTemplateColumns: 'repeat(4, 1fr)',
+			gridTemplateRows: ' 1fr 1fr 1fr',
+			width: '100%',
+		},
 	},
 };
 
@@ -56,21 +71,23 @@ const images = [
 		backCutOutColor: 'orange',
 		imageNameAltText: 'the vibes at ace picture',
 		opacity: 1, // default 1 for visible
-		scale: 1.3, // scale transform for aceImage
+		scale: 1.9, // scale transform for aceImage
 		rotation: -10, // rotation
 		zIndex: 1, // zindex for image container. 1= below section content
 		gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
 		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
-		relPosX: '-80px', //relative position to grid position
-		relPosY: '38px',
+		relPosX: '-100px', //relative position to grid position
+		relPosY: '68px',
 
 		mobile: {
-			opacity: 0,
+			opacity: 1,
 			scale: 1.2,
 			rotation: -10,
 			zIndex: 3,
-			posXGridColumn: '2',
-			posyGridRow: '2',
+			gridPosXColumn: '2',
+			gridPosYRow: '2',
+			relPosX: '-80px',
+			relPosY: '38px',
 		},
 	},
 	{
@@ -89,12 +106,14 @@ const images = [
 		relPosY: '0px',
 
 		mobile: {
-			opacity: 0,
+			opacity: 1,
 			scale: 1.2,
-			rotation: -10,
-			zIndex: 2,
-			posXGridColumn: '2',
-			posyGridRow: '2',
+			rotation: 10,
+			zIndex: 1,
+			gridPosXColumn: '2',
+			gridPosYRow: '3',
+			relPosX: '0px',
+			relPosY: '0px',
 		},
 	},
 ];
@@ -150,11 +169,11 @@ export const SectionImageGrid = ({
 	};
 
 	//Responsive Code
-	// const isMobile = useMediaQuery('(max-width:640px)');
-	// const isSmallDesktop = useMediaQuery('(max-width:950px)');
-	// const isLargeDesktop = useMediaQuery('(min-width:1440px)');
-	// const isExtraWideDesktop = useMediaQuery('(min-width:1750px)');
-	// const isUltraWideDesktop = useMediaQuery('(min-width:2000px)');
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const isSmallDesktop = useMediaQuery('(max-width:950px)');
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+	const isExtraWideDesktop = useMediaQuery('(min-width:1750px)');
+	const isUltraWideDesktop = useMediaQuery('(min-width:2000px)');
 
 	return (
 		<Box
@@ -166,6 +185,8 @@ export const SectionImageGrid = ({
 				height: `${SectionImageGridHeight}`,
 
 				...SECTIONImageGrid,
+				...(isMobile && SECTIONImageGrid.mobile),
+
 				...sx,
 			}}
 		>
@@ -185,6 +206,7 @@ export const SectionImageGrid = ({
 						gridPosYRow,
 						relPosX,
 						relPosY,
+						mobile,
 					},
 					i,
 				) => {
@@ -200,6 +222,10 @@ export const SectionImageGrid = ({
 							sx={{
 								gridColumn: `${gridPosXColumn} / span 1`,
 								gridRow: `${gridPosYRow}  / span 1`,
+								...(isMobile && {
+									gridColumn: `${mobile.gridPosXColumn} / span 1`,
+									gridRow: `${mobile.gridPosYRow}  / span 1`,
+								}),
 							}}
 						>
 							<AceImage
@@ -213,6 +239,13 @@ export const SectionImageGrid = ({
 									scale: `${scale} `,
 									transform: `rotate(${rotation}deg) translate(${relPosX}, ${relPosY})`,
 									zIndex: `${zIndex} `,
+
+									...(isMobile && {
+										opacity: `${mobile.opacity} `,
+										scale: `${mobile.scale} `,
+										transform: `rotate(${mobile.rotation}deg) translate(${mobile.relPosX}, ${mobile.relPosY})`,
+										zIndex: `${mobile.zIndex} `,
+									}),
 								}}
 							></AceImage>
 						</Box>
