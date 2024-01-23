@@ -1,4 +1,4 @@
-import { Asset, Entry, EntryFields } from 'contentful';
+import type { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypePromotionFields {
 	contentTypeId: 'promotion';

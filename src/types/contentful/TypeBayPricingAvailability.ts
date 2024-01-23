@@ -1,6 +1,6 @@
-import { Entry, EntryFields } from 'contentful';
-import { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice';
-import { TypePrivateBayPriceFields } from './TypePrivateBayPrice';
+import type { Entry, EntryFields } from 'contentful';
+import type { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice';
+import type { TypePrivateBayPriceFields } from './TypePrivateBayPrice';
 
 export interface TypeBayPricingAvailabilityFields {
 	contentTypeId: 'bayPricingAvailability';
@@ -14,6 +14,5 @@ export interface TypeBayPricingAvailabilityFields {
 	};
 }
 
-export type TypeBayPricingAvailability = Entry<
-	TypeBayPricingAvailabilityFields
->;
+export type TypeBayPricingAvailability =
+	Entry<TypeBayPricingAvailabilityFields>;

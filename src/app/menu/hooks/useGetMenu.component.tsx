@@ -1,27 +1,19 @@
-import { TypeMenuFields, TypeMenu } from '@/contentful/types/TypeMenu';
+import { TypeMenu, TypeMenuFields } from '@/types/contentful';
 import { useQuery } from '@tanstack/react-query';
+import { getAceQuery } from '@/util/getAceQuery';
 
 export function useGetMenu() {
-	const getMenu = async () => {
-		const response = await fetch('/api/ace');
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['ace_v1'],
+    queryFn: () => getAceQuery<TypeMenuFields>('activeMenu'),
+  });
 
-		if (response.ok) {
-			const data = await response.json();
-			return data?.data;
-		}
-	};
+  const menuData = data?.fields;
+  console.log(menuData);
 
-	const { data, isLoading, isError } = useQuery({
-		queryKey: ['menu-v1'],
-		queryFn: () => getMenu(),
-	});
-
-	const menuData = data as TypeMenu;
-	console.log(menuData);
-
-	return {
-		menuData: menuData ?? {},
-		isLoading,
-		isError,
-	};
+  return {
+    menuData,
+    isLoading,
+    isError,
+  };
 }

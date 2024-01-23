@@ -1,9 +1,10 @@
-import { Asset, Entry, EntryFields } from 'contentful';
+import type { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypeEventFields {
 	contentTypeId: 'event';
 	fields: {
 		eventTitle: EntryFields.Symbol;
+		slugId: EntryFields.Symbol;
 		eventStartDate: EntryFields.Date;
 		eventEndDate?: EntryFields.Date;
 		ctaText?: EntryFields.Symbol;
