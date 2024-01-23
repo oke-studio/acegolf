@@ -54,15 +54,6 @@ const LayoutWidthOptions = {
 	},
 };
 
-interface SectionImageGridProps {
-	SectionImageGridWidth: LayoutWidthOptionsTypes;
-	SectionImageGridHeight?: string;
-	//ImageData: Array<AceImage>;
-	ScrollAnimations?: boolean;
-
-	sx?: SxProps;
-}
-
 const images = [
 	{
 		src: '/images/Spin-photo4.png',
@@ -116,12 +107,74 @@ const images = [
 			relPosY: '0px',
 		},
 	},
+	{
+		src: '/images/Spin-photo3.png',
+		aspectRatio: '1/1',
+		backCutOut: true,
+		backCutOutColor: 'sharpTeal',
+		imageNameAltText: 'the vibes at the bar',
+		opacity: 1,
+		scale: 1, // scale transform for aceImage
+		rotation: 1, // rotation
+		zIndex: 1, // zindex for image container
+		gridPosXColumn: '4', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		relPosX: '0px', //relative position to grid position
+		relPosY: '0px',
+
+		mobile: {
+			opacity: 1,
+			scale: 1,
+			rotation: 10,
+			zIndex: 1,
+			gridPosXColumn: '4',
+			gridPosYRow: '2',
+			relPosX: '0px',
+			relPosY: '0px',
+		},
+	},
+	{
+		src: '/images/Spin-photo1.png',
+		aspectRatio: '0.637',
+		backCutOut: true,
+		backCutOutColor: 'sharpTeal',
+		imageNameAltText: 'the vibes at the bar',
+		opacity: 1,
+		scale: 1, // scale transform for aceImage
+		rotation: 1, // rotation
+		zIndex: 1, // zindex for image container
+		gridPosXColumn: '4', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		gridPosYRow: '1', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		relPosX: '0px', //relative position to grid position
+		relPosY: '0px',
+
+		mobile: {
+			opacity: 1,
+			scale: 1,
+			rotation: 10,
+			zIndex: 1,
+			gridPosXColumn: '4',
+			gridPosYRow: '1',
+			relPosX: '0px',
+			relPosY: '0px',
+		},
+	},
 ];
+
+interface SectionImageGridProps {
+	SectionImageGridWidth: LayoutWidthOptionsTypes;
+	SectionImageGridHeight?: string;
+	//ImageData: Array<AceImage>;
+	ScrollAnimations?: boolean;
+
+	sx?: SxProps;
+}
 
 export const SectionImageGrid = ({
 	SectionImageGridWidth,
 	SectionImageGridHeight = '100%',
 	ScrollAnimations = true,
+
 	sx,
 }: SectionImageGridProps) => {
 	const theme = useTheme();
@@ -252,66 +305,6 @@ export const SectionImageGrid = ({
 					);
 				},
 			)}
-			{/* <Box
-				component={motion.div}
-				style={{
-					//scale: scaleVal,
-					rotate: rotateVal,
-					y: yVal,
-				}}
-			>
-				<AceImage
-					AceImageName={images[0].imageNameAltText}
-					AceImageSrc={images[0].src}
-					AceImageAspectRatio={images[0].aspectRatio}
-					BackCutout={images[0].backCutOut}
-					BackCutoutColor={theme.palette.sharpTeal}
-					sx={{
-						gridColumn: `${images[0].gridPosXColumn} / span 1`,
-						gridRow: `${images[0].gridPosYRow}  / span 1`,
-						opacity: `${images[0].opacity} `,
-						scale: `${images[0].scale} `,
-						transform: `rotate(${images[0].rotation}deg) translate(${images[0].relPosX}, ${images[0].relPosY})`,
-						zIndex: `${images[0].zIndex} `,
-					}}
-				></AceImage>
-			</Box> */}
-
-			{/* <AceImage
-				AceImageName="ace locaiton photos"
-				AceImageSrc="/images/Spin-photo2.png"
-				AceImageAspectRatio="0.710"
-				BackCutout={true}
-				BackCutoutColor={theme.palette.sharpTeal}
-				sx={{
-					gridColumn: '3 / span 1',
-					gridRow: '2 / span 1',
-				}}
-			></AceImage> */}
-
-			<AceImage
-				AceImageName="ace locaiton photos"
-				AceImageSrc="/images/Spin-photo3.png"
-				AceImageAspectRatio="1/1"
-				BackCutout={true}
-				BackCutoutColor={theme.palette.sharpTeal}
-				sx={{
-					gridColumn: '4 / span 1',
-					gridRow: '2 / span 1',
-				}}
-			></AceImage>
-
-			<AceImage
-				AceImageName="ace locaiton photos"
-				AceImageSrc="/images/Spin-photo1.png"
-				AceImageAspectRatio="0.637"
-				BackCutout={true}
-				BackCutoutColor={theme.palette.sharpTeal}
-				sx={{
-					gridColumn: '4 / span 1',
-					gridRow: '1 / span 1',
-				}}
-			></AceImage>
 		</Box>
 	);
 };
