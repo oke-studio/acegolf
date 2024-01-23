@@ -19,6 +19,7 @@ import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.compo
 import { LandingHowItWorks } from './components/howItWorks/landingHowItWorks.component';
 
 import dynamic from 'next/dynamic';
+import { useGetAce } from './hooks/useGetAce.hook';
 
 const DynamicWhatsTheVibe = dynamic(
 	() => import('./components/whatsTheVibe/whatsTheVibe.component'),
@@ -48,6 +49,8 @@ export default function Landing() {
 		}
 		requestAnimationFrame(raf);
 	}, []);
+
+	useGetAce();
 
 	//animation functions
 	////Hero Landing tracking////

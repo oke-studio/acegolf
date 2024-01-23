@@ -14,12 +14,6 @@ export const Providers = ({ children }) => {
 			<LocalizationProvider dateAdapter={AdapterDayjs}>
 				<ThemeContextProvider>{children}</ThemeContextProvider>
 			</LocalizationProvider>
-			{/* <ReactQueryDevtools
-        initialIsOpen={false}
-        buttonPosition="bottom-left"
-        position="bottom"
-        styleNonce=""
-      /> */}
 		</QueryClientProvider>
 	);
 };

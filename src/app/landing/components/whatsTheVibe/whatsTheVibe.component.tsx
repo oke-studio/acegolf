@@ -75,7 +75,7 @@ const ImageSrc = [
 	},
 ];
 
-const ImageContainer = ({ img }: { img: typeof ImageSrc[0] }) => {
+const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 	const widthHeightRatio = img.height / img.width;
 	const galleryHeight = Math.ceil(250 * widthHeightRatio);
 	const photoSpans = Math.ceil(galleryHeight / 10) + 1;

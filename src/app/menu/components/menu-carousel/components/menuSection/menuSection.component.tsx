@@ -1,14 +1,21 @@
 'use client';
 import { Typography } from '@/components/Typography/typography.component';
 import { Box } from '@mui/material';
-import { MenuItem } from '../../menuItems';
+import { MenuItem, MenuSectionType } from '../../menuItems';
+
+const MENU_SECTION_NAMES = {
+	smallBites: 'SMALL BITES',
+	bigBites: 'BIG BITES',
+	deserts: 'DESERT',
+	drinks: 'DRINKS',
+} as const;
 
 export const MenuSection = ({
 	menuItems,
 	menuSection,
 }: {
 	menuItems: MenuItem[];
-	menuSection: string;
+	menuSection: MenuSectionType;
 }) => {
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -18,7 +25,7 @@ export const MenuSection = ({
 				fontStyle="italic"
 				id={`${menuSection}_list`}
 			>
-				{menuSection}
+				{MENU_SECTION_NAMES[menuSection]}
 			</Typography>
 			<Box
 				component="ul"
@@ -68,7 +75,7 @@ export const MenuSection = ({
 							</Typography>
 						</Box>
 						<Typography variant="miniscule" fontStyle="italic">
-							{option.ingredients.join(',')}
+							{option.itemDescription}
 						</Typography>
 						{/* <Typography variant="miniscule" fontStyle="italic">
                 {option.ingredients}

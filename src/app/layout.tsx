@@ -9,7 +9,7 @@ import { FooterV2 } from '@/components/Footer/footerV2.component';
 
 import { aceFont } from '@/components/Theme-Context/fontValues';
 import { HeaderBanner } from '@/components/Header/headerBanner.component';
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 export const metadata = {
 	title: 'Ace Golf Bar',
 	description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
@@ -40,7 +40,12 @@ export default function RootLayout({
 						{children}
 						<FooterV2 />
 					</DynamicPageBackground>
-
+					<ReactQueryDevtools
+						initialIsOpen={false}
+						buttonPosition="bottom-left"
+						position="bottom"
+						styleNonce=""
+					/>
 					<div
 						className={'subtleNoise'}
 						style={{

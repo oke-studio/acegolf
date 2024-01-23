@@ -9,8 +9,10 @@
 		"lint": "next lint",
 		"prettier": "prettier --write .",
 		"prettier:check": "prettier --check src//**/*.{ts,tsx}",
-		"contentful:export": "source .env && contentful space export --config src/contentful/export-config.json --management-token $CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --space-id $CONTENTFUL_SPACE_ID",
-		"contentful:generate-types": "cf-content-types-generator src/contentful/export.json --out src/contentful/types"
+		"prettier:types": "prettier --write src/types//**/*.ts",
+		"contentful:export": "source .env && contentful space export --config src/types/export-config.json --management-token $CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --space-id $CONTENTFUL_SPACE_ID",
+		"contentful:generate-types": "cf-content-types-generator src/types/export.json --out src/types/contentful",
+		"contentful:update": "npm run contentful:export && npm run contentful:generate-types && npm run prettier:types"
 	},
 	"dependencies": {
 		"@contentful/rich-text-react-renderer": "^15.19.0",
@@ -37,6 +39,7 @@
 		"framer-motion": "^10.12.17",
 		"lint": "^0.8.19",
 		"next": "^14.1.0",
+		"prettier": "^3.2.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-iframe": "^1.8.5",

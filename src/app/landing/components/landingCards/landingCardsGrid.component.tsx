@@ -31,7 +31,7 @@ export const LandingCardsGrid = () => {
 					...(isMobile
 						? {
 								gridTemplateRows: 'repeat(2, minmax(0, 1fr))',
-						  }
+							}
 						: { gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 2fr)' }),
 					width: '100%',
 					gap: '24px',
@@ -77,7 +77,6 @@ export const LandingCardsGrid = () => {
 									marginBottom: '16px',
 									position: 'relative',
 									backgroundColor: 'pink',
-									transform: 'rotate(70deg)',
 								}}
 							>
 								<Image
@@ -89,7 +88,6 @@ export const LandingCardsGrid = () => {
 										objectFit: 'cover',
 										objectPosition: 'center',
 										borderRadius: 'inherit',
-										transform: 'rotate(50deg)',
 									}}
 								/>
 							</Box>
@@ -146,7 +144,7 @@ export const LandingCardsGrid = () => {
 					...(isMobile
 						? {
 								gridTemplateRows: 'repeat(2, minmax(0, auto))',
-						  }
+							}
 						: { gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)' }),
 					width: '100%',
 					gap: '24px',

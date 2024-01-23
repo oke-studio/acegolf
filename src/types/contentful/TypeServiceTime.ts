@@ -1,4 +1,4 @@
-import { Entry, EntryFields } from 'contentful';
+import type { Entry, EntryFields } from 'contentful';
 
 export interface TypeServiceTimeFields {
 	contentTypeId: 'serviceTime';

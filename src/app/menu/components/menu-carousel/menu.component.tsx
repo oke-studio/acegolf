@@ -13,10 +13,10 @@ import { SpinningMenuHeading } from './components/spinningMenuHeading/spinningMe
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
-import { MenuOptions } from './menuItems';
 import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
 import { useGetMenu } from '../../hooks/useGetMenu.component';
+import { MenuSectionType } from './menuItems';
 
 const StyledMenuWrapper = styled(Box)(() => ({
 	borderRadius: '25px',
@@ -64,11 +64,11 @@ export const Menu = () => {
 
 	const { menuData, isLoading } = useGetMenu();
 
-	if (isLoading) {
+	if (isLoading || !menuData) {
 		console.log('loading');
 		return <></>;
 	}
-	console.log(menuData);
+	console.log(Object.keys(menuData));
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -136,18 +136,30 @@ export const Menu = () => {
 									gap: '24px',
 								}}
 							>
-								{MenuOptions.map((option, index) => (
-									<CustomTabPanel
-										index={index}
-										value={value}
-										key={`menu_option_${index}`}
-									>
-										<MenuSection
-											menuSection={option.option.toLocaleUpperCase()}
-											menuItems={option.items}
-										/>
-									</CustomTabPanel>
-								))}
+								{(
+									Object.keys(menuData).filter(
+										item => item !== 'menuName',
+									) as MenuSectionType[]
+								).map((option, index) => {
+									const menu = menuData[option];
+
+									if (!menu) {
+										return <></>;
+									}
+
+									return (
+										<CustomTabPanel
+											index={index}
+											value={value}
+											key={`menu_option_${index}`}
+										>
+											<MenuSection
+												menuSection={option}
+												menuItems={menu.map(item => item.fields)}
+											/>
+										</CustomTabPanel>
+									);
+								})}
 							</Box>
 							{!isMobile && (
 								<Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
