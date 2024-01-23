@@ -225,6 +225,8 @@ export const Header = ({
 					// backgroundColor: navBackgroundColor,
 					// color: navTextColor,
 					backgroundColor: mobileDropDownEnabled ? 'white' : 'transparent',
+
+					mixblendmode: 'difference',
 				}}
 			>
 				{isMobile && (
