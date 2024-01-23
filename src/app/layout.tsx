@@ -11,8 +11,8 @@ import { aceFont } from '@/components/Theme-Context/fontValues';
 import { HeaderBanner } from '@/components/Header/headerBanner.component';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 export const metadata = {
-  title: 'Ace Golf Bar',
-  description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
+	title: 'Ace Golf Bar',
+	description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
 };
 // export const safariBrowserTheme: Metadata ={
 
@@ -22,39 +22,39 @@ export const metadata = {
 // }
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" style={{ overflowX: 'hidden' }}>
-      <Providers>
-        <meta name="theme-color" content="#39775E"></meta>
-        <body
-          className={aceFont.className}
-          style={{ backgroundColor: '#171717' }}
-        >
-          <DynamicPageBackground>
-            <HeaderBanner />
-            <Header />
-            {children}
-            <FooterV2 />
-          </DynamicPageBackground>
-          <ReactQueryDevtools
-            initialIsOpen={false}
-            buttonPosition="bottom-left"
-            position="bottom"
-            styleNonce=""
-          />
-          <div
-            className={'subtleNoise'}
-            style={{
-              // zIndex: 100,
-              pointerEvents: 'none',
-            }}
-          ></div>
-        </body>
-      </Providers>
-    </html>
-  );
+	return (
+		<html lang="en" style={{ overflowX: 'hidden' }}>
+			<Providers>
+				<meta name="theme-color" content="#39775E"></meta>
+				<body
+					className={aceFont.className}
+					style={{ backgroundColor: '#171717' }}
+				>
+					<DynamicPageBackground>
+						<HeaderBanner />
+						<Header />
+						{children}
+						<FooterV2 />
+					</DynamicPageBackground>
+					<ReactQueryDevtools
+						initialIsOpen={false}
+						buttonPosition="bottom-left"
+						position="bottom"
+						styleNonce=""
+					/>
+					<div
+						className={'subtleNoise'}
+						style={{
+							// zIndex: 100,
+							pointerEvents: 'none',
+						}}
+					></div>
+				</body>
+			</Providers>
+		</html>
+	);
 }
