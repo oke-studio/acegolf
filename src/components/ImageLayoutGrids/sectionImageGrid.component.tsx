@@ -61,7 +61,7 @@ const images = [
 		zIndex: 1, // zindex for image container. 1= below section content
 		gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
 		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
-		relPosX: '-66px', //relative position to grid position
+		relPosX: '-80px', //relative position to grid position
 		relPosY: '38px',
 
 		mobile: {
@@ -83,8 +83,10 @@ const images = [
 		scale: 1, // scale transform for aceImage
 		rotation: 1, // rotation
 		zIndex: 1, // zindex for image container
-		posXGridColumn: '3', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
-		posyGridRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		gridPosXColumn: '3', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		relPosX: '0px', //relative position to grid position
+		relPosY: '0px',
 
 		mobile: {
 			opacity: 0,
@@ -122,11 +124,30 @@ export const SectionImageGrid = ({
 	const rotateVal = useTransform(scrollYProgress, [0, 0.1], [1, 10]); //mapping screen scroll of 10% to 1-2 factor to use in values
 	const scaleVal = useTransform(scrollYProgress, [0, 0.1], [1, 1.1]);
 	const yVal = useTransform(scrollYProgress, [0, 0.1], [1, 60]);
-	// const animatedBorderRadius = useTransform(
-	// 	scrollYProgress,
-	// 	[0, 0.75],
-	// 	[80, 25],
-	// );
+	const smValY = useTransform(scrollYProgress, [0, 0.1], [0, 30]);
+	const mdValY = useTransform(scrollYProgress, [0, 0.1], [0, 70]);
+	const lgValY = useTransform(scrollYProgress, [0, 0.1], [0, 120]);
+	const xlgValY = useTransform(scrollYProgress, [0, 0.1], [0, 160]);
+	const paralaxYvalue = [
+		{
+			val: smValY,
+		},
+		{
+			val: mdValY,
+		},
+		{
+			val: lgValY,
+		},
+		{
+			val: xlgValY,
+		},
+	];
+
+	const randomizer = (min, max) => {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min) + min);
+	};
 
 	//Responsive Code
 	// const isMobile = useMediaQuery('(max-width:640px)');
@@ -148,24 +169,57 @@ export const SectionImageGrid = ({
 				...sx,
 			}}
 		>
-			{/* {
-				images.map( (imageURL, i) => {
-					return <div key={`i_${i}`} className={styles.imageContainer}>
-						<AceImage  
-						key={`i_${i}`}
-						className= {imageStyles}
-						AceImageName="ace locaiton photos"
-						AceImageSrc= {imageURL}
-						AceImageAspectRatio="1.137"
-						BackCutout={true}
-						BackCutoutColor={theme.palette.sharpTeal}
-						sx={{
-							gridColumn: {posGridColumn},
-							gridRow: {posGridRow},
-						}}
-						/>
-			} */}
-			<Box
+			{images.map(
+				(
+					{
+						src,
+						aspectRatio,
+						backCutOut,
+						backCutOutColor,
+						imageNameAltText,
+						opacity,
+						scale,
+						rotation,
+						zIndex,
+						gridPosXColumn,
+						gridPosYRow,
+						relPosX,
+						relPosY,
+					},
+					i,
+				) => {
+					return (
+						<Box
+							key={`i_${i}`}
+							component={motion.div}
+							style={{
+								// scale: scaleVal,
+								//rotate: rotateVal,
+								y: paralaxYvalue[randomizer(0, 3)].val,
+							}}
+							sx={{
+								gridColumn: `${gridPosXColumn} / span 1`,
+								gridRow: `${gridPosYRow}  / span 1`,
+							}}
+						>
+							<AceImage
+								AceImageName={imageNameAltText}
+								AceImageSrc={src}
+								AceImageAspectRatio={aspectRatio}
+								BackCutout={backCutOut}
+								BackCutoutColor={theme.palette.sharpTeal}
+								sx={{
+									opacity: `${opacity} `,
+									scale: `${scale} `,
+									transform: `rotate(${rotation}deg) translate(${relPosX}, ${relPosY})`,
+									zIndex: `${zIndex} `,
+								}}
+							></AceImage>
+						</Box>
+					);
+				},
+			)}
+			{/* <Box
 				component={motion.div}
 				style={{
 					//scale: scaleVal,
@@ -188,9 +242,9 @@ export const SectionImageGrid = ({
 						zIndex: `${images[0].zIndex} `,
 					}}
 				></AceImage>
-			</Box>
+			</Box> */}
 
-			<AceImage
+			{/* <AceImage
 				AceImageName="ace locaiton photos"
 				AceImageSrc="/images/Spin-photo2.png"
 				AceImageAspectRatio="0.710"
@@ -200,7 +254,7 @@ export const SectionImageGrid = ({
 					gridColumn: '3 / span 1',
 					gridRow: '2 / span 1',
 				}}
-			></AceImage>
+			></AceImage> */}
 
 			<AceImage
 				AceImageName="ace locaiton photos"
