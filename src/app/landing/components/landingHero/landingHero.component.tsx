@@ -38,6 +38,8 @@ export const LandingHero = () => {
 					gap: '36px',
 					position: 'relative', //here to make sure zIndex works
 					zIndex: '2', // 1 prepresents that parent section surface
+					width: '100%', //
+					overflowX: 'hidden', // temp for mobile to not overlow
 				}}
 			>
 				{/* Hero Title Container */}
