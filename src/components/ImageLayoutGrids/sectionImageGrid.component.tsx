@@ -77,8 +77,8 @@ type ImageDataTypes = {
 		zIndex: number;
 		gridPosXColumn: string;
 		gridPosYRow: string;
-		relPosX: number;
-		relPosY: number;
+		relPosX: string;
+		relPosY: string;
 	};
 };
 
@@ -195,6 +195,7 @@ export const SectionImageGrid = ({
 								y: paralaxYvalue[paralax].val,
 							}}
 							sx={{
+								position: 'relative',
 								gridColumn: `${gridPosXColumn} / span 1`,
 								gridRow: `${gridPosYRow}  / span 1`,
 								...(isMobile && {
@@ -210,6 +211,7 @@ export const SectionImageGrid = ({
 								BackCutout={backCutOut}
 								BackCutoutColor={theme.palette.sharpTeal}
 								sx={{
+									position: 'relative',
 									opacity: `${opacity} `,
 									scale: `${scale} `,
 									transform: `rotate(${rotation}deg) translate(${relPosX}, ${relPosY})`,
