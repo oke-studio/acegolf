@@ -68,6 +68,7 @@ type ImageDataTypes = {
 	gridPosYRow: string; //enter the grid ROW start position. ex: 5 (start at grid line 5)
 	relPosX: string; //relative position to grid position
 	relPosY: string;
+	paralax: number;
 
 	mobile: {
 		opacity: number;
@@ -76,8 +77,8 @@ type ImageDataTypes = {
 		zIndex: number;
 		gridPosXColumn: string;
 		gridPosYRow: string;
-		relPosX: string;
-		relPosY: string;
+		relPosX: number;
+		relPosY: number;
 	};
 };
 
@@ -135,11 +136,11 @@ export const SectionImageGrid = ({
 		},
 	];
 
-	const randomizer = (min, max) => {
-		min = Math.ceil(min);
-		max = Math.floor(max);
-		return Math.floor(Math.random() * (max - min) + min);
-	};
+	// const randomizer = (min, max) => {
+	// 	min = Math.ceil(min);
+	// 	max = Math.floor(max);
+	// 	return Math.floor(Math.random() * (max - min) + min);
+	// };
 
 	//Responsive Code
 	const isMobile = useMediaQuery('(max-width:640px)');
@@ -180,6 +181,7 @@ export const SectionImageGrid = ({
 						relPosX,
 						relPosY,
 						mobile,
+						paralax,
 					},
 					i,
 				) => {
@@ -190,7 +192,7 @@ export const SectionImageGrid = ({
 							style={{
 								// scale: scaleVal,
 								//rotate: rotateVal,
-								y: paralaxYvalue[randomizer(0, 3)].val,
+								y: paralaxYvalue[paralax].val,
 							}}
 							sx={{
 								gridColumn: `${gridPosXColumn} / span 1`,

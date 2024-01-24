@@ -13,6 +13,8 @@ export const landingHeroImages = [
         gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
         relPosX: '-80px', //relative position to grid position
         relPosY: '70px',
+        paralax: 1,
+	  
 
         mobile: {
             opacity: 1,
@@ -39,6 +41,7 @@ export const landingHeroImages = [
         gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
         relPosX: '0px', //relative position to grid position
         relPosY: '0px',
+        paralax: 2,
 
         mobile: {
             opacity: 1,
@@ -65,6 +68,7 @@ export const landingHeroImages = [
         gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
         relPosX: '0px', //relative position to grid position
         relPosY: '0px',
+        paralax: 1,
 
         mobile: {
             opacity: 1,
@@ -91,6 +95,7 @@ export const landingHeroImages = [
         gridPosYRow: '1', //enter the grid ROW start position. ex: 5 (start at grid line 5)
         relPosX: '0px', //relative position to grid position
         relPosY: '0px',
+        paralax: 3,
 
         mobile: {
             opacity: 1,
