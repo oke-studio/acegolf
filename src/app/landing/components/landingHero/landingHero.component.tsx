@@ -1,19 +1,18 @@
 import * as React from 'react';
-import {
-	Button,
-	Box,
-	// useMediaQuery,
-	// useTheme
-} from '@mui/material';
+import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import { Section } from '@/components/layout/section.component';
 import { Typography } from '@/components/Typography/typography.component';
 import { useRouter } from 'next/navigation';
+import { AceImage } from '@/components/aceImage/aceImage.component';
+import { SectionImageGrid } from '@/components/ImageLayoutGrids/sectionImageGrid.component';
+import { landingHeroImages } from './landingHeroImages';
 
 export const LandingHero = () => {
 	const router = useRouter();
-	// const theme = useTheme();
-	// const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	//const theme = useTheme();
+	//const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<Section
 			SectionName="Landing Hero"
@@ -22,7 +21,8 @@ export const LandingHero = () => {
 			CornerRadius={false}
 			ScrollAnimations={false}
 			sx={{
-				overflowX: 'hidden',
+				//overflowX: 'hidden', // overflow iwll be handled by other containers
+				position: 'relative',
 			}}
 		>
 			{/* Hero Container*/}
@@ -33,6 +33,10 @@ export const LandingHero = () => {
 					justifyContent: 'center',
 					alignItems: 'flex-start',
 					gap: '36px',
+					position: 'relative', //here to make sure zIndex works
+					zIndex: '2', // 1 prepresents that parent section surface
+					width: '100%', //
+					overflowX: 'hidden', // temp for mobile to not overlow
 				}}
 			>
 				{/* Hero Title Container */}
@@ -172,6 +176,12 @@ export const LandingHero = () => {
 					</Button>
 				</Box>
 			</Box>
+
+			{/* Sectional Photos */}
+			<SectionImageGrid
+				SectionImageGridWidth="rightHalf"
+				ImageData={landingHeroImages}
+			></SectionImageGrid>
 		</Section>
 	);
 };

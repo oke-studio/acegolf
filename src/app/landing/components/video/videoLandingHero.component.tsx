@@ -32,7 +32,7 @@ export const VideoLandingHero = () => {
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
-			// sx={{ opacity: '0.5' }}
+			sx={{ position: 'relative' }}
 		>
 			<Box
 				component={motion.div}
@@ -41,7 +41,7 @@ export const VideoLandingHero = () => {
 					/* centering video and path together  */
 					display: 'grid',
 					placeItems: 'center',
-					// gridTemplateAreas: 'videoWithPathArea',
+					gridTemplateAreas: 'videoWithPathArea',
 					position: 'relative',
 					// top: isMobile ? '-100px' : '-100px',
 					//scale: videoScale,
