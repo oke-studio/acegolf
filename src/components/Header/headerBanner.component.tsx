@@ -19,6 +19,7 @@ export const HeaderBanner = () => {
 				justifyContent: 'center',
 				padding: ' 8px 0px',
 				mixBlendMode: 'normal',
+				borderRadius: ' 0px 0px 15px 15px',
 			}}
 		>
 			<Typography variant="base" sx={{ textAlign: 'center' }}>
