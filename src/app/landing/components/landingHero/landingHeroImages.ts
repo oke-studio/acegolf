@@ -1,18 +1,18 @@
 export const landingHeroImages = [
     {
-        src: '/images/Spin-photo4.png',
-        aspectRatio: '1.136',
+        src: '/images/friends-photos.jpg',
+        aspectRatio: '0.77',
         backCutOut: true,
         backCutOutColor: 'orange',
-        imageNameAltText: 'the vibes at ace picture',
+        imageNameAltText: 'Gif of photos at ace',
         opacity: 1, // default 1 for visible
-        scale: 1.9, // scale transform for aceImage
-        rotation: -10, // rotation
+        scale: 1.4, // scale transform for aceImage
+        rotation: -5, // rotation
         zIndex: 1, // zindex for image container. 1= below section content
         gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
         gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
-        relPosX: '-100px', //relative position to grid position
-        relPosY: '68px',
+        relPosX: '-80px', //relative position to grid position
+        relPosY: '70px',
 
         mobile: {
             opacity: 1,
