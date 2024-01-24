@@ -71,6 +71,7 @@ type ImageDataTypes = {
 	paralax: number;
 
 	mobile: {
+		aspectRatio: string;
 		opacity: number;
 		scale: number;
 		rotation: number;
@@ -207,7 +208,9 @@ export const SectionImageGrid = ({
 							<AceImage
 								AceImageName={imageNameAltText}
 								AceImageSrc={src}
-								AceImageAspectRatio={aspectRatio}
+								AceImageAspectRatio={
+									isMobile ? mobile.aspectRatio : aspectRatio
+								}
 								BackCutout={backCutOut}
 								BackCutoutColor={theme.palette.sharpTeal}
 								sx={{
@@ -218,6 +221,7 @@ export const SectionImageGrid = ({
 									zIndex: `${zIndex} `,
 
 									...(isMobile && {
+										// aspectRatio: `${mobile.aspectRatio} `,
 										opacity: `${mobile.opacity} `,
 										scale: `${mobile.scale} `,
 										transform: `rotate(${mobile.rotation}deg) translate(${mobile.relPosX}, ${mobile.relPosY})`,

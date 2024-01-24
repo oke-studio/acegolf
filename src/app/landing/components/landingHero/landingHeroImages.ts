@@ -17,14 +17,15 @@ export const landingHeroImages = [
 	  
 
         mobile: {
+            aspectRatio: '1/1',
             opacity: 1,
-            scale: 1.2,
-            rotation: -10,
-            zIndex: 3,
+            scale: 1.7,
+            rotation: -4,
+            zIndex: 1,
             gridPosXColumn: '2',
             gridPosYRow: '2',
-            relPosX: '-80px',
-            relPosY: '38px',
+            relPosX: '-30px',
+            relPosY: '60px',
         },
     },
     {
@@ -44,14 +45,15 @@ export const landingHeroImages = [
         paralax: 2,
 
         mobile: {
+            aspectRatio: '1.130',
             opacity: 1,
-            scale: 1.2,
-            rotation: 10,
+            scale: 1.4,
+            rotation: -10,
             zIndex: 1,
             gridPosXColumn: '2',
             gridPosYRow: '3',
-            relPosX: '0px',
-            relPosY: '0px',
+            relPosX: '-40px',
+            relPosY: '50px',
         },
     },
     {
@@ -71,14 +73,15 @@ export const landingHeroImages = [
         paralax: 1,
 
         mobile: {
+            aspectRatio: '0.95',
             opacity: 1,
-            scale: 1,
+            scale: 1.4,
             rotation: 10,
-            zIndex: 1,
+            zIndex: 3,
             gridPosXColumn: '4',
-            gridPosYRow: '2',
-            relPosX: '0px',
-            relPosY: '0px',
+            gridPosYRow: '3',
+            relPosX: '-40px',
+            relPosY: '80px',
         },
     },
     {
@@ -98,14 +101,15 @@ export const landingHeroImages = [
         paralax: 3,
 
         mobile: {
+            aspectRatio: '0.91',
             opacity: 1,
-            scale: 1,
-            rotation: 10,
+            scale: 1.4,
+            rotation: 4,
             zIndex: 1,
-            gridPosXColumn: '4',
-            gridPosYRow: '1',
-            relPosX: '0px',
-            relPosY: '0px',
+            gridPosXColumn: '3',
+            gridPosYRow: '2',
+            relPosX: '45px',
+            relPosY: '80px',
         },
     },
 
@@ -126,13 +130,14 @@ export const landingHeroImages = [
         paralax: 1,
 
         mobile: {
+            aspectRatio: '1/1',
             opacity: 1,
-            scale: 1,
+            scale: 1.2,
             rotation: 10,
             zIndex: 1,
-            gridPosXColumn: '4',
-            gridPosYRow: '1',
-            relPosX: '0px',
+            gridPosXColumn: '3',
+            gridPosYRow: '3',
+            relPosX: '-30px',
             relPosY: '0px',
         },
     },
