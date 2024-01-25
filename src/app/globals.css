@@ -107,6 +107,12 @@ a {
 		color-scheme: dark;
 	}
 }
+@media all and (max-device-width: 768px) {
+	html,
+	body {
+		font-size: 14px;
+	}
+}
 @media all and (max-device-width: 425px) {
 	html,
 	body {
@@ -114,12 +120,7 @@ a {
 	}
 }
 
-@media all and (max-device-width: 768px) {
-	html,
-	body {
-		font-size: 14px;
-	}
-}
+
 
 .subtleNoise {
 	background-image: url('/images/noise-ace.png');

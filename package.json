@@ -10,7 +10,7 @@
 		"prettier": "prettier --write .",
 		"prettier:check": "prettier --check src//**/*.{ts,tsx}",
 		"prettier:types": "prettier --write src/types//**/*.ts",
-		"contentful:export": "source .env && contentful space export --config src/types/export-config.json --management-token $CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --space-id $CONTENTFUL_SPACE_ID",
+		"contentful:export": "source .env.local &&contentful space export --config src/types/export-config.json --management-token $NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --space-id $NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
 		"contentful:generate-types": "cf-content-types-generator src/types/export.json --out src/types/contentful",
 		"contentful:update": "npm run contentful:export && npm run contentful:generate-types && npm run prettier:types"
 	},
@@ -37,6 +37,8 @@
 		"encoding": "^0.1.13",
 		"formik": "^2.4.2",
 		"framer-motion": "^10.12.17",
+		"graphql": "^16.8.1",
+		"graphql-request": "^6.1.0",
 		"lint": "^0.8.19",
 		"next": "^14.1.0",
 		"prettier": "^3.2.4",

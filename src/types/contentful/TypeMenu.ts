@@ -3,14 +3,11 @@ import type { TypeDrinkItemFields } from './TypeDrinkItem';
 import type { TypeMenuItemFields } from './TypeMenuItem';
 
 export interface TypeMenuFields {
-	contentTypeId: 'menu';
-	fields: {
-		menuName: EntryFields.Symbol;
-		bigBites: Entry<TypeMenuItemFields>[];
-		smallBites?: Entry<TypeMenuItemFields>[];
-		deserts?: Entry<TypeMenuItemFields>[];
-		drinks?: Entry<TypeDrinkItemFields>[];
-	};
+	menuName: string;
+	bigBitesCollection: { items: TypeMenuItemFields[] };
+	smallBitesCollection?: { items: TypeMenuItemFields[] };
+	desertsCollection?: { items: TypeMenuItemFields[] };
+	drinksCollection?: { items: TypeMenuItemFields[] };
 }
 
-export type TypeMenu = Entry<TypeMenuFields>;
+// export type TypeMenu = Entry<TypeMenuFields>;

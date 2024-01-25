@@ -1,16 +1,13 @@
 import type { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypeEventFields {
-	contentTypeId: 'event';
-	fields: {
-		eventTitle: EntryFields.Symbol;
-		slugId: EntryFields.Symbol;
-		eventStartDate: EntryFields.Date;
-		eventEndDate?: EntryFields.Date;
-		ctaText?: EntryFields.Symbol;
-		ctaLink: EntryFields.Symbol;
-		eventPoster: Asset;
-	};
+	eventTitle: string;
+	slugId: string;
+	eventStartDate: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	eventEndDate?: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	ctaText?: string;
+	ctaLink: string;
+	// eventPoster: Asset;
 }
 
-export type TypeEvent = Entry<TypeEventFields>;
+// export type TypeEvent = Entry<TypeEventFields>;

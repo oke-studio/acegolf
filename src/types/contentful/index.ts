@@ -14,6 +14,10 @@ export type {
 	TypeGeneralBayPriceFields,
 } from './TypeGeneralBayPrice';
 export type { TypeHowItWorks, TypeHowItWorksFields } from './TypeHowItWorks';
+export type {
+	TypeHowItWorksSteps,
+	TypeHowItWorksStepsFields,
+} from './TypeHowItWorksSteps';
 export type { TypeMenu, TypeMenuFields } from './TypeMenu';
 export type { TypeMenuItem, TypeMenuItemFields } from './TypeMenuItem';
 export type {
