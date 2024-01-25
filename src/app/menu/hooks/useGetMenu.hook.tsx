@@ -1,4 +1,4 @@
-import { TypeMenu, TypeMenuFields } from '@/types/contentful';
+import { TypeMenuFields } from '@/types/contentful';
 import { useQuery } from '@tanstack/react-query';
 import { getAceQuery } from '@/util/getAceQuery';
 import { useGetAceQuery } from '@/hooks/getUseAceQuery/getUseAceQuery.hook';
