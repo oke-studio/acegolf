@@ -147,7 +147,7 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 		lineHeight: '72px',
 	},
 	// #10 <-poster->
-	{ fontSize: '6rem', lineHeight: '68px' },
+	{ fontSize: '5.5rem', lineHeight: '68px' },
 ];
 
 export const fontUses = {
