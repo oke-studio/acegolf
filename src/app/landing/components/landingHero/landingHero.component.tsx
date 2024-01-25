@@ -10,8 +10,9 @@ import { landingHeroImages } from './landingHeroImages';
 
 export const LandingHero = () => {
 	const router = useRouter();
-	//const theme = useTheme();
-	//const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
+	const isTablet = useMediaQuery(breakpoints.down('md'));
 
 	return (
 		<Section
@@ -47,6 +48,10 @@ export const LandingHero = () => {
 						justifyContent: 'center',
 						alignItems: 'flex-start',
 						paddingRight: '15%',
+						width: '100%',
+						...(isMobile && {
+							paddingRight: '0%',
+						}),
 					}}
 				>
 					{/* Trackman Logo */}
@@ -66,14 +71,25 @@ export const LandingHero = () => {
 
 					{/* Hero Text */}
 					<Box
-						style={{
+						sx={{
 							color: 'black',
 							display: 'flex',
 							flexDirection: 'column',
 							gap: '8px',
+							width: '100%',
+							overflowWrap: 'break-word',
 						}}
 					>
-						<Typography variant="poster" weight="900">
+						<Typography
+							variant={isMobile ? 'headingOne' : 'poster'}
+							weight="900"
+							as="h1"
+							sx={
+								{
+									// overflowWrap: 'break-word',
+								}
+							}
+						>
 							TORONTO’S
 						</Typography>
 
@@ -81,6 +97,9 @@ export const LandingHero = () => {
 							sx={{
 								display: 'flex',
 								marginBottom: '-13px',
+								...(isTablet && {
+									flexWrap: 'wrap',
+								}),
 							}}
 						>
 							<Typography
@@ -101,11 +120,23 @@ export const LandingHero = () => {
 									marginTop: '5px',
 									marginBottom: '5px',
 									fontSize: '5rem',
+
+									...(isMobile && {
+										lineHeight: '50px',
+										fontSize: '3rem',
+									}),
 								}}
 							>
 								COOLEST
 							</Typography>
-							<Typography variant="poster" weight="900">
+							<Typography
+								variant="poster"
+								weight="900"
+								sx={{
+									overflowWrap: 'break-word',
+									width: '100%',
+								}}
+							>
 								INDOOR
 							</Typography>
 						</Box>
