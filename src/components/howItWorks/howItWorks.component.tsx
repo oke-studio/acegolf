@@ -58,7 +58,7 @@ export const HowItWorks = ({
 						gap: '2rem',
 					}}
 				>
-					{infoBoxData.map((info, index) => {
+					{infoBoxData?.map((info, index) => {
 						return (
 							<HowItWorksInfoBox
 								number={(index + 1).toString()}
