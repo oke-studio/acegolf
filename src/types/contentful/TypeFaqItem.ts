@@ -1,7 +1,7 @@
 import type { Entry, EntryFields } from 'contentful';
 
 export interface TypeFaqItemFields {
-	question: string
+	question: string;
 	answer: string;
 	ctaLink?: string;
 }
