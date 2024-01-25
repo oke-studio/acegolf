@@ -1,14 +1,11 @@
 import type { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypePromotionFields {
-	contentTypeId: 'promotion';
-	fields: {
-		promotionTitle: EntryFields.Symbol;
-		effectiveDateStart: EntryFields.Date;
-		effectiveDateEnd: EntryFields.Date;
-		sevenRoomsPromotionCode?: EntryFields.Integer;
-		promotionPoster: Asset;
-	};
+	promotionTitle: string;
+	effectiveDateStart: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	effectiveDateEnd: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	sevenRoomsPromotionCode?: number;
+	// promotionPoster: Asset;
 }
 
-export type TypePromotion = Entry<TypePromotionFields>;
+// export type TypePromotion = Entry<TypePromotionFields>;

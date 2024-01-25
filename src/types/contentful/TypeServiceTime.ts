@@ -1,15 +1,9 @@
 import type { Entry, EntryFields } from 'contentful';
 
 export interface TypeServiceTimeFields {
-	contentTypeId: 'serviceTime';
-	fields: {
-		nameOfServiceTime:
-			| 'Full Service - Late'
-			| 'Full Service'
-			| 'Partial Service';
-		beginningTime: EntryFields.Symbol;
-		endTime?: EntryFields.Symbol;
-	};
+	nameOfServiceTime: 'Full Service - Late' | 'Full Service' | 'Partial Service';
+	beginningTime: string;
+	endTime?: string;
 }
 
-export type TypeServiceTime = Entry<TypeServiceTimeFields>;
+// export type TypeServiceTime = Entry<TypeServiceTimeFields>;

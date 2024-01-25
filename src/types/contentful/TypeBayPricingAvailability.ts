@@ -3,16 +3,13 @@ import type { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice';
 import type { TypePrivateBayPriceFields } from './TypePrivateBayPrice';
 
 export interface TypeBayPricingAvailabilityFields {
-	contentTypeId: 'bayPricingAvailability';
-	fields: {
-		bayPricingScheduleName: EntryFields.Symbol;
-		effectiveDateRangeStart: EntryFields.Date;
-		effectiveDateRangeEnd: EntryFields.Date;
-		announcement?: EntryFields.Symbol;
-		generalBaySchedule: Entry<TypeGeneralBayPriceFields>[];
-		privateBaySchedule: Entry<TypePrivateBayPriceFields>[];
-	};
+	bayPricingScheduleName: string;
+	effectiveDateRangeStart: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	effectiveDateRangeEnd: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	announcement?: string;
+	generalBaySchedule: { items: TypeGeneralBayPriceFields[] };
+	privateBaySchedule: { items: TypePrivateBayPriceFields[] };
 }
 
-export type TypeBayPricingAvailability =
-	Entry<TypeBayPricingAvailabilityFields>;
+// export type TypeBayPricingAvailability =
+// 	Entry<TypeBayPricingAvailabilityFields>;

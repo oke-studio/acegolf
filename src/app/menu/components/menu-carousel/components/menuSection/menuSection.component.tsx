@@ -4,10 +4,10 @@ import { Box } from '@mui/material';
 import { MenuItem, MenuSectionType } from '../../menuItems';
 
 const MENU_SECTION_NAMES = {
-	smallBites: 'SMALL BITES',
-	bigBites: 'BIG BITES',
-	deserts: 'DESERT',
-	drinks: 'DRINKS',
+	smallBitesCollection: 'SMALL BITES',
+	bigBitesCollection: 'BIG BITES',
+	desertsCollection: 'DESERT',
+	drinksCollection: 'DRINKS',
 } as const;
 
 export const MenuSection = ({
@@ -17,6 +17,7 @@ export const MenuSection = ({
 	menuItems: MenuItem[];
 	menuSection: MenuSectionType;
 }) => {
+	console.log(menuItems);
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 			<Typography

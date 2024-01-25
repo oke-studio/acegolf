@@ -1,8 +1,8 @@
 import { TypeMenuItemFields, TypeMenuFields } from '@/types/contentful';
 
-export type MenuItem = TypeMenuItemFields['fields'];
+export type MenuItem = TypeMenuItemFields;
 
-export type MenuSectionType = keyof Omit<TypeMenuFields['fields'], 'menuName'>;
+export type MenuSectionType = keyof Omit<TypeMenuFields, 'menuName'>;
 
 // export const MenuOptions: Menu[] = [
 // 	{

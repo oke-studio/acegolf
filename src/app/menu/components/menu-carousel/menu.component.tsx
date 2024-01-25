@@ -15,7 +15,7 @@ import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
-import { useGetMenu } from '../../hooks/useGetMenu.component';
+import { useGetMenu } from '../../hooks/useGetMenu.hook';
 import { MenuSectionType } from './menuItems';
 
 const StyledMenuWrapper = styled(Box)(() => ({
@@ -68,7 +68,7 @@ export const Menu = () => {
 		console.log('loading');
 		return <></>;
 	}
-	console.log(Object.keys(menuData));
+	console.log(menuData);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -143,6 +143,8 @@ export const Menu = () => {
 								).map((option, index) => {
 									const menu = menuData[option];
 
+									console.log(menu);
+
 									if (!menu) {
 										return <></>;
 									}
@@ -155,7 +157,7 @@ export const Menu = () => {
 										>
 											<MenuSection
 												menuSection={option}
-												menuItems={menu.map(item => item.fields)}
+												menuItems={menu.items}
 											/>
 										</CustomTabPanel>
 									);

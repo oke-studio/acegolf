@@ -16,10 +16,22 @@ import { GolfGamesComponentV1 } from './components/golfGames/golfGamesV1.compone
 import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component';
 // import Image from 'next/image';
 import { FAQ } from './components/faq/faq.component';
+import { useGetHowItWorks } from './hooks/useGetHowItWorks.hook';
 
 export default function Home() {
 	const theme = useTheme();
 	const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
+
+	const { howItWorksData, isLoading } = useGetHowItWorks();
+
+	if (isLoading || !howItWorksData) {
+		return <></>;
+	}
+
+	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
+	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
+	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
+
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 			<Box
@@ -67,7 +79,25 @@ export default function Home() {
         />
       </Box> */}
 
-			<HowItWorks />
+			<HowItWorks
+				infoBoxData={[
+					{
+						description: howItWorksData.step1Content,
+						title: howItWorksData.step1Title,
+						relatedFAQs: RelatedFAQOne,
+					},
+					{
+						description: howItWorksData.step2Content,
+						title: howItWorksData.step2Title,
+						relatedFAQs: RelatedFAQTwo,
+					},
+					{
+						description: howItWorksData.step3Content,
+						title: howItWorksData.step3Title,
+						relatedFAQs: RelatedFAQThree,
+					},
+				]}
+			/>
 			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
 				<Button variant="primary">Reserve a Bay &rarr;</Button>
 			</Box>
