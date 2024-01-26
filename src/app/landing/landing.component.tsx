@@ -92,7 +92,7 @@ export default function Landing() {
 						bottom: '0px',
 						zIndex: 10,
 						width: '100%',
-						padding: '16px 0px 16px 0px',
+						padding: '12px 0px 12px 0px',
 						borderRadius: '20px 20px 0px 0px',
 					}}
 					onClick={() => {
