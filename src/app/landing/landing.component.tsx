@@ -64,7 +64,7 @@ export default function Landing() {
 	//mapping scroll progress to actual
 	const heroOpacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
 	const heroScale = useTransform(scrollYProgress, [0.5, 0.9], [1, 0.95]);
-	
+
 	//const scale = useTransform(progress, range, [1, targetScale]);
 
 	return (
@@ -85,10 +85,10 @@ export default function Landing() {
 						position: 'sticky',
 						top: '100px',
 					}}
-					style={{ 
+					style={{
 						opacity: heroOpacity,
-						scale: heroScale
-					 }}
+						scale: heroScale,
+					}}
 				>
 					<LandingHero />
 				</Box>
