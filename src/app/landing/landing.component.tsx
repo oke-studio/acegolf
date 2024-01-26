@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { Box , Button,  useMediaQuery, useTheme  } from '@mui/material';
+import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { useRouter } from 'next/navigation';
 
@@ -43,7 +43,6 @@ const DynamicLandingPromotions = dynamic(
 );
 
 export default function Landing() {
-
 	const router = useRouter();
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
@@ -78,35 +77,32 @@ export default function Landing() {
 				position: 'relative',
 			}}
 		>
-			{isMobile  && 
-			<Button
-							disableElevation
-							disableFocusRipple
-							disableRipple
-							disableTouchRipple
-							variant="primary"
-							sx={
-								{
-									position: 'fixed',
-									left: '0px',
-									right: '0px',
-									bottom: '0px',
-									zIndex: 10,
-									width: '100%',
-									padding: '16px 0px 16px 0px',
-									borderRadius: '20px 20px 0px 0px',
-								}
-							}
-							onClick={() => {
-								router.push('/book-now');
-							}}
-						>
-							<Typography variant="headingThree" weight="500">
-					
-								Reserve a bay &rarr;
-							
-							</Typography>
-						</Button> }
+			{isMobile && (
+				<Button
+					disableElevation
+					disableFocusRipple
+					disableRipple
+					disableTouchRipple
+					variant="primary"
+					sx={{
+						position: 'fixed',
+						left: '0px',
+						right: '0px',
+						bottom: '0px',
+						zIndex: 10,
+						width: '100%',
+						padding: '16px 0px 16px 0px',
+						borderRadius: '20px 20px 0px 0px',
+					}}
+					onClick={() => {
+						router.push('/book-now');
+					}}
+				>
+					<Typography variant="headingThree" weight="500">
+						Reserve a bay &rarr;
+					</Typography>
+				</Button>
+			)}
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
