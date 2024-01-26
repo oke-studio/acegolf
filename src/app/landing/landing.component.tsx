@@ -77,6 +77,7 @@ export default function Landing() {
 				position: 'relative',
 			}}
 		>
+			{/* BUTTON of mobile */}
 			{isMobile && (
 				<Button
 					disableElevation
