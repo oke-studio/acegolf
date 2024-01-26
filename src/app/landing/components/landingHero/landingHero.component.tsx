@@ -11,7 +11,7 @@ import { landingHeroImages } from './landingHeroImages';
 export const LandingHero = () => {
 	const router = useRouter();
 	//const theme = useTheme();
-	//const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
 		<Section
@@ -135,45 +135,47 @@ export const LandingHero = () => {
 						588 Eastern Ave, Toronto
 					</Typography>
 					{/* Hero Button*/}
-					<Button
-						disableElevation
-						disableFocusRipple
-						disableRipple
-						disableTouchRipple
-						variant="primary"
-						sx={
-							{
-								// textTransform: 'none',
-								// backgroundColor: '#EB8B32',
-								// color: 'white',
-								// borderRadius: '78px',
-								// fontWeight: '500',
-								// fontSize: '32px',
-								// padding: '12px 60px',
-								// position: 'relative',
-								// top: '-60px',
-								// zIndex: 0,
-								// ':hover:': {
-								//   backgroundColor: '#eb8b32c9',
-								//   color: 'white',
-								// },
-								//
+					{!isMobile && (
+						<Button
+							disableElevation
+							disableFocusRipple
+							disableRipple
+							disableTouchRipple
+							variant="primary"
+							sx={
+								{
+									// textTransform: 'none',
+									// backgroundColor: '#EB8B32',
+									// color: 'white',
+									// borderRadius: '78px',
+									// fontWeight: '500',
+									// fontSize: '32px',
+									// padding: '12px 60px',
+									// position: 'relative',
+									// top: '-60px',
+									// zIndex: 0,
+									// ':hover:': {
+									//   backgroundColor: '#eb8b32c9',
+									//   color: 'white',
+									// },
+									//
+								}
 							}
-						}
-						onClick={() => {
-							router.push('/book-now');
-						}}
-					>
-						<Typography variant="headingThree" weight="500">
-							{/* <a
+							onClick={() => {
+								router.push('/book-now');
+							}}
+						>
+							<Typography variant="headingThree" weight="500">
+								{/* <a
                 href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
                 target="_blank"
               >
                 {' '} */}
-							Reserve a bay &rarr;
-							{/* </a> */}
-						</Typography>
-					</Button>
+								Reserve a bay &rarr;
+								{/* </a> */}
+							</Typography>
+						</Button>
+					)}
 				</Box>
 			</Box>
 
