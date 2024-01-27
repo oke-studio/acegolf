@@ -22,7 +22,7 @@ export const VideoLandingHero = () => {
 	});
 
 	//mapping scroll progress to actual
-	const videoScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.175]);
+	const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.16]);
 	//const scale = useTransform(progress, range, [1, targetScale]);
 
 	return (
