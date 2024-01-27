@@ -163,11 +163,13 @@ export const LandingCardsGrid = () => {
 						buttonOne={{ children: 'Learn More', variant: 'primary' }}
 						CardTitle="Amenities"
 						CardDescription="Information about trackman amenities"
+						sx={{ flex: 1 }}
 					/>
 					<Card
 						buttonOne={{ children: 'Get Coaching', variant: 'primary' }}
 						CardTitle="Coaching"
 						CardDescription="Information about coaching"
+						sx={{ flex: 1 }}
 					/>
 				</Box>
 				<Card

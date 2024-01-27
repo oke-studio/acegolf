@@ -51,6 +51,7 @@ declare module '@mui/material/styles' {
 		sharpTeal: string;
 		red: string;
 		lightRed: string;
+		purple: string;
 	}
 
 	interface PaletteOptions {
@@ -69,6 +70,7 @@ declare module '@mui/material/styles' {
 		sharpTeal?: string;
 		red?: string;
 		lightRed?: string;
+		purple?: string;
 	}
 }
 
@@ -119,6 +121,7 @@ const theme = createTheme({
 		sharpTeal: '#36DAD5',
 		red: '#B52519',
 		lightRed: '#FB8080',
+		purple: '#9A92C5',
 	},
 	components: {
 		MuiButton: {

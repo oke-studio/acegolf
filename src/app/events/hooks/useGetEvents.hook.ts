@@ -1,16 +1,16 @@
 import { useGetAceQuery } from '@/hooks/getUseAceQuery/getUseAceQuery.hook';
 
-export function useGetHowItWorks() {
+export function useGetEvents() {
 	const { data, isLoading, isError } = useGetAceQuery();
 
 	if (isLoading || !data) {
 		return {};
 	}
 
-	const howItWorksData = data?.activeHowItWorks;
+	const eventsData = data?.activeEventsCollection;
 
 	return {
-		howItWorksData,
+		eventsData,
 		isLoading,
 		isError,
 	};

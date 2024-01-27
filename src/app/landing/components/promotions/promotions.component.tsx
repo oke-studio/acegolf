@@ -2,18 +2,24 @@
 import * as React from 'react';
 import { useTheme, Box, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import { Typography } from '@/components/Typography/typography.component';
+
+import { useGetPromotions } from './hooks/useGetPromotions.hook';
 
 const PromotionCards = ({
 	label,
 	background,
 	imgSrc,
+	eventsSlug,
 }: {
 	label: string;
 	background: string;
 	imgSrc?: string;
+	eventsSlug: string;
 }) => {
+	const router = useRouter();
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
 	const top = useMotionValue(0);
@@ -53,7 +59,7 @@ const PromotionCards = ({
 		y.set(yPct);
 		top.set(1);
 
-		console.log({ xPct, width, mouseX });
+		// console.log({ xPct, width, mouseX });
 	};
 
 	const handleMouseLeave = () => {
@@ -71,8 +77,9 @@ const PromotionCards = ({
 				flexDirection: 'column',
 				backgroundColor: 'white',
 				color: 'black',
+				cursor: 'pointer',
 			}}
-			component={motion.div}
+			component={motion.button}
 			style={{
 				transformStyle: 'preserve-3d',
 				// rotateX,
@@ -81,6 +88,7 @@ const PromotionCards = ({
 			// whileHover={{ opacity: 0.7 }}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
+			onClick={() => router.push(`/events/${eventsSlug}`)}
 		>
 			<Box
 				component={motion.div}
@@ -148,9 +156,13 @@ const PromotionCards = ({
 	);
 };
 
-export const Promotions = () => {
+export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 	const { breakpoints } = useTheme();
 	const isMobile = useMediaQuery(breakpoints.down('sm'));
+
+	const { promotionData, isLoading, isError } = useGetPromotions();
+	const MAX_PROMOTION_CARDS = isLanding ? 3 : 6;
+
 	return (
 		<Box
 			sx={{
@@ -177,21 +189,17 @@ export const Promotions = () => {
 					justifyContent: 'center',
 				}}
 			>
-				<PromotionCards
-					label="34574 COUPON"
-					background="red"
-					imgSrc="/images/ace-banner-chromatic-black.jpg"
-				/>
-				<PromotionCards
-					label="EVENT 1"
-					background="blue"
-					imgSrc="/images/ace-banner-chromatic-white.jpg"
-				/>
-				<PromotionCards
-					label="EVENT 2"
-					background="grey"
-					imgSrc="/images/ace-banner-chromatic-black.jpg"
-				/>
+				{promotionData
+					?.slice(0, MAX_PROMOTION_CARDS)
+					.map((promo, index) => (
+						<PromotionCards
+							label={promo.promotionTitle}
+							eventsSlug={promo.slugId}
+							background="red"
+							imgSrc={promo.promotionPoster.url}
+							key={`promo_${index}`}
+						/>
+					))}
 			</Box>
 		</Box>
 	);

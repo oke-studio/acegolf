@@ -19,6 +19,7 @@ import { RNG } from '@/util/RNG';
 import { useRouter } from 'next/navigation';
 import { Typography } from '../Typography/typography.component';
 import { AceLogo } from './component/aceLogoSVG/aceLogoSVG.component';
+import { Menu, MenuOpen, Close } from '@mui/icons-material';
 
 const HeaderContainer = styled(Box)({
 	display: 'flex',
@@ -256,9 +257,11 @@ export const Header = ({
 							onClick={() => setMobileDropDownEnabled(open => !open)}
 						>
 							{mobileDropDownEnabled ? (
-								<SportsGolfIcon fontSize="large" />
+								// <SportsGolfIcon fontSize="large" />
+								<Close fontSize="large" />
 							) : (
-								<GolfCourseIcon fontSize="large" />
+								// <GolfCourseIcon fontSize="large" />
+								<Menu fontSize="large" />
 							)}
 						</Box>
 					</>
