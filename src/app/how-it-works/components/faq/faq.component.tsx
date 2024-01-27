@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { ExpandMoreRounded } from '@mui/icons-material';
 import { Typography } from '@/components/Typography/typography.component';
+import { useGetFAQ } from './hooks/useGetFAQ.hook';
 
 interface StyledAccordionSummaryProps {
 	children: React.ReactNode;
@@ -67,23 +68,34 @@ const AccordionComponent = ({
 	);
 };
 
-const AccordionOne: { summary: string; details: string }[] = [
-	{
-		summary: 'Header',
-		details:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
-	},
-];
-
-const AccordionTwo: { summary: string; details: string }[] = [
-	{
-		summary: 'Header',
-		details:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
-	},
-];
-
 export const FAQ = () => {
+	const { faqData, isLoading, isError } = useGetFAQ();
+
+	const faqReduced = faqData?.reduce(
+		(acc, curr) => {
+			const category = curr.categoryRefrence.faqCategoryName;
+			console.log(acc, category);
+			if (acc[category]) {
+				acc[category].push({
+					question: curr.question,
+					answer: curr.answer,
+				});
+			} else {
+				acc[category] = [
+					{
+						question: curr.question,
+						answer: curr.answer,
+					},
+				];
+			}
+			return {
+				...acc,
+			};
+		},
+		{} as { [x: string]: { answer: string; question: string }[] },
+	);
+
+	console.log(faqReduced);
 	return (
 		<Box
 			sx={{
@@ -102,38 +114,32 @@ export const FAQ = () => {
 			<Typography variant="base" weight="500">
 				Questions you wanted to ask but couldn&apos;t
 			</Typography>
-			<Box>
-				<Typography
-					variant="large"
-					weight="700"
-					sx={{ borderBottom: '2px dotted white', marginBottom: '2rem' }}
-				>
-					SECTION TITLE
-				</Typography>
-				{AccordionOne.map((acc, index) => (
-					<AccordionComponent
-						summary={acc.summary}
-						details={acc.details}
-						key={`accordion_one_${index}`}
-					/>
-				))}
-			</Box>
-			<Box>
-				<Typography
-					variant="large"
-					weight="700"
-					sx={{ borderBottom: '2px dotted white', marginBottom: '2rem' }}
-				>
-					SECTION TITLE
-				</Typography>
-				{AccordionTwo.map((acc, index) => (
-					<AccordionComponent
-						summary={acc.summary}
-						details={acc.details}
-						key={`accordion_two_${index}`}
-					/>
-				))}
-			</Box>
+			{faqReduced &&
+				Object.keys(faqReduced!).map((faq, index) => {
+					const FAQStore = faqReduced[faq];
+					return (
+						<Box
+							key={`${faq}_${index}`}
+							sx={{ width: '100%', maxWidth: '600px' }}
+						>
+							<Typography
+								variant="large"
+								weight="700"
+								sx={{ borderBottom: '2px dotted white', marginBottom: '2rem' }}
+								key={`${faq}_${index}`}
+							>
+								{faq.toUpperCase()}
+							</Typography>
+							{FAQStore?.map((acc, i) => (
+								<AccordionComponent
+									summary={acc.question}
+									details={acc.answer}
+									key={`accordion_one_${i}`}
+								/>
+							))}
+						</Box>
+					);
+				})}
 		</Box>
 	);
 };

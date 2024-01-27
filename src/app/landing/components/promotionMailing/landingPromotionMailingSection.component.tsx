@@ -18,7 +18,7 @@ export default function LandingPromotionMailingSection() {
 				flexDirection: 'column',
 			}}
 		>
-			<Promotions />
+			<Promotions isLanding />
 
 			<MailingList />
 		</Section>

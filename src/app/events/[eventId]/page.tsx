@@ -1,14 +1,14 @@
 'use client';
 
 import * as React from 'react';
-import { useGetEvents } from './hooks/useGetEvents.hook';
+// import { useGetEvents } from './hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 
-export default function Events() {
-	const { eventsData, isError, isLoading } = useGetEvents();
+export default function Events({ params }: { params: { eventId: string } }) {
+	// const { eventsData, isError, isLoading } = useGetEvents();
 
-	console.log(eventsData);
+	// console.log(eventsData);
 
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -27,7 +27,7 @@ export default function Events() {
 					fontStyle="italic"
 					sx={{ textWrap: 'wrap', textAlign: 'center', flex: 1 }}
 				>
-					EVENTS
+					EVENT {params.eventId}
 				</Typography>
 				<Typography
 					variant="large"
