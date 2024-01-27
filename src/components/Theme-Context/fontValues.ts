@@ -138,8 +138,8 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 	},
 	// #8 <-headingOne->
 	{
-		fontSize: '3rem',
-		lineHeight: '3rem',
+		fontSize: '3.5rem',
+		lineHeight: '3.5rem',
 	},
 	// #9 <-largeH1->
 	{
@@ -147,9 +147,10 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 		lineHeight: '4rem',
 	},
 	// #10 <-poster->
-	{ 
-		fontSize: '5rem', 
-		lineHeight: '5rem' },
+	{
+		fontSize: '5rem',
+		lineHeight: '5rem',
+	},
 ];
 
 export const fontUses = {

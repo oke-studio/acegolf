@@ -21,7 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SectionHeight="70vh"
+			SectionHeight="65vh"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
@@ -38,7 +38,7 @@ export const LandingHero = () => {
 						? { gap: '8px' }
 						: {
 								gap: '36px',
-						  }),
+							}),
 					position: 'relative', //here to make sure zIndex works
 					zIndex: '2', // 1 prepresents that parent section surface
 					width: '100%', //
@@ -80,7 +80,7 @@ export const LandingHero = () => {
 							color: 'black',
 							display: 'flex',
 							flexDirection: 'column',
-							...(isMobile ? { gap: '4px' } : { gap: '8px' }),
+							...(isMobile ? { gap: '0px' } : { gap: '8px' }),
 							width: '100%',
 							//overflowWrap: 'break-word',
 						}}
@@ -102,10 +102,11 @@ export const LandingHero = () => {
 								marginBottom: '-13px',
 								gap: '8px',
 								position: 'relative',
-								left: '-8%',
+
 								...(isTablet && {
 									//flexWrap: 'wrap',
 									gap: '4px',
+									left: '-8%',
 								}),
 							}}
 						>
@@ -129,7 +130,7 @@ export const LandingHero = () => {
 									// fontSize: '5rem',
 
 									...(isMobile && {
-										fontSize: '2.5rem',
+										fontSize: '3rem',
 										lineHeight: '2.5rem',
 									}),
 								}}
