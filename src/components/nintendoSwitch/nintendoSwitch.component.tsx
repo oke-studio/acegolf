@@ -42,10 +42,10 @@ export const NintendoSwitch = () => {
 					>
 						<Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 							<Typography variant="headingThree" weight="600">
-								Join our Rewards program
+								Buy Bulk Packages
 							</Typography>
 							<Typography variant="base" weight="500">
-								Earn $6 on every booking
+								Save on evey hour by buying bulk General bay hours.
 							</Typography>
 						</Box>
 						<Button variant="secondary" sx={{ marginTop: '24px' }}>
