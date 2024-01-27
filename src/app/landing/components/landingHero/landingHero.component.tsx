@@ -21,7 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SectionHeight="fit-content"
+			SectionHeight="60vh"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
@@ -38,7 +38,7 @@ export const LandingHero = () => {
 						? { gap: '8px', marginBottom: '25vh' }
 						: {
 								gap: '36px',
-						  }),
+							}),
 					position: 'relative', //here to make sure zIndex works
 					zIndex: '2', // 1 prepresents that parent section surface
 					width: '100%', //
