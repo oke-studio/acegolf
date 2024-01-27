@@ -24,7 +24,7 @@ export const landingHeroImages = [
 			gridPosXColumn: '2',
 			gridPosYRow: '2',
 			relPosX: '-30px',
-			relPosY: '60px',
+			relPosY: '80px',
 		},
 	},
 	{
@@ -45,7 +45,7 @@ export const landingHeroImages = [
 
 		mobile: {
 			aspectRatio: '1.130',
-			opacity: 1,
+			opacity: 0,
 			scale: 1.4,
 			rotation: -10,
 			zIndex: 1,
@@ -73,7 +73,7 @@ export const landingHeroImages = [
 
 		mobile: {
 			aspectRatio: '0.95',
-			opacity: 1,
+			opacity: 0,
 			scale: 1.4,
 			rotation: 10,
 			zIndex: 3,
@@ -108,7 +108,7 @@ export const landingHeroImages = [
 			gridPosXColumn: '3',
 			gridPosYRow: '2',
 			relPosX: '45px',
-			relPosY: '80px',
+			relPosY: '120px',
 		},
 	},
 
@@ -137,7 +137,7 @@ export const landingHeroImages = [
 			gridPosXColumn: '3',
 			gridPosYRow: '3',
 			relPosX: '-30px',
-			relPosY: '0px',
+			relPosY: '-10px',
 		},
 	},
 ];
