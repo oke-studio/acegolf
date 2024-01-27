@@ -10,8 +10,9 @@ import { landingHeroImages } from './landingHeroImages';
 
 export const LandingHero = () => {
 	const router = useRouter();
-	//const theme = useTheme();
-	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
+	const isTablet = useMediaQuery(breakpoints.down('md'));
 
 	return (
 		<Section
@@ -20,6 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
+			SectionHeight="65vh"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
@@ -32,11 +34,15 @@ export const LandingHero = () => {
 					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'flex-start',
-					gap: '36px',
+					...(isMobile
+						? { gap: '8px' }
+						: {
+								gap: '36px',
+							}),
 					position: 'relative', //here to make sure zIndex works
 					zIndex: '2', // 1 prepresents that parent section surface
 					width: '100%', //
-					overflowX: 'hidden', // temp for mobile to not overlow
+					//overflowX: 'hidden', // temp for mobile to not overlow
 				}}
 			>
 				{/* Hero Title Container */}
@@ -47,6 +53,10 @@ export const LandingHero = () => {
 						justifyContent: 'center',
 						alignItems: 'flex-start',
 						paddingRight: '15%',
+						width: '100%',
+						...(isMobile && {
+							paddingRight: '0%',
+						}),
 					}}
 				>
 					{/* Trackman Logo */}
@@ -66,14 +76,23 @@ export const LandingHero = () => {
 
 					{/* Hero Text */}
 					<Box
-						style={{
+						sx={{
 							color: 'black',
 							display: 'flex',
 							flexDirection: 'column',
-							gap: '8px',
+							...(isMobile ? { gap: '0px' } : { gap: '8px' }),
+							width: '100%',
+							//overflowWrap: 'break-word',
 						}}
 					>
-						<Typography variant="poster" weight="900">
+						<Typography
+							variant={isMobile ? 'headingOne' : 'poster'}
+							weight="900"
+							as="h1"
+							sx={{
+								overflowWrap: 'break-word',
+							}}
+						>
 							TORONTO’S
 						</Typography>
 
@@ -81,10 +100,18 @@ export const LandingHero = () => {
 							sx={{
 								display: 'flex',
 								marginBottom: '-13px',
+								gap: '8px',
+								position: 'relative',
+
+								...(isTablet && {
+									//flexWrap: 'wrap',
+									gap: '4px',
+									left: '-8%',
+								}),
 							}}
 						>
 							<Typography
-								variant="largeH1"
+								variant="poster"
 								weight="900"
 								sx={{
 									position: 'relative',
@@ -100,17 +127,37 @@ export const LandingHero = () => {
 									borderRadius: '4px',
 									marginTop: '5px',
 									marginBottom: '5px',
-									fontSize: '5rem',
+									// fontSize: '5rem',
+
+									...(isMobile && {
+										fontSize: '3rem',
+										lineHeight: '2.5rem',
+									}),
 								}}
 							>
 								COOLEST
 							</Typography>
-							<Typography variant="poster" weight="900">
+							<Typography
+								variant={isMobile ? 'headingOne' : 'poster'}
+								weight="900"
+								as="h1"
+								sx={{
+									//overflowWrap: 'break-word',
+									width: '100%',
+								}}
+							>
 								INDOOR
 							</Typography>
 						</Box>
 
-						<Typography variant="poster" weight="900">
+						<Typography
+							variant={isMobile ? 'headingOne' : 'poster'}
+							as="h1"
+							weight="900"
+							sx={{
+								overflowWrap: 'break-word',
+							}}
+						>
 							GOLF LOUNGE!
 						</Typography>
 					</Box>
@@ -127,7 +174,8 @@ export const LandingHero = () => {
 					}}
 				>
 					<Typography
-						variant="headingTwo"
+						variant={isMobile ? 'headingFour' : 'headingTwo'}
+						as="h2"
 						weight="500"
 						sx={{ color: t => t.palette.orange }}
 					>
