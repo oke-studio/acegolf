@@ -21,7 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SectionHeight="60vh"
+			SectionHeight="fit-content"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
