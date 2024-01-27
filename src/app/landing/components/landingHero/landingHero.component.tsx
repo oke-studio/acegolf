@@ -21,6 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
+			SectionHeight="70vh"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
@@ -33,11 +34,15 @@ export const LandingHero = () => {
 					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'flex-start',
-					gap: '36px',
+					...(isMobile
+						? { gap: '8px' }
+						: {
+								gap: '36px',
+						  }),
 					position: 'relative', //here to make sure zIndex works
 					zIndex: '2', // 1 prepresents that parent section surface
 					width: '100%', //
-					overflowX: 'hidden', // temp for mobile to not overlow
+					//overflowX: 'hidden', // temp for mobile to not overlow
 				}}
 			>
 				{/* Hero Title Container */}
@@ -75,20 +80,18 @@ export const LandingHero = () => {
 							color: 'black',
 							display: 'flex',
 							flexDirection: 'column',
-							gap: '8px',
+							...(isMobile ? { gap: '4px' } : { gap: '8px' }),
 							width: '100%',
-							overflowWrap: 'break-word',
+							//overflowWrap: 'break-word',
 						}}
 					>
 						<Typography
 							variant={isMobile ? 'headingOne' : 'poster'}
 							weight="900"
 							as="h1"
-							sx={
-								{
-									// overflowWrap: 'break-word',
-								}
-							}
+							sx={{
+								overflowWrap: 'break-word',
+							}}
 						>
 							TORONTO’S
 						</Typography>
@@ -97,13 +100,17 @@ export const LandingHero = () => {
 							sx={{
 								display: 'flex',
 								marginBottom: '-13px',
+								gap: '8px',
+								position: 'relative',
+								left: '-8%',
 								...(isTablet && {
-									flexWrap: 'wrap',
+									//flexWrap: 'wrap',
+									gap: '4px',
 								}),
 							}}
 						>
 							<Typography
-								variant="largeH1"
+								variant="poster"
 								weight="900"
 								sx={{
 									position: 'relative',
@@ -119,21 +126,22 @@ export const LandingHero = () => {
 									borderRadius: '4px',
 									marginTop: '5px',
 									marginBottom: '5px',
-									fontSize: '5rem',
+									// fontSize: '5rem',
 
 									...(isMobile && {
-										lineHeight: '50px',
-										fontSize: '3rem',
+										fontSize: '2.5rem',
+										lineHeight: '2.5rem',
 									}),
 								}}
 							>
 								COOLEST
 							</Typography>
 							<Typography
-								variant="poster"
+								variant={isMobile ? 'headingOne' : 'poster'}
 								weight="900"
+								as="h1"
 								sx={{
-									overflowWrap: 'break-word',
+									//overflowWrap: 'break-word',
 									width: '100%',
 								}}
 							>
@@ -141,7 +149,14 @@ export const LandingHero = () => {
 							</Typography>
 						</Box>
 
-						<Typography variant="poster" weight="900">
+						<Typography
+							variant={isMobile ? 'headingOne' : 'poster'}
+							as="h1"
+							weight="900"
+							sx={{
+								overflowWrap: 'break-word',
+							}}
+						>
 							GOLF LOUNGE!
 						</Typography>
 					</Box>
@@ -158,7 +173,8 @@ export const LandingHero = () => {
 					}}
 				>
 					<Typography
-						variant="headingTwo"
+						variant={isMobile ? 'headingFour' : 'headingTwo'}
+						as="h2"
 						weight="500"
 						sx={{ color: t => t.palette.orange }}
 					>
