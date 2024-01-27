@@ -28,7 +28,7 @@ export const RoundedVideoText = ({
 			style={{
 				fontWeight: '800',
 				fontStyle: 'italic',
-				fontSize: '1.5rem',
+				fontSize: '1.25rem',
 			}}
 			fill={fill}
 		>
