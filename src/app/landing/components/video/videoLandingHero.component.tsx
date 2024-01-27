@@ -43,7 +43,7 @@ export const VideoLandingHero = () => {
 					placeItems: 'center',
 					gridTemplateAreas: 'videoWithPathArea',
 					position: 'relative',
-					top: isMobile ? '-60px' : '-90px',
+					top: isMobile ? '-60px' : '-100px',
 					//scale: videoScale,
 				}}
 				style={{ scale: videoScale }}
