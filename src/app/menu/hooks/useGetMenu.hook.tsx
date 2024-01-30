@@ -7,7 +7,7 @@ export function useGetMenu() {
 	const { data, isLoading, isError } = useGetAceQuery();
 
 	// const menuData = data?.activeMenu.fields;
-	console.log(data);
+
 	const menuData = data?.activeMenu;
 
 	return {

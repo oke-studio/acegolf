@@ -36,6 +36,7 @@ export const HowItWorksInfoBox = ({
 					flexDirection: 'column',
 					gap: '1rem',
 					padding: '1rem',
+					textOverflow: 'clip',
 				}}
 			>
 				<Typography variant="base" weight="600">
@@ -59,14 +60,7 @@ export const HowItWorksInfoBox = ({
 					gap: '24px',
 				}}
 			>
-				<Typography
-					variant="headingOne"
-					weight="900"
-					fontStyle="italic"
-					sx={{
-						lineHeight: '65%',
-					}}
-				>
+				<Typography variant="headingOne" weight="900" fontStyle="italic">
 					{label}
 				</Typography>
 				<Typography

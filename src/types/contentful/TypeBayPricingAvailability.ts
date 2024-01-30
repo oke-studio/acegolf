@@ -7,8 +7,8 @@ export interface TypeBayPricingAvailabilityFields {
 	effectiveDateRangeStart: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
 	effectiveDateRangeEnd: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
 	announcement?: string;
-	generalBaySchedule: { items: TypeGeneralBayPriceFields[] };
-	privateBaySchedule: { items: TypePrivateBayPriceFields[] };
+	generalBayScheduleCollection: { items: TypeGeneralBayPriceFields[] };
+	privateBayScheduleCollection: { items: TypePrivateBayPriceFields[] };
 }
 
 // export type TypeBayPricingAvailability =

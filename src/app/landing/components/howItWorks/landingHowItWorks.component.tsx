@@ -198,6 +198,7 @@ export const LandingHowItWorks = () => {
 						handleReserveFormOnChange={handleReserveFormOnChange}
 						reserveABayObject={reserveABayObject}
 						isWide={true}
+						isLanding
 					/>
 				</Card>
 			</Box>

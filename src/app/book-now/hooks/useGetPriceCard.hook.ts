@@ -1,15 +1,17 @@
-import { TypeAceGolfBarComFields } from '@/types/contentful/TypeAceGolfBarCom';
+import { TypeMenuFields } from '@/types/contentful';
 import { useQuery } from '@tanstack/react-query';
 import { getAceQuery } from '@/util/getAceQuery';
 import { useGetAceQuery } from '@/hooks/getUseAceQuery/getUseAceQuery.hook';
 
-export function useGetPromotions() {
+export function useGetPriceCard() {
 	const { data, isLoading, isError } = useGetAceQuery();
 
-	const promotionData = data?.activePromotionsCollection.items;
+	// const menuData = data?.activeMenu.fields;
+	// console.log(data);
+	const priceData = data?.activePriceGrid;
 
 	return {
-		promotionData,
+		priceData,
 		isLoading,
 		isError,
 	};

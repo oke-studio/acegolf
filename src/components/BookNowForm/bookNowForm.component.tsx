@@ -44,6 +44,7 @@ export const BookNowForm = ({
 	handleReserveFormOnChange,
 	handleDateTimePickerChange,
 	reserveABayObject,
+	isLanding = false,
 }: //   isWide,
 {
 	handleDateTimePickerChange: (
@@ -56,17 +57,18 @@ export const BookNowForm = ({
 	) => void;
 	reserveABayObject: ReserveABayObject;
 	isWide: boolean;
+	isLanding?: boolean;
 }) => {
 	return (
 		<Box
 			sx={{
 				display: 'flex',
-				flexDirection: 'column',
+				flexDirection: isLanding ? 'row' : 'column',
 				gap: '24px',
-				justifyContent: 'space-around',
+				justifyContent: isLanding ? 'center' : 'space-evenly',
 			}}
 		>
-			<FormControl fullWidth>
+			<FormControl>
 				<InputLabel
 					id="reserve-a-bay-guest-label"
 					sx={{ visibility: 'hidden' }}
@@ -112,7 +114,7 @@ export const BookNowForm = ({
 				</Select>
 			</FormControl>
 
-			<FormControl fullWidth>
+			<FormControl>
 				<InputLabel
 					id="reserve-a-bay-duration-label"
 					sx={{ visibility: 'hidden' }}

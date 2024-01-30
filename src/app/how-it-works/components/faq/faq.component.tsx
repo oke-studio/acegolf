@@ -74,7 +74,7 @@ export const FAQ = () => {
 	const faqReduced = faqData?.reduce(
 		(acc, curr) => {
 			const category = curr.categoryRefrence.faqCategoryName;
-			console.log(acc, category);
+
 			if (acc[category]) {
 				acc[category].push({
 					question: curr.question,
@@ -95,7 +95,6 @@ export const FAQ = () => {
 		{} as { [x: string]: { answer: string; question: string }[] },
 	);
 
-	console.log(faqReduced);
 	return (
 		<Box
 			sx={{

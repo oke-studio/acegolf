@@ -8,17 +8,18 @@ import { Typography } from '@/components/Typography/typography.component';
 
 import { useGetPromotions } from './hooks/useGetPromotions.hook';
 
-const PromotionCards = ({
-	label,
-	background,
-	imgSrc,
-	eventsSlug,
-}: {
+interface PromotionCardProps {
 	label: string;
 	background: string;
 	imgSrc?: string;
 	eventsSlug: string;
-}) => {
+}
+const AnimatedPromotionCards = ({
+	label,
+	background,
+	imgSrc,
+	eventsSlug,
+}: PromotionCardProps) => {
 	const router = useRouter();
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
@@ -77,9 +78,8 @@ const PromotionCards = ({
 				flexDirection: 'column',
 				backgroundColor: 'white',
 				color: 'black',
-				cursor: 'pointer',
 			}}
-			component={motion.button}
+			component={motion.div}
 			style={{
 				transformStyle: 'preserve-3d',
 				// rotateX,
@@ -88,7 +88,6 @@ const PromotionCards = ({
 			// whileHover={{ opacity: 0.7 }}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
-			onClick={() => router.push(`/events/${eventsSlug}`)}
 		>
 			<Box
 				component={motion.div}
@@ -134,13 +133,116 @@ const PromotionCards = ({
 					right: 0,
 					height: 'inherit',
 					borderRadius: 'inherit',
-					backgroundColor: 'white',
+					backgroundColor: theme => theme.palette.sharpTeal,
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'end',
+					border: 'none',
+					color: 'black',
+					cursor: 'pointer',
 				}}
-				component={motion.div}
+				onClick={() => router.push(`/events/${eventsSlug}`)}
+				component={motion.button}
 				style={{ top: topTransformer }}
+			>
+				<Typography
+					variant="large"
+					fontStyle="normal"
+					weight="600"
+					sx={{ textWrap: 'nowrap' }}
+					padding={1}
+				>
+					{label}
+				</Typography>
+			</Box>
+		</Box>
+	);
+};
+
+const PromotionCards = ({
+	label,
+	background,
+	imgSrc,
+	eventsSlug,
+}: PromotionCardProps) => {
+	const router = useRouter();
+
+	return (
+		<Box
+			sx={{
+				borderRadius: '16px',
+				height: '400px',
+				minWidth: '250px',
+				display: 'flex',
+				flexDirection: 'column',
+				backgroundColor: 'white',
+				color: 'black',
+			}}
+			component={motion.div}
+			style={{
+				transformStyle: 'preserve-3d',
+				// rotateX,
+				// rotateY,
+			}}
+			// whileHover={{ opacity: 0.7 }}
+			// onMouseMove={handleMouseMove}
+			// onMouseLeave={handleMouseLeave}
+		>
+			<Box
+				// component={motion.div}
+				sx={{
+					width: '100%',
+					...(imgSrc && { background: background }),
+					height: 'inherit',
+					borderRadius: 'inherit',
+					// borderBottomLeftRadius: '0px',
+					// borderBottomRightRadius: '0px',
+					// backgroundImage: `url(${imgSrc})`,
+					// backgroundRepeat: 'no-repeat',
+					// backgroundSize: 'cover',
+					// backgroundPosition: 'center',
+
+					transformStyle: 'preserve-3d',
+					transform: 'translateZ(75px)',
+
+					position: 'absolute',
+					inset: '1rem ',
+					top: 0,
+					right: 0,
+					left: 0,
+					zIndex: 2,
+				}}
+			>
+				{imgSrc && (
+					<Image
+						src={imgSrc}
+						alt="img"
+						width={250}
+						height={400}
+						sizes="250px"
+						style={{ borderRadius: 'inherit' }}
+					/>
+				)}
+			</Box>
+			<Box
+				sx={{
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					right: 0,
+					height: 'inherit',
+					borderRadius: 'inherit',
+					backgroundColor: theme => theme.palette.sharpTeal,
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'end',
+					border: 'none',
+					color: 'black',
+					cursor: 'pointer',
+				}}
+				onClick={() => router.push(`/events/${eventsSlug}`)}
+				// component={motion.button}
+				// style={{ top: topTransformer }}
 			>
 				<Typography
 					variant="large"
@@ -175,7 +277,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 			}}
 		>
 			<Typography variant="largeH1" weight="900" sx={{ textAlign: 'center' }}>
-				PROMOTIONS & EVENTS
+				{isLanding ? 'PROMOTIONS & EVENTS' : 'EVENTS'}
 			</Typography>
 			<Typography variant="base">
 				Be the first to know about the latest ACE Golf promos and events
@@ -187,6 +289,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 					...(isMobile && { flexDirection: 'column' }),
 					flexWrap: 'wrap',
 					justifyContent: 'center',
+					margin: '24px 0',
 				}}
 			>
 				{promotionData

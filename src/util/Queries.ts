@@ -60,11 +60,35 @@ export const GetAceQuery = gql`
 					generalBayScheduleCollection {
 						items {
 							dayOfWeek
+							serviceTime1 {
+								beginningTime
+								endTime
+								nameOfServiceTime
+							}
+							serviceTime1Price
+							serviceTime2 {
+								beginningTime
+								endTime
+								nameOfServiceTime
+							}
+							serviceTime2Price
 						}
 					}
 					privateBayScheduleCollection {
 						items {
 							dayOfWeek
+							serviceTime1 {
+								beginningTime
+								endTime
+								nameOfServiceTime
+							}
+							serviceTime1Price
+							serviceTime2 {
+								beginningTime
+								endTime
+								nameOfServiceTime
+							}
+							serviceTime2Price
 						}
 					}
 				}
@@ -77,6 +101,10 @@ export const GetAceQuery = gql`
 							question
 							answer
 							ctaLink
+							categoryRefrence {
+								faqCategoryName
+								slug
+							}
 						}
 					}
 					step2Title
@@ -120,11 +148,9 @@ export const GetAceQuery = gql`
 						effectiveDateStart
 						effectiveDateEnd
 						sevenRoomsPromotionCode
-						slugId
 						promotionPoster {
 							description
 							title
-							url
 						}
 					}
 				}

@@ -13,16 +13,15 @@ const useGetFAQQuery = () => {
 		queryFn: () => getAceQuery(GetFAQQuery),
 	});
 
-	console.log(Query.data);
-
 	return Query;
 };
 
 export function useGetFAQ() {
 	const { data, isLoading, isError } = useGetFAQQuery();
 
+	// console.log(data);
+
 	const faqData = data?.data.faqItemCollection.items;
-	console.log(faqData);
 
 	return {
 		faqData,

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useGetEvents } from './hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
+import { Promotions } from '../landing/components/promotions/promotions.component';
 
 export default function Events() {
 	const { eventsData, isError, isLoading } = useGetEvents();
@@ -11,11 +12,17 @@ export default function Events() {
 	console.log(eventsData);
 
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '2rem',
+				backgroundColor: theme => theme.palette.purple,
+			}}
+		>
 			<Box
 				sx={{
 					display: 'flex',
-					backgroundColor: theme => theme.palette.purple,
 					// flexDirection: isMobileOrTablet ? 'column' : 'row',
 					gap: '0.5rem',
 					padding: '2rem',
@@ -42,6 +49,47 @@ export default function Events() {
 					This copy describes the overall experience of what ace golf encourages
 					users to learn more below and see the FAQs section on this page
 				</Typography>
+			</Box>
+
+			<Box
+				sx={{
+					display: 'flex',
+					gap: '12px',
+					flexDirection: 'column',
+					color: 'black',
+				}}
+			>
+				<Typography variant="largeH1" weight="900" fontStyle="italic">
+					About The Kitchen
+				</Typography>
+				<Typography variant="base">
+					This is a piece of text about the kitchen, it will tell the people how
+					the kitchen. Introduce the chefs and their approach. It will aso tell
+					information on when the kitchen is open for everyday for golfers and
+					for just dinners. it will also show that the kitchen is on uber eats{' '}
+				</Typography>
+			</Box>
+			<Box
+				sx={{
+					display: 'flex',
+					gap: '12px',
+					flexDirection: 'column',
+					color: 'black',
+				}}
+			>
+				<Typography variant="largeH1" weight="900" fontStyle="italic">
+					About The Bar
+				</Typography>
+				<Typography variant="base">
+					This is a piece of text about the kitchen, it will tell the people how
+					the kitchen. Introduce the chefs and their approach. It will aso tell
+					information on when the kitchen is open for everyday for golfers and
+					for just dinners. it will also show that the kitchen is on uber eats{' '}
+				</Typography>
+			</Box>
+
+			<Box>
+				<Promotions />
 			</Box>
 
 			{/* <NintendoSwitch /> */}
