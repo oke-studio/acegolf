@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { useTheme, Box, useMediaQuery } from '@mui/material';
+import { useTheme, Box, useMediaQuery, CircularProgress } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
@@ -8,17 +8,18 @@ import { Typography } from '@/components/Typography/typography.component';
 
 import { useGetPromotions } from './hooks/useGetPromotions.hook';
 
-const PromotionCards = ({
-	label,
-	background,
-	imgSrc,
-	eventsSlug,
-}: {
+interface PromotionCardProps {
 	label: string;
 	background: string;
 	imgSrc?: string;
 	eventsSlug: string;
-}) => {
+}
+const AnimatedPromotionCards = ({
+	label,
+	background,
+	imgSrc,
+	eventsSlug,
+}: PromotionCardProps) => {
 	const router = useRouter();
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
@@ -77,9 +78,8 @@ const PromotionCards = ({
 				flexDirection: 'column',
 				backgroundColor: 'white',
 				color: 'black',
-				cursor: 'pointer',
 			}}
-			component={motion.button}
+			component={motion.div}
 			style={{
 				transformStyle: 'preserve-3d',
 				// rotateX,
@@ -88,7 +88,6 @@ const PromotionCards = ({
 			// whileHover={{ opacity: 0.7 }}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
-			onClick={() => router.push(`/events/${eventsSlug}`)}
 		>
 			<Box
 				component={motion.div}
@@ -134,13 +133,102 @@ const PromotionCards = ({
 					right: 0,
 					height: 'inherit',
 					borderRadius: 'inherit',
-					backgroundColor: 'white',
+					backgroundColor: theme => theme.palette.sharpTeal,
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'end',
+					border: 'none',
+					color: 'black',
+					cursor: 'pointer',
 				}}
-				component={motion.div}
+				onClick={() => router.push(`/events/${eventsSlug}`)}
+				component={motion.button}
 				style={{ top: topTransformer }}
+			>
+				<Typography
+					variant="large"
+					fontStyle="normal"
+					weight="600"
+					sx={{ textWrap: 'nowrap' }}
+					padding={1}
+				>
+					{label}
+				</Typography>
+			</Box>
+		</Box>
+	);
+};
+
+const PromotionCards = ({
+	label,
+	background,
+	imgSrc,
+	eventsSlug,
+}: PromotionCardProps) => {
+	const router = useRouter();
+	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
+	console.log(img, imgSrc);
+	return (
+		<Box
+			sx={{
+				borderRadius: '16px',
+				height: '400px',
+				minWidth: '250px',
+				display: 'flex',
+				flexDirection: 'column',
+				backgroundColor: 'white',
+				color: 'black',
+			}}
+		>
+			<Box
+				// component={motion.div}
+				sx={{
+					width: '100%',
+
+					height: 'inherit',
+					borderRadius: 'inherit',
+					borderBottomLeftRadius: '0',
+					borderBottomRightRadius: '0',
+
+					position: 'relative',
+					inset: '1rem ',
+					top: 0,
+					right: 0,
+					left: 0,
+					// zIndex: 2,
+				}}
+			>
+				<Image
+					src={img}
+					alt="img"
+					fill
+					sizes="250px"
+					style={{
+						borderRadius: 'inherit',
+						objectFit: 'cover',
+						objectPosition: 'center',
+					}}
+				/>
+			</Box>
+			<Box
+				sx={{
+					height: '100px',
+					borderRadius: 'inherit',
+					borderTopLeftRadius: '0',
+					borderTopRightRadius: '0',
+					backgroundColor: 'white',
+					display: 'flex',
+					flexDirection: 'column',
+					border: 'none',
+					color: 'black',
+					cursor: 'pointer',
+					':hover': {
+						color: theme => theme.palette.aceOrange,
+					},
+				}}
+				onClick={() => router.push(`/events/${eventsSlug}`)}
+				// component={motion.button}
+				// style={{ top: topTransformer }}
 			>
 				<Typography
 					variant="large"
@@ -163,6 +251,12 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 	const { promotionData, isLoading, isError } = useGetPromotions();
 	const MAX_PROMOTION_CARDS = isLanding ? 3 : 6;
 
+	if (isLoading) {
+		return <CircularProgress />;
+	}
+
+	console.log(promotionData);
+
 	return (
 		<Box
 			sx={{
@@ -175,7 +269,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 			}}
 		>
 			<Typography variant="largeH1" weight="900" sx={{ textAlign: 'center' }}>
-				PROMOTIONS & EVENTS
+				{isLanding ? 'PROMOTIONS & EVENTS' : 'EVENTS'}
 			</Typography>
 			<Typography variant="base">
 				Be the first to know about the latest ACE Golf promos and events
@@ -187,6 +281,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 					...(isMobile && { flexDirection: 'column' }),
 					flexWrap: 'wrap',
 					justifyContent: 'center',
+					margin: '24px 0',
 				}}
 			>
 				{promotionData

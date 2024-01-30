@@ -7,7 +7,6 @@ export function useGetAce() {
 	const { data, isLoading, isError } = useGetAceQuery();
 
 	const aceData = data?.activeDate;
-	console.log(aceData);
 
 	return {
 		aceData: aceData ?? {},

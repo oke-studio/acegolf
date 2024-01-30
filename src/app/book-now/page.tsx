@@ -12,9 +12,11 @@ import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.ho
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 
 import PriceTabCard from './priceTabCard.component';
+import { useRouter } from 'next/navigation';
 
 export default function BookNow() {
 	const theme = useTheme();
+	const router = useRouter();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 	const {
 		handleBookNowButtonLink,
@@ -66,7 +68,11 @@ export default function BookNow() {
 					/>
 				</Card>
 				<Card
-					buttonOne={{ children: 'How it works', variant: 'secondary' }}
+					buttonOne={{
+						children: 'How it works',
+						variant: 'secondary',
+						onClick: () => router.push('/how-it-works'),
+					}}
 					CardTitle="Prices & Rates"
 					sx={{ minHeight: '600px' }}
 					BackgroundColor="#F6F6F6"

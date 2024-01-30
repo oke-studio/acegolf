@@ -4,6 +4,9 @@ import * as React from 'react';
 import { Box, useMediaQuery, useTheme, Tabs, Tab, styled } from '@mui/material';
 
 import { Typography } from '@/components/Typography/typography.component';
+import { useGetPriceCard } from './hooks/useGetPriceCard.hook';
+import { TypeServiceTimeFields } from '@/types/contentful';
+import CircularProgress from '@mui/material/CircularProgress';
 
 interface TabPanelProps {
 	children?: React.ReactNode;
@@ -70,10 +73,9 @@ interface PriceContainer {
 	color?: 'black' | 'white';
 	timeFrom: string;
 	timeTo: string;
+	service: string;
 	backgroundColor?: string;
-	bar?: boolean;
-	kitchen?: boolean;
-	cafe?: boolean;
+	isPrivate?: boolean;
 }
 
 interface PricesTabsContentSkeletonProps {
@@ -81,7 +83,8 @@ interface PricesTabsContentSkeletonProps {
 	description: string;
 	priceContainerOne: PriceContainer;
 	priceContainerTwo: PriceContainer;
-	privatePriceContainer: Pick<PriceContainer, 'price'>;
+	privatePriceContainerOne: PriceContainer;
+	privatePriceContainerTwo: PriceContainer;
 }
 
 const PricesTabsContentSkeleton = ({
@@ -89,18 +92,18 @@ const PricesTabsContentSkeleton = ({
 	description,
 	priceContainerOne,
 	priceContainerTwo,
-	privatePriceContainer,
+	privatePriceContainerOne,
+	privatePriceContainerTwo,
 }: PricesTabsContentSkeletonProps) => {
 	const theme = useTheme();
 	const PriceInfoBox = ({
 		price,
 		timeFrom,
 		timeTo,
+		service,
 		backgroundColor,
 		color = 'white',
-		bar = false,
-		kitchen = false,
-		cafe = true,
+		isPrivate = false,
 	}: PriceContainer) => {
 		return (
 			<Box
@@ -110,6 +113,13 @@ const PricesTabsContentSkeleton = ({
 					gap: '8px',
 					color: color,
 					width: '100%',
+					borderRadius: '8px',
+					...(isPrivate && {
+						color: 'black',
+						borderColor: theme.palette.green,
+						borderWidth: '3px',
+						borderStyle: 'solid',
+					}),
 				}}
 			>
 				<Box
@@ -119,11 +129,14 @@ const PricesTabsContentSkeleton = ({
 						flexDirection: 'column',
 						width: '100%',
 						minWidth: 'max-content',
-						borderRadius: '8px',
+						borderRadius: 'inherit',
 						padding: '16px',
 						//gap: '8px',
 					}}
 				>
+					<Typography variant="miniscule" weight="600">
+						{service}
+					</Typography>
 					<Typography
 						variant="miniscule"
 						weight="600"
@@ -150,18 +163,6 @@ const PricesTabsContentSkeleton = ({
 						Standard Bay
 					</Typography>
 				</Box>
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'column',
-						// justifyContent: 'center',
-					}}
-				>
-					<Typography variant="miniscule" color="black">
-						*Bar {bar ? 'Open' : 'Closed'}, Cafe {cafe ? 'Open' : 'Closed'},
-						Kitchen {kitchen ? 'Open' : 'Closed'}
-					</Typography>
-				</Box>
 			</Box>
 		);
 	};
@@ -184,7 +185,7 @@ const PricesTabsContentSkeleton = ({
 				sx={{
 					display: 'flex',
 					gap: '16px',
-					flexWrap: 'wrap',
+					// flexWrap: 'wrap',
 					justifyContent: 'space-between',
 				}}
 			>
@@ -192,6 +193,17 @@ const PricesTabsContentSkeleton = ({
 				<PriceInfoBox {...priceContainerTwo} />
 			</Box>
 			<Box
+				sx={{
+					display: 'flex',
+					gap: '16px',
+					// flexWrap: 'wrap',
+					justifyContent: 'space-between',
+				}}
+			>
+				<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
+				<PriceInfoBox {...privatePriceContainerTwo} backgroundColor="white" />
+			</Box>
+			{/* <Box
 				sx={{
 					display: 'flex',
 					padding: '16px',
@@ -223,7 +235,7 @@ const PricesTabsContentSkeleton = ({
 				>
 					Private Bay
 				</Typography>
-			</Box>
+			</Box> */}
 		</Box>
 	);
 };
@@ -232,6 +244,47 @@ export default function PriceTabCard() {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+	const { priceData, isLoading } = useGetPriceCard();
+
+	const GeneralBay = priceData?.generalBayScheduleCollection.items!;
+	const PrivateBay = priceData?.privateBayScheduleCollection.items!;
+
+	const baysPricingReduced = GeneralBay?.reduce(
+		(acc, curr, index) => {
+			const generalBays = curr;
+			const privateBays = PrivateBay[index];
+
+			const bayObject = {
+				day: generalBays.dayOfWeek,
+				generalBayTimeOne: generalBays.serviceTime1,
+				generalBayPriceOne: generalBays.serviceTime1Price,
+				generalBayTimeTwo: generalBays.serviceTime2,
+				generalBayPriceTwo: generalBays.serviceTime2Price,
+				privateBayTimeOne: privateBays.serviceTime1,
+				privateBayPriceOne: privateBays.serviceTime1Price,
+				privateBayTimeTwo: privateBays.serviceTime2,
+				privateBayPriceTwo: privateBays.serviceTime2Price,
+			};
+
+			acc.push(bayObject);
+
+			return acc;
+		},
+		[] as {
+			day: string;
+			generalBayTimeOne: TypeServiceTimeFields;
+			generalBayPriceOne: number;
+			generalBayTimeTwo: TypeServiceTimeFields;
+			generalBayPriceTwo: number;
+			privateBayTimeOne: TypeServiceTimeFields;
+			privateBayPriceOne: number;
+			privateBayTimeTwo: TypeServiceTimeFields;
+			privateBayPriceTwo: number;
+		}[],
+	);
+
+	console.log(baysPricingReduced);
+
 	const currentDate = new Date();
 
 	const [value, setValue] = React.useState(currentDate.getDay());
@@ -239,6 +292,10 @@ export default function PriceTabCard() {
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
 	};
+
+	if (isLoading) {
+		return <CircularProgress sx={{ color: theme.palette.aceOrange }} />;
+	}
 
 	return (
 		<Box sx={{ width: '100%' }}>
@@ -252,136 +309,55 @@ export default function PriceTabCard() {
 				scrollButtons="auto"
 				sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
 			>
-				<StyledTab value={1} label="Mon" />
-				<StyledTab value={2} label="Tue" />
-				<StyledTab value={3} label="Wed" />
-				<StyledTab value={4} label="Thu" />
-				<StyledTab value={5} label="Fri" />
-				<StyledTab value={6} label="Sat" />
-				<StyledTab value={0} label="Sun" />
+				<StyledTab value={0} label="Mon" />
+				<StyledTab value={1} label="Tue" />
+				<StyledTab value={2} label="Wed" />
+				<StyledTab value={3} label="Thu" />
+				<StyledTab value={4} label="Fri" />
+				<StyledTab value={5} label="Sat" />
+				<StyledTab value={6} label="Sun" />
 			</StyledTabs>
 
-			<TabPanel value={value} index={0} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Sunday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 39.99,
-						timeFrom: '8am',
-						timeTo: '5pm',
-					}}
-					priceContainerTwo={{
-						price: 40.99,
-						timeFrom: '5pm',
-						timeTo: '12am',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={1} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Monday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 39.99,
-						timeFrom: '8am',
-						timeTo: '5pm',
-						bar: false,
-						cafe: true,
-					}}
-					priceContainerTwo={{
-						price: 40.99,
-						timeFrom: '5pm',
-						timeTo: '12am',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={2} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Tuesday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 50,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					priceContainerTwo={{
-						price: 50.99,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={3} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Wednesday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 50,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					priceContainerTwo={{
-						price: 50.99,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={4} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Thursday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 50,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					priceContainerTwo={{
-						price: 50.99,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={5} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Friday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 50,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					priceContainerTwo={{
-						price: 50.99,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
-			<TabPanel value={value} index={6} dir={theme.direction}>
-				<PricesTabsContentSkeleton
-					title="Saturday"
-					description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
-					priceContainerOne={{
-						price: 50,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					priceContainerTwo={{
-						price: 50.99,
-						timeFrom: '5pm',
-						timeTo: '9pm',
-					}}
-					privatePriceContainer={{ price: 59.99 }}
-				/>
-			</TabPanel>
+			{baysPricingReduced &&
+				baysPricingReduced.map((bay, index) => (
+					<TabPanel
+						value={value}
+						index={index}
+						dir={theme.direction}
+						key={`bay_${index}_${bay.day}`}
+					>
+						<PricesTabsContentSkeleton
+							title={bay.day}
+							description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+							priceContainerOne={{
+								price: bay.generalBayPriceOne,
+								timeFrom: bay.generalBayTimeOne.beginningTime,
+								timeTo: bay.generalBayTimeOne.endTime,
+								service: bay.generalBayTimeOne.nameOfServiceTime,
+							}}
+							priceContainerTwo={{
+								price: bay.generalBayPriceTwo,
+								timeFrom: bay.generalBayTimeTwo.beginningTime,
+								timeTo: bay.generalBayTimeTwo.endTime,
+								service: bay.generalBayTimeTwo.nameOfServiceTime,
+							}}
+							privatePriceContainerOne={{
+								price: bay.privateBayPriceOne,
+								timeFrom: bay.privateBayTimeOne.beginningTime,
+								timeTo: bay.privateBayTimeOne.endTime,
+								service: bay.privateBayTimeOne.nameOfServiceTime,
+								isPrivate: true,
+							}}
+							privatePriceContainerTwo={{
+								price: bay.privateBayPriceTwo,
+								timeFrom: bay.privateBayTimeTwo.beginningTime,
+								timeTo: bay.privateBayTimeTwo.endTime,
+								service: bay.privateBayTimeOne.nameOfServiceTime,
+								isPrivate: true,
+							}}
+						/>
+					</TabPanel>
+				))}
 		</Box>
 	);
 }
