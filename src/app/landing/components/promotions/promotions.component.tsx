@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { useTheme, Box, useMediaQuery } from '@mui/material';
+import { useTheme, Box, useMediaQuery, CircularProgress } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
@@ -166,7 +166,8 @@ const PromotionCards = ({
 	eventsSlug,
 }: PromotionCardProps) => {
 	const router = useRouter();
-
+	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
+	console.log(img, imgSrc);
 	return (
 		<Box
 			sx={{
@@ -178,67 +179,52 @@ const PromotionCards = ({
 				backgroundColor: 'white',
 				color: 'black',
 			}}
-			component={motion.div}
-			style={{
-				transformStyle: 'preserve-3d',
-				// rotateX,
-				// rotateY,
-			}}
-			// whileHover={{ opacity: 0.7 }}
-			// onMouseMove={handleMouseMove}
-			// onMouseLeave={handleMouseLeave}
 		>
 			<Box
 				// component={motion.div}
 				sx={{
 					width: '100%',
-					...(imgSrc && { background: background }),
+
 					height: 'inherit',
 					borderRadius: 'inherit',
-					// borderBottomLeftRadius: '0px',
-					// borderBottomRightRadius: '0px',
-					// backgroundImage: `url(${imgSrc})`,
-					// backgroundRepeat: 'no-repeat',
-					// backgroundSize: 'cover',
-					// backgroundPosition: 'center',
+					borderBottomLeftRadius: '0',
+					borderBottomRightRadius: '0',
 
-					transformStyle: 'preserve-3d',
-					transform: 'translateZ(75px)',
-
-					position: 'absolute',
+					position: 'relative',
 					inset: '1rem ',
 					top: 0,
 					right: 0,
 					left: 0,
-					zIndex: 2,
+					// zIndex: 2,
 				}}
 			>
-				{imgSrc && (
-					<Image
-						src={imgSrc}
-						alt="img"
-						width={250}
-						height={400}
-						sizes="250px"
-						style={{ borderRadius: 'inherit' }}
-					/>
-				)}
+				<Image
+					src={img}
+					alt="img"
+					fill
+					sizes="250px"
+					style={{
+						borderRadius: 'inherit',
+						objectFit: 'cover',
+						objectPosition: 'center',
+					}}
+				/>
 			</Box>
 			<Box
 				sx={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					right: 0,
-					height: 'inherit',
+					height: '100px',
 					borderRadius: 'inherit',
-					backgroundColor: theme => theme.palette.sharpTeal,
+					borderTopLeftRadius: '0',
+					borderTopRightRadius: '0',
+					backgroundColor: 'white',
 					display: 'flex',
 					flexDirection: 'column',
-					justifyContent: 'end',
 					border: 'none',
 					color: 'black',
 					cursor: 'pointer',
+					':hover': {
+						color: theme => theme.palette.aceOrange,
+					},
 				}}
 				onClick={() => router.push(`/events/${eventsSlug}`)}
 				// component={motion.button}
@@ -264,6 +250,12 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 
 	const { promotionData, isLoading, isError } = useGetPromotions();
 	const MAX_PROMOTION_CARDS = isLanding ? 3 : 6;
+
+	if (isLoading) {
+		return <CircularProgress />;
+	}
+
+	console.log(promotionData);
 
 	return (
 		<Box

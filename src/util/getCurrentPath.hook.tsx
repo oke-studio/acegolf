@@ -10,12 +10,15 @@ const PathToCSS: { [key: string]: SxProps } = {
 	'/menu': {
 		backgroundColor: '#EB8B32',
 		color: 'black',
-		':after': {
-			content: "''",
-			position: 'absolute',
-			background: 'no-repeat url(/images/Vector.svg) center',
-		},
 	},
+	// '/how-it-works': {
+	// 	backgroundColor: '#EB8B32',
+	// 	color: 'black',
+	// },
+	// '/events': {
+	// 	backgroundColor: '#',
+	// 	color: 'black',
+	// },
 };
 
 export const useGetCurrentPathName = () => {

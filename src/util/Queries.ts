@@ -147,6 +147,7 @@ export const GetAceQuery = gql`
 						promotionTitle
 						effectiveDateStart
 						effectiveDateEnd
+						slugId
 						sevenRoomsPromotionCode
 						promotionPoster {
 							description

@@ -5,12 +5,9 @@ import { useGetEvents } from './hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Promotions } from '../landing/components/promotions/promotions.component';
+import { Section } from '@/components/layout/section.component';
 
 export default function Events() {
-	const { eventsData, isError, isLoading } = useGetEvents();
-
-	console.log(eventsData);
-
 	return (
 		<Box
 			sx={{
@@ -50,47 +47,56 @@ export default function Events() {
 					users to learn more below and see the FAQs section on this page
 				</Typography>
 			</Box>
-
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '12px',
-					flexDirection: 'column',
-					color: 'black',
-				}}
+			<Section
+				SectionName="Events Homepage"
+				SectionWidth="normal"
+				SectionColor=""
+				CornerRadius
+				SectionHeight="fit-content"
 			>
-				<Typography variant="largeH1" weight="900" fontStyle="italic">
-					About The Kitchen
-				</Typography>
-				<Typography variant="base">
-					This is a piece of text about the kitchen, it will tell the people how
-					the kitchen. Introduce the chefs and their approach. It will aso tell
-					information on when the kitchen is open for everyday for golfers and
-					for just dinners. it will also show that the kitchen is on uber eats{' '}
-				</Typography>
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '12px',
-					flexDirection: 'column',
-					color: 'black',
-				}}
-			>
-				<Typography variant="largeH1" weight="900" fontStyle="italic">
-					About The Bar
-				</Typography>
-				<Typography variant="base">
-					This is a piece of text about the kitchen, it will tell the people how
-					the kitchen. Introduce the chefs and their approach. It will aso tell
-					information on when the kitchen is open for everyday for golfers and
-					for just dinners. it will also show that the kitchen is on uber eats{' '}
-				</Typography>
-			</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						gap: '12px',
+						flexDirection: 'column',
+						color: 'black',
+					}}
+				>
+					<Typography variant="largeH1" weight="900" fontStyle="italic">
+						About The Kitchen
+					</Typography>
+					<Typography variant="base">
+						This is a piece of text about the kitchen, it will tell the people
+						how the kitchen. Introduce the chefs and their approach. It will aso
+						tell information on when the kitchen is open for everyday for
+						golfers and for just dinners. it will also show that the kitchen is
+						on uber eats{' '}
+					</Typography>
+				</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						gap: '12px',
+						flexDirection: 'column',
+						color: 'black',
+					}}
+				>
+					<Typography variant="largeH1" weight="900" fontStyle="italic">
+						About The Bar
+					</Typography>
+					<Typography variant="base">
+						This is a piece of text about the kitchen, it will tell the people
+						how the kitchen. Introduce the chefs and their approach. It will aso
+						tell information on when the kitchen is open for everyday for
+						golfers and for just dinners. it will also show that the kitchen is
+						on uber eats{' '}
+					</Typography>
+				</Box>
 
-			<Box>
-				<Promotions />
-			</Box>
+				<Box>
+					<Promotions />
+				</Box>
+			</Section>
 
 			{/* <NintendoSwitch /> */}
 		</Box>

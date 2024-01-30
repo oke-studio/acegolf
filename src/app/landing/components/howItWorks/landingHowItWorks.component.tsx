@@ -67,14 +67,7 @@ export const LandingHowItWorks = () => {
 							<Typography variant="headingOne" weight="900" fontStyle="italic">
 								1.
 							</Typography>
-							<Typography
-								variant="headingTwo"
-								weight="900"
-								fontStyle="italic"
-								sx={{
-									lineHeight: '65%',
-								}}
-							>
+							<Typography variant="headingTwo" weight="900" fontStyle="italic">
 								Reserve A <br />
 								Bay
 							</Typography>
@@ -104,14 +97,7 @@ export const LandingHowItWorks = () => {
 							<Typography variant="headingOne" weight="900" fontStyle="italic">
 								2.
 							</Typography>
-							<Typography
-								variant="headingTwo"
-								weight="900"
-								fontStyle="italic"
-								sx={{
-									lineHeight: '65%',
-								}}
-							>
+							<Typography variant="headingTwo" weight="900" fontStyle="italic">
 								Set Up And
 								<br /> Tee Up
 							</Typography>
@@ -141,14 +127,7 @@ export const LandingHowItWorks = () => {
 							<Typography variant="headingOne" weight="900" fontStyle="italic">
 								3.
 							</Typography>
-							<Typography
-								variant="headingTwo"
-								weight="900"
-								fontStyle="italic"
-								sx={{
-									lineHeight: '65%',
-								}}
-							>
+							<Typography variant="headingTwo" weight="900" fontStyle="italic">
 								Start <br />
 								Swingin&apos;
 							</Typography>
