@@ -46,19 +46,10 @@ export default function Home() {
 
 	//mapping scroll progress to actual
 	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-	const sectionScale = useTransform(scrollYProgress, [0.5, 0.9], [1, 0.95]);
+	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (
-		<Box
-			sx={
-				{
-					// position: 'relative',
-					// overflow: 'hidden',
-					// backgroundColor: 'transparent',
-					// margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
-				}
-			}
-		>
+		<Box>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
@@ -71,8 +62,8 @@ export default function Home() {
 						top: '100px',
 					}}
 					style={{
-						opacity: sectionOpacity,
-						scale: sectionScale,
+						opacity: isMobile ? '1' : 'sectionOpacity',
+						scale: isMobile ? '1' : 'sectionScale',
 					}}
 				>
 					<PageTitleSection
@@ -86,16 +77,24 @@ export default function Home() {
 						<Box
 							sx={{
 								display: 'flex',
-								flexWrap: 'wrap',
-								justifyContent: isMobile ? 'center' : 'space-between',
+								justifyContent: isMobile ? 'center' : '',
 								gap: '12px',
 								position: 'relative',
 								zIndex: '2',
+								...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
 							}}
 						>
 							<SpinningMenuHeading />
-							<Typography variant="base" alignSelf="center">
-								Swing into flavour with our culinary delights
+							<Typography
+								variant="large"
+								alignSelf="center"
+								sx={{
+									width: isMobile ? '100%' : '50%',
+								}}
+							>
+								Swing into flavour with our culinary delights. This is a piece
+								of text about the food inspiration. it will tell the people what
+								to expect with menu.
 							</Typography>
 						</Box>
 					</PageTitleSection>

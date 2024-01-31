@@ -85,7 +85,7 @@ export const PageTitleSection = ({
 				...SECTION,
 
 				backgroundColor: `${SectionColor}`,
-				padding: '2% 5%',
+				padding: '1% 5%',
 				height: `${SectionHeight}`,
 
 				...(isLargeDesktop && { margin: '8px 5% 8px' }),
