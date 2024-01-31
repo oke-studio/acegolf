@@ -23,7 +23,7 @@ export default function HiwPageTitle() {
 			SectionName="How it works page title"
 			SectionWidth="fullViewport"
 			SectionHeight="fit-content"
-			SectionColor="#EB8B32"
+			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
 		>
@@ -35,6 +35,7 @@ export default function HiwPageTitle() {
 					position: 'relative',
 					zIndex: '2',
 					...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
+					color: 'white',
 				}}
 			>
 				<Typography

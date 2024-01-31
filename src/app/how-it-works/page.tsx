@@ -51,12 +51,12 @@ export default function Home() {
 	const howItWorkStepsSectionAsReference = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: howItWorkStepsSectionAsReference,
-		offset: ['start end', 'start start'],
+		offset: ['center end', 'start start'],
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
-	const sectionScale = useTransform(scrollYProgress, [0.5, 1], [1, 0.9]);
+	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	const { howItWorksData, isLoading } = useGetHowItWorks();
 

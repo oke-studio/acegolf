@@ -44,7 +44,7 @@ export default function Home() {
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+	const sectionOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (

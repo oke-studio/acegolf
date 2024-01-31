@@ -62,11 +62,11 @@ export const HowItWorksInfoBox = ({
 					gap: '24px',
 				}}
 			>
-				<Typography variant="headingOne" weight="900" fontStyle="italic">
+				<Typography variant="headingTwo" weight="900" fontStyle="italic">
 					{label}
 				</Typography>
 				<Typography
-					variant="large"
+					variant="base"
 					weight="400"
 					// sx={{ padding: '0px 32px' }}
 				>
