@@ -1,9 +1,20 @@
 'use client';
 import React from 'react';
-
-import { Box, useTheme, Button, useMediaQuery } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import {
+	Box,
+	styled,
+	Tab,
+	Tabs,
+	useTheme,
+	Button,
+	useMediaQuery,
+} from '@mui/material';
 
 // Animation dependencies
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 // import FullHowItWorks from './components/fullHowItWorks.component';
@@ -17,10 +28,35 @@ import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component'
 // import Image from 'next/image';
 import { FAQ } from './components/faq/faq.component';
 import { useGetHowItWorks } from './hooks/useGetHowItWorks.hook';
+import HiwPageTitle from './components/hiwPageTitle.component';
 
 export default function Home() {
 	const theme = useTheme();
-	const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
+	const isMobileOrTablet = useMediaQuery(useTheme().breakpoints.down('md'));
+
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
+	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
+
+	useEffect(() => {
+		const lenis = new Lenis();
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+	}, []);
+
+	//animation functions
+	//get and track scroll progress with offset amount
+	const howItWorkStepsSectionAsReference = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: howItWorkStepsSectionAsReference,
+		offset: ['start end', 'start start'],
+	});
+
+	//mapping scroll progress to actual
+	const sectionOpacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
+	const sectionScale = useTransform(scrollYProgress, [0.5, 1], [1, 0.9]);
 
 	const { howItWorksData, isLoading } = useGetHowItWorks();
 
@@ -33,98 +69,79 @@ export default function Home() {
 	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
 
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+		<Box>
 			<Box
 				sx={{
-					display: 'flex',
-					backgroundColor: theme.palette.aceOrange,
-					flexDirection: isMobileOrTablet ? 'column' : 'row',
-					gap: '0.5rem',
-					padding: '2rem',
+					maxHeight: 'fit-content',
 				}}
 			>
-				<Typography
-					variant="poster"
-					weight="900"
-					fontStyle="italic"
-					sx={{ textWrap: 'wrap', textAlign: 'center', flex: 1 }}
-				>
-					HOW DOES
-					<br />
-					IT WORK
-				</Typography>
-				<Typography
-					variant="large"
-					weight="500"
+				<Box
+					component={motion.div}
 					sx={{
-						textWrap: 'wrap',
-						textAlign: 'center',
-						flex: 1,
-						color: 'black',
+						position: 'sticky',
+						top: '100px',
+					}}
+					style={{
+						opacity: isMobile ? '1' : sectionOpacity,
+						scale: isMobile ? '1' : sectionScale,
 					}}
 				>
-					This copy describes the overall experience of what ace golf encourages
-					users to learn more below and see the FAQs section on this page
-				</Typography>
-			</Box>
-			{/* <Box sx={{ position: 'relative' }}>
-        <Image
-          src="/images/milk-wave.svg"
-          alt=""
-          fill
-          style={{
-            objectFit: 'contain',
-            objectPosition: 'center',
-          }}
-        />
-      </Box> */}
+					<HiwPageTitle />
+				</Box>
 
-			<HowItWorks
-				infoBoxData={[
-					{
-						description: howItWorksData.step1Content,
-						title: howItWorksData.step1Title,
-						relatedFAQs: RelatedFAQOne,
-					},
-					{
-						description: howItWorksData.step2Content,
-						title: howItWorksData.step2Title,
-						relatedFAQs: RelatedFAQTwo,
-					},
-					{
-						description: howItWorksData.step3Content,
-						title: howItWorksData.step3Title,
-						relatedFAQs: RelatedFAQThree,
-					},
-				]}
-			/>
-			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-				<Button variant="primary">Reserve a Bay &rarr;</Button>
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					backgroundColor: theme.palette.aceGreen,
-					flexDirection: 'column',
-					gap: '32px',
-					padding: '1.5rem',
-					justifyContent: 'center',
-				}}
-			>
-				{/* <SimRoomsComponent />
+				<Box
+					sx={{
+						position: 'sticky',
+						//top: '0px',
+					}}
+					component={motion.div}
+					ref={howItWorkStepsSectionAsReference}
+				>
+					<HowItWorks
+						infoBoxData={[
+							{
+								description: howItWorksData.step1Content,
+								title: howItWorksData.step1Title,
+								relatedFAQs: RelatedFAQOne,
+							},
+							{
+								description: howItWorksData.step2Content,
+								title: howItWorksData.step2Title,
+								relatedFAQs: RelatedFAQTwo,
+							},
+							{
+								description: howItWorksData.step3Content,
+								title: howItWorksData.step3Title,
+								relatedFAQs: RelatedFAQThree,
+							},
+						]}
+					/>
+				</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						backgroundColor: theme.palette.aceGreen,
+						flexDirection: 'column',
+						gap: '32px',
+						padding: '1.5rem',
+						justifyContent: 'center',
+					}}
+				>
+					{/* <SimRoomsComponent />
         <GolfGamesComponent /> */}
-				<SimRoomsComponentV1 />
-				<GolfGamesComponentV1 />
+					<SimRoomsComponentV1 />
+					<GolfGamesComponentV1 />
+				</Box>
+
+				{/* FAQ */}
+				<Box sx={{ display: 'flex' }}>
+					<FAQ />
+				</Box>
+
+				<Box sx={{ display: 'flex' }}></Box>
+
+				<NintendoSwitch />
 			</Box>
-
-			{/* FAQ */}
-			<Box sx={{ display: 'flex' }}>
-				<FAQ />
-			</Box>
-
-			<Box sx={{ display: 'flex' }}></Box>
-
-			<NintendoSwitch />
 		</Box>
 	);
 }

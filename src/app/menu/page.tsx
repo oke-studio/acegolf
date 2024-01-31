@@ -19,9 +19,8 @@ import Lenis from '@studio-freight/lenis';
 
 import { Typography } from '@/components/Typography/typography.component';
 import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
-import { SpinningMenuHeading } from './components/menu-carousel/components/spinningMenuHeading/spinningMenuHeading.component';
 import { Section } from '@/components/layout/section.component';
-import { PageTitleSection } from '@/components/layout/pageTitleSection.componenet';
+import MenuPageTitle from './components/menuPageTitle.components';
 
 export default function Home() {
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
@@ -41,7 +40,7 @@ export default function Home() {
 	const menuSectionAsReference = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: menuSectionAsReference,
-		offset: ['0.85 end', 'start start'],
+		offset: ['center end', 'start start'],
 	});
 
 	//mapping scroll progress to actual
@@ -62,42 +61,14 @@ export default function Home() {
 						top: '100px',
 					}}
 					style={{
-						opacity: isMobile ? '1' : 'sectionOpacity',
-						scale: isMobile ? '1' : 'sectionScale',
+						opacity: isMobile ? '1' : sectionOpacity,
+						scale: isMobile ? '1' : sectionScale,
+
+						// opacity: sectionOpacity,
+						// scale: sectionScale,
 					}}
 				>
-					<PageTitleSection
-						SectionName="Kitchen and Bar information"
-						SectionWidth="fullViewport"
-						SectionHeight="fit-content"
-						SectionColor=""
-						CornerRadius={false}
-						ScrollAnimations={false}
-					>
-						<Box
-							sx={{
-								display: 'flex',
-								justifyContent: isMobile ? 'center' : '',
-								gap: '12px',
-								position: 'relative',
-								zIndex: '2',
-								...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
-							}}
-						>
-							<SpinningMenuHeading />
-							<Typography
-								variant="large"
-								alignSelf="center"
-								sx={{
-									width: isMobile ? '100%' : '50%',
-								}}
-							>
-								Swing into flavour with our culinary delights. This is a piece
-								of text about the food inspiration. it will tell the people what
-								to expect with menu.
-							</Typography>
-						</Box>
-					</PageTitleSection>
+					<MenuPageTitle />
 				</Box>
 
 				<Box

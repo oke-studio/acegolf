@@ -1,7 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import { Box } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import {
+	Box,
+	styled,
+	Tab,
+	Tabs,
+	useTheme,
+	Button,
+	useMediaQuery,
+} from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
@@ -36,6 +45,9 @@ export const HowItWorks = ({
 			SectionColor=""
 			CornerRadius
 			SectionHeight="fit-content"
+			sx={{
+				position: 'relative',
+			}}
 		>
 			<Box
 				sx={{
@@ -44,6 +56,9 @@ export const HowItWorks = ({
 					alignItems: 'center',
 					gap: '52px',
 					color: '#FFF',
+					...(!isLanding && {
+						alignItems: 'flex-start',
+					}),
 				}}
 			>
 				{isLanding && (
@@ -58,6 +73,9 @@ export const HowItWorks = ({
 						display: 'flex',
 						flexDirection: isLanding ? 'row' : 'column',
 						gap: '2rem',
+						...(!isLanding && {
+							width: '50%',
+						}),
 					}}
 				>
 					{infoBoxData?.map((info, index) => {
@@ -80,10 +98,14 @@ export const HowItWorks = ({
 					})}
 					{/* #1 */}
 				</Box>
+				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
 			<SectionImageGrid
 				SectionImageGridWidth="rightHalf"
 				ImageData={howItWorksImages}
+				sx={{
+					gridTemplateRows: ' 1fr 1fr 1fr',
+				}}
 			></SectionImageGrid>
 		</Section>
 	);
