@@ -21,7 +21,7 @@ export const MenuSection = ({
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 			<Typography
-				variant="largeH1"
+				variant="headingTwo"
 				weight="900"
 				fontStyle="italic"
 				id={`${menuSection}_list`}

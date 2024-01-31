@@ -81,7 +81,6 @@ export const Section = ({
 	return (
 		<Box
 			sx={{
-				...sx,
 				...SECTION,
 
 				backgroundColor: `${SectionColor}`,
@@ -91,6 +90,7 @@ export const Section = ({
 				...(isLargeDesktop && { margin: '8px 5% 8px' }),
 				...(isExtraWideDesktop && { margin: '8px 10% 8px' }),
 				...(isUltraWideDesktop && { margin: '8px 20% 8px' }),
+				...sx,
 
 				//work on container query after
 				//containerType: "inline-size",

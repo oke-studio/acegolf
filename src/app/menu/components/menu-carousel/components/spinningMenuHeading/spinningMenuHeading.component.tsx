@@ -64,7 +64,7 @@ export const SpinningMenuHeading = () => {
 						height: '100%',
 						width: '100%',
 						justifyContent: 'center',
-						alignItems: 'center',
+						alignItems: 'flex-start',
 						borderStyle: 'solid',
 						borderWidth: '2px',
 						borderColor: '#EB8B32',
@@ -169,7 +169,7 @@ export const SpinningMenuHeading = () => {
 			fontStyle="italic"
 			// lineHeight="70%"
 			sx={{
-				alignItems: 'center',
+				alignItems: 'flex-start',
 				justifyContent: 'center',
 				gap: '0rem',
 				display: 'flex',

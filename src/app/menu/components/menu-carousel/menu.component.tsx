@@ -93,6 +93,9 @@ export const Menu = () => {
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
+			sx={{
+				padding: '0% 5% 5% 5%',
+			}}
 		>
 			<Box
 				sx={{
@@ -101,6 +104,8 @@ export const Menu = () => {
 					gap: '32px',
 					margin: '0px auto',
 					width: '100%',
+					position: 'relative',
+					// top: isMobile ? '-60px' : '-80px',
 				}}
 			>
 				<StyledMenuWrapper>
