@@ -94,7 +94,14 @@ export const NintendoSwitch = () => {
 								We welcome group bookings and events
 							</Typography>
 						</Box>
-						<Button variant="secondary" sx={{ marginTop: '24px' }}>
+						<Button
+							variant="secondary"
+							sx={{ marginTop: '24px' }}
+							onClick={() => {
+								//info@acegolfbar.ca
+								//link to email
+							}}
+						>
 							Inquire Now &rarr;
 						</Button>
 					</Box>
