@@ -37,6 +37,8 @@ export const HowItWorksInfoBox = ({
 					gap: '1rem',
 					padding: '1rem',
 					textOverflow: 'clip',
+
+					overflow: 'hidden',
 				}}
 			>
 				<Typography variant="base" weight="600">
@@ -76,7 +78,7 @@ export const HowItWorksInfoBox = ({
 							display: 'flex',
 							flexDirection: 'row',
 							justifyContent: 'flex-start',
-							flexWrap: 'wrap',
+							flexWrap: 'nowrap',
 							gap: '12px',
 						}}
 					>
