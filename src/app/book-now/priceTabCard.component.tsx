@@ -352,7 +352,7 @@ export default function PriceTabCard() {
 								price: bay.privateBayPriceTwo,
 								timeFrom: bay.privateBayTimeTwo.beginningTime,
 								timeTo: bay.privateBayTimeTwo.endTime,
-								service: bay.privateBayTimeOne.nameOfServiceTime,
+								service: bay.privateBayTimeTwo.nameOfServiceTime,
 								isPrivate: true,
 							}}
 						/>
