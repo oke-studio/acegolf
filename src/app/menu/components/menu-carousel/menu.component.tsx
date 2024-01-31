@@ -9,7 +9,11 @@ import {
 	Button,
 	useMediaQuery,
 } from '@mui/material';
-import { SpinningMenuHeading } from './components/spinningMenuHeading/spinningMenuHeading.component';
+
+// Animation dependencies
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
+
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
@@ -17,7 +21,7 @@ import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
 import { useGetMenu } from '../../hooks/useGetMenu.hook';
 import { MenuSectionType } from './menuItems';
-import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
+import { Section } from '@/components/layout/section.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
 	borderRadius: '25px',
@@ -37,8 +41,7 @@ interface TabPanelProps {
 }
 
 function CustomTabPanel(props: TabPanelProps) {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 	const { children, value, index, ...other } = props;
 
 	// const isMobileView = value !== index
@@ -83,16 +86,13 @@ export const Menu = () => {
 	}
 
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'center',
-				position: 'relative',
-				zIndex: 20,
-
-				margin: isLargeDesktop ? '15px 10% 5px' : '15px 5% 5px',
-			}}
+		<Section
+			SectionName="Menu Content"
+			SectionWidth="fullViewport"
+			SectionHeight="fit-content"
+			SectionColor=""
+			CornerRadius={false}
+			ScrollAnimations={false}
 		>
 			<Box
 				sx={{
@@ -103,19 +103,6 @@ export const Menu = () => {
 					width: '100%',
 				}}
 			>
-				<Box
-					sx={{
-						display: 'flex',
-						flexWrap: 'wrap',
-						justifyContent: isMobile ? 'center' : 'space-between',
-						gap: '12px',
-					}}
-				>
-					<SpinningMenuHeading />
-					<Typography variant="base" alignSelf="center">
-						Swing into flavour with our culinary delights
-					</Typography>
-				</Box>
 				<StyledMenuWrapper>
 					<Box
 						sx={{
@@ -237,27 +224,7 @@ export const Menu = () => {
 					{/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
 					Reserve a bay &rarr;
 				</Button>
-				<Box>
-					<SideTextPicture
-						Title={'The Kitchen'}
-						Paragraph={
-							'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
-						}
-						ImageSrc={'/images/kitchen-ace.jpg'}
-						ImageDescription={'Ace Kitchen'}
-						Direction={'left'}
-					/>
-					<SideTextPicture
-						Title={'The Bar'}
-						Paragraph={
-							'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
-						}
-						ImageSrc={'/images/bar-ace.jpg'}
-						ImageDescription={'Ace Kitchen'}
-						Direction={'right'}
-					/>
-				</Box>
 			</Box>
-		</Box>
+		</Section>
 	);
 };

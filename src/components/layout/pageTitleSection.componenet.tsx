@@ -8,8 +8,8 @@ import { Box, SxProps, useMediaQuery } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
-type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
-const SectionWidthOptions = {
+type PageTitleSectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
+const PageTitleSectionWidthOptions = {
 	fullViewport: {
 		//width: '100%',
 		margin: '8px 0% 8px',
@@ -26,9 +26,9 @@ const SectionWidthOptions = {
 	},
 };
 
-interface SectionProps {
+interface PageTitleSectionProps {
 	SectionName: string;
-	SectionWidth: SectionWidthOptionsTypes;
+	SectionWidth: PageTitleSectionWidthOptionsTypes;
 	SectionHeight?: string;
 	SectionColor: string;
 	CornerRadius: boolean;
@@ -37,7 +37,7 @@ interface SectionProps {
 	sx?: SxProps;
 }
 
-export const Section = ({
+export const PageTitleSection = ({
 	// SectionName,
 	SectionWidth,
 	SectionHeight = 'fit-content',
@@ -46,8 +46,8 @@ export const Section = ({
 	ScrollAnimations = true,
 	sx,
 	children,
-}: SectionProps) => {
-	const SECTION = SectionWidthOptions[SectionWidth];
+}: PageTitleSectionProps) => {
+	const SECTION = PageTitleSectionWidthOptions[SectionWidth];
 	//const CORNER = CornerRadiusOptions[CornerRadius];
 	const staticRadius = '25px';
 
@@ -85,7 +85,7 @@ export const Section = ({
 				...SECTION,
 
 				backgroundColor: `${SectionColor}`,
-				padding: '5% 5%',
+				padding: '2% 5%',
 				height: `${SectionHeight}`,
 
 				...(isLargeDesktop && { margin: '8px 5% 8px' }),
@@ -110,10 +110,3 @@ export const Section = ({
 		</Box>
 	);
 };
-
-//   @container (min-width:900){
-
-//     .section{
-
-//     }
-//   }
