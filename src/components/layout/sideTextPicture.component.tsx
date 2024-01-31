@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { Box, SxProps, useMediaQuery } from '@mui/material';
+import { Box, Button, SxProps, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import Image from 'next/image';
 
@@ -42,6 +42,7 @@ export const SideTextPicture = ({
 	sx,
 }: SideTextPictureProps) => {
 	const LAYOUT = SideTextPictureOptions[Direction];
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
 		<Box
@@ -53,6 +54,10 @@ export const SideTextPicture = ({
 				marginTop: '50px',
 				marginBottom: '50px',
 				alignItems: 'center',
+
+				...(isMobile && {
+					flexDirection: 'column',
+				}),
 			}}
 		>
 			<Box
@@ -61,6 +66,9 @@ export const SideTextPicture = ({
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '18px',
+					...(isMobile && {
+						width: '100%',
+					}),
 				}}
 			>
 				<Typography variant="headingTwo" weight="600" fontStyle="normal">
@@ -72,6 +80,9 @@ export const SideTextPicture = ({
 			<Box
 				sx={{
 					width: '60%',
+					...(isMobile && {
+						width: '100%',
+					}),
 				}}
 			>
 				<Image
