@@ -49,7 +49,9 @@ export const NintendoSwitch = () => {
 							</Typography>
 						</Box>
 						<Button variant="secondary" sx={{ marginTop: '24px' }}>
-							Learn More &rarr;
+							<a href="mailto:info@acegolfbar.ca" target="_blank">
+								Learn More &rarr;
+							</a>
 						</Button>
 					</Box>
 
@@ -94,15 +96,10 @@ export const NintendoSwitch = () => {
 								We welcome group bookings and events
 							</Typography>
 						</Box>
-						<Button
-							variant="secondary"
-							sx={{ marginTop: '24px' }}
-							onClick={() => {
-								//info@acegolfbar.ca
-								//link to email
-							}}
-						>
-							Inquire Now &rarr;
+						<Button variant="secondary" sx={{ marginTop: '24px' }}>
+							<a href="mailto:info@acegolfbar.ca" target="_blank">
+								Inquire Now &rarr;
+							</a>
 						</Button>
 					</Box>
 

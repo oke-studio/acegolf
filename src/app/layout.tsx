@@ -35,7 +35,6 @@ export default function RootLayout({
 					style={{ backgroundColor: '#171717' }}
 				>
 					<DynamicPageBackground>
-						<HeaderBanner />
 						<Header />
 						{children}
 						<FooterV2 />
