@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation';
 import { MenuSection } from './components/menuSection/menuSection.component';
 import { useGetMenu } from '../../hooks/useGetMenu.hook';
 import { MenuSectionType } from './menuItems';
+import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
 	borderRadius: '25px',
@@ -236,41 +237,25 @@ export const Menu = () => {
 					{/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
 					Reserve a bay &rarr;
 				</Button>
-				<Box
-					sx={{
-						display: 'flex',
-						gap: '12px',
-						flexDirection: 'column',
-					}}
-				>
-					<Typography variant="largeH1" weight="900" fontStyle="italic">
-						The Kitchen
-					</Typography>
-					<Typography variant="base">
-						This is a piece of text about the kitchen, it will tell the people
-						how the kitchen. Introduce the chefs and their approach. It will aso
-						tell information on when the kitchen is open for everyday for
-						golfers and for just dinners. it will also show that the kitchen is
-						on uber eats{' '}
-					</Typography>
-				</Box>
-				<Box
-					sx={{
-						display: 'flex',
-						gap: '12px',
-						flexDirection: 'column',
-					}}
-				>
-					<Typography variant="largeH1" weight="900" fontStyle="italic">
-						The Bar
-					</Typography>
-					<Typography variant="base">
-						This is a piece of text about the kitchen, it will tell the people
-						how the kitchen. Introduce the chefs and their approach. It will aso
-						tell information on when the kitchen is open for everyday for
-						golfers and for just dinners. it will also show that the kitchen is
-						on uber eats{' '}
-					</Typography>
+				<Box>
+					<SideTextPicture
+						Title={'The Kitchen'}
+						Paragraph={
+							'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
+						}
+						ImageSrc={'/images/kitchen-ace.jpg'}
+						ImageDescription={'Ace Kitchen'}
+						Direction={'left'}
+					/>
+					<SideTextPicture
+						Title={'The Bar'}
+						Paragraph={
+							'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
+						}
+						ImageSrc={'/images/bar-ace.jpg'}
+						ImageDescription={'Ace Kitchen'}
+						Direction={'right'}
+					/>
 				</Box>
 			</Box>
 		</Box>
