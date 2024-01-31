@@ -157,7 +157,7 @@ export const Header = ({
 				justifyContent: 'center',
 				flexDirection: 'column',
 				position: 'sticky',
-				top: '38px',
+				top: '0px',
 
 				zIndex: zIndex.appBar,
 				// mixBlendMode: 'difference',
