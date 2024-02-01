@@ -105,6 +105,7 @@ export const FAQ = () => {
 				width: '100%',
 				margin: 'auto 0',
 				padding: '1.5rem',
+				color: 'white',
 			}}
 		>
 			<Typography variant="largeH1" weight="900">

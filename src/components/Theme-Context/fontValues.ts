@@ -133,8 +133,8 @@ const typeScale: { fontSize: string; lineHeight: string }[] = [
 	},
 	// #7 <-headingTwo->
 	{
-		fontSize: '2rem',
-		lineHeight: '2rem',
+		fontSize: '2.5rem',
+		lineHeight: '2.5rem',
 	},
 	// #8 <-headingOne->
 	{

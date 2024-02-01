@@ -20,6 +20,7 @@ import { useRouter } from 'next/navigation';
 import { Typography } from '../Typography/typography.component';
 import { AceLogo } from './component/aceLogoSVG/aceLogoSVG.component';
 import { Menu, MenuOpen, Close } from '@mui/icons-material';
+import { HeaderBanner } from './headerBanner.component';
 
 const HeaderContainer = styled(Box)({
 	display: 'flex',
@@ -156,12 +157,13 @@ export const Header = ({
 				justifyContent: 'center',
 				flexDirection: 'column',
 				position: 'sticky',
-				top: '38px',
+				top: '0px',
 
 				zIndex: zIndex.appBar,
 				// mixBlendMode: 'difference',
 			}}
 		>
+			<HeaderBanner />
 			<Box
 				component={motion.ul}
 				variants={menuVariants}

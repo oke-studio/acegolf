@@ -37,6 +37,8 @@ export const HowItWorksInfoBox = ({
 					gap: '1rem',
 					padding: '1rem',
 					textOverflow: 'clip',
+
+					overflow: 'hidden',
 				}}
 			>
 				<Typography variant="base" weight="600">
@@ -60,11 +62,11 @@ export const HowItWorksInfoBox = ({
 					gap: '24px',
 				}}
 			>
-				<Typography variant="headingOne" weight="900" fontStyle="italic">
+				<Typography variant="headingTwo" weight="900" fontStyle="italic">
 					{label}
 				</Typography>
 				<Typography
-					variant="large"
+					variant="base"
 					weight="400"
 					// sx={{ padding: '0px 32px' }}
 				>
@@ -76,7 +78,7 @@ export const HowItWorksInfoBox = ({
 							display: 'flex',
 							flexDirection: 'row',
 							justifyContent: 'flex-start',
-							flexWrap: 'wrap',
+							flexWrap: 'nowrap',
 							gap: '12px',
 						}}
 					>

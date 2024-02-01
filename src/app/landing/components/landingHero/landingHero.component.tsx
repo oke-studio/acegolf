@@ -21,7 +21,7 @@ export const LandingHero = () => {
 			SectionColor="white"
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SectionHeight="65vh"
+			SectionHeight="fit-content"
 			sx={{
 				//overflowX: 'hidden', // overflow iwll be handled by other containers
 				position: 'relative',
@@ -35,7 +35,7 @@ export const LandingHero = () => {
 					justifyContent: 'center',
 					alignItems: 'flex-start',
 					...(isMobile
-						? { gap: '8px' }
+						? { gap: '8px', marginBottom: '25vh' }
 						: {
 								gap: '36px',
 							}),

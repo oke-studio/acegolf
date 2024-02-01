@@ -1,11 +1,22 @@
 'use client';
 
 import * as React from 'react';
-import { Box } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import {
+	Box,
+	styled,
+	Tab,
+	Tabs,
+	useTheme,
+	Button,
+	useMediaQuery,
+} from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
+import { howItWorksImages } from './howItWorksImages';
+import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
 
 interface HowItWorksInfoBoxProps {
 	title: string;
@@ -34,6 +45,9 @@ export const HowItWorks = ({
 			SectionColor=""
 			CornerRadius
 			SectionHeight="fit-content"
+			sx={{
+				position: 'relative',
+			}}
 		>
 			<Box
 				sx={{
@@ -42,6 +56,9 @@ export const HowItWorks = ({
 					alignItems: 'center',
 					gap: '52px',
 					color: '#FFF',
+					...(!isLanding && {
+						alignItems: 'flex-start',
+					}),
 				}}
 			>
 				{isLanding && (
@@ -56,6 +73,9 @@ export const HowItWorks = ({
 						display: 'flex',
 						flexDirection: isLanding ? 'row' : 'column',
 						gap: '2rem',
+						...(!isLanding && {
+							width: '50%',
+						}),
 					}}
 				>
 					{infoBoxData?.map((info, index) => {
@@ -78,97 +98,15 @@ export const HowItWorks = ({
 					})}
 					{/* #1 */}
 				</Box>
+				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
+			<SectionImageGrid
+				SectionImageGridWidth="rightHalf"
+				ImageData={howItWorksImages}
+				sx={{
+					gridTemplateRows: ' 1fr 1fr 1fr',
+				}}
+			></SectionImageGrid>
 		</Section>
 	);
 };
-
-// <HowItWorksInfoBox
-//             number="1"
-//             label={
-//               <>
-//                 Reserve A <br />
-//                 Bay
-//               </>
-//             }
-//             description={
-//               <>
-//                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
-//                 options for you. Make a reservation in advance with our super
-//                 simple online booking tool or just walk in and set up your tee
-//                 time.
-//               </>
-//             }
-//             miniInfoBoxOne={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//             miniInfoBoxTwo={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//           />
-
-//           <HowItWorksInfoBox
-//             number="2"
-//             label={
-//               <>
-//                 Set Up And
-//                 <br /> Tee Up
-//               </>
-//             }
-//             description={
-//               <>
-//                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
-//                 options for you. Make a reservation in advance with our super
-//                 simple online booking tool or just walk in and set up your tee
-//                 time.
-//               </>
-//             }
-//             miniInfoBoxOne={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//             miniInfoBoxTwo={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//           />
-
-//           <HowItWorksInfoBox
-//             number="3"
-//             label={
-//               <>
-//                 Start <br />
-//                 Swingin&apos;
-//               </>
-//             }
-//             description={
-//               <>
-//                 Whether you&apos;re a planner or procrastinator, we&apos;ve got
-//                 options for you. Make a reservation in advance with our super
-//                 simple online booking tool or just walk in and set up your tee
-//                 time.
-//               </>
-//             }
-//             miniInfoBoxOne={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//             miniInfoBoxTwo={{
-//               question:
-//                 'This will be a quick FAQ here. See pricing and Schedume',
-//               answer:
-//                 'This will be a quick FAQ here. See pricing  and Schedume',
-//             }}
-//           />

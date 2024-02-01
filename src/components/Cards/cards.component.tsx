@@ -125,7 +125,16 @@ export const Card = ({
 			</Box>
 
 			{/* Content Box */}
-			<Box sx={{ display: 'flex', flexGrow: 2, width: '100%' }}>{children}</Box>
+			<Box
+				sx={{
+					display: 'flex',
+					flexGrow: 2,
+					width: '100%',
+					justifyContent: 'center',
+				}}
+			>
+				{children}
+			</Box>
 
 			{/* Button Box */}
 			<Box
