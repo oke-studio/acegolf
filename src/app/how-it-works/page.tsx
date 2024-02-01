@@ -120,10 +120,9 @@ export default function Home() {
 				<Box
 					sx={{
 						display: 'flex',
-						backgroundColor: theme.palette.aceGreen,
+						//backgroundColor: theme.palette.aceGreen,
 						flexDirection: 'column',
-						gap: '32px',
-						padding: '1.5rem',
+
 						justifyContent: 'center',
 					}}
 				>
