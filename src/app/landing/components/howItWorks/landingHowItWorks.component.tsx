@@ -9,6 +9,7 @@ import { Section } from '@/components/layout/section.component';
 import dayjs from 'dayjs';
 import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
 import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
+import { HowItWorks } from '@/components/howItWorks/howItWorks.component';
 
 export const LandingHowItWorks = () => {
 	const { breakpoints } = useTheme();
@@ -50,106 +51,11 @@ export const LandingHowItWorks = () => {
 				}}
 			>
 				{/* How it works heading */}
-				<Typography variant="largeH1" weight="900" fontStyle="italic">
+				{/* <Typography variant="largeH1" weight="900" fontStyle="italic">
 					HOW IT WORKS
-				</Typography>
+				</Typography> */}
 
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: isMobile ? 'column' : 'row',
-						gap: isMobile ? '16px' : '4px',
-					}}
-				>
-					{/* #1 */}
-					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-						<Box sx={{ display: 'flex', alignItems: 'center' }}>
-							<Typography variant="headingOne" weight="900" fontStyle="italic">
-								1.
-							</Typography>
-							<Typography variant="headingTwo" weight="900" fontStyle="italic">
-								Reserve A <br />
-								Bay
-							</Typography>
-						</Box>
-						<Box
-							sx={{
-								display: 'flex',
-								flexDirection: 'column',
-							}}
-						>
-							<Typography
-								variant="large"
-								weight="400"
-								sx={{ padding: '0px 32px' }}
-							>
-								Whether you&apos;re a planner or procrastinator, we&apos;ve got
-								options for you. Make a reservation in advance with our super
-								simple online booking tool or just walk in and set up your tee
-								time.
-							</Typography>
-						</Box>
-					</Box>
-
-					{/* #2 */}
-					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-						<Box sx={{ display: 'flex', alignItems: 'center' }}>
-							<Typography variant="headingOne" weight="900" fontStyle="italic">
-								2.
-							</Typography>
-							<Typography variant="headingTwo" weight="900" fontStyle="italic">
-								Set Up And
-								<br /> Tee Up
-							</Typography>
-						</Box>
-						<Box
-							sx={{
-								display: 'flex',
-								flexDirection: 'column',
-							}}
-						>
-							<Typography
-								variant="large"
-								weight="400"
-								sx={{ padding: '0px 32px' }}
-							>
-								Whether you&apos;re a planner or procrastinator, we&apos;ve got
-								options for you. Make a reservation in advance with our super
-								simple online booking tool or just walk in and set up your tee
-								time.
-							</Typography>
-						</Box>
-					</Box>
-
-					{/* #3 */}
-					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-						<Box sx={{ display: 'flex', alignItems: 'center' }}>
-							<Typography variant="headingOne" weight="900" fontStyle="italic">
-								3.
-							</Typography>
-							<Typography variant="headingTwo" weight="900" fontStyle="italic">
-								Start <br />
-								Swingin&apos;
-							</Typography>
-						</Box>
-						<Typography
-							variant="large"
-							weight="400"
-							fontStyle="normal"
-							sx={{
-								display: 'flex',
-								flexDirection: 'column',
-							}}
-						>
-							<Typography variant="base">
-								Whether you&apos;re a planner or procrastinator, we&apos;ve got
-								options for you. Make a reservation in advance with our super
-								simple online booking tool or just walk in and set up your tee
-								time.
-							</Typography>
-						</Typography>
-					</Box>
-				</Box>
+				<HowItWorks isLanding />
 
 				<Card
 					CardTitle="Book a bay with friends"
@@ -184,3 +90,88 @@ export const LandingHowItWorks = () => {
 		</Section>
 	);
 };
+
+{
+	/* <Box
+	sx={{
+		display: 'flex',
+		flexDirection: isMobile ? 'column' : 'row',
+		gap: isMobile ? '16px' : '4px',
+	}}
+>
+	<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+		<Box sx={{ display: 'flex', alignItems: 'center' }}>
+			<Typography variant="headingOne" weight="900" fontStyle="italic">
+				1.
+			</Typography>
+			<Typography variant="headingTwo" weight="900" fontStyle="italic">
+				Reserve A <br />
+				Bay
+			</Typography>
+		</Box>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+			}}
+		>
+			<Typography variant="large" weight="400" sx={{ padding: '0px 32px' }}>
+				Whether you&apos;re a planner or procrastinator, we&apos;ve got options
+				for you. Make a reservation in advance with our super simple online
+				booking tool or just walk in and set up your tee time.
+			</Typography>
+		</Box>
+	</Box>
+
+	<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+		<Box sx={{ display: 'flex', alignItems: 'center' }}>
+			<Typography variant="headingOne" weight="900" fontStyle="italic">
+				2.
+			</Typography>
+			<Typography variant="headingTwo" weight="900" fontStyle="italic">
+				Set Up And
+				<br /> Tee Up
+			</Typography>
+		</Box>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+			}}
+		>
+			<Typography variant="large" weight="400" sx={{ padding: '0px 32px' }}>
+				Whether you&apos;re a planner or procrastinator, we&apos;ve got options
+				for you. Make a reservation in advance with our super simple online
+				booking tool or just walk in and set up your tee time.
+			</Typography>
+		</Box>
+	</Box>
+
+	<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+		<Box sx={{ display: 'flex', alignItems: 'center' }}>
+			<Typography variant="headingOne" weight="900" fontStyle="italic">
+				3.
+			</Typography>
+			<Typography variant="headingTwo" weight="900" fontStyle="italic">
+				Start <br />
+				Swingin&apos;
+			</Typography>
+		</Box>
+		<Typography
+			variant="large"
+			weight="400"
+			fontStyle="normal"
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+			}}
+		>
+			<Typography variant="base">
+				Whether you&apos;re a planner or procrastinator, we&apos;ve got options
+				for you. Make a reservation in advance with our super simple online
+				booking tool or just walk in and set up your tee time.
+			</Typography>
+		</Typography>
+	</Box>
+</Box>; */
+}

@@ -10,24 +10,19 @@ import {
 	Button,
 	useMediaQuery,
 } from '@mui/material';
-
-// Animation dependencies
 // Animation dependencies
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
-// import FullHowItWorks from './components/fullHowItWorks.component';
 
 import { Typography } from '@/components/Typography/typography.component';
 import { HowItWorks } from '@/components/howItWorks/howItWorks.component';
-// import { SimRoomsComponent } from './components/simRooms/simRooms.component';
-// import { GolfGamesComponent } from './components/golfGames/golfGames.component';
+
 import { GolfGamesComponentV1 } from './components/golfGames/golfGamesV1.component';
 import { SimRoomsComponentV1 } from './components/simRooms/simRoomsV1.component';
-// import Image from 'next/image';
+
 import { FAQ } from './components/faq/faq.component';
-import { useGetHowItWorks } from './hooks/useGetHowItWorks.hook';
 import HiwPageTitle from './components/hiwPageTitle.component';
 
 export default function Home() {
@@ -58,16 +53,6 @@ export default function Home() {
 	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
-	const { howItWorksData, isLoading } = useGetHowItWorks();
-
-	if (isLoading || !howItWorksData) {
-		return <></>;
-	}
-
-	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
-	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
-	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
-
 	return (
 		<Box>
 			<Box
@@ -86,48 +71,26 @@ export default function Home() {
 						scale: isMobile ? '1' : sectionScale,
 					}}
 				>
-					<HiwPageTitle />
-				</Box>
+					This copy describes the overall experience of what ace golf encourages
+					users to learn more below and see the FAQs section on this page
+				</Typography>
+			</Box>
 
-				<Box
-					sx={{
-						position: 'sticky',
-						//top: '0px',
-					}}
-					component={motion.div}
-					ref={howItWorkStepsSectionAsReference}
-				>
-					<HowItWorks
-						infoBoxData={[
-							{
-								description: howItWorksData.step1Content,
-								title: howItWorksData.step1Title,
-								relatedFAQs: RelatedFAQOne,
-							},
-							{
-								description: howItWorksData.step2Content,
-								title: howItWorksData.step2Title,
-								relatedFAQs: RelatedFAQTwo,
-							},
-							{
-								description: howItWorksData.step3Content,
-								title: howItWorksData.step3Title,
-								relatedFAQs: RelatedFAQThree,
-							},
-						]}
-					/>
-				</Box>
-				<Box
-					sx={{
-						display: 'flex',
-						backgroundColor: theme.palette.aceGreen,
-						flexDirection: 'column',
-						gap: '32px',
-						padding: '1.5rem',
-						justifyContent: 'center',
-					}}
-				>
-					{/* <SimRoomsComponent />
+			<HowItWorks isLanding={false} />
+			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+				<Button variant="primary">Reserve a Bay &rarr;</Button>
+			</Box>
+			<Box
+				sx={{
+					display: 'flex',
+					backgroundColor: theme.palette.aceGreen,
+					flexDirection: 'column',
+					gap: '32px',
+					padding: '1.5rem',
+					justifyContent: 'center',
+				}}
+			>
+				{/* <SimRoomsComponent />
         <GolfGamesComponent /> */}
 					<SimRoomsComponentV1 />
 					<GolfGamesComponentV1 />

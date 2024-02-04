@@ -8,6 +8,7 @@ export interface TypeAceGolfBarComFields {
 	aceGolfBarComCollection: {
 		items: {
 			name: string;
+			globalAnnouncementHeader: string;
 			activeDate: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
 			activeMenu: TypeMenuFields;
 			activePriceGrid: TypeBayPricingAvailabilityFields;

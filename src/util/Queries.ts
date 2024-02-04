@@ -5,6 +5,7 @@ export const GetAceQuery = gql`
 		aceGolfBarComCollection(limit: 1) {
 			items {
 				activeDate
+				globalAnnouncementHeader
 				activeMenu {
 					menuName
 					bigBitesCollection {
@@ -19,6 +20,9 @@ export const GetAceQuery = gql`
 							}
 						}
 					}
+					bigBitesImage {
+						url
+					}
 					smallBitesCollection {
 						items {
 							name
@@ -27,8 +31,12 @@ export const GetAceQuery = gql`
 							price
 							image {
 								title
+								url
 							}
 						}
+					}
+					smallBitesImage {
+						url
 					}
 					desertsCollection {
 						items {
@@ -41,6 +49,9 @@ export const GetAceQuery = gql`
 							}
 						}
 					}
+					desertsImage {
+						url
+					}
 					drinksCollection {
 						items {
 							name
@@ -50,6 +61,9 @@ export const GetAceQuery = gql`
 								title
 							}
 						}
+					}
+					drinksImage {
+						url
 					}
 				}
 				activePriceGrid {
