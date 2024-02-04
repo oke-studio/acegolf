@@ -15,6 +15,7 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
+import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 import { howItWorksImages } from './howItWorksImages';
 import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
 
@@ -24,20 +25,38 @@ interface HowItWorksInfoBoxProps {
 	relatedFAQs: TypeFaqItemFields[];
 }
 
-type HowItWorksProps =
-	| {
-			isLanding?: never;
-			infoBoxData: HowItWorksInfoBoxProps[];
-	  }
-	| {
-			isLanding: boolean;
-			infoBoxData?: never;
-	  };
+type HowItWorksProps = {
+	isLanding: boolean;
+};
 
-export const HowItWorks = ({
-	isLanding = false,
-	infoBoxData,
-}: HowItWorksProps) => {
+export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
+	const { howItWorksData, isLoading } = useGetHowItWorks();
+
+	if (isLoading || !howItWorksData) {
+		return <></>;
+	}
+
+	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
+	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
+	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
+
+	const infoBoxData = [
+		{
+			description: howItWorksData.step1Content,
+			title: howItWorksData.step1Title,
+			relatedFAQs: RelatedFAQOne,
+		},
+		{
+			description: howItWorksData.step2Content,
+			title: howItWorksData.step2Title,
+			relatedFAQs: RelatedFAQTwo,
+		},
+		{
+			description: howItWorksData.step3Content,
+			title: howItWorksData.step3Title,
+			relatedFAQs: RelatedFAQThree,
+		},
+	];
 	return (
 		<Section
 			SectionName="How it works Homepage"
@@ -85,14 +104,8 @@ export const HowItWorks = ({
 								key={`${info.title}`}
 								description={<>{info.description}</>}
 								label={<>{info.title}</>}
-								miniInfoBoxOne={{
-									question: info.relatedFAQs[0].question,
-									answer: info.relatedFAQs[0].answer,
-								}}
-								miniInfoBoxTwo={{
-									question: info.relatedFAQs[1].question,
-									answer: info.relatedFAQs[1].answer,
-								}}
+								miniInfoBox={info.relatedFAQs}
+								isLanding={isLanding}
 							/>
 						);
 					})}

@@ -2,7 +2,32 @@ import { TypeMenuItemFields, TypeMenuFields } from '@/types/contentful';
 
 export type MenuItem = TypeMenuItemFields;
 
-export type MenuSectionType = keyof Omit<TypeMenuFields, 'menuName'>;
+export const MENU_COLLECTIONS = [
+	'smallBitesCollection',
+	'bigBitesCollection',
+	'desertsCollection',
+	'drinksCollection',
+];
+
+export const MENU_IMAGES = [
+	'smallBitesImages',
+	'bigBitesImages',
+	'desertsImages',
+	'drinksImages',
+];
+
+export type MenuCollectionsType = keyof Pick<
+	TypeMenuFields,
+	| 'bigBitesCollection'
+	| 'desertsCollection'
+	| 'drinksCollection'
+	| 'smallBitesCollection'
+>;
+
+export type MenuImageType = keyof Pick<
+	TypeMenuFields,
+	'bigBitesImage' | 'desertsImage' | 'drinksImage' | 'smallBitesImage'
+>;
 
 // export const MenuOptions: Menu[] = [
 // 	{

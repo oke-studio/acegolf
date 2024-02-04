@@ -15,6 +15,7 @@ const ImageSrc = [
 		alt: 'whats_the_vibe_image',
 		height: 450,
 		width: 250,
+		unoptimized: true,
 	},
 	// #2
 	{
@@ -47,6 +48,7 @@ const ImageSrc = [
 		alt: 'whats_the_vibe_image',
 		height: 450,
 		width: 250,
+		unoptimized: true,
 	},
 
 	{
@@ -96,6 +98,7 @@ const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 					width={250}
 					height={galleryHeight}
 					sizes="250px"
+					unoptimized={img.unoptimized}
 				/>
 			</Box>
 		</Box>

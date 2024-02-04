@@ -2,8 +2,15 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { Typography } from '../Typography/typography.component';
+import { useGetAceQuery } from '@/hooks/getUseAceQuery/getUseAceQuery.hook';
 
 export const HeaderBanner = () => {
+	const { data, isLoading } = useGetAceQuery();
+
+	if (isLoading || !data?.globalAnnouncementHeader) {
+		return <></>;
+	}
+
 	return (
 		<Box
 			sx={{
@@ -23,7 +30,7 @@ export const HeaderBanner = () => {
 			}}
 		>
 			<Typography variant="base" sx={{ textAlign: 'center' }}>
-				Announcments go here about ace so that customers know
+				{data?.globalAnnouncementHeader}
 			</Typography>
 		</Box>
 	);

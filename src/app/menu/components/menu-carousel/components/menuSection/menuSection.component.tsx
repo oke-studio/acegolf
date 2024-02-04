@@ -1,9 +1,9 @@
 'use client';
 import { Typography } from '@/components/Typography/typography.component';
 import { Box } from '@mui/material';
-import { MenuItem, MenuSectionType } from '../../menuItems';
+import { MenuItem, MenuCollectionsType } from '../../menuItems';
 
-const MENU_SECTION_NAMES = {
+export const MENU_SECTION_NAMES = {
 	smallBitesCollection: 'SMALL BITES',
 	bigBitesCollection: 'BIG BITES',
 	desertsCollection: 'DESERT',
@@ -15,9 +15,9 @@ export const MenuSection = ({
 	menuSection,
 }: {
 	menuItems: MenuItem[];
-	menuSection: MenuSectionType;
+	menuSection: MenuCollectionsType;
 }) => {
-	console.log(menuItems);
+	// console.log(menuItems);
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 			<Typography
