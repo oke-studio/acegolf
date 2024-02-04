@@ -1,7 +1,7 @@
 'use client';
 import { Typography } from '@/components/Typography/typography.component';
 import { Box } from '@mui/material';
-import { MenuItem, MenuSectionType } from '../../menuItems';
+import { MenuItem, MenuCollectionsType } from '../../menuItems';
 
 export const MENU_SECTION_NAMES = {
 	smallBitesCollection: 'SMALL BITES',
@@ -15,7 +15,7 @@ export const MenuSection = ({
 	menuSection,
 }: {
 	menuItems: MenuItem[];
-	menuSection: MenuSectionType;
+	menuSection: MenuCollectionsType;
 }) => {
 	// console.log(menuItems);
 	return (
