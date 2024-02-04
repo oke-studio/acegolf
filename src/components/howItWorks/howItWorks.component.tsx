@@ -87,32 +87,32 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 					</Typography>
 				)}
 
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: isLanding ? 'row' : 'column',
-					gap: '2rem',
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: isLanding ? 'row' : 'column',
+						gap: '2rem',
 						...(!isLanding && {
 							width: '50%',
 						}),
-				}}
-			>
-				{infoBoxData?.map((info, index) => {
-					return (
-						<HowItWorksInfoBox
-							number={(index + 1).toString()}
-							key={`${info.title}`}
-							description={<>{info.description}</>}
-							label={<>{info.title}</>}
-							miniInfoBox={info.relatedFAQs}
-							isLanding={isLanding}
-						/>
-					);
-				})}
-				{/* #1 */}
-			</Box>
+					}}
+				>
+					{infoBoxData?.map((info, index) => {
+						return (
+							<HowItWorksInfoBox
+								number={(index + 1).toString()}
+								key={`${info.title}`}
+								description={<>{info.description}</>}
+								label={<>{info.title}</>}
+								miniInfoBox={info.relatedFAQs}
+								isLanding={isLanding}
+							/>
+						);
+					})}
+					{/* #1 */}
+				</Box>
 				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
-		</Box>
+			</Box>
 			<SectionImageGrid
 				SectionImageGridWidth="rightHalf"
 				ImageData={howItWorksImages}
@@ -120,5 +120,6 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 					gridTemplateRows: ' 1fr 1fr 1fr',
 				}}
 			></SectionImageGrid>
+		</Section>
 	);
 };

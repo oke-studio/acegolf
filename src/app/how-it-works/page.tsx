@@ -73,7 +73,7 @@ export default function Home() {
 				>
 					This copy describes the overall experience of what ace golf encourages
 					users to learn more below and see the FAQs section on this page
-				</Typography>
+				</Box>
 			</Box>
 
 			<HowItWorks isLanding={false} />
@@ -92,19 +92,18 @@ export default function Home() {
 			>
 				{/* <SimRoomsComponent />
         <GolfGamesComponent /> */}
-					<SimRoomsComponentV1 />
-					<GolfGamesComponentV1 />
-				</Box>
-
-				{/* FAQ */}
-				<Box sx={{ display: 'flex' }}>
-					<FAQ />
-				</Box>
-
-				<Box sx={{ display: 'flex' }}></Box>
-
-				<NintendoSwitch />
+				<SimRoomsComponentV1 />
+				<GolfGamesComponentV1 />
 			</Box>
+
+			{/* FAQ */}
+			<Box sx={{ display: 'flex' }}>
+				<FAQ />
+			</Box>
+
+			<Box sx={{ display: 'flex' }}></Box>
+
+			<NintendoSwitch />
 		</Box>
 	);
 }
