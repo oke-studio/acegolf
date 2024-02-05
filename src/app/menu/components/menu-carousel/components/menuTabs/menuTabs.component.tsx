@@ -76,7 +76,6 @@ export const MenuTabs = () => {
 	) as MenuCollectionsType[];
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		console.log(value);
 		setValue(newValue);
 	};
 
