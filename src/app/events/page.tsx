@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useGetEvents } from './hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
-import { Promotions } from '../landing/components/promotions/promotions.component';
+import { Promotions } from '../../components/promotions/promotions.component';
 import { Section } from '@/components/layout/section.component';
 
 export default function Events() {

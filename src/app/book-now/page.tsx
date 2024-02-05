@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
-import { Promotions } from '../landing/components/promotions/promotions.component';
+import { Promotions } from '../../components/promotions/promotions.component';
 import { MailingList } from '../landing/components/mailingList/mailingList.component';
 import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 import dayjs from 'dayjs';

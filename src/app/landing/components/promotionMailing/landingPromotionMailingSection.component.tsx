@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Section } from '@/components/layout/section.component';
 
-import { Promotions } from '../../components/promotions/promotions.component';
+import { Promotions } from '../../../../components/promotions/promotions.component';
 import { MailingList } from '../../components/mailingList/mailingList.component';
 
 export default function LandingPromotionMailingSection() {

@@ -294,7 +294,13 @@ export default function PriceTabCard() {
 	};
 
 	if (isLoading) {
-		return <CircularProgress sx={{ color: theme.palette.aceOrange }} />;
+		return (
+			<Box
+				sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+			>
+				<CircularProgress />
+			</Box>
+		);
 	}
 
 	return (

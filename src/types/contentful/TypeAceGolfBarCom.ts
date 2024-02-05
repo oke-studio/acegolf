@@ -9,7 +9,7 @@ export interface TypeAceGolfBarComFields {
 		items: {
 			name: string;
 			globalAnnouncementHeader: string;
-			activeDate: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+			activeDate: string;
 			activeMenu: TypeMenuFields;
 			activePriceGrid: TypeBayPricingAvailabilityFields;
 			activeHowItWorks: TypeHowItWorksFields;

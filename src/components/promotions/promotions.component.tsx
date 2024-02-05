@@ -7,6 +7,7 @@ import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import { Typography } from '@/components/Typography/typography.component';
 
 import { useGetPromotions } from './hooks/useGetPromotions.hook';
+import { useGetEventsAndPromotions } from './hooks/useGetEventsAndPromotions.hook';
 
 interface PromotionCardProps {
 	label: string;
@@ -29,6 +30,7 @@ const AnimatedPromotionCards = ({
 	// const mouseXSpring = useSpring(x);
 	// const mouseYSpring = useSpring(y);
 	const topSpring = useSpring(top, { bounce: 0 });
+	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
 
 	// const rotateX = useTransform(
 	// 	mouseYSpring,
@@ -93,19 +95,8 @@ const AnimatedPromotionCards = ({
 				component={motion.div}
 				sx={{
 					width: '100%',
-					...(imgSrc && { background: background }),
 					height: 'inherit',
 					borderRadius: 'inherit',
-					// borderBottomLeftRadius: '0px',
-					// borderBottomRightRadius: '0px',
-					// backgroundImage: `url(${imgSrc})`,
-					// backgroundRepeat: 'no-repeat',
-					// backgroundSize: 'cover',
-					// backgroundPosition: 'center',
-
-					transformStyle: 'preserve-3d',
-					transform: 'translateZ(75px)',
-
 					position: 'absolute',
 					inset: '1rem ',
 					top: 0,
@@ -114,16 +105,14 @@ const AnimatedPromotionCards = ({
 					zIndex: 2,
 				}}
 			>
-				{imgSrc && (
-					<Image
-						src={imgSrc}
-						alt="img"
-						width={250}
-						height={400}
-						sizes="250px"
-						style={{ borderRadius: 'inherit' }}
-					/>
-				)}
+				<Image
+					src={img}
+					alt="img"
+					width={250}
+					height={400}
+					sizes="250px"
+					style={{ borderRadius: 'inherit' }}
+				/>
 			</Box>
 			<Box
 				sx={{
@@ -133,7 +122,7 @@ const AnimatedPromotionCards = ({
 					right: 0,
 					height: 'inherit',
 					borderRadius: 'inherit',
-					backgroundColor: theme => theme.palette.sharpTeal,
+					backgroundColor: 'white',
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'end',
@@ -167,7 +156,7 @@ const PromotionCards = ({
 }: PromotionCardProps) => {
 	const router = useRouter();
 	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
-	console.log(img, imgSrc);
+
 	return (
 		<Box
 			sx={{
@@ -248,14 +237,19 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 	const { breakpoints } = useTheme();
 	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
-	const { promotionData, isLoading, isError } = useGetPromotions();
+	const { promotionAndEventsData, isLoading, isError } =
+		useGetEventsAndPromotions();
 	const MAX_PROMOTION_CARDS = isLanding ? 3 : 6;
 
 	if (isLoading) {
-		return <CircularProgress />;
+		return (
+			<Box
+				sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+			>
+				<CircularProgress />
+			</Box>
+		);
 	}
-
-	console.log(promotionData);
 
 	return (
 		<Box
@@ -284,14 +278,14 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 					margin: '24px 0',
 				}}
 			>
-				{promotionData
+				{promotionAndEventsData
 					?.slice(0, MAX_PROMOTION_CARDS)
 					.map((promo, index) => (
-						<PromotionCards
-							label={promo.promotionTitle}
+						<AnimatedPromotionCards
+							label={promo.title}
 							eventsSlug={promo.slugId}
 							background="red"
-							imgSrc={promo.promotionPoster.url}
+							imgSrc={promo.poster.url}
 							key={`promo_${index}`}
 						/>
 					))}

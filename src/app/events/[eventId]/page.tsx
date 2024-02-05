@@ -5,7 +5,7 @@ import { useGetEvents } from '../hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
-import { Promotions } from '@/app/landing/components/promotions/promotions.component';
+import { Promotions } from '@/components/promotions/promotions.component';
 
 export default function Events({ params }: { params: { eventId: string } }) {
 	const { eventsData, isError, isLoading } = useGetEvents();

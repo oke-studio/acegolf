@@ -1,13 +1,13 @@
-import type { Asset, Entry, EntryFields } from 'contentful';
-
 export interface TypeEventFields {
 	eventTitle: string;
 	slugId: string;
-	eventStartDate: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
-	eventEndDate?: `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+	eventStartDate: string;
+	eventEndDate?: string;
 	ctaText?: string;
 	ctaLink: string;
-	// eventPoster: Asset;
+	eventPoster: {
+		url: string;
+	};
 }
 
 // export type TypeEvent = Entry<TypeEventFields>;
