@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Box, useTheme, styled, Tab, Tabs } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
+import { Section } from '@/components/layout/section.component';
+import { GolfGamesComponentV1 } from '../golfGames/golfGamesV1.component';
 
 import Image from 'next/image';
 
@@ -201,82 +203,98 @@ export const SimRoomsComponentV1 = () => {
 	};
 
 	return (
-		<Box
+		<Section
+			SectionName="How it works Homepage"
+			SectionWidth="normal"
+			SectionColor="green"
+			CornerRadius
+			SectionHeight="fit-content"
 			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				textAlign: 'center',
-				gap: '2rem',
+				position: 'relative',
 			}}
 		>
-			<Box>
-				<Typography variant="large" weight="900">
-					SIM ROOMS
-				</Typography>
-				<Typography variant="base" weight="400">
-					6 performance simulation rooms powered by Trackman award wining tech.
-					Each sim has performance modes and fun modes for more goofiness. Learn
-					more about our facilities below.
-				</Typography>
-			</Box>
-
-			{/* Card Carousel */}
 			<Box
-				// sx={{
-				//   padding: '0 0.5rem',
-				//   margin: '0.75rem 0',
-				//   display: 'grid',
-				//   gridTemplateColumns: `repeat(auto-fit, minmax(max(${gridItemMinWidth}, ${gridItemMaxWidth}), 1fr))`,
-				//   gridAutoRows: '250px',
-				//   rowGap: '32px',
-				//   width: '100%',
-				//   justifyItems: 'center',
-				// }}
 				sx={{
 					display: 'flex',
-					width: '100%',
-
-					flexWrap: 'nowrap',
-					// overflowX: 'hidden',
-					overflowY: 'visible',
-					// justifyContent: 'left',
-					gap: '12px',
-					position: 'relative',
+					flexDirection: 'column',
+					textAlign: 'center',
+					gap: '2rem',
 				}}
 			>
-				<StyledTabs
-					value={value}
-					onChange={handleChange}
-					textColor="secondary"
-					indicatorColor="secondary"
-					aria-label="secondary tabs example"
+				<Box>
+					<Typography variant="large" weight="900">
+						SIM ROOMS
+					</Typography>
+					<Typography variant="base" weight="400">
+						6 performance simulation rooms powered by Trackman award wining
+						tech. Each sim has performance modes and fun modes for more
+						goofiness. Learn more about our facilities below.
+					</Typography>
+				</Box>
 
-					//   variant="scrollable"
-					//   scrollButtons="auto"
-					//   sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
+				{/* Card Carousel */}
+				<Box
+					// sx={{
+					//   padding: '0 0.5rem',
+					//   margin: '0.75rem 0',
+					//   display: 'grid',
+					//   gridTemplateColumns: `repeat(auto-fit, minmax(max(${gridItemMinWidth}, ${gridItemMaxWidth}), 1fr))`,
+					//   gridAutoRows: '250px',
+					//   rowGap: '32px',
+					//   width: '100%',
+					//   justifyItems: 'center',
+					// }}
+					sx={{
+						display: 'flex',
+						width: '100%',
+
+						flexWrap: 'nowrap',
+						// overflowX: 'hidden',
+						overflowY: 'visible',
+						// justifyContent: 'left',
+						gap: '12px',
+						position: 'relative',
+					}}
 				>
-					<StyledTab value={0} label="SIM ROOM #1" />
-					<StyledTab value={1} label="SIM ROOM #2" />
-					<StyledTab value={2} label="SIM ROOM #3" />
-					<StyledTab value={3} label="SIM ROOM #4" />
-					<StyledTab value={4} label="SIM ROOM #5" />
-					<StyledTab value={5} label="PRIVATE SIM ROOMS #6" />
-				</StyledTabs>
+					<StyledTabs
+						value={value}
+						onChange={handleChange}
+						textColor="secondary"
+						indicatorColor="secondary"
+						aria-label="secondary tabs example"
 
-				{/* <TabPanel value={value} index={0} dir={theme.direction}>
+						//   variant="scrollable"
+						//   scrollButtons="auto"
+						//   sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
+					>
+						<StyledTab value={0} label="SIM ROOM #1" />
+						<StyledTab value={1} label="SIM ROOM #2" />
+						<StyledTab value={2} label="SIM ROOM #3" />
+						<StyledTab value={3} label="SIM ROOM #4" />
+						<StyledTab value={4} label="SIM ROOM #5" />
+						<StyledTab value={5} label="PRIVATE SIM ROOMS #6" />
+					</StyledTabs>
+
+					{/* <TabPanel value={value} index={0} dir={theme.direction}>
           HI
         </TabPanel> */}
 
-				{SimRoomCardsInfo.map((card, index) => (
-					<TabPanel value={value} index={index} key={`sim_room_card_${index}`}>
-						<SimRoomCard
-							{...card}
-							key={`sim_room_card_${index}`}
+					{SimRoomCardsInfo.map((card, index) => (
+						<TabPanel
+							value={value}
 							index={index}
-						/>
-					</TabPanel>
-				))}
+							key={`sim_room_card_${index}`}
+						>
+							<SimRoomCard
+								{...card}
+								key={`sim_room_card_${index}`}
+								index={index}
+							/>
+						</TabPanel>
+					))}
+				</Box>
 			</Box>
-		</Box>
+			<GolfGamesComponentV1 />
+		</Section>
 	);
 };

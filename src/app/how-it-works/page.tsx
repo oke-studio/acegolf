@@ -76,25 +76,38 @@ export default function Home() {
 				</Box>
 			</Box>
 
-			<HowItWorks isLanding={false} />
-			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-				<Button variant="primary">Reserve a Bay &rarr;</Button>
-			</Box>
 			<Box
 				sx={{
-					display: 'flex',
-					backgroundColor: theme.palette.aceGreen,
-					flexDirection: 'column',
-					gap: '32px',
-					padding: '1.5rem',
-					justifyContent: 'center',
+					position: 'sticky',
+					//top: '0px',
 				}}
+				component={motion.div}
+				ref={howItWorkStepsSectionAsReference}
 			>
-				{/* <SimRoomsComponent />
-        <GolfGamesComponent /> */}
-				<SimRoomsComponentV1 />
-				<GolfGamesComponentV1 />
+				<HowItWorks
+					infoBoxData={[
+						{
+							description: howItWorksData.step1Content,
+							title: howItWorksData.step1Title,
+							relatedFAQs: RelatedFAQOne,
+						},
+						{
+							description: howItWorksData.step2Content,
+							title: howItWorksData.step2Title,
+							relatedFAQs: RelatedFAQTwo,
+						},
+						{
+							description: howItWorksData.step3Content,
+							title: howItWorksData.step3Title,
+							relatedFAQs: RelatedFAQThree,
+						},
+					]}
+				/>
 			</Box>
+
+			{/* <SimRoomsComponent />
+        <GolfGamesComponent /> */}
+			<SimRoomsComponentV1 />
 
 			{/* FAQ */}
 			<Box sx={{ display: 'flex' }}>
