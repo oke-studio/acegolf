@@ -117,21 +117,10 @@ export default function Home() {
 						]}
 					/>
 				</Box>
-				<Box
-					sx={{
-						display: 'flex',
-						backgroundColor: theme.palette.aceGreen,
-						flexDirection: 'column',
-						gap: '32px',
-						padding: '1.5rem',
-						justifyContent: 'center',
-					}}
-				>
-					{/* <SimRoomsComponent />
+
+				{/* <SimRoomsComponent />
         <GolfGamesComponent /> */}
-					<SimRoomsComponentV1 />
-					<GolfGamesComponentV1 />
-				</Box>
+				<SimRoomsComponentV1 />
 
 				{/* FAQ */}
 				<Box sx={{ display: 'flex' }}>
