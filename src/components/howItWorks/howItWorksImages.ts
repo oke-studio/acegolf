@@ -1,19 +1,19 @@
 export const howItWorksImages = [
 	{
-		src: '/images/friends-photos.jpg',
-		aspectRatio: '0.77',
-		backCutOut: true,
+		src: '/images/collageexport/Golf-cart.png',
+		aspectRatio: '0.95',
+		backCutOut: false,
 		backCutOutColor: 'orange',
-		imageNameAltText: 'Gif of photos at ace',
+		imageNameAltText: 'Eishehower golfing',
 		opacity: 1, // default 1 for visible
 		scale: 1.4, // scale transform for aceImage
 		rotation: -5, // rotation
 		zIndex: 2, // zindex for image container. 1= below section content
-		gridPosXColumn: '2', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
-		gridPosYRow: '2', //enter the grid ROW start position. ex: 5 (start at grid line 5)
-		relPosX: '-80px', //relative position to grid position
-		relPosY: '70px',
-		paralax: 1,
+		gridPosXColumn: '4', //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+		gridPosYRow: '1', //enter the grid ROW start position. ex: 5 (start at grid line 5)
+		relPosX: '', //relative position to grid position
+		relPosY: '',
+		paralax: 3,
 
 		mobile: {
 			aspectRatio: '1/1',
