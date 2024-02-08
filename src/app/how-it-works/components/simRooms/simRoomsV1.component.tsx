@@ -204,33 +204,36 @@ export const SimRoomsComponentV1 = () => {
 
 	return (
 		<Section
-			SectionName="How it works Homepage"
-			SectionWidth="normal"
-			SectionColor="green"
-			CornerRadius
+			SectionName="Simrooms and Golf games"
+			SectionWidth="fullViewport"
+			SectionColor="#39775E"
+			CornerRadius={true}
+			ScrollAnimations={true}
 			SectionHeight="fit-content"
 			sx={{
 				position: 'relative',
+				display: 'flex',
+				flexDirection: 'column',
 			}}
 		>
 			<Box
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',
-					textAlign: 'center',
-					gap: '2rem',
+					color: 'white',
+					alignItems: 'center',
+					gap: '32px',
+					margin: '32px 0',
 				}}
 			>
-				<Box>
-					<Typography variant="large" weight="900">
-						SIM ROOMS
-					</Typography>
-					<Typography variant="base" weight="400">
-						6 performance simulation rooms powered by Trackman award wining
-						tech. Each sim has performance modes and fun modes for more
-						goofiness. Learn more about our facilities below.
-					</Typography>
-				</Box>
+				<Typography variant="largeH1" weight="900" sx={{ textAlign: 'center' }}>
+					SIM ROOMS
+				</Typography>
+				<Typography variant="base">
+					6 performance simulation rooms powered by Trackman award wining tech.
+					Each sim has performance modes and fun modes for more goofiness. Learn
+					more about our facilities below.
+				</Typography>
 
 				{/* Card Carousel */}
 				<Box
