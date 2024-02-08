@@ -28,7 +28,7 @@ export const HowItWorksInfoBox = ({
 			<Box
 				sx={{
 					height: '250px',
-					width: '250px',
+					width: '100%',
 					backgroundColor: theme => theme.palette.aceTeal,
 					borderRadius: '20px',
 					color: 'black',
@@ -37,7 +37,6 @@ export const HowItWorksInfoBox = ({
 					gap: '1rem',
 					padding: '1rem',
 					textOverflow: 'clip',
-
 					overflow: 'hidden',
 				}}
 			>
@@ -60,6 +59,8 @@ export const HowItWorksInfoBox = ({
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '24px',
+					width: '100%',
+					overflowX: 'visible',
 				}}
 			>
 				<Typography variant="headingTwo" weight="900" fontStyle="italic">
@@ -80,16 +81,17 @@ export const HowItWorksInfoBox = ({
 							justifyContent: 'flex-start',
 							flexWrap: 'nowrap',
 							gap: '12px',
+							width: '150%',
 						}}
 					>
-						<MiniInfoBox
+						{/* <MiniInfoBox
 							question={miniInfoBoxOne.question}
 							answer={miniInfoBoxOne.answer}
 						/>
 						<MiniInfoBox
 							question={miniInfoBoxTwo.question}
 							answer={miniInfoBoxTwo.answer}
-						/>
+						/> */}
 					</Box>
 				)}
 			</Box>
