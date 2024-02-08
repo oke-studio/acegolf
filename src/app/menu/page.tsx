@@ -58,7 +58,7 @@ export default function Home() {
 					component={motion.div}
 					sx={{
 						position: 'sticky',
-						top: '100px',
+						// top: '100px',
 					}}
 					style={{
 						opacity: isMobile ? '1' : sectionOpacity,

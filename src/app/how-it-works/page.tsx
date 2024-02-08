@@ -82,7 +82,7 @@ export default function Home() {
 				<Box
 					sx={{
 						position: 'sticky',
-						//top: '0px',
+						// top: '30px',
 					}}
 					component={motion.div}
 					ref={howItWorkStepsSectionAsReference}

@@ -84,14 +84,14 @@ export const HowItWorksInfoBox = ({
 							width: '150%',
 						}}
 					>
-						{/* <MiniInfoBox
+						<MiniInfoBox
 							question={miniInfoBoxOne.question}
 							answer={miniInfoBoxOne.answer}
 						/>
 						<MiniInfoBox
 							question={miniInfoBoxTwo.question}
 							answer={miniInfoBoxTwo.answer}
-						/> */}
+						/>
 					</Box>
 				)}
 			</Box>
