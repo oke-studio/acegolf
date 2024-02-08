@@ -15,7 +15,6 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
-import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 import { howItWorksImages } from './howItWorksImages';
 import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
 import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
