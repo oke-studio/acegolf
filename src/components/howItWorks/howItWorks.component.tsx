@@ -17,6 +17,7 @@ import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.co
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
 import { howItWorksImages } from './howItWorksImages';
 import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
+import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 
 interface HowItWorksInfoBoxProps {
 	title: string;
@@ -24,20 +25,38 @@ interface HowItWorksInfoBoxProps {
 	relatedFAQs: TypeFaqItemFields[];
 }
 
-type HowItWorksProps =
-	| {
-			isLanding?: never;
-			infoBoxData: HowItWorksInfoBoxProps[];
-	  }
-	| {
-			isLanding: boolean;
-			infoBoxData?: never;
-	  };
+type HowItWorksProps = {
+	isLanding?: boolean;
+};
 
-export const HowItWorks = ({
-	isLanding = false,
-	infoBoxData,
-}: HowItWorksProps) => {
+export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
+	const { howItWorksData, isLoading } = useGetHowItWorks();
+
+	if (isLoading || !howItWorksData) {
+		return <></>;
+	}
+
+	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
+	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
+	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
+
+	const infoBoxData = [
+		{
+			description: howItWorksData.step1Content,
+			title: howItWorksData.step1Title,
+			relatedFAQs: RelatedFAQOne,
+		},
+		{
+			description: howItWorksData.step2Content,
+			title: howItWorksData.step2Title,
+			relatedFAQs: RelatedFAQTwo,
+		},
+		{
+			description: howItWorksData.step3Content,
+			title: howItWorksData.step3Title,
+			relatedFAQs: RelatedFAQThree,
+		},
+	];
 	return (
 		<Section
 			SectionName="How it works Homepage"

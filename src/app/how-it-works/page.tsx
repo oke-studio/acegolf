@@ -58,16 +58,6 @@ export default function Home() {
 	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
-	const { howItWorksData, isLoading } = useGetHowItWorks();
-
-	if (isLoading || !howItWorksData) {
-		return <></>;
-	}
-
-	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
-	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
-	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
-
 	return (
 		<Box>
 			<Box
@@ -97,25 +87,7 @@ export default function Home() {
 					component={motion.div}
 					ref={howItWorkStepsSectionAsReference}
 				>
-					<HowItWorks
-						infoBoxData={[
-							{
-								description: howItWorksData.step1Content,
-								title: howItWorksData.step1Title,
-								relatedFAQs: RelatedFAQOne,
-							},
-							{
-								description: howItWorksData.step2Content,
-								title: howItWorksData.step2Title,
-								relatedFAQs: RelatedFAQTwo,
-							},
-							{
-								description: howItWorksData.step3Content,
-								title: howItWorksData.step3Title,
-								relatedFAQs: RelatedFAQThree,
-							},
-						]}
-					/>
+					<HowItWorks />
 				</Box>
 
 				{/* <SimRoomsComponent />
