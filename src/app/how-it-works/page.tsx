@@ -84,25 +84,7 @@ export default function Home() {
 				component={motion.div}
 				ref={howItWorkStepsSectionAsReference}
 			>
-				<HowItWorks
-					infoBoxData={[
-						{
-							description: howItWorksData.step1Content,
-							title: howItWorksData.step1Title,
-							relatedFAQs: RelatedFAQOne,
-						},
-						{
-							description: howItWorksData.step2Content,
-							title: howItWorksData.step2Title,
-							relatedFAQs: RelatedFAQTwo,
-						},
-						{
-							description: howItWorksData.step3Content,
-							title: howItWorksData.step3Title,
-							relatedFAQs: RelatedFAQThree,
-						},
-					]}
-				/>
+				<HowItWorks />
 			</Box>
 
 			{/* <SimRoomsComponent />

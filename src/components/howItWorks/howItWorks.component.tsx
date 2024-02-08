@@ -18,6 +18,7 @@ import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
 import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 import { howItWorksImages } from './howItWorksImages';
 import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
+import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 
 interface HowItWorksInfoBoxProps {
 	title: string;
@@ -26,7 +27,7 @@ interface HowItWorksInfoBoxProps {
 }
 
 type HowItWorksProps = {
-	isLanding: boolean;
+	isLanding?: boolean;
 };
 
 export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
