@@ -31,6 +31,7 @@ type HowItWorksProps = {
 
 export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 	const { howItWorksData, isLoading } = useGetHowItWorks();
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	if (isLoading || !howItWorksData) {
 		return <></>;
@@ -93,7 +94,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						flexDirection: isLanding ? 'row' : 'column',
 						gap: '2rem',
 						...(!isLanding && {
-							width: '50%',
+							width: isMobile ? '100%' : '50%',
 						}),
 					}}
 				>
@@ -113,13 +114,16 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 				</Box>
 				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
-			<SectionImageGrid
-				SectionImageGridWidth="rightHalf"
-				ImageData={howItWorksImages}
-				sx={{
-					gridTemplateRows: ' 1fr 1fr 1fr',
-				}}
-			></SectionImageGrid>
+
+			{!isLanding && (
+				<SectionImageGrid
+					SectionImageGridWidth="rightHalf"
+					ImageData={howItWorksImages}
+					sx={{
+						gridTemplateRows: ' 1fr 1fr 1fr',
+					}}
+				></SectionImageGrid>
+			)}
 		</Section>
 	);
 };
