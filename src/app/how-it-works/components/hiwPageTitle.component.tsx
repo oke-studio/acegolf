@@ -26,6 +26,8 @@ export default function HiwPageTitle() {
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
+			SpecialSVGBacking={true}
+			SpecialSVGColour="#EB8B32"
 		>
 			<Box
 				sx={{

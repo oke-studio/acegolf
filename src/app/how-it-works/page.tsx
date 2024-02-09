@@ -54,7 +54,11 @@ export default function Home() {
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (
-		<Box>
+		<Box
+			sx={{
+				position: 'relative',
+			}}
+		>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
@@ -71,30 +75,24 @@ export default function Home() {
 						scale: isMobile ? '1' : sectionScale,
 					}}
 				>
-					This copy describes the overall experience of what ace golf encourages
-					users to learn more below and see the FAQs section on this page
+					<HiwPageTitle />
+				</Box>
+
+				<Box
+					sx={{
+						position: 'sticky',
+						// top: '30px',
+					}}
+					component={motion.div}
+					ref={howItWorkStepsSectionAsReference}
+				>
+					<HowItWorks />
 				</Box>
 			</Box>
 
-			<HowItWorks isLanding={false} />
-			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-				<Button variant="primary">Reserve a Bay &rarr;</Button>
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					backgroundColor: theme.palette.aceGreen,
-					flexDirection: 'column',
-					gap: '32px',
-					padding: '1.5rem',
-					justifyContent: 'center',
-				}}
-			>
-				{/* <SimRoomsComponent />
+			{/* <SimRoomsComponent />
         <GolfGamesComponent /> */}
-				<SimRoomsComponentV1 />
-				<GolfGamesComponentV1 />
-			</Box>
+			<SimRoomsComponentV1 />
 
 			{/* FAQ */}
 			<Box sx={{ display: 'flex' }}>

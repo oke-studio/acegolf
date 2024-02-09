@@ -15,9 +15,9 @@ import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
-import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 import { howItWorksImages } from './howItWorksImages';
 import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
+import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 
 interface HowItWorksInfoBoxProps {
 	title: string;
@@ -26,11 +26,12 @@ interface HowItWorksInfoBoxProps {
 }
 
 type HowItWorksProps = {
-	isLanding: boolean;
+	isLanding?: boolean;
 };
 
 export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 	const { howItWorksData, isLoading } = useGetHowItWorks();
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	if (isLoading || !howItWorksData) {
 		return <></>;
@@ -92,8 +93,9 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						display: 'flex',
 						flexDirection: isLanding ? 'row' : 'column',
 						gap: '2rem',
+						overflowX: 'hidden',
 						...(!isLanding && {
-							width: '50%',
+							width: isMobile ? '100%' : '50%',
 						}),
 					}}
 				>
@@ -113,13 +115,16 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 				</Box>
 				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
-			<SectionImageGrid
-				SectionImageGridWidth="rightHalf"
-				ImageData={howItWorksImages}
-				sx={{
-					gridTemplateRows: ' 1fr 1fr 1fr',
-				}}
-			></SectionImageGrid>
+
+			{/* {!isLanding && (
+				<SectionImageGrid
+					SectionImageGridWidth="rightHalf"
+					ImageData={howItWorksImages}
+					sx={{
+						gridTemplateRows: ' 1fr 1fr 1fr',
+					}}
+				></SectionImageGrid>
+			)} */}
 		</Section>
 	);
 };
