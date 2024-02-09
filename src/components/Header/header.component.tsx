@@ -53,9 +53,9 @@ interface HeaderProps {
 
 export const Header = ({
 	navOptions = [
-		{ label: 'Menu', to: '/menu' },
 		{ label: 'How it Works', to: '/how-it-works' },
 		// { label: 'About', to: '/about' },
+		{ label: 'Menu', to: '/menu' },
 		{ label: 'Events', to: '/events' },
 	],
 }: HeaderProps) => {

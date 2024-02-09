@@ -54,7 +54,11 @@ export default function Home() {
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (
-		<Box>
+		<Box
+			sx={{
+				position: 'relative',
+			}}
+		>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
@@ -64,7 +68,7 @@ export default function Home() {
 					component={motion.div}
 					sx={{
 						position: 'sticky',
-						//top: '100px',
+						top: '100px',
 					}}
 					style={{
 						opacity: isMobile ? '1' : sectionOpacity,
@@ -73,17 +77,17 @@ export default function Home() {
 				>
 					<HiwPageTitle />
 				</Box>
-			</Box>
 
-			<Box
-				sx={{
-					position: 'sticky',
-					// top: '30px',
-				}}
-				component={motion.div}
-				ref={howItWorkStepsSectionAsReference}
-			>
-				<HowItWorks />
+				<Box
+					sx={{
+						position: 'sticky',
+						// top: '30px',
+					}}
+					component={motion.div}
+					ref={howItWorkStepsSectionAsReference}
+				>
+					<HowItWorks />
+				</Box>
 			</Box>
 
 			{/* <SimRoomsComponent />
