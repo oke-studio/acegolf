@@ -12,8 +12,8 @@ const MiniInfoBox = ({
 	return (
 		<Box
 			sx={{
-				height: '250px',
-				width: '250px',
+				height: '125px',
+				minWidth: '200px',
 				backgroundColor: theme => theme.palette.aceTeal,
 				borderRadius: '20px',
 				color: 'black',
@@ -22,12 +22,15 @@ const MiniInfoBox = ({
 				gap: '1rem',
 				padding: '1rem',
 				textOverflow: 'clip',
+				borderRight: '4px solid orange',
+				borderBottom: '4px solid orange',
 			}}
 		>
-			<Typography variant="base" weight="600">
+			<Typography variant="large" weight="600">
 				{question}
+				<br />→
 			</Typography>
-			<Typography variant="base">{answer}</Typography>
+			{/* <Typography variant="base">{answer}</Typography> */}
 		</Box>
 	);
 };
@@ -86,14 +89,6 @@ export const HowItWorksInfoBox = ({
 								key={`min_info_${index}`}
 							/>
 						))}
-						{/* <MiniInfoBox
-							question={miniInfoBoxOne.question}
-							answer={miniInfoBoxOne.answer}
-						/>
-						<MiniInfoBox
-							question={miniInfoBoxTwo.question}
-							answer={miniInfoBoxTwo.answer}
-						/> */}
 					</Box>
 				)}
 			</Box>

@@ -64,15 +64,14 @@ export default function Home() {
 					component={motion.div}
 					sx={{
 						position: 'sticky',
-						top: '100px',
+						//top: '100px',
 					}}
 					style={{
 						opacity: isMobile ? '1' : sectionOpacity,
 						scale: isMobile ? '1' : sectionScale,
 					}}
 				>
-					This copy describes the overall experience of what ace golf encourages
-					users to learn more below and see the FAQs section on this page
+					<HiwPageTitle />
 				</Box>
 			</Box>
 

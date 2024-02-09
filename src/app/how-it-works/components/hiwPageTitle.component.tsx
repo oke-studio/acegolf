@@ -38,6 +38,21 @@ export default function HiwPageTitle() {
 					color: 'white',
 				}}
 			>
+				{/* <svg
+					width={'1440'}
+					height={'431'}
+					// viewBox={`0 0 ${width} ${height}`}
+					viewBox={'0 0 1440 431'}
+					fill="none"
+					// preserveAspectRatio="xMidYMid meet"
+				>
+					<path
+						strokeWidth="108.713"
+						stroke="#EB8B32"
+						fill="#EB8B32"
+						d="M588.703 362.745C393.517 327.179 225.297 265.439 -1.5 296.655L-1.5 -5.5L1445 -5.49997L1445 350.012C1445 418 1160.07 259.651 877.117 232.823C596.683 206.235 964.514 431.226 588.703 362.745Z"
+					/>
+				</svg> */}
 				<Typography
 					variant="poster"
 					weight="900"
