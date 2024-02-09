@@ -22,8 +22,8 @@ const MiniInfoBox = ({
 				gap: '1rem',
 				padding: '1rem',
 				textOverflow: 'clip',
-				borderRight: '4px solid orange',
-				borderBottom: '4px solid orange',
+				borderRight: '4px solid #EB8B32',
+				borderBottom: '4px solid #EB8B32',
 			}}
 		>
 			<Typography variant="large" weight="600">
