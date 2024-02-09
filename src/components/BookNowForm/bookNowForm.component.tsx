@@ -10,6 +10,8 @@ import {
 	InputBase,
 	SelectChangeEvent,
 	SvgIcon,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 
 import { DatePicker, TimePicker } from '@mui/x-date-pickers';
@@ -59,6 +61,9 @@ export const BookNowForm = ({
 	isWide: boolean;
 	isLanding?: boolean;
 }) => {
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
+
 	return (
 		<Box
 			sx={{
@@ -66,6 +71,11 @@ export const BookNowForm = ({
 				flexDirection: isLanding ? 'row' : 'column',
 				gap: '24px',
 				justifyContent: isLanding ? 'center' : 'space-evenly',
+
+				...(isMobile && {
+					flexDirection: 'column',
+					justifyContent: 'center',
+				}),
 			}}
 		>
 			<FormControl>
