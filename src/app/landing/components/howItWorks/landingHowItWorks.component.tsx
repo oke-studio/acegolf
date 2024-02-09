@@ -96,9 +96,9 @@ const HowItWorksLanding = () => {
 };
 
 export const LandingHowItWorks = () => {
-	const { breakpoints } = useTheme();
+	// const { breakpoints } = useTheme();
 
-	const isMobile = useMediaQuery(breakpoints.down('sm'));
+	// const isMobile = useMediaQuery(breakpoints.down('sm'));
 	// const isSmallDesktop = useMediaQuery('(max-width:950px)');
 	// const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
