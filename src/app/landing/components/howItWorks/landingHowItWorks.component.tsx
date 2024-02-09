@@ -30,6 +30,9 @@ const HowItWorksLanding = () => {
 		return <></>;
 	}
 
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
+
 	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
 	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
 	const RelatedFAQThree = howItWorksData.step3RelatedFaqCollection.items;
@@ -69,8 +72,8 @@ const HowItWorksLanding = () => {
 			<Box
 				sx={{
 					display: 'flex',
-					flexDirection: 'row',
 					gap: '2rem',
+					flexDirection: isMobile ? 'column' : 'row',
 				}}
 			>
 				{infoBoxData?.map((info, index) => {

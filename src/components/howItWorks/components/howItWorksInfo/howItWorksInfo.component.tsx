@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import {
+	Box,
+	styled,
+	Tab,
+	Tabs,
+	useTheme,
+	Button,
+	useMediaQuery,
+} from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 
 const MiniInfoBox = ({
@@ -49,7 +57,12 @@ export const HowItWorksInfoBox = ({
 	miniInfoBox: { question: string; answer: string }[];
 }) => {
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'row' }}>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'row',
+			}}
+		>
 			<Box sx={{ display: 'flex', alignItems: 'baseline' }}>
 				<Typography variant="poster" weight="900" fontStyle="italic">
 					{number}.
