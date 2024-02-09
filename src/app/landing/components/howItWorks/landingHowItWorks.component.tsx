@@ -25,13 +25,12 @@ import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook
 
 const HowItWorksLanding = () => {
 	const { howItWorksData, isLoading } = useGetHowItWorks();
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
 	if (isLoading || !howItWorksData) {
 		return <></>;
 	}
-
-	const { breakpoints } = useTheme();
-	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
 	const RelatedFAQOne = howItWorksData.step1RelatedFaqCollection.items;
 	const RelatedFAQTwo = howItWorksData.step2RelatedFaqCollection.items;
@@ -96,9 +95,9 @@ const HowItWorksLanding = () => {
 };
 
 export const LandingHowItWorks = () => {
-	// const { breakpoints } = useTheme();
+	const { breakpoints } = useTheme();
+	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
-	// const isMobile = useMediaQuery(breakpoints.down('sm'));
 	// const isSmallDesktop = useMediaQuery('(max-width:950px)');
 	// const isLargeDesktop = useMediaQuery('(min-width:1440px)');
 
