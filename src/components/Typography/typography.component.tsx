@@ -37,16 +37,13 @@ export const Typography = ({
 	children,
 	as,
 	...props
-}: TypographyProps) => {
-	const semanticMapping = SemanticComponentMapping[variant];
-	return (
-		<T
-			{...props}
-			component={as ? as : semanticMapping}
-			variant={variant}
-			sx={{ fontWeight: weight, fontStyle: fontStyle, ...sx }}
-		>
-			{children}
-		</T>
-	);
-};
+}: TypographyProps) => (
+	<T
+		{...props}
+		component={as ? as : SemanticComponentMapping[variant]}
+		variant={variant}
+		sx={{ fontWeight: weight, fontStyle: fontStyle, ...sx }}
+	>
+		{children}
+	</T>
+);

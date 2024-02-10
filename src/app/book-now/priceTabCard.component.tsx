@@ -283,7 +283,7 @@ export default function PriceTabCard() {
 		}[],
 	);
 
-	console.log(baysPricingReduced);
+	// console.log(baysPricingReduced);
 
 	const currentDate = new Date();
 
