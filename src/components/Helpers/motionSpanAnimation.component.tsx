@@ -2,6 +2,8 @@ import * as React from 'react';
 import { motion, Transition, Variants } from 'framer-motion';
 import { useTheme } from '@mui/material';
 import { RNG } from '@/util/RNG';
+import { Typography } from '../Typography/typography.component';
+import { fontUses, fontWeight } from '../Theme-Context/fontValues';
 interface MotionVariantsProps<K> {
 	to: K;
 	from: K;
@@ -101,46 +103,58 @@ export const MotionSpanAnimated = ({
 	variant = 'default',
 	restAnimation = DEFAULT_REST_ANIMATION_PROFILE(variant),
 	hoverAnimation = DEFAULT_HOVER_ANIMATION_PROFILE(variant),
+	typographyVariant = 'base',
+	typographyWeight = '300',
 }: {
 	label: string;
 	restAnimation?: NavOptionsProps;
 	hoverAnimation?: NavOptionsProps;
 	variant?: 'book' | 'default';
+	typographyVariant?: keyof typeof fontUses;
+	typographyWeight?: keyof typeof fontWeight;
 }) => {
+	console.log(label);
 	return (
-		<motion.span
-			initial="rest"
-			whileHover="hovered"
-			animate="rest"
-			whileFocus="hovered"
-		>
-			{label.split(/(?:)/).map((word, index) => {
-				if (word === ' ') {
-					return <motion.span key={index}>&nbsp;</motion.span>;
-				}
+		<Typography variant={typographyVariant} weight={typographyWeight}>
+			<motion.span
+				initial="rest"
+				whileHover="hovered"
+				animate="rest"
+				whileFocus="hovered"
+			>
+				{label.split(/(?:)/).map((word, index) => {
+					if (word === ' ') {
+						return (
+							<motion.span key={index} style={{ width: 'ch' }}>
+								&nbsp;
+							</motion.span>
+						);
+					}
 
-				return (
-					<motion.span
-						key={index}
-						style={{
-							position: 'relative',
-							display: 'inline-block',
-							fontSize: '18px',
-						}}
-						variants={
-							index % 2 === 0
-								? navOptionHoverAnimation({
-										animationProfile: hoverAnimation,
-									})
-								: navOptionHoverAnimation({
-										animationProfile: restAnimation,
-									})
-						}
-					>
-						{word}
-					</motion.span>
-				);
-			})}
-		</motion.span>
+					return (
+						<motion.span
+							// as={motion.span}
+							key={index}
+							style={{
+								position: 'relative',
+								display: 'inline-block',
+							}}
+							// variant="base"
+							variants={
+								index % 2 === 0
+									? navOptionHoverAnimation({
+											animationProfile: hoverAnimation,
+										})
+									: navOptionHoverAnimation({
+											animationProfile: restAnimation,
+										})
+							}
+						>
+							{word}
+						</motion.span>
+					);
+				})}
+			</motion.span>
+		</Typography>
 	);
 };

@@ -26,7 +26,6 @@ export const SpinningMenuHeading = () => {
 					height: '6rem',
 					fontWeight: 900,
 					textTransform: 'uppercase',
-					top: '-20px',
 					zIndex: '-1',
 				}}
 				style={{
@@ -64,10 +63,10 @@ export const SpinningMenuHeading = () => {
 						height: '100%',
 						width: '100%',
 						justifyContent: 'center',
-						alignItems: 'flex-start',
+						alignItems: 'center',
 						borderStyle: 'solid',
 						borderWidth: '2px',
-						borderColor: '#EB8B32',
+						borderColor: theme => theme.palette.orange,
 						color: '#ffffff',
 						// borderRadius: '12px',
 						backgroundColor: theme => {
@@ -92,12 +91,12 @@ export const SpinningMenuHeading = () => {
 						alignItems: 'center',
 						borderStyle: 'solid',
 						borderWidth: '2px',
-						borderColor: '#EB8B32',
+						borderColor: theme => theme.palette.orange,
 						width: '100%',
 						height: '100%',
 						color: '#ffffff',
 						// borderRadius: '12px',
-						backgroundColor: '#EB8B32',
+						backgroundColor: theme => theme.palette.orange,
 						transformOrigin: 'top',
 					}}
 					weight="900"
@@ -118,12 +117,12 @@ export const SpinningMenuHeading = () => {
 						alignItems: 'center',
 						borderStyle: 'solid',
 						borderWidth: '2px',
-						borderColor: '#EB8B32',
+						borderColor: theme => theme.palette.orange,
 						width: '100%',
 						height: '100%',
 						color: '#ffffff',
 						// borderRadius: '12px',
-						backgroundColor: '#EB8B32',
+						backgroundColor: theme => theme.palette.orange,
 						transformOrigin: 'bottom',
 					}}
 					weight="900"
@@ -146,12 +145,12 @@ export const SpinningMenuHeading = () => {
 						alignItems: 'center',
 						borderStyle: 'solid',
 						borderWidth: '2px',
-						borderColor: '#EB8B32',
+						borderColor: theme => theme.palette.orange,
 						width: '100%',
 						height: '100%',
 						color: '#ffffff',
 						// borderRadius: '12px',
-						backgroundColor: '#EB8B32',
+						backgroundColor: theme => theme.palette.orange,
 						transformOrigin: 'center',
 					}}
 					weight="900"
@@ -180,7 +179,7 @@ export const SpinningMenuHeading = () => {
 			<SpinningBox
 				front="Gourmet"
 				bottom="Drinks"
-				back="Desserts"
+				back="Dessert"
 				top="Gourmet"
 			/>
 		</Typography>

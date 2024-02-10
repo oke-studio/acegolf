@@ -65,10 +65,6 @@ export const Header = ({
 		React.useState(false);
 	const router = useRouter();
 
-	//   function toggleDropDown() {
-	//     setMobileDropDownEnabled(!mobileDropDownEnabled);
-	//   }
-
 	const HoverAnimation = {
 		top: { to: '5px', from: '0px' },
 		color: {
@@ -153,7 +149,6 @@ export const Header = ({
 			sx={{
 				display: 'flex',
 				width: '100%',
-
 				justifyContent: 'center',
 				flexDirection: 'column',
 				position: 'sticky',
@@ -170,9 +165,9 @@ export const Header = ({
 				initial="closed"
 				animate={mobileDropDownEnabled ? 'open' : 'closed'}
 				sx={{
-					// display: 'flex',
-					// flexDirection: 'column',
-					justifyContent: 'center',
+					listStyleType: 'none',
+					paddingTop: '120px',
+					justifyContent: 'flex-start',
 					// gap: '24px',
 					alignItems: 'center',
 					height: '100vh',
@@ -186,7 +181,7 @@ export const Header = ({
 					overflow: 'hidden',
 					pointerEvents: 'auto',
 					flexDirection: 'column',
-					gap: '1rem',
+					gap: '4rem',
 					backgroundColor: '#ffffff',
 					transformOrigin: 'top',
 					color: 'black',
@@ -194,10 +189,6 @@ export const Header = ({
 					boxShadow:
 						'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 				}}
-				// component={motion.div}
-				// variants={menuVariants}
-				// initial="closed"
-				// animate={mobileDropDownEnabled ? 'open' : 'closed'}
 			>
 				{navOptions.map((navLink, i) => (
 					<Box
@@ -214,11 +205,16 @@ export const Header = ({
 							justifyContent: 'center',
 						}}
 					>
-						<Button variant="text" sx={{ color: '#000000' }}>
+						{/* <Button variant="text" sx={{ color: '#000000' }}>
 							<Typography variant="small" weight="400" as={motion.div}>
 								{navLink.label}
 							</Typography>
-						</Button>
+						</Button> */}
+						<MotionSpanAnimated
+							label={navLink.label}
+							typographyVariant="largeH1"
+							typographyWeight="700"
+						/>
 					</Box>
 				))}
 			</Box>
@@ -247,20 +243,20 @@ export const Header = ({
 
 						<Box
 							component={motion.button}
-							whileHover={{ scale: 1.15, color: palette.aceOrange }}
+							whileHover={{ scale: 1.75 }}
 							whileTap={{ scale: 0.95 }}
-							initial={{ color: mobileDropDownEnabled ? '#000000' : '#FFFFFF' }}
+							initial={{ scale: 1 }}
 							sx={{
 								border: 'none',
 								backgroundColor: 'transparent',
-								...(mobileDropDownEnabled && { zIndex: 10, color: '#000000' }),
 								color: '#FFFFFF',
+								...(mobileDropDownEnabled && { zIndex: 10, color: '#000000' }),
 							}}
 							onClick={() => setMobileDropDownEnabled(open => !open)}
 						>
 							{mobileDropDownEnabled ? (
 								// <SportsGolfIcon fontSize="large" />
-								<Close fontSize="large" />
+								<Close fontSize="large" fill="#000000" />
 							) : (
 								// <GolfCourseIcon fontSize="large" />
 								<Menu fontSize="large" />
