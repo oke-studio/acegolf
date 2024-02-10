@@ -185,7 +185,7 @@ export const LandingCardsGrid = () => {
 					}}
 					CardTitle="Parking"
 					CardDescription="Parking available at Heward Ave & Eastern Ave"
-					ImageSrc="/images/Maps-ace-expanded.png"
+					ImageSrc="/images/Maps-ace-expanded.webp"
 				/>
 			</Box>
 		</LandingCardsContainer>

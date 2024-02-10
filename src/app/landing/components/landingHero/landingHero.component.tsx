@@ -67,7 +67,7 @@ export const LandingHero = () => {
 					>
 						<Image
 							//expose svg to have the logo scale accordingly
-							src="/images/powered-by-Trackman-black-web.png"
+							src="/images/powered-by-Trackman-black-web.webp"
 							width={219}
 							height={73}
 							alt="Powered by Trackman Logo"

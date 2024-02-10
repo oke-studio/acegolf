@@ -121,7 +121,7 @@ a {
 }
 
 .subtleNoise {
-	background-image: url('/images/noise-ace.png');
+	background-image: url('/images/noise-ace.webp');
 	top: -10rem;
 	left: -10rem;
 	width: calc(100% + 20rem);
