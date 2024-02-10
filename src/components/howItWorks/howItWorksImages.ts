@@ -1,6 +1,6 @@
 export const howItWorksImages = [
 	{
-		src: '/images/collageexport/Golf-cart.png',
+		src: '/images/collageexport/Golf-cart.webp',
 		aspectRatio: '0.95',
 		backCutOut: false,
 		backCutOutColor: 'orange',
@@ -28,7 +28,7 @@ export const howItWorksImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo3.png',
+		src: '/images/Spin-photo3.webp',
 		aspectRatio: '1.130',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -56,7 +56,7 @@ export const howItWorksImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo1.png',
+		src: '/images/Spin-photo1.webp',
 		aspectRatio: '0.95',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -84,7 +84,7 @@ export const howItWorksImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo2.png',
+		src: '/images/Spin-photo2.webp',
 		aspectRatio: '0.91',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -113,7 +113,7 @@ export const howItWorksImages = [
 	},
 
 	{
-		src: '/images/ace-sticker-1.png',
+		src: '/images/ace-sticker-1.webp',
 		aspectRatio: '1/1',
 		backCutOut: false,
 		backCutOutColor: 'sharpTeal',

@@ -1,10 +1,10 @@
 export const landingHeroImages = [
 	{
-		src: '/images/friends-photos.jpg',
+		src: '/images/friends-photos.webp',
 		aspectRatio: '0.77',
 		backCutOut: true,
 		backCutOutColor: 'orange',
-		imageNameAltText: 'Gif of photos at ace',
+		imageNameAltText: 'photos at ace',
 		opacity: 1, // default 1 for visible
 		scale: 1.4, // scale transform for aceImage
 		rotation: -5, // rotation
@@ -28,7 +28,7 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo3.png',
+		src: '/images/Spin-photo3.webp',
 		aspectRatio: '1.130',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -56,7 +56,7 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo1.png',
+		src: '/images/Spin-photo1.webp',
 		aspectRatio: '0.95',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -84,7 +84,7 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo2.png',
+		src: '/images/Spin-photo2.webp',
 		aspectRatio: '0.91',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
@@ -113,7 +113,7 @@ export const landingHeroImages = [
 	},
 
 	{
-		src: '/images/ace-sticker-1.png',
+		src: '/images/ace-sticker-1.webp',
 		aspectRatio: '1/1',
 		backCutOut: false,
 		backCutOutColor: 'sharpTeal',
