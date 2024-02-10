@@ -4,7 +4,7 @@ export const landingHeroImages = [
 		aspectRatio: '0.77',
 		backCutOut: true,
 		backCutOutColor: 'orange',
-		imageNameAltText: 'photos at ace',
+		imageNameAltText: 'friends photos at ace',
 		opacity: 1, // default 1 for visible
 		scale: 1.4, // scale transform for aceImage
 		rotation: -5, // rotation
