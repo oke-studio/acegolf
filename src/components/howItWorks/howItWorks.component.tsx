@@ -116,7 +116,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
 
-			{/* {!isLanding && (
+			{!isLanding && (
 				<SectionImageGrid
 					SectionImageGridWidth="rightHalf"
 					ImageData={howItWorksImages}
@@ -124,7 +124,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						gridTemplateRows: ' 1fr 1fr 1fr',
 					}}
 				></SectionImageGrid>
-			)} */}
+			)}
 		</Section>
 	);
 };
