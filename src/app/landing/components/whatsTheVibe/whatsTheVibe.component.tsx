@@ -19,7 +19,7 @@ const ImageSrc = [
 	},
 	// #2
 	{
-		src: '/images/whatsTheVibeAssets/ace-pink.png',
+		src: '/images/whatsTheVibeAssets/ace-pink.webp',
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
 		height: 250,
