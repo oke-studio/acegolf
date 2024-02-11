@@ -1,10 +1,16 @@
 'use client';
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, SxProps, useMediaQuery } from '@mui/material';
+
 import { Typography } from '../Typography/typography.component';
 import { useGetAceQuery } from '@/hooks/getUseAceQuery/getUseAceQuery.hook';
 
-export const HeaderBanner = () => {
+interface HeaderBannerProps {
+	children?: React.ReactNode;
+	sx?: SxProps;
+}
+
+export const HeaderBanner = ({ children, sx }: HeaderBannerProps) => {
 	const { data, isLoading } = useGetAceQuery();
 
 	if (isLoading || !data?.globalAnnouncementHeader) {
@@ -27,8 +33,10 @@ export const HeaderBanner = () => {
 				padding: ' 8px 0px',
 				mixBlendMode: 'normal',
 				borderRadius: ' 0px 0px 15px 15px',
+				...sx,
 			}}
 		>
+			{children}
 			<Typography variant="base" sx={{ textAlign: 'center' }}>
 				{data?.globalAnnouncementHeader}
 			</Typography>

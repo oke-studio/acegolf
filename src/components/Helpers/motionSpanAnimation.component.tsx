@@ -113,7 +113,7 @@ export const MotionSpanAnimated = ({
 	typographyVariant?: keyof typeof fontUses;
 	typographyWeight?: keyof typeof fontWeight;
 }) => {
-	console.log(label);
+	//console.log(label);
 	return (
 		<Typography variant={typographyVariant} weight={typographyWeight}>
 			<motion.span

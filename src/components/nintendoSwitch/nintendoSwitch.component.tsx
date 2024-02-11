@@ -57,7 +57,7 @@ export const NintendoSwitch = () => {
 
 					<Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
 						<Image
-							src="/images/ace-banner-chromatic-white.jpg"
+							src="/images/ace-banner-chromatic-white.webp"
 							fill
 							alt="img"
 							style={{
@@ -105,7 +105,7 @@ export const NintendoSwitch = () => {
 
 					<Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
 						<Image
-							src="/images/ace-banner-chromatic-white.jpg"
+							src="/images/ace-banner-chromatic-white.webp"
 							fill
 							alt="img"
 							style={{

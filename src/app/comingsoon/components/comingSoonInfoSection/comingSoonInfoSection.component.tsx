@@ -14,14 +14,14 @@ const ComingSoonForm = () => {
 	const isMobile = useMediaQuery('(max-width:640px)');
 
 	React.useEffect(() => {
-		console.log(isSubmit);
+		//console.log(isSubmit);
 	}, [isSubmit]);
 
 	return (
 		<Formik
 			initialValues={{ email: '' }}
 			onSubmit={values => {
-				console.log(values);
+				//console.log(values);
 				fetch('/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -27,7 +27,7 @@ const ImageSrc = [
 	},
 	// #3
 	{
-		src: '/images/whatsTheVibeAssets/wtv-02.jpg',
+		src: '/images/whatsTheVibeAssets/wtv-02.webp',
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
 		height: 400,
@@ -35,7 +35,7 @@ const ImageSrc = [
 	},
 	// #4
 	{
-		src: '/images/whatsTheVibeAssets/wtv-03.jpg',
+		src: '/images/whatsTheVibeAssets/wtv-03.webp',
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
 		height: 450,
@@ -52,7 +52,7 @@ const ImageSrc = [
 	},
 
 	{
-		src: '/images/whatsTheVibeAssets/wtv-04.jpg',
+		src: '/images/whatsTheVibeAssets/wtv-04.webp',
 
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
@@ -61,7 +61,7 @@ const ImageSrc = [
 	},
 
 	{
-		src: '/images/whatsTheVibeAssets/wtv-01.jpg',
+		src: '/images/whatsTheVibeAssets/wtv-01.webp',
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
 		height: 400,
@@ -69,7 +69,7 @@ const ImageSrc = [
 	},
 
 	{
-		src: '/images/ace-banner-chromatic-white.jpg',
+		src: '/images/ace-banner-chromatic-white.webp',
 		title: 'img_01',
 		alt: 'whats_the_vibe_image',
 		height: 450,

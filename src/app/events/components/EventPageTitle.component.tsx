@@ -14,20 +14,19 @@ import {
 
 import { Typography } from '@/components/Typography/typography.component';
 import { PageTitleSection } from '@/components/layout/pageTitleSection.componenet';
-import { SpinningMenuHeading } from './menu-carousel/components/spinningMenuHeading/spinningMenuHeading.component';
 
-export default function MenuPageTitle() {
+export default function EventPageTitle() {
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
 		<PageTitleSection
-			SectionName="Kitchen and Bar information"
+			SectionName="Event Page Title"
 			SectionWidth="fullViewport"
 			SectionHeight="fit-content"
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SpecialSVGBacking={false}
+			SpecialSVGBacking={true}
 			SpecialSVGColour="#36DAD5"
 		>
 			<Box
@@ -38,9 +37,24 @@ export default function MenuPageTitle() {
 					position: 'relative',
 					zIndex: '2',
 					...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
+					color: 'white',
 				}}
 			>
-				<SpinningMenuHeading />
+				<Typography
+					variant="poster"
+					weight="900"
+					fontStyle="italic"
+					sx={{
+						textWrap: 'wrap',
+						textAlign: 'center',
+						flex: 1,
+
+						width: isMobile ? '100%' : '50%',
+					}}
+				>
+					EVENTS
+				</Typography>
+
 				<Typography
 					variant="large"
 					alignSelf="center"
@@ -48,9 +62,8 @@ export default function MenuPageTitle() {
 						width: isMobile ? '100%' : '50%',
 					}}
 				>
-					Swing into flavour with our culinary delights. This is a piece of text
-					about the food inspiration. it will tell the people what to expect
-					with menu.
+					This copy describes the overall experience of what ace golf encourages
+					users to learn more below and see the FAQs section on this page
 				</Typography>
 			</Box>
 		</PageTitleSection>
