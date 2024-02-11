@@ -45,7 +45,11 @@ export default function Events() {
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (
-		<Box>
+		<Box
+			sx={{
+				backgroundColor: theme => theme.palette.purple,
+			}}
+		>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
