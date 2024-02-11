@@ -30,7 +30,7 @@ const AnimatedPromotionCards = ({
 	// const mouseXSpring = useSpring(x);
 	// const mouseYSpring = useSpring(y);
 	const topSpring = useSpring(top, { bounce: 0 });
-	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
+	const img = imgSrc ?? '/images/ace-banner-chromatic-black.webp';
 
 	// const rotateX = useTransform(
 	// 	mouseYSpring,
@@ -155,7 +155,7 @@ const PromotionCards = ({
 	eventsSlug,
 }: PromotionCardProps) => {
 	const router = useRouter();
-	const img = imgSrc ?? '/images/ace-banner-chromatic-black.jpg';
+	const img = imgSrc ?? '/images/ace-banner-chromatic-black.webp';
 
 	return (
 		<Box
