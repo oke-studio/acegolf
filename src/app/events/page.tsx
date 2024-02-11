@@ -37,7 +37,10 @@ export default function Events() {
 	const eventsSectionAsReference = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: eventsSectionAsReference,
-		offset: ['center end', 'start start'],
+		...(isMobile
+			? { offset: ['start end', 'start start'] }
+			: { offset: ['center end', 'start start'] }),
+		//offset: ['center end', 'start start'],
 	});
 
 	//mapping scroll progress to actual
@@ -62,8 +65,10 @@ export default function Events() {
 						top: '100px',
 					}}
 					style={{
-						opacity: isMobile ? '1' : sectionOpacity,
-						scale: isMobile ? '1' : sectionScale,
+						// opacity: isMobile ? '1' : sectionOpacity,
+						// scale: isMobile ? '1' : sectionScale,
+						opacity: sectionOpacity,
+						scale: sectionScale,
 					}}
 				>
 					<EventPageTitle />

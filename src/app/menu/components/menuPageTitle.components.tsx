@@ -27,6 +27,8 @@ export default function MenuPageTitle() {
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
+			SpecialSVGBacking={false}
+			SpecialSVGColour="#36DAD5"
 		>
 			<Box
 				sx={{
