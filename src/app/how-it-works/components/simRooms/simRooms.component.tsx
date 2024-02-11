@@ -137,37 +137,37 @@ const SimRoomCardsInfo: Omit<
 	'isCurrent' | 'index' | 'setActiveCard' | 'activeWidth'
 >[] = [
 	// {
-	//   imgSrc: '/images/Spin-photo1.png',
+	//   imgSrc: '/images/Spin-photo1.webp',
 	//   imgAlt: 'img',
 	//   cardWidth: '250px',
 	//   title: 'COUPON',
 	// },
 	{
-		imgSrc: '/images/Spin-photo2.png',
+		imgSrc: '/images/Spin-photo2.webp',
 		imgAlt: 'img',
 		cardWidth: '250px',
 		title: '1',
 	},
 	{
-		imgSrc: '/images/Spin-photo3.png',
+		imgSrc: '/images/Spin-photo3.webp',
 		imgAlt: 'img',
 		cardWidth: '250px',
 		title: '2',
 	},
 	{
-		imgSrc: '/images/Spin-photo4.png',
+		imgSrc: '/images/Spin-photo4.webp',
 		imgAlt: 'img',
 		cardWidth: '250px',
 		title: '3',
 	},
 	{
-		imgSrc: '/images/placeholder1.png',
+		imgSrc: '/images/placeholder1.webp',
 		imgAlt: 'img',
 		cardWidth: '250px',
 		title: '4',
 	},
 	{
-		imgSrc: '/images/placeholder2.png',
+		imgSrc: '/images/placeholder2.webp',
 		imgAlt: 'img',
 		cardWidth: '250px',
 		title: '5',
