@@ -154,11 +154,19 @@ export const Header = ({
 				position: 'sticky',
 				top: '0px',
 
-				zIndex: zIndex.appBar,
-				// mixBlendMode: 'difference',
+				//zIndex: zIndex.appBar,
+
+				zIndex: 2,
+				//top: '0px',
+				//backgroundColor: 'transparent',
+				//mixBlendMode: 'difference',
 			}}
 		>
-			<HeaderBanner />
+			<HeaderBanner
+				sx={{
+					isolation: 'isolate',
+				}}
+			/>
 			<Box
 				component={motion.ul}
 				variants={menuVariants}
@@ -182,7 +190,7 @@ export const Header = ({
 					pointerEvents: 'auto',
 					flexDirection: 'column',
 					gap: '4rem',
-					backgroundColor: '#ffffff',
+					//backgroundColor: '#ffffff',
 					transformOrigin: 'top',
 					color: 'black',
 					zIndex: 5,
@@ -225,7 +233,7 @@ export const Header = ({
 					// color: navTextColor,
 					backgroundColor: mobileDropDownEnabled ? 'white' : 'transparent',
 
-					mixblendmode: 'difference',
+					mixBlendMode: 'difference',
 				}}
 			>
 				{isMobile && (
