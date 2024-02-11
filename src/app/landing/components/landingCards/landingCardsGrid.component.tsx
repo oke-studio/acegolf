@@ -44,7 +44,7 @@ export const LandingCardsGrid = () => {
 						fullWidth: true,
 						onClick: () => router.push('/menu'),
 					}}
-					CardTitle="Tapas Style Menu"
+					CardTitle="Asian Style Tapas "
 					CardDescription="Crazy Good menu goes here with multiple descriptions"
 					ColorVariant="dark"
 					sx={{
