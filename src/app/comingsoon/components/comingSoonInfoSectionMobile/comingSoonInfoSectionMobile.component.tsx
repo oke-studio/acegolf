@@ -13,7 +13,7 @@ const ComingSoonForm = () => {
 		<Formik
 			initialValues={{ email: '' }}
 			onSubmit={values => {
-				console.log(values);
+				//console.log(values);
 
 				fetch('/', {
 					method: 'POST',
