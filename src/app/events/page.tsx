@@ -50,7 +50,7 @@ export default function Events() {
 	return (
 		<Box
 			sx={{
-				backgroundColor: theme => theme.palette.purple,
+				backgroundColor: '#9A92C5',
 			}}
 		>
 			<Box
