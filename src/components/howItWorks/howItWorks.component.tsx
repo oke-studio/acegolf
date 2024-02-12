@@ -67,6 +67,9 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 			SectionHeight="fit-content"
 			sx={{
 				position: 'relative',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '2rem',
 			}}
 		>
 			<Box
@@ -113,7 +116,6 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 					})}
 					{/* #1 */}
 				</Box>
-				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
 
 			{!isLanding && (
@@ -124,6 +126,12 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						gridTemplateRows: ' 1fr 1fr 1fr',
 					}}
 				></SectionImageGrid>
+			)}
+
+			{!isLanding && (
+				<Button variant="primary" sx={{ alignSelf: 'center' }}>
+					Reserve a Bay &rarr;
+				</Button>
 			)}
 		</Section>
 	);

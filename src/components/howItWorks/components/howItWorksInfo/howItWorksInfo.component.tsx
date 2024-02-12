@@ -57,54 +57,57 @@ export const HowItWorksInfoBox = ({
 	miniInfoBox: { question: string; answer: string }[];
 }) => {
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				flexDirection: 'row',
-			}}
-		>
-			<Box sx={{ display: 'flex', alignItems: 'baseline' }}>
-				<Typography variant="poster" weight="900" fontStyle="italic">
-					{number}.
-				</Typography>
-			</Box>
+		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 			<Box
 				sx={{
 					display: 'flex',
-					flexDirection: 'column',
-					gap: '24px',
+					flexDirection: 'row',
 				}}
 			>
-				<Typography variant="headingTwo" weight="900" fontStyle="italic">
-					{label}
-				</Typography>
-				<Typography
-					variant="base"
-					weight="400"
-					// sx={{ padding: '0px 32px' }}
+				<Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+					<Typography variant="poster" weight="900" fontStyle="italic">
+						{number}.
+					</Typography>
+				</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						gap: '24px',
+					}}
 				>
-					{description}
-				</Typography>
-				{!isLanding && (
-					<Box
-						sx={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'flex-start',
-							flexWrap: 'nowrap',
-							gap: '12px',
-						}}
+					<Typography variant="headingTwo" weight="900" fontStyle="italic">
+						{label}
+					</Typography>
+					<Typography
+						variant="base"
+						weight="400"
+						// sx={{ padding: '0px 32px' }}
 					>
-						{miniInfoBox.map((info, index) => (
-							<MiniInfoBox
-								question={info.question}
-								answer={info.answer}
-								key={`min_info_${index}`}
-							/>
-						))}
-					</Box>
-				)}
+						{description}
+					</Typography>
+				</Box>
 			</Box>
+
+			{!isLanding && (
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'flex-start',
+						flexWrap: 'nowrap',
+						gap: '12px',
+					}}
+				>
+					{miniInfoBox.map((info, index) => (
+						<MiniInfoBox
+							question={info.question}
+							answer={info.answer}
+							key={`min_info_${index}`}
+						/>
+					))}
+				</Box>
+			)}
 		</Box>
 	);
 };

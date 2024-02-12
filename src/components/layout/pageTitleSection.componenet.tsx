@@ -120,7 +120,7 @@ export const PageTitleSection = ({
 					}}
 				>
 					<svg
-						width={'1440'}
+						width="auto"
 						height={'431'}
 						// viewBox={`0 0 ${width} ${height}`}
 						viewBox={'0 0 1440 431'}
