@@ -12,7 +12,6 @@ import { Typography } from '@/components/Typography/typography.component';
 import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { Section } from '@/components/layout/section.component';
-import { EventPageTitle } from './components/EventPageTitle.component';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
 import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 
