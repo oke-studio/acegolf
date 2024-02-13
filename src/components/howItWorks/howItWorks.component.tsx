@@ -67,6 +67,9 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 			SectionHeight="fit-content"
 			sx={{
 				position: 'relative',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '2rem',
 			}}
 		>
 			<Box
@@ -97,6 +100,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						...(!isLanding && {
 							width: isMobile ? '100%' : '50%',
 						}),
+						margin: '32px 0',
 					}}
 				>
 					{infoBoxData?.map((info, index) => {
@@ -113,17 +117,23 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 					})}
 					{/* #1 */}
 				</Box>
-				{isLanding && <Button variant="primary">Reserve a Bay &rarr;</Button>}
 			</Box>
 
+			{!isLanding ||
+				(isMobile && (
+					<SectionImageGrid
+						SectionImageGridWidth="rightHalf"
+						ImageData={howItWorksImages}
+						sx={{
+							gridTemplateRows: ' 1fr 1fr 1fr',
+						}}
+					></SectionImageGrid>
+				))}
+
 			{!isLanding && (
-				<SectionImageGrid
-					SectionImageGridWidth="rightHalf"
-					ImageData={howItWorksImages}
-					sx={{
-						gridTemplateRows: ' 1fr 1fr 1fr',
-					}}
-				></SectionImageGrid>
+				<Button variant="primary" sx={{ alignSelf: 'center' }}>
+					Reserve a Bay &rarr;
+				</Button>
 			)}
 		</Section>
 	);

@@ -2,19 +2,18 @@
 
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { useGetEvents } from './hooks/useGetEvents.hook';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 
 // Animation dependencies
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
 import { Typography } from '@/components/Typography/typography.component';
 import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { Section } from '@/components/layout/section.component';
-import EventPageTitle from './components/EventPageTitle.component';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
+import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 
 export default function Events() {
 	const theme = useTheme();
@@ -35,17 +34,18 @@ export default function Events() {
 	//animation functions
 	//get and track scroll progress with offset amount
 	const eventsSectionAsReference = useRef(null);
+
 	const { scrollYProgress } = useScroll({
 		target: eventsSectionAsReference,
-		...(isMobile
-			? { offset: ['start end', 'start start'] }
-			: { offset: ['center end', 'start start'] }),
-		//offset: ['center end', 'start start'],
+		// container: containerRef,
+		offset: ['0', '0.35'],
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+	const sectionOpacity = useSpring(
+		useTransform(scrollYProgress, [0, 0.2], [1, 0]),
+	);
+	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
 	return (
 		<Box
@@ -68,10 +68,69 @@ export default function Events() {
 						// opacity: isMobile ? '1' : sectionOpacity,
 						// scale: isMobile ? '1' : sectionScale,
 						opacity: sectionOpacity,
-						scale: sectionScale,
+						// scale: sectionScale,
 					}}
 				>
-					<EventPageTitle />
+					<PageTitleSection
+						SectionName="Event Page Title"
+						SectionWidth="fullViewport"
+						SectionHeight="fit-content"
+						SectionColor=""
+						CornerRadius={false}
+						ScrollAnimations={false}
+						SpecialSVGBacking={true}
+						SpecialSVGColour={theme.palette.aceTeal}
+					>
+						<Box
+							sx={{
+								color: 'white',
+								backgroundColor: theme.palette.aceTeal,
+								padding: '2rem',
+							}}
+						>
+							<Box
+								sx={{
+									display: 'flex',
+									justifyContent: isMobile ? 'center' : '',
+									gap: '12px',
+									position: 'relative',
+									zIndex: '2',
+									...(isMobile && {
+										flexDirection: 'column',
+										flexWrap: 'wrap',
+									}),
+									color: 'white',
+								}}
+							>
+								<Typography
+									variant="poster"
+									weight="900"
+									fontStyle="italic"
+									sx={{
+										textWrap: 'wrap',
+										textAlign: 'center',
+										flex: 1,
+
+										width: isMobile ? '100%' : '50%',
+									}}
+								>
+									EVENTS
+								</Typography>
+
+								<Typography
+									variant="large"
+									alignSelf="center"
+									sx={{
+										width: isMobile ? '100%' : '50%',
+									}}
+								>
+									This copy describes the overall experience of what ace golf
+									encourages users to learn more below and see the FAQs section
+									on this page
+								</Typography>
+							</Box>
+						</Box>
+					</PageTitleSection>
 				</Box>
 
 				<Box
