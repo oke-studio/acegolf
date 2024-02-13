@@ -87,7 +87,7 @@ const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 			sx={{
 				width: '250px',
 				justifySelf: 'center',
-
+				height: 'fit-content',
 				gridRow: `span ${photoSpans}`,
 			}}
 		>
@@ -99,6 +99,7 @@ const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 					height={galleryHeight}
 					sizes="250px"
 					unoptimized={img.unoptimized}
+					objectFit="cover"
 				/>
 			</Box>
 		</Box>
@@ -107,7 +108,7 @@ const ImageContainer = ({ img }: { img: (typeof ImageSrc)[0] }) => {
 
 export default function WhatsTheVibe() {
 	const gridLayoutGap = '10px';
-	const gridColumnCount = 4;
+	const gridColumnCount = 5;
 	const gridItemMinWidth = '250px';
 
 	const gapCount = `calc(${gridColumnCount} - 1)`;
@@ -158,8 +159,8 @@ export default function WhatsTheVibe() {
 						margin: '0.75rem 0',
 						display: 'grid',
 						gridTemplateColumns: `repeat(auto-fit, minmax(max(${gridItemMinWidth}, ${gridItemMaxWidth}), 1fr))`,
-						gridAutoRows: '10px',
-						width: '80%',
+						gridAutoRows: '11px',
+						width: '100%',
 					}}
 				>
 					{ImageSrc.map((img, index) => (
