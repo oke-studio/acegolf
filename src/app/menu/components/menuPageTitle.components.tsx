@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 import { Typography } from '@/components/Typography/typography.component';
-import { PageTitleSection } from '@/components/layout/pageTitleSection.componenet';
+import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 import { SpinningMenuHeading } from './menu-carousel/components/spinningMenuHeading/spinningMenuHeading.component';
 
 export default function MenuPageTitle() {

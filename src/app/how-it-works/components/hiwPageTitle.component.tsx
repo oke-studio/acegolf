@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 import { Typography } from '@/components/Typography/typography.component';
-import { PageTitleSection } from '@/components/layout/pageTitleSection.componenet';
+import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 
 export default function HiwPageTitle() {
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));

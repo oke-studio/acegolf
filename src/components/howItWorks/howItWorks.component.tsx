@@ -100,6 +100,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						...(!isLanding && {
 							width: isMobile ? '100%' : '50%',
 						}),
+						margin: '32px 0',
 					}}
 				>
 					{infoBoxData?.map((info, index) => {
@@ -118,15 +119,16 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 				</Box>
 			</Box>
 
-			{!isLanding && (
-				<SectionImageGrid
-					SectionImageGridWidth="rightHalf"
-					ImageData={howItWorksImages}
-					sx={{
-						gridTemplateRows: ' 1fr 1fr 1fr',
-					}}
-				></SectionImageGrid>
-			)}
+			{!isLanding ||
+				(isMobile && (
+					<SectionImageGrid
+						SectionImageGridWidth="rightHalf"
+						ImageData={howItWorksImages}
+						sx={{
+							gridTemplateRows: ' 1fr 1fr 1fr',
+						}}
+					></SectionImageGrid>
+				))}
 
 			{!isLanding && (
 				<Button variant="primary" sx={{ alignSelf: 'center' }}>

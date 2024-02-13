@@ -49,7 +49,6 @@ export default function Home() {
 		...(isMobile
 			? { offset: ['start start', 'start center'] }
 			: { offset: ['start start', 'start center'] }),
-		// offset: ['center end', 'start start'],
 	});
 
 	//mapping scroll progress to actual
