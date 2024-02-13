@@ -88,13 +88,14 @@ export const PageTitleSection = ({
 				...sx,
 				...SECTION,
 
-				backgroundColor: `${SectionColor}`,
-				padding: '1% 5%',
+				// backgroundColor: theme => theme.palette.orange,
+				// padding: '1% 5%',
 				height: `${SectionHeight}`,
+				borderTopColor: theme => theme.palette.orange,
 
-				...(isLargeDesktop && { margin: '8px 5% 8px' }),
-				...(isExtraWideDesktop && { margin: '8px 10% 8px' }),
-				...(isUltraWideDesktop && { margin: '8px 20% 8px' }),
+				// ...(isLargeDesktop && { margin: '8px 5% 8px' }),
+				// ...(isExtraWideDesktop && { margin: '8px 10% 8px' }),
+				// ...(isUltraWideDesktop && { margin: '8px 20% 8px' }),
 
 				//work on container query after
 				//containerType: "inline-size",
@@ -104,39 +105,50 @@ export const PageTitleSection = ({
 			ref={SectionAsReference}
 			style={{
 				// ...CORNER,
-				...(CornerRadius
-					? { borderRadius: animatedBorderRadius }
-					: { borderRadius: staticRadius }),
+				// ...(CornerRadius
+				// 	? { borderRadius: animatedBorderRadius }
+				// 	: { borderRadius: staticRadius }),
 				...(ScrollAnimations && { scale: sectionScale }),
 			}}
 		>
+			{children}
 			{SpecialSVGBacking && (
 				<Box
 					sx={{
-						position: 'absolute',
-						zIndex: '-1',
-						top: '-150px',
-						left: '-30px',
+						display: 'flex',
+						width: '100%',
+						height: '181px',
+						position: 'relative',
+						backgroundColor: 'transparent',
 					}}
 				>
-					<svg
-						width="auto"
-						height={'431'}
-						// viewBox={`0 0 ${width} ${height}`}
-						viewBox={'0 0 1440 431'}
-						fill="none"
-						preserveAspectRatio="xMidYMid meet"
+					<Box
+						sx={{
+							position: 'absolute',
+							// zIndex: '-1',
+							top: 0,
+							left: 0,
+							right: 0,
+						}}
 					>
-						<path
-							strokeWidth="100"
-							stroke={SpecialSVGColour}
-							fill={SpecialSVGColour}
-							d="M588.703 362.745C393.517 327.179 225.297 265.439 -1.5 296.655L-1.5 -5.5L1445 -5.49997L1445 350.012C1445 418 1160.07 259.651 877.117 232.823C596.683 206.235 964.514 431.226 588.703 362.745Z"
-						/>
-					</svg>
+						<svg
+							width="100%"
+							height={'100%'}
+							// viewBox={`0 0 ${width} ${height}`}
+							viewBox={'0 250 1440 181'}
+							fill="none"
+							preserveAspectRatio="xMidYMid meet"
+						>
+							<path
+								strokeWidth="100"
+								stroke={SpecialSVGColour}
+								fill={SpecialSVGColour}
+								d="M588.703 362.745C393.517 327.179 225.297 265.439 -1.5 296.655L-1.5 -5.5L1445 -5.49997L1445 350.012C1445 418 1160.07 259.651 877.117 232.823C596.683 206.235 964.514 431.226 588.703 362.745Z"
+							/>
+						</svg>
+					</Box>
 				</Box>
 			)}
-			{children}
 		</Box>
 	);
 };

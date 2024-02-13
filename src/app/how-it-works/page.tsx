@@ -11,7 +11,7 @@ import {
 	useMediaQuery,
 } from '@mui/material';
 // Animation dependencies
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
@@ -47,14 +47,16 @@ export default function Home() {
 	const { scrollYProgress } = useScroll({
 		target: howItWorkStepsSectionAsReference,
 		...(isMobile
-			? { offset: ['start end', 'start start'] }
-			: { offset: ['center end', 'start start'] }),
+			? { offset: ['start start', 'start center'] }
+			: { offset: ['start start', 'start center'] }),
 		// offset: ['center end', 'start start'],
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+	const sectionOpacity = useSpring(
+		useTransform(scrollYProgress, [0, 1], [0, 1]),
+	);
+	const sectionScale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1]));
 
 	return (
 		<Box
@@ -74,8 +76,6 @@ export default function Home() {
 						top: '100px',
 					}}
 					style={{
-						// opacity: isMobile ? '1' : sectionOpacity,
-						// scale: isMobile ? '1' : sectionScale,
 						opacity: sectionOpacity,
 						scale: sectionScale,
 					}}
@@ -104,7 +104,7 @@ export default function Home() {
 				<FAQ />
 			</Box>
 
-			<Box sx={{ display: 'flex' }}></Box>
+			{/* <Box sx={{ display: 'flex' }}></Box> */}
 
 			<NintendoSwitch />
 		</Box>

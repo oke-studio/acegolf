@@ -31,43 +31,50 @@ export default function HiwPageTitle() {
 		>
 			<Box
 				sx={{
-					display: 'flex',
-					justifyContent: isMobile ? 'center' : '',
-					gap: '12px',
-					position: 'relative',
-					zIndex: '2',
-					...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
 					color: 'white',
+					backgroundColor: theme => theme.palette.orange,
+					padding: '2rem',
 				}}
 			>
-				<Typography
-					variant="poster"
-					weight="900"
-					fontStyle="italic"
+				<Box
 					sx={{
-						textWrap: 'wrap',
-						textAlign: 'center',
-						flex: 1,
-
-						width: isMobile ? '100%' : '50%',
+						display: 'flex',
+						justifyContent: isMobile ? 'center' : '',
+						gap: '12px',
+						position: 'relative',
+						zIndex: '2',
+						...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
 					}}
 				>
-					HOW DOES
-					<br />
-					IT WORK
-				</Typography>
+					<Typography
+						variant="poster"
+						weight="900"
+						fontStyle="italic"
+						sx={{
+							textWrap: 'wrap',
+							textAlign: 'center',
+							flex: 1,
 
-				<Typography
-					variant="large"
-					alignSelf="center"
-					sx={{
-						width: isMobile ? '100%' : '50%',
-					}}
-				>
-					Swing into flavour with our culinary delights. This is a piece of text
-					about the food inspiration. it will tell the people what to expect
-					with menu.
-				</Typography>
+							width: isMobile ? '100%' : '50%',
+						}}
+					>
+						HOW DOES
+						<br />
+						IT WORK
+					</Typography>
+
+					<Typography
+						variant="large"
+						alignSelf="center"
+						sx={{
+							width: isMobile ? '100%' : '50%',
+						}}
+					>
+						Swing into flavour with our culinary delights. This is a piece of
+						text about the food inspiration. it will tell the people what to
+						expect with menu.
+					</Typography>
+				</Box>
 			</Box>
 		</PageTitleSection>
 	);
