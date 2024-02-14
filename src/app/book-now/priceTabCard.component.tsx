@@ -68,6 +68,30 @@ const StyledTab = styled((props: StyledTabProps) => (
 	},
 }));
 
+const ServicePill = ({
+	color,
+	backgroundColor,
+	text,
+}: ServicePillInterface) => {
+	return (
+		<Typography
+			variant="miniscule"
+			weight="600"
+			fontStyle="italic"
+			sx={{
+				color: color,
+				textTransform: 'uppercase',
+				backgroundColor: backgroundColor,
+				padding: '0px 8px',
+				borderRadius: '10px',
+				width: 'fit-content',
+			}}
+		>
+			{text}
+		</Typography>
+	);
+};
+
 interface PriceContainer {
 	price: number;
 	color?: 'black' | 'white';
@@ -102,29 +126,6 @@ const PricesTabsContentSkeleton = ({
 	privatePriceContainerTwo,
 }: PricesTabsContentSkeletonProps) => {
 	const theme = useTheme();
-
-	const ServicePill = ({
-		color,
-		backgroundColor,
-		text,
-	}: ServicePillInterface) => {
-		return (
-			<Typography
-				variant="miniscule"
-				weight="600"
-				fontStyle="italic"
-				sx={{
-					color: color,
-					textTransform: 'uppercase',
-					backgroundColor: backgroundColor,
-					padding: '0px 8px',
-					borderRadius: '10px',
-				}}
-			>
-				{text}
-			</Typography>
-		);
-	};
 
 	const PriceInfoBox = ({
 		price,
@@ -172,7 +173,7 @@ const PricesTabsContentSkeleton = ({
 					</Box>
 
 					<Box>
-						<Typography variant="headingTwo" weight="800">
+						<Typography variant="headingThree" weight="800">
 							${price}
 							<Typography
 								variant="base"
@@ -186,7 +187,7 @@ const PricesTabsContentSkeleton = ({
 					</Box>
 
 					<Box>
-						<Typography variant="headingTwo" weight="800">
+						<Typography variant="headingThree" weight="800">
 							${price}
 							<Typography
 								variant="base"
@@ -215,7 +216,40 @@ const PricesTabsContentSkeleton = ({
 				<Typography variant="extralarge" weight="600">
 					{title} Pricing
 				</Typography>
-				{/* <Typography variant="base">{description}</Typography> */}
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'row',
+						flexWrap: 'nowrap',
+						justifyContent: 'flex-start',
+						gap: '16px',
+						margin: '8px 0px',
+					}}
+				>
+					<Box>
+						<Typography variant="large" weight="600">
+							8am - 5pm
+						</Typography>
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text="Partial Service"
+						/>
+						<Typography variant="base">Open: Bay Rental, Cafe</Typography>
+					</Box>
+
+					<Box>
+						<Typography variant="large" weight="600">
+							8am - 5pm
+						</Typography>
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text="Partial Service"
+						/>
+						<Typography variant="base">Open: Kitchen, Bar Lounge</Typography>
+					</Box>
+				</Box>
 			</Box>
 			<Box
 				sx={{
