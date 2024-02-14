@@ -69,6 +69,7 @@ type ImageDataTypes = {
 	relPosX: string; //relative position to grid position
 	relPosY: string;
 	paralax: number;
+	unoptimized?: boolean;
 
 	mobile: {
 		aspectRatio: string;
@@ -183,6 +184,7 @@ export const SectionImageGrid = ({
 						relPosY,
 						mobile,
 						paralax,
+						unoptimized,
 					},
 					i,
 				) => {
@@ -213,6 +215,7 @@ export const SectionImageGrid = ({
 								}
 								BackCutout={backCutOut}
 								BackCutoutColor={theme.palette.sharpTeal}
+								Unoptimized={unoptimized}
 								sx={{
 									position: 'relative',
 									opacity: `${opacity} `,

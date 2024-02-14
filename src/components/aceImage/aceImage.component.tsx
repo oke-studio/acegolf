@@ -23,6 +23,7 @@ interface AceImageProps {
 	AceImageAspectRatio: string;
 	BackCutout: boolean;
 	BackCutoutColor: string;
+	Unoptimized?: boolean;
 	// children?: React.ReactNode;
 	sx?: SxProps;
 }
@@ -33,6 +34,7 @@ export const AceImage = ({
 	AceImageAspectRatio = '1/1',
 	BackCutout = true,
 	BackCutoutColor = 'sharpTeal',
+	Unoptimized,
 	sx,
 }: AceImageProps) => {
 	const randomizer = (min, max) => {
@@ -56,6 +58,7 @@ export const AceImage = ({
 				alt={AceImageName}
 				width={300}
 				height={0}
+				unoptimized={Unoptimized}
 				style={{
 					objectFit: 'cover',
 					display: 'block',
