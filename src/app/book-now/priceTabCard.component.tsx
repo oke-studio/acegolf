@@ -166,7 +166,7 @@ const PricesTabsContentSkeleton = ({
 					}}
 				>
 					<Box>
-						<Typography variant="headingFour" weight="800">
+						<Typography variant="large" weight="700">
 							{isPrivate ? 'Private Bay' : 'General Bay'}
 						</Typography>
 					</Box>
@@ -215,7 +215,7 @@ const PricesTabsContentSkeleton = ({
 				<Typography variant="extralarge" weight="600">
 					{title} Pricing
 				</Typography>
-				<Typography variant="base">{description}</Typography>
+				{/* <Typography variant="base">{description}</Typography> */}
 			</Box>
 			<Box
 				sx={{
@@ -272,6 +272,8 @@ const PricesTabsContentSkeleton = ({
 					Private Bay
 				</Typography>
 			</Box> */}
+
+			<Typography variant="base">{description}</Typography>
 		</Box>
 	);
 };
@@ -370,7 +372,7 @@ export default function PriceTabCard() {
 					>
 						<PricesTabsContentSkeleton
 							title={bay.day}
-							description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+							description="Prices are per hour, per bay. Prices do not include tax."
 							priceContainerOne={{
 								price: bay.generalBayPriceOne,
 								timeFrom: bay.generalBayTimeOne.beginningTime,
