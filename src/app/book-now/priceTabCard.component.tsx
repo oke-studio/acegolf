@@ -160,7 +160,7 @@ const PricesTabsContentSkeleton = ({
 							textTransform: 'uppercase',
 						}}
 					>
-						Standard Bay
+						{isPrivate ? 'Private Bay' : 'General Bay'}
 					</Typography>
 				</Box>
 			</Box>
