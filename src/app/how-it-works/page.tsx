@@ -55,6 +55,10 @@ export default function Home() {
 	const sectionOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
 	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
+	// testing scroll
+	// scrollYProgress.onChange(latest => {
+	// 	console.log(latest);
+	// });
 	return (
 		<Box>
 			<Box

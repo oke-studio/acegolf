@@ -45,21 +45,20 @@ export default function Events() {
 		target: eventsSectionAsReference,
 		...(isMobile
 			? { offset: ['start end', 'start start'] }
-			: { offset: ['center end', 'start start'] }),
+			: { offset: ['start end', 'start start'] }),
 	});
 
 	//mapping scroll progress to actual
 	const sectionOpacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
 	const sectionScale = useTransform(scrollYProgress, [0.75, 1], [1, 0.9]);
 
+	// testing scroll
+	// scrollYProgress.onChange(latest => {
+	// 	console.log(latest);
+	// });
+
 	return (
-		<Box
-			sx={
-				{
-					// backgroundColor: '#9A92C5',
-				}
-			}
-		>
+		<Box>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
@@ -72,7 +71,7 @@ export default function Events() {
 						top: '100px',
 					}}
 					style={{
-						//opacity: sectionOpacity,
+						opacity: sectionOpacity,
 						scale: sectionScale,
 					}}
 				>
@@ -93,6 +92,9 @@ export default function Events() {
 						SectionColor="#171717"
 						CornerRadius
 						SectionHeight="fit-content"
+						sx={{
+							height: '100vh',
+						}}
 					>
 						<SideTextPicture
 							Title={'Host you Event Here'}
