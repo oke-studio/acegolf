@@ -62,14 +62,17 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 		<Section
 			SectionName="How it works Homepage"
 			SectionWidth="normal"
-			SectionColor=""
-			CornerRadius
 			SectionHeight="fit-content"
+			SectionColor="#9A92C5"
+			CornerRadius={true}
+			ScrollAnimations={true}
+			EarlyScrollAnimation={true}
 			sx={{
 				position: 'relative',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '2rem',
+				padding: '0% 5% 5% 5%',
 			}}
 		>
 			<Box

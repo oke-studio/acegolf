@@ -26,13 +26,13 @@ export default function HiwPageTitle() {
 			SectionColor=""
 			CornerRadius={false}
 			ScrollAnimations={false}
-			SpecialSVGBacking={true}
-			SpecialSVGColour="#EB8B32"
+			SpecialSVGBacking={false}
+			SpecialSVGColour=""
 		>
 			<Box
 				sx={{
 					color: 'white',
-					backgroundColor: theme => theme.palette.orange,
+					//backgroundColor: theme => theme.palette.orange,
 					padding: '2rem',
 				}}
 			>

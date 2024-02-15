@@ -15,10 +15,10 @@ const PathToCSS: { [key: string]: SxProps } = {
 	// 	backgroundColor: '#EB8B32',
 	// 	color: 'black',
 	// },
-	// '/events': {
-	// 	backgroundColor: '#',
-	// 	color: 'black',
-	// },
+	'/events': {
+		backgroundColor: '#9A92C5',
+		color: 'black',
+	},
 };
 
 export const useGetCurrentPathName = () => {

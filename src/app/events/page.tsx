@@ -35,23 +35,30 @@ export default function Events() {
 	//get and track scroll progress with offset amount
 	const eventsSectionAsReference = useRef(null);
 
+	// const { scrollYProgress } = useScroll({
+	// 	target: eventsSectionAsReference,
+	// 	// container: containerRef,
+	// 	offset: ['0', '0.35'],
+	// });
+
 	const { scrollYProgress } = useScroll({
 		target: eventsSectionAsReference,
-		// container: containerRef,
-		offset: ['0', '0.35'],
+		...(isMobile
+			? { offset: ['start end', 'start start'] }
+			: { offset: ['center end', 'start start'] }),
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useSpring(
-		useTransform(scrollYProgress, [0, 0.2], [1, 0]),
-	);
-	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0]);
+	const sectionOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
+	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
 	return (
 		<Box
-			sx={{
-				backgroundColor: '#9A92C5',
-			}}
+			sx={
+				{
+					// backgroundColor: '#9A92C5',
+				}
+			}
 		>
 			<Box
 				sx={{
@@ -65,10 +72,8 @@ export default function Events() {
 						top: '100px',
 					}}
 					style={{
-						// opacity: isMobile ? '1' : sectionOpacity,
-						// scale: isMobile ? '1' : sectionScale,
 						opacity: sectionOpacity,
-						// scale: sectionScale,
+						scale: sectionScale,
 					}}
 				>
 					<PageTitleSection
@@ -76,15 +81,11 @@ export default function Events() {
 						SectionWidth="fullViewport"
 						SectionHeight="fit-content"
 						SectionColor=""
-						CornerRadius={false}
-						ScrollAnimations={false}
-						SpecialSVGBacking={true}
-						SpecialSVGColour={theme.palette.aceTeal}
+						CornerRadius
 					>
 						<Box
 							sx={{
-								color: 'white',
-								backgroundColor: theme.palette.aceTeal,
+								// backgroundColor: theme.palette.aceTeal,
 								padding: '2rem',
 							}}
 						>
@@ -144,7 +145,7 @@ export default function Events() {
 					<Section
 						SectionName="Events Homepage"
 						SectionWidth="normal"
-						SectionColor=""
+						SectionColor="#171717"
 						CornerRadius
 						SectionHeight="fit-content"
 					>
@@ -157,7 +158,14 @@ export default function Events() {
 							ImageDescription={'Ace Kitchen'}
 							Direction={'left'}
 						/>
-
+					</Section>
+					<Section
+						SectionName="Promotions on Events Homepage"
+						SectionWidth="fullViewport"
+						SectionColor="#171717"
+						CornerRadius
+						SectionHeight="fit-content"
+					>
 						<Promotions />
 					</Section>
 				</Box>
