@@ -164,9 +164,9 @@ export const MenuTabs = () => {
 									height: '100%',
 									position: 'relative',
 									width: '100%',
-									borderWidth: '2px',
-									borderStyle: 'solid',
-									borderColor: theme.palette.aceTeal,
+									// borderWidth: '2px',
+									// borderStyle: 'solid',
+									// borderColor: theme.palette.aceTeal,
 									borderRadius: '8px',
 								}}
 							>
