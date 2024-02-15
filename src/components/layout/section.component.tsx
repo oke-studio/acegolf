@@ -78,10 +78,6 @@ export const Section = ({
 		EarlyScrollAnimation ? [50, 25] : [80, 25],
 	);
 
-	if ((SectionWidth = 'normal')) {
-		console.log('its a nromal size');
-	}
-
 	//   const isMobile = useMediaQuery('(max-width:640px)');
 	//   const isSmallDesktop = useMediaQuery('(max-width:950px)');
 	const isLargeDesktop = useMediaQuery('(min-width:1440px)');
