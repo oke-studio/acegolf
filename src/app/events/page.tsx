@@ -153,7 +153,7 @@ export default function Events() {
 							Paragraph={
 								'This is a piece of text about the way to organize your events at ACE. '
 							}
-							ImageSrc={'/images/kitchen-ace.jpg'}
+							ImageSrc={'/images/kitchen-ace.webp'}
 							ImageDescription={'Ace Kitchen'}
 							Direction={'left'}
 						/>
