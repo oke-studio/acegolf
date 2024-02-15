@@ -27,7 +27,7 @@ export const Menu = () => {
 			ScrollAnimations={true}
 			EarlyScrollAnimation={true}
 			sx={{
-				//padding: '2% 2% 2% 2%',
+				padding: '2% 5%',
 
 				border: 'solid black 6px',
 				backgroundColor: 'white',

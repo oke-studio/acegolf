@@ -75,7 +75,7 @@ export const Section = ({
 	const animatedBorderRadius = useTransform(
 		scrollYProgress,
 		EarlyScrollAnimation ? [0.5, 0.75] : [0, 0.75],
-		[80, 25],
+		EarlyScrollAnimation ? [50, 25] : [80, 25],
 	);
 
 	if ((SectionWidth = 'normal')) {

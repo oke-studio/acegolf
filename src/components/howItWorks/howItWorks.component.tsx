@@ -72,7 +72,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '2rem',
-				padding: '0% 5% 5% 5%',
+				padding: '2% 5%',
 			}}
 		>
 			<Box

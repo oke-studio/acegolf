@@ -89,9 +89,6 @@ export const MenuTabs = () => {
 		<StyledMenuWrapper>
 			<Box
 				sx={{
-					//margin: '24px',
-					// padding: '5%',
-					padding: '24px',
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '32px',
