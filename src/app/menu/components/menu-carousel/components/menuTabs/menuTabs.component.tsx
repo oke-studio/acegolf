@@ -16,10 +16,10 @@ import {
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
-	borderRadius: '25px',
-	border: 'solid black 6px',
-	backgroundColor: 'white',
-	color: 'black',
+	// borderRadius: '25px',
+	// border: 'solid black 6px',
+	// backgroundColor: 'white',
+	// color: 'black',
 }));
 
 const StyledTab = styled(Tab)({
