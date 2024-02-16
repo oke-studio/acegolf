@@ -89,12 +89,10 @@ export default function Events() {
 					<Section
 						SectionName="Events Homepage"
 						SectionWidth="normal"
-						SectionColor="#171717"
+						SectionColor="transparent"
 						CornerRadius
 						SectionHeight="fit-content"
-						sx={{
-							height: '100vh',
-						}}
+						sx={{}}
 					>
 						<SideTextPicture
 							Title={'Host you Event Here'}

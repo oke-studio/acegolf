@@ -12,12 +12,12 @@ type PageTitleSectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
 const PageTitleSectionWidthOptions = {
 	fullViewport: {
 		//width: '100%',
-		margin: '8px 0% 8px',
+		margin: '8px 3% 8px',
 	},
 	normal: {
 		//width: '100%',
 		//margin: isLargeDesktop ? '8px 3% 8px' : '15px 3% 8px',
-		margin: '8px 3% 8px',
+		margin: '8px 5% 8px',
 	},
 	small: {
 		//width: '100%',
