@@ -47,11 +47,13 @@ export const LandingCardsGrid = () => {
 					CardTitle="Asian Style Tapas "
 					CardDescription="Crazy Good menu goes here with multiple descriptions"
 					ColorVariant="dark"
-					sx={{
-						borderColor: '#36DAD5',
-						borderWidth: '6px',
-						borderStyle: 'solid',
-					}}
+					sx={
+						{
+							// borderColor: '#36DAD5',
+							// borderWidth: '6px',
+							// borderStyle: 'solid',
+						}
+					}
 				>
 					<Box
 						sx={{
@@ -131,8 +133,18 @@ export const LandingCardsGrid = () => {
 					</Box>
 				</Card>
 				<Card
-					buttonOne={{ children: 'How it works', variant: 'secondary' }}
-					buttonTwo={{ children: 'Find a Bay', variant: 'primary' }}
+					buttonOne={{
+						children: 'How it works',
+						variant: 'secondary',
+						fullWidth: true,
+						onClick: () => router.push('/how-it-works'),
+					}}
+					buttonTwo={{
+						children: 'Find a Bay',
+						variant: 'primary',
+						fullWidth: true,
+						onClick: () => router.push('/book-now'),
+					}}
 					CardTitle="Prices & Rates"
 				>
 					<PriceTabCard />

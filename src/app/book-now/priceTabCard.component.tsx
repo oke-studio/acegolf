@@ -68,6 +68,30 @@ const StyledTab = styled((props: StyledTabProps) => (
 	},
 }));
 
+const ServicePill = ({
+	color,
+	backgroundColor,
+	text,
+}: ServicePillInterface) => {
+	return (
+		<Typography
+			variant="miniscule"
+			weight="600"
+			fontStyle="italic"
+			sx={{
+				color: color,
+				textTransform: 'uppercase',
+				backgroundColor: backgroundColor,
+				padding: '0px 8px',
+				borderRadius: '10px',
+				width: 'fit-content',
+			}}
+		>
+			{text}
+		</Typography>
+	);
+};
+
 interface PriceContainer {
 	price: number;
 	color?: 'black' | 'white';
@@ -76,6 +100,105 @@ interface PriceContainer {
 	service: string;
 	backgroundColor?: string;
 	isPrivate?: boolean;
+}
+
+const PriceInfoBox = ({
+	price,
+	service,
+	backgroundColor,
+	color = 'white',
+	isPrivate = false,
+}: PriceContainer) => {
+	return (
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '8px',
+				color: color,
+				width: '100%',
+				borderRadius: '8px',
+				...(isPrivate && {
+					color: 'black',
+					borderColor: theme => theme.palette.green,
+					borderWidth: '3px',
+					borderStyle: 'solid',
+				}),
+			}}
+		>
+			<Box
+				sx={{
+					backgroundColor: theme => backgroundColor ?? theme.palette.green,
+					display: 'flex',
+					flexDirection: 'row',
+					width: '100%',
+					borderRadius: 'inherit',
+					padding: '16px',
+					justifyContent: 'space-between',
+					//gap: '8px',
+					flexWrap: 'wrap',
+				}}
+			>
+				<Typography
+					variant="large"
+					weight="700"
+					sx={{ display: 'flex', alignItems: 'center' }}
+				>
+					{isPrivate ? 'Private Bay' : 'General Bay'}
+				</Typography>
+
+				<Box sx={{ display: 'flex', gap: '0.75rem' }}>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '0.75rem',
+							textAlign: 'center',
+						}}
+					>
+						<Typography variant="headingThree" weight="800">
+							${price}
+							<Typography
+								variant="base"
+								weight="400"
+								sx={{ display: 'inline' }}
+							>
+								/hr
+							</Typography>
+						</Typography>
+						<ServicePill backgroundColor="cyan" color="black" text={service} />
+					</Box>
+
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '0.75rem',
+							textAlign: 'center',
+						}}
+					>
+						<Typography variant="headingThree" weight="800">
+							${price}
+							<Typography
+								variant="base"
+								weight="400"
+								sx={{ display: 'inline' }}
+							>
+								/hr
+							</Typography>
+						</Typography>
+						<ServicePill backgroundColor="cyan" color="black" text={service} />
+					</Box>
+				</Box>
+			</Box>
+		</Box>
+	);
+};
+
+interface ServicePillInterface {
+	color: string;
+	text: string;
+	backgroundColor: string;
 }
 
 interface PricesTabsContentSkeletonProps {
@@ -96,76 +219,7 @@ const PricesTabsContentSkeleton = ({
 	privatePriceContainerTwo,
 }: PricesTabsContentSkeletonProps) => {
 	const theme = useTheme();
-	const PriceInfoBox = ({
-		price,
-		timeFrom,
-		timeTo,
-		service,
-		backgroundColor,
-		color = 'white',
-		isPrivate = false,
-	}: PriceContainer) => {
-		return (
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					gap: '8px',
-					color: color,
-					width: '100%',
-					borderRadius: '8px',
-					...(isPrivate && {
-						color: 'black',
-						borderColor: theme.palette.green,
-						borderWidth: '3px',
-						borderStyle: 'solid',
-					}),
-				}}
-			>
-				<Box
-					sx={{
-						backgroundColor: backgroundColor ?? theme.palette.green,
-						display: 'flex',
-						flexDirection: 'column',
-						width: '100%',
-						minWidth: 'max-content',
-						borderRadius: 'inherit',
-						padding: '16px',
-						//gap: '8px',
-					}}
-				>
-					<Typography variant="miniscule" weight="600">
-						{service}
-					</Typography>
-					<Typography
-						variant="miniscule"
-						weight="600"
-						sx={{
-							// color: 'black',
-							textTransform: 'uppercase',
-						}}
-					>{`${timeFrom} - ${timeTo}`}</Typography>
-					<Typography variant="headingFour" weight="800">
-						${price}{' '}
-						<Typography variant="small" weight="400" sx={{ display: 'inline' }}>
-							/hr
-						</Typography>
-					</Typography>
 
-					<Typography
-						variant="miniscule"
-						weight="600"
-						sx={{
-							// color: 'black',
-							textTransform: 'uppercase',
-						}}
-					>
-						{isPrivate ? 'Private Bay' : 'General Bay'}
-					</Typography>
-				</Box>
-			</Box>
-		);
-	};
 	return (
 		<Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
 			<Box
@@ -179,63 +233,45 @@ const PricesTabsContentSkeleton = ({
 				<Typography variant="extralarge" weight="600">
 					{title} Pricing
 				</Typography>
-				<Typography variant="base">{description}</Typography>
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '16px',
-					// flexWrap: 'wrap',
-					justifyContent: 'space-between',
-				}}
-			>
-				<PriceInfoBox {...priceContainerOne} />
-				<PriceInfoBox {...priceContainerTwo} />
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '16px',
-					// flexWrap: 'wrap',
-					justifyContent: 'space-between',
-				}}
-			>
-				<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
-				<PriceInfoBox {...privatePriceContainerTwo} backgroundColor="white" />
-			</Box>
-			{/* <Box
-				sx={{
-					display: 'flex',
-					padding: '16px',
-					flexDirection: 'column',
-					backgroundColor: 'white',
-					borderRadius: '8px',
-					borderWidth: '3px',
-					borderStyle: 'solid',
-					borderColor: theme.palette.green,
-					width: '100%',
-					minHeight: 'max-content',
-					height: 'max-content',
-					marginBottom: '10px',
-				}}
-			>
-				<Typography variant="headingFour" weight="800">
-					${privatePriceContainer.price}
-					<Typography variant="small" weight="400" sx={{ display: 'inline' }}>
-						/hr
-					</Typography>
-				</Typography>
-				<Typography
-					variant="miniscule"
-					weight="600"
+				<Box
 					sx={{
-						// color: 'black',
-						textTransform: 'uppercase',
+						display: 'flex',
+						flexDirection: 'row',
+						flexWrap: 'nowrap',
+						justifyContent: 'flex-start',
+						gap: '16px',
+						margin: '8px 0px',
 					}}
 				>
-					Private Bay
-				</Typography>
-			</Box> */}
+					<Box>
+						<Typography variant="large" weight="600">
+							8am - 5pm
+						</Typography>
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text="Partial Service"
+						/>
+						<Typography variant="base">Open: Bay Rental, Cafe</Typography>
+					</Box>
+
+					<Box>
+						<Typography variant="large" weight="600">
+							8am - 5pm
+						</Typography>
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text="Partial Service"
+						/>
+						<Typography variant="base">Open: Kitchen, Bar Lounge</Typography>
+					</Box>
+				</Box>
+			</Box>
+			<PriceInfoBox {...priceContainerOne} />
+			<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
+
+			<Typography variant="base">{description}</Typography>
 		</Box>
 	);
 };
@@ -334,7 +370,7 @@ export default function PriceTabCard() {
 					>
 						<PricesTabsContentSkeleton
 							title={bay.day}
-							description="Prices are per hour, per bay. Each bay accommodates up to 6 players. Prices do not include tax."
+							description="Prices are per hour, per bay. Prices do not include tax."
 							priceContainerOne={{
 								price: bay.generalBayPriceOne,
 								timeFrom: bay.generalBayTimeOne.beginningTime,
