@@ -236,6 +236,7 @@ export const SimRoomsComponentV1 = () => {
 				</Typography>
 				<Typography variant="base">
 					6 performance simulation rooms powered by Trackman award wining tech.
+					<br />
 					Each sim has performance modes and fun modes for more goofiness. Learn
 					more about our facilities below.
 				</Typography>
@@ -254,8 +255,8 @@ export const SimRoomsComponentV1 = () => {
 					// }}
 					sx={{
 						display: 'flex',
-						width: '100%',
-
+						width: '80%',
+						minHeight: '500px',
 						flexWrap: 'nowrap',
 						// overflowX: 'hidden',
 						overflowY: 'visible',
@@ -264,6 +265,7 @@ export const SimRoomsComponentV1 = () => {
 						position: 'relative',
 						...(isMobile && {
 							flexDirection: 'column',
+							width: '100%',
 							// flexWrap: 'wrap',
 						}),
 					}}
