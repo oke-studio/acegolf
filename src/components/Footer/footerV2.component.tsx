@@ -7,29 +7,29 @@ import { Typography } from '../Typography/typography.component';
 import { motion } from 'framer-motion';
 
 const FooterLinksArray = [
-	{
-		name: 'About',
-		to: '/about',
-	},
-	{
-		name: 'Careers',
-		to: '/careers',
-	},
-	{
-		name: 'Event & Parties',
-		to: '/events',
-	},
-	{
-		name: 'Privacy Policy',
-		to: '/privacy',
-	},
-	{
-		name: 'Terms & Conditions',
-		to: '/terms',
-	},
+	// {
+	// 	name: 'About',
+	// 	to: '/about',
+	// },
+	// {
+	// 	name: 'Careers',
+	// 	to: '/careers',
+	// },
+	// {
+	// 	name: 'Event & Parties',
+	// 	to: '/events',
+	// },
+	// {
+	// 	name: 'Privacy Policy',
+	// 	to: '/privacy',
+	// },
+	// {
+	// 	name: 'Terms & Conditions',
+	// 	to: '/terms',
+	// },
 	{
 		name: 'Pricing',
-		to: '/pricing',
+		to: '/book-now',
 	},
 	{
 		name: 'Menu',
@@ -39,14 +39,14 @@ const FooterLinksArray = [
 		name: 'How it Works',
 		to: '/how-it-works',
 	},
-	{
-		name: 'Membership',
-		to: '/membership',
-	},
-	{
-		name: 'Coaching',
-		to: '/coaching',
-	},
+	// {
+	// 	name: 'Membership',
+	// 	to: '/membership',
+	// },
+	// {
+	// 	name: 'Coaching',
+	// 	to: '/coaching',
+	// },
 ];
 
 export const FooterV2 = () => {
@@ -209,10 +209,22 @@ export const FooterV2 = () => {
 					/>
 
 					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-						<Typography variant="small" weight="500">
+						<Typography
+							variant="small"
+							weight="500"
+							sx={{
+								color: 'grey',
+							}}
+						>
 							2023 Ace Golf Bar
 						</Typography>
-						<Typography variant="miniscule" weight="300">
+						<Typography
+							variant="miniscule"
+							weight="300"
+							sx={{
+								color: 'grey',
+							}}
+						>
 							588 Eastern Ave, Toronto
 						</Typography>
 					</Box>
@@ -284,7 +296,13 @@ export const FooterV2 = () => {
 					</Button>
 				</Box>
 
-				<Typography variant="base" weight="300">
+				<Typography
+					variant="base"
+					weight="300"
+					sx={{
+						color: 'grey',
+					}}
+				>
 					Designed & Developed by @oke.studio
 				</Typography>
 			</Box>
