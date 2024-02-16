@@ -96,12 +96,12 @@ export default function BookNow() {
 					borderRadius: '25px',
 				}}
 			>
-				<Promotions />
+				{/* <Promotions /> */}
 
 				<MailingList />
 			</Box>
 
-			<NintendoSwitch />
+			{/* <NintendoSwitch /> */}
 		</Box>
 	);
 }
