@@ -82,7 +82,7 @@ export const LandingCardsGrid = () => {
 								}}
 							>
 								<Image
-									src="/images/placeholder1.webp"
+									src="/images/food/smallbites-place-holder.webp"
 									alt="img"
 									fill
 									sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -115,7 +115,7 @@ export const LandingCardsGrid = () => {
 								}}
 							>
 								<Image
-									src="/images/placeholder2.webp"
+									src="/images/food/bigbites-place-holder.webp"
 									alt="img"
 									fill
 									style={{
