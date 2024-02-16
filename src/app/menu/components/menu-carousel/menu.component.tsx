@@ -28,10 +28,11 @@ export const Menu = () => {
 			EarlyScrollAnimation={true}
 			sx={{
 				padding: '2% 5%',
-
 				border: 'solid black 6px',
 				backgroundColor: 'white',
 				color: 'black',
+				minHeight: '60vh',
+				display: 'flex',
 			}}
 		>
 			<Box
@@ -39,13 +40,12 @@ export const Menu = () => {
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '32px',
-					margin: '0px 0px 30px 0px',
 					width: '100%',
 					position: 'relative',
+					height: '100%',
 					// top: isMobile ? '-60px' : '-80px',
 				}}
 			>
-				{/* TODO: Move to separate component */}
 				<MenuTabs />
 				<Button
 					sx={{ alignSelf: 'center' }}

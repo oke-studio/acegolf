@@ -98,17 +98,21 @@ interface PriceContainer {
 	timeFrom: string;
 	timeTo: string;
 	service: string;
-	backgroundColor?: string;
-	isPrivate?: boolean;
 }
 
 const PriceInfoBox = ({
-	price,
-	service,
+	priceInfoBoxOne,
+	priceInfoBoxTwo,
+	isPrivate,
 	backgroundColor,
-	color = 'white',
-	isPrivate = false,
-}: PriceContainer) => {
+	color = 'black',
+}: {
+	priceInfoBoxOne: PriceContainer;
+	priceInfoBoxTwo: PriceContainer;
+	backgroundColor?: string;
+	isPrivate?: boolean;
+	color?: string;
+}) => {
 	return (
 		<Box
 			sx={{
@@ -157,7 +161,7 @@ const PriceInfoBox = ({
 						}}
 					>
 						<Typography variant="headingThree" weight="800">
-							${price}
+							${priceInfoBoxOne.price}
 							<Typography
 								variant="base"
 								weight="400"
@@ -166,7 +170,11 @@ const PriceInfoBox = ({
 								/hr
 							</Typography>
 						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text={priceInfoBoxOne.service}
+						/>
 					</Box>
 
 					<Box
@@ -178,7 +186,7 @@ const PriceInfoBox = ({
 						}}
 					>
 						<Typography variant="headingThree" weight="800">
-							${price}
+							${priceInfoBoxTwo.price}
 							<Typography
 								variant="base"
 								weight="400"
@@ -187,7 +195,11 @@ const PriceInfoBox = ({
 								/hr
 							</Typography>
 						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text={priceInfoBoxTwo.service}
+						/>
 					</Box>
 				</Box>
 			</Box>
@@ -204,22 +216,23 @@ interface ServicePillInterface {
 interface PricesTabsContentSkeletonProps {
 	title: string;
 	description: string;
-	priceContainerOne: PriceContainer;
-	priceContainerTwo: PriceContainer;
-	privatePriceContainerOne: PriceContainer;
-	privatePriceContainerTwo: PriceContainer;
+	priceContainer: {
+		priceContainerOne: PriceContainer;
+		priceContainerTwo: PriceContainer;
+	};
+
+	privatePriceContainer: {
+		privatePriceContainerOne: PriceContainer;
+		privatePriceContainerTwo: PriceContainer;
+	};
 }
 
 const PricesTabsContentSkeleton = ({
 	title,
 	description,
-	priceContainerOne,
-	priceContainerTwo,
-	privatePriceContainerOne,
-	privatePriceContainerTwo,
+	priceContainer,
+	privatePriceContainer,
 }: PricesTabsContentSkeletonProps) => {
-	const theme = useTheme();
-
 	return (
 		<Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
 			<Box
@@ -250,7 +263,7 @@ const PricesTabsContentSkeleton = ({
 						<ServicePill
 							backgroundColor="cyan"
 							color="black"
-							text="Partial Service"
+							text={priceContainer.priceContainerOne.service}
 						/>
 						<Typography variant="base">Open: Bay Rental, Cafe</Typography>
 					</Box>
@@ -262,16 +275,24 @@ const PricesTabsContentSkeleton = ({
 						<ServicePill
 							backgroundColor="cyan"
 							color="black"
-							text="Partial Service"
+							text={priceContainer.priceContainerTwo.service}
 						/>
 						<Typography variant="base">Open: Kitchen, Bar Lounge</Typography>
 					</Box>
 				</Box>
 			</Box>
-			<PriceInfoBox {...priceContainerOne} />
-			<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
+			<PriceInfoBox
+				priceInfoBoxOne={priceContainer.priceContainerOne}
+				priceInfoBoxTwo={priceContainer.priceContainerTwo}
+			/>
+			<PriceInfoBox
+				priceInfoBoxOne={privatePriceContainer.privatePriceContainerOne}
+				priceInfoBoxTwo={privatePriceContainer.privatePriceContainerTwo}
+			/>
 
-			<Typography variant="base">{description}</Typography>
+			<Typography variant="base" sx={{ textAlign: 'center' }}>
+				{description}
+			</Typography>
 		</Box>
 	);
 };
@@ -318,8 +339,6 @@ export default function PriceTabCard() {
 			privateBayPriceTwo: number;
 		}[],
 	);
-
-	// console.log(baysPricingReduced);
 
 	const currentDate = new Date();
 
@@ -371,31 +390,33 @@ export default function PriceTabCard() {
 						<PricesTabsContentSkeleton
 							title={bay.day}
 							description="Prices are per hour, per bay. Prices do not include tax."
-							priceContainerOne={{
-								price: bay.generalBayPriceOne,
-								timeFrom: bay.generalBayTimeOne.beginningTime,
-								timeTo: bay.generalBayTimeOne.endTime,
-								service: bay.generalBayTimeOne.nameOfServiceTime,
+							priceContainer={{
+								priceContainerOne: {
+									price: bay.generalBayPriceOne,
+									timeFrom: bay.generalBayTimeOne.beginningTime,
+									timeTo: bay.generalBayTimeOne.endTime,
+									service: bay.generalBayTimeOne.nameOfServiceTime,
+								},
+								priceContainerTwo: {
+									price: bay.generalBayPriceTwo,
+									timeFrom: bay.generalBayTimeTwo.beginningTime,
+									timeTo: bay.generalBayTimeTwo.endTime,
+									service: bay.generalBayTimeTwo.nameOfServiceTime,
+								},
 							}}
-							priceContainerTwo={{
-								price: bay.generalBayPriceTwo,
-								timeFrom: bay.generalBayTimeTwo.beginningTime,
-								timeTo: bay.generalBayTimeTwo.endTime,
-								service: bay.generalBayTimeTwo.nameOfServiceTime,
-							}}
-							privatePriceContainerOne={{
-								price: bay.privateBayPriceOne,
-								timeFrom: bay.privateBayTimeOne.beginningTime,
-								timeTo: bay.privateBayTimeOne.endTime,
-								service: bay.privateBayTimeOne.nameOfServiceTime,
-								isPrivate: true,
-							}}
-							privatePriceContainerTwo={{
-								price: bay.privateBayPriceTwo,
-								timeFrom: bay.privateBayTimeTwo.beginningTime,
-								timeTo: bay.privateBayTimeTwo.endTime,
-								service: bay.privateBayTimeTwo.nameOfServiceTime,
-								isPrivate: true,
+							privatePriceContainer={{
+								privatePriceContainerOne: {
+									price: bay.privateBayPriceOne,
+									timeFrom: bay.privateBayTimeOne.beginningTime,
+									timeTo: bay.privateBayTimeOne.endTime,
+									service: bay.privateBayTimeOne.nameOfServiceTime,
+								},
+								privatePriceContainerTwo: {
+									price: bay.privateBayPriceTwo,
+									timeFrom: bay.privateBayTimeTwo.beginningTime,
+									timeTo: bay.privateBayTimeTwo.endTime,
+									service: bay.privateBayTimeTwo.nameOfServiceTime,
+								},
 							}}
 						/>
 					</TabPanel>
