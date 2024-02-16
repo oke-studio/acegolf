@@ -1,10 +1,10 @@
 export const landingHeroImages = [
 	{
-		src: '/images/friends-photos.webp',
+		src: '/images/Friends-golfing.webp',
 		aspectRatio: '0.77',
 		backCutOut: true,
 		backCutOutColor: 'orange',
-		imageNameAltText: 'friends photos at ace',
+		imageNameAltText: 'old friends golfing at Ace Golf',
 		opacity: 1, // default 1 for visible
 		scale: 1.4, // scale transform for aceImage
 		rotation: -5, // rotation
@@ -29,11 +29,11 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo3.webp',
+		src: '/images/night-golfing.webp',
 		aspectRatio: '1.130',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
-		imageNameAltText: 'the vibes seating area',
+		imageNameAltText: 'Night Time Golfing',
 		opacity: 1,
 		scale: 1.2, // scale transform for aceImage
 		rotation: -11, // rotation
@@ -57,11 +57,11 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo1.webp',
+		src: '/images/girl-golfing.webp',
 		aspectRatio: '0.95',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
-		imageNameAltText: 'pool bar',
+		imageNameAltText: 'Lady Golfing at Ace Golf',
 		opacity: 1,
 		scale: 1.4, // scale transform for aceImage
 		rotation: 8, // rotation
@@ -85,11 +85,11 @@ export const landingHeroImages = [
 		},
 	},
 	{
-		src: '/images/Spin-photo2.webp',
-		aspectRatio: '0.91',
+		src: '/images/food/bigbites-place-holder.webp',
+		aspectRatio: '1.04',
 		backCutOut: true,
 		backCutOutColor: 'sharpTeal',
-		imageNameAltText: 'ping pong area',
+		imageNameAltText: 'food at ace',
 		opacity: 1,
 		scale: 1.4, // scale transform for aceImage
 		rotation: -9, // rotation
