@@ -34,13 +34,13 @@ function TabPanel(props: TabPanelProps) {
 const StyledTabs = styled(Tabs)(({ theme }) => ({
 	borderRadius: '12px',
 	borderStyle: 'solid',
-	borderColor: theme.palette.sharpTeal,
+	borderColor: theme.palette.lightBlack,
 	borderWidth: '3px',
 	'& .MuiTabs-indicator': {
 		backgroundColor: 'transparent',
 	},
 	'button:not(:last-child)': {
-		borderColor: theme.palette.sharpTeal,
+		borderColor: theme.palette.lightBlack,
 		borderStyle: 'solid',
 		borderRightWidth: '3px',
 	},
@@ -60,8 +60,8 @@ const StyledTab = styled((props: StyledTabProps) => (
 	// marginRight: theme.spacing(1),
 	// color: 'rgba(255, 255, 255, 0.7)',
 	'&.Mui-selected': {
-		backgroundColor: theme.palette.sharpTeal,
-		color: 'black',
+		backgroundColor: theme.palette.lightBlack,
+		color: 'white',
 	},
 	'&.Mui-focusVisible': {
 		// backgroundColor: 'rgba(100, 95, 228, 0.32)',
@@ -131,13 +131,12 @@ const PriceInfoBox = ({
 				width: '100%',
 				borderRadius: '8px',
 				...(!isPrivate && {
-					backgroundColor: theme => backgroundColor ?? theme.palette.green,
-				}),
-				...(isPrivate && {
-					color: 'black',
-					borderColor: theme => theme.palette.green,
+					borderColor: theme => backgroundColor ?? '#36DAD5',
 					borderWidth: '3px',
 					borderStyle: 'solid',
+				}),
+				...(isPrivate && {
+					backgroundColor: theme => backgroundColor ?? '#36DAD5',
 				}),
 			}}
 		>
@@ -156,7 +155,7 @@ const PriceInfoBox = ({
 				<Typography
 					variant="large"
 					weight="700"
-					sx={{ display: 'flex', alignItems: 'center' }}
+					sx={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}
 				>
 					{isPrivate ? 'Private Bay' : 'General Bay'}
 				</Typography>
