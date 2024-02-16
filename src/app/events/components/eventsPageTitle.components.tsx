@@ -15,11 +15,11 @@ import {
 import { Typography } from '@/components/Typography/typography.component';
 import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 
-interface eventsPageTitleProps {
+interface EventsPageTitleProps {
 	title?: string;
 }
 
-export default function EventsPageTitle(eventsPageTitleProps) {
+export default function EventsPageTitle(EventsPageTitleProps) {
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
@@ -62,7 +62,7 @@ export default function EventsPageTitle(eventsPageTitleProps) {
 							width: isMobile ? '100%' : '50%',
 						}}
 					>
-						{eventsPageTitleProps.title ? eventsPageTitleProps.title : 'EVENTS'}
+						{EventsPageTitleProps.title ? EventsPageTitleProps.title : 'EVENTS'}
 					</Typography>
 
 					<Typography
