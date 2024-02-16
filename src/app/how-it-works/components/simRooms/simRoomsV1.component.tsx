@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, useTheme, styled, Tab, Tabs } from '@mui/material';
+import { Box, useTheme, styled, Tab, Tabs, useMediaQuery } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Section } from '@/components/layout/section.component';
 import { GolfGamesComponentV1 } from '../golfGames/golfGamesV1.component';
@@ -84,6 +84,7 @@ const SimRoomCard = ({
 	title,
 }: SimRoomCardProps) => {
 	const { palette } = useTheme();
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
 		<Box
@@ -99,6 +100,9 @@ const SimRoomCard = ({
 				position: 'relative',
 				// top: 0,
 				// left: `${75 * index}px`,
+				...(isMobile && {
+					height: '350px',
+				}),
 			}}
 		>
 			<Image
@@ -202,6 +206,7 @@ export const SimRoomsComponentV1 = () => {
 		setValue(newValue);
 	};
 
+	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 	return (
 		<Section
 			SectionName="Simrooms and Golf games"
@@ -257,6 +262,10 @@ export const SimRoomsComponentV1 = () => {
 						// justifyContent: 'left',
 						gap: '12px',
 						position: 'relative',
+						...(isMobile && {
+							flexDirection: 'column',
+							// flexWrap: 'wrap',
+						}),
 					}}
 				>
 					<StyledTabs
