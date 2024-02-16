@@ -70,9 +70,17 @@ const StyledTab = styled((props: StyledTabProps) => (
 
 const ServicePill = ({
 	color,
-	backgroundColor,
+	// backgroundColor,
 	text,
 }: ServicePillInterface) => {
+	const usePillColor = checkText => {
+		if (checkText == 'Partial Service') {
+			return '#EB8B32';
+		} else {
+			return '#9A92C5';
+		}
+	};
+
 	return (
 		<Typography
 			variant="miniscule"
@@ -81,7 +89,7 @@ const ServicePill = ({
 			sx={{
 				color: color,
 				textTransform: 'uppercase',
-				backgroundColor: backgroundColor,
+				backgroundColor: usePillColor(text),
 				padding: '0px 8px',
 				borderRadius: '10px',
 				width: 'fit-content',
@@ -122,6 +130,9 @@ const PriceInfoBox = ({
 				color: color,
 				width: '100%',
 				borderRadius: '8px',
+				...(!isPrivate && {
+					backgroundColor: theme => backgroundColor ?? theme.palette.green,
+				}),
 				...(isPrivate && {
 					color: 'black',
 					borderColor: theme => theme.palette.green,
@@ -132,7 +143,6 @@ const PriceInfoBox = ({
 		>
 			<Box
 				sx={{
-					backgroundColor: theme => backgroundColor ?? theme.palette.green,
 					display: 'flex',
 					flexDirection: 'row',
 					width: '100%',
@@ -288,6 +298,7 @@ const PricesTabsContentSkeleton = ({
 			<PriceInfoBox
 				priceInfoBoxOne={privatePriceContainer.privatePriceContainerOne}
 				priceInfoBoxTwo={privatePriceContainer.privatePriceContainerTwo}
+				isPrivate={true}
 			/>
 
 			<Typography variant="base" sx={{ textAlign: 'center' }}>
