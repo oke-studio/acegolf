@@ -51,12 +51,14 @@ export default function Events({ params }: { params: { eventId: string } }) {
 					}}
 				>
 					<EventPicture
-						Title={'Host you Event Here'}
-						Paragraph={
-							'This is a piece of text about the way to organize your events at ACE. '
-						}
+						Title={params.eventId}
 						ImageSrc={'/images/kitchen-ace.webp'}
 						ImageDescription={'Ace Kitchen'}
+						EventStartDate={' Feb 17th 2023 7pm'}
+						EventEndDate={'Feb 17th 2023 10pm'}
+						EventDescription={
+							"Join us for the friends and Family Event at Ace Golf Bar & Lounge! We're formally launching our food and drink menu! Our inhouse chef has created some truly unique dishes that will pair well with our craft cocktails. Our golf bays are discounted by 25% for this event, so come take advantage on our promotional pricing!Not a golfer? Come for the food and drinks!"
+						}
 						Direction={'left'}
 					/>
 				</Section>

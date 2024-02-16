@@ -26,18 +26,28 @@ const EventPictureOptions = {
 
 interface EventPictureProps {
 	Title: string;
-	Paragraph: string;
 	ImageSrc: string;
 	ImageDescription: string;
+	// EventStartDate?: Date;
+	// EventEndDate?: Date;
+	EventStartDate?: string;
+	EventEndDate?: string;
+	EventDescription: string;
+	CTAText?: string;
+	CTALink?: string;
 	Direction: EventPictureOptionsTypes;
 	sx?: SxProps;
 }
 
 export const EventPicture = ({
 	Title,
-	Paragraph,
 	ImageSrc,
 	ImageDescription,
+	EventStartDate,
+	EventEndDate,
+	EventDescription,
+	CTAText,
+	CTALink,
 	Direction,
 	sx,
 }: EventPictureProps) => {
@@ -97,7 +107,10 @@ export const EventPicture = ({
 				<Typography variant="headingTwo" weight="600" fontStyle="normal">
 					{Title}
 				</Typography>
-				<Typography variant="base">{Paragraph}</Typography>
+				<Typography variant="base">
+					{EventStartDate} - {EventEndDate}
+				</Typography>
+				<Typography variant="base">{EventDescription}</Typography>
 			</Box>
 		</Box>
 	);
