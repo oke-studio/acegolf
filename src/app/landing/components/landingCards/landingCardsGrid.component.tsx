@@ -172,17 +172,30 @@ export const LandingCardsGrid = () => {
 					}}
 				>
 					<Card
-						buttonOne={{ children: 'Learn More', variant: 'primary' }}
+						buttonOne={{
+							children: (
+								<Typography variant="large">
+									<a
+										href={'https://www.trackman.com/golf/simulator'}
+										target="_blank"
+									>
+										Learn More
+									</a>
+								</Typography>
+							),
+							variant: 'primary',
+						}}
 						CardTitle="Amenities"
-						CardDescription="Information about trackman amenities"
+						CardDescription="We use TRACKMAN World class golf simulator technology in all out bays"
+						ImageSrc="/images/trackman.webp"
 						sx={{ flex: 1 }}
 					/>
-					<Card
+					{/* <Card
 						buttonOne={{ children: 'Get Coaching', variant: 'primary' }}
 						CardTitle="Coaching"
 						CardDescription="Information about coaching"
 						sx={{ flex: 1 }}
-					/>
+					/> */}
 				</Box>
 				<Card
 					buttonOne={{
