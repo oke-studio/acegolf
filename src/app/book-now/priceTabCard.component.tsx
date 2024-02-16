@@ -34,13 +34,13 @@ function TabPanel(props: TabPanelProps) {
 const StyledTabs = styled(Tabs)(({ theme }) => ({
 	borderRadius: '12px',
 	borderStyle: 'solid',
-	borderColor: theme.palette.sharpTeal,
+	borderColor: theme.palette.lightBlack,
 	borderWidth: '3px',
 	'& .MuiTabs-indicator': {
 		backgroundColor: 'transparent',
 	},
 	'button:not(:last-child)': {
-		borderColor: theme.palette.sharpTeal,
+		borderColor: theme.palette.lightBlack,
 		borderStyle: 'solid',
 		borderRightWidth: '3px',
 	},
@@ -60,8 +60,8 @@ const StyledTab = styled((props: StyledTabProps) => (
 	// marginRight: theme.spacing(1),
 	// color: 'rgba(255, 255, 255, 0.7)',
 	'&.Mui-selected': {
-		backgroundColor: theme.palette.sharpTeal,
-		color: 'black',
+		backgroundColor: theme.palette.lightBlack,
+		color: 'white',
 	},
 	'&.Mui-focusVisible': {
 		// backgroundColor: 'rgba(100, 95, 228, 0.32)',
@@ -70,9 +70,17 @@ const StyledTab = styled((props: StyledTabProps) => (
 
 const ServicePill = ({
 	color,
-	backgroundColor,
+	// backgroundColor,
 	text,
 }: ServicePillInterface) => {
+	const usePillColor = checkText => {
+		if (checkText == 'Partial Service') {
+			return '#EB8B32';
+		} else {
+			return '#9A92C5';
+		}
+	};
+
 	return (
 		<Typography
 			variant="miniscule"
@@ -81,7 +89,7 @@ const ServicePill = ({
 			sx={{
 				color: color,
 				textTransform: 'uppercase',
-				backgroundColor: backgroundColor,
+				backgroundColor: usePillColor(text),
 				padding: '0px 8px',
 				borderRadius: '10px',
 				width: 'fit-content',
@@ -98,17 +106,21 @@ interface PriceContainer {
 	timeFrom: string;
 	timeTo: string;
 	service: string;
-	backgroundColor?: string;
-	isPrivate?: boolean;
 }
 
 const PriceInfoBox = ({
-	price,
-	service,
+	priceInfoBoxOne,
+	priceInfoBoxTwo,
+	isPrivate,
 	backgroundColor,
-	color = 'white',
-	isPrivate = false,
-}: PriceContainer) => {
+	color = 'black',
+}: {
+	priceInfoBoxOne: PriceContainer;
+	priceInfoBoxTwo: PriceContainer;
+	backgroundColor?: string;
+	isPrivate?: boolean;
+	color?: string;
+}) => {
 	return (
 		<Box
 			sx={{
@@ -118,17 +130,18 @@ const PriceInfoBox = ({
 				color: color,
 				width: '100%',
 				borderRadius: '8px',
-				...(isPrivate && {
-					color: 'black',
-					borderColor: theme => theme.palette.green,
+				...(!isPrivate && {
+					borderColor: theme => backgroundColor ?? '#36DAD5',
 					borderWidth: '3px',
 					borderStyle: 'solid',
+				}),
+				...(isPrivate && {
+					backgroundColor: theme => backgroundColor ?? '#36DAD5',
 				}),
 			}}
 		>
 			<Box
 				sx={{
-					backgroundColor: theme => backgroundColor ?? theme.palette.green,
 					display: 'flex',
 					flexDirection: 'row',
 					width: '100%',
@@ -142,7 +155,7 @@ const PriceInfoBox = ({
 				<Typography
 					variant="large"
 					weight="700"
-					sx={{ display: 'flex', alignItems: 'center' }}
+					sx={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}
 				>
 					{isPrivate ? 'Private Bay' : 'General Bay'}
 				</Typography>
@@ -157,7 +170,7 @@ const PriceInfoBox = ({
 						}}
 					>
 						<Typography variant="headingThree" weight="800">
-							${price}
+							${priceInfoBoxOne.price}
 							<Typography
 								variant="base"
 								weight="400"
@@ -166,7 +179,11 @@ const PriceInfoBox = ({
 								/hr
 							</Typography>
 						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text={priceInfoBoxOne.service}
+						/>
 					</Box>
 
 					<Box
@@ -178,7 +195,7 @@ const PriceInfoBox = ({
 						}}
 					>
 						<Typography variant="headingThree" weight="800">
-							${price}
+							${priceInfoBoxTwo.price}
 							<Typography
 								variant="base"
 								weight="400"
@@ -187,7 +204,11 @@ const PriceInfoBox = ({
 								/hr
 							</Typography>
 						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
+						<ServicePill
+							backgroundColor="cyan"
+							color="black"
+							text={priceInfoBoxTwo.service}
+						/>
 					</Box>
 				</Box>
 			</Box>
@@ -204,22 +225,23 @@ interface ServicePillInterface {
 interface PricesTabsContentSkeletonProps {
 	title: string;
 	description: string;
-	priceContainerOne: PriceContainer;
-	priceContainerTwo: PriceContainer;
-	privatePriceContainerOne: PriceContainer;
-	privatePriceContainerTwo: PriceContainer;
+	priceContainer: {
+		priceContainerOne: PriceContainer;
+		priceContainerTwo: PriceContainer;
+	};
+
+	privatePriceContainer: {
+		privatePriceContainerOne: PriceContainer;
+		privatePriceContainerTwo: PriceContainer;
+	};
 }
 
 const PricesTabsContentSkeleton = ({
 	title,
 	description,
-	priceContainerOne,
-	priceContainerTwo,
-	privatePriceContainerOne,
-	privatePriceContainerTwo,
+	priceContainer,
+	privatePriceContainer,
 }: PricesTabsContentSkeletonProps) => {
-	const theme = useTheme();
-
 	return (
 		<Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
 			<Box
@@ -250,7 +272,7 @@ const PricesTabsContentSkeleton = ({
 						<ServicePill
 							backgroundColor="cyan"
 							color="black"
-							text="Partial Service"
+							text={priceContainer.priceContainerOne.service}
 						/>
 						<Typography variant="base">Open: Bay Rental, Cafe</Typography>
 					</Box>
@@ -262,16 +284,25 @@ const PricesTabsContentSkeleton = ({
 						<ServicePill
 							backgroundColor="cyan"
 							color="black"
-							text="Partial Service"
+							text={priceContainer.priceContainerTwo.service}
 						/>
 						<Typography variant="base">Open: Kitchen, Bar Lounge</Typography>
 					</Box>
 				</Box>
 			</Box>
-			<PriceInfoBox {...priceContainerOne} />
-			<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
+			<PriceInfoBox
+				priceInfoBoxOne={priceContainer.priceContainerOne}
+				priceInfoBoxTwo={priceContainer.priceContainerTwo}
+			/>
+			<PriceInfoBox
+				priceInfoBoxOne={privatePriceContainer.privatePriceContainerOne}
+				priceInfoBoxTwo={privatePriceContainer.privatePriceContainerTwo}
+				isPrivate={true}
+			/>
 
-			<Typography variant="base">{description}</Typography>
+			<Typography variant="base" sx={{ textAlign: 'center' }}>
+				{description}
+			</Typography>
 		</Box>
 	);
 };
@@ -318,8 +349,6 @@ export default function PriceTabCard() {
 			privateBayPriceTwo: number;
 		}[],
 	);
-
-	// console.log(baysPricingReduced);
 
 	const currentDate = new Date();
 
@@ -371,31 +400,33 @@ export default function PriceTabCard() {
 						<PricesTabsContentSkeleton
 							title={bay.day}
 							description="Prices are per hour, per bay. Prices do not include tax."
-							priceContainerOne={{
-								price: bay.generalBayPriceOne,
-								timeFrom: bay.generalBayTimeOne.beginningTime,
-								timeTo: bay.generalBayTimeOne.endTime,
-								service: bay.generalBayTimeOne.nameOfServiceTime,
+							priceContainer={{
+								priceContainerOne: {
+									price: bay.generalBayPriceOne,
+									timeFrom: bay.generalBayTimeOne.beginningTime,
+									timeTo: bay.generalBayTimeOne.endTime,
+									service: bay.generalBayTimeOne.nameOfServiceTime,
+								},
+								priceContainerTwo: {
+									price: bay.generalBayPriceTwo,
+									timeFrom: bay.generalBayTimeTwo.beginningTime,
+									timeTo: bay.generalBayTimeTwo.endTime,
+									service: bay.generalBayTimeTwo.nameOfServiceTime,
+								},
 							}}
-							priceContainerTwo={{
-								price: bay.generalBayPriceTwo,
-								timeFrom: bay.generalBayTimeTwo.beginningTime,
-								timeTo: bay.generalBayTimeTwo.endTime,
-								service: bay.generalBayTimeTwo.nameOfServiceTime,
-							}}
-							privatePriceContainerOne={{
-								price: bay.privateBayPriceOne,
-								timeFrom: bay.privateBayTimeOne.beginningTime,
-								timeTo: bay.privateBayTimeOne.endTime,
-								service: bay.privateBayTimeOne.nameOfServiceTime,
-								isPrivate: true,
-							}}
-							privatePriceContainerTwo={{
-								price: bay.privateBayPriceTwo,
-								timeFrom: bay.privateBayTimeTwo.beginningTime,
-								timeTo: bay.privateBayTimeTwo.endTime,
-								service: bay.privateBayTimeTwo.nameOfServiceTime,
-								isPrivate: true,
+							privatePriceContainer={{
+								privatePriceContainerOne: {
+									price: bay.privateBayPriceOne,
+									timeFrom: bay.privateBayTimeOne.beginningTime,
+									timeTo: bay.privateBayTimeOne.endTime,
+									service: bay.privateBayTimeOne.nameOfServiceTime,
+								},
+								privatePriceContainerTwo: {
+									price: bay.privateBayPriceTwo,
+									timeFrom: bay.privateBayTimeTwo.beginningTime,
+									timeTo: bay.privateBayTimeTwo.endTime,
+									service: bay.privateBayTimeTwo.nameOfServiceTime,
+								},
 							}}
 						/>
 					</TabPanel>

@@ -108,10 +108,12 @@ const AnimatedPromotionCards = ({
 				<Image
 					src={img}
 					alt="img"
-					width={250}
-					height={300}
-					sizes="250px"
-					style={{ borderRadius: 'inherit', objectFit: 'cover' }}
+					fill
+					style={{
+						objectFit: 'cover',
+						objectPosition: 'center',
+						borderRadius: 'inherit',
+					}}
 				/>
 			</Box>
 			<Box

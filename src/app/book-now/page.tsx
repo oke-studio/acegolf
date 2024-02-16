@@ -69,8 +69,15 @@ export default function BookNow() {
 				</Card>
 				<Card
 					buttonOne={{
-						children: 'How it works',
+						children: (
+							<Typography variant="base">How it Works &rarr;</Typography>
+						),
 						variant: 'secondary',
+						onClick: () => router.push('/how-it-works'),
+					}}
+					buttonTwo={{
+						children: <Typography variant="base">Find a Bay &rarr;</Typography>,
+						variant: 'primary',
 						onClick: () => router.push('/how-it-works'),
 					}}
 					CardTitle="Prices & Rates"

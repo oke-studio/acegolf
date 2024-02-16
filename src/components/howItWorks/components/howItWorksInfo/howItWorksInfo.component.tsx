@@ -182,7 +182,14 @@ export const HowItWorksInfoBox = ({
 	miniInfoBox: { question: string; answer: string }[];
 }) => {
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '2rem',
+				marginBottom: '2rem',
+			}}
+		>
 			<Box
 				sx={{
 					display: 'flex',

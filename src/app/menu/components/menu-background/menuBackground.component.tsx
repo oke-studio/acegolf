@@ -88,7 +88,7 @@ export const MenuBackground = () => {
 				alignItems: 'end',
 				width: '100%',
 				top: 0,
-				zIndex: 10,
+				zIndex: 1,
 				// overflowX: 'hidden',
 			}}
 		>

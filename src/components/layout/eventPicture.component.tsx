@@ -79,7 +79,7 @@ export const EventPicture = ({
 				}}
 			>
 				<Image
-					src={ImageSrc}
+					src={ImageSrc ?? '/images/ace-banner-chromatic-black.webp'}
 					alt={ImageDescription}
 					width={200}
 					height={300}

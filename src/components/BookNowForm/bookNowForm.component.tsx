@@ -117,7 +117,7 @@ export const BookNowForm = ({
 					)}
 				>
 					{[...Array(6)].map((_, index) => (
-						<option value={index} key={`option_${index}`}>
+						<option value={index} key={`guest_option_${index}`}>
 							{[index, index !== 1 ? 'Guests' : 'Guest'].join(' ')}
 						</option>
 					))}
@@ -166,7 +166,7 @@ export const BookNowForm = ({
 						index === 0 ? (
 							<></>
 						) : (
-							<option value={index} key={`option_${index}`}>
+							<option value={index} key={`duration_option_${index}`}>
 								{[index, index !== 1 ? 'Hours' : 'Hour'].join(' ')}
 							</option>
 						),
