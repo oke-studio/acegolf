@@ -167,65 +167,7 @@ export const Header = ({
 					isolation: 'isolate',
 				}}
 			/>
-			<Box
-				component={motion.ul}
-				variants={menuVariants}
-				initial="closed"
-				animate={mobileDropDownEnabled ? 'open' : 'closed'}
-				sx={{
-					listStyleType: 'none',
-					paddingTop: '120px',
-					justifyContent: 'flex-start',
-					// gap: '24px',
-					alignItems: 'center',
-					height: '100vh',
-					width: '100%',
-					display: 'flex',
-					position: 'absolute',
-					right: '0',
-					left: '0',
-					top: '0',
-					bottom: 0,
-					overflow: 'hidden',
-					pointerEvents: 'auto',
-					flexDirection: 'column',
-					gap: '4rem',
-					//backgroundColor: '#ffffff',
-					transformOrigin: 'top',
-					color: 'black',
-					zIndex: 5,
-					boxShadow:
-						'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-				}}
-			>
-				{navOptions.map((navLink, i) => (
-					<Box
-						component={motion.li}
-						variants={menuListVariants}
-						onClick={() => handleNavOnClick(navLink.to)}
-						key={i}
-						// onHover={}
-						whileHover={{ color: palette.aceOrange }}
-						sx={{
-							'& .MuiButtonBase-root': {
-								justifyContent: 'center',
-							},
-							justifyContent: 'center',
-						}}
-					>
-						{/* <Button variant="text" sx={{ color: '#000000' }}>
-							<Typography variant="small" weight="400" as={motion.div}>
-								{navLink.label}
-							</Typography>
-						</Button> */}
-						<MotionSpanAnimated
-							label={navLink.label}
-							typographyVariant="largeH1"
-							typographyWeight="700"
-						/>
-					</Box>
-				))}
-			</Box>
+
 			<HeaderContainer
 				sx={{
 					justifyContent: isMobile ? 'space-between' : 'center',
@@ -238,6 +180,65 @@ export const Header = ({
 			>
 				{isMobile && (
 					<>
+						<Box
+							component={motion.ul}
+							variants={menuVariants}
+							initial="closed"
+							animate={mobileDropDownEnabled ? 'open' : 'closed'}
+							sx={{
+								listStyleType: 'none',
+								paddingTop: '120px',
+								justifyContent: 'flex-start',
+								// gap: '24px',
+								alignItems: 'center',
+								height: '100vh',
+								width: '100%',
+								display: 'flex',
+								position: 'absolute',
+								right: '0',
+								left: '0',
+								top: '0',
+								bottom: 0,
+								overflow: 'hidden',
+								pointerEvents: 'auto',
+								flexDirection: 'column',
+								gap: '4rem',
+								backgroundColor: 'white',
+								transformOrigin: 'top',
+								color: 'black',
+								zIndex: 5,
+								boxShadow:
+									'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+							}}
+						>
+							{navOptions.map((navLink, i) => (
+								<Box
+									component={motion.li}
+									variants={menuListVariants}
+									onClick={() => handleNavOnClick(navLink.to)}
+									key={i}
+									// onHover={}
+									whileHover={{ color: palette.aceOrange }}
+									sx={{
+										'& .MuiButtonBase-root': {
+											justifyContent: 'center',
+										},
+										justifyContent: 'center',
+									}}
+								>
+									{/* <Button variant="text" sx={{ color: '#000000' }}>
+							<Typography variant="small" weight="400" as={motion.div}>
+								{navLink.label}
+							</Typography>
+						</Button> */}
+									<MotionSpanAnimated
+										label={navLink.label}
+										typographyVariant="largeH1"
+										typographyWeight="700"
+									/>
+								</Box>
+							))}
+						</Box>
 						<Button
 							onClick={() => handleNavOnClick('/')}
 							disableElevation
