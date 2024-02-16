@@ -33,6 +33,7 @@ interface SectionProps {
 	SectionColor: string;
 	CornerRadius: boolean;
 	ScrollAnimations?: boolean;
+	EarlyScrollAnimation?: boolean;
 	children?: React.ReactNode;
 	sx?: SxProps;
 }
@@ -44,6 +45,7 @@ export const Section = ({
 	SectionColor,
 	CornerRadius = true,
 	ScrollAnimations = true,
+	EarlyScrollAnimation = false,
 	sx,
 	children,
 }: SectionProps) => {
@@ -65,11 +67,15 @@ export const Section = ({
 		target: SectionAsReference,
 		offset: ['start end', 'start start'],
 	});
-	const sectionScale = useTransform(scrollYProgress, [0, 0.75], [0.94, 1]);
+	const sectionScale = useTransform(
+		scrollYProgress,
+		EarlyScrollAnimation ? [0.5, 0.75] : [0, 0.75],
+		[0.94, 1],
+	);
 	const animatedBorderRadius = useTransform(
 		scrollYProgress,
-		[0, 0.75],
-		[80, 25],
+		EarlyScrollAnimation ? [0.5, 0.75] : [0, 0.75],
+		EarlyScrollAnimation ? [50, 25] : [80, 25],
 	);
 
 	//   const isMobile = useMediaQuery('(max-width:640px)');

@@ -17,7 +17,7 @@ export const NintendoSwitch = () => {
 				width: '100%',
 				color: 'black',
 				...(isMobile && { flexDirection: 'column' }),
-				backgroundColor: isMobile ? '#529DC8' : 'black',
+				//backgroundColor: isMobile ? '#529DC8' : 'black',
 				borderRadius: isMobile ? '25px 25px 25px 25px' : '0px 0px 0px 0px',
 			}}
 		>

@@ -98,7 +98,7 @@ export default function Home() {
 					Paragraph={
 						'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
 					}
-					ImageSrc={'/images/kitchen-ace.jpg'}
+					ImageSrc={'/images/kitchen-ace.webp'}
 					ImageDescription={'Ace Kitchen'}
 					Direction={'left'}
 				/>
@@ -107,7 +107,7 @@ export default function Home() {
 					Paragraph={
 						'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
 					}
-					ImageSrc={'/images/bar-ace.jpg'}
+					ImageSrc={'/images/bar-ace.webp'}
 					ImageDescription={'Ace Kitchen'}
 					Direction={'right'}
 				/>

@@ -74,7 +74,7 @@ const AnimatedPromotionCards = ({
 		<Box
 			sx={{
 				borderRadius: '16px',
-				height: '400px',
+				height: '300px',
 				minWidth: '250px',
 				display: 'flex',
 				flexDirection: 'column',
@@ -109,9 +109,9 @@ const AnimatedPromotionCards = ({
 					src={img}
 					alt="img"
 					width={250}
-					height={400}
+					height={300}
 					sizes="250px"
-					style={{ borderRadius: 'inherit' }}
+					style={{ borderRadius: 'inherit', objectFit: 'cover' }}
 				/>
 			</Box>
 			<Box
@@ -276,6 +276,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 					flexWrap: 'wrap',
 					justifyContent: 'center',
 					margin: '24px 0',
+					marginBottom: '50px',
 				}}
 			>
 				{promotionAndEventsData

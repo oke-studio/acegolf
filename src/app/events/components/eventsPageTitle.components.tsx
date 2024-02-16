@@ -15,24 +15,24 @@ import {
 import { Typography } from '@/components/Typography/typography.component';
 import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
 
-export default function HiwPageTitle() {
+interface EventsPageTitleProps {
+	title?: string;
+}
+
+export default function EventsPageTitle(EventsPageTitleProps) {
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
 	return (
 		<PageTitleSection
-			SectionName="How it works page title"
+			SectionName="Event Page Title"
 			SectionWidth="fullViewport"
 			SectionHeight="fit-content"
 			SectionColor=""
-			CornerRadius={false}
-			ScrollAnimations={false}
-			SpecialSVGBacking={false}
-			SpecialSVGColour=""
+			CornerRadius
 		>
 			<Box
 				sx={{
-					color: 'white',
-					//backgroundColor: theme => theme.palette.orange,
+					// backgroundColor: theme.palette.aceTeal,
 					padding: '2rem',
 				}}
 			>
@@ -43,7 +43,11 @@ export default function HiwPageTitle() {
 						gap: '12px',
 						position: 'relative',
 						zIndex: '2',
-						...(isMobile && { flexDirection: 'column', flexWrap: 'wrap' }),
+						...(isMobile && {
+							flexDirection: 'column',
+							flexWrap: 'wrap',
+						}),
+						color: 'white',
 					}}
 				>
 					<Typography
@@ -58,9 +62,7 @@ export default function HiwPageTitle() {
 							width: isMobile ? '100%' : '50%',
 						}}
 					>
-						HOW DOES
-						<br />
-						IT WORK
+						{EventsPageTitleProps.title ? EventsPageTitleProps.title : 'EVENTS'}
 					</Typography>
 
 					<Typography
@@ -70,9 +72,9 @@ export default function HiwPageTitle() {
 							width: isMobile ? '100%' : '50%',
 						}}
 					>
-						Swing into flavour with our culinary delights. This is a piece of
-						text about the food inspiration. it will tell the people what to
-						expect with menu.
+						This copy describes the overall experience of what ace golf
+						encourages users to learn more below and see the FAQs section on
+						this page
 					</Typography>
 				</Box>
 			</Box>

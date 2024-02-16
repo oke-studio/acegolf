@@ -13,7 +13,7 @@ import { SideTextPicture } from '@/components/layout/sideTextPicture.component';
 import { Promotions } from '../../components/promotions/promotions.component';
 import { Section } from '@/components/layout/section.component';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
-import { PageTitleSection } from '@/components/layout/pageTitleSection.component';
+import EventsPageTitle from './components/eventsPageTitle.components';
 
 export default function Events() {
 	const theme = useTheme();
@@ -35,24 +35,30 @@ export default function Events() {
 	//get and track scroll progress with offset amount
 	const eventsSectionAsReference = useRef(null);
 
+	// const { scrollYProgress } = useScroll({
+	// 	target: eventsSectionAsReference,
+	// 	// container: containerRef,
+	// 	offset: ['0', '0.35'],
+	// });
+
 	const { scrollYProgress } = useScroll({
 		target: eventsSectionAsReference,
-		// container: containerRef,
-		offset: ['0', '0.35'],
+		...(isMobile
+			? { offset: ['start end', 'start start'] }
+			: { offset: ['start end', 'start start'] }),
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useSpring(
-		useTransform(scrollYProgress, [0, 0.2], [1, 0]),
-	);
-	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0]);
+	const sectionOpacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
+	const sectionScale = useTransform(scrollYProgress, [0.75, 1], [1, 0.9]);
+
+	// testing scroll
+	// scrollYProgress.onChange(latest => {
+	// 	console.log(latest);
+	// });
 
 	return (
-		<Box
-			sx={{
-				backgroundColor: '#9A92C5',
-			}}
-		>
+		<Box>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',
@@ -65,72 +71,11 @@ export default function Events() {
 						top: '100px',
 					}}
 					style={{
-						// opacity: isMobile ? '1' : sectionOpacity,
-						// scale: isMobile ? '1' : sectionScale,
 						opacity: sectionOpacity,
-						// scale: sectionScale,
+						scale: sectionScale,
 					}}
 				>
-					<PageTitleSection
-						SectionName="Event Page Title"
-						SectionWidth="fullViewport"
-						SectionHeight="fit-content"
-						SectionColor=""
-						CornerRadius={false}
-						ScrollAnimations={false}
-						SpecialSVGBacking={true}
-						SpecialSVGColour={theme.palette.aceTeal}
-					>
-						<Box
-							sx={{
-								color: 'white',
-								backgroundColor: theme.palette.aceTeal,
-								padding: '2rem',
-							}}
-						>
-							<Box
-								sx={{
-									display: 'flex',
-									justifyContent: isMobile ? 'center' : '',
-									gap: '12px',
-									position: 'relative',
-									zIndex: '2',
-									...(isMobile && {
-										flexDirection: 'column',
-										flexWrap: 'wrap',
-									}),
-									color: 'white',
-								}}
-							>
-								<Typography
-									variant="poster"
-									weight="900"
-									fontStyle="italic"
-									sx={{
-										textWrap: 'wrap',
-										textAlign: 'center',
-										flex: 1,
-
-										width: isMobile ? '100%' : '50%',
-									}}
-								>
-									EVENTS
-								</Typography>
-
-								<Typography
-									variant="large"
-									alignSelf="center"
-									sx={{
-										width: isMobile ? '100%' : '50%',
-									}}
-								>
-									This copy describes the overall experience of what ace golf
-									encourages users to learn more below and see the FAQs section
-									on this page
-								</Typography>
-							</Box>
-						</Box>
-					</PageTitleSection>
+					<EventsPageTitle />
 				</Box>
 
 				<Box
@@ -144,9 +89,10 @@ export default function Events() {
 					<Section
 						SectionName="Events Homepage"
 						SectionWidth="normal"
-						SectionColor=""
+						SectionColor="transparent"
 						CornerRadius
 						SectionHeight="fit-content"
+						sx={{}}
 					>
 						<SideTextPicture
 							Title={'Host you Event Here'}
@@ -157,7 +103,14 @@ export default function Events() {
 							ImageDescription={'Ace Kitchen'}
 							Direction={'left'}
 						/>
-
+					</Section>
+					<Section
+						SectionName="Promotions on Events Homepage"
+						SectionWidth="fullViewport"
+						SectionColor="#171717"
+						CornerRadius
+						SectionHeight="fit-content"
+					>
 						<Promotions />
 					</Section>
 				</Box>

@@ -47,22 +47,20 @@ export default function Home() {
 	const { scrollYProgress } = useScroll({
 		target: howItWorkStepsSectionAsReference,
 		...(isMobile
-			? { offset: ['start start', 'start center'] }
-			: { offset: ['start start', 'start center'] }),
+			? { offset: ['start end', 'start start'] }
+			: { offset: ['center end', 'start start'] }),
 	});
 
 	//mapping scroll progress to actual
-	const sectionOpacity = useSpring(
-		useTransform(scrollYProgress, [0, 1], [0, 1]),
-	);
-	const sectionScale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1]));
+	const sectionOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0]);
+	const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
+	// testing scroll
+	// scrollYProgress.onChange(latest => {
+	// 	console.log(latest);
+	// });
 	return (
-		<Box
-			sx={{
-				position: 'relative',
-			}}
-		>
+		<Box>
 			<Box
 				sx={{
 					maxHeight: 'fit-content',

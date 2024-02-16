@@ -20,13 +20,18 @@ export const Menu = () => {
 	return (
 		<Section
 			SectionName="Menu Content"
-			SectionWidth="fullViewport"
+			SectionWidth="normal"
 			SectionHeight="fit-content"
 			SectionColor=""
-			CornerRadius={false}
-			ScrollAnimations={false}
+			CornerRadius={true}
+			ScrollAnimations={true}
+			EarlyScrollAnimation={true}
 			sx={{
-				padding: '0% 5% 5% 5%',
+				padding: '2% 5%',
+
+				border: 'solid black 6px',
+				backgroundColor: 'white',
+				color: 'black',
 			}}
 		>
 			<Box
@@ -34,7 +39,7 @@ export const Menu = () => {
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '32px',
-					margin: '0px auto',
+					margin: '0px 0px 30px 0px',
 					width: '100%',
 					position: 'relative',
 					// top: isMobile ? '-60px' : '-80px',

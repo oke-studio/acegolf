@@ -16,10 +16,10 @@ import {
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 
 const StyledMenuWrapper = styled(Box)(() => ({
-	borderRadius: '25px',
-	border: 'solid black 6px',
-	backgroundColor: 'white',
-	color: 'black',
+	// borderRadius: '25px',
+	// border: 'solid black 6px',
+	// backgroundColor: 'white',
+	// color: 'black',
 }));
 
 const StyledTab = styled(Tab)({
@@ -89,9 +89,6 @@ export const MenuTabs = () => {
 		<StyledMenuWrapper>
 			<Box
 				sx={{
-					//margin: '24px',
-					// padding: '5%',
-					padding: '24px',
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '32px',
@@ -164,9 +161,9 @@ export const MenuTabs = () => {
 									height: '100%',
 									position: 'relative',
 									width: '100%',
-									borderWidth: '2px',
-									borderStyle: 'solid',
-									borderColor: theme.palette.aceTeal,
+									// borderWidth: '2px',
+									// borderStyle: 'solid',
+									// borderColor: theme.palette.aceTeal,
 									borderRadius: '8px',
 								}}
 							>
