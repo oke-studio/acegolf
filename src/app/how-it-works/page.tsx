@@ -103,7 +103,7 @@ export default function Home() {
 
 			{/* <Box sx={{ display: 'flex' }}></Box> */}
 
-			<NintendoSwitch />
+			{/* <NintendoSwitch /> */}
 		</Box>
 	);
 }
