@@ -163,7 +163,7 @@ export const MenuTabs = () => {
 							src={
 								menuData[
 									MAP_MENU_COLLECTION_TO_IMAGE[CollectionsToImageStore[value]]
-								]?.url ?? '/images/Spin-photo1.png'
+								]?.url ?? '/images/food/bigbites-place-holder.webp'
 							}
 							alt="img"
 							fill
