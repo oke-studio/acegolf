@@ -102,6 +102,99 @@ interface PriceContainer {
 	isPrivate?: boolean;
 }
 
+const PriceInfoBox = ({
+	price,
+	service,
+	backgroundColor,
+	color = 'white',
+	isPrivate = false,
+}: PriceContainer) => {
+	return (
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '8px',
+				color: color,
+				width: '100%',
+				borderRadius: '8px',
+				...(isPrivate && {
+					color: 'black',
+					borderColor: theme => theme.palette.green,
+					borderWidth: '3px',
+					borderStyle: 'solid',
+				}),
+			}}
+		>
+			<Box
+				sx={{
+					backgroundColor: theme => backgroundColor ?? theme.palette.green,
+					display: 'flex',
+					flexDirection: 'row',
+					width: '100%',
+					borderRadius: 'inherit',
+					padding: '16px',
+					justifyContent: 'space-between',
+					//gap: '8px',
+					flexWrap: 'wrap',
+				}}
+			>
+				<Typography
+					variant="large"
+					weight="700"
+					sx={{ display: 'flex', alignItems: 'center' }}
+				>
+					{isPrivate ? 'Private Bay' : 'General Bay'}
+				</Typography>
+
+				<Box sx={{ display: 'flex', gap: '0.75rem' }}>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '0.75rem',
+							textAlign: 'center',
+						}}
+					>
+						<Typography variant="headingThree" weight="800">
+							${price}
+							<Typography
+								variant="base"
+								weight="400"
+								sx={{ display: 'inline' }}
+							>
+								/hr
+							</Typography>
+						</Typography>
+						<ServicePill backgroundColor="cyan" color="black" text={service} />
+					</Box>
+
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '0.75rem',
+							textAlign: 'center',
+						}}
+					>
+						<Typography variant="headingThree" weight="800">
+							${price}
+							<Typography
+								variant="base"
+								weight="400"
+								sx={{ display: 'inline' }}
+							>
+								/hr
+							</Typography>
+						</Typography>
+						<ServicePill backgroundColor="cyan" color="black" text={service} />
+					</Box>
+				</Box>
+			</Box>
+		</Box>
+	);
+};
+
 interface ServicePillInterface {
 	color: string;
 	text: string;
@@ -127,82 +220,6 @@ const PricesTabsContentSkeleton = ({
 }: PricesTabsContentSkeletonProps) => {
 	const theme = useTheme();
 
-	const PriceInfoBox = ({
-		price,
-		timeFrom,
-		timeTo,
-		service,
-		backgroundColor,
-		color = 'white',
-		isPrivate = false,
-	}: PriceContainer) => {
-		return (
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					gap: '8px',
-					color: color,
-					width: '100%',
-					borderRadius: '8px',
-					...(isPrivate && {
-						color: 'black',
-						borderColor: theme.palette.green,
-						borderWidth: '3px',
-						borderStyle: 'solid',
-					}),
-				}}
-			>
-				<Box
-					sx={{
-						backgroundColor: backgroundColor ?? theme.palette.green,
-						display: 'flex',
-						flexDirection: 'row',
-						width: '100%',
-						minWidth: 'max-content',
-						borderRadius: 'inherit',
-						padding: '16px',
-						justifyContent: 'space-around',
-						//gap: '8px',
-					}}
-				>
-					<Box>
-						<Typography variant="large" weight="700">
-							{isPrivate ? 'Private Bay' : 'General Bay'}
-						</Typography>
-					</Box>
-
-					<Box>
-						<Typography variant="headingThree" weight="800">
-							${price}
-							<Typography
-								variant="base"
-								weight="400"
-								sx={{ display: 'inline' }}
-							>
-								/hr
-							</Typography>
-						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
-					</Box>
-
-					<Box>
-						<Typography variant="headingThree" weight="800">
-							${price}
-							<Typography
-								variant="base"
-								weight="400"
-								sx={{ display: 'inline' }}
-							>
-								/hr
-							</Typography>
-						</Typography>
-						<ServicePill backgroundColor="cyan" color="black" text={service} />
-					</Box>
-				</Box>
-			</Box>
-		);
-	};
 	return (
 		<Box sx={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
 			<Box
@@ -251,61 +268,8 @@ const PricesTabsContentSkeleton = ({
 					</Box>
 				</Box>
 			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '16px',
-					// flexWrap: 'wrap',
-					justifyContent: 'space-between',
-				}}
-			>
-				<PriceInfoBox {...priceContainerOne} />
-				{/* <PriceInfoBox {...priceContainerTwo} /> */}
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					gap: '16px',
-					// flexWrap: 'wrap',
-					justifyContent: 'space-between',
-				}}
-			>
-				<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
-				{/* <PriceInfoBox {...privatePriceContainerTwo} backgroundColor="white" /> */}
-			</Box>
-			{/* <Box
-				sx={{
-					display: 'flex',
-					padding: '16px',
-					flexDirection: 'column',
-					backgroundColor: 'white',
-					borderRadius: '8px',
-					borderWidth: '3px',
-					borderStyle: 'solid',
-					borderColor: theme.palette.green,
-					width: '100%',
-					minHeight: 'max-content',
-					height: 'max-content',
-					marginBottom: '10px',
-				}}
-			>
-				<Typography variant="headingFour" weight="800">
-					${privatePriceContainer.price}
-					<Typography variant="small" weight="400" sx={{ display: 'inline' }}>
-						/hr
-					</Typography>
-				</Typography>
-				<Typography
-					variant="miniscule"
-					weight="600"
-					sx={{
-						// color: 'black',
-						textTransform: 'uppercase',
-					}}
-				>
-					Private Bay
-				</Typography>
-			</Box> */}
+			<PriceInfoBox {...priceContainerOne} />
+			<PriceInfoBox {...privatePriceContainerOne} backgroundColor="white" />
 
 			<Typography variant="base">{description}</Typography>
 		</Box>
