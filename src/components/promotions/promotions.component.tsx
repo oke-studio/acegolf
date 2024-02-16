@@ -276,6 +276,7 @@ export const Promotions = ({ isLanding = false }: { isLanding?: boolean }) => {
 					flexWrap: 'wrap',
 					justifyContent: 'center',
 					margin: '24px 0',
+					marginBottom: '50px',
 				}}
 			>
 				{promotionAndEventsData

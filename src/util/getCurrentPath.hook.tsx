@@ -21,6 +21,12 @@ const PathToCSS: { [key: string]: SxProps } = {
 		color: 'black',
 		borderRadius: '0px 0px 25px 25px',
 	},
+
+	'/events/': {
+		backgroundColor: '#9A92C5',
+		color: 'black',
+		borderRadius: '0px 0px 25px 25px',
+	},
 };
 
 export const useGetCurrentPathName = () => {
