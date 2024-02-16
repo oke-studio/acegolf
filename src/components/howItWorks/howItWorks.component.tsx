@@ -100,10 +100,9 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						flexDirection: isLanding ? 'row' : 'column',
 						gap: '2rem',
 						overflowX: 'hidden',
-						width: '100%',
-						// ...(!isLanding && {
-						// 	width: isMobile ? '100%' : '50%',
-						// }),
+						...(!isLanding && {
+							width: isMobile ? '100%' : '100%',
+						}),
 						margin: '32px 0',
 					}}
 				>
