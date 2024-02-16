@@ -147,6 +147,7 @@ export const GetAceQuery = gql`
 						slugId
 						eventStartDate
 						eventEndDate
+						eventDescription
 						ctaText
 						ctaLink
 						eventPoster {

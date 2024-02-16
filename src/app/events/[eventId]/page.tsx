@@ -1,16 +1,23 @@
 'use client';
 
 import * as React from 'react';
-import { useGetEvents } from '../hooks/useGetEvents.hook';
-import { Box, useTheme, useMediaQuery } from '@mui/material';
-import { Typography } from '@/components/Typography/typography.component';
+
+import { Box, CircularProgress } from '@mui/material';
+
 import { Section } from '@/components/layout/section.component';
 import { Promotions } from '@/components/promotions/promotions.component';
-import EventsPageTitle from '../components/eventsPageTitle.components';
+
 import { EventPicture } from '@/components/layout/eventPicture.component';
+import { useGetEventByID } from '../hooks/useGetEventByID.hook';
 
 export default function Events({ params }: { params: { eventId: string } }) {
-	const { eventsData, isError, isLoading } = useGetEvents();
+	const { eventByID, isLoading, isError } = useGetEventByID(params.eventId);
+
+	const event = eventByID[0];
+
+	if (!isLoading) {
+		console.log(new Date(event.startDate).toDateString());
+	}
 
 	return (
 		<Box>
@@ -50,17 +57,29 @@ export default function Events({ params }: { params: { eventId: string } }) {
 						padding: '2%',
 					}}
 				>
-					<EventPicture
-						Title={params.eventId}
-						ImageSrc={'/images/kitchen-ace.webp'}
-						ImageDescription={'Ace Kitchen'}
-						EventStartDate={' Feb 17th 2023 7pm'}
-						EventEndDate={'Feb 17th 2023 10pm'}
-						EventDescription={
-							"Join us for the friends and Family Event at Ace Golf Bar & Lounge! We're formally launching our food and drink menu! Our inhouse chef has created some truly unique dishes that will pair well with our craft cocktails. Our golf bays are discounted by 25% for this event, so come take advantage on our promotional pricing!Not a golfer? Come for the food and drinks!"
-						}
-						Direction={'left'}
-					/>
+					{isLoading ? (
+						<Box
+							sx={{
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<CircularProgress />
+						</Box>
+					) : (
+						<EventPicture
+							Title={event.title}
+							ImageSrc={event.poster.url}
+							ImageDescription={event.poster.description}
+							EventStartDate={new Date(event.startDate).toDateString()}
+							EventEndDate={
+								event.endDate ? new Date(event.endDate).toDateString() : ''
+							}
+							EventDescription={event.description ?? ''}
+							Direction={'left'}
+						/>
+					)}
 				</Section>
 				<Section
 					SectionName="Events page"

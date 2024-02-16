@@ -7,7 +7,8 @@ type PromotionAndEventsType = {
 	startDate: string;
 	endDate?: string;
 	type: 'promotion' | 'event';
-	poster: { url: string };
+	description?: string;
+	poster: { url: string; description: string; title: string };
 	sevenRoomsPromotionCode?: number;
 	ctaText?: string;
 	ctaLink?: string;
@@ -38,6 +39,7 @@ export function useGetEventsAndPromotions() {
 			startDate: cur.eventStartDate,
 			poster: cur.eventPoster,
 			slugId: cur.slugId,
+			description: cur.eventDescription,
 			type: 'event',
 			ctaLink: cur.ctaLink,
 			ctaText: cur.ctaText,
@@ -53,7 +55,7 @@ export function useGetEventsAndPromotions() {
 			title: cur.promotionTitle,
 			endDate: cur.effectiveDateEnd,
 			startDate: cur.effectiveDateStart,
-			poster: { url: cur.promotionPoster.url },
+			poster: cur.promotionPoster,
 			slugId: cur.slugId,
 			type: 'promotion',
 			sevenRoomsPromotionCode: cur.sevenRoomsPromotionCode,

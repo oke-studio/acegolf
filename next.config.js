@@ -11,6 +11,11 @@ const nextConfig = {
 				destination: '/',
 				permanent: true,
 			},
+			{
+				source: '/events/eventId',
+				destination: '/events?eventId:=eventId',
+				permanent: true,
+			},
 		];
 	},
 	images: {
