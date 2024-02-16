@@ -56,7 +56,7 @@ export const Header = ({
 		{ label: 'How it Works', to: '/how-it-works' },
 		// { label: 'About', to: '/about' },
 		{ label: 'Menu', to: '/menu' },
-		{ label: 'Events', to: '/events' },
+		// { label: 'Events', to: '/events' },
 	],
 }: HeaderProps) => {
 	const { palette, zIndex, breakpoints } = useTheme();
