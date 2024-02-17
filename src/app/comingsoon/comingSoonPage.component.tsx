@@ -7,104 +7,105 @@ import { styled } from '@mui/material';
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { NOISE_URL } from './components/noise/noise';
+import { NOISE_URL } from './components/noise/noise';
 
 const backgroundColor = '#E6E8E9';
 
 const PageWrapper = styled(Box)({
-  backgroundColor: backgroundColor,
-  //backgroundImage: NOISE_URL,
-  height: '100vh',
-  color: 'black',
-  width: '100vw',
-  overflow: 'hidden',
-  position: 'relative',
+	backgroundColor: backgroundColor,
+	//backgroundImage: NOISE_URL,
+	height: '100vh',
+	color: 'black',
+	width: '100vw',
+	overflow: 'hidden',
+	position: 'relative',
 });
 
 const PageLayout = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
+	display: 'flex',
+	flexDirection: 'column',
 
-  height: '100%',
+	height: '100%',
 });
 
 const PageMobileLayout = styled(Box)({
-  display: 'flex',
-  //   justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
+	display: 'flex',
+	//   justifyContent: 'center',
+	alignItems: 'center',
+	flexDirection: 'column',
 });
 
 export default function ComingSoonPage() {
-  const isMobile = useMediaQuery('(max-width:640px)');
-  const openingDate = new Date('2023-12-19');
-  const devDate = new Date('2023-11-01');
-  const currentDate = new Date();
+	const isMobile = useMediaQuery('(max-width:640px)');
+	const openingDate = new Date('2023-12-19');
+	const devDate = new Date('2023-11-01');
+	const currentDate = new Date();
 
-  const devToOpenDate = openingDate.getTime() - devDate.getTime();
-  const currentToOpenDate = openingDate.getTime() - currentDate.getTime();
+	const devToOpenDate = openingDate.getTime() - devDate.getTime();
+	const currentToOpenDate = openingDate.getTime() - currentDate.getTime();
 
-  var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440);
-  const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440);
+	var daysLeft = Math.floor(currentToOpenDate / (1000 * 60) / 1440);
+	const daysTotal = Math.floor(devToOpenDate / (1000 * 60) / 1440);
 
-  const currentToOpenDateProgress = Math.floor(
-    ((daysTotal - daysLeft) / daysTotal) * 100,
-  );
-  var timeDifference = Math.abs(currentToOpenDate) / 1000;
+	const currentToOpenDateProgress = Math.floor(
+		((daysTotal - daysLeft) / daysTotal) * 100,
+	);
+	var timeDifference = Math.abs(currentToOpenDate) / 1000;
 
-  const dayDifference = Math.floor(timeDifference / 86400);
-  timeDifference -= dayDifference * 86400;
+	const dayDifference = Math.floor(timeDifference / 86400);
+	timeDifference -= dayDifference * 86400;
 
-  const hourDifference = Math.floor(timeDifference / 3600) % 24;
+	const hourDifference = Math.floor(timeDifference / 3600) % 24;
 
-  if (isMobile) {
-    return (
-      <PageWrapper>
-        <PageMobileLayout>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: `${currentToOpenDateProgress}%`,
-              background: '#171717',
-              backgroundImage: NOISE_URL,
-            }}
-          ></Box>
-          <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              overflow: 'hidden',
-              position: 'relative',
-              top: '25px',
-            }}
-          >
-            {[...Array(10)].map((_, index) => (
-              <LogoMap key={index} />
-            ))}
-          </div>
-        </PageMobileLayout>
-      </PageWrapper>
-    );
-  }
+	if (isMobile) {
+		return (
+			<PageWrapper>
+				<PageMobileLayout>
+					<Box
+						sx={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							height: `${currentToOpenDateProgress}%`,
+							background: '#171717',
+							backgroundImage: NOISE_URL,
+						}}
+					></Box>
+					<ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
+					<div
+						style={{
+							display: 'flex',
+							flexDirection: 'row',
+							overflow: 'hidden',
+							position: 'relative',
+							top: '25px',
+						}}
+					>
+						{[...Array(10)].map((_, index) => (
+							<LogoMap key={index} />
+						))}
+					</div>
+				</PageMobileLayout>
+			</PageWrapper>
+		);
+	}
 
-  return (
-    <PageWrapper>
-      <PageLayout>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            bottom: 0,
-            width: `${currentToOpenDateProgress}%`,
-            background: '#171717',
-            //backgroundImage: NOISE_URL,
-          }}
-        ></Box>
-        {/* <div
+	return (
+		<PageWrapper>
+			<PageLayout>
+				<Box
+					sx={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						bottom: 0,
+						width: `${currentToOpenDateProgress}%`,
+						background: '#171717',
+						//backgroundImage: NOISE_URL,
+					}}
+				></Box>
+				{/* <div
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -124,25 +125,25 @@ export default function ComingSoonPage() {
             strokeColor="#EB8B32"
           />
         </div> */}
-        <ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
+				<ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            overflow: 'hidden',
-            position: 'relative',
-            gap: '16px',
-            top: '30px',
-            fill: 'white',
-            mixBlendMode: 'difference',
-          }}
-        >
-          {[...Array(18)].map((_, index) => (
-            <LogoMap key={index} />
-          ))}
-        </div>
-      </PageLayout>
-    </PageWrapper>
-  );
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						overflow: 'hidden',
+						position: 'relative',
+						gap: '16px',
+						top: '30px',
+						fill: 'white',
+						mixBlendMode: 'difference',
+					}}
+				>
+					{[...Array(18)].map((_, index) => (
+						<LogoMap key={index} />
+					))}
+				</div>
+			</PageLayout>
+		</PageWrapper>
+	);
 }

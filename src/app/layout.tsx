@@ -1,37 +1,59 @@
 import './globals.css';
-// import '/Users/onanefeosah/Desktop/acegolf/public/fonts/style.css';
-import { Inter } from 'next/font/google';
-import { ThemeContextProvider } from '@/components/Theme-Context/themeContext.component';
+// import { Metadata } from 'next';
+// import localfont from 'next/font/local';
+import { Providers } from './Providers';
 import { Header } from '@/components/Header/header.component';
-import { Footer } from '@/components/Footer/footer.component';
+// import { Footer } from '@/components/Footer/footer.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
+import { FooterV2 } from '@/components/Footer/footerV2.component';
 
-const inter = Inter({ subsets: ['latin'] });
-
+import { aceFont } from '@/components/Theme-Context/fontValues';
+import { HeaderBanner } from '@/components/Header/headerBanner.component';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 export const metadata = {
-  title: 'Ace Golf Bar',
-  description: "Ace golf bar - Toronto's first ever indoor golf lounge",
+	title: 'Ace Golf Bar',
+	description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
 };
+// export const safariBrowserTheme: Metadata ={
+
+//   name: 'theme-color',
+//   content: '#ecd96f',
+
+// }
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <ThemeContextProvider>
-        <body className={inter.className}>
-          {/* <DynamicPageBackground> */}
-          {/* <Header /> */}
-          {children}
-          {/* <Footer /> */}
-          {/* </DynamicPageBackground> */}
-          <div className={'subtleNoise'} style={{
-            // zIndex: 100, 
-            pointerEvents: 'none' }}></div>
-        </body>
-      </ThemeContextProvider>
-    </html>
-  );
+	return (
+		<html lang="en" style={{ overflowX: 'hidden' }}>
+			<Providers>
+				<meta name="theme-color" content="#39775E"></meta>
+				<body
+					className={aceFont.className}
+					style={{ backgroundColor: '#171717' }}
+				>
+					<DynamicPageBackground>
+						<Header />
+						{children}
+						<FooterV2 />
+					</DynamicPageBackground>
+					<ReactQueryDevtools
+						initialIsOpen={false}
+						buttonPosition="bottom-left"
+						position="bottom"
+						styleNonce=""
+					/>
+					<div
+						className={'subtleNoise'}
+						style={{
+							// zIndex: 100,
+							pointerEvents: 'none',
+						}}
+					></div>
+				</body>
+			</Providers>
+		</html>
+	);
 }
