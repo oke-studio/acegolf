@@ -77,7 +77,7 @@ const ComingSoonForm = () => {
 							/>
 							<Box
 								sx={{
-									...typography.hero_regular,
+									//...typography.hero_regular,
 									fontSize: '16px',
 									textAlign: 'center',
 									textTransform: 'uppercase',
@@ -155,7 +155,7 @@ const ComingSoonForm = () => {
 												paddingBottom="14px"
 												// ...typography.hero_bold,
 												sx={{
-													...typography.hero_bold,
+													//...typography.hero_bold,
 													fontSize: '12px',
 												}}
 												whiteSpace="nowrap"
@@ -295,7 +295,7 @@ export const ComingSoonInfoSection = ({
 			>
 				<Box
 					sx={{
-						...typography.hero_extrabold,
+						//...typography.hero_extrabold,
 						fontSize: '24px',
 						color: 'white',
 						mixBlendMode: 'difference',
@@ -310,7 +310,7 @@ export const ComingSoonInfoSection = ({
 					disableRipple
 					disableTouchRipple
 					sx={{
-						...typography.hero_semibold,
+						//...typography.hero_semibold,
 						fontSize: '24px',
 						marginTop: '20px',
 						textTransform: 'none',
@@ -327,7 +327,7 @@ export const ComingSoonInfoSection = ({
 				<Box
 					sx={{
 						marginTop: '20px',
-						...typography.hero_medium,
+						//...typography.hero_medium,
 						fontSize: '16px',
 						color: 'white',
 						// mixBlendMode: 'difference',
