@@ -7,7 +7,6 @@ import { styled } from '@mui/material';
 import { ComingSoonInfoSection } from './components/comingSoonInfoSection/comingSoonInfoSection.component';
 import { LogoMap } from './components/logoMap/logoMap.component';
 import { NOISE_URL } from './components/noise/noise';
-import { NOISE_URL } from './components/noise/noise';
 
 const backgroundColor = '#E6E8E9';
 
