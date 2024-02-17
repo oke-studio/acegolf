@@ -267,7 +267,7 @@ const PricesTabsContentSkeleton = ({
 				>
 					<Box>
 						<Typography variant="large" weight="600">
-							8am - 5pm
+							{`${priceContainer.priceContainerOne.timeFrom} - ${priceContainer.priceContainerOne.timeTo}`}
 						</Typography>
 						<ServicePill
 							backgroundColor="cyan"
@@ -279,7 +279,7 @@ const PricesTabsContentSkeleton = ({
 
 					<Box>
 						<Typography variant="large" weight="600">
-							8am - 5pm
+							{`${priceContainer.priceContainerTwo.timeFrom} - ${priceContainer.priceContainerTwo.timeTo}`}
 						</Typography>
 						<ServicePill
 							backgroundColor="cyan"
