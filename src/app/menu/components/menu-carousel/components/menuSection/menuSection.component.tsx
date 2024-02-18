@@ -17,7 +17,7 @@ export const MenuSection = ({
 	menuItems: MenuItem[];
 	menuSection: MenuCollectionsType;
 }) => {
-	// console.log(menuItems);
+	console.log(menuItems);
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 			<Typography
@@ -33,30 +33,32 @@ export const MenuSection = ({
 				sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
 				aria-labelledby={`${menuSection}_list`}
 			>
-				{menuItems.map((option, index) => (
-					<Box
-						key={index}
-						sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
-						component="li"
-					>
+				{menuItems
+					.filter(item => item)
+					.map((option, index) => (
 						<Box
-							sx={{
-								display: 'flex',
-								justifyContent: 'space-between',
-								gap: '8px',
-							}}
+							key={index}
+							sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
+							component="li"
 						>
-							<Typography
-								variant="small"
-								weight="500"
+							<Box
 								sx={{
 									display: 'flex',
-									alignItems: 'center',
+									justifyContent: 'space-between',
+									gap: '8px',
 								}}
 							>
-								{option.name}
-							</Typography>
-							{/* <Box
+								<Typography
+									variant="small"
+									weight="500"
+									sx={{
+										display: 'flex',
+										alignItems: 'center',
+									}}
+								>
+									{option.name}
+								</Typography>
+								{/* <Box
                   sx={{
                     borderWidth: 0,
                     borderStyle: 'dashed',
@@ -68,21 +70,21 @@ export const MenuSection = ({
                     display: 'flex',
                   }}
                 ></Box> */}
-							<Typography
-								variant="base"
-								sx={{ color: theme => theme.palette.aceOrange }}
-							>
-								{option.price}
+								<Typography
+									variant="base"
+									sx={{ color: theme => theme.palette.aceOrange }}
+								>
+									{option.price}
+								</Typography>
+							</Box>
+							<Typography variant="miniscule" fontStyle="italic">
+								{option.itemDescription}
 							</Typography>
-						</Box>
-						<Typography variant="miniscule" fontStyle="italic">
-							{option.itemDescription}
-						</Typography>
-						{/* <Typography variant="miniscule" fontStyle="italic">
+							{/* <Typography variant="miniscule" fontStyle="italic">
                 {option.ingredients}
               </Typography> */}
-					</Box>
-				))}
+						</Box>
+					))}
 			</Box>
 		</Box>
 	);
