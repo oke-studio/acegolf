@@ -64,6 +64,21 @@ export const BookNowForm = ({
 	const { breakpoints } = useTheme();
 	const isMobile = useMediaQuery(breakpoints.down('sm'));
 
+	const RoundReserveTime = () => {
+		const date = dayjs(reserveABayObject.time);
+
+		const m = date.minute();
+		const h = date.hour();
+
+		if (m > 30) {
+			return date.set('hour', h + 1).set('minute', 0);
+		} else {
+			return date.set('minute', 30);
+		}
+	};
+
+	// console.log(RoundReserveTime());
+
 	return (
 		<Box
 			sx={{
@@ -286,7 +301,8 @@ export const BookNowForm = ({
 						},
 					},
 				}}
-				value={dayjs(reserveABayObject.time)}
+				minutesStep={30}
+				value={RoundReserveTime()}
 				onChange={newValue => {
 					handleDateTimePickerChange(newValue?.toString()!, 'date');
 				}}
