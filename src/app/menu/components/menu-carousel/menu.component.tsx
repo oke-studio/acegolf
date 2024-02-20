@@ -43,22 +43,25 @@ export const Menu = () => {
 					width: '100%',
 					position: 'relative',
 					height: '100%',
+					minHeight: 'inherit',
 					// top: isMobile ? '-60px' : '-80px',
 				}}
 			>
 				<MenuTabs />
-				<Button
-					sx={{ alignSelf: 'center' }}
-					disableRipple
-					disableElevation
-					disableFocusRipple
-					disableTouchRipple
-					variant="secondary"
-					onClick={() => router.push('/book-now')}
-				>
-					{/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
-					Reserve a bay &rarr;
-				</Button>
+				<Box sx={{ display: 'flex', justifyContent: 'center' }}>
+					<Button
+						sx={{ alignSelf: 'center' }}
+						disableRipple
+						disableElevation
+						disableFocusRipple
+						disableTouchRipple
+						variant="secondary"
+						onClick={() => router.push('/book-now')}
+					>
+						{/* <MotionSpanAnimated label="Download Full Menu PDF" /> */}
+						Reserve a bay &rarr;
+					</Button>
+				</Box>
 			</Box>
 		</Section>
 	);
