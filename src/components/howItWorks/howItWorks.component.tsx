@@ -102,6 +102,7 @@ export const HowItWorks = ({ isLanding = false }: HowItWorksProps) => {
 						overflowX: 'hidden',
 						...(!isLanding && {
 							width: isMobile ? '100%' : '100%',
+							overflow: 'hidden',
 						}),
 						margin: '32px 0',
 					}}

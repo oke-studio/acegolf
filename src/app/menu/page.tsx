@@ -67,8 +67,15 @@ export default function Home() {
 						// opacity: isMobile ? '1' : sectionOpacity,
 						// scale: isMobile ? '1' : sectionScale,
 
-						opacity: sectionOpacity,
-						scale: sectionScale,
+						...(isMobile
+							? {
+									opacity: '1',
+									scale: '1',
+								}
+							: {
+									opacity: sectionOpacity,
+									scale: sectionScale,
+								}),
 					}}
 				>
 					<MenuPageTitle />
@@ -88,12 +95,12 @@ export default function Home() {
 			<Section
 				SectionName="Kitchen and Bar information"
 				SectionWidth="fullViewport"
-				SectionHeight="fit-content"
+				SectionHeight="30vh"
 				SectionColor=""
 				CornerRadius={false}
 				ScrollAnimations={false}
 			>
-				<SideTextPicture
+				{/* <SideTextPicture
 					Title={'The Kitchen'}
 					Paragraph={
 						'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
@@ -101,8 +108,8 @@ export default function Home() {
 					ImageSrc={'/images/kitchen-ace.webp'}
 					ImageDescription={'Ace Kitchen'}
 					Direction={'left'}
-				/>
-				<SideTextPicture
+				/> */}
+				{/* <SideTextPicture
 					Title={'The Bar'}
 					Paragraph={
 						'This is a piece of text about the kitchen, it will tell the people how the kitchen. Introduce the chefs and their approach. It will aso tell information on when the kitchen is open for everyday for golfers and for just dinners. it will also show that the kitchen is on uber eats'
@@ -110,7 +117,7 @@ export default function Home() {
 					ImageSrc={'/images/bar-ace.webp'}
 					ImageDescription={'Ace Kitchen'}
 					Direction={'right'}
-				/>
+				/> */}
 			</Section>
 		</Box>
 	);

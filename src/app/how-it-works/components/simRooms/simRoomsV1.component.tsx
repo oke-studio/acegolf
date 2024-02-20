@@ -229,13 +229,14 @@ export const SimRoomsComponentV1 = () => {
 					alignItems: 'center',
 					gap: '32px',
 					margin: '32px 0',
+					textAlign: 'center',
 				}}
 			>
-				<Typography variant="largeH1" weight="900" sx={{ textAlign: 'center' }}>
+				<Typography variant="largeH1" weight="900">
 					SIM ROOMS
 				</Typography>
 				<Typography variant="base">
-					6 performance simulation rooms powered by Trackman award wining tech.
+					6 performance simulation rooms powered by Trackman award winning tech.
 					<br />
 					Each sim has performance modes and fun modes for more goofiness. Learn
 					more about our facilities below.
@@ -281,12 +282,12 @@ export const SimRoomsComponentV1 = () => {
 						//   scrollButtons="auto"
 						//   sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
 					>
-						<StyledTab value={0} label="SIM ROOM #1" />
-						<StyledTab value={1} label="SIM ROOM #2" />
-						<StyledTab value={2} label="SIM ROOM #3" />
-						<StyledTab value={3} label="SIM ROOM #4" />
-						<StyledTab value={4} label="SIM ROOM #5" />
-						<StyledTab value={5} label="PRIVATE SIM ROOMS #6" />
+						<StyledTab value={0} label="General Bay #1" />
+						<StyledTab value={1} label="General Bay #2" />
+						<StyledTab value={2} label="General Bay #3" />
+						<StyledTab value={3} label="General Bay #4" />
+						<StyledTab value={4} label="General Bay #5" />
+						<StyledTab value={5} label="Private Bay #6" />
 					</StyledTabs>
 
 					{/* <TabPanel value={value} index={0} dir={theme.direction}>
@@ -308,7 +309,7 @@ export const SimRoomsComponentV1 = () => {
 					))}
 				</Box>
 			</Box>
-			<GolfGamesComponentV1 />
+			{/* <GolfGamesComponentV1 /> */}
 		</Section>
 	);
 };

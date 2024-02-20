@@ -73,8 +73,15 @@ export default function Home() {
 						top: '100px',
 					}}
 					style={{
-						opacity: sectionOpacity,
-						scale: sectionScale,
+						...(isMobile
+							? {
+									opacity: '1',
+									scale: '1',
+								}
+							: {
+									opacity: sectionOpacity,
+									scale: sectionScale,
+								}),
 					}}
 				>
 					<HiwPageTitle />
