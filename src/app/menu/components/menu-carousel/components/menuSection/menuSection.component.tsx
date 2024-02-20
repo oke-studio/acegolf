@@ -17,7 +17,7 @@ export const MenuSection = ({
 	menuItems: MenuItem[];
 	menuSection: MenuCollectionsType;
 }) => {
-	console.log(menuItems);
+	// console.log(menuItems);
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 			<Typography

@@ -14,13 +14,7 @@ import {
 	MenuSection,
 } from '../menuSection/menuSection.component';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
-
-const StyledMenuWrapper = styled(Box)(() => ({
-	// borderRadius: '25px',
-	// border: 'solid black 6px',
-	// backgroundColor: 'white',
-	// color: 'black',
-}));
+import { AnimatePresence, motion } from 'framer-motion';
 
 const StyledTab = styled(Tab)({
 	opacity: 1,
@@ -44,6 +38,7 @@ function CustomTabPanel(props: TabPanelProps) {
 			id={`simple-tabpanel-${index}`}
 			aria-labelledby={`simple-tab-${index}`}
 			{...other}
+			style={{ flex: 1 }}
 		>
 			{true && <Box sx={{ p: isMobile ? 0 : 3 }}>{children}</Box>}
 		</div>
@@ -61,19 +56,30 @@ const MAP_MENU_COLLECTION_TO_IMAGE: {
 
 export const MenuTabs = () => {
 	const [value, setValue] = React.useState(0);
+
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	const { menuData, isLoading } = useGetMenu();
-	const CollectionsToImageStore: MenuCollectionsType[] = [];
 
 	if (isLoading || !menuData) {
 		return <></>;
 	}
 
-	const MenuCollectionKeys = Object.keys(menuData).filter(item =>
-		MENU_COLLECTIONS.includes(item),
-	) as MenuCollectionsType[];
+	const MENU_COLLECTION_KEYS_SORT: { [key in MenuCollectionsType]: number } = {
+		bigBitesCollection: 2,
+		smallBitesCollection: 1,
+		drinksCollection: 3,
+		desertsCollection: 4,
+	};
+
+	const MenuCollectionKeys = (
+		Object.keys(menuData).filter(item =>
+			MENU_COLLECTIONS.includes(item),
+		) as MenuCollectionsType[]
+	).sort(
+		(n1, n2) => MENU_COLLECTION_KEYS_SORT[n1] - MENU_COLLECTION_KEYS_SORT[n2],
+	);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -85,57 +91,56 @@ export const MenuTabs = () => {
 			'aria-controls': `simple-tabpanel-${index}`,
 		};
 	}
+
+	const isNullMenu = (option: MenuCollectionsType) => {
+		const menu = menuData[option];
+
+		if (menu.items.every(item => item === null)) {
+			return true;
+		}
+
+		return false;
+	};
+
+	const imgSrc =
+		menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url;
+
+	console.log(
+		imgSrc,
+		MAP_MENU_COLLECTION_TO_IMAGE,
+
+		value,
+	);
 	return (
-		<Box sx={{ display: 'flex', gap: '24px' }}>
+		<Box sx={{ display: 'flex', gap: '24px', flexGrow: 1 }}>
 			<Box
 				sx={{
-					height: '100%',
 					flex: 1,
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '24px',
 				}}
 			>
-				{MenuCollectionKeys.map((option, index) => {
-					const menu = menuData[option];
-					CollectionsToImageStore.push(option);
-
-					if (!menu) {
-						return <></>;
-					}
-
-					return (
-						<CustomTabPanel
-							index={index}
-							value={value}
-							key={`menu_option_${index}`}
-						>
-							<MenuSection menuSection={option} menuItems={menu.items} />
-						</CustomTabPanel>
-					);
-				})}
-			</Box>
-			{!isMobile && (
-				<Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-					<Box>
-						<Tabs
-							value={value}
-							onChange={handleChange}
-							aria-label="menu tabs"
-							sx={{
-								flexDirection: 'column',
-								// justifyContent: isMobile ? 'center' : 'initial',
-								'.MuiTabs-indicator': {
-									backgroundColor: 'transparent',
-								},
-								'.MuiTabs-flexContainer': {
-									flexWrap: 'wrap',
-									justifyContent: 'center',
-								},
-							}}
-							centered={isMobile}
-						>
-							{MenuCollectionKeys.map((opt, index) => {
+				{!isMobile && (
+					<Tabs
+						value={value}
+						onChange={handleChange}
+						aria-label="menu tabs"
+						sx={{
+							flexDirection: 'column',
+							// justifyContent: isMobile ? 'center' : 'initial',
+							'.MuiTabs-indicator': {
+								backgroundColor: 'transparent',
+							},
+							'.MuiTabs-flexContainer': {
+								flexWrap: 'wrap',
+								justifyContent: 'center',
+							},
+						}}
+						centered={isMobile}
+					>
+						{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
+							(opt, index) => {
 								return (
 									<StyledTab
 										label={
@@ -145,37 +150,61 @@ export const MenuTabs = () => {
 										key={`${opt}_${index}`}
 									/>
 								);
-							})}
-						</Tabs>
-					</Box>
-					<Box
-						sx={{
-							height: '100%',
-							position: 'relative',
-							width: '100%',
-							// borderWidth: '2px',
-							// borderStyle: 'solid',
-							// borderColor: theme.palette.aceTeal,
-							borderRadius: '8px',
-						}}
-					>
-						<Image
-							src={
-								menuData[
-									MAP_MENU_COLLECTION_TO_IMAGE[CollectionsToImageStore[value]]
-								]?.url ?? '/images/food/bigbites-place-holder.webp'
-							}
-							alt="img"
-							fill
-							style={{
-								objectFit: 'cover',
-								objectPosition: 'center',
-								borderRadius: 'inherit',
-							}}
-						/>
-					</Box>
+							},
+						)}
+					</Tabs>
+				)}
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: isMobile ? 'column' : 'row',
+						height: '100%',
+					}}
+				>
+					{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
+						(option, index) => {
+							const menu = menuData[option];
+
+							return (
+								<CustomTabPanel
+									index={index}
+									value={value}
+									key={`menu_option_${index}`}
+								>
+									<MenuSection menuSection={option} menuItems={menu.items} />
+								</CustomTabPanel>
+							);
+						},
+					)}
+					{!isMobile && (
+						<AnimatePresence mode="wait">
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								key={imgSrc}
+								style={{
+									height: '100%',
+									position: 'relative',
+									flex: 1,
+									borderRadius: '1rem',
+								}}
+							>
+								<Image
+									src={imgSrc ?? '/images/food/bigbites-place-holder.webp'}
+									alt="img"
+									fill
+									style={{
+										objectFit: 'cover',
+										objectPosition: 'center',
+										borderRadius: 'inherit',
+									}}
+								/>
+							</motion.div>
+						</AnimatePresence>
+					)}
 				</Box>
-			)}
+			</Box>
 		</Box>
 	);
 };
