@@ -6,7 +6,7 @@ import { MenuItem, MenuCollectionsType } from '../../menuItems';
 export const MENU_SECTION_NAMES = {
 	smallBitesCollection: 'SMALL BITES',
 	bigBitesCollection: 'BIG BITES',
-	desertsCollection: 'DESERT',
+	dessertsCollection: 'DESSERT',
 	drinksCollection: 'DRINKS',
 } as const;
 

@@ -5,28 +5,28 @@ export type MenuItem = TypeMenuItemFields;
 export const MENU_COLLECTIONS = [
 	'smallBitesCollection',
 	'bigBitesCollection',
-	'desertsCollection',
+	'dessertsCollection',
 	'drinksCollection',
 ];
 
 export const MENU_IMAGES = [
 	'smallBitesImages',
 	'bigBitesImages',
-	'desertsImages',
+	'dessertsImages',
 	'drinksImages',
 ];
 
 export type MenuCollectionsType = keyof Pick<
 	TypeMenuFields,
 	| 'bigBitesCollection'
-	| 'desertsCollection'
+	| 'dessertsCollection'
 	| 'drinksCollection'
 	| 'smallBitesCollection'
 >;
 
 export type MenuImageType = keyof Pick<
 	TypeMenuFields,
-	'bigBitesImage' | 'desertsImage' | 'drinksImage' | 'smallBitesImage'
+	'bigBitesImage' | 'dessertsImage' | 'drinksImage' | 'smallBitesImage'
 >;
 
 // export const MenuOptions: Menu[] = [

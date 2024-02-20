@@ -324,7 +324,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["menuItem"],
+								"linkContentType": [
+									"menuItem"
+								],
 								"message": "Can accept only Menu items"
 							}
 						],
@@ -344,7 +346,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["menuItem"],
+								"linkContentType": [
+									"menuItem"
+								],
 								"message": "Can accept only Menu items"
 							}
 						],
@@ -352,8 +356,8 @@
 					}
 				},
 				{
-					"id": "deserts",
-					"name": "Deserts",
+					"id": "desserts",
+					"name": "Desserts",
 					"type": "Array",
 					"localized": false,
 					"required": false,
@@ -364,7 +368,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["menuItem"]
+								"linkContentType": [
+									"menuItem"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -383,7 +389,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["drinkItem"],
+								"linkContentType": [
+									"drinkItem"
+								],
 								"message": "Can Only accept Drink Items"
 							}
 						],
@@ -461,7 +469,11 @@
 					"required": true,
 					"validations": [
 						{
-							"in": ["Desert", "Mains", "Starters"]
+							"in": [
+								"Dessert",
+								"Mains",
+								"Starters"
+							]
 						}
 					],
 					"disabled": false,
@@ -579,7 +591,10 @@
 					"required": true,
 					"validations": [
 						{
-							"in": ["Cocktails", "Classics"]
+							"in": [
+								"Cocktails",
+								"Classics"
+							]
 						}
 					],
 					"disabled": false,
@@ -748,7 +763,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["generalBayPrice"]
+								"linkContentType": [
+									"generalBayPrice"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -773,7 +790,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["privateBayPrice"]
+								"linkContentType": [
+									"privateBayPrice"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -865,7 +884,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["serviceTime"],
+							"linkContentType": [
+								"serviceTime"
+							],
 							"message": "Has to take a servicetime"
 						}
 					],
@@ -894,7 +915,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["serviceTime"],
+							"linkContentType": [
+								"serviceTime"
+							],
 							"message": "Has to be a service time"
 						}
 					],
@@ -973,7 +996,11 @@
 					"required": true,
 					"validations": [
 						{
-							"in": ["Partial Service", "Full Service", "Full Service - Late"],
+							"in": [
+								"Partial Service",
+								"Full Service",
+								"Full Service - Late"
+							],
 							"message": "If you want to introduce a new service time please let oke-studios know"
 						}
 					],
@@ -1107,7 +1134,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["serviceTime"],
+							"linkContentType": [
+								"serviceTime"
+							],
 							"message": "Has to take a servicetime"
 						}
 					],
@@ -1136,7 +1165,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["serviceTime"],
+							"linkContentType": [
+								"serviceTime"
+							],
 							"message": "Has to be a service time"
 						}
 					],
@@ -1256,7 +1287,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["menu"]
+							"linkContentType": [
+								"menu"
+							]
 						}
 					],
 					"disabled": false,
@@ -1271,7 +1304,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["bayPricingAvailability"]
+							"linkContentType": [
+								"bayPricingAvailability"
+							]
 						}
 					],
 					"disabled": false,
@@ -1286,7 +1321,9 @@
 					"required": true,
 					"validations": [
 						{
-							"linkContentType": ["howItWorks"]
+							"linkContentType": [
+								"howItWorks"
+							]
 						}
 					],
 					"disabled": false,
@@ -1313,7 +1350,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["event"]
+								"linkContentType": [
+									"event"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -1332,7 +1371,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["promotion"]
+								"linkContentType": [
+									"promotion"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -1548,7 +1589,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["faqItem"]
+								"linkContentType": [
+									"faqItem"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -1600,7 +1643,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["faqItem"]
+								"linkContentType": [
+									"faqItem"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -1645,7 +1690,9 @@
 						"type": "Link",
 						"validations": [
 							{
-								"linkContentType": ["faqItem"]
+								"linkContentType": [
+									"faqItem"
+								]
 							}
 						],
 						"linkType": "Entry"
@@ -1979,7 +2026,7 @@
 					"widgetNamespace": "builtin"
 				},
 				{
-					"fieldId": "deserts",
+					"fieldId": "desserts",
 					"settings": {
 						"bulkEditing": false,
 						"showLinkEntityAction": true,
@@ -3095,7 +3142,7 @@
 						}
 					]
 				},
-				"deserts": {
+				"desserts": {
 					"en-US": [
 						{
 							"sys": {
@@ -4316,7 +4363,7 @@
 					"en-US": "Panna cotta"
 				},
 				"typeOfMeal": {
-					"en-US": "Desert"
+					"en-US": "Dessert"
 				},
 				"itemDescription": {
 					"en-US": "Almond and coconut panna cotta, black sesame truffle cream."
@@ -4389,7 +4436,7 @@
 					"en-US": "Mochi \"Takoyaki\" Beignets"
 				},
 				"typeOfMeal": {
-					"en-US": "Desert"
+					"en-US": "Dessert"
 				},
 				"itemDescription": {
 					"en-US": "Mochi beignets filled with matcha, ube, or miso caramel."
@@ -4581,7 +4628,7 @@
 						}
 					]
 				},
-				"deserts": {
+				"desserts": {
 					"en-US": [
 						{
 							"sys": {
@@ -8437,7 +8484,9 @@
 				}
 			],
 			"permissions": {
-				"ContentModel": ["read"],
+				"ContentModel": [
+					"read"
+				],
 				"Settings": [],
 				"ContentDelivery": [],
 				"Environments": [],

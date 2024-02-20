@@ -8,8 +8,8 @@ export interface TypeMenuFields {
 	bigBitesImage: { url: string };
 	smallBitesCollection: { items: TypeMenuItemFields[] };
 	smallBitesImage: { url: string };
-	desertsCollection: { items: TypeMenuItemFields[] };
-	desertsImage: { url: string };
+	dessertsCollection: { items: TypeMenuItemFields[] };
+	dessertsImage: { url: string };
 	drinksCollection: { items: TypeMenuItemFields[] };
 	drinksImage: { url: string };
 }

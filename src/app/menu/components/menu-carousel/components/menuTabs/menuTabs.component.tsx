@@ -50,7 +50,7 @@ const MAP_MENU_COLLECTION_TO_IMAGE: {
 } = {
 	smallBitesCollection: 'smallBitesImage',
 	bigBitesCollection: 'bigBitesImage',
-	desertsCollection: 'desertsImage',
+	dessertsCollection: 'dessertsImage',
 	drinksCollection: 'drinksImage',
 };
 
@@ -70,7 +70,7 @@ export const MenuTabs = () => {
 		bigBitesCollection: 2,
 		smallBitesCollection: 1,
 		drinksCollection: 3,
-		desertsCollection: 4,
+		dessertsCollection: 4,
 	};
 
 	const MenuCollectionKeys = (

@@ -38,7 +38,7 @@ export const GetAceQuery = gql`
 					smallBitesImage {
 						url
 					}
-					desertsCollection {
+					dessertsCollection {
 						items {
 							name
 							typeOfMeal
@@ -49,7 +49,7 @@ export const GetAceQuery = gql`
 							}
 						}
 					}
-					desertsImage {
+					dessertsImage {
 						url
 					}
 					drinksCollection {
