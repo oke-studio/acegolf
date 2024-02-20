@@ -105,12 +105,6 @@ export const MenuTabs = () => {
 	const imgSrc =
 		menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url;
 
-	console.log(
-		imgSrc,
-		MAP_MENU_COLLECTION_TO_IMAGE,
-
-		value,
-	);
 	return (
 		<Box sx={{ display: 'flex', gap: '24px', flexGrow: 1 }}>
 			<Box
