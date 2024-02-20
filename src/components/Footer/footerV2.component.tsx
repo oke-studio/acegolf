@@ -264,7 +264,7 @@ export const FooterV2 = () => {
 					</Button>
 
 					<Button sx={{ color: 'white' }}>
-						<a href="https://www.instagram.com/acegolfbar/" target="__blank">
+						<a href="https://www.tiktok.com/@acegolfbar" target="__blank">
 							<Box
 								component={motion.div}
 								whileHover={{ y: `-${HEADING_FOUR_LINE_HEIGHT}` }}
