@@ -70,9 +70,9 @@ export default function HiwPageTitle() {
 							width: isMobile ? '100%' : '50%',
 						}}
 					>
-						Swing into flavour with our culinary delights. This is a piece of
+						{/* Swing into flavour with our culinary delights. This is a piece of
 						text about the food inspiration. it will tell the people what to
-						expect with menu.
+						expect with menu. */}
 					</Typography>
 				</Box>
 			</Box>

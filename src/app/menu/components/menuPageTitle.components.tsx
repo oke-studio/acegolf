@@ -48,9 +48,9 @@ export default function MenuPageTitle() {
 						width: isMobile ? '100%' : '50%',
 					}}
 				>
-					Swing into flavour with our culinary delights. This is a piece of text
+					{/* Swing into flavour with our culinary delights. This is a piece of text
 					about the food inspiration. it will tell the people what to expect
-					with menu.
+					with menu. */}
 				</Typography>
 			</Box>
 		</PageTitleSection>

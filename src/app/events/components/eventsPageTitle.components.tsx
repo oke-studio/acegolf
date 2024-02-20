@@ -72,9 +72,9 @@ export default function EventsPageTitle(EventsPageTitleProps) {
 							width: isMobile ? '100%' : '50%',
 						}}
 					>
-						This copy describes the overall experience of what ace golf
+						{/* This copy describes the overall experience of what ace golf
 						encourages users to learn more below and see the FAQs section on
-						this page
+						this page */}
 					</Typography>
 				</Box>
 			</Box>
