@@ -45,7 +45,7 @@ export const LandingCardsGrid = () => {
 						onClick: () => router.push('/menu'),
 					}}
 					CardTitle="Asian Style Tapas "
-					CardDescription="Crazy Good menu goes here with multiple descriptions"
+					CardDescription=""
 					ColorVariant="dark"
 					sx={
 						{
@@ -94,10 +94,10 @@ export const LandingCardsGrid = () => {
 								/>
 							</Box>
 
-							<Typography variant="base" weight="200">
+							{/* <Typography variant="base" weight="200">
 								{' '}
 								Serious Mango shot $20
-							</Typography>
+							</Typography> */}
 						</Box>
 						<Box
 							sx={{
@@ -125,10 +125,10 @@ export const LandingCardsGrid = () => {
 									}}
 								/>
 							</Box>
-							<Typography variant="base" weight="200">
+							{/* <Typography variant="base" weight="200">
 								{' '}
 								Taco board Suprise $50
-							</Typography>
+							</Typography> */}
 						</Box>
 					</Box>
 				</Card>
@@ -186,7 +186,7 @@ export const LandingCardsGrid = () => {
 							variant: 'primary',
 						}}
 						CardTitle="Amenities"
-						CardDescription="We use TRACKMAN World class golf simulator technology in all out bays"
+						CardDescription="We use TRACKMAN World class golf simulator technology in all our bays"
 						ImageSrc="/images/trackman.webp"
 						sx={{ flex: 1 }}
 					/>
