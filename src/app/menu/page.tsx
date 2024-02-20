@@ -67,8 +67,15 @@ export default function Home() {
 						// opacity: isMobile ? '1' : sectionOpacity,
 						// scale: isMobile ? '1' : sectionScale,
 
-						opacity: sectionOpacity,
-						scale: sectionScale,
+						...(isMobile
+							? {
+									opacity: '1',
+									scale: '1',
+								}
+							: {
+									opacity: sectionOpacity,
+									scale: sectionScale,
+								}),
 					}}
 				>
 					<MenuPageTitle />
