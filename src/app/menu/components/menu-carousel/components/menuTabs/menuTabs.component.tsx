@@ -15,6 +15,7 @@ import {
 } from '../menuSection/menuSection.component';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ShimmerPlaceHolder, toBase64 } from '@/util/imagePlaceHolder';
 
 const StyledTab = styled(Tab)({
 	opacity: 1,
@@ -73,13 +74,25 @@ export const MenuTabs = () => {
 		dessertsCollection: 4,
 	};
 
+	const isNullMenu = (option: MenuCollectionsType) => {
+		const menu = menuData[option];
+
+		if (menu.items.every(item => item === null)) {
+			return true;
+		}
+
+		return false;
+	};
+
 	const MenuCollectionKeys = (
 		Object.keys(menuData).filter(item =>
 			MENU_COLLECTIONS.includes(item),
 		) as MenuCollectionsType[]
-	).sort(
-		(n1, n2) => MENU_COLLECTION_KEYS_SORT[n1] - MENU_COLLECTION_KEYS_SORT[n2],
-	);
+	)
+		.filter(o => !isNullMenu(o))
+		.sort(
+			(n1, n2) => MENU_COLLECTION_KEYS_SORT[n1] - MENU_COLLECTION_KEYS_SORT[n2],
+		);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -92,25 +105,9 @@ export const MenuTabs = () => {
 		};
 	}
 
-	const isNullMenu = (option: MenuCollectionsType) => {
-		const menu = menuData[option];
-
-		if (menu.items.every(item => item === null)) {
-			return true;
-		}
-
-		return false;
-	};
-
 	const imgSrc =
 		menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url;
 
-	console.log(
-		imgSrc,
-		MAP_MENU_COLLECTION_TO_IMAGE,
-
-		value,
-	);
 	return (
 		<Box sx={{ display: 'flex', gap: '24px', flexGrow: 1 }}>
 			<Box
@@ -139,19 +136,15 @@ export const MenuTabs = () => {
 						}}
 						centered={isMobile}
 					>
-						{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
-							(opt, index) => {
-								return (
-									<StyledTab
-										label={
-											<MotionSpanAnimated label={MENU_SECTION_NAMES[opt]} />
-										}
-										{...a11yProps(0)}
-										key={`${opt}_${index}`}
-									/>
-								);
-							},
-						)}
+						{MenuCollectionKeys.map((opt, index) => {
+							return (
+								<StyledTab
+									label={<MotionSpanAnimated label={MENU_SECTION_NAMES[opt]} />}
+									{...a11yProps(0)}
+									key={`${opt}_${index}`}
+								/>
+							);
+						})}
 					</Tabs>
 				)}
 				<Box
@@ -161,21 +154,19 @@ export const MenuTabs = () => {
 						height: '100%',
 					}}
 				>
-					{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
-						(option, index) => {
-							const menu = menuData[option];
+					{MenuCollectionKeys.map((option, index) => {
+						const menu = menuData[option];
 
-							return (
-								<CustomTabPanel
-									index={index}
-									value={value}
-									key={`menu_option_${index}`}
-								>
-									<MenuSection menuSection={option} menuItems={menu.items} />
-								</CustomTabPanel>
-							);
-						},
-					)}
+						return (
+							<CustomTabPanel
+								index={index}
+								value={value}
+								key={`menu_option_${index}`}
+							>
+								<MenuSection menuSection={option} menuItems={menu.items} />
+							</CustomTabPanel>
+						);
+					})}
 					{!isMobile && (
 						<AnimatePresence mode="wait">
 							<motion.div
@@ -194,6 +185,8 @@ export const MenuTabs = () => {
 									src={imgSrc ?? '/images/food/bigbites-place-holder.webp'}
 									alt="img"
 									fill
+									placeholder={`data:image/svg+xml;base64,${toBase64(ShimmerPlaceHolder(700, 475))}`}
+									sizes="100vw"
 									style={{
 										objectFit: 'cover',
 										objectPosition: 'center',
