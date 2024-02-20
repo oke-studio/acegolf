@@ -14,6 +14,7 @@ import {
 	MenuSection,
 } from '../menuSection/menuSection.component';
 import { MotionSpanAnimated } from '@/components/Helpers/motionSpanAnimation.component';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const StyledTab = styled(Tab)({
 	opacity: 1,
@@ -55,11 +56,11 @@ const MAP_MENU_COLLECTION_TO_IMAGE: {
 
 export const MenuTabs = () => {
 	const [value, setValue] = React.useState(0);
+
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	const { menuData, isLoading } = useGetMenu();
-	const CollectionsToImageStore: MenuCollectionsType[] = [];
 
 	if (isLoading || !menuData) {
 		return <></>;
@@ -100,6 +101,16 @@ export const MenuTabs = () => {
 
 		return false;
 	};
+
+	const imgSrc =
+		menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url;
+
+	console.log(
+		imgSrc,
+		MAP_MENU_COLLECTION_TO_IMAGE,
+
+		value,
+	);
 	return (
 		<Box sx={{ display: 'flex', gap: '24px', flexGrow: 1 }}>
 			<Box
@@ -110,42 +121,50 @@ export const MenuTabs = () => {
 					gap: '24px',
 				}}
 			>
-				<Tabs
-					value={value}
-					onChange={handleChange}
-					aria-label="menu tabs"
+				{!isMobile && (
+					<Tabs
+						value={value}
+						onChange={handleChange}
+						aria-label="menu tabs"
+						sx={{
+							flexDirection: 'column',
+							// justifyContent: isMobile ? 'center' : 'initial',
+							'.MuiTabs-indicator': {
+								backgroundColor: 'transparent',
+							},
+							'.MuiTabs-flexContainer': {
+								flexWrap: 'wrap',
+								justifyContent: 'center',
+							},
+						}}
+						centered={isMobile}
+					>
+						{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
+							(opt, index) => {
+								return (
+									<StyledTab
+										label={
+											<MotionSpanAnimated label={MENU_SECTION_NAMES[opt]} />
+										}
+										{...a11yProps(0)}
+										key={`${opt}_${index}`}
+									/>
+								);
+							},
+						)}
+					</Tabs>
+				)}
+				<Box
 					sx={{
-						flexDirection: 'column',
-						// justifyContent: isMobile ? 'center' : 'initial',
-						'.MuiTabs-indicator': {
-							backgroundColor: 'transparent',
-						},
-						'.MuiTabs-flexContainer': {
-							flexWrap: 'wrap',
-							justifyContent: 'center',
-						},
+						display: 'flex',
+						flexDirection: isMobile ? 'column' : 'row',
+						height: '100%',
 					}}
-					centered={isMobile}
 				>
-					{MenuCollectionKeys.map((opt, index) => {
-						if (isNullMenu(opt)) {
-							return <></>;
-						}
-						return (
-							<StyledTab
-								label={<MotionSpanAnimated label={MENU_SECTION_NAMES[opt]} />}
-								{...a11yProps(0)}
-								key={`${opt}_${index}`}
-							/>
-						);
-					})}
-				</Tabs>
-				<Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
-					{MenuCollectionKeys.map((option, index) => {
-						const menu = menuData[option];
+					{MenuCollectionKeys.filter(o => !isNullMenu(o)).map(
+						(option, index) => {
+							const menu = menuData[option];
 
-						if (!isNullMenu(option)) {
-							CollectionsToImageStore.push(option);
 							return (
 								<CustomTabPanel
 									index={index}
@@ -155,31 +174,24 @@ export const MenuTabs = () => {
 									<MenuSection menuSection={option} menuItems={menu.items} />
 								</CustomTabPanel>
 							);
-						}
-
-						return <></>;
-					})}
+						},
+					)}
 					{!isMobile && (
-						<Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-							<Box
-								sx={{
+						<AnimatePresence mode="wait">
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								key={imgSrc}
+								style={{
 									height: '100%',
 									position: 'relative',
-									width: '100%',
-									// borderWidth: '2px',
-									// borderStyle: 'solid',
-									// borderColor: theme.palette.aceTeal,
-									borderRadius: '8px',
+									flex: 1,
+									borderRadius: '1rem',
 								}}
 							>
 								<Image
-									src={
-										menuData[
-											MAP_MENU_COLLECTION_TO_IMAGE[
-												CollectionsToImageStore[value]
-											]
-										]?.url ?? '/images/food/bigbites-place-holder.webp'
-									}
+									src={imgSrc ?? '/images/food/bigbites-place-holder.webp'}
 									alt="img"
 									fill
 									style={{
@@ -188,8 +200,8 @@ export const MenuTabs = () => {
 										borderRadius: 'inherit',
 									}}
 								/>
-							</Box>
-						</Box>
+							</motion.div>
+						</AnimatePresence>
 					)}
 				</Box>
 			</Box>
