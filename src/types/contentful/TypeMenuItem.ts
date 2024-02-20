@@ -2,7 +2,7 @@ import type { Asset, Entry, EntryFields } from 'contentful';
 
 export interface TypeMenuItemFields {
 	name: string;
-	typeOfMeal: 'Desert' | 'Mains' | 'Starters';
+	typeOfMeal: 'Dessert' | 'Mains' | 'Starters';
 	itemDescription?: string;
 	price: number;
 	// image?: Asset;
