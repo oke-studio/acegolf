@@ -74,7 +74,7 @@ const ServicePill = ({
 	text,
 }: ServicePillInterface) => {
 	const usePillColor = checkText => {
-		if (checkText == 'Partial Service') {
+		if (checkText == 'Off-Peak') {
 			return '#EB8B32';
 		} else {
 			return '#9A92C5';
@@ -274,7 +274,7 @@ const PricesTabsContentSkeleton = ({
 							color="black"
 							text={priceContainer.priceContainerOne.service}
 						/>
-						<Typography variant="base">Open: Bay Rental, Cafe</Typography>
+						<Typography variant="base">Open: Cafe </Typography>
 					</Box>
 
 					<Box>
@@ -286,7 +286,7 @@ const PricesTabsContentSkeleton = ({
 							color="black"
 							text={priceContainer.priceContainerTwo.service}
 						/>
-						<Typography variant="base">Open: Kitchen, Bar Lounge</Typography>
+						<Typography variant="base">Open: Kitchen</Typography>
 					</Box>
 				</Box>
 			</Box>
