@@ -131,7 +131,7 @@ export const BookNowForm = ({
 						</SvgIcon>
 					)}
 				>
-					{[...Array(6)].map((_, index) => (
+					{[...Array(15)].map((_, index) => (
 						<option value={index} key={`guest_option_${index}`}>
 							{[index, index !== 1 ? 'Guests' : 'Guest'].join(' ')}
 						</option>
