@@ -188,7 +188,7 @@ export const Header = ({
 							animate={mobileDropDownEnabled ? 'open' : 'closed'}
 							sx={{
 								listStyleType: 'none',
-								paddingTop: '120px',
+								paddingTop: '40%',
 								justifyContent: 'flex-start',
 								// gap: '24px',
 								alignItems: 'center',
@@ -234,7 +234,7 @@ export const Header = ({
 						</Button> */}
 									<MotionSpanAnimated
 										label={navLink.label}
-										typographyVariant="largeH1"
+										typographyVariant="headingTwo"
 										typographyWeight="700"
 									/>
 								</Box>
@@ -282,7 +282,7 @@ export const Header = ({
 							justifyContent: 'centre',
 							whiteSpace: 'nowrap',
 							gap: '24px',
-							overflow: 'scroll',
+							overflow: 'hidden',
 						}}
 					>
 						<ListItem disablePadding sx={{ paddingRight: '24px' }}>

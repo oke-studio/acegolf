@@ -14,7 +14,7 @@ export const landingHeroImages = [
 		relPosX: '-80px', //relative position to grid position
 		relPosY: '70px',
 		paralax: 1,
-		unoptimized: true,
+		
 
 		mobile: {
 			aspectRatio: '1/1',

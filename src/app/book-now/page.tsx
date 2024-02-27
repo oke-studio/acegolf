@@ -10,7 +10,8 @@ import { BookNowForm } from '@/components/BookNowForm/bookNowForm.component';
 import dayjs from 'dayjs';
 import { useBookNowForm } from '@/components/BookNowForm/hooks/useBookNowForm.hook';
 import { NintendoSwitch } from '@/components/nintendoSwitch/nintendoSwitch.component';
-
+import { Section } from '@/components/layout/section.component';
+import { SectionImageGrid } from '@/components/ImageLayoutGrids/sectionImageGrid.component';
 import PriceTabCard from './priceTabCard.component';
 import { useRouter } from 'next/navigation';
 
@@ -32,61 +33,82 @@ export default function BookNow() {
 
 	return (
 		<Box sx={{ margin: 'auto', overflow: 'hidden' }}>
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: isMobile ? 'column' : 'row',
-					width: '100%',
-					gap: '24px',
-					padding: '24px',
-				}}
+			<Section
+				SectionName="Booknow page"
+				SectionWidth="fullViewport"
+				SectionHeight="fit-content"
+				SectionColor=""
+				CornerRadius={true}
+				ScrollAnimations={true}
+				EarlyScrollAnimation={true}
+				sx={
+					{
+						// position: 'relative',
+						// display: 'flex',
+						// flexDirection: 'column',
+						// gap: '2rem',
+						// padding: '2% 5%',
+					}
+				}
 			>
-				<Card
-					buttonOne={{
-						children: (
-							<Typography variant="base">
-								<a href={handleBookNowButtonLink()} target="_blank">
-									Find a Bay&nbsp;
-								</a>
-							</Typography>
-						),
-						variant: 'secondary',
-						fullWidth: true,
-					}}
-					CardTitle="Book a bay now"
-					ColorVariant="dark"
-					BackgroundColor={theme.palette.aceOrange}
+				<Box
 					sx={{
-						flexBasis: '110%',
+						display: 'flex',
+						flexDirection: isMobile ? 'column' : 'row',
+						width: '100%',
+						gap: '24px',
+						padding: '24px',
 					}}
 				>
-					<BookNowForm
-						reserveABayObject={reserveABayObject}
-						handleDateTimePickerChange={handleDateTimePickerChange}
-						handleReserveFormOnChange={handleReserveFormOnChange}
-						isWide={false}
-					/>
-				</Card>
-				<Card
-					buttonOne={{
-						children: (
-							<Typography variant="base">How it Works &rarr;</Typography>
-						),
-						variant: 'secondary',
-						onClick: () => router.push('/how-it-works'),
-					}}
-					buttonTwo={{
-						children: <Typography variant="base">Find a Bay &rarr;</Typography>,
-						variant: 'primary',
-						onClick: () => router.push('/how-it-works'),
-					}}
-					CardTitle="Prices & Rates"
-					sx={{ minHeight: '600px' }}
-					BackgroundColor="#F6F6F6"
-				>
-					<PriceTabCard />
-				</Card>
-			</Box>
+					<Card
+						buttonOne={{
+							children: (
+								<Typography variant="base">
+									<a href={handleBookNowButtonLink()} target="_blank">
+										Find a Bay&nbsp;
+									</a>
+								</Typography>
+							),
+							variant: 'secondary',
+							fullWidth: true,
+						}}
+						CardTitle="Book a bay now"
+						ColorVariant="dark"
+						BackgroundColor={theme.palette.aceOrange}
+						sx={{
+							flexBasis: '110%',
+						}}
+					>
+						<BookNowForm
+							reserveABayObject={reserveABayObject}
+							handleDateTimePickerChange={handleDateTimePickerChange}
+							handleReserveFormOnChange={handleReserveFormOnChange}
+							isWide={false}
+						/>
+					</Card>
+					<Card
+						buttonOne={{
+							children: (
+								<Typography variant="base">How it Works &rarr;</Typography>
+							),
+							variant: 'secondary',
+							onClick: () => router.push('/how-it-works'),
+						}}
+						buttonTwo={{
+							children: (
+								<Typography variant="base">Find a Bay &rarr;</Typography>
+							),
+							variant: 'primary',
+							onClick: () => router.push('/how-it-works'),
+						}}
+						CardTitle="Prices & Rates"
+						sx={{ minHeight: '600px' }}
+						BackgroundColor="#F6F6F6"
+					>
+						<PriceTabCard />
+					</Card>
+				</Box>
+			</Section>
 			<Box
 				sx={{
 					display: 'flex',

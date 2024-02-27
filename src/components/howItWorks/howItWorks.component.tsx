@@ -16,7 +16,7 @@ import { Section } from '@/components/layout/section.component';
 import { HowItWorksInfoBox } from './components/howItWorksInfo/howItWorksInfo.component';
 import { TypeHowItWorksFields, TypeFaqItemFields } from '@/types/contentful';
 import { howItWorksImages } from './howItWorksImages';
-import { SectionImageGrid } from '../ImageLayoutGrids/sectionImageGrid.component';
+import { SectionImageGrid } from '@/components/ImageLayoutGrids/sectionImageGrid.component';
 import { useGetHowItWorks } from '@/app/how-it-works/hooks/useGetHowItWorks.hook';
 
 interface HowItWorksInfoBoxProps {
