@@ -21,6 +21,7 @@ import { Typography } from '../Typography/typography.component';
 import { AceLogo } from './component/aceLogoSVG/aceLogoSVG.component';
 import { Menu, MenuOpen, Close } from '@mui/icons-material';
 import { HeaderBanner } from './headerBanner.component';
+import { HeaderBlur } from './component/aceLogoSVG/headerBlur.component';
 
 const HeaderContainer = styled(Box)({
 	display: 'flex',
@@ -147,190 +148,206 @@ export const Header = ({
 	return (
 		<Box
 			sx={{
-				display: 'flex',
-				width: '100%',
-				justifyContent: 'center',
-				flexDirection: 'column',
 				position: 'sticky',
 				top: '0px',
-
-				//zIndex: zIndex.appBar,
-
 				zIndex: 2,
-				//top: '0px',
-				//backgroundColor: 'transparent',
-				//mixBlendMode: 'difference',
-				backdropFilter: 'blur(4.0625px)',
+				width: '100%',
+				willChange: 'transform',
+				height: 'auto',
 			}}
 		>
-			<HeaderBanner
+			<Box
 				sx={{
-					isolation: 'isolate',
-				}}
-			/>
+					display: 'flex',
+					justifyContent: 'center',
+					flexDirection: 'column',
+					width: '100%',
+					position: 'relative',
 
-			<HeaderContainer
-				sx={{
-					justifyContent: isMobile ? 'space-between' : 'center',
-					// backgroundColor: navBackgroundColor,
-					// color: navTextColor,
-					backgroundColor: mobileDropDownEnabled ? 'white' : 'transparent',
+					//zIndex: zIndex.appBar,
 
-					mixBlendMode: 'difference',
+					//zIndex: 2,
+					//top: '0px',
+					//backgroundColor: 'transparent',
+					//mixBlendMode: 'difference',
+					//backdropFilter: 'blur(4.0625px)',
 				}}
 			>
-				{isMobile && (
-					<>
-						<Box
-							component={motion.ul}
-							variants={menuVariants}
-							initial="closed"
-							animate={mobileDropDownEnabled ? 'open' : 'closed'}
-							sx={{
-								listStyleType: 'none',
-								paddingTop: '40%',
-								justifyContent: 'flex-start',
-								// gap: '24px',
-								alignItems: 'center',
-								height: '100vh',
-								width: '100%',
-								display: 'flex',
-								position: 'absolute',
-								right: '0',
-								left: '0',
-								top: '0',
-								bottom: 0,
-								overflow: 'hidden',
-								pointerEvents: 'auto',
-								flexDirection: 'column',
-								gap: '4rem',
-								backgroundColor: 'white',
-								transformOrigin: 'top',
-								color: 'black',
-								zIndex: 5,
-								boxShadow:
-									'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-							}}
-						>
-							{navOptions.map((navLink, i) => (
-								<Box
-									component={motion.li}
-									variants={menuListVariants}
-									onClick={() => handleNavOnClick(navLink.to)}
-									key={i}
-									// onHover={}
-									whileHover={{ color: palette.aceOrange }}
-									sx={{
-										'& .MuiButtonBase-root': {
+				<HeaderBlur />
+				<HeaderBanner
+					sx={{
+						isolation: 'isolate',
+						zIndex: '3',
+					}}
+				/>
+
+				<HeaderContainer
+					sx={{
+						justifyContent: isMobile ? 'space-between' : 'center',
+						// backgroundColor: navBackgroundColor,
+						// color: navTextColor,
+						backgroundColor: mobileDropDownEnabled ? 'white' : 'transparent',
+
+						zIndex: '3',
+						// mixBlendMode: 'difference',
+					}}
+				>
+					{isMobile && (
+						<>
+							<Box
+								component={motion.ul}
+								variants={menuVariants}
+								initial="closed"
+								animate={mobileDropDownEnabled ? 'open' : 'closed'}
+								sx={{
+									listStyleType: 'none',
+									paddingTop: '40%',
+									justifyContent: 'flex-start',
+									// gap: '24px',
+									alignItems: 'center',
+									height: '100vh',
+									width: '100%',
+									display: 'flex',
+									position: 'absolute',
+									right: '0',
+									left: '0',
+									top: '0',
+									bottom: 0,
+									overflow: 'hidden',
+									pointerEvents: 'auto',
+									flexDirection: 'column',
+									gap: '4rem',
+									backgroundColor: 'white',
+									transformOrigin: 'top',
+									color: 'black',
+									zIndex: 5,
+									boxShadow:
+										'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+								}}
+							>
+								{navOptions.map((navLink, i) => (
+									<Box
+										component={motion.li}
+										variants={menuListVariants}
+										onClick={() => handleNavOnClick(navLink.to)}
+										key={i}
+										// onHover={}
+										whileHover={{ color: palette.aceOrange }}
+										sx={{
+											'& .MuiButtonBase-root': {
+												justifyContent: 'center',
+											},
 											justifyContent: 'center',
-										},
-										justifyContent: 'center',
-									}}
-								>
-									{/* <Button variant="text" sx={{ color: '#000000' }}>
+										}}
+									>
+										{/* <Button variant="text" sx={{ color: '#000000' }}>
 							<Typography variant="small" weight="400" as={motion.div}>
 								{navLink.label}
 							</Typography>
 						</Button> */}
-									<MotionSpanAnimated
-										label={navLink.label}
-										typographyVariant="headingTwo"
-										typographyWeight="700"
-									/>
-								</Box>
-							))}
-						</Box>
-						<Button
-							onClick={() => handleNavOnClick('/')}
-							disableElevation
-							disableFocusRipple
-							disableRipple
-							disableTouchRipple
-							sx={{ ...(mobileDropDownEnabled && { zIndex: 10 }) }}
-						>
-							<AceLogo fill={mobileDropDownEnabled ? 'black' : 'white'} />
-						</Button>
-
-						<Box
-							component={motion.button}
-							whileHover={{ scale: 1.75 }}
-							whileTap={{ scale: 0.95 }}
-							initial={{ scale: 1 }}
-							sx={{
-								border: 'none',
-								backgroundColor: 'transparent',
-								color: '#FFFFFF',
-								...(mobileDropDownEnabled && { zIndex: 10, color: '#000000' }),
-							}}
-							onClick={() => setMobileDropDownEnabled(open => !open)}
-						>
-							{mobileDropDownEnabled ? (
-								// <SportsGolfIcon fontSize="large" />
-								<Close fontSize="large" fill="#000000" />
-							) : (
-								// <GolfCourseIcon fontSize="large" />
-								<Menu fontSize="large" />
-							)}
-						</Box>
-					</>
-				)}
-
-				{!isMobile && (
-					<List
-						sx={{
-							display: 'flex',
-							justifyContent: 'centre',
-							whiteSpace: 'nowrap',
-							gap: '24px',
-							overflow: 'hidden',
-						}}
-					>
-						<ListItem disablePadding sx={{ paddingRight: '24px' }}>
+										<MotionSpanAnimated
+											label={navLink.label}
+											typographyVariant="headingTwo"
+											typographyWeight="700"
+										/>
+									</Box>
+								))}
+							</Box>
 							<Button
+								onClick={() => handleNavOnClick('/')}
 								disableElevation
 								disableFocusRipple
 								disableRipple
 								disableTouchRipple
-								onClick={() => {
-									router.push('/');
-								}}
+								sx={{ ...(mobileDropDownEnabled && { zIndex: 10 }) }}
 							>
-								<Image
-									src="/images/ace-header-logo.svg"
-									alt="ace golf logo"
-									width={50}
-									height={50}
-								/>
+								<AceLogo fill={mobileDropDownEnabled ? 'black' : 'white'} />
 							</Button>
-						</ListItem>
-						{navOptions.map((navLink, i) => (
-							<ListItem disablePadding key={i}>
-								<StyledListItemButton
+
+							<Box
+								component={motion.button}
+								whileHover={{ scale: 1.75 }}
+								whileTap={{ scale: 0.95 }}
+								initial={{ scale: 1 }}
+								sx={{
+									border: 'none',
+									backgroundColor: 'transparent',
+									color: '#FFFFFF',
+									...(mobileDropDownEnabled && {
+										zIndex: 10,
+										color: '#000000',
+									}),
+								}}
+								onClick={() => setMobileDropDownEnabled(open => !open)}
+							>
+								{mobileDropDownEnabled ? (
+									// <SportsGolfIcon fontSize="large" />
+									<Close fontSize="large" fill="#000000" />
+								) : (
+									// <GolfCourseIcon fontSize="large" />
+									<Menu fontSize="large" />
+								)}
+							</Box>
+						</>
+					)}
+
+					{!isMobile && (
+						<List
+							sx={{
+								display: 'flex',
+								justifyContent: 'centre',
+								whiteSpace: 'nowrap',
+								gap: '24px',
+								overflow: 'hidden',
+							}}
+						>
+							<ListItem disablePadding sx={{ paddingRight: '24px' }}>
+								<Button
+									disableElevation
+									disableFocusRipple
+									disableRipple
+									disableTouchRipple
 									onClick={() => {
-										router.push(navLink.to);
+										router.push('/');
 									}}
 								>
-									<MotionSpanAnimated
-										label={navLink.label}
-										hoverAnimation={HoverAnimation}
-										restAnimation={RestAnimation}
+									<Image
+										src="/images/ace-header-logo.svg"
+										alt="ace golf logo"
+										width={50}
+										height={50}
 									/>
-								</StyledListItemButton>
+								</Button>
 							</ListItem>
-						))}
-						<ListItem disablePadding>
-							<Button
-								variant="navButton"
-								onClick={() => {
-									router.push('/book-now');
-								}}
-							>
-								Book Now!
-							</Button>
-						</ListItem>
-					</List>
-				)}
-			</HeaderContainer>
+							{navOptions.map((navLink, i) => (
+								<ListItem disablePadding key={i}>
+									<StyledListItemButton
+										onClick={() => {
+											router.push(navLink.to);
+										}}
+									>
+										<MotionSpanAnimated
+											label={navLink.label}
+											hoverAnimation={HoverAnimation}
+											restAnimation={RestAnimation}
+										/>
+									</StyledListItemButton>
+								</ListItem>
+							))}
+							<ListItem disablePadding>
+								<Button
+									variant="navButton"
+									onClick={() => {
+										router.push('/book-now');
+									}}
+								>
+									Book Now!
+								</Button>
+							</ListItem>
+						</List>
+					)}
+				</HeaderContainer>
+			</Box>
 		</Box>
 	);
 };
