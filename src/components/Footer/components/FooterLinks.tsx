@@ -1,6 +1,5 @@
-import * as React from 'react'
-import { Typography } from 'src/components/Typography/Typographyypography'
-import { Button } from 'src/components/Button/Buttonon/Button'
+import { Typography } from '../../Typography/Typography'
+import { Button } from '../../Button/Button'
 
 const FooterLinksArray = [
   // {

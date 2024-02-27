@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { Typography } from 'src/components/Typography/Typographyy/Typography'
+import { Typography } from '../Typography/Typography'
 
 const EmailForm = () => {
   return (

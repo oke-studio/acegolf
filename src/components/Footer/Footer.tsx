@@ -1,8 +1,6 @@
-import * as React from 'react'
-
-import { Typography } from 'src/components/Typography/Typographyy/Typography'
+import { Typography } from '../Typography/Typography'
 import { motion } from 'framer-motion'
-import { FooterLinks } from 'src/components/Footer/components/FooterLinksmponents/FooterLinks'
+import { FooterLinks } from './components/FooterLinks'
 
 import AceFooterURL from '../../assets/logos/ace-footer-v2.svg'
 import AceFooterMiniUrl from '../../assets/logos/ace-footer-v2-mini.svg'

@@ -1,5 +1,5 @@
-import { Typography } from 'src/components/Typography/Typographyy/Typography'
-import { Button } from 'src/components/Button/Buttonutton/Button'
+import { Typography } from '../Typography/Typography'
+import { Button } from '../Button/Button'
 import classNames from 'classnames'
 
 type ButtonType = {
