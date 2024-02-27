@@ -1,11 +1,6 @@
-import type { Asset, Entry, EntryFields } from 'contentful';
-
 export interface TypeMenuItemFields {
-	name: string;
-	typeOfMeal: 'Dessert' | 'Mains' | 'Starters';
-	itemDescription?: string;
-	price: number;
-	// image?: Asset;
+  name: string
+  typeOfMeal: 'Dessert' | 'Mains' | 'Starters'
+  itemDescription?: string
+  price: number
 }
-
-// export type TypeMenuItem = Entry<TypeMenuItemFields>;

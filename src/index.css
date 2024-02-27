@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-coolBlue: 82 157 200;
+    --color-darkBlack: 0 0 0;
+    --color-lightBlack: 23 23 23;
+    --color-white: 255 255 255;
+    --color-yellow: 240 230 140;
+    --color-orange: 235 139 50;
+    --color-green: 57 119 94;
+    --color-sharpTeal: 54 218 213;
+    --color-red: 181 37 25;
+    --color-lightRed: 251 128 128;
+    --color-purple: 154 146 197;
+  }
+}
+
+@font-face {
+  font-family: 'HNHairline';
+  src: url('./assets/fonts/Hero New Hairline.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'HNHairlineItalic';
+  src: url('./assets/fonts/Hero New Hairline Italic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'HNThin';
+  src: url('./assets/fonts/Hero New Thin.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'HNThinItalic';
+  src: url('./assets/fonts/Hero New Thin Italic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'HNUltraLight';
+  src: url('./assets/fonts/Hero New UltraLight.woff') format('woff');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'HNUltraLightItalic';
+  src: url('./assets/fonts/Hero New UltraLight Italic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNLight';
+  src: url('./assets/fonts/Hero New Light.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'HNLightItalic';
+  src: url('./assets/fonts/Hero New Light Italic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNRegular';
+  src: url('./assets/fonts/Hero New Regular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'HNRegularItalic';
+  src: url('./assets/fonts/Hero New Regular Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNMedium';
+  src: url('./assets/fonts/Hero New Medium.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'HNMediumItalic';
+  src: url('./assets/fonts/Hero New Medium Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNSemiBoldItalic';
+  src: url('./assets/fonts/Hero New SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'HNSemiBold';
+  src: url('./assets/fonts/Hero New SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'HNBold';
+  src: url('./assets/fonts/Hero New Bold.woff') format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'HNBoldItalic';
+  src: url('./assets/fonts/Hero New Bold Italic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNExtraBold';
+  src: url('./assets/fonts/Hero New ExtraBold.woff') format('woff');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'HNExtraBoldItalic';
+  src: url('./assets/fonts/Hero New ExtraBold Italic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HNSuper';
+  src: url('./assets/fonts/Hero New Super.woff') format('woff');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'HNSuperItalic';
+  src: url('./assets/fonts/Hero New Super Italic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+
+#root {
+  background-color: #171717;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.subtleNoise {
+  background-image: url('./assets/noise-ace.webp');
+  top: -10rem;
+  left: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  z-index: 10;
+  position: fixed;
+  pointer-events: none;
+  background-position: 50%;
+  transform: translateZ(0);
+  animation: subtleNoise 5s steps(5) infinite;
+}
+
+@keyframes subtleNoise {
+  0% {
+    transform: translate3d(0, 9rem, 0);
+  }
+
+  10% {
+    transform: translate3d(-1rem, -4rem, 0);
+  }
+
+  20% {
+    transform: translate3d(-8rem, 2rem, 0);
+  }
+
+  30% {
+    transform: translate3d(9rem, -9rem, 0);
+  }
+
+  40% {
+    transform: translate3d(-2rem, 7rem, 0);
+  }
+
+  50% {
+    transform: translate3d(-9rem, -4rem, 0);
+  }
+
+  60% {
+    transform: translate3d(2rem, 6rem, 0);
+  }
+
+  70% {
+    transform: translate3d(7rem, -8rem, 0);
+  }
+
+  80% {
+    transform: translate3d(-9rem, 1rem, 0);
+  }
+
+  90% {
+    transform: translate3d(6rem, -5rem, 0);
+  }
+
+  100% {
+    transform: translate3d(-7rem, 0, 0);
+  }
+}
