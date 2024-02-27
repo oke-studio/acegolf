@@ -11,7 +11,7 @@ export const Landing = () => {
   React.useEffect(() => {
     const lenis = new Lenis()
 
-    function raf(time) {
+    function raf(time: number) {
       lenis.raf(time)
 
       requestAnimationFrame(raf)
