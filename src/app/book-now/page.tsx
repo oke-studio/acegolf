@@ -58,9 +58,10 @@ export default function BookNow() {
 						width: '100%',
 						gap: '24px',
 						padding: '24px',
+						justifyContent: 'center',
 					}}
 				>
-					<Card
+					{/* <Card
 						buttonOne={{
 							children: (
 								<Typography variant="base">
@@ -85,7 +86,7 @@ export default function BookNow() {
 							handleReserveFormOnChange={handleReserveFormOnChange}
 							isWide={false}
 						/>
-					</Card>
+					</Card> */}
 					<Card
 						buttonOne={{
 							children: (
@@ -96,13 +97,21 @@ export default function BookNow() {
 						}}
 						buttonTwo={{
 							children: (
-								<Typography variant="base">Find a Bay &rarr;</Typography>
+								<Typography variant="base">
+									<a
+										href={
+											'https://www.sevenrooms.com/reservations/acegolf?duration-picker=True'
+										}
+										target="_blank"
+									>
+										Find a Bay&nbsp;
+									</a>
+								</Typography>
 							),
 							variant: 'primary',
-							onClick: () => router.push('/how-it-works'),
 						}}
 						CardTitle="Prices & Rates"
-						sx={{ minHeight: '600px' }}
+						sx={{ minHeight: '600px', maxWidth: isMobile ? '100%' : '50%' }}
 						BackgroundColor="#F6F6F6"
 					>
 						<PriceTabCard />
