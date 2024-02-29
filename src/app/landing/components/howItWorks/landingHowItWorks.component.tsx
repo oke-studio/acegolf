@@ -135,7 +135,7 @@ export const LandingHowItWorks = () => {
 			>
 				<HowItWorksLanding />
 
-				<Card
+				{/* <Card
 					CardTitle="Book a bay with friends"
 					CardDescription="Plan your visit today!"
 					ColorVariant="dark"
@@ -163,7 +163,7 @@ export const LandingHowItWorks = () => {
 						isWide={true}
 						isLanding={true}
 					/>
-				</Card>
+				</Card> */}
 			</Box>
 		</Section>
 	);
