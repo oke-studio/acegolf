@@ -132,6 +132,7 @@ a {
 	background-position: 50%;
 	transform: translateZ(0);
 	animation: subtleNoise 5s steps(5) infinite;
+	opacity: 0.4;
 }
 
 @keyframes subtleNoise {
