@@ -2,6 +2,7 @@ export const MusicPlayer = () => {
   return (
     <div className="mt-6 flex h-[200px] w-[400px] rounded-lg">
       <iframe
+        title="wtv_spotify_iframe"
         className="rounded-xl"
         src="https://open.spotify.com/embed/playlist/72hITZ4d6zKMgsczBtqREI?utm_source=generator"
         width="100%"

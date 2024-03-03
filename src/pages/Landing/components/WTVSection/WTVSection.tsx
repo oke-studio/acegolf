@@ -5,8 +5,8 @@ import { Container } from '../../../../components/Container/Container'
 import URL1 from '../../../../assets/wtv/20231224_124126.mp4'
 import URL2 from '../../../../assets/wtv/20231224_124126.mp4'
 import URL3 from '../../../../assets/wtv/ace-pink.webp'
-import URL4 from '../../../../assets/wtv/ezgif-2-0095f2ad03.gif'
-import URL5 from '../../../../assets/wtv/ezgifvideo-to-gif-converter.gif'
+import URL4 from '../../../../assets/wtv/ace_landing_wtv_demo.mp4' //video
+import URL5 from '../../../../assets/wtv/ace_landing_wtv_demo2.webm' //video
 import URL6 from '../../../../assets/wtv/wtv-01.webp'
 import URL7 from '../../../../assets/wtv/wtv-02.webp'
 import URL8 from '../../../../assets/wtv/wtv-03.webp'
@@ -62,18 +62,28 @@ export const WTVSection = () => {
             </div>
             <div className="grid gap-4">
               <div>
-                <img
+                <video
                   className="h-auto max-w-full rounded-lg"
-                  src={URL4}
-                  alt=""
-                />
+                  autoPlay
+                  loop
+                  preload="auto"
+                  muted
+                  // alt=""
+                >
+                  <source src={URL4} type="video/mp4" />
+                </video>
               </div>
               <div>
-                <img
+                <video
                   className="h-auto max-w-full rounded-lg"
-                  src={URL8}
-                  alt=""
-                />
+                  autoPlay
+                  loop
+                  preload="auto"
+                  muted
+                  // alt=""
+                >
+                  <source src={URL5} type="video/mp4" />
+                </video>
               </div>
               <div>
                 <img
