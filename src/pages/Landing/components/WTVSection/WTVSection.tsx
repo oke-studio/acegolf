@@ -74,16 +74,11 @@ export const WTVSection = () => {
                 </video>
               </div>
               <div>
-                <video
+                <img
                   className="h-auto max-w-full rounded-lg"
-                  autoPlay
-                  loop
-                  preload="auto"
-                  muted
-                  // alt=""
-                >
-                  <source src={URL5} type="video/mp4" />
-                </video>
+                  src={URL8}
+                  alt=""
+                />
               </div>
               <div>
                 <img
@@ -102,11 +97,16 @@ export const WTVSection = () => {
                 />
               </div>
               <div>
-                <img
+                <video
                   className="h-auto max-w-full rounded-lg"
-                  src={URL5}
-                  alt=""
-                />
+                  autoPlay
+                  loop
+                  preload="auto"
+                  muted
+                  // alt=""
+                >
+                  <source src={URL5} type="video/mp4" />
+                </video>
               </div>
               <div>
                 <img
