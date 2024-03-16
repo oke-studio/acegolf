@@ -160,7 +160,7 @@ export default function BookNow() {
 							>
 								<Typography variant="headingThree" weight="500">
 									<a
-										href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
+										href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays"
 										target="_blank"
 									>
 										Reservation - April &rarr;
