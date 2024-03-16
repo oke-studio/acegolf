@@ -114,11 +114,11 @@ export const landingHeroImages = [
 	},
 
 	{
-		src: '/images/ace-sticker-1.webp',
+		src: '/images/ace-ball.webp',
 		aspectRatio: '1/1',
 		backCutOut: false,
 		backCutOutColor: 'sharpTeal',
-		imageNameAltText: 'ping pong area',
+		imageNameAltText: 'Ace branded golf ball',
 		opacity: 1,
 		scale: 1.3, // scale transform for aceImage
 		rotation: -9, // rotation
