@@ -378,7 +378,7 @@ export default function PriceTabCard() {
 				aria-label="secondary tabs example"
 				variant="scrollable"
 				scrollButtons="auto"
-				sx={{ overflowX: 'scroll', scrollBehavior: 'smooth' }}
+				sx={{ overflowX: 'scroll', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
 			>
 				<StyledTab value={0} label="Mon" />
 				<StyledTab value={1} label="Tue" />

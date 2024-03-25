@@ -146,7 +146,7 @@ export default function BookNow() {
 										href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
 										target="_blank"
 									>
-										Reservation - March &rarr;
+										Reserve before April 7th &rarr;
 									</a>
 								</Typography>
 							</Button>
@@ -163,7 +163,7 @@ export default function BookNow() {
 										href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays"
 										target="_blank"
 									>
-										Reservation - April &rarr;
+										Reserve after April 8th &rarr;
 									</a>
 								</Typography>
 							</Button>

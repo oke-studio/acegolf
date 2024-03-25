@@ -42,22 +42,22 @@ export const NintendoSwitch = () => {
 					>
 						<Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 							<Typography variant="headingThree" weight="600">
-								Buy Bulk Packages
+								Looking to plan an event?
 							</Typography>
 							<Typography variant="base" weight="500">
-								Save on evey hour by buying bulk General bay hours.
+							Talk to us about your party or event.
 							</Typography>
 						</Box>
 						<Button variant="secondary" sx={{ marginTop: '24px' }}>
-							<a href="mailto:info@acegolfbar.ca" target="_blank">
-								Learn More &rarr;
+							<a href="mailto:events@acegolfbar.ca" target="_blank">
+								Book Your Event &rarr;
 							</a>
 						</Button>
 					</Box>
 
 					<Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
 						<Image
-							src="/images/ace-banner-chromatic-white.webp"
+							src="/images/Friends-golfing.webp"
 							fill
 							alt="img"
 							style={{
@@ -90,22 +90,22 @@ export const NintendoSwitch = () => {
 					>
 						<Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 							<Typography variant="headingThree" weight="600">
-								Talk to us about your party or event
+								Have Any Questions?
 							</Typography>
 							<Typography variant="base" weight="500">
-								We welcome group bookings and events
+								For all other questions please message our instagram @acegolfbar or email
 							</Typography>
 						</Box>
 						<Button variant="secondary" sx={{ marginTop: '24px' }}>
 							<a href="mailto:info@acegolfbar.ca" target="_blank">
-								Inquire Now &rarr;
+								Contact Us
 							</a>
 						</Button>
 					</Box>
 
 					<Box sx={{ width: '100%', position: 'relative', flex: 1 }}>
 						<Image
-							src="/images/ace-banner-chromatic-white.webp"
+							src="/images/bay4.webp"
 							fill
 							alt="img"
 							style={{
