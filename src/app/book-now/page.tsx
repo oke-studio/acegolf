@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Box, useMediaQuery, useTheme } from '@mui/material';
 import { Typography } from '@/components/Typography/typography.component';
 import { Card } from '@/components/Cards/cards.component';
 import { Promotions } from '../../components/promotions/promotions.component';
@@ -57,59 +57,141 @@ export default function BookNow() {
 						flexDirection: isMobile ? 'column' : 'row',
 						width: '100%',
 						gap: '24px',
-						padding: '24px',
+						//padding: '24px',
 						justifyContent: 'center',
 					}}
 				>
-					{/* <Card
-						buttonOne={{
-							children: (
-								<Typography variant="base">
-									<a href={handleBookNowButtonLink()} target="_blank">
-										Find a Bay&nbsp;
-									</a>
-								</Typography>
-							),
-							variant: 'secondary',
-							fullWidth: true,
-						}}
+					<Card
+						// buttonOne={{
+						// 	children: (
+						// 		<Typography variant="base">
+						// 			<a href={handleBookNowButtonLink()} target="_blank">
+						// 				Find a Bay&nbsp;
+						// 			</a>
+						// 		</Typography>
+						// 	),
+						// 	variant: 'secondary',
+						// 	fullWidth: true,
+						// }}
+						// buttonTwo={{
+						// 	children: (
+						// 		<Typography variant="base">
+						// 			<a
+						// 				href={
+						// 					'https://www.sevenrooms.com/reservations/acegolf?duration-picker=True'
+						// 				}
+						// 				target="_blank"
+						// 			>
+						// 				March Booking &rarr;
+						// 			</a>
+						// 		</Typography>
+						// 	),
+						// 	variant: 'secondary',
+						// }}
 						CardTitle="Book a bay now"
 						ColorVariant="dark"
-						BackgroundColor={theme.palette.aceOrange}
+						BackgroundColor={theme.palette.darkBlack}
 						sx={{
 							flexBasis: '110%',
 						}}
 					>
-						<BookNowForm
+						{/* <BookNowForm
 							reserveABayObject={reserveABayObject}
 							handleDateTimePickerChange={handleDateTimePickerChange}
 							handleReserveFormOnChange={handleReserveFormOnChange}
 							isWide={false}
-						/>
-					</Card> */}
-					<Card
-						buttonOne={{
-							children: (
-								<Typography variant="base">How it Works &rarr;</Typography>
-							),
-							variant: 'secondary',
-							onClick: () => router.push('/how-it-works'),
-						}}
-						buttonTwo={{
-							children: (
-								<Typography variant="base">
+						/> */}
+
+						<Box
+							sx={{
+								display: 'flex',
+								width: '100%',
+								height: isMobile ? '200px' : '100%',
+								flexDirection: 'column',
+								justifyContent: 'space-evenly',
+								alignItems: 'center',
+							}}
+						>
+							<Button
+								disableElevation
+								disableFocusRipple
+								disableRipple
+								disableTouchRipple
+								variant="primary"
+								sx={
+									{
+										// textTransform: 'none',
+										// backgroundColor: '#EB8B32',
+										// color: 'white',
+										// borderRadius: '78px',
+										// fontWeight: '500',
+										// fontSize: '32px',
+										// padding: '12px 60px',
+										// position: 'relative',
+										// top: '-60px',
+										// zIndex: 0,
+										// ':hover:': {
+										//backgroundColor: '#fff',
+										//   color: 'white',
+										// },
+										//
+									}
+								}
+								// onClick={() => {
+								// 	router.push('/book-now');
+								// }}
+							>
+								<Typography variant="headingThree" weight="500">
 									<a
-										href={
-											'https://www.sevenrooms.com/reservations/acegolf?duration-picker=True'
-										}
+										href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
 										target="_blank"
 									>
-										Find a Bay&nbsp;
+										Reservation - March &rarr;
 									</a>
 								</Typography>
-							),
-							variant: 'primary',
-						}}
+							</Button>
+
+							<Button
+								disableElevation
+								disableFocusRipple
+								disableRipple
+								disableTouchRipple
+								variant="primary"
+							>
+								<Typography variant="headingThree" weight="500">
+									<a
+										href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays"
+										target="_blank"
+									>
+										Reservation - April &rarr;
+									</a>
+								</Typography>
+							</Button>
+						</Box>
+					</Card>
+					<Card
+						// buttonOne={{
+						// 	children: (
+						// 		<Typography variant="base">How it Works &rarr;</Typography>
+						// 	),
+						// 	variant: 'secondary',
+						// 	onClick: () => router.push('/how-it-works'),
+						// }}
+						// buttonTwo={{
+						// 	children: (
+						// 		<Typography variant="base">
+						// 			<a
+						// 				href={
+						// 					'https://www.sevenrooms.com/reservations/acegolf?duration-picker=True'
+						// 				}
+						// 				target="_blank"
+						// 			>
+						// 				Find a Bay&nbsp;
+						// 			</a>
+						// 		</Typography>
+						// 	),
+						// 	variant: 'primary',
+						// }}
 						CardTitle="Prices & Rates"
 						sx={{ minHeight: '600px', maxWidth: isMobile ? '100%' : '50%' }}
 						BackgroundColor="#F6F6F6"
