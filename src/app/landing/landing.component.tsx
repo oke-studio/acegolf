@@ -46,14 +46,14 @@ export default function Landing() {
 	const router = useRouter();
 	const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'));
 
-	useEffect(() => {
-		const lenis = new Lenis();
-		function raf(time) {
-			lenis.raf(time);
-			requestAnimationFrame(raf);
-		}
-		requestAnimationFrame(raf);
-	}, []);
+	// useEffect(() => {
+	// 	const lenis = new Lenis();
+	// 	function raf(time) {
+	// 		lenis.raf(time);
+	// 		requestAnimationFrame(raf);
+	// 	}
+	// 	requestAnimationFrame(raf);
+	// }, []);
 
 	useGetAce();
 
