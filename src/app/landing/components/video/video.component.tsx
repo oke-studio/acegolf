@@ -28,8 +28,8 @@ export const LandingVideo = ({ sx }: LandingVideoProps) => {
 			<ReactPlayer
 				url={
 					isMobile
-						? 'images/mobile-ace-slideshow.mp4'
-						: 'images/ace-slideshow.mp4'
+						? 'images/mobile-ace-slideshow.webm'
+						: 'images/ace-slideshow.webm'
 				}
 				width="100%"
 				height="100%"
