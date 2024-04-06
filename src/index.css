@@ -22,70 +22,82 @@
   font-family: 'HNHairline';
   src: url('./assets/fonts/Hero New Hairline.woff') format('woff');
   font-weight: 100;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNHairlineItalic';
   src: url('./assets/fonts/Hero New Hairline Italic.woff') format('woff');
   font-weight: 100;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNThin';
   src: url('./assets/fonts/Hero New Thin.woff') format('woff');
   font-weight: 100;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNThinItalic';
   src: url('./assets/fonts/Hero New Thin Italic.woff') format('woff');
   font-weight: 100;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNUltraLight';
   src: url('./assets/fonts/Hero New UltraLight.woff') format('woff');
   font-weight: 200;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNUltraLightItalic';
   src: url('./assets/fonts/Hero New UltraLight Italic.woff') format('woff');
   font-weight: 200;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNLight';
   src: url('./assets/fonts/Hero New Light.woff') format('woff');
   font-weight: 300;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNLightItalic';
   src: url('./assets/fonts/Hero New Light Italic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNRegular';
   src: url('./assets/fonts/Hero New Regular.woff') format('woff');
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNRegularItalic';
   src: url('./assets/fonts/Hero New Regular Italic.woff') format('woff');
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNMedium';
   src: url('./assets/fonts/Hero New Medium.woff') format('woff');
   font-weight: 500;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNMediumItalic';
   src: url('./assets/fonts/Hero New Medium Italic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -93,47 +105,55 @@
   src: url('./assets/fonts/Hero New SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNSemiBold';
   src: url('./assets/fonts/Hero New SemiBold.woff') format('woff');
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNBold';
   src: url('./assets/fonts/Hero New Bold.woff') format('woff');
   font-weight: 700;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNBoldItalic';
   src: url('./assets/fonts/Hero New Bold Italic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNExtraBold';
   src: url('./assets/fonts/Hero New ExtraBold.woff') format('woff');
   font-weight: 800;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNExtraBoldItalic';
   src: url('./assets/fonts/Hero New ExtraBold Italic.woff') format('woff');
   font-weight: 800;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HNSuper';
   src: url('./assets/fonts/Hero New Super.woff') format('woff');
   font-weight: 900;
+  font-display: swap;
 }
 @font-face {
   font-family: 'HNSuperItalic';
   src: url('./assets/fonts/Hero New Super Italic.woff') format('woff');
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
 
 #root {

@@ -2,12 +2,13 @@ import * as React from 'react'
 
 interface ContainerProps {
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ children }, ref) => {
+  ({ children, style }, ref) => {
     return (
-      <div className="container relative mx-auto" ref={ref}>
+      <div className="container relative mx-auto" ref={ref} style={style}>
         {children}
       </div>
     )

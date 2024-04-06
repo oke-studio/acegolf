@@ -63,7 +63,7 @@ export const HIWInfoBox = ({
                   console.log(box.faqSlug)
                   const y = element.getBoundingClientRect().top + window.scrollY
 
-                  window.scrollTo({ top: y - 100, behavior: 'smooth' })
+                  window.scrollTo({ top: y - 200, behavior: 'smooth' })
 
                   // element.click()
                 }

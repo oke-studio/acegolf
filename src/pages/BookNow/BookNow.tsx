@@ -34,7 +34,7 @@ export const BookNow = () => {
           }}
         >
           <div className="flex flex-col gap-6">
-            <Card
+            {/* <Card
               title="Book a Bay Now"
               //   buttonOne={{
               //     children: (
@@ -55,7 +55,7 @@ export const BookNow = () => {
                 isWide={true}
                 isLanding={true}
               />
-            </Card>
+            </Card> */}
             <Card
               title="Prices & Rates"
               buttonOne={{

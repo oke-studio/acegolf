@@ -5,7 +5,7 @@ const EmailForm = () => {
     <div className="flex max-w-[60%] flex-col items-center gap-2">
       <form className="w-full">
         <label
-          htmlFor="search"
+          htmlFor="email"
           className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Search

@@ -14,6 +14,7 @@ import {
 } from '../../types/MenuSectionTypes'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
 
 const MAP_MENU_COLLECTION_TO_IMAGE: {
   [K in MenuCollectionsType]: MenuImageType
@@ -27,6 +28,8 @@ const MAP_MENU_COLLECTION_TO_IMAGE: {
 export const MenuSection = () => {
   const [value, setValue] = React.useState(0)
   const { menuData, isLoading, isError } = useGetMenu()
+
+  const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   if (isLoading) {
     return (
@@ -71,37 +74,39 @@ export const MenuSection = () => {
     menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url
 
   return (
-    <Section
-      style={{ alignItems: 'center', marginBottom: '32px', minHeight: '70vh' }}
-    >
-      <Container>
-        <div className="flex flex-col items-center justify-center gap-8">
-          <nav
-            className="flex snap-x justify-center gap-4 overflow-scroll"
-            aria-label="Tabs"
-            role="tablist"
-            data-tab-select="#tab-select"
-          >
-            {MenuCollectionKeys.map((v, i) => (
-              <MenuTab
-                key={`tab_${i}`}
-                label={MENU_SECTION_NAMES[v]}
-                value={i}
-                handleClick={(newValue) => setValue(newValue)}
-                isActive={i === value}
-              />
-            ))}
-          </nav>
-          <div className="grid w-full grid-cols-2 gap-6">
+    <Section style={{ alignItems: 'center', marginBottom: '32px' }}>
+      <Container
+        style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column' }}
+      >
+        <div className="flex h-full min-h-[inherit] flex-col items-center justify-center gap-8">
+          {!isMobile && (
+            <nav
+              className="flex snap-x justify-center gap-4 overflow-scroll"
+              aria-label="Tabs"
+              role="tablist"
+              data-tab-select="#tab-select"
+            >
+              {MenuCollectionKeys.map((v, i) => (
+                <MenuTab
+                  key={`tab_${i}`}
+                  label={MENU_SECTION_NAMES[v]}
+                  value={i}
+                  handleClick={(newValue) => setValue(newValue)}
+                  isActive={i === value}
+                />
+              ))}
+            </nav>
+          )}
+          <div className="grid w-full flex-1 gap-4 sm:grid-cols-2">
             {/* Data */}
-            <div>
+            <div className=" w-full gap-4 sm:block">
               {MenuCollectionKeys.map((option, index) => {
                 const menu = menuData[option]
 
                 return (
                   <MenuTabPanel
-                    index={index}
-                    value={value}
+                    index={isMobile ? 0 : index}
+                    value={isMobile ? 0 : value}
                     key={`menu_option_${index}`}
                   >
                     <div className="flex flex-col gap-6">
@@ -154,24 +159,25 @@ export const MenuSection = () => {
             </div>
 
             {/* Image */}
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                className=" rounded-2xl bg-slate-300"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.5, type: 'spring' },
-                }}
-                key={imgSrc}
-                style={{
-                  backgroundImage: `url(${imgSrc})`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
-                }}
-              />
-            </AnimatePresence>
+            {!isMobile && (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  className=" rounded-2xl bg-slate-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.5, type: 'spring' },
+                  }}
+                  key={imgSrc}
+                  style={{
+                    backgroundImage: `url(${imgSrc})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                  }}
+                />
+              </AnimatePresence>
+            )}
           </div>
 
           <Button buttonVariant="secondary">

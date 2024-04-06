@@ -129,7 +129,7 @@ const FAQAccordion = ({
     <motion.div animate={open ? 'open' : 'closed'} className="">
       <button
         onClick={() => {
-          console.log('clicked', id)
+          // console.log('clicked', id)
           setOpen((pv) => !pv)
         }}
         className="flex w-full items-center justify-between gap-4 py-6 text-start"

@@ -4,7 +4,10 @@ import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
 import { motion } from 'framer-motion'
 import { MenuSection } from './components/MenuSection/MenuSection'
+import { useMediaQuery } from 'react-responsive'
 export const Menu = () => {
+  const isMobile = useMediaQuery({ maxWidth: '640px' })
+
   React.useEffect(() => {
     const rootEl = document.getElementById('root')
 
@@ -27,13 +30,16 @@ export const Menu = () => {
             border: 0,
             padding: 0,
             margin: '2rem 0',
+            display: 'flex',
+            justifyContent: 'flex-start',
+            ...(isMobile && { justifyContent: 'center' }),
           }}
         >
           <Typography
             fontVariant="largeH1"
             fontStyle="italic"
             fontWeight="900"
-            tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:flex-row md:gap-4"
+            tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4"
           >
             GOLF &{' '}
             <Box front="DRINKS" bottom="BITES" back="GOURMET" top="DESSERTS" />

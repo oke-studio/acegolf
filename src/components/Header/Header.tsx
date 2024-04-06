@@ -50,12 +50,8 @@ const DropDownNav = ({ isOpen }: { isOpen: boolean }) => {
       <ul className="flex flex-col items-center gap-3">
         {NavOptions.map((opt, index) => {
           return (
-            <li>
-              <HeaderNavLink
-                to={opt.to}
-                label={opt.label}
-                key={`nav_${opt.label}_${index}`}
-              />
+            <li key={`nav_${opt.label}_${index}`}>
+              <HeaderNavLink to={opt.to} label={opt.label} />
             </li>
           )
         })}
@@ -107,12 +103,8 @@ export const Header = () => {
           </li>
           {NavOptions.map((opt, index) => {
             return (
-              <li>
-                <HeaderNavLink
-                  to={opt.to}
-                  label={opt.label}
-                  key={`nav_${opt.label}_${index}`}
-                />
+              <li key={`nav_${opt.label}_${index}`}>
+                <HeaderNavLink to={opt.to} label={opt.label} />
               </li>
             )
           })}
