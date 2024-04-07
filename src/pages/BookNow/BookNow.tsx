@@ -6,21 +6,20 @@ import { Typography } from '../../components/Typography/Typography'
 import { PricesCard } from '../../components/Common/PricesCard/PricesCard'
 import { Email } from '../../components/Email/Email'
 import { Section } from '../../components/Section/Section'
-import { BookNowForm } from '../../components/Common/BookNowForm/BookNowForm'
-import { useBookNowForm } from './hooks/useBookNowForm.hook'
-import dayjs from 'dayjs'
+// import { useBookNowForm } from './hooks/useBookNowForm.hook'
+// import dayjs from 'dayjs'
 
 export const BookNow = () => {
-  const {
-    handleBookNowButtonLink,
-    handleReserveFormOnChange,
-    reserveABayObject,
-  } = useBookNowForm({
-    guests: '1',
-    duration: '1',
-    date: dayjs(new Date()).format('YYYY-MM-DD'),
-    time: dayjs(new Date()).format(),
-  })
+  // const {
+  //   handleBookNowButtonLink,
+  //   handleReserveFormOnChange,
+  //   reserveABayObject,
+  // } = useBookNowForm({
+  //   guests: '1',
+  //   duration: '1',
+  //   date: dayjs(new Date()).format('YYYY-MM-DD'),
+  //   time: dayjs(new Date()).format(),
+  // })
 
   return (
     <>

@@ -57,7 +57,7 @@ export const AboutACE = () => {
                 OUR TEAM
               </Typography>
               <div className="row-auto grid h-full grid-cols-2 gap-x-8 gap-y-8">
-                {['A', 'B', 'C', 'D'].map((i) => (
+                {['A', 'B', 'C', 'D'].map(() => (
                   <div className="flex h-full flex-col items-center">
                     <div className="aspect-1 mb-8 h-80 w-80 rounded-lg bg-gray-700" />
                     <Typography fontVariant="base" fontWeight="500">
