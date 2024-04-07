@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Menu } from './pages/Menu/Menu'
 import { BookNow } from './pages/BookNow/BookNow'
 import { HIW } from './pages/HIW/HIW'
+import { AboutACE } from './pages/AboutACE/AboutACE'
 const client = new QueryClient()
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/how-it-works',
         element: <HIW />,
+      },
+      {
+        path: 'about',
+        element: <AboutACE />,
       },
     ],
   },
