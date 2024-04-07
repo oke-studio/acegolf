@@ -1,4 +1,5 @@
-import * as React from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import classNames from 'classnames'
 
 // Animation dependencies
@@ -57,35 +58,35 @@ const LayoutWidthOptions = {
   //   },
 }
 
-type ImageDataTypes = {
-  src: string
-  aspectRatio: string
-  backCutOut: boolean
-  backCutOutColor: string
-  imageNameAltText: string
-  opacity: number // default 1 for visible
-  scale: number // scale transform for aceImage
-  rotation: number // rotation
-  zIndex: number // zindex for image container. 1= below section content
-  gridPosXColumn: string //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
-  gridPosYRow: string //enter the grid ROW start position. ex: 5 (start at grid line 5)
-  relPosX: string //relative position to grid position
-  relPosY: string
-  paralax: number
-  unoptimized?: boolean
+// type ImageDataTypes = {
+//   src: string
+//   aspectRatio: string
+//   backCutOut: boolean
+//   backCutOutColor: string
+//   imageNameAltText: string
+//   opacity: number // default 1 for visible
+//   scale: number // scale transform for aceImage
+//   rotation: number // rotation
+//   zIndex: number // zindex for image container. 1= below section content
+//   gridPosXColumn: string //enter the grid COLOMN start position. ex: 3 (start at grid line 3)
+//   gridPosYRow: string //enter the grid ROW start position. ex: 5 (start at grid line 5)
+//   relPosX: string //relative position to grid position
+//   relPosY: string
+//   paralax: number
+//   unoptimized?: boolean
 
-  mobile: {
-    aspectRatio: string
-    opacity: number
-    scale: number
-    rotation: number
-    zIndex: number
-    gridPosXColumn: string
-    gridPosYRow: string
-    relPosX: string
-    relPosY: string
-  }
-}
+//   mobile: {
+//     aspectRatio: string
+//     opacity: number
+//     scale: number
+//     rotation: number
+//     zIndex: number
+//     gridPosXColumn: string
+//     gridPosYRow: string
+//     relPosX: string
+//     relPosY: string
+//   }
+// }
 
 interface LandingHeroImageGridProps {
   SectionImageGridWidth?: keyof typeof LayoutWidthOptions
@@ -95,8 +96,8 @@ interface LandingHeroImageGridProps {
 
 export const LandingHeroImageGrid = ({
   SectionImageGridWidth = 'end',
-  SectionImageGridHeight = '100%',
-  ScrollAnimations = true,
+  //   SectionImageGridHeight = '100%',
+  //   ScrollAnimations = true,
 }: LandingHeroImageGridProps) => {
   const HeroImageGrid = LayoutWidthOptions[SectionImageGridWidth]
 
@@ -104,9 +105,10 @@ export const LandingHeroImageGrid = ({
 
   // const SectionAsReference = useRef(null);
   const { scrollYProgress } = useScroll()
-  const rotateVal = useTransform(scrollYProgress, [0, 0.1], [1, 10]) //mapping screen scroll of 10% to 1-2 factor to use in values
-  const scaleVal = useTransform(scrollYProgress, [0, 0.1], [1, 1.1])
-  const yVal = useTransform(scrollYProgress, [0, 0.1], [1, 60])
+  //   const rotateVal = useTransform(scrollYProgress, [0, 0.1], [1, 10])
+  //mapping screen scroll of 10% to 1-2 factor to use in values
+  //   const scaleVal = useTransform(scrollYProgress, [0, 0.1], [1, 1.1])
+  //   const yVal = useTransform(scrollYProgress, [0, 0.1], [1, 60])
   const smValY = useTransform(scrollYProgress, [0, 0.1], [0, 30])
   const mdValY = useTransform(scrollYProgress, [0, 0.1], [0, 70])
   const lgValY = useTransform(scrollYProgress, [0, 0.1], [0, 120])
