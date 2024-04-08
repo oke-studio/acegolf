@@ -6,51 +6,62 @@ import { RNG } from '../../../utils/RNG'
 interface HeaderNavLink {
   to: string
   label: string
+  baseColor?: string
+  hoverColor?: string
 }
 
-const EVEN_ANIMATION = {
-  hover: {
-    top: '5px',
-    color: '#EB8B32',
-    rotate: RNG(9, 12),
-    transition: {
-      duration: 0.5,
-      type: 'spring',
+const EVEN_ANIMATION = (baseColor?: string, hoverColor?: string) => {
+  return {
+    hover: {
+      top: '5px',
+      color: hoverColor ?? '#EB8B32',
+      rotate: RNG(9, 12),
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+      },
     },
-  },
-  rest: {
-    top: '0px',
-    color: '#FFFFFF',
-    rotate: 0,
-    transition: {
-      duration: 0.5,
-      type: 'spring',
+    rest: {
+      top: '0px',
+      color: baseColor ?? '#FFFFFF',
+      rotate: 0,
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+      },
     },
-  },
+  }
 }
 
-const ODD_ANIMATION = {
-  hover: {
-    top: '-5px',
-    color: '#EB8B32',
-    rotate: RNG(-9, -12),
-    transition: {
-      duration: 0.5,
-      type: 'spring',
+const ODD_ANIMATION = (baseColor?: string, hoverColor?: string) => {
+  return {
+    hover: {
+      top: '-5px',
+      color: hoverColor ?? '#EB8B32',
+      rotate: RNG(-9, -12),
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+      },
     },
-  },
-  rest: {
-    top: '0px',
-    color: '#FFFFFF',
-    rotate: 0,
-    transition: {
-      duration: 0.5,
-      type: 'spring',
+    rest: {
+      top: '0px',
+      color: baseColor ?? '#FFFFFF',
+      rotate: 0,
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+      },
     },
-  },
+  }
 }
 
-export const HeaderNavLink = ({ to, label }: HeaderNavLink) => {
+export const HeaderNavLink = ({
+  to,
+  label,
+  baseColor,
+  hoverColor,
+}: HeaderNavLink) => {
   return (
     <Link to={to}>
       <Typography
@@ -64,7 +75,11 @@ export const HeaderNavLink = ({ to, label }: HeaderNavLink) => {
               <motion.span
                 key={`${text}_${index}`}
                 className="relative"
-                variants={index % 2 === 0 ? EVEN_ANIMATION : ODD_ANIMATION}
+                variants={
+                  index % 2 === 0
+                    ? EVEN_ANIMATION(baseColor, hoverColor)
+                    : ODD_ANIMATION(baseColor, hoverColor)
+                }
               >
                 {text}
               </motion.span>
