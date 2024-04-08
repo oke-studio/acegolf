@@ -141,35 +141,8 @@ export const GetAceQuery = gql`
 						}
 					}
 				}
-				activeEventsCollection {
-					items {
-						eventTitle
-						slugId
-						eventStartDate
-						eventEndDate
-						eventDescription
-						ctaText
-						ctaLink
-						eventPoster {
-							title
-							description
-							url
-						}
-					}
-				}
-				activePromotionsCollection {
-					items {
-						promotionTitle
-						effectiveDateStart
-						effectiveDateEnd
-						slugId
-						sevenRoomsPromotionCode
-						promotionPoster {
-							description
-							title
-						}
-					}
-				}
+				
+				
 			}
 		}
 	}
