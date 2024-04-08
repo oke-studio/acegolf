@@ -380,13 +380,13 @@ export default function PriceTabCard() {
 				scrollButtons="auto"
 				sx={{ overflowX: 'scroll', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
 			>
-				<StyledTab value={0} label="Mon" />
-				<StyledTab value={1} label="Tue" />
-				<StyledTab value={2} label="Wed" />
-				<StyledTab value={3} label="Thu" />
-				<StyledTab value={4} label="Fri" />
-				<StyledTab value={5} label="Sat" />
-				<StyledTab value={6} label="Sun" />
+				<StyledTab value={1} label="Mon" />
+				<StyledTab value={2} label="Tue" />
+				<StyledTab value={3} label="Wed" />
+				<StyledTab value={4} label="Thu" />
+				<StyledTab value={5} label="Fri" />
+				<StyledTab value={6} label="Sat" />
+				<StyledTab value={7} label="Sun" />
 			</StyledTabs>
 
 			{baysPricingReduced &&

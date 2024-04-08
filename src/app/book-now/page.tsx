@@ -112,7 +112,7 @@ export default function BookNow() {
 								alignItems: 'center',
 							}}
 						>
-							<Button
+							{/* <Button
 								disableElevation
 								disableFocusRipple
 								disableRipple
@@ -149,7 +149,7 @@ export default function BookNow() {
 										Reserve before April 7th &rarr;
 									</a>
 								</Typography>
-							</Button>
+							</Button> */}
 
 							<Button
 								disableElevation
@@ -163,7 +163,7 @@ export default function BookNow() {
 										href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays"
 										target="_blank"
 									>
-										Reserve after April 8th &rarr;
+										Reserve Now &rarr;
 									</a>
 								</Typography>
 							</Button>
