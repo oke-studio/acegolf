@@ -47,11 +47,15 @@ const DropDownNav = ({ isOpen }: { isOpen: boolean }) => {
       animate={isOpen ? 'open' : 'closed'}
       initial="closed"
     >
-      <ul className="flex flex-col items-center gap-3">
+      <ul className="mt-10 flex flex-col items-center gap-8">
         {NavOptions.map((opt, index) => {
           return (
             <li key={`nav_${opt.label}_${index}`}>
-              <HeaderNavLink to={opt.to} label={opt.label} />
+              <HeaderNavLink
+                to={opt.to}
+                label={opt.label}
+                baseColor="#000000"
+              />
             </li>
           )
         })}
@@ -65,12 +69,11 @@ export const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   if (isMobile) {
     return (
-      <div className="sticky top-0 z-50">
-        <HeaderBanner />
+      <div className="sticky top-0 z-50 mb-8 flex flex-col">
         <div
           className={classNames(
-            isOpen ? 'bg-white' : 'bg-transparent',
-            'flex w-full items-center justify-between p-3 backdrop-blur-lg'
+            isOpen ? 'bg-white' : 'bg-black',
+            'flex w-full items-center justify-between bg-black p-3'
           )}
         >
           <HeaderLogo color={isOpen ? 'black' : 'white'} />
@@ -89,15 +92,15 @@ export const Header = () => {
           </motion.button>
           <DropDownNav isOpen={isOpen} />
         </div>
+        <HeaderBanner />
       </div>
     )
   }
 
   return (
-    <div className="sticky top-0 z-50">
-      <HeaderBanner />
-      <nav className="flex w-full items-center justify-center gap-6 p-3">
-        <ul className="flex items-center gap-6 rounded-3xl p-4 backdrop-blur-lg">
+    <div className="sticky top-0 z-50 mb-8 flex flex-col">
+      <nav className="flex w-full items-center justify-center gap-6  p-3">
+        <ul className="flex items-center gap-6 rounded-3xl bg-lightBlack p-4 backdrop-blur-lg">
           <li key={'nav_logo_landing'}>
             <HeaderLogo />
           </li>
@@ -119,6 +122,7 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
+      <HeaderBanner />
     </div>
   )
 }
