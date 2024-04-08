@@ -1,18 +1,19 @@
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { Button } from '../../../../components/Button/Button'
-import { MotionValue, useTransform, motion } from 'framer-motion'
+import { MotionValue, motion } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
-import { LandingHeroImageGrid } from './LandingHeroImageGrid'
+// import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
   scrollYProgress,
 }: {
   scrollYProgress?: MotionValue<number>
 }) => {
+  console.log(scrollYProgress)
   // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
 
   // const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])

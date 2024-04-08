@@ -117,29 +117,29 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
   )
 }
 
-const Dots = ({
-  imgIndex,
-  setImgIndex,
-}: {
-  imgIndex: number
-  setImgIndex: (i: number) => void
-}) => {
-  return (
-    <div className="mt-4 flex w-full justify-center gap-2">
-      {imgs.map((_, idx) => {
-        return (
-          <button
-            key={idx}
-            onClick={() => setImgIndex(idx)}
-            className={`h-3 w-3 rounded-full transition-colors ${
-              idx === imgIndex ? 'bg-orange' : 'bg-neutral-500'
-            }`}
-          />
-        )
-      })}
-    </div>
-  )
-}
+// const Dots = ({
+//   imgIndex,
+//   setImgIndex,
+// }: {
+//   imgIndex: number
+//   setImgIndex: (i: number) => void
+// }) => {
+//   return (
+//     <div className="mt-4 flex w-full justify-center gap-2">
+//       {imgs.map((_, idx) => {
+//         return (
+//           <button
+//             key={idx}
+//             onClick={() => setImgIndex(idx)}
+//             className={`h-3 w-3 rounded-full transition-colors ${
+//               idx === imgIndex ? 'bg-orange' : 'bg-neutral-500'
+//             }`}
+//           />
+//         )
+//       })}
+//     </div>
+//   )
+// }
 
 const GradientEdges = () => {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { Typography } from '../../Typography/Typography'
 import { useGetPriceCard } from './hooks/useGetPriceCard.hook'
 import { Spinner } from '../../LoadingStates/Spinner'
@@ -30,32 +30,32 @@ export const PricesTabPanel = ({
   )
 }
 
-interface PricesTabProps {
-  label: string
-  value: number
-  handleClick: (value: number) => void
-  isActive: boolean
-}
-const PricesTab = ({ label, value, handleClick, isActive }: PricesTabProps) => {
-  const activeStyles = 'bg-lightBlack text-white'
-  return (
-    <button
-      type="button"
-      className={classNames(
-        'hover:orange -mb-px inline-flex grow basis-0 items-center justify-center gap-x-2 border-r-2 border-r-lightBlack px-4 py-3 text-center text-sm font-medium first-of-type:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-0 disabled:pointer-events-none disabled:opacity-50',
-        isActive ? activeStyles : 'bg-transparent text-gray-500 '
-      )}
-      id={value.toString()}
-      onClick={() => handleClick(value)}
-      aria-controls="hs-tab-to-select-2"
-      role="tab"
-    >
-      <Typography fontVariant="small" fontWeight="500">
-        {label}
-      </Typography>
-    </button>
-  )
-}
+// interface PricesTabProps {
+//   label: string
+//   value: number
+//   handleClick: (value: number) => void
+//   isActive: boolean
+// }
+// const PricesTab = ({ label, value, handleClick, isActive }: PricesTabProps) => {
+//   const activeStyles = 'bg-lightBlack text-white'
+//   return (
+//     <button
+//       type="button"
+//       className={classNames(
+//         'hover:orange -mb-px inline-flex grow basis-0 items-center justify-center gap-x-2 border-r-2 border-r-lightBlack px-4 py-3 text-center text-sm font-medium first-of-type:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-0 disabled:pointer-events-none disabled:opacity-50',
+//         isActive ? activeStyles : 'bg-transparent text-gray-500 '
+//       )}
+//       id={value.toString()}
+//       onClick={() => handleClick(value)}
+//       aria-controls="hs-tab-to-select-2"
+//       role="tab"
+//     >
+//       <Typography fontVariant="small" fontWeight="500">
+//         {label}
+//       </Typography>
+//     </button>
+//   )
+// }
 
 const TabValues = [
   { label: 'Sun', value: 0, fullLabel: 'Sunday' },

@@ -2,8 +2,8 @@ import { useRef } from 'react'
 import { Card } from '../../../../components/Card/Card'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
-import { PricesCard as PC } from '../../../../components/Common/PricesCard/PricesCard'
-import { MenuCard as MC } from '../../../../components/Common/MenuCard/MenuCard'
+// import { PricesCard as PC } from '../../../../components/Common/PricesCard/PricesCard'
+// import { MenuCard as MC } from '../../../../components/Common/MenuCard/MenuCard'
 import { useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -55,49 +55,49 @@ const ParkingCard = () => (
   />
 )
 
-const MenuCard = () => (
-  <Card
-    title="Asian Style Tapas"
-    theme="dark"
-    buttonOne={{
-      children: (
-        <Link to="/menu">
-          <Typography fontVariant="large" fontWeight="400">
-            See Full Menu &rarr;
-          </Typography>
-        </Link>
-      ),
-    }}
-  >
-    <MC />
-  </Card>
-)
+// const MenuCard = () => (
+//   <Card
+//     title="Asian Style Tapas"
+//     theme="dark"
+//     buttonOne={{
+//       children: (
+//         <Link to="/menu">
+//           <Typography fontVariant="large" fontWeight="400">
+//             See Full Menu &rarr;
+//           </Typography>
+//         </Link>
+//       ),
+//     }}
+//   >
+//     <MC />
+//   </Card>
+// )
 
-const PricesCard = () => (
-  <Card
-    title="Prices & Rates"
-    buttonOne={{
-      children: (
-        <Link to="/how-it-works">
-          <Typography fontVariant="large" fontWeight="400">
-            How It Works &rarr;
-          </Typography>
-        </Link>
-      ),
-    }}
-    buttonTwo={{
-      children: (
-        <Link to="/book-now">
-          <Typography fontVariant="large" fontWeight="400">
-            Find a Bay &rarr;
-          </Typography>
-        </Link>
-      ),
-    }}
-  >
-    <PC />
-  </Card>
-)
+// const PricesCard = () => (
+//   <Card
+//     title="Prices & Rates"
+//     buttonOne={{
+//       children: (
+//         <Link to="/how-it-works">
+//           <Typography fontVariant="large" fontWeight="400">
+//             How It Works &rarr;
+//           </Typography>
+//         </Link>
+//       ),
+//     }}
+//     buttonTwo={{
+//       children: (
+//         <Link to="/book-now">
+//           <Typography fontVariant="large" fontWeight="400">
+//             Find a Bay &rarr;
+//           </Typography>
+//         </Link>
+//       ),
+//     }}
+//   >
+//     <PC />
+//   </Card>
+// )
 
 export const CardSection = () => {
   const targetRef = useRef<HTMLDivElement>(null)
