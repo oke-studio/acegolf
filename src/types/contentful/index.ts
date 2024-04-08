@@ -1,7 +1,7 @@
 export type { TypeAceGolfBarComFields } from './TypeAceGolfBarCom'
 export type { TypeBayPricingAvailabilityFields } from './TypeBayPricingAvailability'
 export type { TypeDrinkItemFields } from './TypeDrinkItem'
-export type { TypeEventItemFields } from './TypeEvent'
+export type { TypeEventItemFields, TypeEventFields } from './TypeEvent'
 export type { TypeFaqItemFields } from './TypeFaqItem'
 export type { TypeGeneralBayPriceFields } from './TypeGeneralBayPrice'
 export type { TypeHowItWorksFields } from './TypeHowItWorks'
