@@ -146,17 +146,21 @@ export const GetAceQuery = gql`
         }
         activeEventsCollection {
           items {
-            eventTitle
-            slugId
-            eventStartDate
-            eventEndDate
-            eventDescription
-            ctaText
-            ctaLink
-            eventPoster {
-              title
-              description
-              url
+            eventDate
+            eventsCollection {
+              items {
+                eventTitle
+                eventDuration
+                slugId
+                ctaText
+                eventDescription
+                ctaLink
+                eventType
+                eventPoster {
+                  title
+                  url
+                }
+              }
             }
           }
         }

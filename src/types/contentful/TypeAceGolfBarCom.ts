@@ -1,5 +1,5 @@
 import { TypeBayPricingAvailabilityFields } from '.'
-import { TypeEventFields } from '.'
+import { TypeEventItemFields } from '.'
 import { TypeHowItWorksFields } from '.'
 import { TypeMenuFields } from '.'
 import { TypePromotionFields } from '.'
@@ -13,7 +13,7 @@ export interface TypeAceGolfBarComFields {
       activeMenu: TypeMenuFields
       activePriceGrid: TypeBayPricingAvailabilityFields
       activeHowItWorks: TypeHowItWorksFields
-      activeEventsCollection: { items: TypeEventFields[] }
+      activeEventsCollection: { items: TypeEventItemFields[] }
       activePromotionsCollection: { items: TypePromotionFields[] }
     }[]
   }

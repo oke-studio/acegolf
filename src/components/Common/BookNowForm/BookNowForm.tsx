@@ -4,7 +4,7 @@ import { ReserveABayObject } from './types/BookNowTypes'
 import dayjs from 'dayjs'
 
 export const BookNowForm = ({
-  handleBookNowButtonLink,
+  // handleBookNowButtonLink,
   handleReserveFormOnChange,
   //   handleDateTimePickerChange,
   reserveABayObject,
@@ -37,7 +37,7 @@ export const BookNowForm = ({
     }
   }
 
-  console.log(RoundReserveTime())
+  // console.log(RoundReserveTime())
 
   const handleTimePickerOnChange = (newValue: string) => {
     const [h, m] = newValue.split(':').map((v) => Number(v))
@@ -54,7 +54,7 @@ export const BookNowForm = ({
         e.preventDefault()
 
         // window.location.href = handleBookNowButtonLink()
-        console.log(handleBookNowButtonLink())
+        // console.log(handleBookNowButtonLink())
       }}
     >
       <div className="-mx-3 mb-2 flex flex-wrap items-center justify-center md:flex-nowrap">
