@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetPromotions } from './hooks/useGetPromotions'
@@ -39,7 +39,7 @@ export const PromotionsSection = () => {
 const Promotion = ({
   imgSrc,
   title,
-  promoId,
+  //   promoId,
 }: {
   imgSrc: string
   title: string
