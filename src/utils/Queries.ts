@@ -166,14 +166,13 @@ export const GetAceQuery = gql`
         }
         activePromotionsCollection {
           items {
-            promotionTitle
-            effectiveDateStart
-            effectiveDateEnd
+            eventTitle
             slugId
-            sevenRoomsPromotionCode
-            promotionPoster {
-              description
+            eventDescription
+            eventPoster {
               title
+              url
+              description
             }
           }
         }

@@ -5,6 +5,7 @@ import { Typography } from '../../../components/Typography/Typography'
 import { useGetEventItem } from '../components/CalendarSection/hooks/useGetEventItem.hook'
 import { Button } from '../../../components/Button/Button'
 import { EmailSection } from '../components/EmailSection/EmailSection'
+import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
 
 export const EventsItem = () => {
   const { eventId, eventDate } = useParams()
@@ -91,6 +92,7 @@ export const EventsItem = () => {
             </div>
           </div>
         </Section>
+        <PromotionsSection />
         <EmailSection />
       </Container>
     </>
