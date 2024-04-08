@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { Typography } from '../../../Typography/Typography'
 import cn from 'classnames'
+import { motion } from 'framer-motion'
 
 interface PriceContainer {
   price: number
@@ -23,55 +25,95 @@ interface PricesContentSkeletonProps {
   }
 }
 
+const ToggleChip = ({
+  selected,
+  setSelected,
+  index,
+  label,
+}: {
+  selected: boolean
+  setSelected: (i: number) => void
+  label: string
+  index: number
+}) => {
+  return (
+    <button
+      onClick={() => setSelected(index)}
+      className={`relative rounded-md px-2.5 py-0.5`}
+    >
+      <Typography
+        tailwindStyle="relative z-10 uppercase"
+        fontVariant="base"
+        fontWeight="500"
+      >
+        {label}
+      </Typography>
+      {selected && (
+        <motion.div
+          layoutId="pill-tab"
+          transition={{ type: 'spring', duration: 0.5 }}
+          className="absolute inset-0 z-0 rounded-xl bg-orange"
+        ></motion.div>
+      )}
+    </button>
+  )
+}
+
 export const PricesContentSkeleton = ({
-  title,
+  // title,
   description,
   priceContainer,
   privatePriceContainer,
 }: PricesContentSkeletonProps) => {
+  const [toggle, setToggle] = useState(0)
+  const priceContainers = [
+    { price: priceContainer.priceContainerOne, info: 'Open: Bay Rental, Cafe' },
+    {
+      price: priceContainer.priceContainerTwo,
+      info: 'Open: Kitchen, Bar Lounge',
+    },
+  ]
+  const privatePriceContainers = [
+    {
+      price: privatePriceContainer.privatePriceContainerOne,
+      info: 'Open: Bay Rental, Cafe',
+    },
+    {
+      price: privatePriceContainer.privatePriceContainerTwo,
+      info: 'Open: Kitchen, Bar Lounge',
+    },
+  ]
+  const priceContainerServices = [
+    priceContainer.priceContainerOne.service,
+    priceContainer.priceContainerTwo.service,
+  ]
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-col flex-wrap gap-2">
-        <Typography fontVariant="extralarge" fontWeight="600">
-          {title} Pricing
-        </Typography>
-        <div className="mt-3 flex flex-nowrap justify-start gap-3">
-          <div>
-            <Typography fontVariant="large" fontWeight="600">
-              {`${priceContainer.priceContainerOne.timeFrom} - ${priceContainer.priceContainerOne.timeTo}`}
-            </Typography>
-            <ServicePill
-              variant="dark"
-              color="black"
-              label={priceContainer.priceContainerOne.service}
-            />
-            <Typography fontVariant="base" fontWeight="300">
-              Open: Bay Rental, Cafe
-            </Typography>
+      <div className="flex flex-col flex-wrap ">
+        <div className="mt-3 flex flex-wrap items-center gap-3 *:grow *:basis-64">
+          <div className="bg-grey flex items-center gap-2 rounded-xl p-2 *:grow *:basis-24">
+            {priceContainerServices.map((p, index) => (
+              <ToggleChip
+                selected={index === toggle}
+                setSelected={setToggle}
+                label={p}
+                index={index}
+              />
+            ))}
           </div>
-
-          <div>
+          <div className="flex flex-col gap-3">
             <Typography fontVariant="large" fontWeight="600">
-              {`${priceContainer.priceContainerTwo.timeFrom} - ${priceContainer.priceContainerTwo.timeTo}`}
+              {`${priceContainers[toggle].price.timeFrom} - ${priceContainers[toggle].price.timeTo}`}
             </Typography>
-            <ServicePill
-              variant="dark"
-              color="black"
-              label={priceContainer.priceContainerTwo.service}
-            />
             <Typography fontVariant="base" fontWeight="300">
-              Open: Kitchen, Bar Lounge
+              {priceContainers[toggle].info}
             </Typography>
           </div>
         </div>
       </div>
+      <PriceInfoBox priceInfoBox={priceContainers[toggle].price} />
       <PriceInfoBox
-        priceInfoBoxOne={priceContainer.priceContainerOne}
-        priceInfoBoxTwo={priceContainer.priceContainerTwo}
-      />
-      <PriceInfoBox
-        priceInfoBoxOne={privatePriceContainer.privatePriceContainerOne}
-        priceInfoBoxTwo={privatePriceContainer.privatePriceContainerTwo}
+        priceInfoBox={privatePriceContainers[toggle].price}
         isPrivate={true}
       />
 
@@ -87,21 +129,19 @@ export const PricesContentSkeleton = ({
 }
 
 const PriceInfoBox = ({
-  priceInfoBoxOne,
-  priceInfoBoxTwo,
+  priceInfoBox,
   isPrivate,
-  // backgroundColor,
-  // color = 'black',
 }: {
-  priceInfoBoxOne: PriceContainer
-  priceInfoBoxTwo: PriceContainer
+  priceInfoBox: PriceContainer
   backgroundColor?: string
   isPrivate?: boolean
   color?: string
 }) => {
-  const PrivateStyle = isPrivate ? 'bg-sharpTeal' : ''
+  const PrivateStyle = isPrivate
+    ? 'bg-black text-white'
+    : 'text-black bg-white border-2 border-black border-solid'
   return (
-    <div className={cn(PrivateStyle, 'gao-4 flex w-full flex-col rounded-xl')}>
+    <div className={cn(PrivateStyle, 'flex w-full flex-col gap-4 rounded-xl')}>
       <div className="flex w-full flex-row flex-wrap justify-between rounded-[inherit] p-4">
         <Typography
           fontVariant="large"
@@ -115,7 +155,7 @@ const PriceInfoBox = ({
         <div className="flex gap-3">
           <div className="flex flex-col gap-3 text-center">
             <Typography fontVariant="headingThree" fontWeight="800">
-              ${priceInfoBoxOne.price}
+              ${priceInfoBox.price}
               <Typography
                 fontVariant="base"
                 fontWeight="400"
@@ -127,21 +167,7 @@ const PriceInfoBox = ({
             <ServicePill
               variant="dark"
               color="black"
-              label={priceInfoBoxOne.service}
-            />
-          </div>
-
-          <div className="flex flex-col gap-3 text-center">
-            <Typography fontVariant="headingThree" fontWeight="800">
-              ${priceInfoBoxTwo.price}
-              <Typography fontVariant="base" fontWeight="400">
-                /hr
-              </Typography>
-            </Typography>
-            <ServicePill
-              variant="dark"
-              color="black"
-              label={priceInfoBoxTwo.service}
+              label={priceInfoBox.service}
             />
           </div>
         </div>
@@ -173,7 +199,7 @@ const ServicePill = ({ variant, label }: ServicePillProps) => {
         textTransform: 'uppercase',
         backgroundColor: BG,
       }}
-      tailwindStyle="p-3 w-content rounded-3xl"
+      tailwindStyle="w-content rounded-3xl"
     >
       {label}
     </Typography>

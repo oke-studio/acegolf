@@ -1,28 +1,29 @@
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { Button } from '../../../../components/Button/Button'
-import { MotionValue, useTransform, motion } from 'framer-motion'
+import { MotionValue, motion } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
-import { LandingHeroImageGrid } from './LandingHeroImageGrid'
+// import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
   scrollYProgress,
 }: {
-  scrollYProgress: MotionValue<number>
+  scrollYProgress?: MotionValue<number>
 }) => {
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
+  console.log(scrollYProgress)
+  // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
 
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
+  // const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
 
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   return (
     // <div className="m-auto">
-    <motion.div style={{ opacity, scale }}>
-      <Section borderRadiusVariant="pill" style={{}}>
+    <motion.div>
+      <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
         <div className="flex flex-col gap-4">
           <div>
             <img
@@ -61,7 +62,7 @@ export const LandingHero = ({
           )}
         </div>
 
-        <LandingHeroImageGrid />
+        {/* <LandingHeroImageGrid /> */}
       </Section>
     </motion.div>
     // </div>

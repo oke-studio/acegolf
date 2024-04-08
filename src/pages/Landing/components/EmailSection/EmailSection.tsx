@@ -3,6 +3,7 @@ import { Email } from '../../../../components/Email/Email'
 import { Section } from '../../../../components/Section/Section'
 import { Container } from '../../../../components/Container/Container'
 import { useScroll, useTransform } from 'framer-motion'
+import { PromotionsSection } from '../../../Events/components/PromotionsSection/PromotionsSection'
 
 export const EmailSection = () => {
   const targetRef = useRef<HTMLDivElement>(null)
@@ -24,6 +25,7 @@ export const EmailSection = () => {
       ref={targetRef}
     >
       <Container>
+        <PromotionsSection />
         <Email />
       </Container>
     </Section>

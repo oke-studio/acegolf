@@ -33,30 +33,7 @@ export const BookNow = () => {
           }}
         >
           <div className="flex flex-col gap-6">
-            {/* <Card
-              title="Book a Bay Now"
-              //   buttonOne={{
-              //     children: (
-              //       <Link to={handleBookNowButtonLink()}>
-              //         <Typography fontVariant="large" fontWeight="400">
-              //           Reserve A Bay &#8599;
-              //         </Typography>
-              //       </Link>
-              //     ),
-              //   }}
-              theme="dark"
-              style={{ backgroundColor: 'rgb(var(--color-orange))' }}
-            >
-              <BookNowForm
-                handleReserveFormOnChange={handleReserveFormOnChange}
-                handleBookNowButtonLink={handleBookNowButtonLink}
-                reserveABayObject={reserveABayObject}
-                isWide={true}
-                isLanding={true}
-              />
-            </Card> */}
             <Card
-              title="Prices & Rates"
               buttonOne={{
                 children: (
                   <Link to="/how-it-works">

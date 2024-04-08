@@ -23,7 +23,7 @@ const TiltMapping: { [key in TiltType]: string } = {
 interface CardProps {
   buttonOne?: ButtonType
   buttonTwo?: ButtonType
-  title: string
+  title?: string
   description?: string
   theme?: ThemeType
   tilt?: TiltType
@@ -60,12 +60,16 @@ export const Card = ({
       }}
     >
       <div className="relative flex w-full flex-col gap-3">
-        <Typography fontVariant="headingThree" fontWeight="600">
-          {title}
-        </Typography>
-        <Typography fontVariant="base" fontWeight="400">
-          {description}
-        </Typography>
+        {title && (
+          <Typography fontVariant="headingThree" fontWeight="600">
+            {title}
+          </Typography>
+        )}
+        {description && (
+          <Typography fontVariant="base" fontWeight="400">
+            {description}
+          </Typography>
+        )}
       </div>
       <div className="flex w-full grow-[2]">{children}</div>
       <div className="mt-5 flex flex-wrap justify-center gap-4">

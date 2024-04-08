@@ -1,5 +1,5 @@
 import * as React from 'react'
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { Typography } from '../../Typography/Typography'
 import { useGetPriceCard } from './hooks/useGetPriceCard.hook'
 import { Spinner } from '../../LoadingStates/Spinner'
@@ -30,32 +30,32 @@ export const PricesTabPanel = ({
   )
 }
 
-interface PricesTabProps {
-  label: string
-  value: number
-  handleClick: (value: number) => void
-  isActive: boolean
-}
-const PricesTab = ({ label, value, handleClick, isActive }: PricesTabProps) => {
-  const activeStyles = 'bg-lightBlack text-white'
-  return (
-    <button
-      type="button"
-      className={classNames(
-        'hover:orange -mb-px inline-flex grow basis-0 items-center justify-center gap-x-2 border-r-2 border-r-lightBlack px-4 py-3 text-center text-sm font-medium first-of-type:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-0 disabled:pointer-events-none disabled:opacity-50',
-        isActive ? activeStyles : 'bg-transparent text-gray-500 '
-      )}
-      id={value.toString()}
-      onClick={() => handleClick(value)}
-      aria-controls="hs-tab-to-select-2"
-      role="tab"
-    >
-      <Typography fontVariant="small" fontWeight="500">
-        {label}
-      </Typography>
-    </button>
-  )
-}
+// interface PricesTabProps {
+//   label: string
+//   value: number
+//   handleClick: (value: number) => void
+//   isActive: boolean
+// }
+// const PricesTab = ({ label, value, handleClick, isActive }: PricesTabProps) => {
+//   const activeStyles = 'bg-lightBlack text-white'
+//   return (
+//     <button
+//       type="button"
+//       className={classNames(
+//         'hover:orange -mb-px inline-flex grow basis-0 items-center justify-center gap-x-2 border-r-2 border-r-lightBlack px-4 py-3 text-center text-sm font-medium first-of-type:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-0 disabled:pointer-events-none disabled:opacity-50',
+//         isActive ? activeStyles : 'bg-transparent text-gray-500 '
+//       )}
+//       id={value.toString()}
+//       onClick={() => handleClick(value)}
+//       aria-controls="hs-tab-to-select-2"
+//       role="tab"
+//     >
+//       <Typography fontVariant="small" fontWeight="500">
+//         {label}
+//       </Typography>
+//     </button>
+//   )
+// }
 
 const TabValues = [
   { label: 'Sun', value: 0, fullLabel: 'Sunday' },
@@ -144,22 +144,27 @@ export const PricesCard = () => {
 
   return (
     <div className="flex w-full flex-col">
-      <select
-        id="tab-select"
-        className="block w-full rounded-lg border-2 border-sharpTeal px-4 py-3 text-base focus:border-orange focus:ring-orange sm:hidden"
-        aria-label="Tabs"
-        role="tablist"
-        value={value}
-        onChange={(v) => setValue(Number(v.currentTarget.value))}
-      >
-        {TabValues.map((v, i) => (
-          <option key={`option_${i}`} value={v.value}>
-            {v.label}
-          </option>
-        ))}
-      </select>
+      <div className="flex flex-wrap items-center gap-3 *:grow *:basis-64">
+        <Typography fontVariant="headingThree" fontWeight="600">
+          Prices & Hours
+        </Typography>
+        <select
+          id="tab-select"
+          className="block w-full rounded-lg border-2 border-sharpTeal px-4 py-3 text-base focus:border-orange focus:ring-orange"
+          aria-label="Tabs"
+          role="tablist"
+          value={value}
+          onChange={(v) => setValue(Number(v.currentTarget.value))}
+        >
+          {TabValues.map((v, i) => (
+            <option key={`option_${i}`} value={v.value}>
+              {v.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <div className="hidden border-b border-gray-200 sm:block">
+      {/* <div className="hidden border-b border-gray-200 sm:block">
         <nav
           className="flex snap-x overflow-scroll rounded-lg border-2 border-lightBlack"
           aria-label="Tabs"
@@ -176,7 +181,7 @@ export const PricesCard = () => {
             />
           ))}
         </nav>
-      </div>
+      </div> */}
 
       <div className="mt-3">
         {baysPricingReduced.map((bay, index) => (
