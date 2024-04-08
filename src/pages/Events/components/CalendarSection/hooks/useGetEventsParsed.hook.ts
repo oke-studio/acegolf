@@ -26,8 +26,6 @@ export function useGetEventsParsed() {
       {} as { [k: string]: Array<EventsCalenderItem> }
     )
 
-  console.log(events)
-
   return {
     events,
     isError,

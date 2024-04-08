@@ -93,7 +93,6 @@ const CalendarItemContainer = ({
 export const CalendarSection = () => {
   const { events: eventsData, isError, isLoading } = useGetEventsParsed()
 
-  console.log(eventsData)
   if (!eventsData || isError) {
     return <div />
   }
@@ -110,8 +109,6 @@ export const CalendarSection = () => {
   for (const d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
     twoWeekSpan.push(new Date(d).toISOString())
   }
-
-  console.log(twoWeekSpan, eventsData)
 
   return (
     <Section
