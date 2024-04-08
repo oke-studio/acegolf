@@ -11,6 +11,8 @@ import { Menu } from './pages/Menu/Menu'
 import { BookNow } from './pages/BookNow/BookNow'
 import { HIW } from './pages/HIW/HIW'
 import { AboutACE } from './pages/AboutACE/AboutACE'
+import { Events } from './pages/Events/Events'
+import { EventsItem } from './pages/Events/pages/EventsItem'
 const client = new QueryClient()
 
 const router = createBrowserRouter([
@@ -35,9 +37,11 @@ const router = createBrowserRouter([
         element: <HIW />,
       },
       {
-        path: 'about',
+        path: '/about',
         element: <AboutACE />,
       },
+      { path: '/events', element: <Events /> },
+      { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
     ],
   },
 ])

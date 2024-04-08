@@ -22,7 +22,7 @@ const NavOptions = [
   { label: 'How it Works', to: '/how-it-works' },
   // { label: 'About', to: '/about' },
   { label: 'Menu', to: '/menu' },
-  // { label: 'Events', to: '/events' },
+  { label: 'Events', to: '/events' },
 ]
 
 const DropDownNav = ({ isOpen }: { isOpen: boolean }) => {
