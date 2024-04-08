@@ -4,7 +4,7 @@ import { ReserveABayObject } from './types/BookNowTypes'
 import dayjs from 'dayjs'
 
 export const BookNowForm = ({
-  handleBookNowButtonLink,
+  // handleBookNowButtonLink,
   handleReserveFormOnChange,
   //   handleDateTimePickerChange,
   reserveABayObject,
