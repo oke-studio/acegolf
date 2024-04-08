@@ -5,6 +5,9 @@ import { motion, useMotionValue } from 'framer-motion'
 import FoodImage1URL from '../../../assets/cards/food/bigbites-place-holder.webp'
 import FoodImage2URL from '../../../assets/cards/food/drinks-place-holder.webp'
 import FoodImage3URL from '../../../assets/cards/food/smallbites-place-holder.webp'
+import { Button } from '../../Button/Button'
+import { Typography } from '../../Typography/Typography'
+import { Link } from 'react-router-dom'
 const ONE_SECOND = 1000
 const AUTO_DELAY = ONE_SECOND * 10
 const DRAG_BUFFER = 50
@@ -52,7 +55,7 @@ export const MenuCard = () => {
   }
 
   return (
-    <div className="relative w-full  overflow-hidden py-8 ">
+    <div className="relative w-full overflow-hidden">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -67,13 +70,25 @@ export const MenuCard = () => {
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing"
+        className="flex h-full cursor-grab items-center active:cursor-grabbing"
       >
         <Images imgIndex={imgIndex} />
       </motion.div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
+      {/* <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} /> */}
       <GradientEdges />
+      <div className="absolute bottom-6 left-6 flex flex-col gap-4 rounded-xl bg-white p-6">
+        <Typography fontVariant="headingFour" fontWeight="700">
+          Asian Style Tapas Cuisine
+        </Typography>
+        <Button>
+          <Link to="/menu">
+            <Typography fontVariant="base" fontWeight="500">
+              See Full Menu &rarr;
+            </Typography>
+          </Link>
+        </Button>
+      </div>
     </div>
   )
 }
@@ -91,10 +106,10 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
               backgroundPosition: 'center',
             }}
             animate={{
-              scale: imgIndex === idx ? 0.95 : 0.85,
+              scale: imgIndex === idx ? 1 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="aspect-video w-full shrink-0 rounded-xl bg-neutral-800 object-cover"
+            className="h-full w-full shrink-0 rounded-xl bg-neutral-800 object-cover"
           />
         )
       })}

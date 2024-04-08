@@ -6,6 +6,12 @@ import { EmailSection } from './components/EmailSection/EmailSection'
 import { CardSection } from './components/CardSection/CardSection'
 import Lenis from '@studio-freight/lenis/types'
 import { WTVSection } from './components/WTVSection/WTVSection'
+import { Card } from '../../components/Card/Card'
+import { Typography } from '../../components/Typography/Typography'
+import { Link } from 'react-router-dom'
+import { Section } from '../../components/Section/Section'
+import { MenuCard as MC } from '../../components/Common/MenuCard/MenuCard'
+import { PricesCard as PC } from '../../components/Common/PricesCard/PricesCard'
 
 export const Landing = () => {
   React.useEffect(() => {
@@ -29,14 +35,40 @@ export const Landing = () => {
   return (
     <>
       <Container>
-        <div className="sticky top-28">
-          <LandingHero scrollYProgress={scrollYProgress} />
-        </div>
-        <div ref={ref} className="sticky top-0">
-          <div className="h-96"></div>
-        </div>
-        <CardSection />
+        {/* <div className="sticky top-28"> */}
+        <LandingHero scrollYProgress={scrollYProgress} />
+        {/* </div> */}
+        <Section
+          style={{ backgroundColor: 'transparent', border: 0, padding: 0 }}
+        >
+          <div className="mt-9 flex flex-wrap gap-6 *:grow *:basis-64">
+            <MC />
+            <Card
+              buttonOne={{
+                children: (
+                  <Link to="/how-it-works">
+                    <Typography fontVariant="large" fontWeight="400">
+                      How It Works &rarr;
+                    </Typography>
+                  </Link>
+                ),
+              }}
+              buttonTwo={{
+                children: (
+                  <Link to="/book-now">
+                    <Typography fontVariant="large" fontWeight="400">
+                      Find a Bay &rarr;
+                    </Typography>
+                  </Link>
+                ),
+              }}
+            >
+              <PC />
+            </Card>
+          </div>
+        </Section>
         <WTVSection />
+        <CardSection />
         <EmailSection />
       </Container>
     </>

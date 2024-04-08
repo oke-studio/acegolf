@@ -11,18 +11,18 @@ import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 export const LandingHero = ({
   scrollYProgress,
 }: {
-  scrollYProgress: MotionValue<number>
+  scrollYProgress?: MotionValue<number>
 }) => {
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
+  // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
 
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
+  // const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
 
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   return (
     // <div className="m-auto">
-    <motion.div style={{ opacity, scale }}>
-      <Section borderRadiusVariant="pill" style={{}}>
+    <motion.div>
+      <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
         <div className="flex flex-col gap-4">
           <div>
             <img
@@ -61,7 +61,7 @@ export const LandingHero = ({
           )}
         </div>
 
-        <LandingHeroImageGrid />
+        {/* <LandingHeroImageGrid /> */}
       </Section>
     </motion.div>
     // </div>

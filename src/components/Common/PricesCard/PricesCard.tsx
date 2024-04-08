@@ -144,22 +144,27 @@ export const PricesCard = () => {
 
   return (
     <div className="flex w-full flex-col">
-      <select
-        id="tab-select"
-        className="block w-full rounded-lg border-2 border-sharpTeal px-4 py-3 text-base focus:border-orange focus:ring-orange sm:hidden"
-        aria-label="Tabs"
-        role="tablist"
-        value={value}
-        onChange={(v) => setValue(Number(v.currentTarget.value))}
-      >
-        {TabValues.map((v, i) => (
-          <option key={`option_${i}`} value={v.value}>
-            {v.label}
-          </option>
-        ))}
-      </select>
+      <div className="flex flex-wrap items-center gap-3 *:grow *:basis-64">
+        <Typography fontVariant="headingThree" fontWeight="600">
+          Prices & Hours
+        </Typography>
+        <select
+          id="tab-select"
+          className="block w-full rounded-lg border-2 border-sharpTeal px-4 py-3 text-base focus:border-orange focus:ring-orange"
+          aria-label="Tabs"
+          role="tablist"
+          value={value}
+          onChange={(v) => setValue(Number(v.currentTarget.value))}
+        >
+          {TabValues.map((v, i) => (
+            <option key={`option_${i}`} value={v.value}>
+              {v.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <div className="hidden border-b border-gray-200 sm:block">
+      {/* <div className="hidden border-b border-gray-200 sm:block">
         <nav
           className="flex snap-x overflow-scroll rounded-lg border-2 border-lightBlack"
           aria-label="Tabs"
@@ -176,7 +181,7 @@ export const PricesCard = () => {
             />
           ))}
         </nav>
-      </div>
+      </div> */}
 
       <div className="mt-3">
         {baysPricingReduced.map((bay, index) => (

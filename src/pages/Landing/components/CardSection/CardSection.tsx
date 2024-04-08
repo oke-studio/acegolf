@@ -122,12 +122,14 @@ export const CardSection = () => {
           <div className="grid w-full grid-rows-2 gap-4 sm:grid-cols-[minmax(0,_2fr)_minmax(0,_3fr)] sm:grid-rows-none">
             <div className="grid w-full grid-rows-2 gap-4">
               <AmenitiesCard />
-              <ParkingCard />
+              <AmenitiesCard />
+              <AmenitiesCard />
             </div>
-            <PricesCard />
+            {/* <PricesCard /> */}
+            <ParkingCard />
           </div>
 
-          <MenuCard />
+          {/* <MenuCard /> */}
         </div>
       </Container>
     </Section>
