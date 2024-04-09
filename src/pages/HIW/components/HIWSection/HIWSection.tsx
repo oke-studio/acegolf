@@ -1,8 +1,5 @@
-import { Link } from 'react-router-dom'
-import { Button } from '../../../../components/Button/Button'
 import { Spinner } from '../../../../components/LoadingStates/Spinner'
 import { Section } from '../../../../components/Section/Section'
-import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from './hooks/useGetHIW.hook'
 import { HIWInfoBox } from './components/HIWInfoBox'
 
