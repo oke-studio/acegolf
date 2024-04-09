@@ -25,10 +25,10 @@ export const HIW = () => {
             IT WORK
           </Typography>
         </Section>
-        <HIWSection />
       </Container>
+      <HIWSection />
       <SimRoomSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </>
   )
 }

@@ -44,9 +44,10 @@ export const SimRoomSection = () => {
     <Section
       borderRadiusVariant="pill"
       style={{
-        backgroundColor: 'rgb(var(--color-green))',
+        backgroundColor: 'transparent',
         color: 'white',
-        scale,
+        border: 0,
+        // scale,
       }}
       ref={targetRef}
     >
