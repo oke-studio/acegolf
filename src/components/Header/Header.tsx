@@ -92,7 +92,7 @@ export const Header = () => {
           </motion.button>
           <DropDownNav isOpen={isOpen} />
         </div>
-        <HeaderBanner />
+        {!isOpen && <HeaderBanner />}
       </div>
     )
   }

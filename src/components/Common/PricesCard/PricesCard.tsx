@@ -150,7 +150,7 @@ export const PricesCard = () => {
         </Typography>
         <select
           id="tab-select"
-          className="block w-full rounded-lg border-2 border-sharpTeal px-4 py-3 text-base focus:border-orange focus:ring-orange"
+          className="block w-full rounded-lg border-4 border-black px-4 py-3 text-base focus:border-orange focus:ring-orange"
           aria-label="Tabs"
           role="tablist"
           value={value}

@@ -1,7 +1,7 @@
 import { Container } from '../../components/Container/Container'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
-import { FAQSection } from './components/FAQSection/FAQSection'
+// import { FAQSection } from './components/FAQSection/FAQSection'
 import { HIWSection } from './components/HIWSection/HIWSection'
 
 import { SimRoomSection } from './components/SimRoomSection/SimRoomSection'
@@ -25,10 +25,10 @@ export const HIW = () => {
             IT WORK
           </Typography>
         </Section>
-        <HIWSection />
       </Container>
+      <HIWSection />
       <SimRoomSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </>
   )
 }

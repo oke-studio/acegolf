@@ -4,9 +4,9 @@ import { Typography } from '../../../../components/Typography/Typography'
 import {
   AnimatePresence,
   motion,
-  useTransform,
-  useScroll,
-  useSpring,
+  // useTransform,
+  // useScroll,
+  // useSpring,
 } from 'framer-motion'
 
 import Bay1URL from '../../../../assets/simrooms/bay1.webp'
@@ -28,25 +28,26 @@ const FEATURED_SIM_ROOMS = [
 export const SimRoomSection = () => {
   const targetRef = React.useRef<HTMLDivElement>(null)
 
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['0 1', '1 1'],
-  })
+  // const { scrollYProgress } = useScroll({
+  //   target: targetRef,
+  //   offset: ['0 1', '1 1'],
+  // })
 
-  const scaleSpring = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  })
+  // const scaleSpring = useSpring(scrollYProgress, {
+  //   stiffness: 100,
+  //   damping: 30,
+  //   restDelta: 0.001,
+  // })
 
-  const scale = useTransform(scaleSpring, [0, 1], [0.8, 1])
+  // const scale = useTransform(scaleSpring, [0, 1], [0.8, 1])
   return (
     <Section
       borderRadiusVariant="pill"
       style={{
-        backgroundColor: 'rgb(var(--color-green))',
+        backgroundColor: 'transparent',
         color: 'white',
-        scale,
+        border: 0,
+        // scale,
       }}
       ref={targetRef}
     >

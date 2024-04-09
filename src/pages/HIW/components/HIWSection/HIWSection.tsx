@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
-import { Button } from '../../../../components/Button/Button'
 import { Spinner } from '../../../../components/LoadingStates/Spinner'
 import { Section } from '../../../../components/Section/Section'
-import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from './hooks/useGetHIW.hook'
 import { HIWInfoBox } from './components/HIWInfoBox'
+
+const MockColorPalette = ['#EB8B32', '#9A92C5', '#FFFFFF']
 
 export const HIWSection = () => {
   const { howItWorksData, isLoading } = useGetHowItWorks()
@@ -41,32 +40,26 @@ export const HIWSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
-      style={{ backgroundColor: 'rgb(var(--color-purple))' }}
+      style={{ backgroundColor: 'transparent', padding: 0 }}
     >
-      <div className="flex flex-col gap-6">
-        <div>
-          {infoBoxData?.map((info, index) => {
-            return (
-              <HIWInfoBox
-                number={(index + 1).toString()}
-                key={`${info.title}`}
-                description={<>{info.description}</>}
-                label={<>{info.title}</>}
-                miniInfoBox={info.relatedFAQs}
-              />
-            )
-          })}
-        </div>
-        <Button
-          buttonVariant="primary"
-          buttonStyle={{ alignSelf: 'center', width: 'max-content' }}
-        >
-          <Link to="/book-now">
-            <Typography fontVariant="base" fontWeight="500">
-              Reserve a Bay &rarr;
-            </Typography>
-          </Link>
-        </Button>
+      <div className="flex flex-col">
+        {infoBoxData?.map((info, index) => {
+          return (
+            <HIWInfoBox
+              number={(index + 1).toString()}
+              key={`${info.title}`}
+              description={<>{info.description}</>}
+              label={<>{info.title}</>}
+              miniInfoBox={info.relatedFAQs}
+              prevBG={
+                index === 0
+                  ? 'rgb(var(--color-lightBlack))'
+                  : MockColorPalette[index - 1]
+              }
+              curBG={MockColorPalette[index]}
+            />
+          )
+        })}
       </div>
     </Section>
   )
