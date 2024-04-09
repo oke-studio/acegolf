@@ -7,13 +7,14 @@ import { Header } from '@/components/Header/header.component';
 import { DynamicPageBackground } from '@/components/Helpers/dynamicPageBackground.component';
 import { FooterV2 } from '@/components/Footer/footerV2.component';
 
-import { aceFont } from '@/components/Theme-Context/fontValues';
+// import { aceFont } from '@/components/Theme-Context/fontValues';
 import { HeaderBanner } from '@/components/Header/headerBanner.component';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 export const metadata = {
 	title: 'Ace Golf Bar',
 	description: "Ace golf bar - Toronto's Coolest Indoor Golf & Lounge",
 };
+
 // export const safariBrowserTheme: Metadata ={
 
 //   name: 'theme-color',
@@ -29,10 +30,13 @@ export default function RootLayout({
 	return (
 		<html lang="en" style={{ overflowX: 'hidden' }}>
 			<Providers>
+				<head>
+       			 <link rel="stylesheet" href="https://use.typekit.net/jfg5sml.css" />
+      		</head>
 				<meta name="theme-color" content="#39775E"></meta>
 				<body
-					className={aceFont.className}
-					style={{ backgroundColor: '#171717' }}
+					// className={aceFont.className}
+					style={{ backgroundColor: '#171717', fontFamily: 'New Hero' }}
 				>
 					<DynamicPageBackground>
 						<Header />
