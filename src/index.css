@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://use.typekit.net/jfg5sml.css");
 
 @layer base {
   :root {
@@ -20,7 +21,7 @@
   }
 }
 
-@font-face {
+/* @font-face {
   font-family: 'HNHairline';
   src: url('./assets/fonts/Hero New Hairline.woff') format('woff');
   font-weight: 100;
@@ -156,7 +157,7 @@
   font-weight: 900;
   font-style: italic;
   font-display: swap;
-}
+} */
 
 #root {
   background-color: #171717;
