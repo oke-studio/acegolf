@@ -5,27 +5,37 @@ import { motion, MotionStyle } from 'framer-motion'
 type BorderRadiusVariantsType = 'pill' | 'corner'
 
 const BorderRadiusMapping: { [key in BorderRadiusVariantsType]: string } = {
-  pill: 'rounded-2xl',
+  pill: 'rounded-4xl',
   corner: 'rounded-none',
 }
 
+type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
+const SectionWidthOptions: { [key in SectionWidthOptionsTypes]: string } = {
+	fullViewport: 'section-fullViewport',
+	normal: 'section-normal',
+	small: 'section-small',
+};
+
 interface SectionProps {
   borderRadiusVariant?: BorderRadiusVariantsType
+  SectionWidth?: SectionWidthOptionsTypes;
   style?: MotionStyle
   children: React.ReactNode
   tailWindStyle?: string
 }
 
 export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
-  ({ borderRadiusVariant = 'pill', style, children, tailWindStyle }, ref) => {
+  ({ SectionWidth = 'normal', borderRadiusVariant = 'pill', style, children, tailWindStyle }, ref) => {
     const borderRadius = BorderRadiusMapping[borderRadiusVariant]
+    const SECTION = SectionWidthOptions[SectionWidth];
 
     return (
       <motion.section
         className={classNames(
           borderRadius,
+          SECTION,
           tailWindStyle,
-          'h-max w-full border-2 border-black bg-white p-6 py-20'
+          'h-max bg-white p-9 py-20'
         )}
         ref={ref}
         style={style}
