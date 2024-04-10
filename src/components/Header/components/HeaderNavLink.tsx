@@ -66,7 +66,7 @@ export const HeaderNavLink = ({
     <Link to={to}>
       <Typography
         fontVariant="base"
-        fontWeight="500"
+        fontWeight="400"
         style={{ color: 'white' }}
       >
         <motion.span initial="rest" whileHover="hover">

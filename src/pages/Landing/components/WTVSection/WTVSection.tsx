@@ -20,6 +20,7 @@ export const WTVSection = () => {
   return (
     <Section
       borderRadiusVariant="corner"
+      sectionWidth="fullViewport"
       style={{
         backgroundColor: 'transparent',
         border: 0,

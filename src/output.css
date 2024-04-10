@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "New Hero", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -765,6 +765,34 @@ video {
   margin: 1.5rem;
 }
 
+
+.section-normal{
+  margin: 8px 2.25rem 8px
+}
+
+.section-small{
+  /* margin: '8px 2.25rem 8px', */
+}
+
+.section-fullViewport{
+  margin: 8px 0 8px,
+}
+
+@media (max-width: 640px) {
+  .section-normal{
+    margin: 8px 1rem 8px
+  }
+
+  .section-small{
+    /* margin: '8px 2.25rem 8px', */
+  }
+  
+  .section-fullViewport{
+    margin: 8px 0 8px,
+  }
+  
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1473,6 +1501,7 @@ video {
   gap: 2rem;
 }
 
+
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
@@ -1567,6 +1596,10 @@ video {
   border-radius: 1.5rem;
 }
 
+.rounded-4xl {
+  border-radius: 2rem;
+}
+
 .rounded-\[1px\] {
   border-radius: 1px;
 }
@@ -1623,6 +1656,11 @@ video {
 .rounded-b-2xl {
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+}
+
+.rounded-b-none {
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 0rem;
 }
 
 .rounded-b-\[inherit\] {
@@ -1903,6 +1941,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-lightBlack) / var(--tw-bg-opacity));
 }
+.bg-navLightBlack {
+  --tw-bg-opacity: .5;
+  background-color: rgb(var(--color-lightBlack) / var(--tw-bg-opacity));
+}
 
 .bg-lightOrange {
   --tw-bg-opacity: 1;
@@ -2097,6 +2139,10 @@ video {
      object-fit: cover;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -2123,6 +2169,10 @@ video {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-9{
+  padding: 2.25rem;
 }
 
 .px-0 {
@@ -2293,39 +2343,39 @@ video {
 }
 
 .font-HNBold {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNExtraBold {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNHairline {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNLight {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNMedium {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNRegular {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNSemiBold {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNSuper {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .font-HNUltraLight {
-  font-family: New Hero, sans;
+  font-family: new-hero, sans-serif;
 }
 
 .text-2xl {
@@ -2714,7 +2764,7 @@ video {
   key: string;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'HNHairline';
 
   src: url('./assets/fonts/Hero New Hairline.woff') format('woff');
@@ -2932,7 +2982,7 @@ video {
   font-style: italic;
 
   font-display: swap;
-}
+} */
 
 #root {
   background-color: #171717;
@@ -3073,6 +3123,8 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-orange) / var(--tw-border-opacity));
 }
+
+
 
 .hover\:bg-amber-600:hover {
   --tw-bg-opacity: 1;
@@ -3729,6 +3781,10 @@ video {
 
   .md\:p-20 {
     padding: 5rem;
+  }
+
+  .md\:p-2 {
+    padding: .5rem;
   }
 
   .md\:p-4 {

@@ -8,7 +8,7 @@ export const HeaderBanner = () => {
     return <></>
   }
   return (
-    <div className="w-full self-center text-wrap rounded-b-3xl bg-green p-2 text-center text-white md:w-max md:rounded-3xl md:p-4">
+    <div className="w-full self-center text-wrap rounded-b-3xl bg-green p-2 text-center text-white md:w-max md:rounded-3xl md:p-2 px-3">
       <Typography fontVariant="base" fontWeight="500">
         {data.globalAnnouncementHeader}
       </Typography>
