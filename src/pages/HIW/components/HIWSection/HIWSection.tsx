@@ -40,7 +40,7 @@ export const HIWSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
-  
+      sectionWidth="fullViewport"
       style={{ backgroundColor: 'transparent', padding: 0 }}
     >
       <div className="flex flex-col">
