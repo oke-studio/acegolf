@@ -3082,6 +3082,8 @@ video {
   border-color: rgb(var(--color-orange) / var(--tw-border-opacity));
 }
 
+
+
 .hover\:bg-amber-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(217 119 6 / var(--tw-bg-opacity));

@@ -16,6 +16,7 @@ export const Footer = () => {
         backgroundImage: `url(${AceFooterURL})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
+        height: '500px',
       }}
     >
       <div className="m-6 flex flex-col gap-4">

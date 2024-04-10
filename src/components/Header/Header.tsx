@@ -114,7 +114,7 @@ export const Header = () => {
           <li key={'nav_button_book_now'}>
             <Button buttonVariant="nav">
               <Link to="/book-now">
-                <Typography fontVariant="base" fontWeight="400">
+                <Typography fontVariant="base" fontWeight="500">
                   Book Now
                 </Typography>
               </Link>
