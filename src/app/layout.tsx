@@ -36,7 +36,7 @@ export default function RootLayout({
 				<meta name="theme-color" content="#39775E"></meta>
 				<body
 					// className={aceFont.className}
-					style={{ backgroundColor: '#171717', fontFamily: 'New Hero' }}
+					style={{ backgroundColor: '#171717', fontFamily: 'new-hero , sans-serif' }}
 				>
 					<DynamicPageBackground>
 						<Header />

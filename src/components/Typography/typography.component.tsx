@@ -42,7 +42,7 @@ export const Typography = ({
 		{...props}
 		component={as ? as : SemanticComponentMapping[variant]}
 		variant={variant}
-		sx={{ fontWeight: weight, fontStyle: fontStyle, ...sx }}
+		sx={{ fontFamily: "new-hero", fontWeight: weight, fontStyle: fontStyle, ...sx }}
 	>
 		{children}
 	</T>
