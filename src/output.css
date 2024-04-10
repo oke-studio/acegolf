@@ -1903,6 +1903,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-lightBlack) / var(--tw-bg-opacity));
 }
+.bg-navLightBlack {
+  --tw-bg-opacity: .5;
+  background-color: rgb(var(--color-lightBlack) / var(--tw-bg-opacity));
+}
 
 .bg-lightOrange {
   --tw-bg-opacity: 1;
@@ -2095,6 +2099,10 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-2 {
@@ -3729,6 +3737,10 @@ video {
 
   .md\:p-20 {
     padding: 5rem;
+  }
+
+  .md\:p-2 {
+    padding: .5rem;
   }
 
   .md\:p-4 {
