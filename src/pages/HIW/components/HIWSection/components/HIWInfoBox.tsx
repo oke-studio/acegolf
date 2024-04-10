@@ -81,10 +81,19 @@ export const HIWInfoBox = ({
   curBG,
 }: HIWInfoBoxProps) => {
   return (
+    <Section
+      borderRadiusVariant="corner"
+      style={{
+        border: 0,
+        backgroundColor: prevBG,
+        padding: '0px',
+      }}
+      tailWindStyle="last:rounded-b-2xl"
+    >
   
     
       <div
-        className="flex flex-row flex-wrap gap-4 rounded-b-none rounded-t-2xl p-8 text-black *:grow *:basis-64 "
+        className="flex flex-row flex-wrap gap-4 rounded-b-[inherit] rounded-t-2xl p-8 text-black *:grow *:basis-64 "
         style={{ backgroundColor: curBG, marginTop: '-15px' }}
       >
         <div className="flex flex-col gap-4">
@@ -117,6 +126,7 @@ export const HIWInfoBox = ({
           ))}
         </div>
       </div>
+      </Section>
 
   )
 }
