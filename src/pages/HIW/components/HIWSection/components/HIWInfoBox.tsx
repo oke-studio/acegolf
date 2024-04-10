@@ -81,7 +81,7 @@ export const HIWInfoBox = ({
   curBG,
 }: HIWInfoBoxProps) => {
   return (
-  
+    <>
     
       <div
         className="flex flex-row flex-wrap gap-4 rounded-b-none rounded-t-2xl p-8 text-black *:grow *:basis-64 "
@@ -117,6 +117,7 @@ export const HIWInfoBox = ({
           ))}
         </div>
       </div>
+      </>
 
   )
 }
