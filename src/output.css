@@ -1658,6 +1658,11 @@ video {
   border-bottom-left-radius: 1rem;
 }
 
+.rounded-b-none {
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+}
+
 .rounded-b-\[inherit\] {
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
