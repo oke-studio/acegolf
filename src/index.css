@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://use.typekit.net/jfg5sml.css");
+/* @import url("https://use.typekit.net/jfg5sml.css"); */
 
 @layer base {
   :root {
