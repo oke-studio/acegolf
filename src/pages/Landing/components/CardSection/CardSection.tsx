@@ -111,6 +111,7 @@ export const CardSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
+      sectionWidth="fullViewport"
       style={{
         backgroundColor: 'rgb(var(--color-orange)',
         scale,

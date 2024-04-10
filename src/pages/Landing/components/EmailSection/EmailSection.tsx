@@ -17,6 +17,7 @@ export const EmailSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
+      sectionWidth="fullViewport"
       style={{
         backgroundColor: 'rgb(var(--color-green))',
         padding: '3rem',
