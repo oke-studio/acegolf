@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "New Hero", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -2714,7 +2714,7 @@ video {
   key: string;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'HNHairline';
 
   src: url('./assets/fonts/Hero New Hairline.woff') format('woff');
@@ -2932,7 +2932,7 @@ video {
   font-style: italic;
 
   font-display: swap;
-}
+} */
 
 #root {
   background-color: #171717;

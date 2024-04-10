@@ -19,9 +19,9 @@ interface NavOptions {
 // interface HeaderProps {}
 
 const NavOptions = [
-  { label: 'How it Works', to: '/how-it-works' },
-  // { label: 'About', to: '/about' },
   { label: 'Menu', to: '/menu' },
+  { label: 'How it Works', to: '/how-it-works' },
+  { label: 'About', to: '/about' },
   { label: 'Events', to: '/events' },
 ]
 
@@ -100,7 +100,7 @@ export const Header = () => {
   return (
     <div className="sticky top-0 z-50 mb-8 flex flex-col">
       <nav className="flex w-full items-center justify-center gap-6  p-3">
-        <ul className="flex items-center gap-6 rounded-3xl bg-lightBlack p-4 backdrop-blur-lg">
+        <ul className="flex items-center gap-6 rounded-3xl bg-lightBlack p-3 backdrop-blur-lg">
           <li key={'nav_logo_landing'}>
             <HeaderLogo />
           </li>
