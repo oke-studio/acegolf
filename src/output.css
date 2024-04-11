@@ -1984,6 +1984,10 @@ video {
   background-color: rgb(var(--color-white) / var(--tw-bg-opacity));
 }
 
+.bg-\[\#17171780\] {
+  background-color: #17171780;
+}
+
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
