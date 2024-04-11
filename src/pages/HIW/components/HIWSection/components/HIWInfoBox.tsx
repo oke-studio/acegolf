@@ -1,15 +1,18 @@
 import * as React from 'react'
 import { Typography } from '../../../../../components/Typography/Typography'
 import { TypeFaqItemFields } from '../../../../../types/contentful'
-// import { Section } from '../../../../../components/Section/Section'
+import { Section } from '../../../../../components/Section/Section'
+import { Button } from '../../../../../components/Button/Button'
 import { motion } from 'framer-motion'
 import { FiChevronDown } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 // type MiniInfoBoxType = {
 //   question: string
 //   answer: string
 //   categoryRefrence: { slug: string; faqCategor }
 // }
+
 
 const HIWMiniInfoBox = ({
   box,
@@ -23,7 +26,7 @@ const HIWMiniInfoBox = ({
     <motion.div
       animate={open ? 'open' : 'closed'}
       key={`${index}`}
-      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4 uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4 text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
       id={box.question}
       onClick={() => {
         // e.preventDefault()
@@ -55,9 +58,16 @@ const HIWMiniInfoBox = ({
           height: open ? 'fit-content' : '0px',
           marginBottom: open ? '32px' : '0px',
         }}
-        className="overflow-hidden"
+        className="overflow-hidden flex gap-3 flex-col"
+        
       >
         {box.answer}
+        <Button
+              buttonVariant="primary"
+              buttonStyle={{ width: 'max-content' }}
+            >
+              <Link to={"link"}> LinkText &rarr;</Link>
+            </Button>
       </motion.div>
     </motion.div>
   )
@@ -81,11 +91,20 @@ export const HIWInfoBox = ({
   curBG,
 }: HIWInfoBoxProps) => {
   return (
-    <>
-    
+
+    <Section
+      borderRadiusVariant="pill"
+      sectionWidth="fullViewport"
+      style={{ 
+        backgroundColor: curBG, 
+        marginTop: '-50px',
+        // borderBottomRightRadius: '0px',
+        // borderBottomLeftRadius: '0px',
+      }}
+    >
       <div
-        className="flex flex-row flex-wrap gap-4 rounded-b-none rounded-t-2xl p-8 text-black *:grow *:basis-64 "
-        style={{ backgroundColor: curBG, marginTop: '-15px' }}
+        className="flex flex-row flex-wrap gap-4 p-8 text-black *:grow *:basis-64 p-8"
+        // style={{ backgroundColor: curBG, marginTop: '-15px', minHeight: '400px' }}
       >
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-4">
@@ -117,7 +136,7 @@ export const HIWInfoBox = ({
           ))}
         </div>
       </div>
-      </>
+      </Section>
 
   )
 }

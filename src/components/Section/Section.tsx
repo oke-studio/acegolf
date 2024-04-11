@@ -5,14 +5,14 @@ import { motion, MotionStyle } from 'framer-motion'
 type BorderRadiusVariantsType = 'pill' | 'corner'
 
 const BorderRadiusMapping: { [key in BorderRadiusVariantsType]: string } = {
-  pill: 'rounded-4xl',
+  pill: 'rounded-[2rem]',
   corner: 'rounded-none',
 }
 
 type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
 const SectionWidthOptions: { [key in SectionWidthOptionsTypes]: string } = {
-	fullViewport: 'section-fullViewport',
-	normal: 'section-normal',
+	fullViewport: 'm-[8px_0_8px]',
+	normal: 'm-[8px_2.25rem_8px]',
 	small: 'section-small',
 };
 

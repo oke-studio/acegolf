@@ -41,7 +41,7 @@ export const HIWSection = () => {
     <Section
       borderRadiusVariant="pill"
       sectionWidth="fullViewport"
-      style={{ backgroundColor: 'transparent', padding: 0 }}
+      style={{ backgroundColor: 'transparent', padding: '0', marginTop: '50px',}}
     >
       <div className="flex flex-col">
         {infoBoxData?.map((info, index) => {
