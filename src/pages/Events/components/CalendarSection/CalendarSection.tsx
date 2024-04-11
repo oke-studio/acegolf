@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
 import {
-  EventsCalendarMock,
+  // EventsCalendarMock,
   //   EventsCalendarMockReduced,
   TransformEventsCalendarMockV2,
 } from '../../mocks/EventsCalendar.mock'

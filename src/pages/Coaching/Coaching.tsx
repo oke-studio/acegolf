@@ -2,7 +2,6 @@ import { Button } from '../../components/Button/Button'
 import { Container } from '../../components/Container/Container'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
-import imageURL from '../../assets/cards/food/bigbites-place-holder.webp'
 
 export const Coaching = () => {
   return (

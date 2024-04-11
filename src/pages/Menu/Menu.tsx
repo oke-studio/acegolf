@@ -4,9 +4,9 @@ import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
 import { motion } from 'framer-motion'
 import { MenuSection } from './components/MenuSection/MenuSection'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 export const Menu = () => {
-  const isMobile = useMediaQuery({ maxWidth: '640px' })
+  // const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   React.useEffect(() => {
     const rootEl = document.getElementById('root')
@@ -22,19 +22,18 @@ export const Menu = () => {
   return (
     <>
       <Container>
-      <Section
+        <Section
           borderRadiusVariant="corner"
           sectionWidth="normal"
-          style={{ 
-            color: 'white', 
-            backgroundColor: 'transparent', 
+          style={{
+            color: 'white',
+            backgroundColor: 'transparent',
             padding: 0,
             paddingBottom: '50px',
-           display:'flex',
-           flexDirection: 'row',
+            display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'center',
-
-           }}
+          }}
         >
           <Typography
             fontVariant="largeH1"

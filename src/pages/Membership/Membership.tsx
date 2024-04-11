@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Button } from '../../components/Button/Button'
+
 import { Container } from '../../components/Container/Container'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
-import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
 import { EmailSection } from '../Events/components/EmailSection/EmailSection'
 import { Card } from '../../components/Card/Card'
 
