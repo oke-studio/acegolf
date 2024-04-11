@@ -5,45 +5,37 @@ import { motion, MotionStyle } from 'framer-motion'
 type BorderRadiusVariantsType = 'pill' | 'corner'
 
 const BorderRadiusMapping: { [key in BorderRadiusVariantsType]: string } = {
-  pill: 'rounded-3xl',
+  pill: 'rounded-[2rem]',
   corner: 'rounded-none',
 }
 
-type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small'
+type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small';
 const SectionWidthOptions: { [key in SectionWidthOptionsTypes]: string } = {
-  fullViewport: 'section-fullViewport',
-  normal: 'section-normal',
-  small: 'section-small',
-}
+	fullViewport: 'm-[8px_0_8px]',
+	normal: 'm-[8px_2.25rem_8px]',
+	small: 'section-small',
+};
 
 interface SectionProps {
   borderRadiusVariant?: BorderRadiusVariantsType
-  sectionWidth?: SectionWidthOptionsTypes
+  sectionWidth?: SectionWidthOptionsTypes;
   style?: MotionStyle
   children: React.ReactNode
   tailWindStyle?: string
 }
 
 export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
-  (
-    {
-      sectionWidth = 'normal',
-      borderRadiusVariant = 'pill',
-      style,
-      children,
-      // tailWindStyle,
-    },
-    ref
-  ) => {
+  ({ sectionWidth = 'normal', borderRadiusVariant = 'pill', style, children, tailWindStyle }, ref) => {
     const borderRadius = BorderRadiusMapping[borderRadiusVariant]
-    const SECTION = SectionWidthOptions[sectionWidth]
+    const SECTION = SectionWidthOptions[sectionWidth];
 
     return (
       <motion.section
         className={classNames(
-          'h-max bg-white p-9 py-20',
           borderRadius,
-          SECTION
+          SECTION,
+          tailWindStyle,
+          'h-max bg-white p-6 py-20'
         )}
         ref={ref}
         style={style}
