@@ -100,7 +100,7 @@ export const Header = () => {
   return (
     <div className="sticky top-0 z-50 mb-8 flex flex-col">
       <nav className="flex w-full items-center justify-center gap-6  p-3">
-        <ul className="flex items-center gap-8 rounded-3xl bg-navLightBlack p-1 backdrop-blur-lg">
+        <ul className="flex items-center gap-8 rounded-3xl bg-[#17171780] p-1 backdrop-blur-lg">
           <li  className="px-4" key={'nav_logo_landing'}>
             <HeaderLogo />
           </li>
