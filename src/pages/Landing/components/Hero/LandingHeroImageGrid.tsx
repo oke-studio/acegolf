@@ -5,11 +5,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 
 // Image imports
-import LandingImage1URL from '../../../../assets/landingHero/Spin-photo1.webp'
-import LandingImage2URL from '../../../../assets/landingHero/Spin-photo2.webp'
-import LandingImage3URL from '../../../../assets/landingHero/Spin-photo3.webp'
-import LandingImageAceLogoURL from '../../../../assets/landingHero/ace-sticker-1.webp'
-import LandingImage4URL from '../../../../assets/landingHero/friends-photos.webp'
+import LandingImage1URL from '../../../../assets/landingHero/Friends-golfing.webp'
+import LandingImage2URL from '../../../../assets/landingHero/night-golfing.webp'
+import LandingImage3URL from '../../../../assets/landingHero/girl-golfing.webp'
+import LandingImageAceLogoURL from '../../../../assets/landingHero/ace-ball.webp'
+import LandingImage4URL from '../../../../assets/landingHero/bigbites-place-holder.webp'
 
 const LayoutWidthOptions = {
   //   center: {
@@ -164,7 +164,7 @@ export const LandingHeroImageGrid = ({
             // backCutOutColor,
             imageNameAltText,
             // opacity,
-            // scale,
+            scale,
             // rotation,
             // zIndex,
             // gridPosXColumn,
@@ -215,6 +215,7 @@ export const LandingHeroImageGrid = ({
                     display: 'block',
                     width: '100%',
                     height: 'auto',
+                    scale: scale,
                     // aspectRatio: `${AceImageAspectRatio}`,
                     // scale: `${randomizer(0.96, 0.98)}`,
                     // transform: `rotate(${randomizer(3, -3)}deg)`,
@@ -260,7 +261,7 @@ const landingHeroImages = [
   {
     src: LandingImage1URL,
     aspectRatio: '0.77',
-    backCutOut: true,
+    backCutOut: false,
     backCutOutColor: 'orange',
     imageNameAltText: 'friends photos at ace',
     opacity: 1, // default 1 for visible
@@ -296,7 +297,7 @@ const landingHeroImages = [
   {
     src: LandingImage2URL,
     aspectRatio: '1.130',
-    backCutOut: true,
+    backCutOut: false,
     backCutOutColor: 'sharpTeal',
     imageNameAltText: 'the vibes seating area',
     opacity: 1,
@@ -331,7 +332,7 @@ const landingHeroImages = [
   {
     src: LandingImage3URL,
     aspectRatio: '0.95',
-    backCutOut: true,
+    backCutOut: false,
     backCutOutColor: 'sharpTeal',
     imageNameAltText: 'pool bar',
     opacity: 1,
@@ -366,7 +367,7 @@ const landingHeroImages = [
   {
     src: LandingImage4URL,
     aspectRatio: '0.91',
-    backCutOut: true,
+    backCutOut: false,
     backCutOutColor: 'sharpTeal',
     imageNameAltText: 'ping pong area',
     opacity: 1,
