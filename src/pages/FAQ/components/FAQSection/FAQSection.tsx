@@ -56,7 +56,7 @@ export const FAQSection = () => {
       style={{
         backgroundColor: 'transparent',
         border: 0,
-        padding: 0,
+        paddingTop:'1.5rem'
       }}
     >
       <Container>
