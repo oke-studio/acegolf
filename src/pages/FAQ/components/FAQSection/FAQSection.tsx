@@ -58,12 +58,15 @@ export const FAQSection = () => {
       }}
     >
       <Container>
-        <div className="mt-10 flex flex-col items-center justify-center gap-5 text-white">
+        <div className="mt-10 flex flex-col items-center justify-center gap-12 text-white">
           {faqReduced &&
             Object.keys(faqReduced!).map((faq, index) => {
               const FAQStore = faqReduced[faq]
               return (
-                <div key={`${faq}_${index}`} className="w-full">
+                <div
+                  key={`${faq}_${index}`}
+                  className="flex w-full flex-col flex-nowrap gap-3"
+                >
                   <Typography
                     fontVariant="large"
                     fontWeight="700"
@@ -115,19 +118,19 @@ const FAQAccordion = ({
   const [open, setOpen] = React.useState(defaultOpen)
 
   return (
-    <motion.div animate={open ? 'open' : 'closed'} className="">
-      <button
-        onClick={() => {
-          // console.log('clicked', id)
-          setOpen((pv) => !pv)
-        }}
-        className="flex w-full items-center justify-between gap-4 py-6 text-start"
-        id={`faq-${id}`}
-      >
+    <motion.div
+      animate={open ? 'open' : 'closed'}
+      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4 uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+      onClick={() => {
+        // console.log('clicked', id)
+        setOpen((pv) => !pv)
+      }}
+    >
+      <div className="flex w-full justify-between" id={`faq-${id}`}>
         <Typography
           fontVariant="headingFour"
           fontWeight="600"
-          style={{ color: open ? 'rgb(var(--color-orange))' : 'white' }}
+          style={{ color: open ? 'rgb(var(--color-orange))' : 'black' }}
         >
           {title}
         </Typography>
@@ -139,20 +142,20 @@ const FAQAccordion = ({
             },
             closed: {
               rotate: '0deg',
-              color: '#ffffff',
+              color: '#000000',
             },
           }}
         >
           <FiChevronDown className="text-2xl" />
         </motion.span>
-      </button>
+      </div>
       <motion.div
         initial={false}
         animate={{
           height: open ? 'fit-content' : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className="white overflow-hidden"
+        className="black overflow-hidden"
       >
         {children}
       </motion.div>

@@ -13,6 +13,10 @@ import { HIW } from './pages/HIW/HIW'
 import { AboutACE } from './pages/AboutACE/AboutACE'
 import { Events } from './pages/Events/Events'
 import { EventsItem } from './pages/Events/pages/EventsItem'
+import { FAQ } from './pages/FAQ/FAQ'
+import { Leagues } from './pages/Leagues/Leagues'
+import { Coaching } from './pages/Coaching/Coaching'
+import { Membership } from './pages/Membership/Membership'
 const client = new QueryClient()
 
 const router = createBrowserRouter([
@@ -42,6 +46,10 @@ const router = createBrowserRouter([
       },
       { path: '/events', element: <Events /> },
       { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
+      { path: 'coaching', element: <Coaching /> },
+      { path: 'leagues', element: <Leagues /> },
+      { path: 'faq', element: <FAQ /> },
+      { path: 'membership', element: <Membership /> },
     ],
   },
 ])

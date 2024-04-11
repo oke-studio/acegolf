@@ -55,7 +55,7 @@ export const MenuCard = () => {
   }
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative h-[550px] w-full overflow-hidden md:h-auto">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -77,7 +77,7 @@ export const MenuCard = () => {
 
       {/* <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} /> */}
       <GradientEdges />
-      <div className="absolute bottom-6 left-6 flex flex-col gap-4 rounded-xl bg-white p-6">
+      <div className="absolute bottom-6 left-6 right-6 m-3 flex flex-col gap-4 rounded-xl bg-white p-6 md:m-0">
         <Typography fontVariant="headingFour" fontWeight="700">
           Asian Style Tapas Cuisine
         </Typography>

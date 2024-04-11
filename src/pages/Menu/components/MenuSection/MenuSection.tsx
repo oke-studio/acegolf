@@ -3,7 +3,7 @@ import { Section } from '../../../../components/Section/Section'
 import { Container } from '../../../../components/Container/Container'
 import classNames from 'classnames'
 import { Typography } from '../../../../components/Typography/Typography'
-import { Button } from '../../../../components/Button/Button'
+// import { Button } from '../../../../components/Button/Button'
 import { Spinner } from '../../../../components/LoadingStates/Spinner'
 import { useGetMenu } from '../../hooks/useGetMenu.hook'
 import {
@@ -13,7 +13,7 @@ import {
   MENU_SECTION_NAMES,
 } from '../../types/MenuSectionTypes'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 
 const MAP_MENU_COLLECTION_TO_IMAGE: {
@@ -74,15 +74,15 @@ export const MenuSection = () => {
     menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url
 
   return (
-    <Section 
-    borderRadiusVariant="pill"
-    sectionWidth="normal"
-    style={{ 
-      alignItems: 'center', 
-      marginBottom: '32px',
-      padding: '2% 5%'
-
-      }}>
+    <Section
+      borderRadiusVariant="pill"
+      sectionWidth="normal"
+      style={{
+        alignItems: 'center',
+        marginBottom: '32px',
+        padding: '2% 5%',
+      }}
+    >
       <Container
         style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column' }}
       >

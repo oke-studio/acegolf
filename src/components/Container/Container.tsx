@@ -8,7 +8,7 @@ interface ContainerProps {
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, style }, ref) => {
     return (
-      <div className="relative mx-auto" ref={ref} style={style}>
+      <div className="relative mx-auto p-4" ref={ref} style={style}>
         {children}
       </div>
       //"container relative mx-auto"
