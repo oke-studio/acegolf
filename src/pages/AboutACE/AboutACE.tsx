@@ -2,7 +2,7 @@ import { Container } from '../../components/Container/Container'
 import { Typography } from '../../components/Typography/Typography'
 import { Section } from '../../components/Section/Section'
 import { HeaderLogo } from '../../components/Header/components/HeaderLogo'
-import Bay1URL from '../../assets/simrooms/bay1.webp'
+import AboutBanner from '../../assets/about-banner.webp'
 
 export const AboutACE = () => {
   return (
@@ -15,29 +15,39 @@ export const AboutACE = () => {
           style={{
             backgroundColor: 'black',
             border: 0,
-            padding: '0',
+            // padding: '0',
+
+            backgroundImage: `url(${AboutBanner})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
           }}
         >
-          <div className="flex flex-wrap *:grow *:basis-64">
+          <div className="flex flex-wrap *:grow *:basis-64"
+          //  style={{
+          //   width: '50%'}}
+          >
             {/* Image */}
-            <div className="relative flex h-56 w-full flex-col overflow-hidden rounded-t-3xl bg-white bg-clip-border text-gray-700 shadow-md md:h-auto md:rounded-l-xl md:rounded-bl-xl md:rounded-tr-none">
-              <div
+            <div className="relative flex h-56 w-full flex-col overflow-hidden rounded-t-3xl bg-clip-border text-gray-700 shadow-md md:h-auto md:rounded-l-xl md:rounded-bl-xl md:rounded-tr-none">
+              {/* <div
                 className="h-full bg-slate-300 grayscale"
+
                 style={{
-                  backgroundImage: `url(${Bay1URL})`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
+                  // backgroundImage: `url(${Bay1URL})`,
+                  // backgroundPosition: 'center',
+                  // backgroundSize: 'cover',
                 }}
-              />
+              /> */}
             </div>
             {/* Copy */}
             <div className="flex flex-col items-center gap-14 p-20 px-6 pb-28 text-center text-white">
               <HeaderLogo />
               <div>
+              <Typography fontVariant="base" fontWeight="400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 lacinia tempor tempor. Nunc gravida id elit non pretium. Donec
                 rhoncus leo sapien, non ullamcorper massa venenatis et. Mauris
                 vel est dolor. Nullam convallis lacinia lectus sit amet rhoncus.
+                </Typography>
               </div>
             </div>
           </div>
