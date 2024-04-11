@@ -227,3 +227,55 @@
     transform: translate3d(-7rem, 0, 0);
   }
 }
+
+
+/* .section-normal{
+  margin: 8px 2.25rem 8px
+}
+
+.section-small{
+  margin: '8px 2.25rem 8px',
+}
+
+.section-fullViewport{
+  margin: 8px 0 8px,
+}
+
+@media (max-width: 640px) {
+  .section-normal{
+    margin: 8px 1rem 8px
+  }
+
+  .section-small{
+    margin: '8px 2.25rem 8px',
+  }
+  
+  .section-fullViewport{
+    margin: 8px 0 8px,
+  }
+  
+} 
+
+.rounded-4xl {
+  border-radius: 2rem;
+  
+}
+
+.rounded-b-none {
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+}
+
+.bg-navLightBlack {
+  --tw-bg-opacity: .5;
+  background-color: rgb(var(--color-lightBlack) / var(--tw-bg-opacity));
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-9{
+  padding: 2.25rem;
+}
+*/
