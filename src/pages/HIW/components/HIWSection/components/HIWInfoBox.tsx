@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Typography } from '../../../../../components/Typography/Typography'
 import { TypeFaqItemFields } from '../../../../../types/contentful'
-import { Section } from '../../../../../components/Section/Section'
+// import { Section } from '../../../../../components/Section/Section'
 import { motion } from 'framer-motion'
 import { FiChevronDown } from 'react-icons/fi'
 
@@ -77,7 +77,7 @@ export const HIWInfoBox = ({
   description,
   miniInfoBox,
   label,
-  prevBG,
+  // prevBG,
   curBG,
 }: HIWInfoBoxProps) => {
   return (
