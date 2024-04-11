@@ -12,7 +12,16 @@ export const HIW = () => {
       <Container>
         <Section
           borderRadiusVariant="corner"
-          style={{ color: 'white', backgroundColor: 'transparent', border: 0 }}
+          sectionWidth="normal"
+          style={{ 
+            color: 'white', 
+            backgroundColor: 'transparent', 
+            border: 0,
+           display:'flex',
+           flexDirection: 'row',
+            justifyContent: 'center',
+
+           }}
         >
           <Typography
             fontVariant="largeH1"

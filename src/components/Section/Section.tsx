@@ -35,7 +35,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
           borderRadius,
           SECTION,
           tailWindStyle,
-          'h-max bg-white p-9 py-20'
+          'h-max bg-white p-6 py-20'
         )}
         ref={ref}
         style={style}
