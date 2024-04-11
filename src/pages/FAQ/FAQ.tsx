@@ -24,9 +24,9 @@ export const FAQ = () => {
           >
             FAQS
           </Typography>
-          <Typography fontVariant="base" fontWeight="500">
+          {/* <Typography fontVariant="base" fontWeight="500">
             Questions you wanted to ask but couldn&apos;t
-          </Typography>
+          </Typography> */}
         </div>
       </Section>
       <FAQSection />
