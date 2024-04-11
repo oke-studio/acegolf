@@ -20,7 +20,7 @@ export const AboutACE = () => {
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
-            <div className="relative flex w-full flex-col overflow-hidden rounded-l-xl rounded-bl-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="relative flex h-56 w-full flex-col overflow-hidden rounded-t-3xl bg-white bg-clip-border text-gray-700 shadow-md md:h-auto md:rounded-l-xl md:rounded-bl-xl md:rounded-tr-none">
               <div
                 className="h-full bg-slate-300 grayscale"
                 style={{
@@ -56,7 +56,7 @@ export const AboutACE = () => {
               <Typography fontVariant="extralarge" fontWeight="700">
                 OUR TEAM
               </Typography>
-              <div className="row-auto grid h-full grid-cols-2 gap-x-8 gap-y-8">
+              <div className="grid h-full grid-rows-2 gap-x-8 gap-y-8 md:grid-cols-2">
                 {['A', 'B', 'C', 'D'].map(() => (
                   <div className="flex h-full flex-col items-center">
                     <div className="aspect-1 mb-8 h-80 w-80 rounded-lg bg-gray-700" />

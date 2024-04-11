@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { getAceQuery } from '../../../../../utils/getAceQuery'
-import { TypeFaqItemFields } from '../../../../../types/contentful'
-import { GetFAQQuery } from '../../../../../utils/Queries'
+import { getAceQuery } from '../../utils/getAceQuery'
+import { TypeFaqItemFields } from '../../types/contentful'
+import { GetFAQQuery } from '../../utils/Queries'
 
 const useGetFAQQuery = () => {
   const Query = useQuery<{

@@ -12,17 +12,8 @@ export const HIW = () => {
       <Container>
         <Section
           borderRadiusVariant="corner"
-          sectionWidth="normal"
-          style={{ 
-            color: 'white', 
-            backgroundColor: 'transparent', 
-            padding: 0,
-            paddingBottom: '50px',
-           display:'flex',
-           flexDirection: 'row',
-            justifyContent: 'center',
-
-           }}
+          style={{ color: 'white', backgroundColor: 'transparent', border: 0 }}
+          tailWindStyle="text-center flex justify-center"
         >
           <Typography
             fontVariant="largeH1"
@@ -32,7 +23,7 @@ export const HIW = () => {
           >
             HOW DOES
             <br />
-            IT WORK
+            IT WORK?
           </Typography>
         </Section>
       </Container>

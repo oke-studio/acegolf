@@ -25,7 +25,13 @@ const NavOptions = [
   { label: 'Events', to: '/events' },
 ]
 
-const DropDownNav = ({ isOpen }: { isOpen: boolean }) => {
+const DropDownNav = ({
+  isOpen,
+  setOpen,
+}: {
+  isOpen: boolean
+  setOpen: (choice: boolean) => void
+}) => {
   const navVariants = {
     open: {
       y: '0%',
@@ -50,7 +56,10 @@ const DropDownNav = ({ isOpen }: { isOpen: boolean }) => {
       <ul className="mt-10 flex flex-col items-center gap-8">
         {NavOptions.map((opt, index) => {
           return (
-            <li key={`nav_${opt.label}_${index}`}>
+            <li
+              key={`nav_${opt.label}_${index}`}
+              onClick={() => setOpen(!isOpen)}
+            >
               <HeaderNavLink
                 to={opt.to}
                 label={opt.label}
@@ -76,7 +85,9 @@ export const Header = () => {
             'flex w-full items-center justify-between bg-black p-3'
           )}
         >
-          <HeaderLogo color={isOpen ? 'black' : 'white'} />
+          <div onClick={() => setIsOpen((ev) => !ev)}>
+            <HeaderLogo color={isOpen ? 'black' : 'white'} />
+          </div>
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="text-3xl"
@@ -90,7 +101,7 @@ export const Header = () => {
               <TbMenu2 fontSize="large" color="white" />
             )}
           </motion.button>
-          <DropDownNav isOpen={isOpen} />
+          <DropDownNav isOpen={isOpen} setOpen={setIsOpen} />
         </div>
         {!isOpen && <HeaderBanner />}
       </div>
@@ -101,7 +112,7 @@ export const Header = () => {
     <div className="sticky top-0 z-50 mb-8 flex flex-col">
       <nav className="flex w-full items-center justify-center gap-6  p-3">
         <ul className="flex items-center gap-8 rounded-3xl bg-[#17171780] p-1 backdrop-blur-lg">
-          <li  className="px-4" key={'nav_logo_landing'}>
+          <li className="px-4" key={'nav_logo_landing'}>
             <HeaderLogo />
           </li>
           {NavOptions.map((opt, index) => {

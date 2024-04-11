@@ -2,11 +2,11 @@ import { Section } from '../../../../components/Section/Section'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-// mock
-// import {
-//   EventsCalendarMock,
-//   //   EventsCalendarMockReduced,
-// } from '../../mocks/EventsCalendar.mock'
+import {
+  EventsCalendarMock,
+  //   EventsCalendarMockReduced,
+  TransformEventsCalendarMockV2,
+} from '../../mocks/EventsCalendar.mock'
 import { Typography } from '../../../../components/Typography/Typography'
 import { CalendarItemContainerStyleType } from './types/CalendarSection.types'
 import { useGetEventsParsed } from './hooks/useGetEventsParsed.hook'
@@ -110,6 +110,7 @@ export const CalendarSection = () => {
     twoWeekSpan.push(new Date(d).toISOString())
   }
 
+  const MockedEvents = TransformEventsCalendarMockV2()
   return (
     <Section
       borderRadiusVariant="pill"
@@ -136,7 +137,8 @@ export const CalendarSection = () => {
         ))} */}
 
         {twoWeekSpan.map((event) => {
-          const events = eventsData[event.split('T')[0]]
+          // const events = eventsData[event.split('T')[0]]
+          const events = MockedEvents[event.split('T')[0]]
 
           const eventDate = new Date(event)
             .toDateString()

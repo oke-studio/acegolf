@@ -12,15 +12,12 @@ export const PageLayoutContainer = () => {
   }, [pathname])
   return (
     <>
-    <body>
-          <Header />
+      <Header />
       <main className="relative grow overflow-x-clip">
         <Outlet />
       </main>
       <Footer />
 
-        </body>
-      
       {/* <div className="subtleNoise"></div> */}
       <ReactQueryDevtools
         initialIsOpen={false}

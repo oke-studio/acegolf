@@ -141,35 +141,28 @@ const PriceInfoBox = ({
     ? 'bg-black text-white'
     : 'text-black bg-white border-2 border-black border-solid'
   return (
-    <div className={cn(PrivateStyle, 'flex w-full flex-col gap-4 rounded-xl')}>
-      <div className="flex w-full flex-row flex-wrap justify-between rounded-[inherit] p-4">
-        <Typography
-          fontVariant="large"
-          fontWeight="700"
-          style={{ display: 'flex', alignItems: 'center' }}
-          tailwindStyle="mb-1"
-        >
+    <div className={cn(PrivateStyle, 'flex w-full flex-col rounded-xl')}>
+      <div className="flex w-full flex-row flex-wrap items-center justify-between rounded-[inherit] p-4 *:grow *:basis-64">
+        <Typography fontVariant="large" fontWeight="700" tailwindStyle="mb-1">
           {isPrivate ? 'Private Bay' : 'General Bay'}
         </Typography>
 
-        <div className="flex gap-3">
-          <div className="flex flex-col gap-3 text-center">
-            <Typography fontVariant="headingThree" fontWeight="800">
-              ${priceInfoBox.price}
-              <Typography
-                fontVariant="base"
-                fontWeight="400"
-                style={{ display: 'inline' }}
-              >
-                /hr
-              </Typography>
+        <div className="flex flex-col gap-3 text-center">
+          <Typography fontVariant="headingThree" fontWeight="800">
+            ${priceInfoBox.price}
+            <Typography
+              fontVariant="base"
+              fontWeight="400"
+              style={{ display: 'inline' }}
+            >
+              /hr
             </Typography>
-            <ServicePill
-              variant="dark"
-              color="black"
-              label={priceInfoBox.service}
-            />
-          </div>
+          </Typography>
+          <ServicePill
+            variant="dark"
+            color="black"
+            label={priceInfoBox.service}
+          />
         </div>
       </div>
     </div>
