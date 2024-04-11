@@ -74,14 +74,22 @@ export const MenuSection = () => {
     menuData[MAP_MENU_COLLECTION_TO_IMAGE[MenuCollectionKeys[value]]]?.url
 
   return (
-    <Section style={{ alignItems: 'center', marginBottom: '32px' }}>
+    <Section 
+    borderRadiusVariant="pill"
+    sectionWidth="normal"
+    style={{ 
+      alignItems: 'center', 
+      marginBottom: '32px',
+      padding: '2% 5%'
+
+      }}>
       <Container
         style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column' }}
       >
         <div className="flex h-full min-h-[inherit] flex-col items-center justify-center gap-8">
           {!isMobile && (
             <nav
-              className="flex snap-x justify-center gap-4 overflow-scroll"
+              className="flex snap-x justify-center gap-8 overflow-scroll text-xl "
               aria-label="Tabs"
               role="tablist"
               data-tab-select="#tab-select"
@@ -97,7 +105,7 @@ export const MenuSection = () => {
               ))}
             </nav>
           )}
-          <div className="grid w-full flex-1 gap-4 sm:grid-cols-2">
+          <div className="grid w-full flex-1 gap-8 sm:grid-cols-2">
             {/* Data */}
             <div className=" w-full gap-4 sm:block">
               {MenuCollectionKeys.map((option, index) => {
@@ -180,13 +188,13 @@ export const MenuSection = () => {
             )}
           </div>
 
-          <Button buttonVariant="secondary">
+          {/* <Button buttonVariant="secondary">
             <Link to="/book-now">
               <Typography fontVariant="base" fontWeight="400">
                 Reserve a bay &rarr;
               </Typography>
             </Link>
-          </Button>
+          </Button> */}
         </div>
       </Container>
     </Section>

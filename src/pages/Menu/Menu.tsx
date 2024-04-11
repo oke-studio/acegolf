@@ -22,24 +22,25 @@ export const Menu = () => {
   return (
     <>
       <Container>
-        <Section
+      <Section
           borderRadiusVariant="corner"
-          style={{
-            color: 'white',
-            backgroundColor: 'transparent',
-            border: 0,
+          sectionWidth="normal"
+          style={{ 
+            color: 'white', 
+            backgroundColor: 'transparent', 
             padding: 0,
-            margin: '2rem 0',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            ...(isMobile && { justifyContent: 'center' }),
-          }}
+            paddingBottom: '50px',
+           display:'flex',
+           flexDirection: 'row',
+            justifyContent: 'center',
+
+           }}
         >
           <Typography
             fontVariant="largeH1"
             fontStyle="italic"
             fontWeight="900"
-            tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4"
+            tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl text-white md:gap-4"
           >
             GOLF &{' '}
             <Box front="DRINKS" bottom="BITES" back="GOURMET" top="DESSERTS" />

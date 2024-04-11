@@ -16,7 +16,8 @@ export const HIW = () => {
           style={{ 
             color: 'white', 
             backgroundColor: 'transparent', 
-            border: 0,
+            padding: 0,
+            paddingBottom: '50px',
            display:'flex',
            flexDirection: 'row',
             justifyContent: 'center',
