@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom'
 //   categoryRefrence: { slug: string; faqCategor }
 // }
 
-
 const HIWMiniInfoBox = ({
   box,
   index,
@@ -58,16 +57,12 @@ const HIWMiniInfoBox = ({
           height: open ? 'fit-content' : '0px',
           marginBottom: open ? '32px' : '0px',
         }}
-        className="overflow-hidden flex gap-3 flex-col"
-        
+        className="flex flex-col gap-3 overflow-hidden"
       >
         {box.answer}
-        <Button
-              buttonVariant="primary"
-              buttonStyle={{ width: 'max-content' }}
-            >
-              <Link to={"link"}> LinkText &rarr;</Link>
-            </Button>
+        <Button buttonVariant="primary" buttonStyle={{ width: 'max-content' }}>
+          <Link to={'link'}> {box.ctaLink} &rarr;</Link>
+        </Button>
       </motion.div>
     </motion.div>
   )
@@ -91,21 +86,15 @@ export const HIWInfoBox = ({
   curBG,
 }: HIWInfoBoxProps) => {
   return (
-
     <Section
       borderRadiusVariant="pill"
       sectionWidth="fullViewport"
-      style={{ 
-        backgroundColor: curBG, 
+      style={{
+        backgroundColor: curBG,
         marginTop: '-50px',
-        // borderBottomRightRadius: '0px',
-        // borderBottomLeftRadius: '0px',
       }}
     >
-      <div
-        className="flex flex-row flex-wrap gap-4 p-8 text-black *:grow *:basis-64 p-8"
-        // style={{ backgroundColor: curBG, marginTop: '-15px', minHeight: '400px' }}
-      >
+      <div className="flex flex-row flex-wrap gap-4 p-8 text-black *:grow *:basis-64 ">
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-4">
             <Typography
@@ -136,7 +125,6 @@ export const HIWInfoBox = ({
           ))}
         </div>
       </div>
-      </Section>
-
+    </Section>
   )
 }
