@@ -36,7 +36,7 @@ export const LandingHero = ({
           </div>
           <div>
             <Typography
-              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontVariant={isMobile ? 'headingThree' : 'poster'}
               fontWeight="900"
               T={'h1'}
               style={{
@@ -49,17 +49,11 @@ export const LandingHero = ({
             </Typography>
 
             <Typography
-              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontVariant={isMobile ? 'headingThree' : 'poster'}
               fontWeight="900"
               T={'h1'}
-              style={{
-                // overflowWrap: 'normal',
-                // wordBreak: 'keep-all',
-                whiteSpace: 'nowrap',
-                position: 'relative',
-                left: '-10%',
-              }}
-              tailwindStyle=" "
+              style={{}}
+              tailwindStyle=" whitespace-nowrap"
             >
               <span
                 style={{
@@ -81,7 +75,7 @@ export const LandingHero = ({
             </Typography>
 
             <Typography
-              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontVariant={isMobile ? 'headingThree' : 'poster'}
               fontWeight="900"
               T={'h1'}
               style={{
@@ -104,7 +98,7 @@ export const LandingHero = ({
             588 Eastern Ave, Toronto
           </Typography>
           {/* {!isMobile && ( */}
-          <div className="flex flex-row gap-4" style={{}}>
+          <div className="flex flex-col gap-4 md:flex-row" style={{}}>
             <Button
               buttonVariant="secondary"
               // buttonStyle={{ width: 'max-content' }}
