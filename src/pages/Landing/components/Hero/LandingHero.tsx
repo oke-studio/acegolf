@@ -24,12 +24,12 @@ export const LandingHero = ({
     // <div className="m-auto">
     <motion.div>
       <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
-        <div className="flex flex-col gap-5" style={{}}>
-          <div>
+        <div className="flex flex-col gap-3 lg:gap-5" style={{}}>
+          <div className=" w-[40%] lg:w-[100%]">
             <img
               src={PoweredByTrackman}
               alt="Powered By Trackman"
-              className="aspect-auto"
+              className="ld aspect-auto"
               width={219}
               height={73}
             />

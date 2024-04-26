@@ -1140,6 +1140,10 @@ video {
   width: max-content;
 }
 
+.w-\[40\%\] {
+  width: 40%;
+}
+
 .min-w-32 {
   min-width: 8rem;
 }
@@ -3872,12 +3876,20 @@ video {
     width: auto;
   }
 
+  .lg\:w-\[100\%\] {
+    width: 100%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
 
   .lg\:flex-col {
     flex-direction: column;
+  }
+
+  .lg\:gap-5 {
+    gap: 1.25rem;
   }
 
   .lg\:border-b-0 {
