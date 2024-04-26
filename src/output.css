@@ -769,20 +769,16 @@ video {
   margin: 1.5rem;
 }
 
+.m-\[8px_0rem_8px\] {
+  margin: 8px 0rem 8px;
+}
+
 .m-\[8px_1rem_8px\] {
   margin: 8px 1rem 8px;
 }
 
-.m-\[8px_4rem_8px\] {
-  margin: 8px 4rem 8px;
-}
-
 .m-auto {
   margin: auto;
-}
-
-.m-\[8px_0rem_8px\] {
-  margin: 8px 0rem 8px;
 }
 
 .-mx-3 {
@@ -2163,10 +2159,6 @@ video {
   padding: 0.45rem;
 }
 
-.p-\[5\%\] {
-  padding: 5%;
-}
-
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -2205,6 +2197,11 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-\[5\%\] {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .py-0 {
@@ -2260,16 +2257,6 @@ video {
 .py-\[0\.55rem\] {
   padding-top: 0.55rem;
   padding-bottom: 0.55rem;
-}
-
-.px-\[5\%\] {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-.py-\[3\%\] {
-  padding-top: 3%;
-  padding-bottom: 3%;
 }
 
 .py-\[4\%\] {
@@ -2391,8 +2378,8 @@ video {
 }
 
 .text-3xl {
-  font-size: 1.875rem;
-  line-height: 1.875rem;
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 .text-4xl {
@@ -2495,10 +2482,6 @@ video {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.leading-\[4\.5rem\] {
-  line-height: 4.5rem;
 }
 
 .tracking-wide {
@@ -3103,10 +3086,6 @@ video {
   border-color: rgb(var(--color-orange) / var(--tw-border-opacity));
 }
 
-.hover\:border-opacity-80:hover {
-  --tw-border-opacity: 0.8;
-}
-
 .hover\:border-opacity-50:hover {
   --tw-border-opacity: 0.5;
 }
@@ -3276,11 +3255,6 @@ video {
 .hover\:text-violet-700:hover {
   --tw-text-opacity: 1;
   color: rgb(109 40 217 / var(--tw-text-opacity));
-}
-
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-white) / var(--tw-text-opacity));
 }
 
 .hover\:shadow-\[4px_4px_0px_orange\]:hover {
@@ -3662,10 +3636,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:m-\[8px_1rem_8px\] {
-    margin: 8px 1rem 8px;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -3724,10 +3694,6 @@ video {
 @media (min-width: 768px) {
   .md\:m-0 {
     margin: 0px;
-  }
-
-  .md\:m-\[8px_1rem_8px\] {
-    margin: 8px 1rem 8px;
   }
 
   .md\:mb-0 {
@@ -3882,12 +3848,12 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:m-\[8px_4rem_8px\] {
-    margin: 8px 4rem 8px;
-  }
-
   .lg\:m-\[8px_1rem_8px\] {
     margin: 8px 1rem 8px;
+  }
+
+  .lg\:m-\[8px_4rem_8px\] {
+    margin: 8px 4rem 8px;
   }
 
   .lg\:mb-0 {
