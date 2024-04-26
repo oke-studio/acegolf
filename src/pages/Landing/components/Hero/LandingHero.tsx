@@ -24,7 +24,7 @@ export const LandingHero = ({
     // <div className="m-auto">
     <motion.div>
       <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" style={{}}>
           <div>
             <img
               src={PoweredByTrackman}
@@ -40,7 +40,10 @@ export const LandingHero = ({
             T={'h1'}
             style={{ overflowWrap: 'break-word' }}
           >
-            TORONTO'S COOLEST INDOOR GOLF LOUNGE!
+            TORONTO'S <br />
+            COOLEST INDOOR
+            <br />
+            GOLF LOUNGE!
           </Typography>
           <Typography
             fontVariant={isMobile ? 'headingFour' : 'headingTwo'}
@@ -62,7 +65,7 @@ export const LandingHero = ({
           )}
         </div>
 
-        <LandingHeroImageGrid />
+        {/* <LandingHeroImageGrid /> */}
       </Section>
     </motion.div>
     // </div>
