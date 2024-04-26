@@ -11,8 +11,8 @@ const BorderRadiusMapping: { [key in BorderRadiusVariantsType]: string } = {
 
 type SectionWidthOptionsTypes = 'fullViewport' | 'normal' | 'small'
 const SectionWidthOptions: { [key in SectionWidthOptionsTypes]: string } = {
-  fullViewport: 'm-[8px_1rem_8px] px-[5%] py-[4%]',
-  normal: 'm-[8px_4rem_8px] px-[5%] py-[4%]',
+  fullViewport: 'lg:m-[8px_1rem_8px] px-[5%] py-[4%] m-[8px_0rem_8px] ',
+  normal: 'lg:m-[8px_4rem_8px] px-[5%] py-[4%] m-[8px_1rem_8px] ',
   small: 'section-small',
 }
 
