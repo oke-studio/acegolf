@@ -781,6 +781,10 @@ video {
   margin: auto;
 }
 
+.m-\[8px_4rem_8px\] {
+  margin: 8px 4rem 8px;
+}
+
 .-mx-3 {
   margin-left: -0.75rem;
   margin-right: -0.75rem;

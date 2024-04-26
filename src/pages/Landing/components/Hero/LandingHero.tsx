@@ -155,7 +155,7 @@ export const LandingHero = ({
           {/* )} */}
         </div>
 
-        <LandingHeroImageGrid />
+        {/* <LandingHeroImageGrid /> */}
       </Section>
     </motion.div>
     // </div>
