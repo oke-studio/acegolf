@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
-import { LandingHeroImageGrid } from './LandingHeroImageGrid'
+// import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
   scrollYProgress,
