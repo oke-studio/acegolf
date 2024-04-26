@@ -38,10 +38,25 @@ export const LandingHero = ({
             fontVariant={isMobile ? 'headingTwo' : 'poster'}
             fontWeight="900"
             T={'h1'}
-            style={{ overflowWrap: 'break-word' }}
+            style={{ overflowWrap: 'break-word', lineHeight: '4.5rem' }}
           >
             TORONTO'S <br />
-            COOLEST INDOOR
+            <span
+              style={{
+                background: '#36DAD5',
+                color: '#FFF',
+                padding: '4px 4px',
+                borderRadius: '4px',
+                display: 'inline-block',
+                top: '-10px',
+                transform: 'rotate(3deg)',
+                marginTop: '5px',
+                marginBottom: '5px',
+              }}
+            >
+              COOLEST
+            </span>{' '}
+            INDOOR
             <br />
             GOLF LOUNGE!
           </Typography>
