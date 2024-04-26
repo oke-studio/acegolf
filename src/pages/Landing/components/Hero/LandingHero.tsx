@@ -24,7 +24,7 @@ export const LandingHero = ({
     // <div className="m-auto">
     <motion.div>
       <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
-        <div className="flex flex-col gap-4" style={{}}>
+        <div className="flex flex-col gap-5" style={{}}>
           <div>
             <img
               src={PoweredByTrackman}
@@ -71,19 +71,33 @@ export const LandingHero = ({
             588 Eastern Ave, Toronto
           </Typography>
           {/* {!isMobile && ( */}
-          <div>
+          <div className="flex flex-row gap-4" style={{}}>
             <Button
-              buttonVariant="primary"
-              buttonStyle={{ width: 'max-content' }}
+              buttonVariant="secondary"
+              // buttonStyle={{ width: 'max-content' }}
             >
-              <Link to="/book-now">Reserve a Bay &rarr;</Link>
+              <Link to="/book-now">
+                <Typography
+                  fontVariant={isMobile ? 'extralarge' : 'headingFour'}
+                  fontWeight="500"
+                  T="h3"
+                >
+                  Hours & Pricing
+                </Typography>
+              </Link>
             </Button>
 
             <Button
-              buttonVariant="secondary"
-              buttonStyle={{ width: 'max-content' }}
+              buttonVariant="primary"
+              // buttonStyle={{ width: 'max-content' }}
             >
-              <Link to="/book-now">Reserve a Bay &rarr;</Link>
+              <Typography
+                fontVariant={isMobile ? 'extralarge' : 'headingFour'}
+                fontWeight="500"
+                T="h3"
+              >
+                Reserve a Bay &rarr;
+              </Typography>
             </Button>
           </div>
           {/* )} */}
