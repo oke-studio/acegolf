@@ -1112,6 +1112,10 @@ video {
   width: max-content;
 }
 
+.w-\[40\%\] {
+  width: 40%;
+}
+
 .min-w-32 {
   min-width: 8rem;
 }
@@ -3607,6 +3611,10 @@ video {
     align-items: flex-end;
   }
 
+  .sm\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .sm\:bg-\[bottom_-3rem_left_-3rem\] {
     background-position: bottom -3rem left -3rem;
   }
@@ -3698,6 +3706,10 @@ video {
 
   .md\:gap-4 {
     gap: 1rem;
+  }
+
+  .md\:gap-3 {
+    gap: 0.75rem;
   }
 
   .md\:space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -3795,6 +3807,10 @@ video {
     width: auto;
   }
 
+  .lg\:w-\[100\%\] {
+    width: 100%;
+  }
+
   .lg\:grid-cols-\[250px_1fr\] {
     grid-template-columns: 250px 1fr;
   }
@@ -3805,6 +3821,10 @@ video {
 
   .lg\:flex-col {
     flex-direction: column;
+  }
+
+  .lg\:gap-5 {
+    gap: 1.25rem;
   }
 
   .lg\:border-b-0 {
