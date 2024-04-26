@@ -34,32 +34,65 @@ export const LandingHero = ({
               height={73}
             />
           </div>
-          <Typography
-            fontVariant={isMobile ? 'headingTwo' : 'poster'}
-            fontWeight="900"
-            T={'h1'}
-            style={{ overflowWrap: 'break-word', lineHeight: '4.5rem' }}
-          >
-            TORONTO'S <br />
-            <span
+          <div>
+            <Typography
+              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontWeight="900"
+              T={'h1'}
               style={{
-                background: '#36DAD5',
-                color: '#FFF',
-                padding: '4px 4px',
-                borderRadius: '4px',
-                display: 'inline-block',
-                top: '-10px',
-                transform: 'rotate(3deg)',
-                marginTop: '5px',
-                marginBottom: '5px',
+                overflowWrap: 'break-word',
+                //  lineHeight: '4.5rem'
               }}
+              tailwindStyle=" "
             >
-              COOLEST
-            </span>{' '}
-            INDOOR
-            <br />
-            GOLF LOUNGE!
-          </Typography>
+              TORONTO'S
+            </Typography>
+
+            <Typography
+              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontWeight="900"
+              T={'h1'}
+              style={{
+                // overflowWrap: 'normal',
+                // wordBreak: 'keep-all',
+                whiteSpace: 'nowrap',
+                position: 'relative',
+                left: '-10%',
+              }}
+              tailwindStyle=" "
+            >
+              <span
+                style={{
+                  background: '#36DAD5',
+                  color: '#FFF',
+                  padding: '4px 4px',
+                  borderRadius: '4px',
+                  display: 'inline-block',
+                  top: '-10px',
+                  transform: 'rotate(3deg)',
+                  marginTop: '5px',
+                  marginBottom: '5px',
+                  marginRight: '10px',
+                }}
+              >
+                COOLEST
+              </span>
+              INDOOR
+            </Typography>
+
+            <Typography
+              fontVariant={isMobile ? 'headingTwo' : 'poster'}
+              fontWeight="900"
+              T={'h1'}
+              style={{
+                overflowWrap: 'break-word',
+                //  lineHeight: '4.5rem'
+              }}
+              tailwindStyle=" "
+            >
+              GOLF LOUNGE!
+            </Typography>
+          </div>
           <Typography
             fontVariant={isMobile ? 'headingFour' : 'headingTwo'}
             fontWeight="500"
