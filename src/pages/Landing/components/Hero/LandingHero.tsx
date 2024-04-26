@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
-import { LandingHeroImageGrid } from './LandingHeroImageGrid'
+// import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
   scrollYProgress,
@@ -70,14 +70,23 @@ export const LandingHero = ({
           >
             588 Eastern Ave, Toronto
           </Typography>
-          {!isMobile && (
+          {/* {!isMobile && ( */}
+          <div>
             <Button
               buttonVariant="primary"
               buttonStyle={{ width: 'max-content' }}
             >
               <Link to="/book-now">Reserve a Bay &rarr;</Link>
             </Button>
-          )}
+
+            <Button
+              buttonVariant="secondary"
+              buttonStyle={{ width: 'max-content' }}
+            >
+              <Link to="/book-now">Reserve a Bay &rarr;</Link>
+            </Button>
+          </div>
+          {/* )} */}
         </div>
 
         {/* <LandingHeroImageGrid /> */}
