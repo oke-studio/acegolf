@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
+//import ParkingSVG from '../../../../assets/ace-parking-icon.svg'
 // import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
@@ -96,6 +97,31 @@ export const LandingHero = ({
             }}
           >
             588 Eastern Ave, Toronto
+            <Button
+              buttonVariant="parking"
+              buttonStyle={{
+                width: 'max-content',
+                borderRadius: '10px',
+                marginLeft: '10px',
+              }}
+            >
+              <Link to="/book-now">
+                <svg
+                  width="20"
+                  height="30"
+                  viewBox="0 0 78 131"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.320312 0V95.616H28.2243V72.832H34.1123C62.9123 72.832 77.2483 54.784 77.2483 35.584C77.2483 14.08 61.5043 0 32.1923 0H0.320312ZM35.3923 48.128H28.2243V25.216H35.1363C42.9443 25.216 49.0883 29.056 49.0883 36.608C49.0883 44.16 42.9443 48.128 35.3923 48.128ZM75 115.339L49.5 130.061V118.339H0V111.339H49.5V100.616L75 115.339Z"
+                    fill="white"
+                  />
+                </svg>
+              </Link>
+            </Button>
           </Typography>
           {/* {!isMobile && ( */}
           <div className="flex flex-col gap-4 md:flex-row" style={{}}>
