@@ -1,5 +1,5 @@
 import { TypeBayPricingAvailabilityFields } from '.'
-import { TypeEventItemFields, TypeEventFields } from '.'
+import { TypeEventFields } from '.'
 import { TypeHowItWorksFields } from '.'
 import { TypeMenuFields } from '.'
 

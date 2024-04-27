@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getAceQuery } from '../../utils/getAceQuery'
 import { TypeAceHomePageFields } from '../../types/contentful'
 
-import { GetAceQuery, GetAceV2Query } from '../../utils/Queries'
+import { GetAceV2Query } from '../../utils/Queries'
 
 export function useGetAceQuery() {
   const Query = useQuery<{ data: TypeAceHomePageFields }>({
