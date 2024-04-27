@@ -6,8 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
-//import ParkingSVG from '../../../../assets/ace-parking-icon.svg'
-// import { LandingHeroImageGrid } from './LandingHeroImageGrid'
+import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
 export const LandingHero = ({
   scrollYProgress,
@@ -156,7 +155,7 @@ export const LandingHero = ({
           {/* )} */}
         </div>
 
-        {/* <LandingHeroImageGrid /> */}
+        <LandingHeroImageGrid />
       </Section>
     </motion.div>
     // </div>
