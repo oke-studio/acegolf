@@ -9,7 +9,7 @@ import { Button } from '../../Button/Button'
 import { Typography } from '../../Typography/Typography'
 import { Link } from 'react-router-dom'
 const ONE_SECOND = 1000
-const AUTO_DELAY = ONE_SECOND * 10
+const AUTO_DELAY = ONE_SECOND * 5
 const DRAG_BUFFER = 50
 
 const SPRING_OPTIONS = {
@@ -55,7 +55,7 @@ export const MenuCard = () => {
   }
 
   return (
-    <div className="relative h-[550px] w-full overflow-hidden md:h-auto">
+    <div className="relative h-[550px] w-full overflow-hidden sm:h-auto">
       <motion.div
         drag="x"
         dragConstraints={{

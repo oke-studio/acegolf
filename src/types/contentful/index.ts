@@ -1,4 +1,4 @@
-export type { TypeAceGolfBarComFields } from './TypeAceGolfBarCom'
+export type { TypeAceHomePageFields } from './TypeAceGolfBarCom'
 export type { TypeBayPricingAvailabilityFields } from './TypeBayPricingAvailability'
 export type { TypeDrinkItemFields } from './TypeDrinkItem'
 export type { TypeEventItemFields, TypeEventFields } from './TypeEvent'

@@ -3,7 +3,7 @@ import { useGetAceQuery } from '../../../../../hooks/UseGetAceQuery/useGetAceQue
 export function useGetPromotions() {
   const { data, isError, isLoading } = useGetAceQuery()
 
-  const promotionsData = data?.activePromotionsCollection.items
+  const promotionsData = data?.featuredEventsPromotionsCollection.items
 
   return { promotionsData, isError, isLoading }
 }

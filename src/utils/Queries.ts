@@ -196,3 +196,175 @@ export const GetFAQQuery = gql`
     }
   }
 `
+
+export const GetAceV2Query = gql`
+  query getAce {
+    aceHomePageCollection(limit: 1) {
+      items {
+        name
+        activePriceGrid {
+          bayPricingScheduleName
+          effectiveDateRangeStart
+          effectiveDateRangeEnd
+          announcement
+          generalBayScheduleCollection {
+            items {
+              dayOfWeek
+              serviceTime1 {
+                nameOfServiceTime
+                activeServices
+                beginningTime
+                endTime
+              }
+              serviceTime1Price
+              serviceTime2 {
+                nameOfServiceTime
+                activeServices
+                beginningTime
+                endTime
+              }
+              serviceTime2Price
+            }
+          }
+          privateBayScheduleCollection {
+            items {
+              dayOfWeek
+              serviceTime1 {
+                nameOfServiceTime
+                activeServices
+                beginningTime
+                endTime
+              }
+              serviceTime1Price
+              serviceTime2 {
+                nameOfServiceTime
+                activeServices
+                beginningTime
+                endTime
+              }
+              serviceTime2Price
+            }
+          }
+        }
+        activeHowItWorks {
+          title
+          howItWorksStepsCollection {
+            items {
+              stepTitle
+              stepContent
+              stepCtaText
+              stepCtaLink
+              relatedFaqCollection {
+                items {
+                  question
+                  faqSlug
+                  answer
+                  ctaLink
+                  categoryRefrence {
+                    faqCategoryName
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+        globalAnnouncementHeader
+        activeMenu {
+          menuName
+          bigBitesCollection {
+            items {
+              name
+              typeOfMeal
+              itemDescription
+              price
+              image {
+                title
+                description
+                fileName
+                url
+              }
+            }
+          }
+          bigBitesImage {
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+          smallBitesCollection {
+            items {
+              name
+              typeOfMeal
+              itemDescription
+              price
+              image {
+                title
+                description
+                fileName
+                url
+              }
+            }
+          }
+
+          smallBitesImage {
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+          dessertsCollection {
+            items {
+              name
+              typeOfMeal
+              itemDescription
+              price
+              image {
+                title
+                description
+                fileName
+                url
+              }
+            }
+          }
+          dessertsImage {
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+        }
+        featuredEventsPromotionsCollection {
+          items {
+            eventTitle
+            eventType
+            slugId
+            startDateTime
+            endDateTime
+            eventDescription
+            ctaText
+            ctaLink
+            eventPoster {
+              title
+              description
+              url
+              fileName
+            }
+          }
+        }
+      }
+    }
+  }
+`

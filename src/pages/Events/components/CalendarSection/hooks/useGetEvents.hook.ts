@@ -7,7 +7,7 @@ export function useGetEvents() {
     return {}
   }
 
-  const eventsData = data?.activeEventsCollection
+  const eventsData = data?.featuredEventsPromotionsCollection
 
   return {
     eventsData,

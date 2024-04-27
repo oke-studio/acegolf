@@ -13,6 +13,7 @@ import { Section } from '../../components/Section/Section'
 import { MenuCard as MC } from '../../components/Common/MenuCard/MenuCard'
 import { PricesCard as PC } from '../../components/Common/PricesCard/PricesCard'
 import { Button } from '../../components/Button/Button'
+import { WTS } from '../../components/Common/WTS/WTS'
 
 export const Landing = () => {
   React.useEffect(() => {
@@ -114,6 +115,7 @@ export const Landing = () => {
 
         <WTVSection />
         <CardSection />
+        <WTS />
         <EmailSection />
       </Container>
     </>

@@ -71,8 +71,25 @@ export const SimRoomSection = () => {
 const SimRooms = () => {
   const [selected, setSelected] = React.useState(0)
 
+  const ONE_SECOND = 1000
+  const AUTO_DELAY = ONE_SECOND * 5
+
+  React.useEffect(() => {
+    const intervalRef = setInterval(() => {
+      setSelected((pv) => {
+        if (pv === 5) {
+          return 0
+        }
+        return pv + 1
+      })
+    }, AUTO_DELAY)
+
+    return () => clearInterval(intervalRef)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[250px_1fr]">
+    <div className="mx-auto flex w-full max-w-5xl grid-cols-1 flex-col gap-8 lg:flex-row">
       <SimRoomTabs selected={selected} setSelected={setSelected} />
       <AnimatePresence mode="wait">
         {FEATURED_SIM_ROOMS.map((f, index) => {
