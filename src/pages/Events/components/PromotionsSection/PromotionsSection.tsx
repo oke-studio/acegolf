@@ -22,12 +22,12 @@ export const PromotionsSection = () => {
           PROMOTIONS
         </Typography>
         <div className="flex w-full flex-wrap justify-center gap-4">
+          {/* // TODO: Update this image src prop to a default image */}
           {promotionsData.map((promo) => (
             <Promotion
               title={promo.eventTitle}
-              imgSrc={promo.eventPoster.url}
+              imgSrc={promo.eventPoster?.url ?? 'somsom'}
               promoId={promo.slugId}
-              //   promoDate={promo.}
             />
           ))}
         </div>
