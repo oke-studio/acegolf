@@ -11,4 +11,7 @@ export type { TypeMenuItemFields } from './TypeMenuItem'
 export type { TypePrivateBayPriceFields } from './TypePrivateBayPrice'
 export type { TypePromotionFields } from './TypePromotion'
 export type { TypeServiceTimeFields } from './TypeServiceTime'
-export type { TypeAboutPageFields } from './TypeAboutPage'
+export type {
+  TypeAboutPageFields,
+  TypeAceGolfStaffFields,
+} from './TypeAboutPage'

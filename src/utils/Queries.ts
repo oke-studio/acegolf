@@ -414,3 +414,27 @@ export const GetEventsQuery = gql`
     }
   }
 `
+
+export const GetCoachingPageQuery = gql`
+  query getAceCoachingPage {
+    coachingPageCollection(limit: 1) {
+      items {
+        coachingPage
+        coachingProfilesCollection {
+          items {
+            nameOfPerson
+            typeOfProfile
+            titleOfPerson
+            pictureOfPerson {
+              url
+              description
+              fileName
+            }
+            description
+            contactLink
+          }
+        }
+      }
+    }
+  }
+`
