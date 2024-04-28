@@ -2241,6 +2241,10 @@ video {
   padding: 0.45rem;
 }
 
+.p-\[5\%\] {
+  padding: 5%;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -3853,10 +3857,6 @@ video {
 
   .md\:gap-4 {
     gap: 1rem;
-  }
-
-  .md\:gap-3 {
-    gap: 0.75rem;
   }
 
   .md\:space-x-1 > :not([hidden]) ~ :not([hidden]) {
