@@ -121,7 +121,11 @@ export const HIWInfoBox = ({
 
         <div className="flex flex-col gap-4  hover:cursor-pointer">
           {miniInfoBox.map((box, index) => (
-            <HIWMiniInfoBox box={box} index={index} />
+            <HIWMiniInfoBox
+              box={box}
+              index={index}
+              key={`mini_info_box_${index}`}
+            />
           ))}
         </div>
       </div>

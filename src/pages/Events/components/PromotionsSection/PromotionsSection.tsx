@@ -1,10 +1,10 @@
 // import { Link } from 'react-router-dom'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
-import { useGetPromotions } from './hooks/useGetPromotions'
+import { useGetFeaturedPromotions } from './hooks/useGetPromotions'
 
 export const PromotionsSection = () => {
-  const { isError, isLoading, promotionsData } = useGetPromotions()
+  const { isError, isLoading, promotionsData } = useGetFeaturedPromotions()
 
   if (!promotionsData || isError) {
     return <></>

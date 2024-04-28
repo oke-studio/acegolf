@@ -31,8 +31,13 @@ const GolfGames = () => {
     <div className="grid w-full grid-cols-2 grid-rows-3 gap-6 md:grid-cols-3 md:grid-rows-1">
       {Array(6)
         .fill(null)
-        .map(() => (
-          <div className="bg-grey h-56 w-full rounded-xl"></div>
+        .map((n, index) => (
+          <div
+            className="bg-grey h-56 w-full rounded-xl"
+            key={`golf_game_${index}`}
+          >
+            {n}
+          </div>
         ))}
     </div>
   )

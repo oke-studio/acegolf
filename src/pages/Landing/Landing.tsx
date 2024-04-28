@@ -112,7 +112,6 @@ export const Landing = () => {
             </Card>
           </div>
         </Section>
-
         <WTVSection />
         <CardSection />
         <WTS />

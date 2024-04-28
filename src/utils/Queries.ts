@@ -368,3 +368,49 @@ export const GetAceV2Query = gql`
     }
   }
 `
+
+export const GetAboutPageQuery = gql`
+  query getAceAboutPage {
+    aboutPageCollection(limit: 1) {
+      items {
+        aboutPageTitle
+        aboutPageBlurb
+        aceGolfStaffProfilesCollection {
+          items {
+            nameOfPerson
+            typeOfProfile
+            titleOfPerson
+            pictureOfPerson {
+              url
+              fileName
+            }
+            description
+            contactLink
+          }
+        }
+      }
+    }
+  }
+`
+
+export const GetEventsQuery = gql`
+  query getAceEvents {
+    newEventItemCollection {
+      items {
+        eventTitle
+        slugId
+        eventType
+        startDateTime
+        endDateTime
+        eventDescription
+        ctaText
+        ctaLink
+        eventPoster {
+          url
+          fileName
+          description
+        }
+      }
+    }
+  }
+`

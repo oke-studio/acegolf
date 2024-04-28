@@ -3,11 +3,7 @@ import { Section } from '../../../../components/Section/Section'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-import {
-  // EventsCalendarMock,
-  //   EventsCalendarMockReduced,
-  TransformEventsCalendarMockV2,
-} from '../../mocks/EventsCalendar.mock'
+// import { TransformEventsCalendarMockV2 } from '../../mocks/EventsCalendar.mock'
 import { Typography } from '../../../../components/Typography/Typography'
 import { CalendarItemContainerStyleType } from './types/CalendarSection.types'
 import { useGetEventsParsed } from './hooks/useGetEventsParsed.hook'
@@ -31,12 +27,12 @@ const CalendarItemContainer = ({
   const CalendaritemContainerStyles: {
     [k in CalendarItemContainerStyleType]: string
   } = {
-    black: 'bg-black text-orange',
-    dark_orange: 'bg-orange text-white',
-    green: 'bg-green text-white',
-    light_orange: 'bg-lightOrange text-black',
-    teal: 'bg-sharpTeal text-white',
-    grey: 'bg-slate-700 text-black',
+    closed: 'bg-black text-orange',
+    adjusted: 'bg-orange text-black',
+    promotion: 'bg-green text-white',
+    event: 'bg-lightOrange text-black',
+    private_event: 'bg-sharpTeal text-black',
+    league: 'bg-lime-400 text-black',
     hidden: 'hidden',
     date: 'bg-grey',
   }
@@ -66,7 +62,7 @@ const CalendarItemContainer = ({
   return (
     <Link
       className={classNames(
-        'flex h-max flex-col gap-5 rounded-xl border-2 border-solid border-transparent p-4 hover:cursor-pointer   hover:border-coolBlue',
+        'flex h-max flex-col gap-5 rounded-xl border-2 border-solid border-transparent p-4 hover:cursor-pointer hover:border-coolBlue',
         CalendaritemContainerStyles[style]
       )}
       //   onClick={() => router}
@@ -98,6 +94,8 @@ export const CalendarSection = () => {
   const { events: eventsData, isError, isLoading } = useGetEventsParsed()
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
+  // console.log(eventsData)
+
   if (!eventsData || isError) {
     return <div />
   }
@@ -115,13 +113,14 @@ export const CalendarSection = () => {
     twoWeekSpan.push(new Date(d).toISOString())
   }
 
-  const MockedEvents = TransformEventsCalendarMockV2()
+  // const MockedEvents = TransformEventsCalendarMockV2()
+
+  // console.log(MockedEvents)
 
   const Calendar = () => (
     <>
       {twoWeekSpan.map((event) => {
-        // const events = eventsData[event.split('T')[0]]
-        const events = MockedEvents[event.split('T')[0]]
+        const events = eventsData[event.split('T')[0]]
 
         const eventDate = new Date(event).toDateString().split(' ').slice(0, 3)
         return (
@@ -132,13 +131,14 @@ export const CalendarSection = () => {
               title={[eventDate[0], eventDate[1]].join(', ')}
             />
             {events &&
-              events.map((e) => (
+              events.map((e, index) => (
                 <CalendarItemContainer
                   description={e.description}
                   style={e.type}
                   title={e.title}
                   imgSrc={e.imgSrc}
                   to={e.id + '/' + event.split('T')[0]}
+                  key={`calendar_item_container_${index}`}
                 />
               ))}
           </div>
@@ -149,25 +149,19 @@ export const CalendarSection = () => {
 
   const MobileCalendar = () => {
     const [currEvent, setCurrEvent] = useState(twoWeekSpan[0])
-    const events = MockedEvents[currEvent.split('T')[0]]
+    const events = eventsData[currEvent.split('T')[0]]
 
     return (
       <div className="flex h-full w-full flex-col gap-5 p-2">
         <div className="flex flex-nowrap gap-5 overflow-auto *:grow *:basis-64">
-          {twoWeekSpan.map((event) => {
+          {twoWeekSpan.map((event, index) => {
             const eventDate = new Date(event)
               .toDateString()
               .split(' ')
               .slice(0, 3)
 
             return (
-              <div>
-                {/* <CalendarItemContainer
-                  style="date"
-                  description={eventDate[2]}
-                  title={eventDate[0]}
-                /> */}
-
+              <div key={`ace_calendar_day_${index}`}>
                 <button
                   className={classNames(
                     'bg-grey flex flex-col items-center gap-2 rounded-xl border-4 p-3 text-center hover:border-orange',
