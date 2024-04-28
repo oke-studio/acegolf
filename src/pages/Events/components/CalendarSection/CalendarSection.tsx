@@ -75,9 +75,9 @@ const CalendarItemContainer = ({
         {description}
       </Typography>
       {!isMobile && imgSrc && (
-        <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border  shadow-md">
+        <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
           <div
-            className="h-full bg-slate-300 grayscale"
+            className="h-full bg-slate-300"
             style={{
               backgroundImage: `url(${imgSrc})`,
               backgroundPosition: 'center',

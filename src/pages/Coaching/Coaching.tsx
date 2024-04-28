@@ -15,7 +15,7 @@ export const Coaching = () => {
   }
 
   const coaches = coachingData.coachingProfilesCollection.items
-  console.log(coaches)
+
   return (
     <Container>
       <Section
@@ -61,7 +61,7 @@ export const Coaching = () => {
                 {coach.nameOfPerson}
               </Typography>
               <Typography fontVariant="base" fontWeight="500">
-                Name of Coach
+                {coach.description}
               </Typography>
               <Button buttonVariant="simple">
                 <Typography

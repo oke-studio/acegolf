@@ -17,8 +17,6 @@ export const AboutACE = () => {
   }
   const { aboutPageBlurb, aceGolfStaffProfilesCollection } = aboutData
 
-  console.log(aceGolfStaffProfilesCollection, aboutData)
-
   return (
     <>
       <Container

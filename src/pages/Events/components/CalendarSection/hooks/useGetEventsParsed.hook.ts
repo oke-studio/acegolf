@@ -7,8 +7,6 @@ import {
 export function useGetEventsParsed() {
   const { eventsData, isError, isLoading } = useGetEvents()
 
-  console.log(eventsData)
-
   const events = eventsData?.reduce(
     (acc, curr) => {
       const {
@@ -57,8 +55,6 @@ export function useGetEventsParsed() {
     },
     {} as { [k: string]: EventsCalenderItem[] }
   )
-
-  console.log(events)
 
   return {
     events,
