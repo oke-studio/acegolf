@@ -31,7 +31,7 @@ export const landingHeroImages = [
       backCutOut: true,
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'friends playing in the simulator',
-      paralax: 2,
+      paralax: 1,
       tailwindStyle:
         'opacity-[1] scale-[1] rotate-[-11deg] translate-x-[20px] translate-y-[60px] z-[1]',
   
@@ -89,7 +89,7 @@ export const landingHeroImages = [
       backCutOut: false,
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'ace golf ball with logo',
-      paralax: 1,
+      paralax: 2,
       tailwindStyle:
         'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[100px] translate-y-[100px] z-[3]',
   
