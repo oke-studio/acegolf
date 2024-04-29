@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetFeaturedPromotions } from './hooks/useGetPromotions'
@@ -28,6 +28,7 @@ export const PromotionsSection = () => {
               title={promo.eventTitle}
               imgSrc={promo.eventPoster?.url ?? 'somsom'}
               promoId={promo.slugId}
+              promoDate={promo.startDateTime.split('T')[0]}
             />
           ))}
         </div>
@@ -39,11 +40,13 @@ export const PromotionsSection = () => {
 const Promotion = ({
   imgSrc,
   title,
-  //   promoId,
+  promoId,
+  promoDate,
 }: {
   imgSrc: string
   title: string
   promoId: string
+  promoDate: string
 }) => {
   return (
     <div className="relative flex min-w-64 flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -55,12 +58,12 @@ const Promotion = ({
           backgroundSize: 'cover',
         }}
       />
-      <div className="absolute bottom-0 left-0 right-0 h-full max-h-16 bg-white text-left hover:cursor-pointer hover:text-orange">
-        {/* <Link to={`/events/${promoId}`}> */}
-        <Typography fontVariant="base" fontWeight="700" tailwindStyle="p-4">
-          {title}
-        </Typography>
-        {/* </Link> */}
+      <div className="absolute bottom-0 left-0 right-0 h-full max-h-16 bg-white p-4 text-left hover:cursor-pointer hover:text-orange">
+        <Link to={`/events/${promoId}/${promoDate}`}>
+          <Typography fontVariant="base" fontWeight="700">
+            {title}
+          </Typography>
+        </Link>
       </div>
     </div>
   )

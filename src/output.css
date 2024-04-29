@@ -888,6 +888,14 @@ video {
   margin-top: 1px;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
 .block {
   display: block;
 }
@@ -942,6 +950,10 @@ video {
 
 .aspect-auto {
   aspect-ratio: auto;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
 }
 
 .h-12 {
@@ -1158,6 +1170,22 @@ video {
 
 .max-w-\[60\%\] {
   max-width: 60%;
+}
+
+.max-w-96 {
+  max-width: 24rem;
+}
+
+.max-w-\[100rem\] {
+  max-width: 100rem;
+}
+
+.max-w-\[25rem\] {
+  max-width: 25rem;
+}
+
+.max-w-\[35rem\] {
+  max-width: 35rem;
 }
 
 .flex-1 {

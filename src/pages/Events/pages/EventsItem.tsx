@@ -59,7 +59,7 @@ export const EventsItem = () => {
             {/* Image */}
             <div className="relative flex w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
               <div
-                className="h-full min-h-96 bg-slate-300 grayscale"
+                className="aspect-square h-full min-h-96 bg-slate-300"
                 style={{
                   backgroundImage: imgUrl ? `url(${imgUrl})` : 'orange',
                   backgroundPosition: 'center',

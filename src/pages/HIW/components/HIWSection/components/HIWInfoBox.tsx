@@ -16,11 +16,15 @@ import { Link } from 'react-router-dom'
 const HIWMiniInfoBox = ({
   box,
   index,
+  selected,
+  setSelected,
 }: {
   index: number
   box: TypeFaqItemFields
+  selected: number
+  setSelected: (k: number) => void
 }) => {
-  const [open, setOpen] = React.useState(false)
+  const open = index === selected
   return (
     <motion.div
       animate={open ? 'open' : 'closed'}
@@ -29,7 +33,7 @@ const HIWMiniInfoBox = ({
       id={box.question}
       onClick={() => {
         // e.preventDefault()
-        setOpen((ev) => !ev)
+        open ? setSelected(-1) : setSelected(index)
       }}
     >
       <div className="flex w-full justify-between">
@@ -55,14 +59,19 @@ const HIWMiniInfoBox = ({
         initial={false}
         animate={{
           height: open ? 'fit-content' : '0px',
-          marginBottom: open ? '32px' : '0px',
+          // marginBottom: open ? '32px' : '0px',
         }}
         className="flex flex-col gap-3 overflow-hidden"
       >
         {box.answer}
-        <Button buttonVariant="primary" buttonStyle={{ width: 'max-content' }}>
-          <Link to={'link'}> {box.ctaLink} &rarr;</Link>
-        </Button>
+        {box.ctaLink && (
+          <Button
+            buttonVariant="primary"
+            buttonStyle={{ width: 'max-content' }}
+          >
+            <Link to={'link'}> {box.ctaLink} &rarr;</Link>
+          </Button>
+        )}
       </motion.div>
     </motion.div>
   )
@@ -85,6 +94,7 @@ export const HIWInfoBox = ({
   // prevBG,
   curBG,
 }: HIWInfoBoxProps) => {
+  const [selected, setSelected] = React.useState(-1)
   return (
     <Section
       borderRadiusVariant="pill"
@@ -119,14 +129,18 @@ export const HIWInfoBox = ({
           </div>
         </div>
 
-        <div className="flex flex-col gap-4  hover:cursor-pointer">
-          {miniInfoBox.map((box, index) => (
-            <HIWMiniInfoBox
-              box={box}
-              index={index}
-              key={`mini_info_box_${index}`}
-            />
-          ))}
+        <div className="flex flex-col gap-4 hover:cursor-pointer">
+          {miniInfoBox.map((box, index) => {
+            return (
+              <HIWMiniInfoBox
+                box={box}
+                index={index}
+                key={`mini_info_box_${index}`}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            )
+          })}
         </div>
       </div>
     </Section>

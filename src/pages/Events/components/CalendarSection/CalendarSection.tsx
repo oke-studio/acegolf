@@ -213,7 +213,7 @@ export const CalendarSection = () => {
           }
         }
         // className="min-h-80 auto-cols-min gap-3 overflow-x-auto"
-        className="relative flex h-full min-h-96 gap-3 overflow-auto"
+        className="relative flex h-full min-h-96 gap-3 overflow-auto rounded-[2rem]"
       >
         {/* GRID LAYOUT ENABLED*/}
         {/* {EventsCalendarMockReduced().map((e) => (

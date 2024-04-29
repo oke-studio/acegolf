@@ -37,7 +37,7 @@ export const WTVSection = () => {
             What&apos;s the Vibe?
           </Typography>
           <MusicPlayer />
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="ml-auto mr-auto grid max-w-[35rem] grid-cols-2 gap-6 md:grid-cols-4">
             <div className="flex flex-col gap-4">
               <div>
                 <video
