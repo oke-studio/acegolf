@@ -27,7 +27,7 @@ interface LandingHeroImageGridProps {
 }
 
 export const LandingHeroImageGrid = ({
-  SectionImageGridWidth = 'end',
+  SectionImageGridWidth = 'center',
   //   SectionImageGridHeight = '100%',
   //   ScrollAnimations = true,
 }: LandingHeroImageGridProps) => {
