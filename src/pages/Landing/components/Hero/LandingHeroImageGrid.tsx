@@ -61,7 +61,7 @@ export const LandingHeroImageGrid = ({
   ]
 
   //Responsive Code
-  const isMobile = useMediaQuery({ maxWidth: '640px' })
+  //const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   return (
     <div
@@ -79,7 +79,6 @@ export const LandingHeroImageGrid = ({
             backCutOut,
             backCutOutColor,
             imageNameAltText,
-            mobile,
             paralax,
             tailwindStyle,
             tailwindGridPosXY,
