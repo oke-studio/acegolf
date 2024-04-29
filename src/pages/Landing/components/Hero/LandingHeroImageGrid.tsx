@@ -2,7 +2,7 @@ import classNames from 'classnames'
 
 // Animation dependencies
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 
 import { AceImage } from '../../../../components/ImageGrids/aceImage'
 import { landingHeroImages } from './landingHeroImages'

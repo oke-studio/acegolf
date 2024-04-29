@@ -20,7 +20,7 @@ export const AceImage = ({
   ClassNamesUsed,
   style,
 }: AceImageProps) => {
-  const randomizer = (min, max) => {
+  const randomizer = (min: number, max: number) => {
     return Math.random() * (max - min) + min
   }
 
