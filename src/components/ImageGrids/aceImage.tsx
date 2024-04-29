@@ -32,14 +32,14 @@ export const AceImage = ({
         ...(BackCutout && {
           backgroundColor: `rgb(${BackCutoutColor})`,
           //transform: `rotate(${randomizer(-3, 3)}deg)`,
-          aspectRatio: `${AceImageAspectRatio}`,
+          //aspectRatio: `${AceImageAspectRatio}`,
         }),
       }}
     >
       <img
         src={AceImageSrc}
         alt={AceImageName}
-        className="block h-auto w-full rounded-[1px] object-cover   "
+        className="h-full w-full rounded-[1px] object-cover  "
         style={{
           aspectRatio: `${AceImageAspectRatio}`,
           scale: `${randomizer(0.97, 0.99)}`,
