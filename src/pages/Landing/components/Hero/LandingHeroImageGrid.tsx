@@ -27,7 +27,7 @@ interface LandingHeroImageGridProps {
 }
 
 export const LandingHeroImageGrid = ({
-  SectionImageGridWidth = 'center',
+  SectionImageGridWidth = 'end',
   //   SectionImageGridHeight = '100%',
   //   ScrollAnimations = true,
 }: LandingHeroImageGridProps) => {
@@ -94,7 +94,8 @@ export const LandingHeroImageGrid = ({
               }}
               className={classNames(
                 'relative',
-                isMobile ? mobile.tailwindGridPosXY : tailwindGridPosXY
+                // isMobile ? mobile.tailwindGridPosXY : tailwindGridPosXY
+                tailwindGridPosXY
               )}
             >
               <AceImage
