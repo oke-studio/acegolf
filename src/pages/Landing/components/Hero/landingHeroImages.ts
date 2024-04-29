@@ -13,7 +13,7 @@ export const landingHeroImages = [
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'friends photos at ace',
       tailwindStyle:
-        'opacity-[1] scale-[0.8] rotate-[-5deg] translate-x-[-10px] translate-y-[60px] z-[2]',
+        'opacity-[1] scale-[0.8] rotate-[-5deg] translate-x-[50px] translate-y-[100px] z-[2]',
      tailwindGridPosXY: 'col-[2/_span_1] row-[2/_span_1]',
       paralax: 1,
       unoptimized: true,
@@ -30,10 +30,10 @@ export const landingHeroImages = [
       aspectRatio: '1.130',
       backCutOut: true,
       backCutOutColor: 'var(--color-sharpTeal)',
-      imageNameAltText: 'the vibes seating area',
+      imageNameAltText: 'friends playing in the simulator',
       paralax: 2,
       tailwindStyle:
-        'opacity-[1] scale-[1] rotate-[-11deg] translate-x-[-80px] translate-y-[30px] z-[1]',
+        'opacity-[1] scale-[1] rotate-[-11deg] translate-x-[20px] translate-y-[60px] z-[1]',
   
         tailwindGridPosXY: 'col-[3/_span_1] row-[2/_span_1]',
   
@@ -49,10 +49,10 @@ export const landingHeroImages = [
       aspectRatio: '0.95',
       backCutOut: true,
       backCutOutColor: 'var(--color-sharpTeal)',
-      imageNameAltText: 'pool bar',
+      imageNameAltText: 'Simulator Games at Ace',
       paralax: 1,
       tailwindStyle:
-        'scale-[1] rotate-[8deg] translate-x-[-20px] translate-y-[80px] z-[1]',
+        'scale-[1] rotate-[8deg] translate-x-[10px] translate-y-[100px] z-[1]',
   
         tailwindGridPosXY: 'col-[4/_span_1] row-[2/_span_1]',
   
@@ -68,10 +68,10 @@ export const landingHeroImages = [
       aspectRatio: '0.91',
       backCutOut: true,
       backCutOutColor: 'var(--color-sharpTeal)',
-      imageNameAltText: 'ping pong area',
+      imageNameAltText: 'Beef Sliders',
       paralax: 3,
       tailwindStyle:
-        'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[-40px] translate-y-[80px] z-[1]',
+        'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[0px] translate-y-[0px] z-[1]',
   
       tailwindGridPosXY: 'col-[4/_span_1] row-[1/_span_1]',
   
@@ -88,10 +88,10 @@ export const landingHeroImages = [
       aspectRatio: '1/1',
       backCutOut: false,
       backCutOutColor: 'var(--color-sharpTeal)',
-      imageNameAltText: 'ping pong area',
+      imageNameAltText: 'ace golf ball with logo',
       paralax: 1,
       tailwindStyle:
-        'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[0px] translate-y-[200px] z-[3]',
+        'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[100px] translate-y-[100px] z-[3]',
   
         tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1]',
   
