@@ -90,16 +90,14 @@ export const landingHeroImages = [
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'ace golf ball with logo',
       paralax: 2,
-      tailwindStyle:
-        'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[100px] translate-y-[100px] z-[3]',
-  
-        tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1]',
+      tailwindStyle: 'opacity-[1] scale-[1] rotate-[-9deg] translate-x-[100px] translate-y-[100px] z-[3]',
+
+      tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1]',
   
       mobile: {
         aspectRatio: '1/1',
-        tailwindStyle:
-          ' opacity-[1] scale-[1] rotate-[10deg] translate-x-[-30px] translate-y-[-10px] z-[1]',
-          tailwindGridPosXY: 'col-[3/_span_1] row-[3/_span_1]',
+        tailwindStyle: 'opacity-[1] scale-[1] rotate-[10deg] translate-x-[1px] translate-y-[1px] z-[1]',
+        tailwindGridPosXY: 'col-[4/_span_1] row-[1/_span_1]',
       },
     },
   ]

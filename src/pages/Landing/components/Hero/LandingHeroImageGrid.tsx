@@ -9,17 +9,14 @@ import { landingHeroImages } from './landingHeroImages'
 
 const LayoutWidthOptions = {
   center: {
-    _: 'w-full left-0 grid-col-[repeat(8,_1fr)]',
-    mobile: 'grid-col-[repeat(4,_1fr)] ',
+    _: 'w-full h-full left-0 lg:grid-cols-[repeat(8,_1fr)] grid-cols-[repeat(4,_1fr)] ',
   },
 
   start: {
-    _: 'w-[50%] left-0 grid-col-[repeat(4,_1fr)]',
-    mobile: 'w-full grid-col-[repeat(4,_1fr)] grid-row-[1fr_1fr_1fr]',
+    _: 'lg:w-[50%] w-[100%] h-full left-0 grid-cols-[repeat(4,_1fr)]w-full grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr_1fr]',
   },
   end: {
-    _: 'w-[50%] right-0 grid-col-[repeat(4,_1fr)]',
-    mobile: 'w-full grid-col-[repeat(4,_1fr)] grid-row-[1fr_1fr_1fr]',
+    _: 'lg:w-[50%] w-[100%] h-full right-0 lg:grid-cols-[repeat(4,_1fr)]  grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr]',
   },
 }
 
@@ -30,7 +27,7 @@ interface LandingHeroImageGridProps {
 }
 
 export const LandingHeroImageGrid = ({
-  SectionImageGridWidth = 'end',
+  SectionImageGridWidth = 'center',
   //   SectionImageGridHeight = '100%',
   //   ScrollAnimations = true,
 }: LandingHeroImageGridProps) => {
@@ -69,9 +66,9 @@ export const LandingHeroImageGrid = ({
   return (
     <div
       className={classNames(
-        'absolute top-0 grid h-full grid-rows-[1fr_1fr]',
-        HeroImageGrid._,
-        isMobile && HeroImageGrid.mobile
+        'absolute top-0 grid h-full ',
+        HeroImageGrid._
+        // isMobile && HeroImageGrid.mobile
       )}
     >
       {landingHeroImages.map(
