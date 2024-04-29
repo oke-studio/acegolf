@@ -1,6 +1,8 @@
 import { Container } from '../../components/Container/Container'
+import { NintendoSwitch } from '../../components/NintendoSwitch/NintendoSwitch'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
+import { GolfGameSection } from './components/GolfGamesSection/GolfGameSection'
 // import { FAQSection } from './components/FAQSection/FAQSection'
 import { HIWSection } from './components/HIWSection/HIWSection'
 
@@ -29,7 +31,8 @@ export const HIW = () => {
       </Container>
       <HIWSection />
       <SimRoomSection />
-      {/* <FAQSection /> */}
+      <GolfGameSection />
+      <NintendoSwitch />
     </>
   )
 }

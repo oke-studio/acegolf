@@ -1,4 +1,4 @@
-import { CalendarItemContainerStyleType } from '../../pages/Events/components/CalendarSection/types/CalendarSection.types'
+import { CalendarItemContainerStyleContentfulType } from '../../pages/Events/components/CalendarSection/types/CalendarSection.types'
 
 export interface TypeEventFields {
   eventTitle: string
@@ -7,8 +7,10 @@ export interface TypeEventFields {
   ctaText?: string
   ctaLink?: string
   eventDuration: string
-  eventType: CalendarItemContainerStyleType
-  eventPoster: {
+  startDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
+  endDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
+  eventType: CalendarItemContainerStyleContentfulType
+  eventPoster?: {
     url: string
     description: string
     title: string

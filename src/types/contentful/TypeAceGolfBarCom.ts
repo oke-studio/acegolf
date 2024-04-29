@@ -1,19 +1,18 @@
 import { TypeBayPricingAvailabilityFields } from '.'
-import { TypeEventItemFields, TypeEventFields } from '.'
+import { TypeEventFields } from '.'
 import { TypeHowItWorksFields } from '.'
 import { TypeMenuFields } from '.'
 
-export interface TypeAceGolfBarComFields {
-  aceGolfBarComCollection: {
+export interface TypeAceHomePageFields {
+  aceHomePageCollection: {
     items: {
       name: string
       globalAnnouncementHeader: string
-      activeDate: string
+      // featuredEventsPromotions:
       activeMenu: TypeMenuFields
       activePriceGrid: TypeBayPricingAvailabilityFields
       activeHowItWorks: TypeHowItWorksFields
-      activeEventsCollection: { items: TypeEventItemFields[] }
-      activePromotionsCollection: { items: TypeEventFields[] }
+      featuredEventsPromotionsCollection: { items: TypeEventFields[] }
     }[]
   }
 }
