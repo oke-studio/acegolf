@@ -8,11 +8,8 @@ import { EmailSection } from '../components/EmailSection/EmailSection'
 import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
 
 export const EventsItem = () => {
-  const { eventId, eventDate } = useParams()
-  const { eventItem, isError, isLoading } = useGetEventItem(
-    eventId!,
-    eventDate!
-  )
+  const { eventId } = useParams()
+  const { eventItem, isError, isLoading } = useGetEventItem(eventId!)
 
   if (!eventItem || isError) {
     return <div>error</div>
@@ -22,8 +19,9 @@ export const EventsItem = () => {
     return <div>Loading...</div>
   }
 
-  const isCTA = eventItem[0].ctaLink && eventItem[0].ctaText
-  const currentEvent = eventItem[0]
+  const isCTA = eventItem.ctaLink && eventItem.ctaText
+  const currentEvent = eventItem
+  const imgUrl = currentEvent.eventPoster?.url
 
   return (
     <>
@@ -61,9 +59,9 @@ export const EventsItem = () => {
             {/* Image */}
             <div className="relative flex w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
               <div
-                className="h-full min-h-80 bg-slate-300 grayscale"
+                className="aspect-square h-full min-h-96 bg-slate-300"
                 style={{
-                  backgroundImage: `url(${currentEvent.eventPoster.url})`,
+                  backgroundImage: imgUrl ? `url(${imgUrl})` : 'orange',
                   backgroundPosition: 'center',
                   backgroundSize: 'cover',
                 }}
@@ -75,7 +73,8 @@ export const EventsItem = () => {
                 {currentEvent.eventTitle}
               </Typography>
               <Typography fontVariant="base" fontWeight="300">
-                {eventDate} - {currentEvent.eventDuration}
+                {currentEvent.startDateTime.split('T')[0]} -{' '}
+                {currentEvent.endDateTime.split('T')[0]}
               </Typography>
               <Typography fontVariant="base" fontWeight="300">
                 {currentEvent.eventDescription}
