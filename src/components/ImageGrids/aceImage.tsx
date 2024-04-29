@@ -31,7 +31,7 @@ export const AceImage = ({
         ...style,
         ...(BackCutout && {
           backgroundColor: `rgb(${BackCutoutColor})`,
-          transform: `rotate(${randomizer(-3, 3)}deg)`,
+          //transform: `rotate(${randomizer(-3, 3)}deg)`,
           aspectRatio: `${AceImageAspectRatio}`,
         }),
       }}
@@ -42,7 +42,7 @@ export const AceImage = ({
         className="block h-auto w-full rounded-[1px] object-cover   "
         style={{
           aspectRatio: `${AceImageAspectRatio}`,
-          scale: `${randomizer(0.98, 0.99)}`,
+          scale: `${randomizer(0.97, 0.99)}`,
           transform: `rotate(${randomizer(3, -3)}deg)`,
         }}
       />
