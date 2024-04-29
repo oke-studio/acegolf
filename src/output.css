@@ -1144,14 +1144,6 @@ video {
   width: max-content;
 }
 
-.w-\[40\%\] {
-  width: 40%;
-}
-
-.w-\[100\%\] {
-  width: 100%;
-}
-
 .min-w-32 {
   min-width: 8rem;
 }
