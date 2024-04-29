@@ -1116,6 +1116,10 @@ video {
   width: 40%;
 }
 
+.w-\[100\%\] {
+  width: 100%;
+}
+
 .min-w-32 {
   min-width: 8rem;
 }
@@ -1314,6 +1318,16 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.translate-x-\[1px\] {
+  --tw-translate-x: 1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[1px\] {
+  --tw-translate-y: 1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-45 {
   --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1458,6 +1472,22 @@ video {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+.grid-cols-\[repeat\(4\2c _1fr\)\] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-\[repeat\(8\2c _1fr\)\] {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.grid-cols-\[repeat\(6\2c _1fr\)\] {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-cols-\[repeat\(3\2c _1fr\)\] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .grid-rows-2 {
   grid-template-rows: repeat(2, minmax(0, 1fr));
 }
@@ -1468,6 +1498,10 @@ video {
 
 .grid-rows-\[1fr_1fr\] {
   grid-template-rows: 1fr 1fr;
+}
+
+.grid-rows-\[1fr_1fr_1fr\] {
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .flex-row {
@@ -3664,6 +3698,14 @@ video {
     display: block;
   }
 
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:w-\[100\%\] {
+    width: 100%;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3884,8 +3926,24 @@ video {
     width: 100%;
   }
 
+  .lg\:w-\[50\%\] {
+    width: 50%;
+  }
+
   .lg\:grid-cols-\[250px_1fr\] {
     grid-template-columns: 250px 1fr;
+  }
+
+  .lg\:grid-cols-\[repeat\(4\2c _1fr\)\] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .lg\:grid-cols-\[repeat\(3\2c _1fr\)\] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lg\:grid-cols-\[repeat\(8\2c _1fr\)\] {
+    grid-template-columns: repeat(8, 1fr);
   }
 
   .lg\:flex-row {
