@@ -75,7 +75,7 @@ export const LandingHeroImageGrid = ({
         (
           {
             src,
-            aspectRatio,
+            //aspectRatio,
             backCutOut,
             backCutOutColor,
             imageNameAltText,
@@ -100,7 +100,7 @@ export const LandingHeroImageGrid = ({
               <AceImage
                 AceImageName={imageNameAltText}
                 AceImageSrc={src}
-                AceImageAspectRatio={aspectRatio}
+                // AceImageAspectRatio={aspectRatio}
                 BackCutout={backCutOut}
                 BackCutoutColor={backCutOutColor}
                 ClassNamesUsed={tailwindStyle}
