@@ -4,7 +4,7 @@ import classNames from 'classnames'
 interface AceImageProps {
   AceImageName: string
   AceImageSrc: string
-  AceImageAspectRatio: string
+  // AceImageAspectRatio: string
   BackCutout: boolean
   BackCutoutColor: string
   ClassNamesUsed?: string
@@ -14,7 +14,7 @@ interface AceImageProps {
 export const AceImage = ({
   AceImageName,
   AceImageSrc,
-  AceImageAspectRatio = '1/1',
+  // AceImageAspectRatio = '1/1',
   BackCutout = true,
   BackCutoutColor = 'var(--color-sharpTeal)',
   ClassNamesUsed,
@@ -41,7 +41,7 @@ export const AceImage = ({
         alt={AceImageName}
         className="h-full w-full rounded-[1px] object-cover  "
         style={{
-          aspectRatio: `${AceImageAspectRatio}`,
+          // aspectRatio: `${AceImageAspectRatio}`,
           scale: `${randomizer(0.97, 0.99)}`,
           transform: `rotate(${randomizer(3, -3)}deg)`,
         }}
