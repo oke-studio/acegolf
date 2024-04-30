@@ -68,6 +68,10 @@ const Promotion = ({
             backgroundSize: 'cover',
           }}
         />
+        {/* <img
+          src={imgSrc}
+          className="h-full max-h-96 w-full max-w-80 grayscale hover:grayscale-0"
+        /> */}
         <div className="absolute bottom-0 left-0 right-0 h-full max-h-16 bg-white p-4 text-left ">
           <Typography fontVariant="base" fontWeight="700">
             {title}
