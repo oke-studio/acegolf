@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetFeaturedPromotions } from './hooks/useGetPromotions'
+import { ImageURLFormatter } from '../../../../utils/imageFormatter'
 
 export const PromotionsSection = () => {
   const { isError, isLoading, promotionsData } = useGetFeaturedPromotions()
@@ -22,15 +23,23 @@ export const PromotionsSection = () => {
           PROMOTIONS
         </Typography>
         <div className="flex w-full flex-wrap justify-center gap-4">
-          {/* // TODO: Update this image src prop to a default image */}
-          {promotionsData.map((promo) => (
-            <Promotion
-              title={promo.eventTitle}
-              imgSrc={promo.eventPoster?.url ?? 'somsom'}
-              promoId={promo.slugId}
-              promoDate={promo.startDateTime.split('T')[0]}
-            />
-          ))}
+          {promotionsData.map((promo) => {
+            const { eventTitle, eventPoster, slugId, startDateTime } = promo
+            const imgUrl = eventPoster?.url
+              ? ImageURLFormatter(eventPoster?.url, eventPoster?.contentType)
+              : 'somsom'
+            {
+              /* // TODO: Update this image url to have a default image */
+            }
+            return (
+              <Promotion
+                title={eventTitle}
+                imgSrc={imgUrl}
+                promoId={slugId}
+                promoDate={startDateTime.split('T')[0]}
+              />
+            )
+          })}
         </div>
       </div>
     </Section>
@@ -49,22 +58,22 @@ const Promotion = ({
   promoDate: string
 }) => {
   return (
-    <div className="relative flex min-w-64 flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div
-        className="h-full min-h-96 bg-slate-300 grayscale"
-        style={{
-          backgroundImage: `url(${imgSrc})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-        }}
-      />
-      <div className="absolute bottom-0 left-0 right-0 h-full max-h-16 bg-white p-4 text-left hover:cursor-pointer hover:text-orange">
-        <Link to={`/events/${promoId}/${promoDate}`}>
+    <Link to={`/events/${promoId}/${promoDate}`}>
+      <div className="relative flex min-w-64 flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md hover:cursor-pointer hover:text-orange">
+        <div
+          className="h-full min-h-96 bg-slate-300 grayscale hover:grayscale-0"
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-full max-h-16 bg-white p-4 text-left ">
           <Typography fontVariant="base" fontWeight="700">
             {title}
           </Typography>
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }

@@ -1,18 +1,9 @@
 import { Section } from '../../../../components/Section/Section'
 import { Container } from '../../../../components/Container/Container'
 
-// Images
-// import URL1 from '../../../../assets/wtv/20231224_124126.mp4'
-import URL2 from '../../../../assets/wtv/20231224_124126.mp4'
-import URL3 from '../../../../assets/wtv/ace-pink.webp'
-import URL4 from '../../../../assets/wtv/ace_landing_wtv_demo.mp4' //video
-import URL5 from '../../../../assets/wtv/ace_landing_wtv_demo2.webm' //video
-// import URL6 from '../../../../assets/wtv/wtv-01.webp'
-// import URL7 from '../../../../assets/wtv/wtv-02.webp'
-import URL8 from '../../../../assets/wtv/wtv-03.webp'
-import URL9 from '../../../../assets/wtv/wtv-04.webp'
 import { Typography } from '../../../../components/Typography/Typography'
 import { MusicPlayer } from './components/MusicPlayer'
+import { UGC } from './components/UGC/UGC'
 
 // const imgs = [URL1, URL2, URL3, URL4, URL5, URL6, URL7, URL8, URL9]
 
@@ -37,105 +28,7 @@ export const WTVSection = () => {
             What&apos;s the Vibe?
           </Typography>
           <MusicPlayer />
-          <div className="ml-auto mr-auto grid max-w-[35rem] grid-cols-2 gap-6 md:grid-cols-4">
-            <div className="flex flex-col gap-4">
-              <div>
-                <video
-                  className="h-auto w-full rounded-lg"
-                  autoPlay
-                  loop
-                  preload="auto"
-                  muted
-                  // alt=""
-                >
-                  <source src={URL2} type="video/mp4" />
-                </video>
-              </div>
-              <div>
-                <img className="h-auto w-full rounded-lg" src={URL3} alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
-              <div>
-                <img className="h-auto w-full rounded-lg" src={URL8} alt="" />
-              </div>
-              <div>
-                <video
-                  className="h-auto w-full rounded-lg"
-                  autoPlay
-                  loop
-                  preload="auto"
-                  muted
-                  // alt=""
-                >
-                  <source src={URL4} type="video/mp4" />
-                </video>
-              </div>
-              {/* <div>
-                <img
-                  className="h-auto w-full rounded-lg"
-                  src={URL8}
-                  alt=""
-                />
-              </div> */}
-              {/* <div>
-                <img
-                  className="h-auto w-full rounded-lg"
-                  src={URL6}
-                  alt=""
-                />
-              </div> */}
-            </div>
-            <div className="flex flex-col gap-4">
-              {/* <div>
-                <img
-                  className="h-auto w-full rounded-lg"
-                  src={URL7}
-                  alt=""
-                />
-              </div> */}
-              <div>
-                <video
-                  className="h-auto w-full rounded-lg"
-                  autoPlay
-                  loop
-                  preload="auto"
-                  muted
-                  // alt=""
-                >
-                  <source src={URL5} type="video/mp4" />
-                </video>
-              </div>
-              <div>
-                <img className="h-auto w-full rounded-lg" src={URL9} alt="" />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {/* <div>
-                <img
-                  className="h-auto w-full rounded-lg"
-                  src={URL7}
-                  alt=""
-                />
-              </div> */}
-              <div>
-                <img className="h-auto w-full rounded-lg" src={URL9} alt="" />
-              </div>
-              <div>
-                <video
-                  className="h-auto w-full rounded-lg"
-                  autoPlay
-                  loop
-                  preload="auto"
-                  muted
-                  // alt=""
-                >
-                  <source src={URL5} type="video/mp4" />
-                </video>
-              </div>
-            </div>
-          </div>
+          <UGC />
         </div>
       </Container>
     </Section>

@@ -1,7 +1,17 @@
 import { Section } from '../../Section/Section'
 import { Typography } from '../../Typography/Typography'
+import { useGetUGCTestimonials } from './hooks/UseGetUGCQuery/useGetUGC.hook'
 
 export const WTS = () => {
+  const { UGCData, isError, isLoading } = useGetUGCTestimonials()
+
+  if (isError || !UGCData) {
+    return <>error</>
+  }
+
+  if (isLoading) {
+    return <>loading</>
+  }
   return (
     <Section
       borderRadiusVariant="pill"

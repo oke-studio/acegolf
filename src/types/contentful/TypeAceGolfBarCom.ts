@@ -13,8 +13,15 @@ export interface TypeAceHomePageFields {
       activePriceGrid: TypeBayPricingAvailabilityFields
       activeHowItWorks: TypeHowItWorksFields
       featuredEventsPromotionsCollection: { items: TypeEventFields[] }
+      featuredUgcVideosCollection: {
+        items: {
+          nameofPerson: string
+          testimonialMessage: string
+          type: 'UGC Video' | 'Testimonial'
+          linkedUrl?: string
+          imageVideo: { contentType: string; url: string; fileName: string }
+        }[]
+      }
     }[]
   }
 }
-
-// export type TypeAceGolfBarCom = Entry<TypeAceGolfBarComFields>;
