@@ -2065,10 +2065,6 @@ video {
   padding: 0.25rem;
 }
 
-.p-12 {
-  padding: 3rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -2142,6 +2138,11 @@ video {
   padding-right: 5%;
 }
 
+.px-\[6\%\] {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
 .py-0 {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -2200,11 +2201,6 @@ video {
 .py-\[4\%\] {
   padding-top: 4%;
   padding-bottom: 4%;
-}
-
-.px-\[6\%\] {
-  padding-left: 6%;
-  padding-right: 6%;
 }
 
 .py-\[5\%\] {
@@ -3879,24 +3875,16 @@ video {
     border-bottom-left-radius: 0.75rem;
   }
 
-  .md\:rounded-tl-xl {
-    border-top-left-radius: 0.75rem;
-  }
-
-  .md\:rounded-tr-none {
-    border-top-right-radius: 0px;
-  }
-
-  .md\:rounded-tr-xl {
-    border-top-right-radius: 0.75rem;
-  }
-
   .md\:rounded-tl-\[2rem\] {
     border-top-left-radius: 2rem;
   }
 
   .md\:rounded-tr-\[2rem\] {
     border-top-right-radius: 2rem;
+  }
+
+  .md\:rounded-tr-none {
+    border-top-right-radius: 0px;
   }
 
   .md\:border-b {

@@ -66,7 +66,7 @@ export const LandingHeroImageGrid = ({
   return (
     <div
       className={classNames(
-        'absolute top-0 grid h-full ',
+        'pointer-events-none absolute top-0 grid  h-full',
         HeroImageGrid._
         // isMobile && HeroImageGrid.mobile
       )}
