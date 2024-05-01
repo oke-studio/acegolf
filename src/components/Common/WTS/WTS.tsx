@@ -6,8 +6,6 @@ import { useGetUGCTestimonials } from './hooks/UseGetUGCQuery/useGetUGC.hook'
 export const WTS = () => {
   const { UGCData, isError, isLoading } = useGetUGCTestimonials()
 
-  console.log(UGCData)
-
   if (isError || !UGCData) {
     return <>error</>
   }

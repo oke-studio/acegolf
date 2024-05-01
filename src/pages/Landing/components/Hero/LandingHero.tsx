@@ -25,7 +25,7 @@ export const LandingHero = ({
     <motion.div>
       <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
         <div className="flex flex-col gap-3 lg:gap-5" style={{}}>
-          <div className=" w-[40%] lg:w-[100%]">
+          <div className="w-[40%] lg:w-full">
             <img
               src={PoweredByTrackman}
               alt="Powered By Trackman"
