@@ -4,7 +4,7 @@ export const HeaderLogo = ({ color }: { color?: string }) => {
   return (
     <Link to="/">
       <svg
-        width="48"
+        width="65"
         height="100%"
         viewBox="0 0 79 39"
         fill="none"

@@ -82,7 +82,7 @@ export const Header = () => {
         <div
           className={classNames(
             isOpen ? 'bg-white' : 'bg-black',
-            'flex w-full items-center justify-between bg-black p-3'
+            'flex w-full items-center justify-between bg-black p-[5%] md:p-3'
           )}
         >
           <div onClick={() => setIsOpen((ev) => !ev)}>
@@ -91,9 +91,9 @@ export const Header = () => {
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="text-3xl"
-            whileHover={{ scale: 1.75 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ scale: 1 }}
+            whileHover={{ scale: 2 }}
+            whileTap={{ scale: 1.2 }}
+            initial={{ scale: 1.75 }}
           >
             {isOpen ? (
               <IoClose fontSize="large" color="black" />

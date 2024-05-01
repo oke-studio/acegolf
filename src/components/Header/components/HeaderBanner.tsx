@@ -1,5 +1,4 @@
 import { useGetAceQuery } from '../../../hooks/UseGetAceQuery/useGetAceQuery.hook'
-import { Typography } from '../../Typography/Typography'
 
 export const HeaderBanner = () => {
   const { data, isLoading } = useGetAceQuery()
@@ -8,10 +7,10 @@ export const HeaderBanner = () => {
     return <></>
   }
   return (
-    <div className="w-full self-center text-wrap rounded-b-3xl bg-green p-2 px-3 text-center text-white sm:w-max sm:rounded-3xl sm:p-2">
-      <Typography fontVariant="base" fontWeight="500">
+    <div className="mx-[5%] self-center text-wrap rounded-3xl rounded-b-3xl bg-green px-3 py-2 text-center text-white sm:p-2 md:w-max">
+      <p className=" font-HNMedium text-xs font-medium md:text-base">
         {data.globalAnnouncementHeader}
-      </Typography>
+      </p>
     </div>
   )
 }
