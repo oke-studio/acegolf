@@ -909,6 +909,10 @@ video {
   margin-top: 10rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -3722,6 +3726,10 @@ video {
     margin-top: 2.5rem;
   }
 
+  .md\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -4013,6 +4021,14 @@ video {
 
   .md\:font-normal {
     font-weight: 400;
+  }
+
+  .md\:font-thin {
+    font-weight: 100;
+  }
+
+  .md\:font-medium {
+    font-weight: 500;
   }
 
   .md\:opacity-\[0\] {

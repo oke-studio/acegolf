@@ -78,11 +78,11 @@ export const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   if (isMobile) {
     return (
-      <div className="sticky top-0 z-50 mb-8 flex flex-col">
+      <div className="sticky top-0 z-50 mb-3 flex flex-col">
         <div
           className={classNames(
-            isOpen ? 'bg-white' : 'bg-black',
-            'flex w-full items-center justify-between bg-black p-[5%] md:p-3'
+            isOpen ? 'bg-white' : 'bg-[#17171780] backdrop-blur-lg',
+            'flex w-full items-center justify-between  p-[5%]  md:p-3'
           )}
         >
           <div onClick={() => setIsOpen((ev) => !ev)}>
