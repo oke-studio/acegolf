@@ -8,6 +8,14 @@ import { Link } from 'react-router-dom'
 import PoweredByTrackman from '../../../../assets/logos/powered-by-trackman-black-web.webp'
 import { LandingHeroImageGrid } from './LandingHeroImageGrid'
 
+const handleMapButtonLink = () => {
+  return 'https://www.google.com/maps/dir/581+Eastern+Avenue,+Toronto,+ON/588+Eastern+Ave,+Toronto,+ON+M4M+1E1/@43.6588624,-79.3396868,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89d4cb75daac07a1:0x29f6fb44e2d79f3!2m2!1d-79.3374018!2d43.6586366!1m5!1m1!1s0x89d4cb75df38a6bd:0x71354217e063d446!2m2!1d-79.3369881!2d43.6590804!3e0?entry=ttu'
+}
+
+// const handleBookLink = () => {
+//   return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
+// }
+
 export const LandingHero = ({
   scrollYProgress,
 }: {
@@ -103,7 +111,7 @@ export const LandingHero = ({
                 marginLeft: '10px',
               }}
             >
-              <Link to="/book-now">
+              <Link to={handleMapButtonLink()}>
                 <svg
                   width="20"
                   height="30"
@@ -148,6 +156,7 @@ export const LandingHero = ({
             <Button
               buttonVariant="primary"
               // buttonStyle={{ width: 'max-content' }}
+              //<Link to={handleBookLink()}>
             >
               <Typography
                 fontVariant={isMobile ? 'extralarge' : 'headingFour'}

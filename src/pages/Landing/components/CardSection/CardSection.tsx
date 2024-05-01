@@ -20,7 +20,7 @@ const CoachingCard = () => (
   <Card
     title="Coaching"
     theme="light"
-    description="We use TRACKMAN World class golf simulator technology in all our bays"
+    description="Need golf coaching? We offer coaching through external coaches."
     buttonTwo={{
       children: (
         <Link to="https://www.trackman.com/golf/simulator" target="_blank">
@@ -57,7 +57,7 @@ const ParkingCard = () => (
     theme="light"
     description="Parking available at Heward Ave & Eastern Ave"
     tilt="left"
-    // style={{ height: '400px' }}
+    style={{ color: 'white' }}
     buttonTwo={{
       children: (
         <Link to={handleMapButtonLink()} target="_blank">

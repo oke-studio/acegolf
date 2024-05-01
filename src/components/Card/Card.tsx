@@ -50,16 +50,18 @@ export const Card = ({
       className={classNames(
         finalTheme,
         finalTilt,
-        'flex w-full flex-col items-center rounded-3xl border border-black p-6'
+        'flex min-h-48 w-full flex-col items-center rounded-3xl bg-center p-6 md:min-h-64'
       )}
       style={{
         backgroundImage: `url(${imgSrc})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        borderColor: '#E9E3DC',
+        borderWidth: '3px',
         ...style,
       }}
     >
-      <div className="relative flex w-full flex-col gap-3">
+      <div className="relative flex w-full flex-col gap-6">
         {title && (
           <Typography fontVariant="headingThree" fontWeight="600">
             {title}
