@@ -1137,6 +1137,10 @@ video {
   width: max-content;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .min-w-32 {
   min-width: 8rem;
 }
@@ -4095,6 +4099,10 @@ video {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:translate-x-\[-10px\] {

@@ -77,7 +77,7 @@ export const MenuCard = () => {
 
       {/* <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} /> */}
       <GradientEdges />
-      <div className="absolute bottom-6 left-6 right-6 m-3 flex w-full flex-col gap-4 rounded-xl bg-white p-6 md:m-0 md:w-1/2">
+      <div className="absolute bottom-6 left-6 right-6 m-3 flex w-auto flex-col gap-4 rounded-xl bg-white p-6 md:m-0 lg:w-1/2">
         <Typography fontVariant="headingFour" fontWeight="700">
           Asian Style Tapas Cuisine
         </Typography>
