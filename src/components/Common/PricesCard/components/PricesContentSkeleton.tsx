@@ -91,7 +91,7 @@ export const PricesContentSkeleton = ({
     <div className="flex flex-col gap-3">
       <div className="flex flex-col flex-wrap ">
         <div className="mt-3 flex flex-wrap items-center gap-3 *:grow *:basis-64">
-          <div className="bg-grey flex items-center gap-2 rounded-xl p-2 *:grow *:basis-24">
+          <div className="flex items-center gap-2 rounded-xl bg-grey p-2 *:grow *:basis-24">
             {priceContainerServices.map((p, index) => (
               <ToggleChip
                 selected={index === toggle}
@@ -143,9 +143,31 @@ const PriceInfoBox = ({
   return (
     <div className={cn(PrivateStyle, 'flex w-full flex-col rounded-xl')}>
       <div className="flex w-full flex-row flex-wrap items-center justify-between rounded-[inherit] p-4 *:grow *:basis-64">
-        <Typography fontVariant="large" fontWeight="700" tailwindStyle="mb-1">
-          {isPrivate ? 'Private Bay' : 'General Bay'}
-        </Typography>
+        <div className=" flex flex-col items-start ">
+          <Typography fontVariant="large" fontWeight="700" tailwindStyle="mb-1">
+            {isPrivate ? 'Private Bay' : 'General Bay'}
+          </Typography>
+
+          {isPrivate ? (
+            <Typography
+              fontVariant="small"
+              fontWeight="200"
+              tailwindStyle="mb-1 text-left"
+            >
+              Comfortably holds 16 people
+              <br /> Performance Trackman Bay
+            </Typography>
+          ) : (
+            <Typography
+              fontVariant="small"
+              fontWeight="200"
+              tailwindStyle="mb-1 text-left"
+            >
+              Comfortably holds 6 people
+              <br /> Performance Trackman Bay
+            </Typography>
+          )}
+        </div>
 
         <div className="flex flex-col gap-3 text-center">
           <Typography fontVariant="headingThree" fontWeight="800">

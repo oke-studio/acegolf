@@ -150,7 +150,7 @@ export const PricesCard = () => {
         </Typography>
         <select
           id="tab-select"
-          className="block w-full rounded-lg border-4 border-black px-4 py-3 text-base focus:border-orange focus:ring-orange"
+          className="block w-full rounded-lg border-4 border-black bg-gray-400 bg-opacity-50 px-4 py-3 font-HNMedium text-3xl font-medium  focus:border-orange focus:ring-orange"
           aria-label="Tabs"
           role="tablist"
           value={value}
@@ -158,7 +158,7 @@ export const PricesCard = () => {
         >
           {TabValues.map((v, i) => (
             <option key={`option_${i}`} value={v.value}>
-              {v.label}
+              {v.fullLabel}
             </option>
           ))}
         </select>
