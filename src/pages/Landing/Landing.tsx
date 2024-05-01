@@ -85,6 +85,7 @@ export const Landing = () => {
         </Section>
         <Section
           style={{ backgroundColor: 'transparent', border: 0, padding: 0 }}
+          id={'prices-hours'}
         >
           <div className="mt-9 flex flex-wrap gap-6 *:grow *:basis-64">
             <MC />

@@ -22,6 +22,7 @@ interface SectionProps {
   style?: MotionStyle
   children: React.ReactNode
   tailWindStyle?: string
+  id?: string
 }
 
 export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
@@ -32,6 +33,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
       style,
       children,
       tailWindStyle,
+      id,
     },
     ref
   ) => {
@@ -48,6 +50,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
         )}
         ref={ref}
         style={style}
+        id={id}
       >
         {children}
       </motion.section>

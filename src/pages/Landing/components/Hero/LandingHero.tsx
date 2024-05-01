@@ -127,8 +127,9 @@ export const LandingHero = ({
             <Button
               buttonVariant="secondary"
               // buttonStyle={{ width: 'max-content' }}
+              //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
             >
-              <Link to="/book-now">
+              <Link to="#prices-hours">
                 <Typography
                   fontVariant={isMobile ? 'extralarge' : 'headingFour'}
                   fontWeight="500"
