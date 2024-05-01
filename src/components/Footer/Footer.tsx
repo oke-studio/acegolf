@@ -2,8 +2,8 @@ import { Typography } from '../Typography/Typography'
 import { motion } from 'framer-motion'
 import { FooterLinks } from './components/FooterLinks'
 
-import AceFooterURL from '../../assets/logos/ace-footer-v2.svg'
-import AceFooterMiniUrl from '../../assets/logos/ace-footer-v2-mini.svg'
+import AceFooterURL from '/logos/ace-footer-v2.svg'
+import AceFooterMiniUrl from '/logos/ace-footer-v2-mini.svg'
 
 export const Footer = () => {
   // const HEADING_FOUR_LINE_HEIGHT = typography.headingFour.lineHeight;

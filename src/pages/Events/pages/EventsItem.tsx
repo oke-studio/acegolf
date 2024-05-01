@@ -23,6 +23,9 @@ export const EventsItem = () => {
   const currentEvent = eventItem
   const imgUrl = currentEvent.eventPoster?.url
 
+  const startDate = new Date(currentEvent.endDateTime).toDateString()
+  const endDate = new Date(currentEvent.startDateTime).toDateString()
+
   return (
     <>
       <Container>
@@ -73,8 +76,7 @@ export const EventsItem = () => {
                 {currentEvent.eventTitle}
               </Typography>
               <Typography fontVariant="base" fontWeight="300">
-                {currentEvent.startDateTime.split('T')[0]} -{' '}
-                {currentEvent.endDateTime.split('T')[0]}
+                {startDate} - {endDate}
               </Typography>
               <Typography fontVariant="base" fontWeight="300">
                 {currentEvent.eventDescription}

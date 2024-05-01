@@ -25,7 +25,7 @@ export const LandingHero = ({
     <motion.div>
       <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
         <div className="flex flex-col gap-3 lg:gap-5" style={{}}>
-          <div className=" w-[40%] lg:w-[100%]">
+          <div className="w-[40%] lg:w-full">
             <img
               src={PoweredByTrackman}
               alt="Powered By Trackman"
@@ -51,8 +51,7 @@ export const LandingHero = ({
             <Typography
               fontVariant={isMobile ? 'headingThree' : 'poster'}
               fontWeight="900"
-              T={'h1'}
-              style={{}}
+              T="h1"
               tailwindStyle=" whitespace-nowrap"
             >
               <span
@@ -123,13 +122,19 @@ export const LandingHero = ({
             </Button>
           </Typography>
           {/* {!isMobile && ( */}
-          <div className="flex flex-col gap-4 md:flex-row" style={{}}>
-            <Button
-              buttonVariant="secondary"
-              // buttonStyle={{ width: 'max-content' }}
-              //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div
+              className="h-full w-max"
+              onClick={(e) => {
+                e.preventDefault()
+                document?.getElementById('prices-hours')?.scrollIntoView()
+              }}
             >
-              <Link to="#prices-hours">
+              <Button
+                buttonVariant="secondary"
+                // buttonStyle={{ width: 'max-content' }}
+                //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
+              >
                 <Typography
                   fontVariant={isMobile ? 'extralarge' : 'headingFour'}
                   fontWeight="500"
@@ -137,8 +142,8 @@ export const LandingHero = ({
                 >
                   Hours & Pricing
                 </Typography>
-              </Link>
-            </Button>
+              </Button>
+            </div>
 
             <Button
               buttonVariant="primary"

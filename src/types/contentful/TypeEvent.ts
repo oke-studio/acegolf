@@ -14,6 +14,8 @@ export interface TypeEventFields {
     url: string
     description: string
     title: string
+    contentType: string
+    fileName: string
   }
 }
 
