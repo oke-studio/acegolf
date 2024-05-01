@@ -59,7 +59,7 @@ const Promotion = ({
 }) => {
   return (
     <Link to={`/events/${promoId}/${promoDate}`}>
-      <div className="relative flex min-w-64 flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md grayscale hover:cursor-pointer hover:text-orange hover:grayscale-0">
+      <div className="relative flex h-80 min-w-64 flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md grayscale hover:cursor-pointer hover:text-orange hover:grayscale-0">
         <div
           className="h-full min-h-96 bg-slate-300 "
           style={{

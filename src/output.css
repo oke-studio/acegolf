@@ -940,16 +940,16 @@ video {
   height: 0.75rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .h-36 {
   height: 9rem;
 }
 
 .h-4 {
   height: 1rem;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .h-5 {
@@ -1009,17 +1009,21 @@ video {
   height: 16rem;
 }
 
-.max-h-16 {
-  max-height: 4rem;
+.h-48 {
+  height: 12rem;
 }
 
-.max-h-96 {
-  max-height: 24rem;
+.max-h-16 {
+  max-height: 4rem;
 }
 
 .max-h-max {
   max-height: -moz-max-content;
   max-height: max-content;
+}
+
+.max-h-96 {
+  max-height: 24rem;
 }
 
 .min-h-80 {
@@ -1070,6 +1074,10 @@ video {
   width: 1.25rem;
 }
 
+.w-52 {
+  width: 13rem;
+}
+
 .w-56 {
   width: 14rem;
 }
@@ -1088,6 +1096,10 @@ video {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-\[100\%\] {
+  width: 100%;
 }
 
 .w-\[10vw\] {
@@ -1144,10 +1156,6 @@ video {
   max-width: 64rem;
 }
 
-.max-w-80 {
-  max-width: 20rem;
-}
-
 .max-w-\[100px\] {
   max-width: 100px;
 }
@@ -1162,6 +1170,10 @@ video {
 
 .max-w-\[100\%\] {
   max-width: 100%;
+}
+
+.max-w-80 {
+  max-width: 20rem;
 }
 
 .flex-1 {
@@ -4012,6 +4024,10 @@ video {
 
   .lg\:w-10 {
     width: 2.5rem;
+  }
+
+  .lg\:w-\[100\%\] {
+    width: 100%;
   }
 
   .lg\:w-\[50\%\] {
