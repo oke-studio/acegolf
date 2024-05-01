@@ -63,9 +63,9 @@ export const landingHeroImages = [
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'ace golf ball with logo',
       paralax: 2,
-      tailwindStyle: 'opacity-[1] scale-[.8] rotate-[-9deg] translate-x-[40px] translate-y-[30px] z-[3] md:opacity-[1] md:scale-[.70] md:rotate-[-10deg] md:translate-x-[-40px] md:translate-y-[10px] md:z-[3]  lg:opacity-[1] lg:scale-[1.2] lg:rotate-[10deg] lg:translate-x-[0px] lg:translate-y-[100px] z-[1] xl:opacity-[1] xl:scale-[1] xl:rotate-[10deg] xl:translate-x-[20px] xl:translate-y-[90px] z-[1]',
+      tailwindStyle: 'opacity-[1] scale-[.8] rotate-[-9deg] translate-x-[40px] translate-y-[30px] z-[3] md:opacity-[1] md:scale-[.70] md:rotate-[-10deg] md:translate-x-[-40px] md:translate-y-[10px] md:z-[3]  lg:opacity-[1] lg:scale-[1.2] lg:rotate-[10deg] lg:translate-x-[-10px] lg:translate-y-[80px] z-[1] xl:opacity-[1] xl:scale-[1] xl:rotate-[10deg] xl:translate-x-[20px] xl:translate-y-[90px] z-[1]',
 
-      tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1] md:col-[4/_span_1] md:row-[1/_span_1] lg:col-[2/_span_1] lg:row-[1/_span_1]',
+      tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1] md:col-[4/_span_1] md:row-[1/_span_1] lg:col-[3/_span_1] lg:row-[1/_span_1]',
 
     },
   ]
