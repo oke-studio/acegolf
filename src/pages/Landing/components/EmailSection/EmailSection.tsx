@@ -20,7 +20,7 @@ export const EmailSection = () => {
       sectionWidth="fullViewport"
       style={{
         backgroundColor: 'rgb(var(--color-green))',
-        padding: '3rem',
+        // padding: '3rem',
         scale,
       }}
       ref={targetRef}

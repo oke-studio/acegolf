@@ -14,6 +14,7 @@ import { MenuCard as MC } from '../../components/Common/MenuCard/MenuCard'
 import { PricesCard as PC } from '../../components/Common/PricesCard/PricesCard'
 import { Button } from '../../components/Button/Button'
 import { WTS } from '../../components/Common/WTS/WTS'
+import { NintendoSwitch } from '../../components/NintendoSwitch/NintendoSwitch'
 
 export const Landing = () => {
   React.useEffect(() => {
@@ -117,6 +118,7 @@ export const Landing = () => {
         <CardSection />
         <WTS />
         <EmailSection />
+        <NintendoSwitch />
       </Container>
     </>
   )

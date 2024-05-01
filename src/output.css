@@ -2198,6 +2198,16 @@ video {
   padding-bottom: 4%;
 }
 
+.px-\[6\%\] {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.py-\[5\%\] {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -3877,6 +3887,14 @@ video {
     border-top-right-radius: 0.75rem;
   }
 
+  .md\:rounded-tl-\[2rem\] {
+    border-top-left-radius: 2rem;
+  }
+
+  .md\:rounded-tr-\[2rem\] {
+    border-top-right-radius: 2rem;
+  }
+
   .md\:border-b {
     border-bottom-width: 1px;
   }
@@ -3892,6 +3910,16 @@ video {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .md\:px-\[6\%\] {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .md\:py-\[5\%\] {
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   .md\:pl-1 {
