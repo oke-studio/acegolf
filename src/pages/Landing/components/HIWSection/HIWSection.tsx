@@ -38,7 +38,7 @@ export const LandingHIWSection = () => {
                 #{index + 1}
               </Typography>
               <Typography fontVariant="headingFour" fontWeight="700">
-                {p.stepTitle}
+                {p.stepTextTitle}
               </Typography>
               <Typography fontVariant="base" fontWeight="500">
                 {p.stepContent}

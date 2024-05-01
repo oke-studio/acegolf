@@ -7,6 +7,7 @@ export interface TypeHowItWorksFields {
 
 interface TypeHowItWorksStepsFields {
   stepTitle: string
+  stepTextTitle: string
   stepContent: string
   stepCtaText: string
   stepCtaLink: string

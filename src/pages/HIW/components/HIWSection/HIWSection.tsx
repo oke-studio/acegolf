@@ -25,7 +25,7 @@ export const HIWSection = () => {
     (acc, curr) => {
       acc.push({
         description: curr.stepContent,
-        title: curr.stepTitle,
+        title: curr.stepTextTitle,
         relatedFAQs: curr.relatedFaqCollection.items,
       })
 

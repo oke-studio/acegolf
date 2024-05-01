@@ -271,6 +271,7 @@ export const GetAceV2Query = gql`
           howItWorksStepsCollection {
             items {
               stepTitle
+              stepTextTitle
               stepContent
               stepCtaText
               stepCtaLink
