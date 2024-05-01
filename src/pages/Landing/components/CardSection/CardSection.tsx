@@ -23,7 +23,7 @@ const CoachingCard = () => (
     description="Need golf coaching? We offer coaching through external coaches."
     buttonTwo={{
       children: (
-        <Link to="https://www.trackman.com/golf/simulator" target="_blank">
+        <Link to="/coaching">
           <Typography fontVariant="large" fontWeight="400">
             Get Coaching &rarr;
           </Typography>
@@ -37,12 +37,12 @@ const LeaguesCard = () => (
   <Card
     title="Leagues"
     theme="light"
-    description="We use TRACKMAN World class golf simulator technology in all our bays"
+    description="Check out active leagues and tournaments hosted at Ace Golf."
     buttonTwo={{
       children: (
-        <Link to="https://www.trackman.com/golf/simulator" target="_blank">
+        <Link to="/leagues">
           <Typography fontVariant="large" fontWeight="400">
-            Get Coaching &rarr;
+            Active Leagues &rarr;
           </Typography>
         </Link>
       ),
