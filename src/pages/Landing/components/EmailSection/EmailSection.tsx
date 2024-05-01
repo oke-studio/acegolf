@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { Email } from '../../../../components/Email/Email'
 import { Section } from '../../../../components/Section/Section'
-import { Container } from '../../../../components/Container/Container'
 import { useScroll, useTransform } from 'framer-motion'
 import { PromotionsSection } from '../../../Events/components/PromotionsSection/PromotionsSection'
 
