@@ -22,7 +22,7 @@ export default {
 
       '2xl': ['1.5rem', '32px'], // #5 <-headingFour->
 
-      '3xl': ['1.875rem', '1.875rem'], // #6 <-headingThree->
+      '3xl': ['2rem', '2rem'], // #6 <-headingThree->
 
       '4xl': ['2.5rem', '2.5rem'], // #7 <-headingTwo->
 

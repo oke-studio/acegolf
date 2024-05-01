@@ -37,27 +37,27 @@ const CalendarItemContainer = ({
     date: 'bg-grey',
   }
 
-  if (style === 'hidden') {
-    return <div />
-  }
+  //   if (style === 'hidden') {
+  //     return <div />
+  //   }
 
-  if (style === 'date') {
-    return (
-      <div
-        className={classNames(
-          'flex flex-col gap-2 rounded-xl p-3 text-center',
-          CalendaritemContainerStyles['date']
-        )}
-      >
-        <Typography fontVariant="base" fontWeight="500">
-          {title}
-        </Typography>
-        <Typography fontVariant="large" fontWeight="800">
-          {description}
-        </Typography>
-      </div>
-    )
-  }
+  //   if (style === 'date') {
+  //     return (
+  //       <div
+  //         className={classNames(
+  //           'flex flex-col gap-2 rounded-xl p-3 text-center',
+  //           CalendaritemContainerStyles['date']
+  //         )}
+  //       >
+  //         <Typography fontVariant="base" fontWeight="500">
+  //           {title}
+  //         </Typography>
+  //         <Typography fontVariant="large" fontWeight="800">
+  //           {description}
+  //         </Typography>
+  //       </div>
+  //     )
+  //   }
 
   return (
     <Link
@@ -164,7 +164,7 @@ export const CalendarSection = () => {
               <div key={`ace_calendar_day_${index}`}>
                 <button
                   className={classNames(
-                    'bg-grey flex flex-col items-center gap-2 rounded-xl border-4 p-3 text-center hover:border-orange',
+                    'flex flex-col items-center gap-2 rounded-xl border-4 bg-grey p-3 text-center hover:border-orange',
                     event === currEvent ? 'border-orange' : 'border-transparent'
                   )}
                   onClick={() => setCurrEvent(event)}

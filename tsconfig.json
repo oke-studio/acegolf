@@ -16,10 +16,11 @@
 
     /* Linting */
     "strict": true,
+    "noImplicitAny": false, //so min max works
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "src/pages/Landing/components/Hero/.landingHeroOldcode.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
