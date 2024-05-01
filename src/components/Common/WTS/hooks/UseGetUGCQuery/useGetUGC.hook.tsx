@@ -7,7 +7,7 @@ function useGetAceUGCTestimonialsQuery() {
     data: {
       testimonialsCollection: {
         items: {
-          nameofPerson: string
+          nameOfPerson: string
           testimonialMessage: string
           type: 'UGC Video' | 'Testimonial'
           linkedUrl?: string
