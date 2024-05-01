@@ -2,7 +2,7 @@ import { Typography } from '../Typography/Typography'
 
 const EmailForm = () => {
   return (
-    <div className="flex max-w-[60%] flex-col items-center gap-2">
+    <div className="flex max-w-[100%] flex-col items-center gap-2 md:max-w-[60%]">
       <form className="w-full">
         <label
           htmlFor="email"
@@ -46,8 +46,8 @@ const EmailForm = () => {
         </div>
       </form>
       <Typography
-        fontVariant="small"
-        fontWeight="500"
+        fontVariant="miniscule"
+        fontWeight="300"
         style={{ color: 'black' }}
       >
         *BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF

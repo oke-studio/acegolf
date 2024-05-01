@@ -25,10 +25,11 @@ export const EmailSection = () => {
       }}
       ref={targetRef}
     >
-      <Container>
-        <PromotionsSection />
-        <Email />
-      </Container>
+      <PromotionsSection />
+      <Email />
+      {/* <Container>
+        
+      </Container> */}
     </Section>
   )
 }
