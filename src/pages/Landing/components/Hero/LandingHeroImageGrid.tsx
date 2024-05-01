@@ -13,10 +13,10 @@ const LayoutWidthOptions = {
   },
 
   start: {
-    _: 'lg:w-[50%] w-[100%] h-full left-0 grid-cols-[repeat(4,_1fr)]w-full grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr_1fr]',
+    _: 'lg:w-[50%] w-full h-full left-0 grid-cols-[repeat(4,_1fr)]w-full grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr_1fr]',
   },
   end: {
-    _: 'lg:w-[50%] w-[100%] h-full right-0 lg:grid-cols-[repeat(4,_1fr)]  grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr]',
+    _: 'lg:w-[50%] w-full h-full right-0 lg:grid-cols-[repeat(4,_1fr)]  grid-cols-[repeat(4,_1fr)] grid-rows-[1fr_1fr]',
   },
 }
 

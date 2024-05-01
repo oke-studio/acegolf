@@ -159,6 +159,9 @@ export const GetAceQuery = gql`
                 eventPoster {
                   title
                   url
+                  description
+                  contentType
+                  fileName
                 }
               }
             }
@@ -173,7 +176,24 @@ export const GetAceQuery = gql`
               title
               url
               description
+              contentType
+              fileName
             }
+          }
+        }
+        featuredTestimonialsCollection {
+          items {
+            type
+            nameOfPerson
+            testimonialMessage
+            imageVideo {
+              title
+              description
+              contentType
+              url
+              fileName
+            }
+            linkedUrl
           }
         }
       }
@@ -251,6 +271,7 @@ export const GetAceV2Query = gql`
           howItWorksStepsCollection {
             items {
               stepTitle
+              stepTextTitle
               stepContent
               stepCtaText
               stepCtaLink
@@ -283,6 +304,7 @@ export const GetAceV2Query = gql`
                 description
                 fileName
                 url
+                contentType
               }
             }
           }
@@ -291,10 +313,7 @@ export const GetAceV2Query = gql`
             description
             contentType
             fileName
-            size
             url
-            width
-            height
           }
           smallBitesCollection {
             items {
@@ -307,6 +326,7 @@ export const GetAceV2Query = gql`
                 description
                 fileName
                 url
+                contentType
               }
             }
           }
@@ -316,10 +336,7 @@ export const GetAceV2Query = gql`
             description
             contentType
             fileName
-            size
             url
-            width
-            height
           }
           dessertsCollection {
             items {
@@ -332,6 +349,7 @@ export const GetAceV2Query = gql`
                 description
                 fileName
                 url
+                contentType
               }
             }
           }
@@ -340,10 +358,7 @@ export const GetAceV2Query = gql`
             description
             contentType
             fileName
-            size
             url
-            width
-            height
           }
         }
         featuredEventsPromotionsCollection {
@@ -361,6 +376,20 @@ export const GetAceV2Query = gql`
               description
               url
               fileName
+              contentType
+            }
+          }
+        }
+        featuredUgcVideosCollection {
+          items {
+            nameOfPerson
+            testimonialMessage
+            type
+            linkedUrl
+            imageVideo {
+              contentType
+              fileName
+              url
             }
           }
         }
@@ -383,6 +412,7 @@ export const GetAboutPageQuery = gql`
             pictureOfPerson {
               url
               fileName
+              contentType
             }
             description
             contactLink
@@ -409,6 +439,7 @@ export const GetEventsQuery = gql`
           url
           fileName
           description
+          contentType
         }
       }
     }
@@ -429,11 +460,31 @@ export const GetCoachingPageQuery = gql`
               url
               description
               fileName
+              contentType
             }
             description
             contactLink
           }
         }
+      }
+    }
+  }
+`
+
+export const GetUGCTestimonialsQuery = gql`
+  query getAceUGCTestimonials {
+    testimonialsCollection {
+      items {
+        nameOfPerson
+        type
+        testimonialMessage
+        imageVideo {
+          contentType
+          fileName
+          url
+          description
+        }
+        linkedUrl
       }
     }
   }

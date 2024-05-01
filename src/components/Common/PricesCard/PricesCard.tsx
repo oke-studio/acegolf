@@ -143,7 +143,7 @@ export const PricesCard = () => {
   ).sort((d1, d2) => TabValuesMapping[d1.day] - TabValuesMapping[d2.day])
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col" id="prices_card">
       <div className="flex flex-wrap items-center gap-3 *:grow *:basis-64">
         <Typography fontVariant="headingThree" fontWeight="600">
           Prices & Hours

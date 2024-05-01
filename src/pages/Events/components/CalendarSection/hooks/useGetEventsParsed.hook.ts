@@ -29,10 +29,19 @@ export function useGetEventsParsed() {
 
       dateRange.forEach((d) => {
         const date = d.split('T')[0]
+        const start = startDate.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+
+        const end = endDate.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+        })
 
         if (acc[date]) {
           acc[date].push({
-            description: 'song',
+            description: `${start} - ${end}`,
             title: eventTitle,
             type: CalendarItemContainerStyleTypeMap[eventType] ?? 'event',
             id: slugId,
@@ -41,7 +50,7 @@ export function useGetEventsParsed() {
         } else {
           acc[date] = [
             {
-              description: 'sing',
+              description: `${start} - ${end}`,
               title: eventTitle,
               type: CalendarItemContainerStyleTypeMap[eventType] ?? 'event',
               id: slugId,
