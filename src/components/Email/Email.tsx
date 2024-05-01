@@ -48,7 +48,7 @@ const EmailForm = () => {
       <Typography
         fontVariant="miniscule"
         fontWeight="300"
-        style={{ color: 'black' }}
+        style={{ color: 'white', mixBlendMode: 'difference' }}
       >
         *BY CLICKING THE BUTTON BELOW YOU ARE AGREEING ACEGOLF’S TERMS OF
         SERVICES AND TO RECEIVING MARKETING EMAILS FROM ACEGOLF. YOU ARE ABLE TO

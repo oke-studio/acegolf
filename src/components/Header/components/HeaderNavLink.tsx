@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Typography } from '../../Typography/Typography'
+//import { Typography } from '../../Typography/Typography'
 import { RNG } from '../../../utils/RNG'
 
 interface HeaderNavLink {
@@ -64,10 +64,13 @@ export const HeaderNavLink = ({
 }: HeaderNavLink) => {
   return (
     <Link to={to}>
-      <Typography
-        fontVariant="base"
-        fontWeight="400"
-        style={{ color: 'white' }}
+      <p
+        // fontVariant="base"
+        // fontWeight="400"
+        // style={{ color: 'white' }}
+        className={
+          'font-HNSemiBold text-4xl font-semibold md:font-HNRegular md:text-base md:font-normal'
+        }
       >
         <motion.span initial="rest" whileHover="hover">
           {label.split('').map((text, index) => {
@@ -86,7 +89,7 @@ export const HeaderNavLink = ({
             )
           })}
         </motion.span>
-      </Typography>
+      </p>
     </Link>
   )
 }

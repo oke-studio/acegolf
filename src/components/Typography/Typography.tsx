@@ -78,10 +78,10 @@ export const Typography = ({
   return (
     <C
       className={classNames(
-        tailwindStyle,
         fontFamily,
         FontStyleMapping[fontStyle],
-        fontSize
+        fontSize,
+        tailwindStyle
       )}
       style={{ ...style }}
     >

@@ -21,7 +21,7 @@ const CoachingCard = () => (
     title="Coaching"
     theme="light"
     description="Need golf coaching? We offer coaching through external coaches."
-    buttonTwo={{
+    buttonOne={{
       children: (
         <Link to="/coaching">
           <Typography fontVariant="large" fontWeight="400">
@@ -38,7 +38,7 @@ const LeaguesCard = () => (
     title="Leagues"
     theme="light"
     description="Check out active leagues and tournaments hosted at Ace Golf."
-    buttonTwo={{
+    buttonOne={{
       children: (
         <Link to="/leagues">
           <Typography fontVariant="large" fontWeight="400">

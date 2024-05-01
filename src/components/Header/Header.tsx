@@ -53,7 +53,7 @@ const DropDownNav = ({
       animate={isOpen ? 'open' : 'closed'}
       initial="closed"
     >
-      <ul className="mt-10 flex flex-col items-center gap-8">
+      <ul className="mt-[10rem] flex flex-col items-center gap-16 md:mt-10 md:gap-8">
         {NavOptions.map((opt, index) => {
           return (
             <li
