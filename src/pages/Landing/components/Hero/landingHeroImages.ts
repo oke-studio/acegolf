@@ -27,6 +27,7 @@ export const landingHeroImages = [
       paralax: 1,
       tailwindStyle:
         'opacity-[0] scale-[1] rotate-[-11deg] translate-x-[20px] translate-y-[60px] z-[1] md:opacity-[0] md:scale-[1] md:rotate-[-11deg] md:translate-x-[20px] md:translate-y-[60px] md:z-[1] lg:opacity-[1] lg:scale-[1] lg:rotate-[-5deg] lg:translate-x-[20px] lg:translate-y-[25px] lg:z-[1] xl:opacity-[1] xl:scale-[1.3] xl:rotate-[-5deg] xl:translate-x-[0px] xl:translate-y-[180px] xl:z-[1]',
+        // aspect-[4/3]
   
         tailwindGridPosXY: 'col-[3/_span_1] row-[2/_span_1] md:col-[3/_span_1] md:row-[2/_span_1]',
     },
@@ -63,9 +64,9 @@ export const landingHeroImages = [
       backCutOutColor: 'var(--color-sharpTeal)',
       imageNameAltText: 'ace golf ball with logo',
       paralax: 2,
-      tailwindStyle: 'opacity-[1] scale-[.8] rotate-[-9deg] translate-x-[40px] translate-y-[30px] z-[3] md:opacity-[1] md:scale-[.70] md:rotate-[-10deg] md:translate-x-[-40px] md:translate-y-[10px] md:z-[3]  lg:opacity-[1] lg:scale-[1.2] lg:rotate-[10deg] lg:translate-x-[-10px] lg:translate-y-[80px] z-[1] xl:opacity-[1] xl:scale-[1] xl:rotate-[10deg] xl:translate-x-[20px] xl:translate-y-[90px] z-[1]',
+      tailwindStyle: 'opacity-[1] scale-[.8] rotate-[-9deg] translate-x-[40px] translate-y-[30px] z-[3] md:opacity-[1] md:scale-[.70] md:rotate-[-10deg] md:translate-x-[-40px] md:translate-y-[10px] md:z-[3]  lg:opacity-[1] lg:scale-[1.2] lg:rotate-[10deg] lg:translate-x-[-10px] lg:translate-y-[80px] z-[1] xl:opacity-[1] xl:scale-[1.4] xl:rotate-[10deg] xl:translate-x-[90px] xl:translate-y-[200px] z-[1]',
 
-      tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1] md:col-[4/_span_1] md:row-[1/_span_1] lg:col-[3/_span_1] lg:row-[1/_span_1]',
+      tailwindGridPosXY: 'col-[3/_span_1] row-[1/_span_1] md:col-[4/_span_1] md:row-[1/_span_1] lg:col-[3/_span_1] lg:row-[1/_span_1] xl:col-[2/_span_1] lg:row-[1/_span_1]',
 
     },
   ]
