@@ -15,7 +15,7 @@ export interface TypeAceHomePageFields {
       featuredEventsPromotionsCollection: { items: TypeEventFields[] }
       featuredUgcVideosCollection: {
         items: {
-          nameofPerson: string
+          nameOfPerson: string
           testimonialMessage: string
           type: 'UGC Video' | 'Testimonial'
           linkedUrl?: string

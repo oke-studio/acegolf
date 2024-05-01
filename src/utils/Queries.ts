@@ -470,4 +470,21 @@ export const GetCoachingPageQuery = gql`
   }
 `
 
-export const GetUGCTestimonialsQuery = gql``
+export const GetUGCTestimonialsQuery = gql`
+  query getAceUGCTestimonials {
+    testimonialsCollection {
+      items {
+        nameOfPerson
+        type
+        testimonialMessage
+        imageVideo {
+          contentType
+          fileName
+          url
+          description
+        }
+        linkedUrl
+      }
+    }
+  }
+`

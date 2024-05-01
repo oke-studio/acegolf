@@ -18,7 +18,7 @@ const CalendarItemContainer = ({
   isMobile,
 }: {
   style: CalendarItemContainerStyleType
-  description: string
+  description: string | React.ReactNode
   title: string
   imgSrc?: string
   to?: string
@@ -37,27 +37,27 @@ const CalendarItemContainer = ({
     date: 'bg-grey',
   }
 
-  //   if (style === 'hidden') {
-  //     return <div />
-  //   }
+  if (style === 'hidden') {
+    return <div />
+  }
 
-  //   if (style === 'date') {
-  //     return (
-  //       <div
-  //         className={classNames(
-  //           'flex flex-col gap-2 rounded-xl p-3 text-center',
-  //           CalendaritemContainerStyles['date']
-  //         )}
-  //       >
-  //         <Typography fontVariant="base" fontWeight="500">
-  //           {title}
-  //         </Typography>
-  //         <Typography fontVariant="large" fontWeight="800">
-  //           {description}
-  //         </Typography>
-  //       </div>
-  //     )
-  //   }
+  if (style === 'date') {
+    return (
+      <div
+        className={classNames(
+          'flex flex-col gap-2 rounded-xl p-3 text-center',
+          CalendaritemContainerStyles['date']
+        )}
+      >
+        <Typography fontVariant="base" fontWeight="500">
+          {title}
+        </Typography>
+        <Typography fontVariant="large" fontWeight="800">
+          {description}
+        </Typography>
+      </div>
+    )
+  }
 
   return (
     <Link
@@ -164,7 +164,7 @@ export const CalendarSection = () => {
               <div key={`ace_calendar_day_${index}`}>
                 <button
                   className={classNames(
-                    'flex flex-col items-center gap-2 rounded-xl border-4 bg-grey p-3 text-center hover:border-orange',
+                    'bg-grey flex flex-col items-center gap-2 rounded-xl border-4 p-3 text-center hover:border-orange',
                     event === currEvent ? 'border-orange' : 'border-transparent'
                   )}
                   onClick={() => setCurrEvent(event)}
@@ -184,7 +184,7 @@ export const CalendarSection = () => {
           <Typography fontVariant="headingFour" fontWeight="400">
             {new Date(currEvent).toDateString()}
           </Typography>
-          {events &&
+          {events ? (
             events.map((e) => (
               <CalendarItemContainer
                 description={e.description}
@@ -194,7 +194,21 @@ export const CalendarSection = () => {
                 to={e.id + '/' + currEvent.split('T')[0]}
                 isMobile={true}
               />
-            ))}
+            ))
+          ) : (
+            <div className="flex flex-col gap-2 rounded-xl p-3 text-center">
+              <Typography fontVariant="base" fontWeight="500">
+                No Events
+              </Typography>
+              <Typography
+                fontVariant="large"
+                fontWeight="800"
+                tailwindStyle="text-orange underline"
+              >
+                Reserve a Bay &rarr;
+              </Typography>
+            </div>
+          )}
         </div>
       </div>
     )
