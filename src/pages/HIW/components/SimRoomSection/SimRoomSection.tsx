@@ -46,13 +46,13 @@ export const SimRoomSection = () => {
       style={{
         backgroundColor: 'transparent',
         color: 'white',
-        border: 0,
+        //border: 0,
         // scale,
       }}
       ref={targetRef}
     >
       <div className="mx-auto flex w-full flex-col items-center gap-6 text-center">
-        <Typography fontVariant="poster" fontWeight="900">
+        <Typography fontVariant="largeH1" fontWeight="900">
           SIM ROOMS
         </Typography>
         <Typography fontVariant="base" fontWeight="300">

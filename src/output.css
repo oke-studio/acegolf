@@ -1038,6 +1038,14 @@ video {
   height: 100vh;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
 .max-h-16 {
   max-height: 4rem;
 }
@@ -1069,6 +1077,11 @@ video {
 
 .min-h-\[inherit\] {
   min-height: inherit;
+}
+
+.min-h-fit {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
 
 .w-1 {
@@ -3753,6 +3766,10 @@ video {
 
   .md\:h-auto {
     height: auto;
+  }
+
+  .md\:h-80 {
+    height: 20rem;
   }
 
   .md\:min-h-72 {
