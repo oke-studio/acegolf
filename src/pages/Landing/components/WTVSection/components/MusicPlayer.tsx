@@ -1,6 +1,6 @@
 export const MusicPlayer = () => {
   return (
-    <div className="mt-6 flex h-[200px] w-[400px] rounded-lg">
+    <div className="mt-6 flex h-[200px]  w-full rounded-lg md:w-[400px]">
       <iframe
         title="wtv_spotify_iframe"
         className="rounded-xl"

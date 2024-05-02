@@ -1591,6 +1591,10 @@ video {
   overflow-x: clip;
 }
 
+.whitespace-normal {
+  white-space: normal;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -3848,6 +3852,10 @@ video {
   .md\:w-max {
     width: -moz-max-content;
     width: max-content;
+  }
+
+  .md\:w-\[400px\] {
+    width: 400px;
   }
 
   .md\:min-w-\[296px\] {

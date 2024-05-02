@@ -23,7 +23,7 @@ export const WTVSection = () => {
           <Typography
             fontVariant="largeH1"
             fontWeight="900"
-            tailwindStyle="text-white text-center uppercase mb-3"
+            tailwindStyle="text-white text-center uppercase mb-3 whitespace-normal"
           >
             What&apos;s the Vibe?
           </Typography>
