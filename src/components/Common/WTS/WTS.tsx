@@ -33,42 +33,50 @@ export const WTS = () => {
           <br />
           SAYING
         </Typography>
-        <div className="flex flex-wrap justify-center gap-6 *:grow *:basis-48">
+        <div className="flex flex-wrap justify-center gap-12 *:grow *:basis-48">
           {UGCData.map((ugc) => {
-            const { imageVideo, nameOfPerson, testimonialMessage } = ugc
+            const { imageVideo, nameOfPerson, testimonialMessage, linkedUrl } =
+              ugc
 
             const isImage =
               imageVideo && imageVideo.contentType.split('/')[0] === 'image'
 
             return (
-              <div className="flex flex-col items-start gap-3 text-left">
-                {isImage && (
-                  <div
-                    className="h-48 w-full rounded-xl"
-                    style={{
-                      backgroundImage: `url(${ImageURLFormatter(imageVideo.url, imageVideo.contentType)})`,
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: 'cover',
-                    }}
-                  />
-                )}
-                <Typography
-                  fontVariant="base"
-                  fontWeight="400"
-                  fontStyle="italic"
+              linkedUrl && (
+                <a
+                  href={linkedUrl}
+                  target="__blank"
+                  className="flex h-max w-max flex-col items-start items-center gap-3 rounded-lg p-4 text-left duration-300 ease-in-out hover:border-2 hover:border-dashed hover:border-orange"
                 >
-                  {testimonialMessage}
-                </Typography>
-                <Typography
-                  fontVariant="base"
-                  fontWeight="900"
-                  fontStyle="italic"
-                  tailwindStyle="bg-sharpTeal w-max rounded-lg p-1 text-black items-start"
-                >
-                  {nameOfPerson}
-                </Typography>
-              </div>
+                  {isImage && (
+                    <div
+                      className="h-48 w-72 rounded-xl"
+                      style={{
+                        backgroundImage: `url(${ImageURLFormatter(imageVideo.url, imageVideo.contentType)})`,
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                      }}
+                    />
+                  )}
+                  <Typography
+                    fontVariant="base"
+                    fontWeight="400"
+                    fontStyle="italic"
+                    tailwindStyle="w-72"
+                  >
+                    {testimonialMessage}
+                  </Typography>
+                  <Typography
+                    fontVariant="base"
+                    fontWeight="900"
+                    fontStyle="italic"
+                    tailwindStyle="bg-sharpTeal rounded-lg p-1 text-black items-start"
+                  >
+                    {nameOfPerson}
+                  </Typography>
+                </a>
+              )
             )
           })}
         </div>
