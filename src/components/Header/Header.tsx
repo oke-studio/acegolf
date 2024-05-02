@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { HeaderLogo } from './components/HeaderLogo'
 import { HeaderNavLink } from './components/HeaderNavLink'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Button } from '../Button/Button'
 import { Typography } from '../Typography/Typography'
 import { useMediaQuery } from 'react-responsive'
