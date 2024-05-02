@@ -25,6 +25,10 @@ const NavOptions = [
   { label: 'Events', to: '/events' },
 ]
 
+const handleBookLink = () => {
+  return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
+}
+
 const DropDownNav = ({
   isOpen,
   setOpen,
@@ -124,11 +128,11 @@ export const Header = () => {
           })}
           <li key={'nav_button_book_now'}>
             <Button buttonVariant="nav">
-              <Link to="/book-now">
+              <a href={handleBookLink()} target="__blank">
                 <Typography fontVariant="base" fontWeight="500">
                   Book Now
                 </Typography>
-              </Link>
+              </a>
             </Button>
           </li>
         </ul>
