@@ -1084,6 +1084,22 @@ video {
   min-height: fit-content;
 }
 
+.min-h-10 {
+  min-height: 2.5rem;
+}
+
+.min-h-52 {
+  min-height: 13rem;
+}
+
+.min-h-64 {
+  min-height: 16rem;
+}
+
+.min-h-60 {
+  min-height: 15rem;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -1160,6 +1176,10 @@ video {
 
 .w-auto {
   width: auto;
+}
+
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .min-w-32 {
