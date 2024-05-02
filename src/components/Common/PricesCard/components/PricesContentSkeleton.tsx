@@ -142,7 +142,7 @@ const PriceInfoBox = ({
     : 'text-black bg-white border-2 border-black border-solid'
   return (
     <div className={cn(PrivateStyle, 'flex w-full flex-col rounded-xl')}>
-      <div className="flex w-full flex-row flex-wrap items-center justify-between rounded-[inherit] p-4 *:grow *:basis-64">
+      <div className="flex w-full flex-row flex-nowrap items-center justify-between rounded-[inherit] p-4 *:grow *:basis-64">
         <div className=" flex flex-col items-start ">
           <Typography fontVariant="large" fontWeight="700" tailwindStyle="mb-1">
             {isPrivate ? 'Private Bay' : 'General Bay'}
@@ -150,18 +150,18 @@ const PriceInfoBox = ({
 
           {isPrivate ? (
             <Typography
-              fontVariant="small"
-              fontWeight="200"
-              tailwindStyle="mb-1 text-left"
+              fontVariant="miniscule"
+              fontWeight="300"
+              tailwindStyle="mb-1 text-left break-normal "
             >
               Comfortably holds 16 people
               <br /> Performance Trackman Bay
             </Typography>
           ) : (
             <Typography
-              fontVariant="small"
-              fontWeight="200"
-              tailwindStyle="mb-1 text-left"
+              fontVariant="miniscule"
+              fontWeight="300"
+              tailwindStyle="mb-1 text-left break-normal"
             >
               Comfortably holds 6 people
               <br /> Performance Trackman Bay
@@ -170,7 +170,7 @@ const PriceInfoBox = ({
         </div>
 
         <div className="flex flex-col gap-3 text-center">
-          <Typography fontVariant="headingThree" fontWeight="800">
+          <Typography fontVariant="headingTwo" fontWeight="800">
             ${priceInfoBox.price}
             <Typography
               fontVariant="base"
@@ -180,8 +180,9 @@ const PriceInfoBox = ({
               /hr
             </Typography>
           </Typography>
+
           <ServicePill
-            variant="dark"
+            variant="light"
             color="black"
             label={priceInfoBox.service}
           />
@@ -214,7 +215,7 @@ const ServicePill = ({ variant, label }: ServicePillProps) => {
         textTransform: 'uppercase',
         backgroundColor: BG,
       }}
-      tailwindStyle="w-content rounded-3xl"
+      tailwindStyle=" w-content rounded-3xl"
     >
       {label}
     </Typography>

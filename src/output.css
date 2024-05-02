@@ -1566,6 +1566,11 @@ video {
   text-wrap: wrap;
 }
 
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
