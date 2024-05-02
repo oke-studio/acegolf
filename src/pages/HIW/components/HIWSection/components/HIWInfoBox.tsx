@@ -29,7 +29,7 @@ const HIWMiniInfoBox = ({
     <motion.div
       animate={open ? 'open' : 'closed'}
       key={`${index}`}
-      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4  text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4  text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-2xl hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
       id={box.question}
       onClick={() => {
         // e.preventDefault()
@@ -104,7 +104,7 @@ export const HIWInfoBox = ({
         marginTop: '-50px',
       }}
     >
-      <div className="flex flex-row flex-wrap gap-4 p-8 text-black *:grow *:basis-64 ">
+      <div className="flex flex-row flex-wrap gap-4 px-2 py-8 text-black *:grow *:basis-64 ">
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-4">
             <Typography

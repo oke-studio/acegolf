@@ -2275,6 +2275,26 @@ video {
   padding-bottom: 5%;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -3080,6 +3100,10 @@ video {
 
 .hover\:rounded-md:hover {
   border-radius: 0.375rem;
+}
+
+.hover\:rounded-2xl:hover {
+  border-radius: 1rem;
 }
 
 .hover\:border-black:hover {
