@@ -48,12 +48,12 @@ const DropDownNav = ({
   }
   return (
     <motion.nav
-      className="z-99 absolute left-0 right-0 top-full z-10 h-screen bg-white"
+      className="z-99 absolute left-0 right-0 top-full z-10 h-screen bg-white "
       variants={navVariants}
       animate={isOpen ? 'open' : 'closed'}
       initial="closed"
     >
-      <ul className="mt-[10rem] flex flex-col items-center gap-16 md:mt-10 md:gap-8">
+      <ul className="mt-[7rem] flex flex-col items-center gap-16 md:mt-10 md:gap-8">
         {NavOptions.map((opt, index) => {
           return (
             <li

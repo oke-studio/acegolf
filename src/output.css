@@ -913,6 +913,14 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mt-\[9rem\] {
+  margin-top: 9rem;
+}
+
+.mt-\[7rem\] {
+  margin-top: 7rem;
+}
+
 .block {
   display: block;
 }
