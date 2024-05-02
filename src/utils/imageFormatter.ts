@@ -8,6 +8,8 @@ export const ImageURLFormatter = (imgUrl: string, imgType?: string) => {
       return imgUrl + '?fm=webp'
     case 'video/mp4':
       return imgUrl + '?fm=webm'
+    case 'video/mov':
+      return imgUrl + '?fm=webm'
     default:
       return imgUrl
   }

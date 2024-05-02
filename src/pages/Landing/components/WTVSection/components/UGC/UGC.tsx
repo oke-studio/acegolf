@@ -12,12 +12,15 @@ export const UGC = () => {
     return <>loading</>
   }
   return (
-    <div className="grid-rows-auto ml-auto mr-auto grid max-w-[35rem] grid-cols-2 gap-6 md:grid-cols-4">
+    <div className="grid-rows-auto ml-auto mr-auto grid max-w-[60rem] grid-cols-2 gap-6 md:grid-cols-4">
       {UGCData.map((ugc) => {
         const { imageVideo } = ugc
         const imgUrl = ImageURLFormatter(imageVideo.url, imageVideo.contentType)
 
-        if (imageVideo.contentType === 'video/webm') {
+        if (
+          imageVideo.contentType === 'video/webm' ||
+          imageVideo.contentType === 'video/mp4'
+        ) {
           return (
             <video
               className="h-auto w-full rounded-lg"
