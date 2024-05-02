@@ -1,7 +1,7 @@
 import { Button } from '../Button/Button'
 import { Typography } from '../Typography/Typography'
-import InfoImage from '../../assets/landingHero/Friends-golfing.webp'
-import ContactImage from '../../assets/landingHero/friends-photos.webp'
+import InfoImage from '../../assets/landingHero/night-golfing.webp'
+import ContactImage from '../../assets/landingHero/Friends-golfing.webp'
 
 export const NintendoSwitch = () => {
   return (
