@@ -129,10 +129,10 @@ export const LandingHero = ({
               </Link>
             </Button>
           </Typography>
-          {/* {!isMobile && ( */}
-          <div className="flex flex-col gap-4 md:flex-row">
+
+          <div className="flex flex-col items-stretch gap-4 md:flex-row">
             <div
-              className="h-full w-max"
+              className=" w-full md:w-auto "
               onClick={(e) => {
                 e.preventDefault()
                 document?.getElementById('prices-hours')?.scrollIntoView()
@@ -167,7 +167,6 @@ export const LandingHero = ({
               </Typography>
             </Button>
           </div>
-          {/* )} */}
         </div>
 
         <LandingHeroImageGrid />

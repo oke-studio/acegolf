@@ -13,7 +13,7 @@ const ButtonVariantMapping: { [key in ButtonVariantType]: string } = {
   primary:
     'rounded-full bg-orange py-2 px-6 border-solid border-orange text-white hover:text-black transition-[color]   hover:bg-opacity-80 duration-300 ease-in-out',
   secondary:
-    'rounded-full bg-white py-2 px-6 border-solid border-2 border-black text-black hover:text-black hover:border-black hover:bg-orange hover:bg-opacity-50 hover:border-opacity-50 duration-300 ease-in-out',
+    'rounded-full bg-white py-2 px-6 border-solid border-2 border-black text-black hover:text-black hover:border-black hover:bg-orange hover:bg-opacity-50 hover:border-opacity-50 duration-300 ease-in-out w-full md:w-auto',
   simple: '',
   nav: 'rounded-full bg-orange py-1 px-4 border-solid border-2 border-orange text-white hover:text-black transition-[color] duration-400 ease-in-out hover:bg-white hover:border-black',
 
