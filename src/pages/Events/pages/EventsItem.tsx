@@ -6,6 +6,7 @@ import { useGetEventItem } from '../components/CalendarSection/hooks/useGetEvent
 import { Button } from '../../../components/Button/Button'
 import { EmailSection } from '../components/EmailSection/EmailSection'
 import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
+import { ImageURLFormatter } from '../../../utils/imageFormatter'
 
 export const EventsItem = () => {
   const { eventId } = useParams()
@@ -22,6 +23,15 @@ export const EventsItem = () => {
   const isCTA = eventItem.ctaLink && eventItem.ctaText
   const currentEvent = eventItem
   const imgUrl = currentEvent.eventPoster?.url
+    ? ImageURLFormatter(
+        currentEvent.eventPoster?.url,
+        currentEvent.eventPoster?.contentType
+      )
+    : 'SOMSOM'
+  {
+    /* // TODO: Update this image url to have a default image */
+    // what the heck is "som som"
+  }
 
   const startDate = new Date(currentEvent.endDateTime).toDateString()
   const endDate = new Date(currentEvent.startDateTime).toDateString()

@@ -19,7 +19,10 @@ export const GolfGameSection = () => {
         // padding: 0,
       }}
     >
-      <div className="mx-auto flex w-full flex-col items-center gap-6 text-center">
+      <div
+        className="mx-auto flex w-full flex-col items-center gap-6 text-center"
+        id="golf-games"
+      >
         <Typography fontVariant="largeH1" fontWeight="900">
           GOLF GAMES
         </Typography>
