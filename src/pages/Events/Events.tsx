@@ -42,10 +42,11 @@ export const Events = () => {
             color: 'white',
             border: 0,
             // padding: 0,
+            marginTop: '4rem',
           }}
         >
-          <div className="mx-auto flex w-full flex-col items-center gap-6 text-left *:grow *:basis-64 sm:flex-row">
-            <div className="flex flex-col gap-4">
+          <div className="mx-auto flex w-full flex-col items-center justify-center gap-8 text-left *:grow *:basis-64 sm:flex-row">
+            <div className="flex max-w-[400px] flex-col gap-4">
               <Typography
                 fontVariant="headingFour"
                 fontWeight="900"
@@ -54,10 +55,37 @@ export const Events = () => {
                 {' '}
                 Private Events
               </Typography>
+              <Typography
+                fontVariant="base"
+                fontWeight="300"
+                fontStyle="normal"
+              >
+                This section of text will outline how ace books allow syou to
+                book corporate events and large events.
+                <br />
+                <br />
+                <ul>
+                  <li> - Corporate Events |Team Building </li>
+                  <li> - Conferences | Meetings </li>
+                  <li> - Adult/Kid Birthday Parties Bar/Bat</li>
+                  <li> - Mitzvahs </li>
+                  <li> - Holiday Parties </li>
+                  <li> - Social Parties </li>
+                  <li> - Engagement Parties | Weddings</li>
+                </ul>
+                <br />
+                We will write the size of events for this first category.
+              </Typography>
 
-              <Button>Book Your Event &rarr;</Button>
+              <Button buttonVariant="primary">
+                <a href="mailto:events@acegolfbar.ca">
+                  <Typography fontVariant="base" fontWeight="500" T="h3">
+                    Book Your Event{' '}
+                  </Typography>
+                </a>
+              </Button>
             </div>
-            <div className="bg-grey h-full min-h-96 w-full rounded-xl"></div>
+            <div className="h-full min-h-96  w-full max-w-[500px] rounded-xl bg-grey"></div>
           </div>
         </Section>
         <WTS />
