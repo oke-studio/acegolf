@@ -44,9 +44,9 @@ export const EventsItem = () => {
           style={{
             color: 'white',
             backgroundColor: 'transparent',
-            border: 0,
-            padding: 0,
-            margin: '2rem 0',
+            // border: 0,
+            // padding: 0,
+            // margin: '2rem 0',
             display: 'flex',
             justifyContent: 'flex-start',
             // ...(isMobile && { justifyContent: 'center' }),
