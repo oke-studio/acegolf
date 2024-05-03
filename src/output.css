@@ -1046,6 +1046,22 @@ video {
   height: 10rem;
 }
 
+.h-\[5rem\] {
+  height: 5rem;
+}
+
+.h-\[3rem\] {
+  height: 3rem;
+}
+
+.h-\[3\.5rem\] {
+  height: 3.5rem;
+}
+
+.h-\[4rem\] {
+  height: 4rem;
+}
+
 .max-h-16 {
   max-height: 4rem;
 }
@@ -1190,6 +1206,26 @@ video {
   width: 18rem;
 }
 
+.w-36 {
+  width: 9rem;
+}
+
+.w-\[30\%\] {
+  width: 30%;
+}
+
+.w-\[25\%\] {
+  width: 25%;
+}
+
+.w-\[3\.5rem\] {
+  width: 3.5rem;
+}
+
+.w-\[4rem\] {
+  width: 4rem;
+}
+
 .min-w-32 {
   min-width: 8rem;
 }
@@ -1200,6 +1236,26 @@ video {
 
 .min-w-\[150px\] {
   min-width: 150px;
+}
+
+.min-w-36 {
+  min-width: 9rem;
+}
+
+.min-w-44 {
+  min-width: 11rem;
+}
+
+.min-w-40 {
+  min-width: 10rem;
+}
+
+.min-w-\[100px\] {
+  min-width: 100px;
+}
+
+.min-w-20 {
+  min-width: 5rem;
 }
 
 .max-w-28 {
@@ -1240,6 +1296,14 @@ video {
 
 .max-w-\[500px\] {
   max-width: 500px;
+}
+
+.max-w-32 {
+  max-width: 8rem;
+}
+
+.max-w-36 {
+  max-width: 9rem;
 }
 
 .flex-1 {
@@ -1499,6 +1563,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-1 {
@@ -4041,12 +4109,24 @@ video {
     flex-wrap: nowrap;
   }
 
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
+  .md\:justify-normal {
+    justify-content: normal;
+  }
+
   .md\:gap-4 {
     gap: 1rem;
   }
 
   .md\:gap-8 {
     gap: 2rem;
+  }
+
+  .md\:gap-2 {
+    gap: 0.5rem;
   }
 
   .md\:space-x-1 > :not([hidden]) ~ :not([hidden]) {

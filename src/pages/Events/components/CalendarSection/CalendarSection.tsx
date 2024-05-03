@@ -52,7 +52,7 @@ const CalendarItemContainer = ({
         <Typography fontVariant="base" fontWeight="500">
           {title}
         </Typography>
-        <Typography fontVariant="large" fontWeight="800">
+        <Typography fontVariant="headingThree" fontWeight="800">
           {description}
         </Typography>
       </div>
@@ -62,20 +62,34 @@ const CalendarItemContainer = ({
   return (
     <Link
       className={classNames(
-        'flex h-max flex-col gap-5 rounded-xl border-2 border-solid border-transparent p-4 hover:cursor-pointer hover:border-coolBlue',
+        'flex h-max flex-row items-center justify-between gap-3 rounded-xl border-2 border-solid border-transparent p-2 hover:cursor-pointer hover:border-coolBlue md:flex-col md:items-start md:justify-normal md:gap-2',
         CalendaritemContainerStyles[style]
       )}
       //   onClick={() => router}
       to={`/events/${to}`}
     >
-      <Typography fontVariant="base" fontWeight="500">
-        {title}
-      </Typography>
-      <Typography fontVariant="base" fontWeight="300">
-        {description}
-      </Typography>
+      <div>
+        <Typography fontVariant="base" fontWeight="500">
+          {title}
+        </Typography>
+        <Typography fontVariant="base" fontWeight="300">
+          {description}
+        </Typography>
+      </div>
       {!isMobile && imgSrc && (
         <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
+          <div
+            className="h-full bg-slate-300"
+            style={{
+              backgroundImage: `url(${imgSrc})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+            }}
+          />
+        </div>
+      )}
+      {isMobile && (
+        <div className="relative flex h-[4rem] w-[4rem] flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
           <div
             className="h-full bg-slate-300"
             style={{
@@ -124,7 +138,7 @@ export const CalendarSection = () => {
 
         const eventDate = new Date(event).toDateString().split(' ').slice(0, 3)
         return (
-          <div className="flex h-full min-w-32 max-w-28 flex-col gap-3">
+          <div className="flex h-full min-w-36 max-w-36 flex-col gap-3">
             <CalendarItemContainer
               style="date"
               description={eventDate[2]}
@@ -164,7 +178,7 @@ export const CalendarSection = () => {
               <div key={`ace_calendar_day_${index}`}>
                 <button
                   className={classNames(
-                    'bg-grey flex flex-col items-center gap-2 rounded-xl border-4 p-3 text-center hover:border-orange',
+                    'flex min-w-20 flex-col items-center gap-2 rounded-xl border-4 bg-grey p-3 text-center hover:border-orange',
                     event === currEvent ? 'border-orange' : 'border-transparent'
                   )}
                   onClick={() => setCurrEvent(event)}
@@ -196,7 +210,7 @@ export const CalendarSection = () => {
               />
             ))
           ) : (
-            <div className="flex flex-col gap-2 rounded-xl p-3 text-center">
+            <div className="flex flex-col gap-2 rounded-xl bg-grey bg-opacity-50 p-3 text-center">
               <Typography fontVariant="base" fontWeight="500">
                 No Events
               </Typography>
