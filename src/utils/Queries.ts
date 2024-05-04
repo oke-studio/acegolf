@@ -208,6 +208,8 @@ export const GetFAQQuery = gql`
         question
         answer
         faqSlug
+        ctaText
+        ctaLink
         categoryRefrence {
           faqCategoryName
           slug
@@ -280,6 +282,7 @@ export const GetAceV2Query = gql`
                   question
                   faqSlug
                   answer
+                  ctaText
                   ctaLink
                   categoryRefrence {
                     faqCategoryName

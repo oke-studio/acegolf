@@ -9,6 +9,8 @@ import { useGetFAQ } from '../../../../hooks/useGetFAQ/useGetFAQ.hook'
 import { Button } from '../../../../components/Button/Button'
 import { Link } from 'react-router-dom'
 
+// import { HIWMiniInfoBox } from '../../../HIW/components/HIWSection/components/HIWInfoBox'
+
 export const FAQSection = () => {
   const { faqData, isLoading, isError } = useGetFAQ()
 
@@ -32,6 +34,8 @@ export const FAQSection = () => {
         acc[category].push({
           question: curr.question,
           answer: curr.answer,
+          cta: curr.ctaText,
+          link: curr.ctaLink,
           slug: curr.faqSlug,
         })
       } else {
@@ -39,6 +43,8 @@ export const FAQSection = () => {
           {
             question: curr.question,
             answer: curr.answer,
+            cta: curr.ctaText,
+            link: curr.ctaLink,
             slug: curr.faqSlug,
           },
         ]
@@ -47,7 +53,15 @@ export const FAQSection = () => {
         ...acc,
       }
     },
-    {} as { [x: string]: { answer: string; question: string; slug: string }[] }
+    {} as {
+      [x: string]: {
+        answer: string
+        question: string
+        cta?: string
+        link?: string
+        slug: string
+      }[]
+    }
   )
 
   return (
@@ -56,7 +70,7 @@ export const FAQSection = () => {
       style={{
         backgroundColor: 'transparent',
         border: 0,
-        paddingTop:'1.5rem'
+        paddingTop: '1.5rem',
       }}
     >
       <Container>
@@ -87,6 +101,8 @@ export const FAQSection = () => {
                       title={acc.question}
                       key={`faq_accordion_${index}_${i}`}
                       id={acc.slug}
+                      cta={acc.cta}
+                      link={acc.link}
                     >
                       <Typography
                         fontVariant="base"
@@ -110,11 +126,15 @@ const FAQAccordion = ({
   title,
   children,
   defaultOpen = false,
+  link,
+  cta,
   id,
 }: {
   title: string
   children: React.ReactNode
   defaultOpen: boolean
+  link?: string
+  cta?: string
   id: string
 }) => {
   const [open, setOpen] = React.useState(defaultOpen)
@@ -122,7 +142,7 @@ const FAQAccordion = ({
   return (
     <motion.div
       animate={open ? 'open' : 'closed'}
-      className="border-bold flex max-h-max w-full flex-col gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4 text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+      className="border-bold flex max-h-max w-full flex-col items-center gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4  text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-2xl hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
       onClick={() => {
         // console.log('clicked', id)
         setOpen((pv) => !pv)
@@ -157,16 +177,20 @@ const FAQAccordion = ({
           height: open ? 'fit-content' : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className="black overflow-hidden flex gap-3 flex-col"
-       
+        className="black flex flex-col gap-3 overflow-hidden"
       >
         {children}
-        <Button
-              buttonVariant="primary"
-              buttonStyle={{ width: 'max-content' }}
-            >
-              <Link to={"link"}> LinkText &rarr;</Link>
-            </Button>
+        {link && cta && (
+          <Button
+            buttonVariant="primary"
+            buttonStyle={{ width: 'max-content' }}
+          >
+            <Link to={link} target="_blank">
+              {' '}
+              {cta} &rarr;
+            </Link>
+          </Button>
+        )}
       </motion.div>
     </motion.div>
   )

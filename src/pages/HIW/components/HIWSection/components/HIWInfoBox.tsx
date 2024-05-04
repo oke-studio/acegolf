@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 //   categoryRefrence: { slug: string; faqCategor }
 // }
 
-const HIWMiniInfoBox = ({
+export const HIWMiniInfoBox = ({
   box,
   index,
   selected,
@@ -69,7 +69,10 @@ const HIWMiniInfoBox = ({
             buttonVariant="primary"
             buttonStyle={{ width: 'max-content' }}
           >
-            <Link to={'link'}> {box.ctaLink} &rarr;</Link>
+            <Link to={'link'} target="_blank">
+              {' '}
+              {box.ctaText} &rarr;
+            </Link>
           </Button>
         )}
       </motion.div>

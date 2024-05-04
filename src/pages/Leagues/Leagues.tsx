@@ -34,7 +34,7 @@ export const Leagues = () => {
       <Section style={{ backgroundColor: 'transparent', border: 0 }}>
         <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2">
           {[1, 2, 3, 4].map(() => (
-            <div className="bg-grey relative min-h-96 w-full rounded-2xl">
+            <div className="relative min-h-96 w-full rounded-2xl bg-grey">
               <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-56">
                 <Typography fontVariant="base" fontWeight="400">
                   Details about the Leagues timing and details that will need to
