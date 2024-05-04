@@ -378,7 +378,11 @@ export default function PriceTabCard() {
 				aria-label="secondary tabs example"
 				variant="scrollable"
 				scrollButtons="auto"
-				sx={{ overflowX: 'scroll', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
+				sx={{
+					overflowX: 'scroll',
+					scrollBehavior: 'smooth',
+					scrollbarWidth: 'none',
+				}}
 			>
 				<StyledTab value={1} label="Mon" />
 				<StyledTab value={2} label="Tue" />
@@ -386,7 +390,7 @@ export default function PriceTabCard() {
 				<StyledTab value={4} label="Thu" />
 				<StyledTab value={5} label="Fri" />
 				<StyledTab value={6} label="Sat" />
-				<StyledTab value={7} label="Sun" />
+				<StyledTab value={0} label="Sun" />
 			</StyledTabs>
 
 			{baysPricingReduced &&
