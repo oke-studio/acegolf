@@ -492,3 +492,26 @@ export const GetUGCTestimonialsQuery = gql`
     }
   }
 `
+
+export const GetLeaguesQuery = gql`
+  query getAceLeaguesEvents {
+    newEventItemCollection ( where: eventType: "League"){
+      items {
+        eventTitle
+        slugId
+        eventType
+        startDateTime
+        endDateTime
+        eventDescription
+        ctaText
+        ctaLink
+        eventPoster {
+          url
+          fileName
+          description
+          contentType
+        }
+      }
+    }
+  }
+`
