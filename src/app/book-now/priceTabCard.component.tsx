@@ -352,7 +352,11 @@ export default function PriceTabCard() {
 
 	const currentDate = new Date();
 
+	console.log(currentDate);
+
 	const [value, setValue] = React.useState(currentDate.getDay());
+	console.log(value);
+	console.log(value-1);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -384,19 +388,19 @@ export default function PriceTabCard() {
 					scrollbarWidth: 'none',
 				}}
 			>
-				<StyledTab value={0} label="Mon" />
-				<StyledTab value={1} label="Tue" />
-				<StyledTab value={2} label="Wed" />
-				<StyledTab value={3} label="Thu" />
-				<StyledTab value={4} label="Fri" />
-				<StyledTab value={5} label="Sat" />
-				<StyledTab value={6} label="Sun" />
+				<StyledTab value={1} label="Mon" />
+				<StyledTab value={2} label="Tue" />
+				<StyledTab value={3} label="Wed" />
+				<StyledTab value={4} label="Thu" />
+				<StyledTab value={5} label="Fri" />
+				<StyledTab value={6} label="Sat" />
+				<StyledTab value={0} label="Sun" />
 			</StyledTabs>
 
 			{baysPricingReduced &&
 				baysPricingReduced.map((bay, index) => (
 					<TabPanel
-						value={value}
+						value={value - 1}
 						index={index}
 						dir={theme.direction}
 						key={`bay_${index}_${bay.day}`}
