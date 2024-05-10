@@ -34,18 +34,18 @@ export const FAQSection = () => {
         acc[category].push({
           question: curr.question,
           answer: curr.answer,
-          cta: curr.ctaText,
-          link: curr.ctaLink,
           slug: curr.faqSlug,
+          ctaLink: curr.ctaLink,
+          ctaText: curr.ctaText,
         })
       } else {
         acc[category] = [
           {
             question: curr.question,
             answer: curr.answer,
-            cta: curr.ctaText,
-            link: curr.ctaLink,
             slug: curr.faqSlug,
+            ctaLink: curr.ctaLink,
+            ctaText: curr.ctaText,
           },
         ]
       }
@@ -57,9 +57,9 @@ export const FAQSection = () => {
       [x: string]: {
         answer: string
         question: string
-        cta?: string
-        link?: string
         slug: string
+        ctaLink?: string
+        ctaText?: string
       }[]
     }
   )
@@ -101,8 +101,6 @@ export const FAQSection = () => {
                       title={acc.question}
                       key={`faq_accordion_${index}_${i}`}
                       id={acc.slug}
-                      cta={acc.cta}
-                      link={acc.link}
                     >
                       <Typography
                         fontVariant="base"
@@ -111,6 +109,14 @@ export const FAQSection = () => {
                       >
                         {acc.answer}
                       </Typography>
+                      {acc.ctaLink && acc.ctaText && (
+                        <Button
+                          buttonVariant="primary"
+                          buttonStyle={{ width: 'max-content' }}
+                        >
+                          <Link to={acc.ctaLink}> {acc.ctaText} &rarr;</Link>
+                        </Button>
+                      )}
                     </FAQAccordion>
                   ))}
                 </div>
@@ -126,15 +132,12 @@ const FAQAccordion = ({
   title,
   children,
   defaultOpen = false,
-  link,
-  cta,
   id,
 }: {
   title: string
   children: React.ReactNode
   defaultOpen: boolean
-  link?: string
-  cta?: string
+
   id: string
 }) => {
   const [open, setOpen] = React.useState(defaultOpen)
@@ -180,17 +183,6 @@ const FAQAccordion = ({
         className="black flex flex-col gap-3 overflow-hidden"
       >
         {children}
-        {link && cta && (
-          <Button
-            buttonVariant="primary"
-            buttonStyle={{ width: 'max-content' }}
-          >
-            <Link to={link} target="_blank">
-              {' '}
-              {cta} &rarr;
-            </Link>
-          </Button>
-        )}
       </motion.div>
     </motion.div>
   )

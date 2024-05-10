@@ -374,6 +374,9 @@ export const GetAceV2Query =`
             eventDescription
             ctaText
             ctaLink
+            eventDesc {
+              json
+            }
             eventPoster {
               title
               description
@@ -394,6 +397,21 @@ export const GetAceV2Query =`
               fileName
               url
             }
+          }
+        }
+        featuredTestimonialsCollection {
+          items {
+            type
+            nameOfPerson
+            testimonialMessage
+            imageVideo {
+              title
+              description
+              contentType
+              url
+              fileName
+            }
+            linkedUrl
           }
         }
       }
@@ -437,6 +455,9 @@ export const GetEventsQuery = `
         startDateTime
         endDateTime
         eventDescription
+        eventDesc {
+          json
+        }
         ctaText
         ctaLink
         eventPoster {
