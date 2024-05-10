@@ -5,5 +5,4 @@ export interface TypeFaqItemFields {
   ctaLink?: string
   ctaText?: string
   categoryRefrence: { faqCategoryName: string; slug: string }
-  ctaText?: string
 }
