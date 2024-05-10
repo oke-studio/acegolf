@@ -31,7 +31,11 @@ export const LandingHero = ({
   return (
     // <div className="m-auto">
     <motion.div>
-      <Section borderRadiusVariant="pill" style={{ position: 'relative' }}>
+      <Section
+        borderRadiusVariant="pill"
+        style={{ position: 'relative' }}
+        tailWindStyle="bg-white"
+      >
         <div className="flex flex-col gap-3 lg:gap-5" style={{}}>
           <div className="w-[40%] lg:w-full">
             <img

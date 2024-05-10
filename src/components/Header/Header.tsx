@@ -107,9 +107,7 @@ export const Header = () => {
             'flex w-full items-center justify-between  p-[5%]  md:p-3'
           )}
         >
-          <div onClick={() => setIsOpen((ev) => !ev)}>
-            <HeaderLogo color={isOpen ? 'black' : 'white'} />
-          </div>
+          <HeaderLogo color={isOpen ? 'black' : 'white'} />
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="text-3xl"
