@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getAceQuery } from '../../../../../utils/getAceQuery'
 import { GetUGCTestimonialsQuery } from '../../../../../utils/Queries'
+import { useGetAceQuery } from '../../../../../hooks/UseGetAceQuery/useGetAceQuery.hook'
 
 function useGetAceUGCTestimonialsQuery() {
   const Query = useQuery<{
@@ -24,9 +25,10 @@ function useGetAceUGCTestimonialsQuery() {
 }
 
 export function useGetUGCTestimonials() {
-  const { data, isLoading, isError } = useGetAceUGCTestimonialsQuery()
+  //   const { data, isLoading, isError } = useGetAceUGCTestimonialsQuery()
+  const { data, isLoading, isError } = useGetAceQuery()
 
-  const UGCData = data?.data.testimonialsCollection.items.filter(
+  const UGCData = data?.featuredTestimonialsCollection.items.filter(
     (i) => i.type === 'Testimonial'
   )
 

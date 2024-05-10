@@ -2,10 +2,27 @@ import { Button } from '../../components/Button/Button'
 import { Container } from '../../components/Container/Container'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
+import { useGetEvents } from '../../hooks/UseGetEvents/useGetEvents.hook'
+import { ImageURLFormatter } from '../../utils/imageFormatter'
 import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
 import { EmailSection } from '../Events/components/EmailSection/EmailSection'
 
+import { CalendaritemContainerStyles } from '../../types/Pages/Events/events.types'
+
 export const Leagues = () => {
+  const { eventsData, isError, isLoading } = useGetEvents()
+
+  if (isError || !eventsData) {
+    return <></>
+  }
+
+  if (isLoading) {
+    return <></>
+  }
+
+  const eventsDataParsedToLeaguesData = eventsData.filter(
+    (e) => e.eventType === 'League'
+  )
   return (
     <Container>
       <Section
@@ -33,28 +50,47 @@ export const Leagues = () => {
       </Section>
       <Section style={{ backgroundColor: 'transparent', border: 0 }}>
         <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2">
-          {[1, 2, 3, 4].map(() => (
-            <div className="relative min-h-96 w-full rounded-2xl bg-grey">
-              <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-56">
-                <Typography fontVariant="base" fontWeight="400">
-                  Details about the Leagues timing and details that will need to
-                  know before sign up
-                </Typography>
-                <Button
-                  buttonVariant="secondary"
-                  buttonStyle={{
-                    padding: '0.25rem 2rem',
-                    color: 'white',
-                    backgroundColor: 'black',
-                  }}
-                >
-                  <Typography fontVariant="base" fontWeight="500">
-                    Sign up &rarr;
+          {eventsDataParsedToLeaguesData.map((e) => {
+            const defaultImgSrc =
+              CalendaritemContainerStyles['league'].defaultImgSrc
+
+            const imgSrc = e.eventPoster?.url ?? defaultImgSrc
+
+            return (
+              <div
+                className="relative min-h-96 w-full rounded-2xl"
+                style={{
+                  backgroundImage: `url(${ImageURLFormatter(
+                    imgSrc,
+                    e.eventPoster?.contentType
+                  )})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-56">
+                  <Typography fontVariant="base" fontWeight="400">
+                    {e.eventDescription}
                   </Typography>
-                </Button>
+                  <Button
+                    buttonVariant="secondary"
+                    buttonStyle={{
+                      padding: '0.25rem 2rem',
+                      color: 'white',
+                      backgroundColor: 'black',
+                    }}
+                  >
+                    <a href={e.ctaLink}>
+                      <Typography fontVariant="base" fontWeight="500">
+                        {e.ctaText} &rarr;
+                      </Typography>
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </Section>
 

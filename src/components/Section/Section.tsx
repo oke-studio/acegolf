@@ -43,10 +43,10 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     return (
       <motion.section
         className={classNames(
+          'h-max p-6 py-20',
           borderRadius,
           SECTION,
-          tailWindStyle,
-          'h-max bg-white p-6 py-20'
+          tailWindStyle
         )}
         ref={ref}
         style={style}

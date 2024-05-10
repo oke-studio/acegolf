@@ -64,15 +64,12 @@ export const HIWMiniInfoBox = ({
         className="flex flex-col gap-3 overflow-hidden"
       >
         {box.answer}
-        {box.ctaLink && (
+        {box.ctaLink && box.ctaText && (
           <Button
             buttonVariant="primary"
             buttonStyle={{ width: 'max-content' }}
           >
-            <Link to={'link'} target="_blank">
-              {' '}
-              {box.ctaText} &rarr;
-            </Link>
+            <Link to={box.ctaLink}> {box.ctaText} &rarr;</Link>
           </Button>
         )}
       </motion.div>
