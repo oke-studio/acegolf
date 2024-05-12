@@ -27,7 +27,7 @@ export const WTVSection = () => {
           >
             What&apos;s the Vibe?
           </Typography>
-          <MusicPlayer />
+          {/* <MusicPlayer /> */}
           <UGC />
         </div>
       </Container>
