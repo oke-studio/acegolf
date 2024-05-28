@@ -16,6 +16,10 @@ import { Formik } from 'formik';
 import { encode } from '@/util/encode';
 import { useRouter } from 'next/router';
 import { TopBanner } from '@/components/topBanner/topBanner.component';
+//import { Typography } from '@/components/Typography/typography.component';
+// import { useGetPriceCard } from '../../../book-now/hooks/useGetPriceCard.hook';
+// import { TypeServiceTimeFields } from '@/types/contentful';
+// import CircularProgress from '@mui/material/CircularProgress';
 
 const backgroundColor = '#529DC8';
 
@@ -202,7 +206,7 @@ const TopBannerChoice = ({ isMobile }: { isMobile: boolean }) => {
 				pathProps={{
 					d: 'M 0.3257 244.537 C 21 244.537 28.5 238.5 142.377 169.919 C 343 49.0589 549.615 31.5 474.992 123.111 C 380.659 238.919 596.811 193.13 832.992 123.11 C 1255 -1.9998 1630.81 38.1808 1413.49 179.111 C 1248.49 286.111 1913 102.502 1972 102.502',
 				}}
-				text=" · COMING SOON · TORONTO'S BEST INDOOR GOLF LOUNGE  "
+				text=" · WEBSITE UNDER CONSTRUCTION· TORONTO'S COOLEST INDOOR GOLF LOUNGE  "
 				textCount={3}
 				strokeColor="#EB8B32"
 			/>
@@ -316,12 +320,9 @@ export const ComingSoonInfoSection = ({
 						textTransform: 'none',
 					}}
 				>
-					<a
-						href="https://www.sevenrooms.com/reservations/acegolf?duration-picker=True"
-						target="_blank"
-					>
+					<a href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays">
 						{' '}
-						Early Reservation &rarr;
+						Book A Bay Here &rarr;
 					</a>
 				</Button>
 				<Box
@@ -333,10 +334,13 @@ export const ComingSoonInfoSection = ({
 						// mixBlendMode: 'difference',
 					}}
 				>
-					General Bays: $45/hr <br />
-					Private Bays: $55/hr <br />
-					Cafe is Open! Kitchen open Monday - Saturday.
-					<br /> Bar coming soon.
+					Website undergoing upgrades!
+					<br />
+					<br />
+					Cafe is Open
+					<br />
+					Kitchen Open
+					<br />
 				</Box>
 			</ComingSoonInfoWrapper>
 
