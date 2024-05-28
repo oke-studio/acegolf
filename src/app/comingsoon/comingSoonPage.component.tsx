@@ -77,7 +77,7 @@ export default function ComingSoonPage() {
 							flexDirection: 'row',
 							overflow: 'hidden',
 							position: 'relative',
-							top: '25px',
+							top: '100px',
 							fill: 'white',
 						}}
 					>
@@ -133,7 +133,7 @@ export default function ComingSoonPage() {
 						overflow: 'hidden',
 						position: 'relative',
 						gap: '16px',
-						top: '30px',
+						top: '150px',
 						fill: 'white',
 						//mixBlendMode: 'difference',
 					}}
