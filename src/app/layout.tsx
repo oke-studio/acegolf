@@ -31,17 +31,20 @@ export default function RootLayout({
 		<html lang="en" style={{ overflowX: 'hidden' }}>
 			<Providers>
 				<head>
-       			 <link rel="stylesheet" href="https://use.typekit.net/jfg5sml.css" />
-      		</head>
+					<link rel="stylesheet" href="https://use.typekit.net/jfg5sml.css" />
+				</head>
 				<meta name="theme-color" content="#39775E"></meta>
 				<body
 					// className={aceFont.className}
-					style={{ backgroundColor: '#171717', fontFamily: 'new-hero , sans-serif' }}
+					style={{
+						backgroundColor: '#171717',
+						fontFamily: 'new-hero , sans-serif',
+					}}
 				>
 					<DynamicPageBackground>
-						<Header />
+						{/* <Header /> */}
 						{children}
-						<FooterV2 />
+						{/* <FooterV2 /> */}
 					</DynamicPageBackground>
 					<ReactQueryDevtools
 						initialIsOpen={false}
