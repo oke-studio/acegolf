@@ -33,7 +33,7 @@ export default function RootLayout({
 				<head>
 					<link rel="stylesheet" href="https://use.typekit.net/jfg5sml.css" />
 				</head>
-				<meta name="theme-color" content="#39775E"></meta>
+				{/* <meta name="theme-color" content="#39775E"></meta> */}
 				<body
 					// className={aceFont.className}
 					style={{

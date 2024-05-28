@@ -68,7 +68,6 @@ export default function ComingSoonPage() {
 							right: 0,
 							height: `${currentToOpenDateProgress}%`,
 							background: '#171717',
-							backgroundImage: NOISE_URL,
 						}}
 					></Box>
 					<ComingSoonInfoSection hours={hourDifference} days={dayDifference} />
@@ -79,6 +78,7 @@ export default function ComingSoonPage() {
 							overflow: 'hidden',
 							position: 'relative',
 							top: '25px',
+							fill: 'white',
 						}}
 					>
 						{[...Array(10)].map((_, index) => (
@@ -135,7 +135,7 @@ export default function ComingSoonPage() {
 						gap: '16px',
 						top: '30px',
 						fill: 'white',
-						mixBlendMode: 'difference',
+						//mixBlendMode: 'difference',
 					}}
 				>
 					{[...Array(18)].map((_, index) => (
