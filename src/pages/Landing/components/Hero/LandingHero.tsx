@@ -44,6 +44,7 @@ export const LandingHero = ({
               className="ld aspect-auto"
               width={219}
               height={73}
+              loading="lazy"
             />
           </div>
           <div>
