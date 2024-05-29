@@ -65,7 +65,7 @@ export const Leagues = () => {
                     e.eventPoster?.contentType
                   )})`,
                   backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
+                  backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
               >

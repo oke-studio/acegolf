@@ -15,6 +15,7 @@ import { PricesCard as PC } from '../../components/Common/PricesCard/PricesCard'
 import { WTS } from '../../components/Common/WTS/WTS'
 import { NintendoSwitch } from '../../components/NintendoSwitch/NintendoSwitch'
 import { LandingHIWSection } from './components/HIWSection/HIWSection'
+import { LandingVideo } from './components/Video/LandingVideo'
 
 const handleBookLink = () => {
   return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
@@ -44,6 +45,7 @@ export const Landing = () => {
       <Container>
         {/* <div className="sticky top-28"> */}
         <LandingHero scrollYProgress={scrollYProgress} />
+        <LandingVideo scrollYProgress={scrollYProgress} />
         {/* </div> */}
         <LandingHIWSection />
         <Section

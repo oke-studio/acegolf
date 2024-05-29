@@ -53,6 +53,7 @@ export const AboutACE = () => {
               <img
                 src={AboutBanner}
                 className=" h-auto min-h-full w-auto min-w-full object-cover object-left"
+                loading="lazy"
               />
             </div>
             {/* Copy */}
