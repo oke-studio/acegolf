@@ -306,6 +306,37 @@ export const ComingSoonInfoSection = ({
 					}}
 				>
 					ALL BAYS STILL OPEN
+					<br />
+					<span
+						style={{
+							fontSize: '16px',
+						}}
+					>
+						Website undergoing upgrades!
+					</span>
+				</Box>
+				<Box
+					sx={{
+						marginTop: '20px',
+						//...typography.hero_medium,
+						fontSize: '16px',
+						color: 'white',
+						// mixBlendMode: 'difference',
+						// display: 'flex',
+						// gap: '50px',
+					}}
+				>
+					<Box>
+						<b>Hours</b>
+						<br /> Tue - Thur 11AM- Midnight
+						<br /> Fri - Sun 8AM - Midnight
+					</Box>
+					<br />
+					<Box>
+						<b>Prices</b>
+						<br /> Regular Golf Bay $35/hr <br /> (up to 6 guests)
+						<br /> Private Golf Bay $45/hr <br /> (up to 16 guests)
+					</Box>
 				</Box>
 
 				<Button
@@ -318,11 +349,31 @@ export const ComingSoonInfoSection = ({
 						fontSize: '24px',
 						marginTop: '20px',
 						textTransform: 'none',
+						fontFamily: 'new-hero',
 					}}
 				>
 					<a href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays">
 						{' '}
 						Book A Bay Here &rarr;
+					</a>
+				</Button>
+				<Button
+					disableElevation
+					disableFocusRipple
+					disableRipple
+					disableTouchRipple
+					color="secondary"
+					sx={{
+						//...typography.hero_semibold,
+						fontSize: '24px',
+						marginTop: '20px',
+						textTransform: 'none',
+						fontFamily: 'new-hero',
+					}}
+				>
+					<a href="https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays">
+						{' '}
+						Buy gift cards & top ups
 					</a>
 				</Button>
 				<Box
@@ -334,13 +385,12 @@ export const ComingSoonInfoSection = ({
 						// mixBlendMode: 'difference',
 					}}
 				>
-					Website undergoing upgrades!
+					Menu
+					<br /> Daytime : Pilot Coffee Roasters & DAM Sandwiches
+					<br /> Evening: Tapas style cuisine
 					<br />
 					<br />
-					Cafe is Open
-					<br />
-					Kitchen Open
-					<br />
+					For private events and other enquiries email info@acegolfbar.ca
 				</Box>
 			</ComingSoonInfoWrapper>
 
