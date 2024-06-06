@@ -21,7 +21,7 @@ export const LogoMap = () => {
 				height: 'max-content',
 			}}
 		>
-			{[...Array(10)].map((_, index) => (
+			{[...Array(5)].map((_, index) => (
 				<RelativePositionWrapper key={index}>
 					<AnimatedLogo />
 				</RelativePositionWrapper>

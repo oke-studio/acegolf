@@ -13,7 +13,7 @@ const backgroundColor = '#E6E8E9';
 const PageWrapper = styled(Box)({
 	backgroundColor: backgroundColor,
 	//backgroundImage: NOISE_URL,
-	height: '100vh',
+	height: 'fit-content',
 	color: 'black',
 	width: '100vw',
 	overflow: 'hidden',
@@ -75,7 +75,7 @@ export default function ComingSoonPage() {
 						style={{
 							display: 'flex',
 							flexDirection: 'row',
-							overflow: 'hidden',
+							//overflow: 'hidden',
 							position: 'relative',
 							top: '100px',
 							fill: 'white',
@@ -130,7 +130,7 @@ export default function ComingSoonPage() {
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
-						overflow: 'hidden',
+						//overflow: 'hidden',
 						position: 'relative',
 						gap: '16px',
 						top: '150px',

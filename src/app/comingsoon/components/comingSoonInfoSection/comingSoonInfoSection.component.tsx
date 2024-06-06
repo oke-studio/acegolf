@@ -390,7 +390,9 @@ export const ComingSoonInfoSection = ({
 					<br /> Evening: Tapas style cuisine
 					<br />
 					<br />
-					For private events and other enquiries email info@acegolfbar.ca
+					For private events and other enquiries email{' '}
+					<a href="mailto: info@acegolfbar.ca">info@acegolfbar.ca</a> or call us{' '}
+					<a href="tel: 6476198588">6476198588</a>
 				</Box>
 			</ComingSoonInfoWrapper>
 
