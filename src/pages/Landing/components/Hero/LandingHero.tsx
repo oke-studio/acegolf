@@ -1,7 +1,8 @@
+import { useRef } from 'react'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { Button } from '../../../../components/Button/Button'
-import { MotionValue, motion } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 
@@ -16,13 +17,15 @@ const handleBookLink = () => {
   return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
 }
 
-export const LandingHero = ({
-  scrollYProgress,
-}: {
-  scrollYProgress?: MotionValue<number>
-}) => {
-  console.log(scrollYProgress)
-  // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
+export const LandingHero = () => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['0.5 1', '0 0'],
+  })
+
+  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
 
   // const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
 
@@ -30,7 +33,7 @@ export const LandingHero = ({
 
   return (
     // <div className="m-auto">
-    <motion.div>
+    <motion.div className="sticky top-0" style={{ opacity }} ref={ref}>
       <Section
         borderRadiusVariant="pill"
         style={{ position: 'relative' }}
@@ -125,8 +128,8 @@ export const LandingHero = ({
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M0.320312 0V95.616H28.2243V72.832H34.1123C62.9123 72.832 77.2483 54.784 77.2483 35.584C77.2483 14.08 61.5043 0 32.1923 0H0.320312ZM35.3923 48.128H28.2243V25.216H35.1363C42.9443 25.216 49.0883 29.056 49.0883 36.608C49.0883 44.16 42.9443 48.128 35.3923 48.128ZM75 115.339L49.5 130.061V118.339H0V111.339H49.5V100.616L75 115.339Z"
                     fill="white"
                   />

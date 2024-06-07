@@ -98,6 +98,7 @@ export const PricesContentSkeleton = ({
                 setSelected={setToggle}
                 label={p}
                 index={index}
+                key={`prices_container_${index}`}
               />
             ))}
           </div>

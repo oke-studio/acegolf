@@ -33,19 +33,19 @@ export const Landing = () => {
 
     requestAnimationFrame(raf)
   })
-  const ref = useRef<HTMLDivElement>(null)
+  // const ref = useRef<HTMLDivElement>(null)
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['0.5 1', '0 0'],
-  })
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['0.5 1', '0 0'],
+  // })
 
   return (
     <>
       <Container>
         {/* <div className="sticky top-28"> */}
-        <LandingHero scrollYProgress={scrollYProgress} />
-        <LandingVideo scrollYProgress={scrollYProgress} />
+        <LandingHero />
+        <LandingVideo />
         {/* </div> */}
         <LandingHIWSection />
         <Section
