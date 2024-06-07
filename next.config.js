@@ -9,13 +9,33 @@ const nextConfig = {
 			{
 				source: '/comingsoon',
 				destination: '/',
-				permanent: true,
+				permanent: false,
 			},
 			{
 				source: '/events/eventId',
 				destination: '/events?eventId:=eventId',
 				permanent: true,
 			},
+			{
+				source: '/book-now',
+				destination: '/',
+				permanent: false,
+			},
+			{
+				source: '/how-it-works',
+				destination: '/',
+				permanent: false,
+			},
+			{
+				source: '/menu',
+				destination: '/',
+				permanent: false,
+			},
+			// {
+			// 	source: '/comingsoon',
+			// 	destination: '/',
+			// 	permanent: false,
+			// },
 		];
 	},
 	images: {
