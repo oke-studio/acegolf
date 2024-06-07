@@ -24,7 +24,7 @@ export const UGC = () => {
       //   gap: '1rem',
       // }}
     >
-      {UGCData.map((ugc) => {
+      {UGCData.map((ugc, index) => {
         const { imageVideo } = ugc
         const imgUrl = ImageURLFormatter(imageVideo.url, imageVideo.contentType)
 
@@ -41,6 +41,7 @@ export const UGC = () => {
               muted
               playsInline
               poster={posterURL}
+              key={`ugc_video_${index}`}
               // alt=""
             >
               <source src={imgUrl} type="video/webm" />
@@ -54,6 +55,7 @@ export const UGC = () => {
             src={imgUrl}
             alt=""
             loading="lazy"
+            key={`ugc_image_${index}`}
           />
         )
       })}

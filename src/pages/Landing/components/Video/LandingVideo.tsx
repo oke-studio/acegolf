@@ -1,5 +1,5 @@
-import { MotionValue, motion, useTransform } from 'framer-motion'
-
+import { useScroll, motion, useTransform } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import { Section } from '../../../../components/Section/Section'
 import { RoundedVideoPath } from './components/RoundedTextPath/RoundedVideoPath.component'
 import { useMediaQuery } from 'react-responsive'
@@ -7,14 +7,21 @@ import { useMediaQuery } from 'react-responsive'
 import videoURL from '../../../../assets/landingVideo/ace-slideshow.webm'
 import videoMobileURL from '../../../../assets/landingVideo/mobile-ace-slideshow.webm'
 
-export const LandingVideo = ({
-  scrollYProgress,
-}: {
-  scrollYProgress: MotionValue<number>
-}) => {
+export const LandingVideo = () => {
   // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
+  const ref = useRef<HTMLDivElement>(null)
 
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.6])
+  // useEffect(() => {
+  //   if (!ref) {
+
+  //   }
+  // }, [])
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['0.5 1', '0 0'],
+  })
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.5, 0.8])
 
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 

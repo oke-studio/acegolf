@@ -34,7 +34,7 @@ export const WTS = () => {
           SAYING
         </Typography>
         <div className="flex flex-wrap justify-center gap-12 *:grow *:basis-48">
-          {UGCData.map((ugc) => {
+          {UGCData.map((ugc, index) => {
             const { imageVideo, nameOfPerson, testimonialMessage, linkedUrl } =
               ugc
 
@@ -47,6 +47,7 @@ export const WTS = () => {
                   href={linkedUrl}
                   target="__blank"
                   className="flex h-max w-max flex-col items-center gap-3 rounded-lg p-4 text-left duration-300 ease-in-out hover:border-2 hover:border-dashed hover:border-orange"
+                  key={`linked_url_${index}`}
                 >
                   {isImage && (
                     <div

@@ -23,7 +23,7 @@ export const PromotionsSection = () => {
           PROMOTIONS
         </Typography>
         <div className="flex w-full flex-wrap justify-center gap-4">
-          {promotionsData.map((promo) => {
+          {promotionsData.map((promo, index) => {
             const { eventTitle, eventPoster, slugId, startDateTime } = promo
             const imgUrl = eventPoster?.url
               ? ImageURLFormatter(eventPoster?.url, eventPoster?.contentType)
@@ -37,6 +37,7 @@ export const PromotionsSection = () => {
                 imgSrc={imgUrl}
                 promoId={slugId}
                 promoDate={startDateTime.split('T')[0]}
+                key={`promotion_object_${index}`}
               />
             )
           })}
