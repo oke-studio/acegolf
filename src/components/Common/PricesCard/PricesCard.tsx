@@ -192,7 +192,7 @@ export const PricesCard = () => {
           >
             <PricesContentSkeleton
               title={bay.day}
-              description="Prices are per hour, per bay. Prices do not include tax."
+              description="Cancellation Policy: 48 hours notice. Log in to YourGolfBookings and select 'My Account' to make modifications/cancellations to your bookings."
               priceContainer={{
                 priceContainerOne: {
                   price: bay.generalBayPriceOne,

@@ -89,7 +89,7 @@ export const MenuSection = () => {
         <div className="flex h-full min-h-[inherit] flex-col items-center justify-center gap-8">
           {!isMobile && (
             <nav
-              className="flex snap-x justify-center gap-8 overflow-scroll text-xl "
+              className="flex snap-x justify-center gap-8 overflow-hidden text-xl "
               aria-label="Tabs"
               role="tablist"
               data-tab-select="#tab-select"

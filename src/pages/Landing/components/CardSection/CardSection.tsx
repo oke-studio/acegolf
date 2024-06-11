@@ -6,6 +6,7 @@ import { Typography } from '../../../../components/Typography/Typography'
 // import { MenuCard as MC } from '../../../../components/Common/MenuCard/MenuCard'
 import { useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { CalendarSection } from '../../../Events/components/CalendarSection/CalendarSection'
 
 // Images
 import MapImageURl from '../../../../assets/cards/Maps-ace-expanded.webp'
@@ -143,6 +144,7 @@ export const CardSection = () => {
             {/* <PricesCard /> */}
             <ParkingCard />
           </div>
+          <CalendarSection/>
 
           {/* <MenuCard /> */}
         </div>

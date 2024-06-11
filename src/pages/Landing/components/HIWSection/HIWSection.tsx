@@ -44,7 +44,7 @@ export const LandingHIWSection = () => {
                 {p.stepContent}
               </Typography>
               <Button buttonVariant="simple">
-                <Link to={`/${p.stepCtaLink}`}>
+                <Link to={`${p.stepCtaLink}`}>
                   <Typography
                     fontVariant="base"
                     fontWeight="500"
