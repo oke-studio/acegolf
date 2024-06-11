@@ -119,7 +119,8 @@ export const Events = () => {
     gap:'4rem'
           }}>
           {logos.map((v, i) => (
-            <img style={{ width: '9rem'}} src={logos[i] }/>
+            <img style={{ width: '9rem'}} alt={v} src={logos[i] }/>
+            
 
           ))}
           </div>
