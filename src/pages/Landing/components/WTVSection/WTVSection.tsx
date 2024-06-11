@@ -2,7 +2,7 @@ import { Section } from '../../../../components/Section/Section'
 import { Container } from '../../../../components/Container/Container'
 
 import { Typography } from '../../../../components/Typography/Typography'
-import { MusicPlayer } from './components/MusicPlayer'
+// import { MusicPlayer } from './components/MusicPlayer'
 import { UGC } from './components/UGC/UGC'
 
 // const imgs = [URL1, URL2, URL3, URL4, URL5, URL6, URL7, URL8, URL9]
@@ -27,7 +27,7 @@ export const WTVSection = () => {
           >
             What&apos;s the Vibe?
           </Typography>
-          <MusicPlayer />
+          {/* <MusicPlayer /> */}
           <UGC />
         </div>
       </Container>
