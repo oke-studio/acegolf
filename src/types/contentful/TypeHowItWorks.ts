@@ -1,15 +1,17 @@
-import { TypeFaqItemFields } from '.'
+import type { Entry, EntryFields } from 'contentful';
+import type { TypeFaqItemFields } from './TypeFaqItem';
 
 export interface TypeHowItWorksFields {
-  title: string
-  howItWorksStepsCollection: { items: TypeHowItWorksStepsFields[] }
+	title: string;
+	step1Title: string;
+	step1Content: string;
+	step1RelatedFaqCollection: { items: TypeFaqItemFields[] };
+	step2Title: string;
+	step2Content: string;
+	step2RelatedFaqCollection: { items: TypeFaqItemFields[] };
+	step3Title: string;
+	step3Content: string;
+	step3RelatedFaqCollection: { items: TypeFaqItemFields[] };
 }
 
-interface TypeHowItWorksStepsFields {
-  stepTitle: string
-  stepTextTitle: string
-  stepContent: string
-  stepCtaText: string
-  stepCtaLink: string
-  relatedFaqCollection: { items: TypeFaqItemFields[] }
-}
+// export type TypeHowItWorks = Entry<TypeHowItWorksFields>;
