@@ -19,9 +19,9 @@ export const WTVSection = () => {
       }}
     >
       <Container>
-        <div className="mt-10 flex flex-col items-center justify-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4">
           <Typography
-            fontVariant="largeH1"
+            fontVariant="headingTwo"
             fontWeight="900"
             tailwindStyle="text-white text-center uppercase mb-3 whitespace-normal"
           >
