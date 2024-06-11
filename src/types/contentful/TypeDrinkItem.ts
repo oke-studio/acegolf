@@ -1,11 +1,6 @@
-import type { Asset, Entry, EntryFields } from 'contentful';
-
 export interface TypeDrinkItemFields {
-	name: string;
-	drinkType: 'Classics' | 'Cocktails';
-	itemDescription?: string;
-	price: number;
-	// image?: Asset;
+  name: string
+  drinkType: 'Classics' | 'Cocktails'
+  itemDescription?: string
+  price: number
 }
-
-// export type TypeDrinkItem = Entry<TypeDrinkItemFields>;
