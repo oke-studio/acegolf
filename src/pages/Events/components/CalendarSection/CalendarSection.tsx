@@ -231,7 +231,9 @@ export const CalendarSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
-      style={{ backgroundColor: 'white', padding: '8px' }}
+      style={{ 
+        backgroundColor: 'white', 
+        padding: '8px', }}
     >
       <div
         style={
