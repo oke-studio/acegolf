@@ -23,6 +23,8 @@ const NavOptions = [
   { label: 'How it Works', to: '/how-it-works' },
   { label: 'About', to: '/about' },
   { label: 'Events', to: '/events' },
+  { label: 'Leagues', to: '/leagues' },
+  { label: 'Coaching', to: '/coaching' }
 ]
 
 const handleBookLink = () => {
