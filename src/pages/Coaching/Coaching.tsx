@@ -38,9 +38,7 @@ export const Coaching = () => {
           >
             COACHING
           </Typography>
-          <Typography fontVariant="base" fontWeight="500">
-            Coaches and coaching staff
-          </Typography>
+          
         </div>
       </Section>
       <Section style={{ backgroundColor: 'transparent', border: 0 }}>
