@@ -23,7 +23,8 @@ const NavOptions = [
   { label: 'How it Works', to: '/how-it-works' },
   { label: 'About', to: '/about' },
   { label: 'Events', to: '/events' },
-  { label: 'Coaching', to: '/coaching' }
+  { label: 'Coaching', to: '/coaching' },
+  { label: 'Summer-Camp', to: '/ace-summer-camp' }
 ]
 
 const handleBookLink = () => {
