@@ -419,6 +419,7 @@ export const GetAboutPageQuery = gql`
             }
             description
             contactLink
+            contactPhoneNumber
           }
         }
       }
@@ -467,6 +468,7 @@ export const GetCoachingPageQuery = gql`
             }
             description
             contactLink
+            contactPhoneNumber
           }
         }
       }

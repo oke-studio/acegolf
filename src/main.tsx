@@ -14,9 +14,14 @@ import { AboutACE } from './pages/AboutACE/AboutACE'
 import { Events } from './pages/Events/Events'
 import { EventsItem } from './pages/Events/pages/EventsItem'
 import { FAQ } from './pages/FAQ/FAQ'
-import { Leagues } from './pages/Leagues/Leagues'
+// import { Leagues } from './pages/Leagues/Leagues'
 import { Coaching } from './pages/Coaching/Coaching'
-import { Membership } from './pages/Membership/Membership'
+// import { Membership } from './pages/Membership/Membership'
+import { SummerCampRedirect } from'./pages/ace-summer-camp/ace-summer-camp'
+import { SummerCampPDF } from'./pages/ace-summer-camp/ace-summer-camp-pdf'
+
+// import aceSummerCampPDF  from './assets/Ace-Summer-Camp-Final.pdf'
+
 const client = new QueryClient()
 
 const router = createBrowserRouter([
@@ -47,9 +52,12 @@ const router = createBrowserRouter([
       { path: '/events', element: <Events /> },
       { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
       { path: 'coaching', element: <Coaching /> },
-      { path: 'leagues', element: <Leagues /> },
+      // { path: 'leagues', element: <Leagues /> },
       { path: 'faq', element: <FAQ /> },
-      { path: 'membership', element: <Membership /> },
+      // { path: 'membership', element: <Membership /> },
+     {path: '/ace-summer-camp-sign-up', element:<SummerCampRedirect/> },
+     {path: '/ace-summer-camp', element:<SummerCampPDF/> }
+      
     ],
   },
 ])
