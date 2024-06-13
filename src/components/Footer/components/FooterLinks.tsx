@@ -19,10 +19,10 @@ const FooterLinksArray = [
     name: 'Coaching',
     to: '/coaching',
   },
-  {
-    name: 'Leagues',
-    to: '/leagues',
-  },
+  // {
+  //   name: 'Leagues',
+  //   to: '/leagues',
+  // },
   {
     name: 'FAQ',
     to: '/faq',
@@ -31,15 +31,15 @@ const FooterLinksArray = [
     name: 'About',
     to: '/about',
   },
-  {
-    name: 'Membership',
-    to: '/membership',
-  },
+  // {
+  //   name: 'Membership',
+  //   to: '/membership',
+  // },
 ]
 
 export const FooterLinks = () => {
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-6">
       {FooterLinksArray.map((link, index) => (
         <Button
           buttonVariant="simple"

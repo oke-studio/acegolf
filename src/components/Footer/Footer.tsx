@@ -23,7 +23,7 @@ export const Footer = () => {
         {/* Links */}
         <FooterLinks />
         {/* Logo and Socials */}
-        <div className="flex gap-3">
+        <div className="flex gap-5">
           <div
             className="h-auto w-24 bg-contain bg-center bg-no-repeat"
             style={{
@@ -57,7 +57,7 @@ export const Footer = () => {
               <Typography
                 fontVariant="headingFour"
                 fontWeight="400"
-                style={{ display: 'flex', gap: '1rem' }}
+                style={{ display: 'flex', gap: '1.5rem' }}
               >
                 Instagram{' '}
                 <img src={AceFooterMiniUrl} height={20} width={20} alt="ace" />
@@ -80,7 +80,7 @@ export const Footer = () => {
               <Typography
                 fontVariant="headingFour"
                 fontWeight="400"
-                style={{ display: 'flex', gap: '1rem' }}
+                style={{ display: 'flex', gap: '1.5rem' }}
               >
                 Tiktok{' '}
                 <img src={AceFooterMiniUrl} height={20} width={20} alt="ace" />
