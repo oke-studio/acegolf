@@ -4,20 +4,25 @@ import { Typography } from '../../components/Typography/Typography'
 // import { CalendarSection } from './components/CalendarSection/CalendarSection'
 import { useMediaQuery } from 'react-responsive'
 import { WTS } from '../../components/Common/WTS/WTS'
-import { WTVSection } from '../Landing/components/WTVSection/WTVSection'
+// import { WTVSection } from '../Landing/components/WTVSection/WTVSection'
 import { Button } from '../../components/Button/Button'
 import RogersLogo from '../../assets/logos/rogers_logo.svg.webp'
 import DeliotteLogo from '../../assets/logos/Deloitte_logo.webp'
 import TaylorMadeLogo from '../../assets/logos/TaylorMade_logo.webp'
 import TicTokLogo from '../../assets/logos/Tictok_logo.webp'
 import TheScoreLogo from '../../assets/logos/thescore_logo.svg.webp'
-
-
+import golfingImage from '../../assets/landingHero/night-golfing.webp'
 
 export const Events = () => {
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
-  const logos = [RogersLogo, DeliotteLogo, TaylorMadeLogo, TicTokLogo, TheScoreLogo  ]
+  const logos = [
+    RogersLogo,
+    DeliotteLogo,
+    TaylorMadeLogo,
+    TicTokLogo,
+    TheScoreLogo,
+  ]
 
   return (
     <>
@@ -69,7 +74,10 @@ export const Events = () => {
                 fontWeight="300"
                 fontStyle="normal"
               >
-                Make your next event one your clients will never forget at Ace Golf! Our events team will work with you to ensure your night exceeds your expectations. Our team will work closely with you to cultivate an environment that you desire.
+                Make your next event one your clients will never forget at Ace
+                Golf! Our events team will work with you to ensure your night
+                exceeds your expectations. Our team will work closely with you
+                to cultivate an environment that you desire.
                 <br />
                 <br />
                 <ul>
@@ -86,92 +94,95 @@ export const Events = () => {
                 Our venue can accommodate your group of any size from 1-100!
               </Typography>
 
-              <Button buttonVariant="primary" 
-              buttonStyle={{ width: '70%' }} >
+              <Button buttonVariant="primary" buttonStyle={{ width: '70%' }}>
                 <a href="mailto:events@acegolfbar.ca">
-                <Typography
-                  fontVariant={isMobile ? 'extralarge' : 'headingFour'}
-                  fontWeight="500"
-                  T="h3"
-                >
-                  Book your Event 
-                </Typography>
+                  <Typography
+                    fontVariant={isMobile ? 'extralarge' : 'headingFour'}
+                    fontWeight="500"
+                    T="h3"
+                  >
+                    Book your Event
+                  </Typography>
                 </a>
               </Button>
             </div>
-            <div className="h-full min-h-96  w-full max-w-[500px] rounded-xl bg-grey"></div>
+            <div
+              className="h-full min-h-96  w-full max-w-[500px] rounded-xl bg-grey"
+              style={{
+                backgroundImage: `url(${golfingImage})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+              }}
+            ></div>
           </div>
         </Section>
-        <Section 
-        style={{
+        <Section
+          style={{
             backgroundColor: '#39775E',
             color: 'white',
             //border: 0,
             // padding: 0,
             // marginTop: '4rem',
-          }}>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap:'4rem'
-          }}>
-          {logos.map((v, i) => (
-            <img style={{ width: '9rem'}} alt={v} src={logos[i] }/>
-            
-
-          ))}
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '4rem',
+            }}
+          >
+            {logos.map((v, i) => (
+              <img style={{ width: '9rem' }} alt={v} src={logos[i]} />
+            ))}
           </div>
         </Section>
-        <WTVSection />
+        {/* <WTVSection /> */}
         <WTS />
         <Section
-         borderRadiusVariant="pill"
-         style={{
-           backgroundColor: 'transparent',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '1.5rem'
+          borderRadiusVariant="pill"
+          style={{
+            backgroundColor: 'transparent',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1.5rem',
           }}
-
         >
-          <div className="flex flex-col gap-4 items-center text-white">
-          <Typography
-            fontVariant="headingTwo"
-            fontStyle="italic"
-            fontWeight="900"
-            tailwindStyle="text-white md:gap-4"
-          >
-           CHECK AVAILABILITY
-          </Typography>
+          <div className="flex flex-col items-center gap-4 text-white">
+            <Typography
+              fontVariant="headingTwo"
+              fontStyle="italic"
+              fontWeight="900"
+              tailwindStyle="text-white md:gap-4"
+            >
+              CHECK AVAILABILITY
+            </Typography>
 
-          <Typography
-                fontVariant="large"
-                fontWeight="300"
-                fontStyle="normal"
-              >
-                Make your next event one your clients will never forget at Ace Golf
+            <Typography fontVariant="large" fontWeight="300" fontStyle="normal">
+              Make your next event one your clients will never forget at Ace
+              Golf
             </Typography>
           </div>
 
-        <Button
-                buttonVariant="primary"
-                // buttonStyle={{ width: 'max-content' }}
-                //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
+          <Button
+            buttonVariant="primary"
+            // buttonStyle={{ width: 'max-content' }}
+            //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
+          >
+            <a href="mailto:events@acegolfbar.ca">
+              <Typography
+                fontVariant={isMobile ? 'extralarge' : 'headingFour'}
+                fontWeight="500"
+                T="h3"
               >
-                <a href="mailto:events@acegolfbar.ca">
-                <Typography
-                  fontVariant={isMobile ? 'extralarge' : 'headingFour'}
-                  fontWeight="500"
-                  T="h3"
-                >
-                  Book your Event 
-                </Typography>
-                </a>
-              </Button>
+                Book your Event
+              </Typography>
+            </a>
+          </Button>
         </Section>
       </Container>
     </>
