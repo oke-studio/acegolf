@@ -76,7 +76,7 @@ export const AboutACE = () => {
               <Typography fontVariant="extralarge" fontWeight="700">
                 OUR TEAM
               </Typography>
-              <div className="grid h-full grid-rows-2 gap-x-8 gap-y-8 md:grid-cols-2">
+              <div className="grid h-full grid-rows-2 gap-x-8 gap-y-8 md:grid-cols-1">
                 {aceGolfStaffProfilesCollection.items.map((staff, index) => (
                   <div
                     className="flex h-full flex-col items-center"
