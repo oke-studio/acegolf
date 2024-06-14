@@ -38,12 +38,12 @@ const LeaguesCard = () => (
   <Card
     title="Leagues"
     theme="light"
-    description="Check out active leagues and tournaments hosted at Ace Golf."
+    description="We will son post active leagues and tournaments hosted at Ace Golf."
     buttonOne={{
       children: (
-        <Link to="/leagues">
+        <Link to="/">
           <Typography fontVariant="large" fontWeight="400">
-            Active Leagues &rarr;
+            Coming Soon
           </Typography>
         </Link>
       ),
@@ -144,7 +144,7 @@ export const CardSection = () => {
             {/* <PricesCard /> */}
             <ParkingCard />
           </div>
-          <CalendarSection/>
+          <CalendarSection />
 
           {/* <MenuCard /> */}
         </div>
