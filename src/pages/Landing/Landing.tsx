@@ -5,7 +5,7 @@ import { useScroll } from 'framer-motion'
 import { EmailSection } from './components/EmailSection/EmailSection'
 import { CardSection } from './components/CardSection/CardSection'
 import Lenis from '@studio-freight/lenis/types'
-import { WTVSection } from './components/WTVSection/WTVSection'
+// import { WTVSection } from './components/WTVSection/WTVSection'
 import { Card } from '../../components/Card/Card'
 import { Typography } from '../../components/Typography/Typography'
 import { Link } from 'react-router-dom'
@@ -74,7 +74,7 @@ export const Landing = () => {
             </Card>
           </div>
         </Section>
-        <WTVSection />
+        {/* <WTVSection /> */}
         <CardSection />
         <WTS />
         <EmailSection />
