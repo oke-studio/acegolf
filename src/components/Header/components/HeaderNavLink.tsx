@@ -69,7 +69,7 @@ export const HeaderNavLink = ({
         // fontWeight="400"
         // style={{ color: 'white' }}
         className={
-          'font-HNSemiBold text-4xl font-semibold md:font-HNRegular md:text-base md:font-normal'
+          'font-HNSemiBold text-3xl font-semibold md:font-HNRegular md:text-base md:font-normal'
         }
       >
         <motion.span initial="rest" whileHover="hover">

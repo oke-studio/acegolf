@@ -59,7 +59,7 @@ const DropDownNav = ({
       animate={isOpen ? 'open' : 'closed'}
       initial="closed"
     >
-      <ul className="mt-[1rem] flex flex-col items-center gap-16 md:mt-10 md:gap-8">
+      <ul className="mt-[1rem] flex flex-col items-center gap-11 md:mt-10 md:gap-8">
         <li
           className=" flex flex-col gap-6 md:gap-2"
           key={'nav_button_book_now'}
