@@ -1,6 +1,6 @@
-import { gql } from 'graphql-request'
 
-export const GetAceQuery = gql`
+
+export const GetAceQuery = `
   query GetAce {
     aceGolfBarComCollection(limit: 1) {
       items {
@@ -201,7 +201,7 @@ export const GetAceQuery = gql`
   }
 `
 
-export const GetFAQQuery = gql`
+export const GetFAQQuery = `
   query GetFAQ {
     faqItemCollection {
       items {
@@ -219,7 +219,7 @@ export const GetFAQQuery = gql`
   }
 `
 
-export const GetAceV2Query = gql`
+export const GetAceV2Query =`
   query getAce {
     aceHomePageCollection(limit: 1) {
       items {
@@ -401,7 +401,7 @@ export const GetAceV2Query = gql`
   }
 `
 
-export const GetAboutPageQuery = gql`
+export const GetAboutPageQuery = `
   query getAceAboutPage {
     aboutPageCollection(limit: 1) {
       items {
@@ -427,7 +427,7 @@ export const GetAboutPageQuery = gql`
   }
 `
 
-export const GetEventsQuery = gql`
+export const GetEventsQuery = `
   query getAceEvents {
     newEventItemCollection {
       items {
@@ -450,7 +450,7 @@ export const GetEventsQuery = gql`
   }
 `
 
-export const GetCoachingPageQuery = gql`
+export const GetCoachingPageQuery = `
   query getAceCoachingPage {
     coachingPageCollection(limit: 1) {
       items {
@@ -476,7 +476,7 @@ export const GetCoachingPageQuery = gql`
   }
 `
 
-export const GetUGCTestimonialsQuery = gql`
+export const GetUGCTestimonialsQuery = `
   query getAceUGCTestimonials {
     testimonialsCollection {
       items {
@@ -495,7 +495,7 @@ export const GetUGCTestimonialsQuery = gql`
   }
 `
 
-export const GetLeaguesQuery = gql`
+export const GetLeaguesQuery = `
   query getAceLeaguesEvents {
     newEventItemCollection ( where: eventType: "League"){
       items {
