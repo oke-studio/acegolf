@@ -17,7 +17,7 @@ interface ButtonProps {
 
 const ButtonVariantMapping: { [key in ButtonVariantType]: string } = {
   primary:
-    'rounded-full bg-orange py-2 px-6 border-solid border-orange text-white hover:text-black transition-[color]   hover:bg-opacity-80 duration-300 ease-in-out',
+    'rounded-full bg-orange py-2 px-6 border-solid border-orange text-white hover:text-black transition-[color]   hover:bg-opacity-80 duration-300 w-full md:w-auto ease-in-out',
   secondary:
     'rounded-full bg-white py-2 px-6 border-solid border-2 border-black text-black hover:text-black hover:border-black hover:bg-orange hover:bg-opacity-50 hover:border-opacity-50 duration-300 ease-in-out w-full md:w-auto',
   simple: '',

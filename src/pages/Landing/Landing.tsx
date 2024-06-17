@@ -16,6 +16,10 @@ import { WTS } from '../../components/Common/WTS/WTS'
 import { NintendoSwitch } from '../../components/NintendoSwitch/NintendoSwitch'
 import { LandingHIWSection } from './components/HIWSection/HIWSection'
 
+const handleBookLink = () => {
+  return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
+}
+
 export const Landing = () => {
   React.useEffect(() => {
     const lenis = new Lenis()
@@ -60,11 +64,11 @@ export const Landing = () => {
               }}
               buttonTwo={{
                 children: (
-                  <Link to="/book-now">
+                  <a href={handleBookLink()} target="__blank">
                     <Typography fontVariant="large" fontWeight="400">
                       Find a Bay &rarr;
                     </Typography>
-                  </Link>
+                  </a>
                 ),
               }}
             >
