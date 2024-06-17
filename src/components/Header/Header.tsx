@@ -69,14 +69,14 @@ const DropDownNav = ({
           key={'nav_button_book_now'}
         >
           <Button buttonVariant="navSecondary">
-            <a href={handleSecondaryNavButtonLink()} target="__blank">
+            <a href={handleSecondaryNavButtonLink()} target="_blank">
               <Typography fontVariant="headingThree" fontWeight="500">
                 Camp Registration
               </Typography>
             </a>
           </Button>
           <Button buttonVariant="nav">
-            <a href={handleBookLink()} target="__blank">
+            <a href={handleBookLink()} target="_blank">
               <Typography fontVariant="headingThree" fontWeight="500">
                 Book Now
               </Typography>
@@ -154,14 +154,14 @@ export const Header = () => {
           })}
           <li className=" flex gap-2" key={'nav_button_book_now'}>
             <Button buttonVariant="navSecondary">
-              <a href={handleSecondaryNavButtonLink()} target="__blank">
+              <a href={handleSecondaryNavButtonLink()} target="_blank">
                 <Typography fontVariant="base" fontWeight="500">
                   Camp Registration
                 </Typography>
               </a>
             </Button>
             <Button buttonVariant="nav">
-              <a href={handleBookLink()} target="__blank">
+              <a href={handleBookLink()} target="_blank">
                 <Typography fontVariant="base" fontWeight="500">
                   Book Now
                 </Typography>
