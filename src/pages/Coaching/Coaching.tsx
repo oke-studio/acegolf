@@ -16,8 +16,6 @@ export const Coaching = () => {
 
   const coaches = coachingData.coachingProfilesCollection.items
 
-
-
   return (
     <Container>
       <Section
@@ -38,13 +36,11 @@ export const Coaching = () => {
           >
             COACHING
           </Typography>
-          
         </div>
       </Section>
       <Section style={{ backgroundColor: 'transparent', border: 0 }}>
-        <div className="grid auto-cols-auto grid-rows-2 gap-6 sm:grid-cols-3 md:grid-cols-4 md:grid-rows-2 items-start">
+        <div className="grid auto-cols-auto grid-rows-2 items-start gap-6 sm:grid-cols-3 md:grid-cols-4 md:grid-rows-2">
           {coaches.map((coach, index) => (
-            
             <div
               className="relative flex min-h-96 w-full flex-col items-center justify-center gap-6 rounded-2xl bg-transparent text-white"
               key={`ace_coach_${index}`}
@@ -64,41 +60,57 @@ export const Coaching = () => {
               <Typography fontVariant="base" fontWeight="500">
                 {coach.description}
               </Typography>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '2rem',
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '2rem',
+                }}
+              >
+                {coach.contactLink && (
+                  <Button buttonVariant="simple">
+                    <a href={coach.contactLink!} target="__blank">
+                      <Typography
+                        fontVariant="base"
+                        fontWeight="500"
+                        tailwindStyle="underline"
+                      >
+                        Contact &rarr;
+                      </Typography>
+                    </a>
+                  </Button>
+                )}
 
-              }}>
-              {coach.contactLink && (
-              <Button buttonVariant="simple">
-              <a href={coach.contactLink!} target="__blank">
-                <Typography
-                  fontVariant="base"
-                  fontWeight="500"
-                  tailwindStyle="underline"
-                >
-                 
-                  Contact &rarr;
-                </Typography>
-                </a>
-              </Button>
-              )}
+                {coach.contactPhoneNumber && (
+                  <Button buttonVariant="simple">
+                    <a
+                      href={'tel:' + coach.contactPhoneNumber!}
+                      target="__blank"
+                    >
+                      <Typography
+                        fontVariant="base"
+                        fontWeight="500"
+                        tailwindStyle="underline"
+                      >
+                        Call Me &rarr;
+                      </Typography>
+                    </a>
+                  </Button>
+                )}
 
-{coach.contactPhoneNumber && (
-              <Button buttonVariant="simple">
-              <a href={"tel:"+ coach.contactPhoneNumber!} target="__blank">
-                <Typography
-                  fontVariant="base"
-                  fontWeight="500"
-                  tailwindStyle="underline"
-                >
-                 
-                  Call Me &rarr;
-                </Typography>
-                </a>
-              </Button>
-              )}
+                {coach.contactEmail && (
+                  <Button buttonVariant="simple">
+                    <a href={'mailto:' + coach.contactEmail!} target="__blank">
+                      <Typography
+                        fontVariant="base"
+                        fontWeight="500"
+                        tailwindStyle="underline"
+                      >
+                        Email Me &rarr;
+                      </Typography>
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           ))}

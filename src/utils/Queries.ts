@@ -469,6 +469,7 @@ export const GetCoachingPageQuery = `
             description
             contactLink
             contactPhoneNumber
+            contactEmail
           }
         }
       }

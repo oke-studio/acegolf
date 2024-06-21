@@ -15,4 +15,5 @@ export interface TypeAceGolfStaffFields {
   description: string
   contactLink: string
   contactPhoneNumber:string
+  contactEmail:string
 }
