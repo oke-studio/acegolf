@@ -1,5 +1,5 @@
 import { useScroll, motion, useTransform } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Section } from '../../../../components/Section/Section'
 import { RoundedVideoPath } from './components/RoundedTextPath/RoundedVideoPath.component'
 import { useMediaQuery } from 'react-responsive'
