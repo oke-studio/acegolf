@@ -27,11 +27,11 @@ export const AboutACE = () => {
           style={{
             backgroundColor: 'black',
             border: 0,
-            // padding: '0',
+            padding: '0',
 
-            backgroundImage: `url(${AboutBanner})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
+            // backgroundImage: `url(${AboutBanner})`,
+            // backgroundPosition: 'center',
+            // backgroundSize: 'cover',
           }}
         >
           <div
@@ -50,6 +50,11 @@ export const AboutACE = () => {
                   // backgroundSize: 'cover',
                 }}
               /> */}
+              <img
+                src={AboutBanner}
+                className=" h-auto min-h-full w-auto min-w-full object-cover object-left"
+                loading="lazy"
+              />
             </div>
             {/* Copy */}
             <div className="flex flex-col items-center gap-14 p-20 px-6 pb-28 text-center text-white">

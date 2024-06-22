@@ -22,6 +22,15 @@ export interface TypeAceHomePageFields {
           imageVideo: { contentType: string; url: string; fileName: string }
         }[]
       }
+      featuredTestimonialsCollection: {
+        items: {
+          nameOfPerson: string
+          testimonialMessage: string
+          type: 'UGC Video' | 'Testimonial'
+          linkedUrl?: string
+          imageVideo: { contentType: string; url: string; fileName: string }
+        }[]
+      }
     }[]
   }
 }

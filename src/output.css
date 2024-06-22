@@ -612,6 +612,10 @@ video {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .absolute {
   position: absolute;
 }
@@ -1370,6 +1374,11 @@ video {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.columns-4 {
+  -moz-columns: 4;
+       columns: 4;
 }
 
 .auto-cols-auto {
@@ -2137,6 +2146,11 @@ video {
 .object-center {
   -o-object-position: center;
      object-position: center;
+}
+
+.object-left {
+  -o-object-position: left;
+     object-position: left;
 }
 
 .p-1 {

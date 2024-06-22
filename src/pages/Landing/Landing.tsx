@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Container } from '../../components/Container/Container'
 import { LandingHero } from './components/Hero/LandingHero'
-import { useScroll } from 'framer-motion'
+// import { useScroll } from 'framer-motion'
 import { EmailSection } from './components/EmailSection/EmailSection'
 import { CardSection } from './components/CardSection/CardSection'
 import Lenis from '@studio-freight/lenis/types'
@@ -15,6 +15,7 @@ import { PricesCard as PC } from '../../components/Common/PricesCard/PricesCard'
 import { WTS } from '../../components/Common/WTS/WTS'
 import { NintendoSwitch } from '../../components/NintendoSwitch/NintendoSwitch'
 import { LandingHIWSection } from './components/HIWSection/HIWSection'
+import { LandingVideo } from './components/Video/LandingVideo'
 
 const handleBookLink = () => {
   return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
@@ -32,18 +33,19 @@ export const Landing = () => {
 
     requestAnimationFrame(raf)
   })
-  const ref = useRef<HTMLDivElement>(null)
+  // const ref = useRef<HTMLDivElement>(null)
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['0.5 1', '0 0'],
-  })
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['0.5 1', '0 0'],
+  // })
 
   return (
     <>
       <Container>
         {/* <div className="sticky top-28"> */}
-        <LandingHero scrollYProgress={scrollYProgress} />
+        <LandingHero />
+        <LandingVideo />
         {/* </div> */}
         <LandingHIWSection />
         <Section

@@ -1,4 +1,5 @@
 import { CalendarItemContainerStyleContentfulType } from '../../pages/Events/components/CalendarSection/types/CalendarSection.types'
+import { Document } from '@contentful/rich-text-types'
 
 export interface TypeEventFields {
   eventTitle: string
@@ -7,6 +8,7 @@ export interface TypeEventFields {
   ctaText?: string
   ctaLink?: string
   eventDuration: string
+  eventDesc: { json: Document }
   startDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
   endDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
   eventType: CalendarItemContainerStyleContentfulType
