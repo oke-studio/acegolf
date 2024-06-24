@@ -95,7 +95,7 @@ export const Events = () => {
               </Typography>
 
               <Button buttonVariant="primary" buttonStyle={{ width: '70%' }}>
-                <a href="mailto:events@acegolfbar.ca">
+                <a href="https://app2.planningpod.com/index.cfm?fuseaction=leads.interestForm&ssid=eyJWRVJTSU9OIjoic2hhcmUiLCJVVUlEIjoiRERCQ0Q0RDgtRkZBMC05OTg2LUMyRjBCRkMxODBDNkI2QkUifQ==">
                   <Typography
                     fontVariant={isMobile ? 'extralarge' : 'headingFour'}
                     fontWeight="500"
@@ -173,7 +173,7 @@ export const Events = () => {
             // buttonStyle={{ width: 'max-content' }}
             //onClick={(e) => {e.preventDefault(); scrollTo(“id”)
           >
-            <a href="mailto:events@acegolfbar.ca">
+            <a href="https://app2.planningpod.com/index.cfm?fuseaction=leads.interestForm&ssid=eyJWRVJTSU9OIjoic2hhcmUiLCJVVUlEIjoiRERCQ0Q0RDgtRkZBMC05OTg2LUMyRjBCRkMxODBDNkI2QkUifQ==">
               <Typography
                 fontVariant={isMobile ? 'extralarge' : 'headingFour'}
                 fontWeight="500"
