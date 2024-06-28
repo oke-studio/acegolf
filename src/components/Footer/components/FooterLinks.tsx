@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom'
 
 const FooterLinksArray = [
   {
-    name: 'Pricing',
-    to: '/book-now',
-  },
-  {
     name: 'Menu',
     to: '/menu',
   },

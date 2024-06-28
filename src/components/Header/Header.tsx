@@ -24,7 +24,6 @@ const NavOptions = [
   { label: 'About', to: '/about' },
   { label: 'Events', to: '/events' },
   { label: 'Coaching', to: '/coaching' },
-  { label: 'Summer Camp', to: '/ace-summer-camp' },
 ]
 
 const handleBookLink = () => {
@@ -68,13 +67,6 @@ const DropDownNav = ({
           className=" flex flex-col gap-6 md:gap-2"
           key={'nav_button_book_now'}
         >
-          <Button buttonVariant="navSecondary">
-            <a href={handleSecondaryNavButtonLink()} target="_blank">
-              <Typography fontVariant="headingThree" fontWeight="500">
-                Camp Registration
-              </Typography>
-            </a>
-          </Button>
           <Button buttonVariant="nav">
             <a href={handleBookLink()} target="_blank">
               <Typography fontVariant="headingThree" fontWeight="500">
@@ -153,13 +145,6 @@ export const Header = () => {
             )
           })}
           <li className=" flex gap-2" key={'nav_button_book_now'}>
-            <Button buttonVariant="navSecondary">
-              <a href={handleSecondaryNavButtonLink()} target="_blank">
-                <Typography fontVariant="base" fontWeight="500">
-                  Camp Registration
-                </Typography>
-              </a>
-            </Button>
             <Button buttonVariant="nav">
               <a href={handleBookLink()} target="_blank">
                 <Typography fontVariant="base" fontWeight="500">
