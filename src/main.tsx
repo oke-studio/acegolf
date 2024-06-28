@@ -17,8 +17,8 @@ import { FAQ } from './pages/FAQ/FAQ'
 // import { Leagues } from './pages/Leagues/Leagues'
 import { Coaching } from './pages/Coaching/Coaching'
 // import { Membership } from './pages/Membership/Membership'
-import { SummerCampRedirect } from'./pages/ace-summer-camp/ace-summer-camp'
-import { SummerCampPDF } from'./pages/ace-summer-camp/ace-summer-camp-pdf'
+// import { SummerCampRedirect } from'./pages/ace-summer-camp/ace-summer-camp'
+// import { SummerCampPDF } from'./pages/ace-summer-camp/ace-summer-camp-pdf'
 
 // import aceSummerCampPDF  from './assets/Ace-Summer-Camp-Final.pdf'
 
@@ -55,9 +55,8 @@ const router = createBrowserRouter([
       // { path: 'leagues', element: <Leagues /> },
       { path: 'faq', element: <FAQ /> },
       // { path: 'membership', element: <Membership /> },
-     {path: '/ace-summer-camp-sign-up', element:<SummerCampRedirect/> },
-     {path: '/ace-summer-camp', element:<SummerCampPDF/> }
-      
+      //  {path: '/ace-summer-camp-sign-up', element:<SummerCampRedirect/> },
+      //  {path: '/ace-summer-camp', element:<SummerCampPDF/> }
     ],
   },
 ])
