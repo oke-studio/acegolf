@@ -30,9 +30,9 @@ const handleBookLink = () => {
   return 'https://yourgolfbooking.com/venues/ace-golf-bar-and-lounge/booking/bays'
 }
 
-const handleSecondaryNavButtonLink = () => {
-  return 'https://campscui.active.com/orgs/ONTARIOINCAceGolfBarLounge?orglink=camps-registration&e4q=bebe8a84-1d13-4901-981e-29dd4951345e&e4p=bdf9e269-9097-4cf1-b9af-989f0b93964a&e4ts=1718632015&e4c=active&e4e=snlvcmpscui00001load&e4rt=Safetynet&e4h=08912d5a26033a7cd45e1c97dc07628e#/selectSessions/3507236'
-}
+// const handleSecondaryNavButtonLink = () => {
+//   return 'https://campscui.active.com/orgs/ONTARIOINCAceGolfBarLounge?orglink=camps-registration&e4q=bebe8a84-1d13-4901-981e-29dd4951345e&e4p=bdf9e269-9097-4cf1-b9af-989f0b93964a&e4ts=1718632015&e4c=active&e4e=snlvcmpscui00001load&e4rt=Safetynet&e4h=08912d5a26033a7cd45e1c97dc07628e#/selectSessions/3507236'
+// }
 
 const DropDownNav = ({
   isOpen,

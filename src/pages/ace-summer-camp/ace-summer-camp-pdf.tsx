@@ -1,18 +1,17 @@
-import aceSummerCampPDF  from '../../assets/Ace-Summer-Camp-Final.pdf'
+// import aceSummerCampPDF  from '../../assets/Ace-Summer-Camp-Final.pdf'
 
-export const SummerCampPDF = () => {
-  
-  window.location.href = aceSummerCampPDF; 
+// export const SummerCampPDF = () => {
 
-  return (
-    <div>
-       {/* <Link to={{ pathname: "https://google.com" }} target="_blank" /> */}
-       
-    </div>
- );
+//   window.location.href = aceSummerCampPDF;
+
+//   return (
+//     <div>
+//        {/* <Link to={{ pathname: "https://google.com" }} target="_blank" /> */}
+
+//     </div>
+//  );
 
 //   const pdfURL = aceSummerCampPDF ;
-
 
 //   return (
 
@@ -21,6 +20,6 @@ export const SummerCampPDF = () => {
 //  <Page pageNumber={1} />
 //  </Document>
 //  </div>
-   
+
 //   );
-};
+// };
