@@ -19,7 +19,7 @@ export const NintendoSwitch = () => {
             buttonStyle={{ textWrap: 'nowrap' }}
             //href="mailto:info@acegolfbar.ca"
           >
-            <a href="mailto:events@acegolfbar.ca">
+            <a href="https://app2.planningpod.com/index.cfm?fuseaction=leads.interestForm&ssid=eyJWRVJTSU9OIjoic2hhcmUiLCJVVUlEIjoiRERCQ0Q0RDgtRkZBMC05OTg2LUMyRjBCRkMxODBDNkI2QkUifQ==">
               <Typography fontVariant="base" fontWeight="500" T="h3">
                 Book Your Event
               </Typography>

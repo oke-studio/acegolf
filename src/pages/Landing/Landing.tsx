@@ -72,9 +72,9 @@ export const Landing = () => {
                 ),
               }}
             >
-              {/* <div id={'prices-hours'}> */}
-              <PC />
-              {/* </div> */}
+              <div id={'#prices-hours'}>
+                <PC />
+              </div>
             </Card>
           </div>
         </Section>

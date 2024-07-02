@@ -22,7 +22,7 @@ const FEATURED_SIM_ROOMS = [
   { title: 'Bay #3', imgUrl: Bay3URL },
   { title: 'Bay #4', imgUrl: Bay4URL },
   { title: 'Bay #5', imgUrl: Bay5URL },
-  { title: 'Private Bay #5', imgUrl: PrivateBayURL },
+  { title: 'Private Bay #6', imgUrl: PrivateBayURL },
 ]
 
 export const SimRoomSection = () => {
