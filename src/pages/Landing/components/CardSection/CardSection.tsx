@@ -38,7 +38,7 @@ const LeaguesCard = () => (
   <Card
     title="Leagues"
     theme="light"
-    description="We will son post active leagues and tournaments hosted at Ace Golf."
+    description="We will soon post active leagues and tournaments hosted at Ace Golf."
     buttonOne={{
       children: (
         <Link to="/">

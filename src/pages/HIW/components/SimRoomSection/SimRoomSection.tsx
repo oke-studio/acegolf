@@ -89,7 +89,7 @@ const SimRooms = () => {
   }, [])
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl grid-cols-1 flex-col gap-8 lg:flex-row">
+    <div className="mx-auto flex w-full max-w-5xl grid-cols-1 flex-col gap-8 overflow-hidden lg:flex-row">
       <SimRoomTabs selected={selected} setSelected={setSelected} />
       <AnimatePresence mode="wait">
         {FEATURED_SIM_ROOMS.map((f, index) => {
@@ -99,7 +99,7 @@ const SimRooms = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               key={index}
-              className="h-full w-full"
+              className="h-full w-full  "
             >
               <SimRoomImageContainer imgSrc={f.imgUrl} label={f.title} />
             </motion.div>
@@ -118,7 +118,7 @@ const SimRoomTabs = ({
   setSelected: (s: number) => void
 }) => {
   return (
-    <div className="flex w-full flex-col items-center self-center justify-self-center overflow-scroll md:w-fit">
+    <div className="flex w-full flex-col items-center self-center justify-self-center overflow-hidden md:w-fit">
       {FEATURED_SIM_ROOMS.map((tab, index) => {
         return (
           <SimRoomTab

@@ -72,9 +72,9 @@ const CalendarItemContainer = ({
         <Typography fontVariant="base" fontWeight="500">
           {title}
         </Typography>
-        <Typography fontVariant="base" fontWeight="300">
+        {/* <Typography fontVariant="base" fontWeight="300">
           {description}
-        </Typography>
+        </Typography> */}
       </div>
       {!isMobile && imgSrc && (
         <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
@@ -231,9 +231,10 @@ export const CalendarSection = () => {
   return (
     <Section
       borderRadiusVariant="pill"
-      style={{ 
-        backgroundColor: 'white', 
-        padding: '8px', }}
+      style={{
+        backgroundColor: 'white',
+        padding: '8px',
+      }}
     >
       <div
         style={
