@@ -105,9 +105,9 @@ export const PricesContentSkeleton = ({
             <Typography fontVariant="large" fontWeight="600">
               {`${priceContainers[toggle].price.timeFrom} - ${priceContainers[toggle].price.timeTo}`}
             </Typography>
-            <Typography fontVariant="base" fontWeight="300">
+            {/* <Typography fontVariant="base" fontWeight="300">
               {priceContainers[toggle].info}
-            </Typography>
+            </Typography> */}
           </div>
         </div>
       </div>
