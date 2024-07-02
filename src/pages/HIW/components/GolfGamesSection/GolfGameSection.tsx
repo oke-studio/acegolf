@@ -80,7 +80,7 @@ const GolfGames = () => {
             backgroundImage: `url(${n.url})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center bottom',
             aspectRatio: '1/1',
           }}
         ></div>
