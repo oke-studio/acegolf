@@ -17,12 +17,12 @@ import Bay5URL from '../../../../assets/simrooms/bay1.webp'
 import PrivateBayURL from '../../../../assets/simrooms/privateBay.webp'
 
 const FEATURED_SIM_ROOMS = [
-  { title: 'Sim Room #1', imgUrl: Bay1URL },
-  { title: 'Sim Room #2', imgUrl: Bay2URL },
-  { title: 'Sim Room #3', imgUrl: Bay3URL },
-  { title: 'Sim Room #4', imgUrl: Bay4URL },
-  { title: 'Sim Room #5', imgUrl: Bay5URL },
-  { title: 'Private Sim Room #5', imgUrl: PrivateBayURL },
+  { title: 'Bay #1', imgUrl: Bay1URL },
+  { title: 'Bay #2', imgUrl: Bay2URL },
+  { title: 'Bay #3', imgUrl: Bay3URL },
+  { title: 'Bay #4', imgUrl: Bay4URL },
+  { title: 'Bay #5', imgUrl: Bay5URL },
+  { title: 'Private Bay #5', imgUrl: PrivateBayURL },
 ]
 
 export const SimRoomSection = () => {
