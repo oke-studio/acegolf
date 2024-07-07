@@ -81,6 +81,7 @@ export const MenuSection = () => {
         alignItems: 'center',
         marginBottom: '32px',
         padding: '2% 5%',
+        backgroundColor: 'white',
       }}
     >
       <Container

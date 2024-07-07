@@ -22,18 +22,17 @@ export const LandingHero = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['0.5 1', '0 0'],
+    offset: ['start start', 'end start'],
   })
 
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   // const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.7])
 
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   return (
-    // <div className="m-auto">
-    <motion.div className="sticky top-0" style={{ opacity }} ref={ref}>
+    <motion.div className="" style={{ opacity }} ref={ref}>
       <Section
         borderRadiusVariant="pill"
         style={{ position: 'relative' }}
@@ -181,6 +180,5 @@ export const LandingHero = () => {
         <LandingHeroImageGrid />
       </Section>
     </motion.div>
-    // </div>
   )
 }

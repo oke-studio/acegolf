@@ -120,7 +120,7 @@ export const CardSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['0 1', '1 1'],
+    offset: ['start end', 'start start'],
   })
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1])

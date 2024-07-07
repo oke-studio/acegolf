@@ -8,22 +8,19 @@ import videoURL from '../../../../assets/landingVideo/ace-slideshow.webm'
 import videoMobileURL from '../../../../assets/landingVideo/mobile-ace-slideshow.webm'
 
 export const LandingVideo = () => {
-  // const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0])
   const ref = useRef<HTMLDivElement>(null)
-
-  // useEffect(() => {
-  //   if (!ref) {
-
-  //   }
-  // }, [])
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['0.5 1', '0 0'],
+    offset: ['start end', 'start start'],
   })
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.5, 0.8])
+  const scale = useTransform(scrollYProgress, [0, 1], [0.6, 1])
 
   const isMobile = useMediaQuery({ maxWidth: '640px' })
+
+  if (isMobile) {
+    return <></>
+  }
 
   return (
     <Section
@@ -39,6 +36,7 @@ export const LandingVideo = () => {
           gridTemplateAreas: 'videoWithPathArea',
           position: 'relative',
         }}
+        ref={ref}
       >
         <div style={{ gridArea: 'videoWithPathArea' }} className="p-8">
           <video
