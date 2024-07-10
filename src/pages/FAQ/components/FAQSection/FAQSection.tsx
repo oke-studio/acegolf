@@ -150,8 +150,9 @@ const FAQAccordion = ({
         // console.log('clicked', id)
         setOpen((pv) => !pv)
       }}
+      id={`faq-${id}`}
     >
-      <div className="flex w-full justify-between" id={`faq-${id}`}>
+      <div className="flex w-full justify-between">
         <Typography
           fontVariant="headingFour"
           fontWeight="600"
