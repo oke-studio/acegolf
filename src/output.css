@@ -1067,6 +1067,14 @@ video {
   min-height: 100%;
 }
 
+.min-h-\[32rem\] {
+  min-height: 32rem;
+}
+
+.min-h-\[30rem\] {
+  min-height: 30rem;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -3829,6 +3837,10 @@ video {
 
   .md\:max-w-\[60\%\] {
     max-width: 60%;
+  }
+
+  .md\:max-w-full {
+    max-width: 100%;
   }
 
   .md\:translate-x-\[-40px\] {

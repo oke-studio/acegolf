@@ -43,13 +43,17 @@ export const Leagues = () => {
           >
             LEAGUES
           </Typography>
-          <Typography fontVariant="base" fontWeight="500">
-            What Active Leagues Are Running
-          </Typography>
         </div>
       </Section>
-      <Section style={{ backgroundColor: 'transparent', border: 0 }}>
-        <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2">
+      <Section
+        style={{
+          backgroundColor: 'transparent',
+          border: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+        }}
+      >
+        <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 ">
           {eventsDataParsedToLeaguesData.map((e) => {
             const defaultImgSrc =
               CalendaritemContainerStyles['league'].defaultImgSrc
@@ -58,7 +62,7 @@ export const Leagues = () => {
 
             return (
               <div
-                className="relative min-h-96 w-full rounded-2xl"
+                className="relative min-h-[30rem] w-full rounded-2xl"
                 style={{
                   backgroundImage: `url(${ImageURLFormatter(
                     imgSrc,
@@ -69,10 +73,10 @@ export const Leagues = () => {
                   backgroundPosition: 'center',
                 }}
               >
-                <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-56">
-                  <Typography fontVariant="base" fontWeight="400">
+                <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
+                  {/* <Typography fontVariant="base" fontWeight="400">
                     {e.eventDescription}
-                  </Typography>
+                  </Typography> */}
                   <Button
                     buttonVariant="secondary"
                     buttonStyle={{
@@ -82,7 +86,7 @@ export const Leagues = () => {
                     }}
                   >
                     <a href={e.ctaLink}>
-                      <Typography fontVariant="base" fontWeight="500">
+                      <Typography fontVariant="headingFour" fontWeight="500">
                         {e.ctaText} &rarr;
                       </Typography>
                     </a>
