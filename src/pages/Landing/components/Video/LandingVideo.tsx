@@ -40,7 +40,7 @@ export const LandingVideo = () => {
       >
         <div style={{ gridArea: 'videoWithPathArea' }} className="p-8">
           <video
-            className="h-auto w-full rounded-lg"
+            className="h-auto w-full rounded-[2rem]"
             autoPlay
             loop
             preload="auto"

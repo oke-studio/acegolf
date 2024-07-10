@@ -45,9 +45,10 @@ export const Landing = () => {
       <Container>
         {/* <div className="sticky top-28"> */}
         <LandingHero />
-        <LandingVideo />
-        {/* </div> */}
         <LandingHIWSection />
+
+        {/* </div> */}
+
         <Section
           style={{ backgroundColor: 'transparent', border: 0, padding: 0 }}
           //id={'prices-hours'}
@@ -80,6 +81,7 @@ export const Landing = () => {
             </Card>
           </div>
         </Section>
+        <LandingVideo />
         {/* <WTVSection /> */}
         <CardSection />
         <WTS />

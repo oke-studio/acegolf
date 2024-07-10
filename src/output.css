@@ -1063,6 +1063,10 @@ video {
   min-height: inherit;
 }
 
+.min-h-full {
+  min-height: 100%;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -1163,6 +1167,10 @@ video {
 
 .min-w-\[150px\] {
   min-width: 150px;
+}
+
+.min-w-full {
+  min-width: 100%;
 }
 
 .max-w-36 {

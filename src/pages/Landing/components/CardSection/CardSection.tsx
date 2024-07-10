@@ -38,12 +38,12 @@ const LeaguesCard = () => (
   <Card
     title="Leagues"
     theme="light"
-    description="We will soon post active leagues and tournaments hosted at Ace Golf."
+    description="Win prizes and imporve your game by joining any of our leagues and tournaments hosted at Ace Golf."
     buttonOne={{
       children: (
-        <Link to="/">
+        <Link to="/leagues">
           <Typography fontVariant="large" fontWeight="400">
-            Coming Soon
+            See Actve Leagues &rarr;
           </Typography>
         </Link>
       ),
