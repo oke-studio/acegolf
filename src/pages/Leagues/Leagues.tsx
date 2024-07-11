@@ -13,6 +13,8 @@ import { useGetReducedFAQ } from '../../hooks/useGetFAQ/useGetReducedFAQ.hook'
 import { FAQAccordion } from '../../components/FAQAccordion/FAQAccordion'
 import { Link } from 'react-router-dom'
 
+const LEAGUES = 'Leagues'
+
 const LeaguesFAQ = () => {
   const { faqReduced, isError, isLoading } = useGetReducedFAQ()
 
@@ -24,10 +26,7 @@ const LeaguesFAQ = () => {
     return <></>
   }
 
-  const LEAGUES = 'Leagues'
-
   const faqReducedLeagues = faqReduced[LEAGUES]
-  console.log(faqReducedLeagues, faqReduced)
 
   return (
     <Section
