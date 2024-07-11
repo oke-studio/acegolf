@@ -16,8 +16,6 @@ interface NavOptions {
   to: string
 }
 
-// interface HeaderProps {}
-
 const NavOptions = [
   { label: 'Menu', to: '/menu' },
   { label: 'How it Works', to: '/how-it-works' },
