@@ -173,6 +173,8 @@ export const Leagues = () => {
         </div>
       </Section>
 
+      <LeaguesFAQ />
+
       <EmailSection />
       <Container
         style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
@@ -188,7 +190,6 @@ export const Leagues = () => {
 
         <CalendarSection />
       </Container>
-      <LeaguesFAQ />
     </Container>
   )
 }
