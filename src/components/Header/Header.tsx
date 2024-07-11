@@ -95,7 +95,7 @@ const DropDownNav = ({
 }
 
 export const Header = () => {
-  const isMobile = useMediaQuery({ maxWidth: '640px' })
+  const isMobile = useMediaQuery({ maxWidth: '770px' })
   const [isOpen, setIsOpen] = React.useState(false)
   if (isMobile) {
     return (
