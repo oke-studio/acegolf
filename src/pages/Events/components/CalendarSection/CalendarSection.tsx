@@ -64,9 +64,9 @@ const CalendarItemContainer = ({
         <Typography fontVariant="base" fontWeight="500">
           {title}
         </Typography>
-        {/* <Typography fontVariant="base" fontWeight="300">
+        <Typography fontVariant="base" fontWeight="300">
           {description}
-        </Typography> */}
+        </Typography>
       </div>
       {!isMobile && (
         <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
@@ -170,7 +170,7 @@ export const CalendarSection = () => {
               <div key={`ace_calendar_day_${index}`}>
                 <button
                   className={classNames(
-                    'bg-grey flex min-w-20 flex-col items-center gap-2 rounded-xl border-4 p-3 text-center hover:border-orange',
+                    'flex min-w-20 flex-col items-center gap-2 rounded-xl border-4 bg-grey p-3 text-center hover:border-orange',
                     event === currEvent ? 'border-orange' : 'border-transparent'
                   )}
                   onClick={() => setCurrEvent(event)}
@@ -202,7 +202,7 @@ export const CalendarSection = () => {
               />
             ))
           ) : (
-            <div className="bg-grey flex flex-col gap-2 rounded-xl bg-opacity-50 p-3 text-center">
+            <div className="flex flex-col gap-2 rounded-xl bg-grey bg-opacity-50 p-3 text-center">
               <Typography fontVariant="base" fontWeight="500">
                 No Events
               </Typography>
