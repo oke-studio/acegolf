@@ -9,12 +9,12 @@ import {
   // useSpring,
 } from 'framer-motion'
 
-import Bay1URL from '../../../../assets/simrooms/bay1.webp'
-import Bay2URL from '../../../../assets/simrooms/bay2.webp'
-import Bay3URL from '../../../../assets/simrooms/bay3.webp'
-import Bay4URL from '../../../../assets/simrooms/bay4.webp'
-import Bay5URL from '../../../../assets/simrooms/bay1.webp'
-import PrivateBayURL from '../../../../assets/simrooms/privateBay.webp'
+import Bay1URL from '../../../../assets/simrooms/Bay_1.webp'
+import Bay2URL from '../../../../assets/simrooms/Bay_2.webp'
+import Bay3URL from '../../../../assets/simrooms/Bay_3.webp'
+import Bay4URL from '../../../../assets/simrooms/Bay_4.webp'
+import Bay5URL from '../../../../assets/simrooms/Bay_5.webp'
+import PrivateBayURL from '../../../../assets/simrooms/Bay_6.webp'
 
 const FEATURED_SIM_ROOMS = [
   { title: 'Bay #1', imgUrl: Bay1URL },
