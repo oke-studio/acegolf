@@ -2,9 +2,9 @@ import { Button } from '../../components/Button/Button'
 import { Container } from '../../components/Container/Container'
 import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
-import { useGetEvents } from '../../hooks/UseGetEvents/useGetEvents.hook'
+import { useGetLeagues } from '../../hooks/UseGetLeagues/useGetLeagues.hook'
 import { ImageURLFormatter } from '../../utils/imageFormatter'
-import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
+// import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
 import { EmailSection } from '../Events/components/EmailSection/EmailSection'
 
 import { CalendaritemContainerStyles } from '../../types/Pages/Events/events.types'
@@ -85,9 +85,9 @@ const LeaguesFAQ = () => {
 }
 
 export const Leagues = () => {
-  const { eventsData, isError, isLoading } = useGetEvents()
+  const { leaguesData, isError, isLoading } = useGetLeagues()
 
-  if (isError || !eventsData) {
+  if (isError || !leaguesData) {
     return <></>
   }
 
@@ -95,9 +95,9 @@ export const Leagues = () => {
     return <></>
   }
 
-  const eventsDataParsedToLeaguesData = eventsData.filter(
-    (e) => e.eventType === 'League'
-  )
+  // const eventsDataParsedToLeaguesData = eventsData.filter(
+  //   (e) => e.leagueType === 'League'
+  // )
   return (
     <Container>
       <Section
@@ -129,45 +129,47 @@ export const Leagues = () => {
         }}
       >
         <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 ">
-          {eventsDataParsedToLeaguesData.map((e) => {
+          {leaguesData.map((e) => {
             const defaultImgSrc =
               CalendaritemContainerStyles['league'].defaultImgSrc
 
-            const imgSrc = e.eventPoster?.url ?? defaultImgSrc
+            const imgSrc = e.leaguePoster?.url ?? defaultImgSrc
 
             return (
-              <div
-                className="relative min-h-[30rem] w-full rounded-2xl"
-                style={{
-                  backgroundImage: `url(${ImageURLFormatter(
-                    imgSrc,
-                    e.eventPoster?.contentType
-                  )})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              >
-                <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
-                  {/* <Typography fontVariant="base" fontWeight="400">
+              <Link to={`/leagues/${e.slugId}`}>
+                <div
+                  className="relative min-h-[30rem] w-full rounded-2xl"
+                  style={{
+                    backgroundImage: `url(${ImageURLFormatter(
+                      imgSrc,
+                      e.leaguePoster?.contentType
+                    )})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
+                    {/* <Typography fontVariant="base" fontWeight="400">
                     {e.eventDescription}
                   </Typography> */}
-                  <Button
-                    buttonVariant="secondary"
-                    buttonStyle={{
-                      padding: '0.25rem 2rem',
-                      color: 'white',
-                      backgroundColor: 'black',
-                    }}
-                  >
-                    <a href={e.ctaLink}>
-                      <Typography fontVariant="headingFour" fontWeight="500">
-                        {e.ctaText} &rarr;
-                      </Typography>
-                    </a>
-                  </Button>
+                    <Button
+                      buttonVariant="secondary"
+                      buttonStyle={{
+                        padding: '0.25rem 2rem',
+                        color: 'white',
+                        backgroundColor: 'black',
+                      }}
+                    >
+                      <a href={`/leagues/${e.slugId}`}>
+                        <Typography fontVariant="headingFour" fontWeight="500">
+                          {e.ctaText} &rarr;
+                        </Typography>
+                      </a>
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
@@ -188,7 +190,7 @@ export const Leagues = () => {
           </Typography>
         </div>
 
-        <CalendarSection />
+        {/* <CalendarSection /> */}
       </Container>
     </Container>
   )

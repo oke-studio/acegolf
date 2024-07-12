@@ -15,6 +15,7 @@ import { Events } from './pages/Events/Events'
 import { EventsItem } from './pages/Events/pages/EventsItem'
 import { FAQ } from './pages/FAQ/FAQ'
 import { Leagues } from './pages/Leagues/Leagues'
+import { LeaguesItem } from './pages/Leagues/pages/LeaguesItem'
 import { Coaching } from './pages/Coaching/Coaching'
 // import { Membership } from './pages/Membership/Membership'
 // import { SummerCampRedirect } from'./pages/ace-summer-camp/ace-summer-camp'
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
       },
       { path: '/events', element: <Events /> },
       { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
+      { path: '/leagues/:leagueId/:leagueDate', element: <LeaguesItem /> },
       { path: 'coaching', element: <Coaching /> },
       { path: 'leagues', element: <Leagues /> },
       { path: 'faq', element: <FAQ /> },

@@ -470,6 +470,31 @@ export const GetEventsQuery = `
     }
   }
 `
+export const GetEventsLeagues = `
+  query getAceLeagues {
+    leagueItemCollection {
+      items {
+        leagueTitle
+        slugId
+        leagueType
+        startDateTime
+        endDateTime
+        leagueDescription
+        leagueDesc {
+          json
+        }
+        ctaText
+        ctaLink
+        leaguePoster {
+          url
+          fileName
+          description
+          contentType
+        }
+      }
+    }
+  }
+`
 
 export const GetCoachingPageQuery = `
   query getAceCoachingPage {
