@@ -12,6 +12,8 @@ import TaylorMadeLogo from '../../assets/logos/TaylorMade_logo.webp'
 import TicTokLogo from '../../assets/logos/Tictok_logo.webp'
 import TheScoreLogo from '../../assets/logos/thescore_logo.svg.webp'
 import golfingImage from '../../assets/landingHero/night-golfing.webp'
+import pinterestLogo from '../../assets/logos/pinterest_logo.webp'
+import cibcLogo from '../../assets/logos/cibc_logo.webp'
 
 export const Events = () => {
   const isMobile = useMediaQuery({ maxWidth: '640px' })
@@ -22,6 +24,8 @@ export const Events = () => {
     TaylorMadeLogo,
     TicTokLogo,
     TheScoreLogo,
+    pinterestLogo,
+    cibcLogo,
   ]
 
   return (
@@ -136,7 +140,7 @@ export const Events = () => {
             }}
           >
             {logos.map((v, i) => (
-              <img style={{ width: '9rem' }} alt={v} src={logos[i]} />
+              <img style={{ width: '6rem' }} alt={v} src={logos[i]} />
             ))}
           </div>
         </Section>
