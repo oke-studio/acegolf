@@ -2,6 +2,7 @@ export async function getAceQuery(query: string) {
   const {
     VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
     VITE_PUBLIC_CONTENTFUL_SPACE_ID,
+    VITE_CONTENFUL_ENVIRONMENT,
   } = import.meta.env
 
   if (
@@ -12,7 +13,7 @@ export async function getAceQuery(query: string) {
   }
 
   const response = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${VITE_PUBLIC_CONTENTFUL_SPACE_ID}?&query=${query.replace(/\s\s+/g, ' ')}`,
+    `https://graphql.contentful.com/content/v1/spaces/${VITE_PUBLIC_CONTENTFUL_SPACE_ID}/environments/${VITE_CONTENFUL_ENVIRONMENT}?&query=${query.replace(/\s\s+/g, ' ')}`,
     {
       method: 'GET',
       headers: {
