@@ -3,6 +3,7 @@ import { Button } from '../../../../components/Button/Button'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from '../../../HIW/components/HIWSection/hooks/useGetHIW.hook'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export const LandingHIWSection = () => {
   const { howItWorksData, isError, isLoading } = useGetHowItWorks()
@@ -41,7 +42,15 @@ export const LandingHIWSection = () => {
                 {p.stepTextTitle}
               </Typography>
               <Typography fontVariant="base" fontWeight="500">
-                {p.stepContent}
+                {p.textContent && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: documentToHtmlString(p.textContent.json),
+                    }}
+                  >
+                    {}
+                  </div>
+                )}
               </Typography>
               <Button buttonVariant="simple">
                 <Link to={`${p.stepCtaLink}`}>
