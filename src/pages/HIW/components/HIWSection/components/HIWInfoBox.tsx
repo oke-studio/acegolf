@@ -81,7 +81,7 @@ interface HIWInfoBoxProps {
   number: string
   description: React.ReactNode
   label: React.ReactNode
-  miniInfoBox: TypeFaqItemFields[]
+  miniInfoBox?: TypeFaqItemFields[]
   prevBG: string
   curBG: string
 }
@@ -130,7 +130,7 @@ export const HIWInfoBox = ({
         </div>
 
         <div className="flex flex-col gap-4 hover:cursor-pointer">
-          {miniInfoBox.map((box, index) => {
+          {miniInfoBox?.map((box, index) => {
             return (
               <HIWMiniInfoBox
                 box={box}

@@ -3,6 +3,7 @@ import { Section } from '../../../../components/Section/Section'
 import { useGetHowItWorks } from './hooks/useGetHIW.hook'
 import { HIWInfoBox } from './components/HIWInfoBox'
 import { TypeFaqItemFields } from '../../../../types/contentful'
+import { Document } from '@contentful/rich-text-types'
 // import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 // import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
@@ -49,17 +50,19 @@ export const HIWSection = () => {
   const infoBoxData = howItWorksData.howItWorksStepsCollection.items.reduce(
     (acc, curr) => {
       acc.push({
-        description: curr.stepContent,
+        description: curr.textContent,
         title: curr.stepTextTitle,
-        relatedFAQs: curr.relatedFaqCollection.items,
+        relatedFAQs: curr.relatedFaqCollection?.items,
       })
 
       return acc
     },
     [] as {
-      description: string
+      description: {
+        json: Document
+      }
       title: string
-      relatedFAQs: TypeFaqItemFields[]
+      relatedFAQs?: TypeFaqItemFields[]
     }[]
   )
 
