@@ -92,13 +92,15 @@ export const EventsItem = () => {
                 {startDate} - {endDate}
               </Typography>
 
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: documentToHtmlString(currentEvent.eventDesc.json),
-                }}
-              >
-                {}
-              </div>
+              {currentEvent.eventDesc && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: documentToHtmlString(currentEvent.eventDesc.json),
+                  }}
+                >
+                  {}
+                </div>
+              )}
               {isCTA && (
                 <Button buttonVariant="primary">
                   <a href={currentEvent.ctaLink!} target="__blank">

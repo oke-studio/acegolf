@@ -1,4 +1,5 @@
 import { CalendarItemContainerStyleContentfulType } from '../../pages/Events/components/CalendarSection/types/CalendarSection.types'
+import { Document } from '@contentful/rich-text-types'
 
 export interface TypeEventFields {
   eventTitle: string
@@ -16,6 +17,9 @@ export interface TypeEventFields {
     title: string
     contentType: string
     fileName: string
+  }
+  eventDesc?: {
+    json: Document
   }
 }
 
