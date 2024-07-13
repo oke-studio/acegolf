@@ -25,7 +25,6 @@ export const EventsItem = () => {
 
   const isCTA = eventItem.ctaLink && eventItem.ctaText
   const currentEvent = eventItem
-  console.log(currentEvent)
 
   const eventItemType =
     CalendarItemContainerStyleTypeMap[currentEvent.eventType] ?? 'event'
