@@ -38,12 +38,12 @@ const LeaguesCard = () => (
   <Card
     title="Leagues"
     theme="light"
-    description="We will soon post active leagues and tournaments hosted at Ace Golf."
+    description="Win prizes and imporve your game by joining any of our leagues and tournaments hosted at Ace Golf."
     buttonOne={{
       children: (
-        <Link to="/">
+        <Link to="/leagues">
           <Typography fontVariant="large" fontWeight="400">
-            Coming Soon
+            See Actve Leagues &rarr;
           </Typography>
         </Link>
       ),
@@ -120,7 +120,7 @@ export const CardSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['0 1', '1 1'],
+    offset: ['start end', 'start start'],
   })
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1])

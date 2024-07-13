@@ -60,7 +60,13 @@ export const Footer = () => {
                 style={{ display: 'flex', gap: '1.5rem' }}
               >
                 Instagram{' '}
-                <img src={AceFooterMiniUrl} height={20} width={20} alt="ace" />
+                <img
+                  src={AceFooterMiniUrl}
+                  height={20}
+                  width={20}
+                  alt="ace"
+                  loading="lazy"
+                />
               </Typography>
             </motion.div>
           </a>
@@ -83,7 +89,13 @@ export const Footer = () => {
                 style={{ display: 'flex', gap: '1.5rem' }}
               >
                 Tiktok{' '}
-                <img src={AceFooterMiniUrl} height={20} width={20} alt="ace" />
+                <img
+                  src={AceFooterMiniUrl}
+                  height={20}
+                  width={20}
+                  alt="ace"
+                  loading="lazy"
+                />
               </Typography>
             </motion.div>
           </a>

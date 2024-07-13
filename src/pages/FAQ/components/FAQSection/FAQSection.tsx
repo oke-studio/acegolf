@@ -1,18 +1,16 @@
-import * as React from 'react'
 import { Typography } from '../../../../components/Typography/Typography'
 import { Section } from '../../../../components/Section/Section'
 import { Container } from '../../../../components/Container/Container'
 import { Spinner } from '../../../../components/LoadingStates/Spinner'
-import { motion } from 'framer-motion'
-import { FiChevronDown } from 'react-icons/fi'
-import { useGetFAQ } from '../../../../hooks/useGetFAQ/useGetFAQ.hook'
+import { FAQAccordion } from '../../../../components/FAQAccordion/FAQAccordion'
 import { Button } from '../../../../components/Button/Button'
 import { Link } from 'react-router-dom'
+import { useGetReducedFAQ } from '../../../../hooks/useGetFAQ/useGetReducedFAQ.hook'
 
 // import { HIWMiniInfoBox } from '../../../HIW/components/HIWSection/components/HIWInfoBox'
 
 export const FAQSection = () => {
-  const { faqData, isLoading, isError } = useGetFAQ()
+  const { faqReduced, isLoading, isError } = useGetReducedFAQ()
 
   if (isLoading) {
     return (
@@ -22,47 +20,9 @@ export const FAQSection = () => {
     )
   }
 
-  if (isError || !faqData) {
+  if (isError || !faqReduced) {
     return <></>
   }
-
-  const faqReduced = faqData.reduce(
-    (acc, curr) => {
-      const category = curr.categoryRefrence.faqCategoryName
-
-      if (acc[category]) {
-        acc[category].push({
-          question: curr.question,
-          answer: curr.answer,
-          cta: curr.ctaText,
-          link: curr.ctaLink,
-          slug: curr.faqSlug,
-        })
-      } else {
-        acc[category] = [
-          {
-            question: curr.question,
-            answer: curr.answer,
-            cta: curr.ctaText,
-            link: curr.ctaLink,
-            slug: curr.faqSlug,
-          },
-        ]
-      }
-      return {
-        ...acc,
-      }
-    },
-    {} as {
-      [x: string]: {
-        answer: string
-        question: string
-        cta?: string
-        link?: string
-        slug: string
-      }[]
-    }
-  )
 
   return (
     <Section
@@ -101,8 +61,6 @@ export const FAQSection = () => {
                       title={acc.question}
                       key={`faq_accordion_${index}_${i}`}
                       id={acc.slug}
-                      cta={acc.cta}
-                      link={acc.link}
                     >
                       <Typography
                         fontVariant="base"
@@ -111,6 +69,14 @@ export const FAQSection = () => {
                       >
                         {acc.answer}
                       </Typography>
+                      {acc.ctaLink && acc.ctaText && (
+                        <Button
+                          buttonVariant="primary"
+                          buttonStyle={{ width: 'max-content' }}
+                        >
+                          <Link to={acc.ctaLink}> {acc.ctaText} &rarr;</Link>
+                        </Button>
+                      )}
                     </FAQAccordion>
                   ))}
                 </div>
@@ -119,79 +85,5 @@ export const FAQSection = () => {
         </div>
       </Container>
     </Section>
-  )
-}
-
-const FAQAccordion = ({
-  title,
-  children,
-  defaultOpen = false,
-  link,
-  cta,
-  id,
-}: {
-  title: string
-  children: React.ReactNode
-  defaultOpen: boolean
-  link?: string
-  cta?: string
-  id: string
-}) => {
-  const [open, setOpen] = React.useState(defaultOpen)
-
-  return (
-    <motion.div
-      animate={open ? 'open' : 'closed'}
-      className="border-bold flex max-h-max w-full flex-col gap-3 overflow-hidden rounded-2xl border-2 border-black bg-sharpTeal px-6 py-4  text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-2xl hover:shadow-[4px_4px_0px_orange] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
-      onClick={() => {
-        // console.log('clicked', id)
-        setOpen((pv) => !pv)
-      }}
-    >
-      <div className="flex w-full justify-between" id={`faq-${id}`}>
-        <Typography
-          fontVariant="headingFour"
-          fontWeight="600"
-          style={{ color: open ? 'rgb(var(--color-orange))' : 'black' }}
-        >
-          {title}
-        </Typography>
-        <motion.span
-          variants={{
-            open: {
-              rotate: '180deg',
-              color: 'rgb(235,139,50)',
-            },
-            closed: {
-              rotate: '0deg',
-              color: '#000000',
-            },
-          }}
-        >
-          <FiChevronDown className="text-2xl" />
-        </motion.span>
-      </div>
-      <motion.div
-        initial={false}
-        animate={{
-          height: open ? 'fit-content' : '0px',
-          marginBottom: open ? '24px' : '0px',
-        }}
-        className="black flex flex-col gap-3 overflow-hidden"
-      >
-        {children}
-        {link && cta && (
-          <Button
-            buttonVariant="primary"
-            buttonStyle={{ width: 'max-content' }}
-          >
-            <Link to={link} target="_blank">
-              {' '}
-              {cta} &rarr;
-            </Link>
-          </Button>
-        )}
-      </motion.div>
-    </motion.div>
   )
 }

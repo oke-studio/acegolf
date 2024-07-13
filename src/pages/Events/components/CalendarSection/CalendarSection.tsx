@@ -8,6 +8,7 @@ import { Typography } from '../../../../components/Typography/Typography'
 import { CalendarItemContainerStyleType } from './types/CalendarSection.types'
 import { useGetEventsParsed } from './hooks/useGetEventsParsed.hook'
 import { useMediaQuery } from 'react-responsive'
+import { CalendaritemContainerStyles } from '../../../../types/Pages/Events/events.types'
 
 const CalendarItemContainer = ({
   style,
@@ -24,18 +25,9 @@ const CalendarItemContainer = ({
   to?: string
   isMobile?: boolean
 }) => {
-  const CalendaritemContainerStyles: {
-    [k in CalendarItemContainerStyleType]: string
-  } = {
-    closed: 'bg-black text-orange',
-    adjusted: 'bg-orange text-black',
-    promotion: 'bg-green text-white',
-    event: 'bg-lightOrange text-black',
-    private_event: 'bg-sharpTeal text-black',
-    league: 'bg-lime-400 text-black',
-    hidden: 'hidden',
-    date: 'bg-grey',
-  }
+  const conditionalImgSrc = imgSrc
+    ? imgSrc
+    : CalendaritemContainerStyles[style].defaultImgSrc
 
   if (style === 'hidden') {
     return <div />
@@ -46,7 +38,7 @@ const CalendarItemContainer = ({
       <div
         className={classNames(
           'flex flex-col gap-2 rounded-xl p-3 text-center',
-          CalendaritemContainerStyles['date']
+          CalendaritemContainerStyles['date'].style
         )}
       >
         <Typography fontVariant="base" fontWeight="500">
@@ -63,7 +55,7 @@ const CalendarItemContainer = ({
     <Link
       className={classNames(
         'flex h-max flex-row items-center justify-between gap-3 rounded-xl border-2 border-solid border-transparent p-2 hover:cursor-pointer hover:border-coolBlue md:flex-col md:items-start md:justify-normal md:gap-2',
-        CalendaritemContainerStyles[style]
+        CalendaritemContainerStyles[style].style
       )}
       //   onClick={() => router}
       to={`/events/${to}`}
@@ -72,16 +64,16 @@ const CalendarItemContainer = ({
         <Typography fontVariant="base" fontWeight="500">
           {title}
         </Typography>
-        {/* <Typography fontVariant="base" fontWeight="300">
+        <Typography fontVariant="base" fontWeight="300">
           {description}
-        </Typography> */}
+        </Typography>
       </div>
-      {!isMobile && imgSrc && (
+      {!isMobile && (
         <div className="relative flex h-36 w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border shadow-md">
           <div
             className="h-full bg-slate-300"
             style={{
-              backgroundImage: `url(${imgSrc})`,
+              backgroundImage: `url(${conditionalImgSrc})`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}
@@ -93,7 +85,7 @@ const CalendarItemContainer = ({
           <div
             className="h-full bg-slate-300"
             style={{
-              backgroundImage: `url(${imgSrc})`,
+              backgroundImage: `url(${conditionalImgSrc})`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}
@@ -107,8 +99,6 @@ const CalendarItemContainer = ({
 export const CalendarSection = () => {
   const { events: eventsData, isError, isLoading } = useGetEventsParsed()
   const isMobile = useMediaQuery({ maxWidth: '640px' })
-
-  // console.log(eventsData)
 
   if (!eventsData || isError) {
     return <div />
@@ -127,15 +117,11 @@ export const CalendarSection = () => {
     twoWeekSpan.push(new Date(d).toISOString())
   }
 
-  // const MockedEvents = TransformEventsCalendarMockV2()
-
-  // console.log(MockedEvents)
-
   const Calendar = () => (
     <>
       {twoWeekSpan.map((event) => {
         const events = eventsData[event.split('T')[0]]
-
+        // console.log(events)
         const eventDate = new Date(event).toDateString().split(' ').slice(0, 3)
         return (
           <div className="flex h-full min-w-36 max-w-36 flex-col gap-3">

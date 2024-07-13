@@ -15,10 +15,10 @@ const FooterLinksArray = [
     name: 'Coaching',
     to: '/coaching',
   },
-  // {
-  //   name: 'Leagues',
-  //   to: '/leagues',
-  // },
+  {
+    name: 'Leagues',
+    to: '/leagues',
+  },
   {
     name: 'FAQ',
     to: '/faq',

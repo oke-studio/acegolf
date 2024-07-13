@@ -16,13 +16,12 @@ interface NavOptions {
   to: string
 }
 
-// interface HeaderProps {}
-
 const NavOptions = [
   { label: 'Menu', to: '/menu' },
   { label: 'How it Works', to: '/how-it-works' },
-  { label: 'About', to: '/about' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'Events', to: '/events' },
+  { label: 'Leagues', to: '/leagues' },
   { label: 'Coaching', to: '/coaching' },
 ]
 
@@ -96,7 +95,7 @@ const DropDownNav = ({
 }
 
 export const Header = () => {
-  const isMobile = useMediaQuery({ maxWidth: '640px' })
+  const isMobile = useMediaQuery({ maxWidth: '770px' })
   const [isOpen, setIsOpen] = React.useState(false)
   if (isMobile) {
     return (
@@ -107,9 +106,7 @@ export const Header = () => {
             'flex w-full items-center justify-between  p-[5%]  md:p-3'
           )}
         >
-          <div onClick={() => setIsOpen((ev) => !ev)}>
-            <HeaderLogo color={isOpen ? 'black' : 'white'} />
-          </div>
+          <HeaderLogo color={isOpen ? 'black' : 'white'} />
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="text-3xl"

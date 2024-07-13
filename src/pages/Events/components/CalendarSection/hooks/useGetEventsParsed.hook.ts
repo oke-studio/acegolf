@@ -4,6 +4,10 @@ import {
   CalendarItemContainerStyleTypeMap,
 } from '../types/CalendarSection.types'
 
+const extractTime = (time: Date) => {
+  return `${String(time.getUTCHours()).padStart(2, '0')}:${String(time.getUTCMinutes()).padStart(2, '0')}`
+}
+
 export function useGetEventsParsed() {
   const { eventsData, isError, isLoading } = useGetEvents()
 
@@ -18,9 +22,14 @@ export function useGetEventsParsed() {
         startDateTime,
         endDateTime,
       } = curr
+      //
+      // const sdt = startDateTime
+      // const edt = endDateTime
 
       const startDate = new Date(startDateTime)
       const endDate = new Date(endDateTime)
+
+      // console.log(startDate, endDate)
 
       const dateRange: Array<string> = []
       for (const d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
@@ -29,15 +38,25 @@ export function useGetEventsParsed() {
 
       dateRange.forEach((d) => {
         const date = d.split('T')[0]
-        const start = startDate.toLocaleTimeString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-        })
+        const start = extractTime(startDate)
+        const end = extractTime(endDate)
 
-        const end = endDate.toLocaleTimeString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-        })
+        // debugger
+
+        // console.log(
+        //   JSON.stringify(
+        //     {
+        //       date,
+        //       start,
+        //       end,
+        //       d,
+        //       startDate,
+        //       endDate,
+        //     },
+        //     null,
+        //     2
+        //   )
+        // )
 
         if (acc[date]) {
           acc[date].push({

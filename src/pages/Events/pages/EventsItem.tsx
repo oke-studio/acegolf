@@ -7,6 +7,9 @@ import { Button } from '../../../components/Button/Button'
 import { EmailSection } from '../components/EmailSection/EmailSection'
 import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
 import { ImageURLFormatter } from '../../../utils/imageFormatter'
+import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
+import { CalendarItemContainerStyleTypeMap } from '../components/CalendarSection/types/CalendarSection.types'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export const EventsItem = () => {
   const { eventId } = useParams()
@@ -22,16 +25,13 @@ export const EventsItem = () => {
 
   const isCTA = eventItem.ctaLink && eventItem.ctaText
   const currentEvent = eventItem
-  const imgUrl = currentEvent.eventPoster?.url
-    ? ImageURLFormatter(
-        currentEvent.eventPoster?.url,
-        currentEvent.eventPoster?.contentType
-      )
-    : 'SOMSOM'
-  {
-    /* // TODO: Update this image url to have a default image */
-    // what the heck is "som som"
-  }
+
+  const eventItemType =
+    CalendarItemContainerStyleTypeMap[currentEvent.eventType] ?? 'event'
+
+  const defaultImgSrc = CalendaritemContainerStyles[eventItemType].defaultImgSrc
+
+  const imgSrc = eventItem.eventPoster?.url ?? defaultImgSrc
 
   const startDate = new Date(currentEvent.endDateTime).toDateString()
   const endDate = new Date(currentEvent.startDateTime).toDateString()
@@ -64,9 +64,9 @@ export const EventsItem = () => {
         </Section>
         <Section
           style={{
-            backgroundColor: 'rgb(var(--color-purple))',
             padding: '24px 24px',
           }}
+          tailWindStyle={CalendaritemContainerStyles[eventItemType].style}
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
@@ -74,7 +74,10 @@ export const EventsItem = () => {
               <div
                 className="aspect-square h-full min-h-96 bg-slate-300"
                 style={{
-                  backgroundImage: imgUrl ? `url(${imgUrl})` : 'orange',
+                  backgroundImage: `url(${ImageURLFormatter(
+                    imgSrc,
+                    currentEvent.eventPoster?.contentType
+                  )})`,
                   backgroundPosition: 'center',
                   backgroundSize: 'cover',
                 }}
@@ -88,9 +91,16 @@ export const EventsItem = () => {
               <Typography fontVariant="base" fontWeight="300">
                 {startDate} - {endDate}
               </Typography>
-              <Typography fontVariant="base" fontWeight="300">
-                {currentEvent.eventDescription}
-              </Typography>
+
+              {currentEvent.eventDesc && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: documentToHtmlString(currentEvent.eventDesc.json),
+                  }}
+                >
+                  {}
+                </div>
+              )}
               {isCTA && (
                 <Button buttonVariant="primary">
                   <a href={currentEvent.ctaLink!} target="__blank">

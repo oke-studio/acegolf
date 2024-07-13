@@ -45,6 +45,7 @@ export const AceImage = ({
           scale: `${randomizer(0.97, 0.99)}`,
           transform: `rotate(${randomizer(3, -3)}deg)`,
         }}
+        loading="lazy"
       />
     </div>
   )
