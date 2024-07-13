@@ -1,7 +1,0 @@
-# Block all crawlers for /accounts
-User-agent: *
-Disallow: /menu
-
-# Allow all crawlers
-User-agent: *
-Allow: /
