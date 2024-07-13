@@ -9,8 +9,8 @@ export interface TypeEventFields {
   ctaLink?: string
   eventDuration: string
   eventDesc: { json: Document }
-  startDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
-  endDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
+  startDateTime: Date
+  endDateTime: Date
   eventType: CalendarItemContainerStyleContentfulType
   eventPoster?: {
     url: string

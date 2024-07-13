@@ -100,8 +100,6 @@ export const CalendarSection = () => {
   const { events: eventsData, isError, isLoading } = useGetEventsParsed()
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
-  // console.log(eventsData)
-
   if (!eventsData || isError) {
     return <div />
   }
@@ -119,15 +117,11 @@ export const CalendarSection = () => {
     twoWeekSpan.push(new Date(d).toISOString())
   }
 
-  // const MockedEvents = TransformEventsCalendarMockV2()
-
-  // console.log(MockedEvents)
-
   const Calendar = () => (
     <>
       {twoWeekSpan.map((event) => {
         const events = eventsData[event.split('T')[0]]
-
+        // console.log(events)
         const eventDate = new Date(event).toDateString().split(' ').slice(0, 3)
         return (
           <div className="flex h-full min-w-36 max-w-36 flex-col gap-3">
