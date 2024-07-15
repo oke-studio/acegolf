@@ -9,7 +9,6 @@ import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { ImageURLFormatter } from '../../../utils/imageFormatter'
 import { LeaguesFAQ } from '../components/LeaguesFAQ/LeaguesFAQ.component'
-import { Email } from '../../../components/Email/Email'
 import { EmailSection } from '../../Events/components/EmailSection/EmailSection'
 
 export const LeaguesItem = () => {

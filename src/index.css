@@ -1,8 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   :root {
@@ -179,7 +177,7 @@
   background-position: 50%;
   transform: translateZ(0);
   animation: subtleNoise 5s steps(5) infinite;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 @keyframes subtleNoise {
@@ -227,7 +225,6 @@
     transform: translate3d(-7rem, 0, 0);
   }
 }
-
 
 /* .section-normal{
   margin: 8px 2.25rem 8px

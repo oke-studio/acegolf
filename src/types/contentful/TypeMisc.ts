@@ -1,9 +1,7 @@
-
-
 export interface MediaItemFields {
-    url: string
-    description: string
-    title: string
-    contentType: string
-    fileName: string
-  }
+  url: string
+  description: string
+  title: string
+  contentType: string
+  fileName: string
+}

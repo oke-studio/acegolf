@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { TypeEventFields } from '../../types/contentful'
-import { GetEventsItemQuery } from "../../utils/Queries"
+import { GetEventsItemQuery } from '../../utils/Queries'
 import { getAceQuery } from '../../utils/getAceQuery'
 
 const useGetAceEventsItemQuery = (slugId: string) => {
@@ -13,7 +13,6 @@ const useGetAceEventsItemQuery = (slugId: string) => {
 
   return Query
 }
-
 
 export function useGetEventsItem(eventId: string) {
   const { data, isError, isLoading } = useGetAceEventsItemQuery(eventId)

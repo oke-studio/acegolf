@@ -1,7 +1,5 @@
-
-
 export const RendererMapper = {
-    "TwoColumnMediaAndText": '',
-    "GroupOfNumberedBlocks":"",
-    "LargeTitleAndCta": ""
+  TwoColumnMediaAndText: '',
+  GroupOfNumberedBlocks: '',
+  LargeTitleAndCta: '',
 }
