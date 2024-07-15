@@ -87,6 +87,7 @@ export const PricesContentSkeleton = ({
     priceContainer.priceContainerOne.service,
     priceContainer.priceContainerTwo.service,
   ]
+
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col flex-wrap ">
@@ -103,9 +104,12 @@ export const PricesContentSkeleton = ({
             ))}
           </div>
           <div className="flex flex-col gap-3">
-            <Typography fontVariant="large" fontWeight="600">
-              {`${priceContainers[toggle].price.timeFrom} - ${priceContainers[toggle].price.timeTo}`}
-            </Typography>
+            {priceContainers[toggle]?.price.timeFrom &&
+              priceContainers[toggle].price.timeTo && (
+                <Typography fontVariant="large" fontWeight="600">
+                  {`${priceContainers[toggle]?.price.timeFrom} - ${priceContainers[toggle].price.timeTo}`}
+                </Typography>
+              )}
             {/* <Typography fontVariant="base" fontWeight="300">
               {priceContainers[toggle].info}
             </Typography> */}
