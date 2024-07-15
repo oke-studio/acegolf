@@ -1,5 +1,8 @@
+const startDate = new Date()
+const endDate = new Date(startDate)
+endDate.setDate(endDate.getDate() + 7 * 2)
 
-
+const DateFilter = `startDateTime_lte: "${endDate.toISOString()}", endDateTime_gte: "${startDate.toISOString()}"`
 
 export const GetFAQQuery = `
   query GetFAQ {
@@ -19,7 +22,7 @@ export const GetFAQQuery = `
   }
 `
 
-export const GetAceV2Query =`
+export const GetAceV2Query = `
   query getAce {
     aceHomePageCollection(limit: 1) {
       items {
@@ -244,7 +247,7 @@ export const GetAboutPageQuery = `
 
 export const GetEventsQuery = `
   query getAceEvents {
-  newEventItemCollection(limit: 14) {
+  newEventItemCollection(limit: 14, where: {${DateFilter}}) {
     items {
       eventTitle
       slugId
@@ -254,8 +257,60 @@ export const GetEventsQuery = `
       eventDescription
       ctaText
       ctaLink
+      eventDesc {
+        json
+      }
+      eventPoster {
+        url
+        fileName
+        description
+        contentType
+      }
+    }
+  }
+}
+`
+
+export const GetEventsItemQuery = (slugId: string) => `
+  query getAceEventsItem {
+  newEventItemCollection(where: {${DateFilter}, slugId: "${slugId}"}) {
+    items {
+      eventTitle
+      slugId
+      eventType
+      startDateTime
+      endDateTime
+      eventDescription
+      ctaText
+      ctaLink
+      eventDesc {
+        json
+      }
+      eventPoster {
+        url
+        fileName
+        description
+        contentType
+      }
+    }
+  }
+}
+`
+
+export const GetAceLeaguesItemQuery = (slugId: string) => `
+query getAceLeaguesItem {
+  newEventItemCollection(limit: 1, where: { eventType: "League", slugId: "${slugId}", ${DateFilter}}) {
+    items {
+      eventTitle
+      slugId
+      eventType
+      startDateTime
+      endDateTime	
+      eventDescription
+      ctaText
+      ctaLink
       eventPageContentStackCollection {
-         items {
+        items {
           ... on GroupOfNumberedBlocks {
             __typename
             title
@@ -282,6 +337,7 @@ export const GetEventsQuery = `
             }
           }
           ... on TwoColumnMediaAndText {
+            __typename
             sectionTitle
             textColumn {
               json
@@ -296,6 +352,7 @@ export const GetEventsQuery = `
             columnOrder
           }
           ... on LargeTitleAndCta {
+            __typename
             titleText
             textArea
             ctaText
@@ -365,7 +422,7 @@ export const GetUGCTestimonialsQuery = `
 
 export const GetLeaguesQuery = `
   query getAceLeaguesEvents {
-    newEventItemCollection ( where: eventType: "League"){
+    newEventItemCollection ( where: {eventType: "League", ${DateFilter}} ){
       items {
         eventTitle
         slugId
@@ -385,3 +442,53 @@ export const GetLeaguesQuery = `
     }
   }
 `
+
+// eventPageContentStackCollection {
+//   items {
+//    ... on GroupOfNumberedBlocks {
+//      __typename
+//      title
+//      howItWorksStepsCollection {
+//        items {
+//          stepTitle
+//          stepTextTitle
+//          stepContent
+//          stepCtaText
+//          relatedFaqCollection {
+//            items {
+//              question
+//              faqSlug
+//              answer
+//              ctaText
+//              ctaLink
+//              categoryRefrence {
+//                faqCategoryName
+//                slug
+//              }
+//            }
+//          }
+//        }
+//      }
+//    }
+//    ... on TwoColumnMediaAndText {
+//      sectionTitle
+//      textColumn {
+//        json
+//      }
+//      mediaColumn {
+//        description
+//        title
+//        contentType
+//        fileName
+//        url
+//      }
+//      columnOrder
+//    }
+//    ... on LargeTitleAndCta {
+//      titleText
+//      textArea
+//      ctaText
+//      ctaLink
+//    }
+//  }
+// }

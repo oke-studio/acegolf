@@ -7,7 +7,7 @@ const useGetEventsQuery = () => {
   const Query = useQuery<{
     data: { newEventItemCollection: { items: TypeEventFields[] } }
   }>({
-    queryKey: ['ace_events_v2'],
+    queryKey: ['ace_events'],
     queryFn: () => getAceQuery(GetEventsQuery),
   })
 

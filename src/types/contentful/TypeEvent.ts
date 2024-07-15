@@ -1,4 +1,4 @@
-import { CalendarItemContainerStyleContentfulType } from '../../pages/Events/components/CalendarSection/types/CalendarSection.types'
+import { CalendarItemContainerStyleContentfulType } from '../Pages/Events/CalendarSection.types'
 import { MediaItemFields } from '../contentful/TypeMisc'
 import { Document } from '@contentful/rich-text-types'
 import { TypeUICollection } from './TypeUICollection'
@@ -10,8 +10,8 @@ export interface TypeEventFields {
   ctaText?: string
   ctaLink?: string
   eventDuration: string
-  startDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
-  endDateTime: `${number}-${number}-${number}T${number}:${number}:${number}Z`
+  startDateTime: string
+  endDateTime: string
   eventType: CalendarItemContainerStyleContentfulType
   eventPoster?: MediaItemFields
   eventDesc?: {

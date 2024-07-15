@@ -16,3 +16,9 @@ export type {
   TypeAceGolfStaffFields,
 } from './TypeAboutPage'
 export type { MediaItemFields as TypeMediaItemFields } from './TypeMisc'
+export type {
+  TypeUICollection,
+  TypeGroupOfNumberedBlocks,
+  TypeLargeTitleAndCTA,
+  TypeTwoColAndMedia,
+} from './TypeUICollection'

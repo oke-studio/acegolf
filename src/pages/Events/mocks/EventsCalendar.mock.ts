@@ -1,5 +1,5 @@
 import ImageMock01 from '../../../assets/simrooms/bay1.webp'
-import { EventsCalenderItem } from '../components/CalendarSection/types/CalendarSection.types'
+import { EventsCalenderItem } from '../../../types/Pages/Events/CalendarSection.types'
 
 interface EventsCalendarMockProps {
   [k: string]: EventsCalenderItem[]

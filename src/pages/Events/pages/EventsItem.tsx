@@ -7,7 +7,7 @@ import { EmailSection } from '../components/EmailSection/EmailSection'
 import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
 import { ImageURLFormatter } from '../../../utils/imageFormatter'
 import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
-import { CalendarItemContainerStyleTypeMap } from '../components/CalendarSection/types/CalendarSection.types'
+import { CalendarItemContainerStyleTypeMap } from '../../../types/Pages/Events/CalendarSection.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.hook'
 
