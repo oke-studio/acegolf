@@ -3,8 +3,7 @@ import { Section } from '../../../../components/Section/Section'
 import { useGetHowItWorks } from './hooks/useGetHIW.hook'
 import { HIWInfoBox } from './components/HIWInfoBox'
 import { TypeFaqItemFields } from '../../../../types/contentful'
-// import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Document } from '@contentful/rich-text-types'
 
 const MockColorPalette = ['#EB8B32', '#9A92C5', '#FFFFFF']
 
@@ -19,47 +18,20 @@ export const HIWSection = () => {
     )
   }
 
-  // const document = {
-  //   nodeType: 'document',
-  //   data: {},
-  //   content: [
-  //     {
-  //       nodeType: 'paragraph',
-  //       data: {},
-  //       content: [
-  //         {
-  //           nodeType: 'text',
-  //           value: 'Hello',
-  //           data: {},
-  //           marks: [{ type: 'bold' }],
-  //         },
-  //         {
-  //           nodeType: 'text',
-  //           value: ' world!',
-  //           data: {},
-  //           marks: [{ type: 'italic' }],
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // };
-
-  // documentToHtmlString(document);
-
   const infoBoxData = howItWorksData.howItWorksStepsCollection.items.reduce(
     (acc, curr) => {
       acc.push({
-        description: curr.stepContent,
+        description: curr.textContent.json,
         title: curr.stepTextTitle,
-        relatedFAQs: curr.relatedFaqCollection.items,
+        relatedFAQs: curr.relatedFaqCollection?.items,
       })
 
       return acc
     },
     [] as {
-      description: string
+      description: Document
       title: string
-      relatedFAQs: TypeFaqItemFields[]
+      relatedFAQs?: TypeFaqItemFields[]
     }[]
   )
 
@@ -96,7 +68,7 @@ export const HIWSection = () => {
             <HIWInfoBox
               number={(index + 1).toString()}
               key={`${info.title}`}
-              description={<>{info.description}</>}
+              description={info.description}
               label={<>{info.title}</>}
               miniInfoBox={info.relatedFAQs}
               prevBG={

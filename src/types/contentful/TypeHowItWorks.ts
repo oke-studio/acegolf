@@ -1,4 +1,5 @@
 import { TypeFaqItemFields } from '.'
+import { Document } from '@contentful/rich-text-types'
 
 export interface TypeHowItWorksFields {
   title: string
@@ -8,8 +9,10 @@ export interface TypeHowItWorksFields {
 export interface TypeHowItWorksStepsFields {
   stepTitle: string
   stepTextTitle: string
-  stepContent: string
-  stepCtaText: string
-  stepCtaLink: string
-  relatedFaqCollection: { items: TypeFaqItemFields[] }
+  textContent: {
+    json: Document
+  }
+  stepCtaText?: string
+  stepCtaLink?: string
+  relatedFaqCollection?: { items: TypeFaqItemFields[] }
 }
