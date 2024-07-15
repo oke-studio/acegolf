@@ -21,6 +21,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/pages/Landing/components/Hero/.landingHeroOldcode.tsx"],
+  "include": [
+    "src",
+    "src/pages/Landing/components/Hero/.landingHeroOldcode.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

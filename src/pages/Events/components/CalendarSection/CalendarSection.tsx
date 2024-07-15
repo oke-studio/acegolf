@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // import { TransformEventsCalendarMockV2 } from '../../mocks/EventsCalendar.mock'
 import { Typography } from '../../../../components/Typography/Typography'
-import { CalendarItemContainerStyleType } from './types/CalendarSection.types'
+import { CalendarItemContainerStyleType } from '../../../../types/Pages/Events/CalendarSection.types'
 import { useGetEventsParsed } from './hooks/useGetEventsParsed.hook'
 import { useMediaQuery } from 'react-responsive'
 import { CalendaritemContainerStyles } from '../../../../types/Pages/Events/events.types'
@@ -51,6 +51,8 @@ const CalendarItemContainer = ({
     )
   }
 
+  const isLeague = style === 'league'
+
   return (
     <Link
       className={classNames(
@@ -58,7 +60,7 @@ const CalendarItemContainer = ({
         CalendaritemContainerStyles[style].style
       )}
       //   onClick={() => router}
-      to={`/events/${to}`}
+      to={isLeague ? `/leagues/${to}` : `/events/${to}`}
     >
       <div>
         <Typography fontVariant="base" fontWeight="500">
@@ -98,6 +100,7 @@ const CalendarItemContainer = ({
 
 export const CalendarSection = () => {
   const { events: eventsData, isError, isLoading } = useGetEventsParsed()
+
   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   if (!eventsData || isError) {

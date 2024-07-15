@@ -1,4 +1,4 @@
-import { CalendarItemContainerStyleType } from '../../../pages/Events/components/CalendarSection/types/CalendarSection.types'
+import { CalendarItemContainerStyleType } from './CalendarSection.types'
 
 //Default image imports
 import adjusted from '../../../assets/events/Adjusted-Opening-Time.webp'

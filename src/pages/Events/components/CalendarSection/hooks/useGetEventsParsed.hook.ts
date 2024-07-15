@@ -2,10 +2,10 @@ import { useGetEvents } from '../../../../../hooks/UseGetEvents/useGetEvents.hoo
 import {
   EventsCalenderItem,
   CalendarItemContainerStyleTypeMap,
-} from '../types/CalendarSection.types'
+} from '../../../../../types/Pages/Events/CalendarSection.types'
 
 const extractTime = (time: Date) => {
-  return `${String(time.getUTCHours()).padStart(2, '0')}:${String(time.getUTCMinutes()).padStart(2, '0')}`
+  return `${String(time.getHours()).padStart(2, '0')}:${String(time.getMinutes()).padStart(2, '0')}`
 }
 
 export function useGetEventsParsed() {

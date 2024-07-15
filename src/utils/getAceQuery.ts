@@ -7,7 +7,8 @@ export async function getAceQuery(query: string) {
 
   if (
     !VITE_PUBLIC_CONTENTFUL_SPACE_ID ||
-    !VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+    !VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN ||
+    !VITE_CONTENFUL_ENVIRONMENT
   ) {
     return Promise.reject()
   }

@@ -3,19 +3,19 @@ import { Container } from '../../../components/Container/Container'
 import { Section } from '../../../components/Section/Section'
 import { Typography } from '../../../components/Typography/Typography'
 import { Button } from '../../../components/Button/Button'
-import { EmailSection } from '../components/EmailSection/EmailSection'
-import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
-import { ImageURLFormatter } from '../../../utils/imageFormatter'
+import { useGetAceLeaguesEventItem } from '../hooks/useGetAceLeaguesEventItem.hook'
+import { getUIRenderer } from '../../../hooks/GetUIRenderer/getUIRenderer.hook'
 import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
-import { CalendarItemContainerStyleTypeMap } from '../../../types/Pages/Events/CalendarSection.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.hook'
+import { ImageURLFormatter } from '../../../utils/imageFormatter'
+import { LeaguesFAQ } from '../components/LeaguesFAQ/LeaguesFAQ.component'
+import { EmailSection } from '../../Events/components/EmailSection/EmailSection'
 
-export const EventsItem = () => {
+export const LeaguesItem = () => {
   const { eventId } = useParams()
-  const { eventItem, isError, isLoading } = useGetEventsItem(eventId!)
+  const { leagueItem, isError, isLoading } = useGetAceLeaguesEventItem(eventId!)
 
-  if (!eventItem || isError) {
+  if (!leagueItem || isError) {
     return <div>error</div>
   }
 
@@ -23,15 +23,14 @@ export const EventsItem = () => {
     return <div>Loading...</div>
   }
 
-  const isCTA = eventItem.ctaLink && eventItem.ctaText
-  const currentEvent = eventItem
+  const isCTA = leagueItem.ctaLink && leagueItem.ctaText
+  const currentEvent = leagueItem
 
-  const eventItemType =
-    CalendarItemContainerStyleTypeMap[currentEvent.eventType] ?? 'event'
+  const eventItemType = 'league'
 
   const defaultImgSrc = CalendaritemContainerStyles[eventItemType].defaultImgSrc
 
-  const imgSrc = eventItem.eventPoster?.url ?? defaultImgSrc
+  const imgSrc = leagueItem.eventPoster?.url ?? defaultImgSrc
 
   const startDate = new Date(currentEvent.endDateTime).toDateString()
   const endDate = new Date(currentEvent.startDateTime).toDateString()
@@ -52,21 +51,22 @@ export const EventsItem = () => {
             // ...(isMobile && { justifyContent: 'center' }),
           }}
         >
-          <Link to="/events">
+          <Link to="/leagues">
             <Typography
               fontVariant="extralarge"
               fontWeight="600"
               tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4 hover:text-orange "
             >
-              &larr; Back to all events
+              &larr; Back to all leagues
             </Typography>
           </Link>
         </Section>
+
         <Section
           style={{
             padding: '24px 24px',
           }}
-          tailWindStyle={CalendaritemContainerStyles[eventItemType].style}
+          tailWindStyle={`${CalendaritemContainerStyles[eventItemType].style} bg-transparent`}
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
@@ -113,7 +113,10 @@ export const EventsItem = () => {
             </div>
           </div>
         </Section>
-        <PromotionsSection />
+
+        {getUIRenderer(leagueItem?.eventPageContentStackCollection?.items)}
+
+        <LeaguesFAQ />
         <EmailSection />
       </Container>
     </>
