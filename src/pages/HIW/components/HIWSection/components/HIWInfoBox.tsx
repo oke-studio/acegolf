@@ -6,6 +6,8 @@ import { Button } from '../../../../../components/Button/Button'
 import { motion } from 'framer-motion'
 import { FiChevronDown } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { Document } from '@contentful/rich-text-types'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 // type MiniInfoBoxType = {
 //   question: string
@@ -79,7 +81,7 @@ export const HIWMiniInfoBox = ({
 
 interface HIWInfoBoxProps {
   number: string
-  description: React.ReactNode
+  description: Document
   label: React.ReactNode
   miniInfoBox?: TypeFaqItemFields[]
   prevBG: string
@@ -122,11 +124,12 @@ export const HIWInfoBox = ({
               {label}
             </Typography>
           </div>
-          <div className="flex align-baseline">
-            <Typography fontVariant="base" fontWeight="400">
-              {description}
-            </Typography>
-          </div>
+          <div
+            className="flex align-baseline"
+            dangerouslySetInnerHTML={{
+              __html: documentToHtmlString(description),
+            }}
+          />
         </div>
 
         <div className="flex flex-col gap-4 hover:cursor-pointer">

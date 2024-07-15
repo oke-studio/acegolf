@@ -30,7 +30,10 @@ export const LandingHIWSection = () => {
         </Typography>
         <div className="flex flex-col justify-center gap-3 md:flex-row">
           {howItWorksStepsCollection.items.map((p, index) => (
-            <div className="first flex w-full flex-col items-center gap-4">
+            <div
+              className="first flex w-full flex-col items-center gap-4"
+              key={`hiw_steps_${index}`}
+            >
               <Typography
                 fontVariant="headingFour"
                 fontWeight="700"
