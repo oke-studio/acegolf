@@ -25,7 +25,7 @@ export const LargeTitleAndCta = ({ item }: { item: TypeLargeTitleAndCTA }) => {
           fontVariant="headingTwo"
           fontStyle="italic"
           fontWeight="900"
-          tailwindStyle="text-white md:gap-4 uppercase"
+          tailwindStyle="text-white md:gap-4"
         >
           {titleText}
         </Typography>
