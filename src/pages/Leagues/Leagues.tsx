@@ -56,7 +56,7 @@ export const Leagues = () => {
         }}
       >
         <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 ">
-          {eventsDataParsedToLeaguesData.map((e, index) => {
+          {eventsDataParsedToLeaguesData.map((e) => {
             const defaultImgSrc =
               CalendaritemContainerStyles['league'].defaultImgSrc
 

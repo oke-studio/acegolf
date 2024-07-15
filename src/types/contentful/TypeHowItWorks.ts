@@ -1,5 +1,4 @@
 import { TypeFaqItemFields } from '.'
-import { Document } from '@contentful/rich-text-types'
 
 export interface TypeHowItWorksFields {
   title: string
