@@ -63,7 +63,9 @@ export const Leagues = () => {
             const imgSrc = e.eventPoster?.url ?? defaultImgSrc
 
             return (
-              <Link to={`/leagues/${e.slugId}`}>
+              <Link
+                to={`/leagues/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
+              >
                 <div
                   className="relative min-h-[30rem] w-full rounded-2xl"
                   style={{
@@ -89,7 +91,9 @@ export const Leagues = () => {
                         backgroundColor: 'black',
                       }}
                     >
-                      <a href={`/leagues/${e.slugId}`}>
+                      <a
+                        href={`/leagues/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
+                      >
                         <Typography fontVariant="headingFour" fontWeight="500">
                           Learn More &rarr;
                         </Typography>
