@@ -8,6 +8,9 @@ import { getUIRenderer } from '../../../hooks/GetUIRenderer/getUIRenderer.hook'
 import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { ImageURLFormatter } from '../../../utils/imageFormatter'
+import { LeaguesFAQ } from '../components/LeaguesFAQ/LeaguesFAQ.component'
+import { Email } from '../../../components/Email/Email'
+import { EmailSection } from '../../Events/components/EmailSection/EmailSection'
 
 export const LeaguesItem = () => {
   const { eventId } = useParams()
@@ -113,6 +116,9 @@ export const LeaguesItem = () => {
         </Section>
 
         {getUIRenderer(leagueItem?.eventPageContentStackCollection?.items)}
+
+        <LeaguesFAQ />
+        <EmailSection />
       </Container>
     </>
   )
