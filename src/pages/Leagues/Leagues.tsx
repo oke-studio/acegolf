@@ -55,7 +55,7 @@ export const Leagues = () => {
         }}
       >
         <div className="grid grid-rows-4 gap-6 md:grid-cols-2 md:grid-rows-2 ">
-          {eventsDataParsedToLeaguesData.map((e, index) => {
+          {eventsDataParsedToLeaguesData.map((e) => {
             const defaultImgSrc =
               CalendaritemContainerStyles['league'].defaultImgSrc
 
@@ -73,7 +73,6 @@ export const Leagues = () => {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
-                key={`league_${index}_${e.eventTitle}_type_${e.eventType}`}
               >
                 <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
                   {/* <Typography fontVariant="base" fontWeight="400">

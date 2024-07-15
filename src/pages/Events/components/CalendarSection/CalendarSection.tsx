@@ -122,15 +122,12 @@ export const CalendarSection = () => {
 
   const Calendar = () => (
     <>
-      {twoWeekSpan.map((event, index) => {
+      {twoWeekSpan.map((event) => {
         const events = eventsData[event.split('T')[0]]
         // console.log(events)
         const eventDate = new Date(event).toDateString().split(' ').slice(0, 3)
         return (
-          <div
-            className="flex h-full min-w-36 max-w-36 flex-col gap-3"
-            key={`calendar_item_${index}`}
-          >
+          <div className="flex h-full min-w-36 max-w-36 flex-col gap-3">
             <CalendarItemContainer
               style="date"
               description={eventDate[2]}
