@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom'
 import { Container } from '../../../components/Container/Container'
 import { Section } from '../../../components/Section/Section'
 import { Typography } from '../../../components/Typography/Typography'
-import { useGetEventItem } from '../components/CalendarSection/hooks/useGetEventItem.hook'
 import { Button } from '../../../components/Button/Button'
 import { EmailSection } from '../components/EmailSection/EmailSection'
 import { PromotionsSection } from '../components/PromotionsSection/PromotionsSection'
@@ -10,10 +9,11 @@ import { ImageURLFormatter } from '../../../utils/imageFormatter'
 import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
 import { CalendarItemContainerStyleTypeMap } from '../components/CalendarSection/types/CalendarSection.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.hook'
 
 export const EventsItem = () => {
   const { eventId } = useParams()
-  const { eventItem, isError, isLoading } = useGetEventItem(eventId!)
+  const { eventItem, isError, isLoading } = useGetEventsItem(eventId!)
 
   if (!eventItem || isError) {
     return <div>error</div>

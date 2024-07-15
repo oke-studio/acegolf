@@ -1,205 +1,5 @@
 
 
-export const GetAceQuery = `
-  query GetAce {
-    aceGolfBarComCollection(limit: 1) {
-      items {
-        activeDate
-        globalAnnouncementHeader
-        activeMenu {
-          menuName
-          bigBitesCollection {
-            items {
-              name
-              typeOfMeal
-              itemDescription
-              price
-              image {
-                title
-                url
-              }
-            }
-          }
-          bigBitesImage {
-            url
-          }
-          smallBitesCollection {
-            items {
-              name
-              typeOfMeal
-              itemDescription
-              price
-              image {
-                title
-                url
-              }
-            }
-          }
-          smallBitesImage {
-            url
-          }
-          dessertsCollection {
-            items {
-              name
-              typeOfMeal
-              itemDescription
-              price
-              image {
-                title
-              }
-            }
-          }
-          dessertsImage {
-            url
-          }
-          drinksCollection {
-            items {
-              name
-              itemDescription
-              price
-              image {
-                title
-              }
-            }
-          }
-          drinksImage {
-            url
-          }
-        }
-        activePriceGrid {
-          bayPricingScheduleName
-          effectiveDateRangeStart
-          effectiveDateRangeEnd
-          announcement
-          generalBayScheduleCollection {
-            items {
-              dayOfWeek
-              serviceTime1 {
-                beginningTime
-                endTime
-                nameOfServiceTime
-              }
-              serviceTime1Price
-              serviceTime2 {
-                beginningTime
-                endTime
-                nameOfServiceTime
-              }
-              serviceTime2Price
-            }
-          }
-          privateBayScheduleCollection {
-            items {
-              dayOfWeek
-              serviceTime1 {
-                beginningTime
-                endTime
-                nameOfServiceTime
-              }
-              serviceTime1Price
-              serviceTime2 {
-                beginningTime
-                endTime
-                nameOfServiceTime
-              }
-              serviceTime2Price
-            }
-          }
-        }
-        activeHowItWorks {
-          title
-          step1Title
-          step1Content
-          step1RelatedFaqCollection {
-            items {
-              question
-              answer
-              ctaLink
-              faqSlug
-              categoryRefrence {
-                faqCategoryName
-                slug
-              }
-            }
-          }
-          step2Title
-          step2Title
-          step2Content
-          step2RelatedFaqCollection {
-            items {
-              question
-              answer
-              ctaLink
-              faqSlug
-            }
-          }
-          step3Title
-          step3Content
-          step3RelatedFaqCollection {
-            items {
-              question
-              answer
-              ctaLink
-              faqSlug
-            }
-          }
-        }
-        activeEventsCollection {
-          items {
-            eventDate
-            eventsCollection {
-              items {
-                eventTitle
-                eventDuration
-                slugId
-                ctaText
-                eventDescription
-                ctaLink
-                eventType
-                eventPoster {
-                  title
-                  url
-                  description
-                  contentType
-                  fileName
-                }
-              }
-            }
-          }
-        }
-        activePromotionsCollection {
-          items {
-            eventTitle
-            slugId
-            eventDescription
-            eventPoster {
-              title
-              url
-              description
-              contentType
-              fileName
-            }
-          }
-        }
-        featuredTestimonialsCollection {
-          items {
-            type
-            nameOfPerson
-            testimonialMessage
-            imageVideo {
-              title
-              description
-              contentType
-              url
-              fileName
-            }
-            linkedUrl
-          }
-        }
-      }
-    }
-  }
-`
 
 export const GetFAQQuery = `
   query GetFAQ {
@@ -374,9 +174,6 @@ export const GetAceV2Query =`
             eventDescription
             ctaText
             ctaLink
-            eventDesc {
-              json
-            }
             eventPoster {
               title
               description
@@ -447,28 +244,77 @@ export const GetAboutPageQuery = `
 
 export const GetEventsQuery = `
   query getAceEvents {
-    newEventItemCollection {
-      items {
-        eventTitle
-        slugId
-        eventType
-        startDateTime
-        endDateTime
-        eventDescription
-        eventDesc {
-          json
+  newEventItemCollection(limit: 14) {
+    items {
+      eventTitle
+      slugId
+      eventType
+      startDateTime
+      endDateTime
+      eventDescription
+      ctaText
+      ctaLink
+      eventPageContentStackCollection {
+         items {
+          ... on GroupOfNumberedBlocks {
+            __typename
+            title
+            howItWorksStepsCollection {
+              items {
+                stepTitle
+                stepTextTitle
+                stepContent
+                stepCtaText
+                relatedFaqCollection {
+                  items {
+                    question
+                    faqSlug
+                    answer
+                    ctaText
+                    ctaLink
+                    categoryRefrence {
+                      faqCategoryName
+                      slug
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on TwoColumnMediaAndText {
+            sectionTitle
+            textColumn {
+              json
+            }
+            mediaColumn {
+              description
+              title
+              contentType
+              fileName
+              url
+            }
+            columnOrder
+          }
+          ... on LargeTitleAndCta {
+            titleText
+            textArea
+            ctaText
+            ctaLink
+          }
         }
-        ctaText
-        ctaLink
-        eventPoster {
-          url
-          fileName
-          description
-          contentType
-        }
+      }
+      eventDesc {
+        json
+      }
+      eventPoster {
+        url
+        fileName
+        description
+        contentType
       }
     }
   }
+}
 `
 
 export const GetCoachingPageQuery = `

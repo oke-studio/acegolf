@@ -15,3 +15,4 @@ export type {
   TypeAboutPageFields,
   TypeAceGolfStaffFields,
 } from './TypeAboutPage'
+export type { MediaItemFields as TypeMediaItemFields } from './TypeMisc'

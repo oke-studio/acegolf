@@ -5,7 +5,7 @@ export interface TypeHowItWorksFields {
   howItWorksStepsCollection: { items: TypeHowItWorksStepsFields[] }
 }
 
-interface TypeHowItWorksStepsFields {
+export interface TypeHowItWorksStepsFields {
   stepTitle: string
   stepTextTitle: string
   stepContent: string
