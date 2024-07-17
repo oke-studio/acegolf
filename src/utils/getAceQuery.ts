@@ -3,12 +3,14 @@ export async function getAceQuery(query: string) {
     VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
     VITE_PUBLIC_CONTENTFUL_SPACE_ID,
     VITE_CONTENFUL_ENVIRONMENT,
+    VITE_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN,
   } = import.meta.env
 
   if (
     !VITE_PUBLIC_CONTENTFUL_SPACE_ID ||
     !VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN ||
-    !VITE_CONTENFUL_ENVIRONMENT
+    !VITE_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN||
+    !VITE_CONTENFUL_ENVIRONMENT 
   ) {
     return Promise.reject()
   }
@@ -20,7 +22,7 @@ export async function getAceQuery(query: string) {
       headers: {
         'Content-Type': 'application/json',
 
-        Authorization: `Bearer ${VITE_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${VITE_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN}`,
       },
     }
   )

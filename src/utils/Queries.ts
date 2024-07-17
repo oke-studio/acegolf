@@ -6,7 +6,7 @@ const DateFilter = `startDateTime_lte: "${endDate.toISOString()}", endDateTime_g
 
 export const GetFAQQuery = `
   query GetFAQ {
-    faqItemCollection {
+    faqItemCollection (preview: true){
       items {
         question
         answer
@@ -24,7 +24,7 @@ export const GetFAQQuery = `
 
 export const GetAceV2Query = `
   query getAce {
-    aceHomePageCollection(limit: 1) {
+    aceHomePageCollection(preview: true, limit: 1) {
       items {
         name
         activePriceGrid {
@@ -225,7 +225,7 @@ export const GetAceV2Query = `
 
 export const GetAboutPageQuery = `
   query getAceAboutPage {
-    aboutPageCollection(limit: 1) {
+    aboutPageCollection(preview: true,limit: 1) {
       items {
         aboutPageTitle
         aboutPageBlurb
@@ -303,7 +303,7 @@ export const GetEventsItemQuery = (slugId: string) => `
 
 export const GetAceLeaguesItemQuery = (slugId: string) => `
 query getAceLeaguesItem {
-  newEventItemCollection(limit: 1, where: { eventType: "League", slugId: "${slugId}", ${DateFilter}}) {
+  newEventItemCollection( preview: true, limit: 1, where: { eventType: "League", slugId: "${slugId}", ${DateFilter}}) {
     items {
       eventTitle
       slugId
