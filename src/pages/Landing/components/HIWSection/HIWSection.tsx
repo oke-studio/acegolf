@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom'
-import { Button } from '../../../../components/Button/Button'
 import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from '../../../HIW/components/HIWSection/hooks/useGetHIW.hook'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { GroupOfNumberBlocksItems } from '../../../../components/Renderers/components/GroupOfNumberedBlocks/GroupOfNumberedBlocks.component'
 
 export const LandingHIWSection = () => {
