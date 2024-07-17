@@ -6,7 +6,7 @@ const DateFilter = `startDateTime_lte: "${endDate.toISOString()}", endDateTime_g
 
 export const GetFAQQuery = `
   query GetFAQ {
-    faqItemCollection (preview: true){
+    faqItemCollection {
       items {
         question
         answer
