@@ -4,6 +4,7 @@ import { Section } from '../../../../components/Section/Section'
 import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from '../../../HIW/components/HIWSection/hooks/useGetHIW.hook'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { GroupOfNumberBlocksItems } from '../../../../components/Renderers/components/GroupOfNumberedBlocks/GroupOfNumberedBlocks.component'
 
 export const LandingHIWSection = () => {
   const { howItWorksData, isError, isLoading } = useGetHowItWorks()
@@ -19,7 +20,7 @@ export const LandingHIWSection = () => {
   const { howItWorksStepsCollection } = howItWorksData
 
   return (
-    <Section style={{ backgroundColor: 'transparent', border: 0 }}>
+    <Section style={{ backgroundColor: 'transparent' }}>
       <div className="flex w-full flex-col justify-center gap-5 text-center text-white">
         <Typography
           fontVariant="headingOne"
@@ -28,47 +29,7 @@ export const LandingHIWSection = () => {
         >
           HOW IT WORKS
         </Typography>
-        <div className="flex flex-col justify-center gap-3 md:flex-row">
-          {howItWorksStepsCollection.items.map((p, index) => (
-            <div
-              className="first flex w-full flex-col items-center gap-4"
-              key={`hiw_steps_${index}`}
-            >
-              <Typography
-                fontVariant="headingFour"
-                fontWeight="700"
-                tailwindStyle="w-max bg-orange rounded-lg"
-              >
-                #{index + 1}
-              </Typography>
-              <Typography fontVariant="headingFour" fontWeight="700">
-                {p.stepTextTitle}
-              </Typography>
-              <Typography fontVariant="base" fontWeight="500">
-                {p.textContent && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: documentToHtmlString(p.textContent.json),
-                    }}
-                  >
-                    {}
-                  </div>
-                )}
-              </Typography>
-              <Button buttonVariant="simple">
-                <Link to={`${p.stepCtaLink}`}>
-                  <Typography
-                    fontVariant="base"
-                    fontWeight="500"
-                    tailwindStyle="underline"
-                  >
-                    {p.stepCtaText} &rarr;
-                  </Typography>
-                </Link>
-              </Button>
-            </div>
-          ))}
-        </div>
+        <GroupOfNumberBlocksItems items={howItWorksStepsCollection.items} />
       </div>
     </Section>
   )
