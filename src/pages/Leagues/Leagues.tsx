@@ -64,7 +64,7 @@ export const Leagues = () => {
 
             return (
               <Link
-                to={`/leagues/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
+                to={`/events/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
               >
                 <div
                   className="relative min-h-[30rem] w-full rounded-2xl"
@@ -92,7 +92,7 @@ export const Leagues = () => {
                       }}
                     >
                       <a
-                        href={`/leagues/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
+                        href={`/events/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
                       >
                         <Typography fontVariant="headingFour" fontWeight="500">
                           Learn More &rarr;
