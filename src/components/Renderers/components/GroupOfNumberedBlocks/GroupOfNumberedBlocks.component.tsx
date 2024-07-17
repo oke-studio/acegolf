@@ -80,7 +80,7 @@ export const GroupOfNumberBlocksItems = ({
 
       // Cleanup function
       return () => {
-        console.log('dead')
+        // console.log('dead')
         observer.disconnect()
       }
     }
@@ -114,12 +114,12 @@ export const GroupOfNumberBlocksItems = ({
                   className="flex w-full flex-col justify-center"
                   id="__left"
                 >
-                  <div className="m-auto h-[30%] w-full bg-transparent"></div>
+                  <div className="m-auto h-[15%] w-full bg-transparent"></div>
                 </div>
                 <Typography
                   fontVariant="headingFour"
                   fontWeight="700"
-                  tailwindStyle="w-max bg-orange rounded-lg min-w-max"
+                  tailwindStyle="w-max bg-orange rounded-lg min-w-max p-1"
                 >
                   #{index + 1}
                 </Typography>
@@ -127,7 +127,7 @@ export const GroupOfNumberBlocksItems = ({
                   className="flex w-full flex-col justify-center"
                   id="__right"
                 >
-                  <div className="m-auto h-[30%] w-full bg-transparent"></div>
+                  <div className="m-auto h-[15%] w-full bg-transparent"></div>
                 </div>
               </div>
               <Typography fontVariant="headingFour" fontWeight="700">
