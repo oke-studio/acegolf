@@ -12,6 +12,7 @@ export interface TypeHowItWorksStepsFields {
   textContent: {
     json: Document
   }
+  stepContent: string
   stepCtaText?: string
   stepCtaLink?: string
   relatedFaqCollection?: { items: TypeFaqItemFields[] }
