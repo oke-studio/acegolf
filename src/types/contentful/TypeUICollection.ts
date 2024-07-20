@@ -12,7 +12,7 @@ export interface TypeTwoColAndMedia {
 export interface TypeGroupOfNumberedBlocks {
   __typename: 'GroupOfNumberedBlocks'
   title: string
-  howItWorksStepsCollection: TypeHowItWorksStepsFields
+  howItWorksStepsCollection: { items: TypeHowItWorksStepsFields[] }
 }
 export interface TypeLargeTitleAndCTA {
   __typename: 'LargeTitleAndCta'

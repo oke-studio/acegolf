@@ -2,6 +2,7 @@ import { TypeUICollection } from '../../types/contentful'
 import {
   LargeTitleAndCta,
   TwoColumnMediaAndText,
+  GroupOfNumberedBlocks,
 } from '../../components/Renderers'
 
 export const getUIRenderer = (
@@ -25,8 +26,13 @@ export const getUIRenderer = (
               />
             )
           case 'GroupOfNumberedBlocks':
-            // return <div>Group of numbered blocks</div>
-            return <></>
+            return (
+              <GroupOfNumberedBlocks
+                item={e}
+                key={`group_of_numbered_blocks_${index}`}
+              />
+            )
+
           case 'LargeTitleAndCta':
             return (
               <LargeTitleAndCta item={e} key={`large_title_and_cta_${index}`} />
