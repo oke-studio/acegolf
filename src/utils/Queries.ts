@@ -320,6 +320,9 @@ query getAceLeaguesItem {
                 stepTextTitle
                 stepContent
                 stepCtaText
+                textContent {
+                  json
+                }
                 relatedFaqCollection {
                   items {
                     question
