@@ -21,7 +21,7 @@ const NavOptions = [
   { label: 'How it Works', to: '/how-it-works' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Events', to: '/events' },
-  { label: 'Leagues', to: '/leagues' },
+  //{ label: 'Leagues', to: '/leagues' },
   { label: 'Coaching', to: '/coaching' },
 ]
 
