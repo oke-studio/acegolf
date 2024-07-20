@@ -8,13 +8,17 @@ import { Section } from '../../../Section/Section'
 import { Typography } from '../../../Typography/Typography'
 import classNames from 'classnames'
 import { useMediaQuery } from 'react-responsive'
+import { Button } from '../../../Button/Button'
+import { Link } from 'react-router-dom'
 
 export const GroupOfNumberBlocksItems = ({
   items,
+  isMobile,
 }: {
   items: TypeHowItWorksStepsFields[]
+  isMobile?: boolean
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: '770px' })
+  //   const isMobile = useMediaQuery({ maxWidth: '640px' })
 
   const numberedBlocksContainerRef = useRef(null)
 
@@ -95,7 +99,13 @@ export const GroupOfNumberBlocksItems = ({
       ref={numberedBlocksContainerRef}
     >
       {items.map((h, index) => {
-        const { stepTextTitle, stepContent, textContent } = h
+        const {
+          stepTextTitle,
+          stepContent,
+          textContent,
+          stepCtaText,
+          stepCtaLink,
+        } = h
 
         // debugger
         return (
@@ -105,7 +115,7 @@ export const GroupOfNumberBlocksItems = ({
             )}
             <div
               className={classNames(
-                'flex flex-grow flex-col gap-3',
+                'flex flex-grow flex-col gap-6',
                 isMobile ? 'w-full' : 'max-w-64'
               )}
             >
@@ -144,6 +154,164 @@ export const GroupOfNumberBlocksItems = ({
                   </div>
                 )}
               </Typography>
+              {stepCtaLink && (
+                <Button buttonVariant="simple">
+                  <Link to={`${stepCtaLink}`}>
+                    <Typography
+                      fontVariant="base"
+                      fontWeight="500"
+                      tailwindStyle="underline"
+                    >
+                      {stepCtaText} &rarr;
+                    </Typography>
+                  </Link>
+                </Button>
+              )}
+            </div>
+          </>
+        )
+      })}
+    </div>
+  )
+}
+
+export const GroupOfNumberedBlocksItemsMobile = ({
+  items,
+}: {
+  items: TypeHowItWorksStepsFields[]
+}) => {
+  const isMobile = useMediaQuery({ maxWidth: '770px' })
+
+  const numberedBlocksContainerRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (numberedBlocksContainerRef.current) {
+      const observer = new ResizeObserver((entries) => {
+        entries.forEach((entry) => {
+          const blocks = entry.target
+          ;[...blocks.children]
+            .filter((el) => el.id !== '__break')
+            .forEach((el) => {
+              //   console.log(
+              //     JSON.stringify(
+              //       {
+              //         name: el.id,
+              //         self: el.getBoundingClientRect(),
+              //         prev: el.previousElementSibling?.getBoundingClientRect(),
+              //         next: el.nextElementSibling?.getBoundingClientRect(),
+              //       },
+              //       null,
+              //       2
+              //     )
+              //   )
+
+              const isBlockUp = el.previousElementSibling
+              const isBlockDown = el.nextElementSibling
+
+              if (isBlockDown) {
+                el.children[0].children[2].children[0].classList.replace(
+                  'bg-transparent',
+                  'bg-orange'
+                )
+              } else {
+                el.children[0].children[2].children[0].classList.replace(
+                  'bg-orange',
+                  'bg-transparent'
+                )
+              }
+              if (isBlockUp) {
+                el.children[0].children[0].children[0].classList.replace(
+                  'bg-transparent',
+                  'bg-orange'
+                )
+              } else {
+                el.children[0].children[0].children[0].classList.replace(
+                  'bg-orange',
+                  'bg-transparent'
+                )
+              }
+            })
+        })
+      })
+
+      observer.observe(numberedBlocksContainerRef.current)
+
+      // Cleanup function
+      return () => {
+        // console.log('dead')
+        observer.disconnect()
+      }
+    }
+  }, [])
+
+  return (
+    <div
+      className={classNames('flex flex-wrap justify-center')}
+      ref={numberedBlocksContainerRef}
+    >
+      {items.map((h, index) => {
+        const {
+          stepTextTitle,
+          stepContent,
+          textContent,
+          stepCtaText,
+          stepCtaLink,
+        } = h
+
+        // debugger
+        return (
+          <>
+            <div className={classNames('flex w-full flex-grow gap-3')}>
+              <div className="flex w-12 flex-col">
+                <div
+                  className="flex h-full flex-col justify-center"
+                  id="__left"
+                >
+                  <div className="m-auto h-full w-3 bg-transparent"></div>
+                </div>
+                <Typography
+                  fontVariant="headingFour"
+                  fontWeight="700"
+                  tailwindStyle="w-full bg-orange rounded-lg p-2"
+                >
+                  #{index + 1}
+                </Typography>
+                <div
+                  className="flex h-full flex-col justify-center"
+                  id="__right"
+                >
+                  <div className="m-auto h-full w-3 bg-transparent"></div>
+                </div>
+              </div>
+              <div className="m-6 flex flex-col flex-nowrap gap-3">
+                <Typography fontVariant="headingFour" fontWeight="700">
+                  {stepTextTitle}
+                </Typography>
+                <Typography fontVariant="base" fontWeight="500">
+                  {stepContent && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: documentToHtmlString(textContent.json),
+                      }}
+                    >
+                      {}
+                    </div>
+                  )}
+                </Typography>
+                {stepCtaLink && (
+                  <Button buttonVariant="simple">
+                    <Link to={`${stepCtaLink}`}>
+                      <Typography
+                        fontVariant="base"
+                        fontWeight="500"
+                        tailwindStyle="underline"
+                      >
+                        {stepCtaText} &rarr;
+                      </Typography>
+                    </Link>
+                  </Button>
+                )}
+              </div>
             </div>
           </>
         )
@@ -158,14 +326,28 @@ export const GroupOfNumberedBlocks = ({
   item: TypeGroupOfNumberedBlocks
 }) => {
   const { howItWorksStepsCollection, title } = item
+  const isMobile = useMediaQuery({ maxWidth: '770px' })
 
   return (
     <Section tailWindStyle="bg-transparent">
       <div className="flex flex-col justify-center gap-4 text-center text-white">
-        <Typography fontVariant="headingFour" fontWeight="900">
+        <Typography
+          fontVariant="headingOne"
+          fontWeight="900"
+          fontStyle="italic"
+        >
           {title}
         </Typography>
-        <GroupOfNumberBlocksItems items={howItWorksStepsCollection.items} />
+        {isMobile ? (
+          <GroupOfNumberedBlocksItemsMobile
+            items={howItWorksStepsCollection.items}
+          />
+        ) : (
+          <GroupOfNumberBlocksItems
+            items={howItWorksStepsCollection.items}
+            isMobile={isMobile}
+          />
+        )}
       </div>
     </Section>
   )
