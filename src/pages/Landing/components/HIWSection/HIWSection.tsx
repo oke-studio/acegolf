@@ -1,5 +1,3 @@
-import { Section } from '../../../../components/Section/Section'
-import { Typography } from '../../../../components/Typography/Typography'
 import { useGetHowItWorks } from '../../../HIW/components/HIWSection/hooks/useGetHIW.hook'
 import { GroupOfNumberedBlocks } from '../../../../components/Renderers/components/GroupOfNumberedBlocks/GroupOfNumberedBlocks.component'
 

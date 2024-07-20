@@ -180,8 +180,6 @@ export const GroupOfNumberedBlocksItemsMobile = ({
 }: {
   items: TypeHowItWorksStepsFields[]
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: '770px' })
-
   const numberedBlocksContainerRef = useRef(null)
 
   useLayoutEffect(() => {
