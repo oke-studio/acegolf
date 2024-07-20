@@ -330,7 +330,7 @@ export const GroupOfNumberedBlocks = ({
     <Section tailWindStyle="bg-transparent">
       <div className="flex flex-col justify-center gap-4 text-center text-white">
         <Typography
-          fontVariant="headingTwo"
+          fontVariant="headingOne"
           fontWeight="900"
           fontStyle="italic"
         >

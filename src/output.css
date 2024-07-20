@@ -1039,6 +1039,26 @@ video {
   height: 100vh;
 }
 
+.h-\[30\%\] {
+  height: 30%;
+}
+
+.h-0 {
+  height: 0px;
+}
+
+.h-\[40\%\] {
+  height: 40%;
+}
+
+.h-\[20\%\] {
+  height: 20%;
+}
+
+.h-\[15\%\] {
+  height: 15%;
+}
+
 .max-h-16 {
   max-height: 4rem;
 }
@@ -1120,6 +1140,10 @@ video {
   width: 1.5rem;
 }
 
+.w-7 {
+  width: 1.75rem;
+}
+
 .w-72 {
   width: 18rem;
 }
@@ -1168,6 +1192,18 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-\[35\%\] {
+  width: 35%;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.w-11 {
+  width: 2.75rem;
 }
 
 .min-w-20 {
@@ -1225,6 +1261,36 @@ video {
 
 .max-w-\[60rem\] {
   max-width: 60rem;
+}
+
+.max-w-96 {
+  max-width: 24rem;
+}
+
+.max-w-72 {
+  max-width: 18rem;
+}
+
+.max-w-64 {
+  max-width: 16rem;
+}
+
+.max-w-5 {
+  max-width: 1.25rem;
+}
+
+.max-w-52 {
+  max-width: 13rem;
+}
+
+.max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.max-w-min {
+  max-width: -moz-min-content;
+  max-width: min-content;
 }
 
 .flex-1 {
@@ -1435,8 +1501,28 @@ video {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+.grid-cols-\[1fr_auto\] {
+  grid-template-columns: 1fr auto;
+}
+
 .grid-cols-\[repeat\(4\2c _1fr\)\] {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-\[repeat\(auto-fill\2c _minmax\(250px\2c 1fr\)\)\] {
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+}
+
+.grid-cols-\[repeat\(auto-fill\2c _minmax\(300px\2c 1fr\)\)\] {
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
 }
 
 .grid-rows-2 {
@@ -1457,6 +1543,10 @@ video {
 
 .grid-rows-\[1fr_1fr_1fr\] {
   grid-template-rows: 1fr 1fr 1fr;
+}
+
+.grid-rows-subgrid {
+  grid-template-rows: subgrid;
 }
 
 .flex-row {
@@ -1834,6 +1924,11 @@ video {
 .border-violet-500 {
   --tw-border-opacity: 1;
   border-color: rgb(139 92 246 / var(--tw-border-opacity));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-white) / var(--tw-border-opacity));
 }
 
 .border-r-lightBlack {
