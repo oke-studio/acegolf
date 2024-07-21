@@ -1,6 +1,6 @@
 // import { Button } from '../../components/Button/Button'
 import { Container } from '../../components/Container/Container'
-import { Section } from '../../components/Section/Section'
+// import { Section } from '../../components/Section/Section'
 import { Typography } from '../../components/Typography/Typography'
 // import { useGetEvents } from '../../hooks/UseGetEvents/useGetEvents.hook'
 // import { ImageURLFormatter } from '../../utils/imageFormatter'
