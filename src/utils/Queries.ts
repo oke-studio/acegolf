@@ -273,16 +273,70 @@ export const GetEventsQuery = `
 
 export const GetEventsItemQuery = (slugId: string) => `
   query getAceEventsItem {
-  newEventItemCollection(where: {${DateFilter}, slugId: "${slugId}"}) {
+  newEventItemCollection(limit: 1, where: {${DateFilter}, slugId: "${slugId}"}) {
     items {
       eventTitle
       slugId
       eventType
       startDateTime
-      endDateTime
+      endDateTime	
       eventDescription
       ctaText
       ctaLink
+      eventPageContentStackCollection {
+        items {
+          ... on GroupOfNumberedBlocks {
+            __typename
+            title
+            howItWorksStepsCollection {
+              items {
+                stepTitle
+                stepTextTitle
+                stepContent
+                stepCtaText
+                textContent {
+                  json
+                }
+                relatedFaqCollection {
+                  items {
+                    question
+                    faqSlug
+                    answer
+                    ctaText
+                    ctaLink
+                    categoryRefrence {
+                      faqCategoryName
+                      slug
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on TwoColumnMediaAndText {
+            __typename
+            sectionTitle
+            textColumn {
+              json
+            }
+            mediaColumn {
+              description
+              title
+              contentType
+              fileName
+              url
+            }
+            columnOrder
+          }
+          ... on LargeTitleAndCta {
+            __typename
+            titleText
+            textArea
+            ctaText
+            ctaLink
+          }
+        }
+      }
       eventDesc {
         json
       }
