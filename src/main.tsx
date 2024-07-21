@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
       { path: 'coaching', element: <Coaching /> },
       { path: 'leagues', element: <Leagues /> },
-      { path: 'leagues/:eventId/:eventDate', element: <LeaguesItem /> },
+      // { path: 'leagues/:eventId/:eventDate', element: <LeaguesItem /> },
       { path: 'faq', element: <FAQ /> },
       // { path: 'membership', element: <Membership /> },
       //  {path: '/ace-summer-camp-sign-up', element:<SummerCampRedirect/> },
