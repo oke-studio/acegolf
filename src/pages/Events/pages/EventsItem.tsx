@@ -76,11 +76,7 @@ export const EventsItem = () => {
           style={{
             padding: '24px 24px',
           }}
-          tailWindStyle={
-            CalendaritemContainerStyles[eventItemType].style + isLeague
-              ? 'bg-transparent'
-              : ''
-          }
+          tailWindStyle={CalendaritemContainerStyles[eventItemType].style}
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
