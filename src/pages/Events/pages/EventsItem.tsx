@@ -58,29 +58,26 @@ export const EventsItem = () => {
             // ...(isMobile && { justifyContent: 'center' }),
           }}
         >
-          <Link to={isLeague ? '/leagues' : '/events'}>
+          <Link to={isLeague ? '/leagues' : '/calendar'}>
             <Typography
               fontVariant="extralarge"
               fontWeight="600"
               tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4 hover:text-orange "
             >
               {isLeague ? (
-                <>&larr; Back to all Leagues</>
+                <>&larr; See All Leagues</>
               ) : (
-                <>&larr; Back to all Events</>
+                <>&larr; Back to Event Calendar</>
               )}
             </Typography>
           </Link>
         </Section>
         <Section
+          tailWindStyle={CalendaritemContainerStyles[eventItemType].style}
           style={{
             padding: '24px 24px',
+            backgroundColor: isLeague ? 'transparent' : '',
           }}
-          tailWindStyle={
-            CalendaritemContainerStyles[eventItemType].style + isLeague
-              ? 'bg-transparent'
-              : ''
-          }
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
@@ -98,27 +95,31 @@ export const EventsItem = () => {
               />
             </div>
             {/* Copy */}
-            <div className="flex flex-col gap-3 pb-0 pt-8 text-left text-white md:p-20 md:px-6">
-              <Typography fontVariant="base" fontWeight="600">
-                {currentEvent.eventTitle}
-              </Typography>
-              <Typography fontVariant="base" fontWeight="300">
-                {startDate} - {endDate}
-              </Typography>
+            <div className="flex flex-col gap-10 pb-0 pt-8 text-left text-white md:p-20 md:px-6">
+              <div className="flex flex-col gap-4">
+                <Typography fontVariant="headingThree" fontWeight="600">
+                  {currentEvent.eventTitle}
+                </Typography>
+                <Typography fontVariant="extralarge" fontWeight="300">
+                  {startDate} - {endDate}
+                </Typography>
+              </div>
 
               {currentEvent.eventDesc && (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: documentToHtmlString(currentEvent.eventDesc.json),
-                  }}
-                >
-                  {}
-                </div>
+                <Typography fontVariant="large" fontWeight="300">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: documentToHtmlString(currentEvent.eventDesc.json),
+                    }}
+                  >
+                    {}
+                  </div>
+                </Typography>
               )}
               {isCTA && (
                 <Button buttonVariant="primary">
                   <a href={currentEvent.ctaLink!} target="__blank">
-                    <Typography fontVariant="base" fontWeight="300">
+                    <Typography fontVariant="extralarge" fontWeight="400">
                       {currentEvent.ctaText} &rarr;
                     </Typography>
                   </a>

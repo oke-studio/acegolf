@@ -20,15 +20,21 @@ export const TwoColumnMediaAndText = ({
           columnOrder ? 'flex-row' : 'flex-row-reverse'
         )}
       >
-        <div className="flex flex-col flex-nowrap">
-          <Typography fontVariant="headingFour" fontWeight="900">
+        <div className="flex flex-col flex-nowrap gap-4">
+          <Typography
+            fontVariant="headingTwo"
+            fontWeight="900"
+            tailwindStyle={'uppercase'}
+          >
             {sectionTitle}
           </Typography>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(textColumn.json),
-            }}
-          />
+          <Typography fontVariant="large" fontWeight="300">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: documentToHtmlString(textColumn.json),
+              }}
+            />
+          </Typography>
         </div>
         <div className="relative flex w-full flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
           <div

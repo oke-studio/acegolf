@@ -144,7 +144,9 @@ export const CardSection = () => {
             {/* <PricesCard /> */}
             <ParkingCard />
           </div>
-          <CalendarSection />
+          <div id="event-calendar">
+            <CalendarSection />
+          </div>
 
           {/* <MenuCard /> */}
         </div>
