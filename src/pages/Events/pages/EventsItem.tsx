@@ -10,6 +10,8 @@ import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.
 import { CalendarItemContainerStyleTypeMap } from '../../../types/Pages/Events/CalendarSection.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.hook'
+import { getUIRenderer } from '../../../hooks/GetUIRenderer/getUIRenderer.hook'
+import { LeaguesFAQ } from '../../Leagues/components/LeaguesFAQ/LeaguesFAQ.component'
 
 export const EventsItem = () => {
   const { eventId } = useParams()
@@ -36,6 +38,10 @@ export const EventsItem = () => {
   const startDate = new Date(currentEvent.endDateTime).toDateString()
   const endDate = new Date(currentEvent.startDateTime).toDateString()
 
+  const isLeague = eventItemType === 'league'
+
+  console.log(currentEvent?.eventPageContentStackCollection?.items)
+
   return (
     <>
       <Container>
@@ -52,13 +58,17 @@ export const EventsItem = () => {
             // ...(isMobile && { justifyContent: 'center' }),
           }}
         >
-          <Link to="/events">
+          <Link to={isLeague ? '/leagues' : '/events'}>
             <Typography
               fontVariant="extralarge"
               fontWeight="600"
               tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4 hover:text-orange "
             >
-              &larr; Back to all events
+              {isLeague ? (
+                <>&larr; Back to all Leagues</>
+              ) : (
+                <>&larr; Back to all Events</>
+              )}
             </Typography>
           </Link>
         </Section>
@@ -66,7 +76,11 @@ export const EventsItem = () => {
           style={{
             padding: '24px 24px',
           }}
-          tailWindStyle={CalendaritemContainerStyles[eventItemType].style}
+          tailWindStyle={
+            CalendaritemContainerStyles[eventItemType].style + isLeague
+              ? 'bg-transparent'
+              : ''
+          }
         >
           <div className="flex flex-wrap *:grow *:basis-64">
             {/* Image */}
@@ -113,7 +127,11 @@ export const EventsItem = () => {
             </div>
           </div>
         </Section>
-        <PromotionsSection />
+
+        {getUIRenderer(currentEvent?.eventPageContentStackCollection?.items)}
+
+        {isLeague && <LeaguesFAQ />}
+        {!isLeague && <PromotionsSection />}
         <EmailSection />
       </Container>
     </>

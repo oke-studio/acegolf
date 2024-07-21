@@ -51,8 +51,6 @@ const CalendarItemContainer = ({
     )
   }
 
-  const isLeague = style === 'league'
-
   return (
     <Link
       className={classNames(
@@ -60,7 +58,7 @@ const CalendarItemContainer = ({
         CalendaritemContainerStyles[style].style
       )}
       //   onClick={() => router}
-      to={isLeague ? `/leagues/${to}` : `/events/${to}`}
+      to={`/events/${to}`}
     >
       <div>
         <Typography fontVariant="base" fontWeight="500">
