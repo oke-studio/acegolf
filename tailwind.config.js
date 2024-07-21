@@ -59,6 +59,7 @@ export default {
         purple: 'rgb(var(--color-purple) / <alpha-value>)',
         grey: 'rgb(var(--color-grey) / <alpha-value>)',
         lightOrange: 'rgb(var(--color-lightOrange) / <alpha-value>)',
+        limeGreen: 'rgb(var(--color-limeGreen) / <alpha-value>)',
       },
     },
   },

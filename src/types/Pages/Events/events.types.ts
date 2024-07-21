@@ -22,7 +22,7 @@ export const CalendaritemContainerStyles: {
     style: 'bg-sharpTeal text-black',
     defaultImgSrc: privateEvent,
   },
-  league: { style: 'bg-lime-400 text-black', defaultImgSrc: league },
+  league: { style: 'bg-limeGreen text-black', defaultImgSrc: league },
   hidden: { style: 'hidden', defaultImgSrc: '' },
   date: { style: 'bg-grey', defaultImgSrc: '' },
 }
