@@ -31,6 +31,11 @@ const FooterLinksArray = [
   //   name: 'Membership',
   //   to: '/membership',
   // },
+
+  {
+    name: 'Calendar',
+    to: '/calendar',
+  },
 ]
 
 export const FooterLinks = () => {

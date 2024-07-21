@@ -58,16 +58,16 @@ export const EventsItem = () => {
             // ...(isMobile && { justifyContent: 'center' }),
           }}
         >
-          <Link to={isLeague ? '/leagues' : '/events'}>
+          <Link to={isLeague ? '/leagues' : '/calendar'}>
             <Typography
               fontVariant="extralarge"
               fontWeight="600"
               tailwindStyle="flex flex-col items-center justify-center gap-6 text-5xl font-semibold text-white md:gap-4 hover:text-orange "
             >
               {isLeague ? (
-                <>&larr; Back to all Leagues</>
+                <>&larr; See All Leagues</>
               ) : (
-                <>&larr; Back to all Events</>
+                <>&larr; Back to Event Calendar</>
               )}
             </Typography>
           </Link>
