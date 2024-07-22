@@ -21,7 +21,7 @@ export const CalendarPage = () => {
             EVENTS CALENDAR
           </Typography>
           <Typography fontVariant="headingFour" fontWeight="500">
-            Be the first to know about the latest ACE Golf promos and events
+            Be the first to know about the latest ACE Golf promos and events.
           </Typography>
         </div>
 
