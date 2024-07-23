@@ -67,7 +67,7 @@ export const EventsItem = () => {
               {isLeague ? (
                 <>&larr; See All Leagues</>
               ) : (
-                <>&larr; Back to Event Calendar</>
+                <>&larr; Back to Activities Calendar</>
               )}
             </Typography>
           </Link>

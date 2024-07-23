@@ -18,7 +18,7 @@ export const CalendarPage = () => {
       >
         <div className="flex flex-col items-center gap-4 text-center text-white">
           <Typography fontVariant="headingOne" fontWeight="900">
-            EVENTS CALENDAR
+            ACTIVITIES CALENDAR
           </Typography>
           <Typography fontVariant="headingFour" fontWeight="500">
             Be the first to know about the latest ACE Golf promos and events.
