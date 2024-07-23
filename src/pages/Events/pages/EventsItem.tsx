@@ -13,6 +13,8 @@ import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.h
 import { getUIRenderer } from '../../../hooks/GetUIRenderer/getUIRenderer.hook'
 import { LeaguesFAQ } from '../../Leagues/components/LeaguesFAQ/LeaguesFAQ.component'
 
+import moment from 'moment'
+
 export const EventsItem = () => {
   const { eventId } = useParams()
   const { eventItem, isError, isLoading } = useGetEventsItem(eventId!)
@@ -35,12 +37,10 @@ export const EventsItem = () => {
 
   const imgSrc = eventItem.eventPoster?.url ?? defaultImgSrc
 
-  const startDate = new Date(currentEvent.endDateTime).toDateString()
-  const endDate = new Date(currentEvent.startDateTime).toDateString()
+  const startDate = moment(currentEvent.startDateTime)
+  const endDate = moment(currentEvent.endDateTime)
 
   const isLeague = eventItemType === 'league'
-
-  console.log(currentEvent?.eventPageContentStackCollection?.items)
 
   return (
     <>
@@ -101,7 +101,11 @@ export const EventsItem = () => {
                   {currentEvent.eventTitle}
                 </Typography>
                 <Typography fontVariant="extralarge" fontWeight="300">
-                  {startDate} - {endDate}
+                  {startDate.format('MMMM Do YYYY')} -{' '}
+                  {endDate.format('MMMM Do YYYY')}
+                </Typography>
+                <Typography fontVariant="extralarge" fontWeight="300">
+                  {startDate.format('hh:mm A')} - {endDate.format('hh:mm A')}
                 </Typography>
               </div>
 
