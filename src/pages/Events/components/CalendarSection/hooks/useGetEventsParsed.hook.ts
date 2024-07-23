@@ -5,9 +5,9 @@ import {
 } from '../../../../../types/Pages/Events/CalendarSection.types'
 import moment from 'moment'
 
-const extractTime = (time: Date) => {
-  return `${String(time.getHours()).padStart(2, '0')}:${String(time.getMinutes()).padStart(2, '0')}`
-}
+// const extractTime = (time: Date) => {
+//   return `${String(time.getHours()).padStart(2, '0')}:${String(time.getMinutes()).padStart(2, '0')}`
+// }
 
 export function useGetEventsParsed() {
   const { eventsData, isError, isLoading } = useGetEvents()
