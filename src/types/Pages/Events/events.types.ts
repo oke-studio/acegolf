@@ -14,7 +14,7 @@ export const CalendaritemContainerStyles: {
     defaultImgSrc: string
   }
 } = {
-  closed: { style: 'bg-black text-orange', defaultImgSrc: closed },
+  closed: { style: 'bg-black text-white', defaultImgSrc: closed },
   adjusted: { style: 'bg-orange text-black', defaultImgSrc: adjusted },
   promotion: { style: 'bg-green text-white', defaultImgSrc: promotion },
   event: { style: 'bg-lightOrange text-black', defaultImgSrc: event },
