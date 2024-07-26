@@ -7,11 +7,11 @@ import { useGetCoachingPage } from '../../hooks/UseGetAceCoachingPageQuery/useGe
 export const Coaching = () => {
   const { coachingData, isError, isLoading } = useGetCoachingPage()
   if (!coachingData || isError) {
-    return <>error</>
+    return <></>
   }
 
   if (isLoading) {
-    return <>loading</>
+    return <></>
   }
 
   const coaches = coachingData.coachingProfilesCollection.items

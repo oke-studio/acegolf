@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Container } from '../../../components/Container/Container'
 import { Section } from '../../../components/Section/Section'
@@ -8,30 +9,75 @@ import { PromotionsSection } from '../components/PromotionsSection/PromotionsSec
 import { ImageURLFormatter } from '../../../utils/imageFormatter'
 import { CalendaritemContainerStyles } from '../../../types/Pages/Events/events.types'
 import { CalendarItemContainerStyleTypeMap } from '../../../types/Pages/Events/CalendarSection.types'
+import { CalendarItemContainerStyleType } from '../../../types/Pages/Events/CalendarSection.types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { useGetEventsItem } from '../../../hooks/UseGetEvents/useGetEventsItem.hook'
 import { getUIRenderer } from '../../../hooks/GetUIRenderer/getUIRenderer.hook'
 import { LeaguesFAQ } from '../../Leagues/components/LeaguesFAQ/LeaguesFAQ.component'
 
 import moment from 'moment'
+import classNames from 'classnames'
+
+const EventsItemPillStruct: {
+  [k in CalendarItemContainerStyleType]?: {
+    style: string
+    tag: string
+  }
+} = {
+  adjusted: {
+    style: 'text-black bg-sharpTeal',
+    tag: 'Expired Notice',
+  },
+  closed: {
+    style: 'text-black bg-orange',
+    tag: 'Expired Notice',
+  },
+  event: {
+    style: 'bg-purple text-black',
+    tag: 'Event Passed',
+  },
+  private_event: {
+    style: 'bg-orange text-black',
+    tag: 'Event Passed',
+  },
+  promotion: {
+    style: 'text-black bg-orange',
+    tag: 'Promotion Over',
+  },
+  league: {
+    style: 'bg-orange text-black',
+    tag: 'League Closed',
+  },
+}
 
 export const EventsItem = () => {
   const { eventId } = useParams()
-  const { eventItem, isError, isLoading } = useGetEventsItem(eventId!)
+  const { eventItem, isError, isLoading, refetch } = useGetEventsItem(eventId!)
+
+  useEffect(() => {
+    refetch()
+  }, [eventId, refetch])
+
+  console.log(eventId)
 
   if (!eventItem || isError) {
-    return <div>error</div>
+    return <div></div>
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div></div>
   }
 
   const isCTA = eventItem.ctaLink && eventItem.ctaText
   const currentEvent = eventItem
 
+  const isActiveEvent =
+    moment(currentEvent.endDateTime).diff(moment.now(), 'days') > 0
+
   const eventItemType =
     CalendarItemContainerStyleTypeMap[currentEvent.eventType] ?? 'event'
+
+  const eventItemPill = EventsItemPillStruct[eventItemType]
 
   const defaultImgSrc = CalendaritemContainerStyles[eventItemType].defaultImgSrc
 
@@ -95,18 +141,46 @@ export const EventsItem = () => {
               />
             </div>
             {/* Copy */}
-            <div className="flex flex-col gap-10 pb-0 pt-8 text-left text-white md:p-20 md:px-6">
+            <div
+              className={classNames(
+                'flex flex-col gap-10 pb-0 pt-8 text-left md:p-20 md:px-6',
+                isLeague ? 'text-white' : ''
+              )}
+            >
               <div className="flex flex-col gap-4">
                 <Typography fontVariant="headingThree" fontWeight="600">
                   {currentEvent.eventTitle}
                 </Typography>
-                <Typography fontVariant="extralarge" fontWeight="300">
-                  {startDate.format('MMMM Do YYYY')} -{' '}
-                  {endDate.format('MMMM Do YYYY')}
-                </Typography>
-                <Typography fontVariant="extralarge" fontWeight="300">
+                <div className="flex gap-4">
+                  <Typography
+                    fontVariant="extralarge"
+                    fontWeight="300"
+                    tailwindStyle="text-nowrap"
+                  >
+                    {startDate.format('MMMM Do YYYY')} -{' '}
+                    {endDate.format('MMMM Do YYYY')}
+                  </Typography>
+                  {!isActiveEvent && (
+                    <div
+                      className={classNames(
+                        'h-max rounded-3xl px-4 py-1 text-center',
+                        eventItemPill?.style
+                      )}
+                    >
+                      <Typography
+                        fontVariant="base"
+                        fontWeight="600"
+                        fontStyle="italic"
+                        tailwindStyle="text-nowrap "
+                      >
+                        {eventItemPill?.tag}
+                      </Typography>
+                    </div>
+                  )}
+                </div>
+                {/* <Typography fontVariant="extralarge" fontWeight="300">
                   {startDate.format('hh:mm A')} - {endDate.format('hh:mm A')}
-                </Typography>
+                </Typography> */}
               </div>
 
               {currentEvent.eventDesc && (

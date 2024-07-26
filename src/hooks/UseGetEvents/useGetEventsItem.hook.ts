@@ -15,9 +15,10 @@ const useGetAceEventsItemQuery = (slugId: string) => {
 }
 
 export function useGetEventsItem(eventId: string) {
-  const { data, isError, isLoading } = useGetAceEventsItemQuery(eventId)
+  const { data, isError, isLoading, refetch } =
+    useGetAceEventsItemQuery(eventId)
 
   const eventItem = data?.data.newEventItemCollection.items[0]
 
-  return { eventItem, isLoading, isError }
+  return { eventItem, isLoading, isError, refetch }
 }
