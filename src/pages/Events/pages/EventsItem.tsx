@@ -58,8 +58,6 @@ export const EventsItem = () => {
     refetch()
   }, [eventId, refetch])
 
-  console.log(eventId)
-
   if (!eventItem || isError) {
     return <div></div>
   }
