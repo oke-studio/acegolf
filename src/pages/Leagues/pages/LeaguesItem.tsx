@@ -16,11 +16,11 @@ export const LeaguesItem = () => {
   const { leagueItem, isError, isLoading } = useGetAceLeaguesEventItem(eventId!)
 
   if (!leagueItem || isError) {
-    return <div>error</div>
+    return <div></div>
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div></div>
   }
 
   const isCTA = leagueItem.ctaLink && leagueItem.ctaText

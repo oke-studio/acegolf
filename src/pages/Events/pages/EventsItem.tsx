@@ -61,11 +61,11 @@ export const EventsItem = () => {
   console.log(eventId)
 
   if (!eventItem || isError) {
-    return <div>error</div>
+    return <div></div>
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div></div>
   }
 
   const isCTA = eventItem.ctaLink && eventItem.ctaText
