@@ -107,6 +107,8 @@ export const GroupOfNumberBlocksItems = ({
           stepCtaLink,
         } = h
 
+        console.log(h)
+
         // debugger
         return (
           <>

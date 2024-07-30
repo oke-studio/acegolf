@@ -80,6 +80,9 @@ export const GetAceV2Query = `
               stepContent
               stepCtaText
               stepCtaLink
+              textContent {
+                json
+              }
               relatedFaqCollection {
                 items {
                   question
