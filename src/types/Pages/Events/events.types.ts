@@ -14,7 +14,7 @@ export const CalendaritemContainerStyles: {
     defaultImgSrc: string
   }
 } = {
-  closed: { style: 'bg-black text-orange', defaultImgSrc: closed },
+  closed: { style: 'bg-black text-white', defaultImgSrc: closed },
   adjusted: { style: 'bg-orange text-black', defaultImgSrc: adjusted },
   promotion: { style: 'bg-green text-white', defaultImgSrc: promotion },
   event: { style: 'bg-lightOrange text-black', defaultImgSrc: event },
@@ -22,7 +22,7 @@ export const CalendaritemContainerStyles: {
     style: 'bg-sharpTeal text-black',
     defaultImgSrc: privateEvent,
   },
-  league: { style: 'bg-lime-400 text-black', defaultImgSrc: league },
+  league: { style: 'bg-limeGreen text-black', defaultImgSrc: league },
   hidden: { style: 'hidden', defaultImgSrc: '' },
   date: { style: 'bg-grey', defaultImgSrc: '' },
 }

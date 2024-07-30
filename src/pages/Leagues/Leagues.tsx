@@ -6,6 +6,7 @@ import { useGetEvents } from '../../hooks/UseGetEvents/useGetEvents.hook'
 import { ImageURLFormatter } from '../../utils/imageFormatter'
 import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
 import { EmailSection } from '../Events/components/EmailSection/EmailSection'
+import { Link } from 'react-router-dom'
 
 import { CalendaritemContainerStyles } from '../../types/Pages/Events/events.types'
 import { LeaguesFAQ } from './components/LeaguesFAQ/LeaguesFAQ.component'
@@ -62,38 +63,45 @@ export const Leagues = () => {
             const imgSrc = e.eventPoster?.url ?? defaultImgSrc
 
             return (
-              <div
-                className="relative min-h-[30rem] w-full rounded-2xl"
-                style={{
-                  backgroundImage: `url(${ImageURLFormatter(
-                    imgSrc,
-                    e.eventPoster?.contentType
-                  )})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
+              <Link
+                to={`/events/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
               >
-                <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
-                  {/* <Typography fontVariant="base" fontWeight="400">
+                <div
+                  className="relative min-h-[30rem] w-full rounded-2xl"
+                  style={{
+                    backgroundImage: `url(${ImageURLFormatter(
+                      imgSrc,
+                      e.eventPoster?.contentType
+                    )})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  key={`league_${e.eventTitle}_type_${e.eventType}`}
+                >
+                  <div className="absolute inset-0 flex w-full flex-col items-start justify-end gap-3 bg-transparent p-8 md:max-w-full">
+                    {/* <Typography fontVariant="base" fontWeight="400">
                     {e.eventDescription}
                   </Typography> */}
-                  <Button
-                    buttonVariant="secondary"
-                    buttonStyle={{
-                      padding: '0.25rem 2rem',
-                      color: 'white',
-                      backgroundColor: 'black',
-                    }}
-                  >
-                    <a href={e.ctaLink}>
-                      <Typography fontVariant="headingFour" fontWeight="500">
-                        {e.ctaText} &rarr;
-                      </Typography>
-                    </a>
-                  </Button>
+                    <Button
+                      buttonVariant="secondary"
+                      buttonStyle={{
+                        padding: '0.25rem 2rem',
+                        color: 'white',
+                        backgroundColor: 'black',
+                      }}
+                    >
+                      <a
+                        href={`/events/${e.slugId + '/' + e.endDateTime.split('T')[0]}`}
+                      >
+                        <Typography fontVariant="headingFour" fontWeight="500">
+                          Learn More &rarr;
+                        </Typography>
+                      </a>
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

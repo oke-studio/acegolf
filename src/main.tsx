@@ -15,6 +15,7 @@ import { Events } from './pages/Events/Events'
 import { EventsItem } from './pages/Events/pages/EventsItem'
 import { FAQ } from './pages/FAQ/FAQ'
 import { Leagues } from './pages/Leagues/Leagues'
+import { CalendarPage } from './pages/Calendar Page/CalendarPage'
 // import { LeaguesItem } from './pages/Leagues/pages/LeaguesItem'
 import { Coaching } from './pages/Coaching/Coaching'
 // import { Membership } from './pages/Membership/Membership'
@@ -52,10 +53,11 @@ const router = createBrowserRouter([
       },
       { path: '/events', element: <Events /> },
       { path: '/events/:eventId/:eventDate', element: <EventsItem /> },
-      { path: 'coaching', element: <Coaching /> },
-      { path: 'leagues', element: <Leagues /> },
+      { path: '/coaching', element: <Coaching /> },
+      { path: '/leagues', element: <Leagues /> },
       // { path: 'leagues/:eventId/:eventDate', element: <LeaguesItem /> },
-      { path: 'faq', element: <FAQ /> },
+      { path: '/faq', element: <FAQ /> },
+      { path: '/calendar', element: <CalendarPage /> },
       // { path: 'membership', element: <Membership /> },
       //  {path: '/ace-summer-camp-sign-up', element:<SummerCampRedirect/> },
       //  {path: '/ace-summer-camp', element:<SummerCampPDF/> }

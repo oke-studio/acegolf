@@ -273,7 +273,7 @@ export const GetEventsQuery = `
 
 export const GetEventsItemQuery = (slugId: string) => `
   query getAceEventsItem {
-  newEventItemCollection(limit: 1, where: {${DateFilter}, slugId: "${slugId}"}) {
+  newEventItemCollection(limit: 1, where: { slugId: "${slugId}"}) {
     items {
       eventTitle
       slugId
