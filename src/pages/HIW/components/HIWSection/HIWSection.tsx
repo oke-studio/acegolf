@@ -51,7 +51,7 @@ export const HIWSection = () => {
       acc.push({
         description: curr.stepContent,
         title: curr.stepTextTitle,
-        relatedFAQs: curr.relatedFaqCollection.items,
+        relatedFAQs: curr.relatedFaqCollection?.items,
       })
 
       return acc
@@ -59,7 +59,7 @@ export const HIWSection = () => {
     [] as {
       description: string
       title: string
-      relatedFAQs: TypeFaqItemFields[]
+      relatedFAQs?: TypeFaqItemFields[]
     }[]
   )
 
