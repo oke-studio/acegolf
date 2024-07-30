@@ -458,6 +458,7 @@ video {
   --color-purple: 154 146 197;
   --color-grey: 244 246 247;
   --color-lightOrange: 246 213 143;
+  --color-limeGreen: 203 234 3;
 }
 
 *, ::before, ::after {
@@ -755,6 +756,10 @@ video {
 
 .m-1 {
   margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .m-3 {
@@ -1502,6 +1507,10 @@ video {
   gap: 0.25rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-11 {
   gap: 2.75rem;
 }
@@ -1622,6 +1631,10 @@ video {
 
 .text-wrap {
   text-wrap: wrap;
+}
+
+.text-nowrap {
+  text-wrap: nowrap;
 }
 
 .break-normal {
@@ -1982,14 +1995,14 @@ video {
   background-color: rgb(217 249 157 / var(--tw-bg-opacity));
 }
 
-.bg-lime-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(163 230 53 / var(--tw-bg-opacity));
-}
-
 .bg-lime-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+
+.bg-limeGreen {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-limeGreen) / var(--tw-bg-opacity));
 }
 
 .bg-neutral-500 {
@@ -2020,6 +2033,11 @@ video {
 .bg-pink-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
+.bg-purple {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-purple) / var(--tw-bg-opacity));
 }
 
 .bg-rose-100 {
@@ -2380,6 +2398,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
 }
 
 .text-left {

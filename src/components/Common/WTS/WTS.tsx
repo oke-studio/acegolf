@@ -7,11 +7,11 @@ export const WTS = () => {
   const { UGCData, isError, isLoading } = useGetUGCTestimonials()
 
   if (isError || !UGCData) {
-    return <>error</>
+    return <></>
   }
 
   if (isLoading) {
-    return <>loading</>
+    return <></>
   }
   return (
     <Section
