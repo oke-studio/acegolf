@@ -7,7 +7,6 @@ import { ImageURLFormatter } from '../../utils/imageFormatter'
 import { CalendarSection } from '../Events/components/CalendarSection/CalendarSection'
 import { EmailSection } from '../Events/components/EmailSection/EmailSection'
 import { Link } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 import { CalendaritemContainerStyles } from '../../types/Pages/Events/events.types'
 import { LeaguesFAQ } from './components/LeaguesFAQ/LeaguesFAQ.component'
